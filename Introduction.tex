@@ -1,0 +1,35 @@
+\chapter{Introduction}
+
+\section{Monoidal categories}
+Monoidal categories give an abstract structure to describe processes with both sequential and parallel composition. There can be a tendency to think of sequential composition as time-like and parallel composition as space-like, but we should resist this notion as it can be misleading in general theories, e.g. quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$.
+
+We begin with the definition of a category, which includes the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories.}
+\begin{defn}
+A \emph{category} \cat{C} is a set of objects $\objs{C}$ and a set of morphisms $\arrs{C}$ between them, such that for all $A,C,B,D\in \objs{C}$ and all $f:A\to B$, $g:B\to C$, $h:C\to D$ in $\arrs{C}$:
+\begin{itemize}
+\item for every pair of morphisms $f,g$, their composite $g\circ f$ is also in $\arrs{C}$;
+\item composition is associative:
+\begin{align}
+h\circ(g\circ f) = (h\circ g)\circ f
+\end{align}
+\item for every object $A$ there is an $\idm{A}:A\to A$ in $\arrs{C}$ called the \emph{identity morphism} such that for all $f$:
+\begin{align}
+\idm{B}\circ f = f = f\circ\idm{A}.
+\end{align}
+\end{itemize}
+\end{defn}
+
+A category can thus be thought of as encoding processes where sequences can be associatively composed  and where we always have access to a ``do-nothing`` process, which is the identity morphism.
+
+\begin{defn}
+A \emph{monoidal category} is
+\end{defn}
+
+\begin{defn}
+A monoidal category is \emph{symmetric} when
+\end{defn}
+
+\section{Abstract linear algebra}
+
+\section{Abstract process theories}
+

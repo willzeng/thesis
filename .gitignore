@@ -1,0 +1,8 @@
+# Ignore spurious files
+*.bb
+*.aux
+*.Backup*
+*.ddf
+*.bbl
+*.blg
+*.zip
