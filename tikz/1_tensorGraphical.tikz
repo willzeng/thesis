@@ -1,0 +1,56 @@
+f\otimes g := 
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (1) at (0,2.5) {};
+\node at (0.6,2.5) {$B$};
+\node (2) [style=morphism] at (0,0) {$f$};
+\node at (0.6,-2.5) {$A$};
+\node (3) at (0,-2.5) {};
+
+\draw [style = thick] (1.center) to (2.north);
+\draw [style = thick] (2.south) to (3.center);
+
+\node (12) at (2,2.5) {};
+\node at (2.6,2.5) {$D$};
+\node (22) [style=morphism] at (2,0) {$g$};
+\node at (2.6,-2.5) {$C$};
+\node (32) at (2,-2.5) {};
+
+\draw [style = thick] (12.center) to (22.north);
+\draw [style = thick] (22.south) to (32.center);
+
+
+\end{tikzpicture}
+\end{aligned}
+=
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (1) at (0,2.5) {};
+\node at (0.6,2.5) {$B$};
+\node (2) [style=morphism] at (0,1) {$f$};
+\node at (0.6,-2.5) {$A$};
+\node (3) at (0,-2.5) {};
+
+\draw [style = thick] (1.center) to (2.north);
+\draw [style = thick] (2.south) to (3.center);
+
+\node (12) at (2,2.5) {};
+\node at (2.6,2.5) {$D$};
+\node (22) [style=morphism] at (2,-1) {$g$};
+\node at (2.6,-2.5) {$C$};
+\node (32) at (2,-2.5) {};
+
+\draw [style = thick] (12.center) to (22.north);
+\draw [style = thick] (22.south) to (32.center);
+
+
+\end{tikzpicture}
+\end{aligned}
+\qquad \quad
+\idm{I} := 
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\end{tikzpicture}
+\end{aligned}

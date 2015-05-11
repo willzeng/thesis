@@ -1,9 +1,10 @@
 \chapter{Introduction}
 
-\section{Monoidal categories}
-Monoidal categories give an abstract structure to describe processes with both sequential and parallel composition. There can be a tendency to think of sequential composition as time-like and parallel composition as space-like, but we should resist this notion as it can be misleading in general theories, e.g. quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$.
+\paragraph{Prerequisites} 
+Commutative diagrams $\cdot$
 
-We begin with the definition of a category, which includes the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories.}
+\section{Monoidal categories}
+Monoidal categories give an abstract structure for processes with both sequential and parallel composition. One could be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in, for example, quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.}
 \begin{defn}
 A \emph{category} \cat{C} is a set of objects $\objs{C}$ and a set of morphisms $\arrs{C}$ between them, such that for all $A,C,B,D\in \objs{C}$ and all $f:A\to B$, $g:B\to C$, $h:C\to D$ in $\arrs{C}$:
 \begin{itemize}
@@ -19,15 +20,60 @@ h\circ(g\circ f) = (h\circ g)\circ f
 \end{itemize}
 \end{defn}
 
-A category can thus be thought of as encoding processes where sequences can be associatively composed  and where we always have access to a ``do-nothing`` process, which is the identity morphism.
+A category can thus be thought of as encoding processes where sequences can be associatively composed  and where we always have access to a ``do-nothing`` process, which is the identity morphism. Note that the objects of a category are somewhat superfluous, as they are in one-to-one correspondence with the identity morphisms. Due to this we refer interchangeable to an object and its identity morphism throughout. It is because categories are really focused on morphisms that we seem them as encoding a process theory.
+
+Morphisms and their compositions can be represented in string diagrams:
+\begin{equation}
+\label{eq:composition}
+\input{tikz/1_compositionGraphical.tikz}
+\end{equation}
+\noindent Here vertical connectivity, read from bottom to top, represents the flow of morphism composition.
 
 \begin{defn}
-A \emph{monoidal category} is
+A (strict)\footnote{Throughout this thesis we take monoidal categories to be strict, i.e. whose associators and unitors are identities.  In fact, every monoidal category is monoidally equivalent to a strict monoidal one \cite{joyal1993braided}.} \emph{monoidal category} is a category $\cat{C}$ equipped with a \emph{tensor product} $(-\otimes-):\cat{C}\times\cat{C}\to\cat{C}$ and a \emph{unit object} $I\in\objs{C}$ that obey:
+\begin{equation}
+(A\otimes B)\otimes C = A\otimes(B\otimes C),
+\end{equation}
+\begin{equation}
+I\otimes A = A = A\otimes I.
+\end{equation}
+\end{defn}
+
+Tensor composition is represented by horizontal adjoins and the identity object is the ``empty" diagram:
+\begin{equation}
+\label{eq:tensor}
+\input{tikz/1_tensorGraphical.tikz}
+\end{equation}
+
+\begin{defn}
+A \emph{state} of $A\in\objs{C}$ is a morphism $\ket{\psi}:I\to A$ drawn as
+\begin{equation}
+\label{eq:state}
+\input{tikz/1_stateDef.tikz}
+\end{equation}
 \end{defn}
 
 \begin{defn}
-A monoidal category is \emph{symmetric} when
+A monoidal category is \emph{symmetric} when it has a isomorphism
+$\sigma_{A,B}:A\otimes B\to B\otimes A$ that satisfies the following graphical equations:
+\begin{equation}
+\label{eq:symmetry}
+\input{tikz/1_symmetryDef.tikz}
+\end{equation}
+\begin{equation}
+\label{eq:symmetry}
+%\input{tikz/1_symmetryDef2.tikz}
+\end{equation}
 \end{defn}
+
+\todo{GRAPHICAL RULES}
+
+\todo{Soundness for Graphical Language}
+
+\subsection{Monoidal Categories and Quantum Circuits}
+
+\subsection{Further Reading}
+Other examples of ways that monoidal cats formalize diagrammatic languages in physics etc.  Categories in Control. Pensore diagrams. Feynman diagrams. Etc.
 
 \section{Abstract linear algebra}
 
