@@ -45,6 +45,7 @@ Tensor composition is represented by horizontal adjoins and the identity object 
 \end{equation}
 
 \begin{defn}
+\label{defn:state}
 A \emph{state} of $A\in\objs{C}$ is a morphism $\ket{\psi}:I\to A$ drawn as
 \begin{equation}
 \label{eq:state}
@@ -75,7 +76,7 @@ $\sigma_{A,B}:A\otimes B\to B\otimes A$ that satisfies the following graphical e
 \begin{examples}
 The following are some examples of SMC's:
 \begin{itemize}
-\item \cat{FHilb}, the category where objects are Hilbert spaces; morphisms are linear maps; the categorical tensor is the tensor product; the identity object $I=\mathbb{C}$.
+\item \cat{FHilb}, the category where objects are finite dimensional Hilbert spaces; morphisms are linear maps; the categorical tensor is the tensor product; the identity object $I=\mathbb{C}$.
 \end{itemize}
 \end{examples}
 
@@ -84,7 +85,7 @@ A well-formed equation between morphisms in a symmetric monoidal category follow
 \end{theorem}
 
 \subsection{Symmetric Monoidal Categories \&\ Quantum Circuits}
-This thesis applies the graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure \ref{fig:QCDSMC} for an example. Note that state preparation is included as a part of the categorical diagram while it is extra labeling in the quantum circuit. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering SMC scaffolding of quantum circuits, we are able to improve it, introducing techniques to reason graphically about more advanced structures and that better capture the salient features of these processes. We cover these new features in \todo{Sections 2.2,2.3 and Chapter 3}.
+This thesis applies the graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure \ref{fig:QCDSMC} for an example. Note that state preparation is included as a part of the categorical diagram while it is extra labeling in the quantum circuit. In $\cat{FHilb}$ we have $I=\mathbb{C}$, and so the states, by Definition \ref{defn:state}, of some Hilbert space $\Hsp$ are exactly maps $\ket{\psi}:\mathbb{C}\to\Hsp$. These are recognized as the usual quantum state vectors $\ket{\psi}\in\Hsp$. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering SMC scaffolding of quantum circuits, we are able to improve it, introducing techniques to reason graphically about more advanced structures and that better capture the salient features of these processes. We cover these new features in \todo{Sections \ref{sec:AbstractLinAlg},\ref{sec:AbstractProcTh} and Chapter 3}.
 
 \begin{figure}[t]
 \label{fig:QCDSMC}
@@ -96,6 +97,51 @@ This thesis applies the graphical calculi for SMC's to the study of protocols an
 Other examples of ways that monoidal cats formalize diagrammatic languages in physics etc.  Categories in Control. Penrose diagrams. Feynman diagrams. Etc.  Note that monoidal categories are themselves coherent for planar isotopy \cite{joyal1991geometry}. Indeed the coherence of many of these graphical languages can be regarded are geometric isotopies in higher dimensions, e.g. coherence for SMC's is up to a 4-dimensional isotopy \cite{selinger2011survey}.
 
 \section{Abstract linear algebra}
+\label{sec:AbstractLinAlg}
+In this section concepts are introduced that expand categorical diagrams beyond quantum circuits.
+
+\begin{defn}
+\label{defn:scalar}
+A \emph{scalar} in a SMC a morphism $a:I\to I$. As maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
+\begin{equation}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (-1, -0) {$a$};
+\end{tikzpicture}
+\end{equation}
+\end{defn}
+
+This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, these scalars form a monoid under categorical composition that is commutative \cite[Prop 6.1]{kelly1980coherence}, as naturally expressed by:
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (-1, -0) {$a$};
+\node [whitedot] (0) at (-1, -2) {$b$};
+\end{tikzpicture}
+\end{aligned}
+\;=\;
+\begin{aligned}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (-1, -0) {$b$};
+\node [whitedot] (0) at (-1, -2) {$a$};
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps $\mathbb{C}\to\mathbb{C}$.
+
+\begin{defn}
+\todo{dagger}
+\end{defn}
+
+\begin{defn}
+\todo{effects}
+\end{defn}
+
+\begin{defn}
+\todo{Born rule}
+\end{defn}
+
+\todo{Probabilities}
 
 \section{Abstract process theories}
+\label{sec:AbstractProcTh}
 
