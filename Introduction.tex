@@ -1,7 +1,6 @@
 \chapter{Introduction}
 
-\paragraph{Prerequisites} 
-Commutative diagrams $\cdot$
+\paragraph{Prerequisites} Quantum Circuits $\cdot$
 
 \section{Monoidal categories}
 Monoidal categories give an abstract structure for processes with both sequential and parallel composition. One could be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in, for example, quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.}
@@ -30,7 +29,7 @@ Morphisms and their compositions can be represented in string diagrams:
 \noindent Here vertical connectivity, read from bottom to top, represents the flow of morphism composition.
 
 \begin{defn}
-A (strict)\footnote{Throughout this thesis we take monoidal categories to be strict, i.e. whose associators and unitors are identities.  In fact, every monoidal category is monoidally equivalent to a strict monoidal one \cite{joyal1993braided}.} \emph{monoidal category} is a category $\cat{C}$ equipped with a \emph{tensor product} $(-\otimes-):\cat{C}\times\cat{C}\to\cat{C}$ and a \emph{unit object} $I\in\objs{C}$ that obey:
+A (strict)\footnote{Throughout this thesis we take monoidal categories to be strict, i.e. whose associators and unitors are identities.  In fact, every monoidal category is monoidally equivalent to a strict monoidal one \cite{joyal1993braided}.} \emph{monoidal category} is a category $\cat{C}$ equipped with a \emph{categorical tensor} $(-\otimes-):\cat{C}\times\cat{C}\to\cat{C}$ and a \emph{unit object} $I\in\objs{C}$ that obey:
 \begin{equation}
 (A\otimes B)\otimes C = A\otimes(B\otimes C),
 \end{equation}
@@ -53,27 +52,48 @@ A \emph{state} of $A\in\objs{C}$ is a morphism $\ket{\psi}:I\to A$ drawn as
 \end{equation}
 \end{defn}
 
+\noindent The state morphism can be thought of as a preparation process to create that state.
+
 \begin{defn}
-A monoidal category is \emph{symmetric} when it has a isomorphism
+A monoidal category is \emph{symmetric} (an SMC) when it has a isomorphism
 $\sigma_{A,B}:A\otimes B\to B\otimes A$ that satisfies the following graphical equations:
 \begin{equation}
 \label{eq:symmetry}
 \input{tikz/1_symmetryDef.tikz}
 \end{equation}
 \begin{equation}
-\label{eq:symmetry}
-%\input{tikz/1_symmetryDef2.tikz}
+\label{eq:symmetry2}
+\input{tikz/1_symmetryDef2.tikz}
+\end{equation}
+\begin{equation}
+\label{eq:symmetry3}
+\input{tikz/1_symmetryDef3.tikz}
 \end{equation}
 \end{defn}
+\noindent where Equation \ref{eq:symmetry3} is the naturality of $\sigma$.
 
-\todo{GRAPHICAL RULES}
+\begin{examples}
+The following are some examples of SMC's:
+\begin{itemize}
+\item \cat{FHilb}, the category where objects are Hilbert spaces; morphisms are linear maps; the categorical tensor is the tensor product; the identity object $I=\mathbb{C}$.
+\end{itemize}
+\end{examples}
 
-\todo{Soundness for Graphical Language}
+\begin{theorem}{\cite[Thm 2.3]{joyal1991geometry}}
+A well-formed equation between morphisms in a symmetric monoidal category follows from the axioms if and only if it holds in the graphical language up to isomorphism of diagrams.
+\end{theorem}
 
-\subsection{Monoidal Categories and Quantum Circuits}
+\subsection{Symmetric Monoidal Categories \&\ Quantum Circuits}
+This thesis applies the graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure \ref{fig:QCDSMC} for an example. Note that state preparation is included as a part of the categorical diagram while it is extra labeling in the quantum circuit. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering SMC scaffolding of quantum circuits, we are able to improve it, introducing techniques to reason graphically about more advanced structures and that better capture the salient features of these processes. We cover these new features in \todo{Sections 2.2,2.3 and Chapter 3}.
+
+\begin{figure}[t]
+\label{fig:QCDSMC}
+\input{figures/1_QCDSMC.tex}
+\caption[Comparison of quantum circuits and symmetric monoidal diagrams]{On the left we have a quantum circuit (read left to right) and its corresponding categorical diagram in \cat{FHilb} on the right (read bottom to top). In both the boxes are linear maps and the wires are Hilbert spaces. In quantum circuits these are implicitly qubits, with a slash used to denote products of qubits. In the categorical diagram we explicitly write spaces.}
+\end{figure}
 
 \subsection{Further Reading}
-Other examples of ways that monoidal cats formalize diagrammatic languages in physics etc.  Categories in Control. Pensore diagrams. Feynman diagrams. Etc.
+Other examples of ways that monoidal cats formalize diagrammatic languages in physics etc.  Categories in Control. Penrose diagrams. Feynman diagrams. Etc.  Note that monoidal categories are themselves coherent for planar isotopy \cite{joyal1991geometry}. Indeed the coherence of many of these graphical languages can be regarded are geometric isotopies in higher dimensions, e.g. coherence for SMC's is up to a 4-dimensional isotopy \cite{selinger2011survey}.
 
 \section{Abstract linear algebra}
 

@@ -1,0 +1,52 @@
+\begin{equation*}
+\begin{aligned}
+\Qcircuit @C=1em @R=.7em {
+&& {/} \qw & \multigate{1}{U} & \qw & \multigate{2}{f} & \qw \\
+$\ket{1}$ && \qw & \ghost{U}& \qw & \ghost{f} & \qw \\
+$\ket{0}$ && \gate{H} & \qw & \qw & \ghost{f} & \qw 
+}
+\end{aligned}
+\qquad\qquad\qquad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1, yscale=0.8]
+        \node (0) at (-1, -2) {};
+        \node [style=state] (1) at (1, -2) {$0$};
+        \node [style=state] (2) at (0, -2) {$1$};
+        \node [style=morphism] (3) at (1, -1) {$H$};
+        \node [style=morphism, xscale=3] (4) at (-0.5, -0) {};
+        \node [style=morphism, xscale=5] (5) at (0, 1.25) {};
+        \node (7) at (0, -0.2) {};
+        \node (8) at (-1, -0.2) {};
+        \node (9) at (-1, 0.25) {};
+        \node (10) at (0, 0.25) {};
+        \node (11) at (1, 0.25) {};
+        \node (12) at (1, 1.1) {};
+        \node (13) at (0, 1.1) {};
+        \node (14) at (-1, 1.1) {};
+        \node (15) at (-1, 1.4) {};
+        \node (16) at (0, 1.4) {};
+        \node (17) at (1, 1.4) {};
+        \node (18) at (0, 2) {};
+        \node (19) at (1, 2) {};
+        \node (20) at (-1, 2) {};
+        \node (21) at (-1, -2.5) {$\Hsp_N$};
+        \node (23) at (-1, 2.5) {$\Hsp_2$};
+        \node (24) at (0, 2.5) {$\Hsp_2$};
+        \node (25) at (1, 2.5) {$\Hsp_2$};
+        \node (26) at (0, 1.24) {$f$};
+        \node (27) at (-0.5, -0.05) {$U$};
+
+        \draw (0.center) to (8.south);
+        \draw (7.south) to (2);
+        \draw (1) to (3.south);
+        \draw (3.north) to (11.center);
+        \draw (11.center) to (12.south);
+        \draw (19.center) to (17.north);
+        \draw (16.north) to (18.center);
+        \draw (20.center) to (15.north);
+        \draw (14.south) to (9.center);
+        \draw (13.south) to (10.center);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+

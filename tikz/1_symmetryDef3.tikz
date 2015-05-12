@@ -1,0 +1,37 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+                \node [style=morphism] (0) at (-1, -0) {$f$};
+                \node [style=morphism] (1) at (1, -0) {$g$};
+                \node (2) at (1, -1) {};
+                \node (3) at (-1, -1) {};
+                \node (4) at (0, 1.2) {};
+                \node (5) at (-1, 2) {};
+                \node (6) at (1, 2) {};
+
+                \draw [bend right, looseness=1.00] (5.center) to (4.center);
+                \draw [bend left, looseness=1.00] (4.center) to (1.north);
+                \draw [bend left, looseness=1.00] (6.center) to (4.center);
+                \draw [bend right, looseness=1.00] (4.center) to (0.north);
+                \draw (0.south) to (3.center);
+                \draw (2.center) to (1.south);
+\end{tikzpicture}
+\end{aligned}
+\;=\;
+\begin{aligned}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+                \node [style=morphism] (0) at (-1, 1) {$g$};
+                \node [style=morphism] (1) at (1, 1) {$f$};
+                \node (2) at (1, 2) {};
+                \node (3) at (-1, 2) {};
+                \node (4) at (0, -0.2) {};
+                \node (5) at (-1, -1) {};
+                \node (6) at (1, -1) {};
+
+                \draw [bend left, looseness=1.00] (5.center) to (4.center);
+                \draw [bend right, looseness=1.00] (4.center) to (1.south);
+                \draw [bend right, looseness=1.00] (6.center) to (4.center);
+                \draw [bend left, looseness=1.00] (4.center) to (0.south);
+                \draw (0.north) to (3.center);
+                \draw (2.center) to (1.north);
+\end{tikzpicture}
+\end{aligned}
