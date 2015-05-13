@@ -183,7 +183,7 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node (1) [state] at (0, -0.75) {$\psi$};
 \node (2) at (0, 0.75) {};
-\draw (1.north) to (2.south);
+\draw (1.center) to (2.center);
 \end{tikzpicture}
 \end{aligned}\right)^{\dagger}
 =
@@ -191,7 +191,7 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node (1) at (0, -0.75) {};
 \node (2) [state, hflip] at (0, 0.75) {$\psi$};
-\draw (1.north) to (2.south);
+\draw (1.center) to (2.center);
 \end{tikzpicture}
 \end{aligned}
 \qquad\qquad
@@ -200,7 +200,7 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node (1) [state] at (0, -0.75) {$\psi$};
 \node (2) [state, hflip] at (0, 0.75) {$\phi$};
-\draw (1.north) to (2.south);
+\draw (1.center) to (2.center);
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
@@ -212,11 +212,49 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 
 This section extends the abstract linear algebra in dagger-SMC's to construct a notion of an abstract process theory. 
 
-\todo{Probabilities and measurements}
+\subsection{The Generalized Born Rule}
+
+Measurement in these abstract process theories comes from a statement connecting probabilities to inner products in a generalized Born Rule.
 
 \begin{defn}
-\todo{Born rule}
+For a state $X:I\to A$ and an effect $Y:A\to I$ in a dagger-SMC, the probability of outcome $X$ given preparation $Y$ is:
+\begin{equation}
+\mbox{Prob}(X|Y) = \dag{Y}\circ\dag{X}\circ X\circ Y
+\end{equation}
 \end{defn}
+
+Diagrammatically this is:
+\begin{equation}
+\mbox{Prob}(X|Y) \;=\; 
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.5) {$Y$};
+\node (2) [state, hflip] at (0, 0.5) {$X$};
+\draw (1.center) to (2.center);
+\node (3) [state] at (0, 3.5) {$X$};
+\node (4) [state, hflip] at (0, 4.5) {$Y$};
+\draw (3.center) to (4.center);
+\end{tikzpicture}
+\end{aligned}
+\;=\;
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.5) {$Y$};
+\node (2) [state, hflip] at (0, 0.5) {$X$};
+\draw (1.center) to (2.center);
+\node (3) [state] at (3, -0.5) {$X$};
+\node (4) [state, hflip] at (3, 0.5) {$Y$};
+\draw (3.center) to (4.center);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+While this clearly makes sense in \cat{FHilb}, one might ask when under what general conditions these scalars will corresponding to our usual notion of probability. An answer is found in the following theorem:
+
+\begin{theorem}{\cite[Thm 4.2]{vicary2011completeness}}
+In a monoidal dagger-category with simple tensor unit, which has all finite dagger-limits and for which the self-adjoint scalars are Dedekind-complete, the scalars have an involution-preserving embedding into the complex numbers.
+\end{theorem}
+
+For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities.
 
 \begin{defn}
 \todo{Duals?}
