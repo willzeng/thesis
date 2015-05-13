@@ -1,0 +1,51 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (0) at (0, -1.5) {};
+\node (1) [brnode] at (0, 0) {$f$};
+\node (2) [trnode] at (0, 2) {$f$};
+\node (3) at (0, 3.5) {};
+
+\draw (0.center) to (1.south);
+\draw (1.north) to (2.south);
+\draw (2.north) to (3.center);
+
+\end{tikzpicture}
+\end{aligned}
+\; = \;
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (0) at (0, -1.5) {};
+\node (3) at (0, 3.5) {};
+
+\draw (0.center) to (3.center);
+
+\end{tikzpicture}
+\end{aligned}
+\qquad\qquad\qquad
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (0) at (0, -1.5) {};
+\node (1) [trnode] at (0, 0) {$f$};
+\node (2) [brnode] at (0, 2) {$f$};
+\node (3) at (0, 3.5) {};
+
+\draw (0.center) to (1.south);
+\draw (1.north) to (2.south);
+\draw (2.north) to (3.center);
+
+\end{tikzpicture}
+\end{aligned}
+\; = \;
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (0) at (0, -1.5) {};
+\node (3) at (0, 3.5) {};
+
+\draw (0.center) to (3.center);
+
+\end{tikzpicture}
+\end{aligned}

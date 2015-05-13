@@ -1,6 +1,6 @@
 % Header adapted by Will Zeng in Spring 2015 from 
 % contributions of Bob Coecke, Aleks Kissinger, 
-% Jamie Vicary, and Stefano Gogioso
+% Jamie Vicary, Stefano Gogioso, and Dan Marsden
 %
 
 % Packages
@@ -669,6 +669,11 @@
         \fi
     }
 }
+\tikzset{trapnode/.style={draw, trapezium, trapezium stretches=true, minimum width=1cm, minimum height=0.6cm}}
+\tikzset{brnode/.style={trapnode, trapezium left angle=90, trapezium right angle=70}}
+\tikzset{trnode/.style={trapnode, trapezium left angle=90, trapezium right angle=110}}
+\tikzset{blnode/.style={trapnode, trapezium left angle=70, trapezium right angle=90}}
+\tikzset{tlnode/.style={trapnode, trapezium left angle=110, trapezium right angle=90}}
 \pgfdeclareshape{swish right}
 {
     \savedanchor\centerpoint
@@ -896,7 +901,7 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\cod}{cod}
-\renewcommand\dag{\ensuremath{\dagger}}
+\renewcommand\dag[1]{\ensuremath{#1^\dagger}}
 \newcommand\lecture[2]{\section{#1}}
 \newcommand\id[1][]{\ensuremath{\mathrm{id}_{#1}}}
 \def\totimes{{\textstyle \bigotimes}}

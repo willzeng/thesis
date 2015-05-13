@@ -1,6 +1,6 @@
 \sigma_{A,B} := 
 \begin{aligned}
-\begin{tikzpicture}[xscale=1.2*\tikzxscale, yscale=\tikzyscale]
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 
 \node (0) at (-1, 1) {};
 \node (1) at (1, 1) {};

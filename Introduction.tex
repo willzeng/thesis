@@ -1,9 +1,12 @@
-\chapter{Introduction}
+\chapter{Background}
+
+\todo{\chapabstract{}}
 
 \paragraph{Prerequisites} Quantum Circuits $\cdot$
 
 \section{Monoidal categories}
-Monoidal categories give an abstract structure for processes with both sequential and parallel composition. One could be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in, for example, quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.}
+Monoidal categories give an abstract structure for processes with both sequential and parallel composition. One could be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in, for example, quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We sometimes leave the objects of morphisms implicit when they can be inferred from context.
+
 \begin{defn}
 A \emph{category} \cat{C} is a set of objects $\objs{C}$ and a set of morphisms $\arrs{C}$ between them, such that for all $A,C,B,D\in \objs{C}$ and all $f:A\to B$, $g:B\to C$, $h:C\to D$ in $\arrs{C}$:
 \begin{itemize}
@@ -18,6 +21,8 @@ h\circ(g\circ f) = (h\circ g)\circ f
 \end{align}
 \end{itemize}
 \end{defn}
+ 
+\todo{defn functor?}
 
 A category can thus be thought of as encoding processes where sequences can be associatively composed  and where we always have access to a ``do-nothing`` process, which is the identity morphism. Note that the objects of a category are somewhat superfluous, as they are in one-to-one correspondence with the identity morphisms. Due to this we refer interchangeable to an object and its identity morphism throughout. It is because categories are really focused on morphisms that we seem them as encoding a process theory.
 
@@ -110,7 +115,7 @@ A \emph{scalar} in a SMC a morphism $a:I\to I$. As maps from the empty diagram t
 \end{equation}
 \end{defn}
 
-This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, these scalars form a monoid under categorical composition that is commutative \cite[Prop 6.1]{kelly1980coherence}, as naturally expressed by:
+This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, these scalars form a commutative monoid under categorical composition \cite[Prop 6.1]{kelly1980coherence}, as naturally expressed by:
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
@@ -129,19 +134,118 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 \noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps $\mathbb{C}\to\mathbb{C}$.
 
 \begin{defn}
-\todo{dagger}
+\label{defn:dagger}
+A \emph{dagger functor} on a category \cat{C} is an involutive contravariant functor $\dagger:\cat{C}\to\cat{C}$ that is the identity on objects. A \emph{dagger category} is a category equipped with a dagger functor.
+\end{defn}
+Spelling out this definition, the dagger functor has the following properties for $f,g:\arrs{C}$ with suitable types and $A\in\objs{C}$:
+\begin{equation}
+\left(f^{\dagger}\right)^{\dagger} = f 
+\end{equation}
+\begin{equation}
+(g\circ f)^{\dagger} = f^{\dagger}\circ g^{\dagger}
+\end{equation}
+\begin{equation}
+\idm{A}^{\dagger} = \idm{H}
+\end{equation}
+Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists. We use the shorthand dagger-SMC for a dagger symmetric monoidal category.
+
+The quantum setting \cat{FHilb} is a dagger category whose canonical dagger is the adjoint.  The categorical dagger from Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
+\begin{defn}
+A morphism $f:A\to B$ in a dagger category is:
+\begin{itemize}
+\item \emph{self-adjoint} when $f^{\dagger} = f$;
+\item a \emph{projector} when self-adjoint and $f\circ f = f$
+\item an \emph{isometry} when $f \circ \dag{f} = \idm{A}$;
+\item \emph{unitary} when both $f \circ \dag{f} = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
+\item \emph{positive} when $f = \dag{g}\circ g$ for some morphism $g:H\to K$.
+\end{itemize}
 \end{defn}
 
+The dagger is graphically depicted as an operation on diagrams: it flips the picture upside-down around the horizontal axes.  As a visual aid, morphisms are now drawn with broken symmetry as follows:
+\begin{equation}
+\label{eq:daggerPics}
+\input{tikz/1_daggerPics.tikz}
+\end{equation}
+
+Thus the unitarity condition becomes:
+\begin{equation}
+\label{eq:unitarityPics}
+\input{tikz/1_unitarityPics.tikz}
+\end{equation}
+
 \begin{defn}
-\todo{effects}
+In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{defn}
+\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them their process theoretic interpretation: just as some preparation $a:I\to A$ prepares system $A$ in that state, the effect $\dag{a}:A\to I$ eliminates the system $A$ by the process $\dag{a}$.  \todo{this is a duality}.  Generalized \emph{inner products} are compositions of states and effects \cite{abramsky2004categorical} that are reminiscent of the usual Dirac notation:
+\begin{equation}
+\left(
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.75) {$\psi$};
+\node (2) at (0, 0.75) {};
+\draw (1.north) to (2.south);
+\end{tikzpicture}
+\end{aligned}\right)^{\dagger}
+=
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) at (0, -0.75) {};
+\node (2) [state, hflip] at (0, 0.75) {$\psi$};
+\draw (1.north) to (2.south);
+\end{tikzpicture}
+\end{aligned}
+\qquad\qquad
+|\phi\rangle\circ\langle\psi| = \langle\phi|\psi\rangle =
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.75) {$\psi$};
+\node (2) [state, hflip] at (0, 0.75) {$\phi$};
+\draw (1.north) to (2.south);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+\todo{Superpositions? aka sums of diagrams?}
+
+\section{Abstract process theories}
+\label{sec:AbstractProcTh}
+
+This section extends the abstract linear algebra in dagger-SMC's to construct a notion of an abstract process theory. 
+
+\todo{Probabilities and measurements}
 
 \begin{defn}
 \todo{Born rule}
 \end{defn}
 
-\todo{Probabilities}
+\begin{defn}
+\todo{Duals?}
+\end{defn}
 
-\section{Abstract process theories}
-\label{sec:AbstractProcTh}
+\subsection{Monoids and Comonoids}
+
+\begin{defn}
+\todo{Monoids}
+\end{defn}
+
+\begin{defn}
+\todo{Comonoids}
+\end{defn}
+
+\subsection{Frobenius Algebras}
+\begin{defn}
+\todo{Frobenius}
+\end{defn}
+
+\begin{defn}
+\todo{Classical structures}
+\end{defn}
+
+\begin{theorem}
+Classical structures in FHilb are orthonormal bases.
+\end{theorem}
+
+\begin{defn}
+\todo{Observables}
+\end{defn}
 

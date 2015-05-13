@@ -1,0 +1,44 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node at (0.5, -2) {$A$};
+\node (0) at (0, -2) {};
+\node (1) [brnode] at (0, 0) {$f$};
+\node (2) at (0, 2) {};
+\node at (0.5, 2) {$B$};
+
+\draw (0.center) to (1.south);
+\draw (1.north) to (2.center);
+
+\end{tikzpicture}
+\end{aligned}
+\qquad \mapsto \qquad 
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node at (0.5, -2) {$B$};
+\node (0) at (0, -2) {};
+\node (1) [trnode] at (0, 0) {$f$};
+\node (2) at (0, 2) {};
+\node at (0.5, 2) {$A$};
+
+\draw (0.center) to (1.south);
+\draw (1.north) to (2.center);
+
+\end{tikzpicture}
+\end{aligned}
+\::=\:
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node at (0.5, -2) {$B$};
+\node (0) at (0, -2) {};
+\node (1) [morphism] at (0, 0) {$\dag{f}$};
+\node (2) at (0, 2) {};
+\node at (0.5, 2) {$A$};
+
+\draw (0.center) to (1.south);
+\draw (1.north) to (2.center);
+
+\end{tikzpicture}
+\end{aligned}
