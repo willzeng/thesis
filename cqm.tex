@@ -1,4 +1,5 @@
 \chapter{Categorical Quantum Mechanics}
+\label{chap:cqm}
 
 \todo{\chapabstract{}}
 
@@ -11,9 +12,38 @@
 \end{defn}
 
 \section{Complementarity}
-\begin{defn}
-\todo{Complementarity}
+\begin{defn}[Complementarity]
+\label{def:complementarity}
+In a symmetric monoidal dagger-category, two special symmetric dagger-Frobenius comonoids \whitecomonoid{A} and \graycomonoid{A} are \emph{complementary} when the following equation holds:
+\begin{equation}
+\label{eq:complementarity}
+\ud(A) \,\,
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\draw (-0.5,0.25) to (-0.5,1) node [graydot] {} to [out=left, in=right] (-1,2) node [graydot] {} to [out=left, in=right] (-1.5,1.5) node [whitedot] {} to [out=left, in=down] (-2,2) to [out=up, in=left] (-0.75,3) node (a) [whitedot] {} to [out=right, in=right] (-0.5,1);
+\draw (a.center) to +(0,0.75);
+\end{tikzpicture}
+\quad=\quad\,\,\,
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\draw (0,0.25) to (0,1) node [graydot] {};
+\draw (0,3) node [whitedot] {} to (0,3.75);
+\end{tikzpicture}
+\end{equation}
 \end{defn}
+\noindent
+Note that this is not a symmetric condition between the gray and white structures. However, thanks to the symmetric property of the dagger-Frobenius algebras, it is equivalent to the following alternative condition:
+\begin{equation}
+\ud(A) \,\,
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=-1.4*\tikzyscale]
+\draw (-0.5,0.25) to (-0.5,1) node [whitedot] {} to [out=left, in=right] (-1,2) node [whitedot] {} to [out=left, in=right] (-1.5,1.5) node [graydot] {} to [out=left, in=down] (-2,2) to [out=up, in=left] (-0.75,3) node (a) [graydot] {} to [out=right, in=right] (-0.5,1);
+\draw (a.center) to +(0,0.75);
+\end{tikzpicture}
+\quad=\quad\,\,\,
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\draw (0,0.25) to (0,1) node [graydot] {};
+\draw (0,3) node [whitedot] {} to (0,3.75);
+\end{tikzpicture}
+\end{equation}
+The daggers of these equations give rise to two further equivalent conditions.
 
 \begin{defn}
 \todo{Strong Complementarity}

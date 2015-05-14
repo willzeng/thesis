@@ -1,0 +1,23 @@
+\ud(A)
+\quad := \quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=-1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+    \node (0) at (0,0) {};
+    \node[whitedot] (1) at (0,0.66) {};
+    \node (2) at (-0.5,1.2) {};
+    \node (3) at (0.5,1.2) {};
+    \node (4) at (-0.5,2.0) {};
+    \node (5) at (0.5,2.0) {};
+    \draw[string] (0.center) to (1.center);
+    \draw[string, out=180, in=270] (1.center) to (2.center);
+    \draw[string, out=0, in=270] (1.center) to (3.center);
+    \draw[string, out=90, in=270] (2.center) to (5.center);
+    \draw[string, out=90, in=270] (3.center) to (4.center);;
+    \node[whitedot] (6) at (0,2.54) {};        
+    \node (7) at (0,3.2) {};
+    \draw[string] (0.center) node [whitedot] {} to (1);
+    \draw[string] (6.center) to (7.center) node [whitedot] {$$};
+    \draw[string, in=left, out=up] (4.center) to node [auto] {$$} (6.center);
+    \draw[string, in=right, out=up] (5.center) to node [auto, swap] {$$} (6.center);
+\end{tikzpicture}
+\end{aligned}

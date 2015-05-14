@@ -1,0 +1,13 @@
+\begin{aligned}
+\begin{tikzpicture}
+\draw (0,0) node [whitedot] {} to (0,0.5) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.0) to [out=up, in=down] (0.5,2);
+\draw (0,0.5) to [out=\neangle, in=down] (0.5,1) to [out=up, in=down] (-0.5,2);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}
+\draw (0,0) node [whitedot] {} to (0,0.5) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.0) to [out=up, in=down] (-0.5,2);
+\draw (0,0.5) to [out=\neangle, in=down] (0.5,1) to [out=up, in=down] (0.5,2);
+\end{tikzpicture}
+\end{aligned}

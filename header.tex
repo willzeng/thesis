@@ -881,7 +881,12 @@
         \draw[in=180, out=180, looseness=2] (1.center) to (2.center);
         \draw[in=0, out=0, looseness=2] (1.center) to (2.center);
 \end{pic}\hspace{-1pt}}}}
-
+\newcommand\whitemonoid[1]{\ensuremath{(#1,\tinymult[whitedot],\tinyunit[whitedot])}}
+\newcommand\blackmonoid[1]{\ensuremath{(#1,\tinymult[blackdot],\tinyunit[blackdot])}}
+\newcommand\graymonoid[1]{\ensuremath{(#1,\tinymult[graydot],\tinyunit[graydot])}}
+\newcommand\whitecomonoid[1]{\ensuremath{(#1,\tinycomult[whitedot],\tinycounit[whitedot])}}
+\newcommand\blackcomonoid[1]{\ensuremath{(#1,\tinycomult[blackdot],\tinycounit[blackdot])}}
+\newcommand\graycomonoid[1]{\ensuremath{(#1,\tinycomult[graydot],\tinycounit[graydot])}}
 
 % Shortcuts
 % From Will

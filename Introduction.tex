@@ -90,7 +90,7 @@ A well-formed equation between morphisms in a symmetric monoidal category follow
 \end{theorem}
 
 \subsection{Symmetric Monoidal Categories \&\ Quantum Circuits}
-This thesis applies the graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure \ref{fig:QCDSMC} for an example. Note that state preparation is included as a part of the categorical diagram while it is extra labeling in the quantum circuit. In $\cat{FHilb}$ we have $I=\mathbb{C}$, and so the states, by Definition \ref{defn:state}, of some Hilbert space $\Hsp$ are exactly maps $\ket{\psi}:\mathbb{C}\to\Hsp$. These are recognized as the usual quantum state vectors $\ket{\psi}\in\Hsp$. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering SMC scaffolding of quantum circuits, we are able to improve it, introducing techniques to reason graphically about more advanced structures and that better capture the salient features of these processes. We cover these new features in \todo{Sections \ref{sec:AbstractLinAlg},\ref{sec:AbstractProcTh} and Chapter 3}.
+This thesis applies the graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure \ref{fig:QCDSMC} for an example. Note that state preparation is included as a part of the categorical diagram while it is extra labeling in the quantum circuit. In $\cat{FHilb}$ we have $I=\mathbb{C}$, and so the states, by Definition \ref{defn:state}, of some Hilbert space $\Hsp$ are exactly maps $\ket{\psi}:\mathbb{C}\to\Hsp$. These are recognized as the usual quantum state vectors $\ket{\psi}\in\Hsp$. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering SMC scaffolding of quantum circuits, we are able to improve it, introducing techniques to reason graphically about more advanced structures and that better capture the salient features of these processes. We cover these new features in Sections \ref{sec:AbstractLinAlg}, \ref{sec:AbstractProcTh} and Chapter \ref{chap:cqm}.
 
 \begin{figure}[t]
 \label{fig:QCDSMC}
@@ -207,6 +207,14 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 
 \todo{Superpositions? aka sums of diagrams?}
 
+\begin{defn}
+\todo{Duals?}
+\end{defn}
+
+\begin{defn}
+\todo{Compact categories?} (closed follows)
+\end{defn}
+
 \section{Abstract process theories}
 \label{sec:AbstractProcTh}
 
@@ -256,32 +264,175 @@ In a monoidal dagger-category with simple tensor unit, which has all finite dagg
 
 For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities.
 
-\begin{defn}
-\todo{Duals?}
-\end{defn}
-
 \subsection{Monoids and Comonoids}
 
+Monoids and comonoids on objects embody our notions of copying and comparing states. As they are a particular kinds of morphisms we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,1)$ has states of $A$ as elements and maps:
+\begin{equation}
+\input{tikz/1_monoidPics.tikz}
+\end{equation}
+
 \begin{defn}
-\todo{Monoids}
+\label{defn:monoid}
+In a monoidal category, a \textit{monoid} is a triple \whitemonoid{A} of an object $A$, a morphism $\tinymult[whitedot] : A \otimes A \to A $ called the multiplication, and a state $\tinyunit[whitedot] : I \to A$ called the unit, satisfying associativity and unitality equations:
+\begin{equation}
+\label{eq:monoid}
+\input{tikz/1_monoid.tikz}
+\end{equation}
 \end{defn}
 
 \begin{defn}
-\todo{Comonoids}
+\label{defn:comonoid}
+In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an object $A$, a morphism $\tinycomult[whitedot] : A \to A \otimes A$ called the comultiplication, and an effect $\tinycounit[whitedot] : A \to I$ called the counit, satisfying coassociativity and counitality equations:
+\begin{equation}
+\label{eq:comonoid}
+\input{tikz/1_comonoid.tikz}
+\end{equation}
 \end{defn}
+
+\begin{defn}
+\todo{comonoid/monoid homomorphism}
+\end{defn}
+
+We can then ask for the comonoid and monoid to interact in various ways.
 
 \subsection{Frobenius Algebras}
+
 \begin{defn}
-\todo{Frobenius}
+In a monoidal dagger-category, the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} is \emph{dagger-Frobenius} when the following equation holds:
+\begin{equation}
+\label{eq:frobenius}
+\input{tikz/1_Frobenius.tikz}
+\end{equation}
 \end{defn}
 
 \begin{defn}
-\todo{Classical structures}
+In a symmetric monoidal dagger-category, a \textit{classical structure} is a commutative dagger-Frobenius comonoid \whitecomonoid{A} satisfying the \textit{specialness} condition:
+\begin{equation}
+\input{tikz/1_specialness.tikz}
+\end{equation}
 \end{defn}
 
-\begin{theorem}
+
+\begin{defn}
+In a symmetric monoidal dagger-category, a dagger-Frobenius comonoid is \emph{symmetric} when the following condition holds:
+\begin{equation}
+\input{tikz/1_symmetric.tikz}
+\end{equation}
+\end{defn}
+
+\begin{defn}
+In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius comonoid \whitecomonoid{A} is given by the following composite:
+\begin{equation}
+\label{eq:dim}
+\input{tikz/1_dimension.tikz}
+\end{equation}
+\end{defn}
+\noindent
+When the algebra is commutative and special, Equation~\eqref{eq:dim} can be simplified to the composition of the unit and counit.
+
+\begin{theorem}{\cite[Thm 5.1]{coecke2013new}}
 Classical structures in FHilb are orthonormal bases.
 \end{theorem}
+
+\begin{defn}
+In a monoidal dagger-category, a comonoid homomorphism \\$f:\blackcomonoid{A} \to \graycomonoid{B}$ between dagger-Frobenius comonoids is \emph{self-conjugate} when the following property holds:
+\begin{equation}
+\label{eq:comonoidhomomorphismselfconjugate}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node [morphism, wedge] (f) at (2,1) {$f$};
+\draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
+\draw (1,2) to [out=right, in=up] (f.north);
+\draw (f.south) to [out=down, in=left] (3,0) node [blackdot] {} to [out=right, in=down, out looseness=0.9] (4,3);
+\draw (3,0) to (3,-0.5) node [blackdot] {};
+\node [graydot] at (1,2) {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[string]
+\node (f) at (0,0) [morphism, wedge, hflip] {$f$};
+\draw (0,-1.5) to (f.south);
+\draw (f.north) to (0,1.5);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\end{defn}
+
+\begin{lemma}
+\label{lem:comonoidhomomorphismselfconjugate}
+In {\bf Hilb}, comonoid homomorphisms $f:\blackcomonoid{A} \to \graycomonoid{B}$ of classical structures are self-conjugate.
+\end{lemma}
+
+
+\begin{proof}
+Recall that comonoid homomorphisms between classical structures in \cat{Hilb} are exactly classical functions between the copyable points~\cite{coecke2013new}. The linear maps on either side of~\eqref{eq:comonoidhomomorphismselfconjugate} will be the same if and only if their matrix elements are the same, obtained by composing with $\ket i$ at the bottom and $\bra j$ at the top. On the left-hand side, this gives the following result:
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node [morphism, wedge] (f) at (2,1) {$f$};
+\draw (0,0) node [state] {$i$} to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
+\draw (1,2) to [out=right, in=up] (f.north);
+\draw (f.south)
+    to [out=down, in=left] (3,0)
+        node [blackdot] {}
+    to [out=right, in=down, out looseness=0.9] (4,2)
+        node [state, hflip] {$j$};
+\draw (3,0) to (3,-0.5) node [blackdot] {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$j$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j), \\
+0 & \text{ if } i \neq f(j).
+\end{array}
+\right.
+\end{equation}
+On the right we can do this calculation:
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge, hflip] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$i$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$j$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\left(
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$j$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\right) ^\dagger
+\quad=\quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j) \\
+0 & \text{ if } i \neq f(j)
+\end{array}
+\right\}^\dagger 
+\quad = \quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j), \\
+0 & \text{ if } i \neq f(j).
+\end{array}
+\right.
+\end{equation}
+This is the same result as for the left-hand side, and so Equation~\eqref{eq:comonoidhomomorphismselfconjugate} holds.
+\end{proof}
 
 \begin{defn}
 \todo{Observables}

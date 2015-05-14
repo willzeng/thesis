@@ -1,0 +1,43 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.3*\tikzyscale]
+\draw (0,0) to [out=up, in=\swangle] (0.5, 1);
+\draw (1,0) to [out=up, in=\seangle] (0.5,1);
+\draw (2,0) to [out=up, in=\seangle] (1.25,2);
+\draw (0.5,1) to [out=up, in=\swangle] (1.25, 2);
+\draw (1.25,2) to (1.25, 3);
+\node [whitedot] at (0.5,1) {};
+\node [whitedot] at (1.25,2) {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.3*\tikzyscale]
+\draw (0,0) to [out=up, in=\swangle] (0.5, 1);
+\draw (1,0) to [out=up, in=\seangle] (0.5,1);
+\draw (2,0) to [out=up, in=\seangle] (1.25,2);
+\draw (0.5,1) to [out=up, in=\swangle] (1.25, 2);
+\draw (1.25,2) to (1.25, 3);
+\node [whitedot] at (0.5,1) {};
+\node [whitedot] at (1.25,2) {};
+\end{tikzpicture}
+\end{aligned}
+\qquad\qquad\qquad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.3*\tikzyscale]
+\draw (0,-1.5) to (0,-0.5) to [out=up, in=\swangle] (0.75,0.5) node [whitedot] {} to (0.75,1.5);
+\draw (1.5,-0.5) node [whitedot] {} to [out=up, in=\seangle] (0.75,0.5);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.3*\tikzyscale]
+\draw (0,0) to (0,3);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.3*\tikzyscale]
+\draw (0,-1.5) to (0,-0.5) to [out=up, in=\swangle] (0.75,0.5) node [whitedot] {} to (0.75,1.5);
+\draw (1.5,-0.5) node [whitedot] {} to [out=up, in=\seangle] (0.75,0.5);
+\end{tikzpicture}
+\end{aligned}
