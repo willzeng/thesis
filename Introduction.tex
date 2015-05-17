@@ -95,7 +95,7 @@ This thesis applies the graphical calculi for SMC's to the study of protocols an
 \begin{figure}[t]
 \label{fig:QCDSMC}
 \input{figures/1_QCDSMC.tex}
-\caption[Comparison of quantum circuits and symmetric monoidal diagrams]{On the left we have a quantum circuit (read left to right) and its corresponding categorical diagram in \cat{FHilb} on the right (read bottom to top). In both the boxes are linear maps and the wires are Hilbert spaces. In quantum circuits these are implicitly qubits, with a slash used to denote products of qubits. In the categorical diagram we explicitly write spaces.}
+\caption[Comparison of quantum circuits and symmetric monoidal diagrams]{On the left we have a quantum circuit (read left to right) and its corresponding categorical diagram in \cat{FHilb} on the right (read bottom to top). In both depictions, the boxes are linear maps and the wires are Hilbert spaces. In quantum circuits these are implicitly qubits, with a slash used to denote products of qubits. In the categorical diagram we explicitly write spaces.}
 \end{figure}
 
 \subsection{Further Reading}
@@ -290,12 +290,17 @@ In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an 
 \end{defn}
 
 \begin{defn}
-\todo{comonoid/monoid homomorphism}
+In a monoidal category and object $A$, a \emph{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
+\begin{equation}
+\label{eq:mon_hom}
+\input{tikz/1_mon_hom.tikz}
+\end{equation}
 \end{defn}
+\noindent A \emph{comonoid homomorphism} is defined similarly, but with the dagger condition to Equation \ref{eq:mon_hom}.
 
 We can then ask for the comonoid and monoid to interact in various ways.
 
-\subsection{Frobenius Algebras}
+\subsection{Observables}
 
 \begin{defn}
 In a monoidal dagger-category, the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} is \emph{dagger-Frobenius} when the following equation holds:
@@ -435,6 +440,7 @@ This is the same result as for the left-hand side, and so Equation~\eqref{eq:com
 \end{proof}
 
 \begin{defn}
-\todo{Observables}
+A \emph{classical structure} is a dagger special commutative Frobenius algebras ($\dagger$-sCFA).
 \end{defn}
+\noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an abstract process theory.
 

@@ -1,0 +1,31 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.2*\tikzxscale, yscale=1.5*\tikzyscale]
+    \node [style=morphism] (0) at (0, 1) {$f$};
+    \node [style=whitedot] (1) at (0, -0) {};
+    \node (2) at (1, -1) {};
+    \node (3) at (-1, -1) {};
+    \node (4) at (0, 2) {};
+
+    \draw [bend left=45, looseness=1.00] (3.center) to (1);
+    \draw [bend left=45, looseness=1.00] (1) to (2.center);
+    \draw (1) to (0.south);
+    \draw (0.north) to (4.center);
+\end{tikzpicture}
+\end{aligned}
+\quad = \quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.2*\tikzxscale, yscale=1.5*\tikzyscale]
+                \node [style=blackdot] (0) at (0, 1) {};
+                \node [style=morphism] (1) at (1, -0) {$f$};
+                \node [style=morphism] (2) at (-1, -0) {$f$};
+                \node (3) at (0, 2) {};
+                \node (4) at (1, -1) {};
+                \node (5) at (-1, -1) {};
+                
+                \draw (4.center) to (1.south);
+                \draw (5.center) to (2.south);
+                \draw (0) to (3.center);
+                \draw [bend left=45, looseness=1.00] (0) to (1.north);
+                \draw [bend right=45, looseness=1.00] (0) to (2.north);
+\end{tikzpicture}
+\end{aligned}
