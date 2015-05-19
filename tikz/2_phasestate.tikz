@@ -1,0 +1,27 @@
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (center) [whitedot] {};
+
+\node (map) [right of = center, xshift = -4mm] {};
+\node (out) [above of = center, yshift = -2mm] {};
+\node (in) [state] [below of = map, yshift = +1mm] {$\alpha$};
+
+\node (mapconj) [left of = center, xshift = +4mm] {};
+\node (inconj) [state] [below of = mapconj, yshift = +1mm] {$\alpha^*$};
+
+\begin{pgfonlayer}{background}
+\draw[out=90,in=315] (in) to (center);
+\draw[out=90,in=270] (center) to (out);
+\draw[out=90,in=225] (inconj) to (center);
+\end{pgfonlayer}
+
+\node (equals) [right of = center, xshift = 5mm]{$=$};
+\node (center) [right of = equals, xshift = 0mm]{};
+\node (unit) [whitedot] [below of = center, yshift = +1mm] {};
+\node (out) [above of = center, yshift = -2mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[out=90,in=270] (unit) to (out);
+\end{pgfonlayer}
+
+\end{tikzpicture}

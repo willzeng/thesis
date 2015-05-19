@@ -1,0 +1,73 @@
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (center) {};
+
+\node (algebraTop) [whitedot]   
+        [above of = center, yshift = -4mm]{};
+\node (Hout) [above of = algebraTop, xshift = -3mm,yshift = 0mm] {};
+\node (Tout) [above of = algebraTop, xshift = +3mm,yshift = 0mm] {};
+
+\node (algebraBot) [blackdot]  
+        [below of = center, yshift = +8mm]{};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=90,in=270] (algebraBot) to (algebraTop);
+\draw[-,out=135,in=270] (algebraTop) to (Hout);
+\draw[-,out=45,in=270] (algebraTop) to (Tout);
+\end{pgfonlayer}
+
+\node (equals) [right of = center, xshift = -1mm,yshift = 5mm]{$=$};
+
+\node (center) [right of = equals, xshift = -3mm,yshift = -5mm] {};
+
+\node (algebraTop) [blackdot]   
+        [below of = center, yshift = +10mm]{};
+\node (Hout) [above of = algebraTop, yshift = +2mm] {};
+\node (timemult) [blackdot] 
+        [right of = algebraTop, xshift = -4mm] {}; 
+\node (Tout) [above of = timemult, yshift = +2mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=90,in=270] (algebraTop) to (Hout);
+\draw[-,out=90,in=270] (timemult) to (Tout);
+\end{pgfonlayer}
+
+
+\node (spacer) [right of = center, xshift = 3mm,yshift = 5mm]{};
+
+\node (center) [right of = spacer, yshift = -5mm] {};
+
+
+\node (algebraTop) [blackdot]   
+        [below of = center, yshift = +14mm]{};
+\node (Hout) [below of = algebraTop, xshift = -3mm] {};
+\node (Tout) [below of = algebraTop, xshift = +3mm] {};
+
+\node (algebraBot) [whitedot]  
+        [above of = center, yshift = +2mm]{};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=270,in=90] (algebraBot) to (algebraTop);
+\draw[-,out=225,in=90] (algebraTop) to (Hout);
+\draw[-,out=315,in=90] (algebraTop) to (Tout);
+\end{pgfonlayer}
+
+\node (equals) [right of = center, xshift = -1mm,yshift = 5mm]{$=$};
+
+\node (center) [right of = equals, xshift = -3mm, yshift = -7mm] {};
+
+\node (algebraTop)  
+        [below of = center, yshift = +8mm]{};
+\node (Hout) [whitedot]  
+        [above of = algebraTop, yshift = 2mm] {};
+\node (timemult) 
+        [right of = algebraTop, xshift = -4mm] {}; 
+\node (Tout) [whitedot] 
+        [above of = timemult, yshift = 2mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=90,in=270] (algebraTop) to (Hout);
+\draw[-,out=90,in=270] (timemult) to (Tout);
+\end{pgfonlayer}
+
+\end{tikzpicture}

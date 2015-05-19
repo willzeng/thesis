@@ -208,6 +208,10 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 \todo{Superpositions? aka sums of diagrams?}
 
 \begin{defn}
+\todo{TODO:CONJUGATION}
+\end{defn}
+
+\begin{defn}
 \todo{Duals?}
 \end{defn}
 
@@ -335,9 +339,43 @@ In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an objec
 \noindent
 When the algebra is commutative and special, Equation~\eqref{eq:dim} can be simplified to the composition of the unit and counit.
 
+\begin{defn}
+\todo{copyable states}
+\end{defn}
+
+\begin{theorem}{Gelfand-Neumark}
+Special dagger Frobenius algebras in \cat{FHilb} are precisely finite-dimensional C$^*$-algebras.
+\end{theorem}
+
 \begin{theorem}{\cite[Thm 5.1]{coecke2013new}}
+Commutative dagger Frobenius algebras in FHilb are orthogonal bases.
+\end{theorem}
+
+\begin{defn}
+A \emph{classical structure} in a SMC is a dagger special commutative Frobenius algebras ($\dagger$-sCFA).
+\end{defn}
+\noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an abstract process theory.
+
+\begin{theorem}{\cite[Sec 6]{coecke2013new}}
+\label{thm:cstructBases}
 Classical structures in FHilb are orthonormal bases.
 \end{theorem}
+
+\noindent The copyable states form the elements of these bases.
+
+\begin{remark}
+The correspondence in Theorem \ref{thm:cstructBases} was modified for the infinite dimensional case in \cite{abramsky2012h}.
+\end{remark}
+
+\begin{theorem}
+\todo{Normal Forms/Spider law: cqm-notes Lemma 5.21}
+\end{theorem}
+
+\begin{corollary}
+In \cat{FHilb}, a morphism between commutative dagger Frobenius structures acts as a function on copyable states if and only if it is a comonoid homomorphism.
+\end{corollary}
+
+The says that functions that map from one basis to another will necessarily be comonoid homomorphisms.  We will generalize this when we consider oracles in quantum algorithms.
 
 \begin{defn}
 In a monoidal dagger-category, a comonoid homomorphism \\$f:\blackcomonoid{A} \to \graycomonoid{B}$ between dagger-Frobenius comonoids is \emph{self-conjugate} when the following property holds:
@@ -438,9 +476,4 @@ On the right we can do this calculation:
 \end{equation}
 This is the same result as for the left-hand side, and so Equation~\eqref{eq:comonoidhomomorphismselfconjugate} holds.
 \end{proof}
-
-\begin{defn}
-A \emph{classical structure} is a dagger special commutative Frobenius algebras ($\dagger$-sCFA).
-\end{defn}
-\noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an abstract process theory.
 

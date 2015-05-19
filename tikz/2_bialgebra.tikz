@@ -1,0 +1,52 @@
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (center) {};
+
+\node (algebraTop) [whitedot]   
+  [above of = center, yshift = -5mm]{};
+\node (Hout) [above of = algebraTop, xshift = -5mm] {};
+\node (Tout) [above of = algebraTop, xshift = +5mm] {};
+
+\node (algebraBot) [blackdot]  
+  [below of = center, yshift = +5mm]{};
+\node (Hin) [below of = algebraBot, xshift = -5mm] {};
+\node (Tin) [below of = algebraBot, xshift = +5mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=90,in=270] (algebraBot) to (algebraTop);
+\draw[-,out=135,in=270] (algebraTop) to (Hout);
+\draw[-,out=45,in=270] (algebraTop) to (Tout);
+\draw[-,out=90,in=225] (Hin) to (algebraBot);
+\draw[-,out=90,in=315] (Tin) to (algebraBot);
+\end{pgfonlayer}
+
+\node (equals) [right of = center, xshift = 0mm]{$=$};
+
+\node (center) [right of = equals, xshift = 0mm] {};
+
+\node (algebraTop) [blackdot]   
+  [above of = center, yshift = -5mm]{};
+\node (Hout) [above of = algebraTop, xshift = 0mm] {};
+\node (timemult) [blackdot] 
+  [right of = algebraTop, xshift = 0mm] {}; 
+\node (Tout) [above of = timemult, xshift = 0mm] {};
+
+\node (algebraBot) [whitedot]  
+  [below of = center, yshift = +5mm]{};
+\node (Hin) [below of = algebraBot, xshift = 0mm] {};
+\node (timediag) [whitedot] 
+  [right of = algebraBot, xshift = 0mm] {}; 
+\node (Tin) [below of = timediag, xshift = 0mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=135,in=225] (algebraBot) to (algebraTop);
+\draw[-,out=90,in=270] (algebraTop) to (Hout);
+\draw[-,out=90,in=270] (Hin) to (algebraBot);
+\draw[-,out=90,in=270] (Tin) to (timediag);
+\draw[-,out=90,in=270] (timemult) to (Tout);
+\draw[-,out=45,in=315] (timediag) to (timemult);
+\draw[-,out=135,in=315] (timediag) to (algebraTop);
+\draw[-,out=45,in=225] (algebraBot) to (timemult);
+\end{pgfonlayer}
+
+\end{tikzpicture}

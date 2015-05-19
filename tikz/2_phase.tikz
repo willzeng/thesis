@@ -1,0 +1,18 @@
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node [whitedot] (0) at (-1, -0) {$\alpha$};
+\node (1) at (-1, -1) {};
+\node (2) at (-1, 1) {};
+\node (3) at (0, -0) {$:=$};
+\node [whitedot] (4) at (1, -0) {};
+\node (5) at (1, -1) {};
+\node (6) at (1, 1) {};
+\node [state] (7) at (2, -0.5) {$\alpha$};
+
+\begin{pgfonlayer}{background}
+\draw [bend right=45, looseness=0.75] (7) to (4);
+\draw (5.center) to (4);
+\draw (4) to (6.center);
+\draw (1.center) to (0);
+\draw (0) to (2.center);
+\end{pgfonlayer}
+\end{tikzpicture}
