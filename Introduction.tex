@@ -103,7 +103,51 @@ Other examples of ways that monoidal cats formalize diagrammatic languages in ph
 
 \section{Abstract linear algebra}
 \label{sec:AbstractLinAlg}
-In this section concepts are introduced that expand categorical diagrams beyond quantum circuits.
+In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced to our diagrams by adding a so-called \emph{dagger functor}.  In the case of \cat{FHilb} this corresponds with the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to begin recognize symmetric monoidal categories (not just \cat{FHilb}) as a kind of abstract process theory. 
+
+\begin{defn}
+\label{defn:dagger}
+A \emph{dagger functor} on a category \cat{C} is an involutive contravariant functor $\dagger:\cat{C}\to\cat{C}$ that is the identity on objects. A \emph{dagger category} is a category equipped with a dagger functor.
+\end{defn}
+Spelling out this definition, the dagger functor has the following properties for $f,g:\arrs{C}$ with suitable types and $A\in\objs{C}$:
+\begin{equation}
+\left(f^{\dagger}\right)^{\dagger} = f 
+\end{equation}
+\begin{equation}
+(g\circ f)^{\dagger} = f^{\dagger}\circ g^{\dagger}
+\end{equation}
+\begin{equation}
+\idm{A}^{\dagger} = \idm{H}
+\end{equation}
+Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
+
+The quantum setting \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
+\begin{defn}
+A morphism $f:A\to B$ in a dagger category is:
+\begin{itemize}
+\item \emph{self-adjoint} when $f^{\dagger} = f$;
+\item a \emph{projector} when self-adjoint and $f\circ f = f$
+\item an \emph{isometry} when $f \circ \dag{f} = \idm{A}$;
+\item \emph{unitary} when both $f \circ \dag{f} = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
+\item \emph{positive} when $f = \dag{g}\circ g$ for some morphism $g:H\to K$.
+\end{itemize}
+\end{defn}
+
+\noindent These concepts both have meaning as mathematical objects in linear algebra and as information theoretic concepts in a process theory.  For example, a projector is some process where multiple application has the same effect as a single application in the broadest possible sense.
+
+Further, the dagger can be intuitively extended to an operation on diagrams: it flips the picture upside-down around the horizontal axes.  As a visual aid, morphisms are now drawn with broken symmetry as follows:
+\begin{equation}
+\label{eq:daggerPics}
+\input{tikz/1_daggerPics.tikz}
+\end{equation}
+
+Thus the unitarity condition becomes:
+\begin{equation}
+\label{eq:unitarityPics}
+\input{tikz/1_unitarityPics.tikz}
+\end{equation}
+
+The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's as abstract processes theories and allow us to define a generalized version of the Born Rule in Section \ref{sec:AbstractProcTh} that provides a basic notion of measurement.
 
 \begin{defn}
 \label{defn:scalar}
@@ -132,46 +176,6 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 \end{aligned}
 \end{equation}
 \noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps $\mathbb{C}\to\mathbb{C}$.
-
-\begin{defn}
-\label{defn:dagger}
-A \emph{dagger functor} on a category \cat{C} is an involutive contravariant functor $\dagger:\cat{C}\to\cat{C}$ that is the identity on objects. A \emph{dagger category} is a category equipped with a dagger functor.
-\end{defn}
-Spelling out this definition, the dagger functor has the following properties for $f,g:\arrs{C}$ with suitable types and $A\in\objs{C}$:
-\begin{equation}
-\left(f^{\dagger}\right)^{\dagger} = f 
-\end{equation}
-\begin{equation}
-(g\circ f)^{\dagger} = f^{\dagger}\circ g^{\dagger}
-\end{equation}
-\begin{equation}
-\idm{A}^{\dagger} = \idm{H}
-\end{equation}
-Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists. We use the shorthand dagger-SMC for a dagger symmetric monoidal category.
-
-The quantum setting \cat{FHilb} is a dagger category whose canonical dagger is the adjoint.  The categorical dagger from Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
-\begin{defn}
-A morphism $f:A\to B$ in a dagger category is:
-\begin{itemize}
-\item \emph{self-adjoint} when $f^{\dagger} = f$;
-\item a \emph{projector} when self-adjoint and $f\circ f = f$
-\item an \emph{isometry} when $f \circ \dag{f} = \idm{A}$;
-\item \emph{unitary} when both $f \circ \dag{f} = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
-\item \emph{positive} when $f = \dag{g}\circ g$ for some morphism $g:H\to K$.
-\end{itemize}
-\end{defn}
-
-The dagger is graphically depicted as an operation on diagrams: it flips the picture upside-down around the horizontal axes.  As a visual aid, morphisms are now drawn with broken symmetry as follows:
-\begin{equation}
-\label{eq:daggerPics}
-\input{tikz/1_daggerPics.tikz}
-\end{equation}
-
-Thus the unitarity condition becomes:
-\begin{equation}
-\label{eq:unitarityPics}
-\input{tikz/1_unitarityPics.tikz}
-\end{equation}
 
 \begin{defn}
 In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.

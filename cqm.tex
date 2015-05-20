@@ -3,9 +3,14 @@
 
 \todo{\chapabstract{}}
 
+In this chapter we further develop the notion of abstract process theories in $\dagger$-SMC's. The chapter is called Categorical Quantum Mechanics as many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Abstract process theories that posses these properties can be considered quantum-like.
+
+\section{Phases}
+Phases were introduced in \cite{coecke2011interacting}.
+
 \begin{defn}
 \label{def:phases}
-A \emph{phase state} for a $\whitecomonoid{A}$ is a state $\ket{\alpha}$ such that:
+A \emph{phase state} for a Frobenius algebra $\whitecomonoid{A}$ is a state $\ket{\alpha}$ such that:
 \begin{equation}
 \label{eqn:zphasestate}
 \input{tikz/2_phasestate.tikz}
@@ -17,9 +22,16 @@ Each phase state corresponds to a \emph{phase} that is a map in the following fo
 \end{equation}
 \end{defn}
 
-\begin{defn}
-\todo{Phase groups}
-\end{defn}
+\begin{proposition}[Phase groups]
+Given a dagger Frobenius algebra $\whitemonoid$ in a monoidal dagger category, its phases form a group under the following multiplication:
+\begin{equation}
+\input{tikz/2_phasegroups.tikz}
+\end{equation}
+with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classical structure in a $\dager$-SMC, then its phases form an abelian group.
+\end{proposition}
+\begin{proof}
+\todo{Include proof or cite CQM notes?}
+\end{proof}
 
 \section{Complementarity}
 \begin{defn}[Complementarity]
@@ -56,3 +68,4 @@ A pair of classical structures \whitecomonoid{A} and \blackcomonoid{A} is \emph{
 \section{The Fourier Transform}
 
 \section{Unitary oracles}
+

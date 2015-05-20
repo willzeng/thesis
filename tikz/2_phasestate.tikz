@@ -1,27 +1,30 @@
-\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node [style=state] (0) at (0, -1) {$a$};
+\node [style=whitedot] (1) at (0, -0) {};
+\node [style=state, hflip] (2) at (-1, 1) {$a$};
+\node (3) at (1, 1) {};
+\node (4) at (1, 2) {};                
 
-\node (center) [whitedot] {};
+\draw (0) to (1);
+\draw (3.center) to (4);
+\draw [bend left=45, looseness=1.00] (1) to (2);
+\draw [bend right=45, looseness=1.00] (1) to (3.center);
+\end{pic}
+\;=\;
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\draw (0,0) to (0,2);
+\node [whitedot] at (0,0) {};
+\end{pic}
+\;=\;
+\begin{pic}[xscale=-1*\tikzxscale, yscale=\tikzyscale]
+\node [style=state] (0) at (0, -1) {$a$};
+\node [style=whitedot] (1) at (0, -0) {};
+\node [style=state, hflip] (2) at (-1, 1) {$a$};
+\node (3) at (1, 1) {};
+\node (4) at (1, 2) {};                
 
-\node (map) [right of = center, xshift = -4mm] {};
-\node (out) [above of = center, yshift = -2mm] {};
-\node (in) [state] [below of = map, yshift = +1mm] {$\alpha$};
-
-\node (mapconj) [left of = center, xshift = +4mm] {};
-\node (inconj) [state] [below of = mapconj, yshift = +1mm] {$\alpha^*$};
-
-\begin{pgfonlayer}{background}
-\draw[out=90,in=315] (in) to (center);
-\draw[out=90,in=270] (center) to (out);
-\draw[out=90,in=225] (inconj) to (center);
-\end{pgfonlayer}
-
-\node (equals) [right of = center, xshift = 5mm]{$=$};
-\node (center) [right of = equals, xshift = 0mm]{};
-\node (unit) [whitedot] [below of = center, yshift = +1mm] {};
-\node (out) [above of = center, yshift = -2mm] {};
-
-\begin{pgfonlayer}{background}
-\draw[out=90,in=270] (unit) to (out);
-\end{pgfonlayer}
-
-\end{tikzpicture}
+\draw (0) to (1);
+\draw (3.center) to (4);
+\draw [bend left=45, looseness=1.00] (1) to (2);
+\draw [bend right=45, looseness=1.00] (1) to (3.center);
+\end{pic}
