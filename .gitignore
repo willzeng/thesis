@@ -1,4 +1,4 @@
-# Ignore spurious files
+# Ignore spurious and generated files
 *.bb
 *.aux
 *.Backup*
@@ -6,3 +6,8 @@
 *.bbl
 *.blg
 *.zip
+*.db
+*.pdf
+
+# Ignore extra outline files
+outlines/
