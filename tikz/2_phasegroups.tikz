@@ -1,6 +1,6 @@
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
 \draw (0,0) to (0,2);
-\node [state] at (0,0) {$ab$};
+\node [state] at (0,0) {$a+b$};
 \end{pic}
 \;=\;
 \begin{pic}[xscale=1.2*\tikzxscale, yscale=1.1*\tikzyscale]
