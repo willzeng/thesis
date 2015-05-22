@@ -6,7 +6,7 @@
 \begin{pic}[xscale=1.2*\tikzxscale, yscale=1.1*\tikzyscale]
 \node [style=whitedot] (0) at (0, 0) {};
 \node [style=state] (1) at (-1, -1) {$a$};
-\node [style=state] (2) at (1, -1) {$a$};
+\node [style=state] (2) at (1, -1) {$b$};
 \node (3) at (0, 1) {};
 \draw [bend right=45, looseness=1.00] (0) to (1);
 \draw [bend left=45, looseness=1.00] (0) to (2);

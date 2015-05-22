@@ -1,0 +1,27 @@
+\chapter{Strong Complementarity and the Fourier Transform}
+
+\section{Measurements and Representation Theory}
+There is a correspondence between morphisms and states given by the following.
+
+\begin{defn}
+Given a morphism $f:A\to B$ in a monoidal category and a Frobenius algebra $\blackmonoid{A}$, the \emph{name} of $f$ is given by:
+\begin{equation}
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node at (0,0) {$\name{f}$};
+\node (L) [morphism, xscale=2.5] at (0,0) {};
+\draw ([xshift=-1cm] L.north) to ([xshift=-1cm, yshift=1.5cm] L) node [above] {$\mathbb{C}^n$};
+\draw ([xshift=1cm] L.north) to ([xshift=1cm, yshift=1.5cm] L) node [above] {$\mathbb{C} ^n$};
+\end{pic}
+\quad:=\quad\hspace{-5pt}
+\begin{pic}[xscale=\tikzxscale, yscale=-1*\tikzyscale]
+\draw (0,-1.5) node [above] {$\mathbb{C} ^n$} to (0,0) to [out=up, in=\swangle] (0.7,1);
+\draw (1.4,0) to [out=up, in=\seangle] (0.7,1);
+\draw (0.7,1) to (0.7,1.75) node [blackdot] {};
+\node [blackdot] at (0.7,1) {};
+\node (L) [morphism, anchor=south] at (1.4,0) {$f$};
+\draw (L.north) to (1.4,-1.5) node [above] {$\mathbb{C} ^n$};
+\end{pic}
+\end{equation}
+\end{defn}
+
+\section{The Fourier Transform}

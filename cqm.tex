@@ -1,36 +1,381 @@
-\chapter{Categorical Quantum Mechanics}
+\chapter{Abstract Process Theories}
 \label{chap:cqm}
 
 \todo{\chapabstract{}}
 
-In this chapter we further develop the notion of abstract process theories in $\dagger$-SMC's. The chapter is called Categorical Quantum Mechanics as many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Abstract process theories that posses these properties can be considered quantum-like.
+In this chapter we further develop the categorical structure into a notion of an abstract process theory. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Abstract process theories that posses these properties can be considered quantum-like.
 
-\section{Phases}
-Phases were introduced in \cite{coecke2011interacting}.
+\section{The dagger}
+In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced to our diagrams by adding a so-called \emph{dagger functor}.  In the case of \cat{FHilb} this corresponds with the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to begin recognize symmetric monoidal categories (not just \cat{FHilb}) as a kind of abstract process theory. 
 
 \begin{defn}
-\label{def:phases}
-A \emph{phase state} for a Frobenius algebra $\whitecomonoid{A}$ is a state $\ket{\alpha}$ such that:
+\label{defn:dagger}
+A \emph{dagger functor} on a category \cat{C} is an involutive contravariant functor $\dagger:\cat{C}\to\cat{C}$ that is the identity on objects. A \emph{dagger category} is a category equipped with a dagger functor.
+\end{defn}
+Spelling out this definition, the dagger functor has the following properties for $f,g:\arrs{C}$ with suitable types and $A\in\objs{C}$:
 \begin{equation}
-\label{eqn:zphasestate}
-\input{tikz/2_phasestate.tikz}
+\left(f^{\dagger}\right)^{\dagger} = f 
 \end{equation}
-Each phase state corresponds to a \emph{phase} that is a map in the following form:
 \begin{equation}
-\label{eqn:zphase}
-\input{tikz/2_phase.tikz}
+(g\circ f)^{\dagger} = f^{\dagger}\circ g^{\dagger}
+\end{equation}
+\begin{equation}
+\idm{A}^{\dagger} = \idm{H}
+\end{equation}
+Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
+
+The quantum setting \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
+\begin{defn}
+A morphism $f:A\to B$ in a dagger category is:
+\begin{itemize}
+\item \emph{self-adjoint} when $f^{\dagger} = f$;
+\item a \emph{projector} when self-adjoint and $f\circ f = f$
+\item an \emph{isometry} when $f \circ \dag{f} = \idm{A}$;
+\item \emph{unitary} when both $f \circ \dag{f} = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
+\item \emph{positive} when $f = \dag{g}\circ g$ for some morphism $g:H\to K$.
+\end{itemize}
+\end{defn}
+
+\noindent These concepts both have meaning as mathematical objects in linear algebra and as information theoretic concepts in a process theory.  For example, a projector is some process where multiple application has the same effect as a single application in the broadest possible sense.
+
+Further, the dagger can be intuitively extended to an operation on diagrams: it flips the picture upside-down around the horizontal axes.  As a visual aid, morphisms are now drawn with broken symmetry as follows:
+\begin{equation}
+\label{eq:daggerPics}
+\input{tikz/1_daggerPics.tikz}
+\end{equation}
+
+Thus the unitarity condition becomes:
+\begin{equation}
+\label{eq:unitarityPics}
+\input{tikz/1_unitarityPics.tikz}
+\end{equation}
+
+The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's as abstract processes theories and allow us to define a generalized version of the Born Rule in Section \ref{sec:observables} that provides a basic notion of measurement.
+
+\begin{defn}
+\label{defn:scalar}
+A \emph{scalar} in a SMC a morphism $a:I\to I$. As maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
+\begin{equation}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (-1, -0) {$a$};
+\end{tikzpicture}
 \end{equation}
 \end{defn}
 
-\begin{proposition}[Phase groups]
-Given a dagger Frobenius algebra $\whitemonoid$ in a monoidal dagger category, its phases form a group under the following multiplication:
+This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, these scalars form a commutative monoid under categorical composition \cite[Prop 6.1]{kelly1980coherence}, as naturally expressed by:
 \begin{equation}
-\input{tikz/2_phasegroups.tikz}
+\begin{aligned}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (-1, -0) {$a$};
+\node [whitedot] (0) at (-1, -2) {$b$};
+\end{tikzpicture}
+\end{aligned}
+\;=\;
+\begin{aligned}
+\begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (-1, -0) {$b$};
+\node [whitedot] (0) at (-1, -2) {$a$};
+\end{tikzpicture}
+\end{aligned}
 \end{equation}
-with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classical structure in a $\dager$-SMC, then its phases form an abelian group.
-\end{proposition}
+\noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps $\mathbb{C}\to\mathbb{C}$.
+
+\begin{defn}
+In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
+\end{defn}
+\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them their process theoretic interpretation: just as some preparation $a:I\to A$ prepares system $A$ in that state, the effect $\dag{a}:A\to I$ eliminates the system $A$ by the process $\dag{a}$.  \todo{this is a duality}.  Generalized \emph{inner products} are compositions of states and effects \cite{abramsky2004categorical} that are reminiscent of the usual Dirac notation:
+\begin{equation}
+\left(
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.75) {$\psi$};
+\node (2) at (0, 0.75) {};
+\draw (1.center) to (2.center);
+\end{tikzpicture}
+\end{aligned}\right)^{\dagger}
+=
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) at (0, -0.75) {};
+\node (2) [state, hflip] at (0, 0.75) {$\psi$};
+\draw (1.center) to (2.center);
+\end{tikzpicture}
+\end{aligned}
+\qquad\qquad
+|\phi\rangle\circ\langle\psi| = \langle\phi|\psi\rangle =
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.75) {$\psi$};
+\node (2) [state, hflip] at (0, 0.75) {$\phi$};
+\draw (1.center) to (2.center);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+
+\todo{Superpositions? aka sums of diagrams?}
+
+\begin{defn}
+\todo{TODO:CONJUGATION?}
+\end{defn}
+
+\subsection{The generalized Born rule}
+
+Measurement in these abstract process theories comes from a statement connecting probabilities to inner products in a generalized Born Rule.
+
+\begin{defn}
+For a state $X:I\to A$ and an effect $Y:A\to I$ in a dagger-SMC, the probability of outcome $X$ given preparation $Y$ is:
+\begin{equation}
+\mbox{Prob}(X|Y) = \dag{Y}\circ\dag{X}\circ X\circ Y
+\end{equation}
+\end{defn}
+
+Diagrammatically this is:
+\begin{equation}
+\mbox{Prob}(X|Y) \;=\; 
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.5) {$Y$};
+\node (2) [state, hflip] at (0, 0.5) {$X$};
+\draw (1.center) to (2.center);
+\node (3) [state] at (0, 3.5) {$X$};
+\node (4) [state, hflip] at (0, 4.5) {$Y$};
+\draw (3.center) to (4.center);
+\end{tikzpicture}
+\end{aligned}
+\;=\;
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.5) {$Y$};
+\node (2) [state, hflip] at (0, 0.5) {$X$};
+\draw (1.center) to (2.center);
+\node (3) [state] at (3, -0.5) {$X$};
+\node (4) [state, hflip] at (3, 0.5) {$Y$};
+\draw (3.center) to (4.center);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+While this clearly makes sense in \cat{FHilb}, one might ask when under what general conditions these scalars will corresponding to our usual notion of probability. An answer is found in the following theorem:
+
+\begin{theorem}{\cite[Thm 4.2]{vicary2011completeness}}
+In a monoidal dagger-category with simple tensor unit, which has all finite dagger-limits and for which the self-adjoint scalars are Dedekind-complete, the scalars have an involution-preserving embedding into the complex numbers.
+\end{theorem}
+
+For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities.
+
+\section{Observables}
+\label{sec:observables}
+
+Within a process theory we can construct objects that have the phenomenology of classical information: copying, deleting, etc. These structures become the observables of abstract process theories that allow us to extract classical information from them via measurements.
+
+\subsection{Monoids and comonoids}
+
+Monoids and comonoids on objects embody our notions of copying and comparing states. As they are a particular kinds of morphisms we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,1)$ has states of $A$ as elements and maps:
+\begin{equation}
+\input{tikz/1_monoidPics.tikz}
+\end{equation}
+
+\begin{defn}
+\label{defn:monoid}
+In a monoidal category, a \textit{monoid} is a triple \whitemonoid{A} of an object $A$, a morphism $\tinymult[whitedot] : A \otimes A \to A $ called the multiplication, and a state $\tinyunit[whitedot] : I \to A$ called the unit, satisfying associativity and unitality equations:
+\begin{equation}
+\label{eq:monoid}
+\input{tikz/1_monoid.tikz}
+\end{equation}
+\end{defn}
+
+\begin{defn}
+\label{defn:comonoid}
+In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an object $A$, a morphism $\tinycomult[whitedot] : A \to A \otimes A$ called the comultiplication, and an effect $\tinycounit[whitedot] : A \to I$ called the counit, satisfying coassociativity and counitality equations:
+\begin{equation}
+\label{eq:comonoid}
+\input{tikz/1_comonoid.tikz}
+\end{equation}
+\end{defn}
+
+\begin{defn}
+In a monoidal category and object $A$, a \emph{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
+\begin{equation}
+\label{eq:mon_hom}
+\input{tikz/1_mon_hom.tikz}
+\end{equation}
+\end{defn}
+\noindent A \emph{comonoid homomorphism} is defined similarly, but with the dagger condition to Equation \ref{eq:mon_hom}.
+
+We can then ask for the comonoid and monoid to interact in various ways.
+
+\subsection{Abstract observables}
+
+When monoids and comonoids combine under certain rules, we obtain the structure of classical information on objects of an abstract process theory.
+
+\begin{defn}
+In a monoidal dagger-category, the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} is \emph{dagger-Frobenius} when the following equation holds:
+\begin{equation}
+\label{eq:frobenius}
+\input{tikz/1_Frobenius.tikz}
+\end{equation}
+\end{defn}
+
+\begin{defn}
+In a symmetric monoidal dagger-category, a \textit{classical structure} is a commutative dagger-Frobenius comonoid \whitecomonoid{A} satisfying the \textit{specialness} condition:
+\begin{equation}
+\input{tikz/1_specialness.tikz}
+\end{equation}
+\end{defn}
+
+
+\begin{defn}
+In a symmetric monoidal dagger-category, a dagger-Frobenius comonoid is \emph{symmetric} when the following condition holds:
+\begin{equation}
+\input{tikz/1_symmetric.tikz}
+\end{equation}
+\end{defn}
+
+\begin{defn}
+In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius comonoid \whitecomonoid{A} is given by the following composite:
+\begin{equation}
+\label{eq:dim}
+\input{tikz/1_dimension.tikz}
+\end{equation}
+\end{defn}
+\noindent
+When the algebra is commutative and special, Equation~\eqref{eq:dim} can be simplified to the composition of the unit and counit.
+
+\begin{defn}
+\todo{copyable states}
+\end{defn}
+
+\begin{theorem}{Gelfand-Neumark}
+Special dagger Frobenius algebras in \cat{FHilb} are precisely finite-dimensional C$^*$-algebras.
+\end{theorem}
+
+\begin{theorem}{\cite[Thm 5.1]{coecke2013new}}
+Commutative dagger Frobenius algebras in FHilb are orthogonal bases.
+\end{theorem}
+
+\begin{defn}
+A \emph{classical structure} in a SMC is a dagger special commutative Frobenius algebras ($\dagger$-sCFA).
+\end{defn}
+\noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an abstract process theory.
+
+\begin{theorem}{\cite[Sec 6]{coecke2013new}}
+\label{thm:cstructBases}
+Classical structures in FHilb are orthonormal bases.
+\end{theorem}
+
+\noindent The copyable states form the elements of these bases.
+
+\begin{remark}
+The correspondence in Theorem \ref{thm:cstructBases} was modified for the infinite dimensional case in \cite{abramsky2012h}.
+\end{remark}
+
+\begin{theorem}
+\todo{Normal Forms/Spider law: cqm-notes Lemma 5.21}
+\end{theorem}
+
+\begin{corollary}
+In \cat{FHilb}, a morphism between commutative dagger Frobenius structures acts as a function on copyable states if and only if it is a comonoid homomorphism.
+\end{corollary}
+
+The says that functions that map from one basis to another will necessarily be comonoid homomorphisms.  We will generalize this when we consider oracles in quantum algorithms.
+
+\begin{defn}
+In a monoidal dagger-category, a comonoid homomorphism \\$f:\blackcomonoid{A} \to \graycomonoid{B}$ between dagger-Frobenius comonoids is \emph{self-conjugate} when the following property holds:
+\begin{equation}
+\label{eq:comonoidhomomorphismselfconjugate}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node [morphism, wedge] (f) at (2,1) {$f$};
+\draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
+\draw (1,2) to [out=right, in=up] (f.north);
+\draw (f.south) to [out=down, in=left] (3,0) node [blackdot] {} to [out=right, in=down, out looseness=0.9] (4,3);
+\draw (3,0) to (3,-0.5) node [blackdot] {};
+\node [graydot] at (1,2) {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[string]
+\node (f) at (0,0) [morphism, wedge, hflip] {$f$};
+\draw (0,-1.5) to (f.south);
+\draw (f.north) to (0,1.5);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\end{defn}
+
+\begin{lemma}
+\label{lem:comonoidhomomorphismselfconjugate}
+In {\bf Hilb}, comonoid homomorphisms $f:\blackcomonoid{A} \to \graycomonoid{B}$ of classical structures are self-conjugate.
+\end{lemma}
+
+
 \begin{proof}
-\todo{Include proof or cite CQM notes?}
+Recall that comonoid homomorphisms between classical structures in \cat{Hilb} are exactly classical functions between the copyable points~\cite{coecke2013new}. The linear maps on either side of~\eqref{eq:comonoidhomomorphismselfconjugate} will be the same if and only if their matrix elements are the same, obtained by composing with $\ket i$ at the bottom and $\bra j$ at the top. On the left-hand side, this gives the following result:
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node [morphism, wedge] (f) at (2,1) {$f$};
+\draw (0,0) node [state] {$i$} to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
+\draw (1,2) to [out=right, in=up] (f.north);
+\draw (f.south)
+    to [out=down, in=left] (3,0)
+        node [blackdot] {}
+    to [out=right, in=down, out looseness=0.9] (4,2)
+        node [state, hflip] {$j$};
+\draw (3,0) to (3,-0.5) node [blackdot] {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$j$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j), \\
+0 & \text{ if } i \neq f(j).
+\end{array}
+\right.
+\end{equation}
+On the right we can do this calculation:
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge, hflip] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$i$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$j$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\left(
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$j$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\right) ^\dagger
+\quad=\quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j) \\
+0 & \text{ if } i \neq f(j)
+\end{array}
+\right\}^\dagger 
+\quad = \quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j), \\
+0 & \text{ if } i \neq f(j).
+\end{array}
+\right.
+\end{equation}
+This is the same result as for the left-hand side, and so Equation~\eqref{eq:comonoidhomomorphismselfconjugate} holds.
 \end{proof}
 
 \section{Complementarity}
@@ -61,6 +406,34 @@ A pair of classical structures \whitecomonoid{A} and \blackcomonoid{A} is \emph{
 \end{equation}
 \end{defn}
 
+\section{Phases}
+Phases were introduced in \cite{coecke2011interacting}.
+
+\begin{defn}
+\label{def:phases}
+A \emph{phase state} for a Frobenius algebra $\whitecomonoid{A}$ is a state $\ket{\alpha}$ such that:
+\begin{equation}
+\label{eqn:zphasestate}
+\input{tikz/2_phasestate.tikz}
+\end{equation}
+Each phase state corresponds to a \emph{phase} that is a map in the following form:
+\begin{equation}
+\label{eqn:zphase}
+\input{tikz/2_phase.tikz}
+\end{equation}
+\end{defn}
+
+\begin{proposition}[Phase groups]
+Given a dagger Frobenius algebra $\whitemonoid$ in a monoidal dagger category, its phases form a group under the following multiplication:
+\begin{equation}
+\input{tikz/2_phasegroups.tikz}
+\end{equation}
+with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classical structure in a $\dagger$-SMC, then its phases form an abelian group.
+\end{proposition}
+\begin{proof}
+\todo{Include proof or cite CQM notes?}
+\end{proof}
+
 \section{Duality}
 
 \begin{defn}
@@ -75,35 +448,7 @@ In a monoidal category
 \todo{dagger compact categories?} (closed follows)
 \end{defn}
 
-There is a correspondence between morphisms and states given by the following.
-
-\begin{defn}
-Given a morphism $f:A\to B$ in a monoidal category and a Frobenius algebra $\blackmonoid{A}$, the \emph{name} of $f$ is given by:
-\begin{equation}
-\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
-\node at (0,0) {$\name{f}$};
-\node (L) [morphism, xscale=2.5] at (0,0) {};
-\draw ([xshift=-1cm] L.north) to ([xshift=-1cm, yshift=1.5cm] L) node [above] {$\mathbb{C}^n$};
-\draw ([xshift=1cm] L.north) to ([xshift=1cm, yshift=1.5cm] L) node [above] {$\mathbb{C} ^n$};
-\end{pic}
-\quad:=\quad\hspace{-5pt}
-\begin{pic}[xscale=\tikzxscale, yscale=-1*\tikzyscale]
-\draw (0,-1.5) node [above] {$\mathbb{C} ^n$} to (0,0) to [out=up, in=\swangle] (0.7,1);
-\draw (1.4,0) to [out=up, in=\seangle] (0.7,1);
-\draw (0.7,1) to (0.7,1.75) node [blackdot] {};
-\node [blackdot] at (0.7,1) {};
-\node (L) [morphism, anchor=south] at (1.4,0) {$f$};
-\draw (L.north) to (1.4,-1.5) node [above] {$\mathbb{C} ^n$};
-\end{pic}
-\end{equation}
-\end{defn}
-
-
-\section{Measurements and Representation Theory}
-
 \section{Quantum protocols}
 
-\section{The Fourier Transform}
-
-\section{Unitary oracles}
+Here we reference some existing work that has been done on quantum protocols in abstract process theories.
 
