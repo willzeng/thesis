@@ -4,6 +4,70 @@
 
 \section{The abstract structure of unitary oracles}
 
+
+\subsection{Complementarity via unitarity}
+A pair of symmetric dagger-Frobenius algebras can be used to build a linear map in the following way:
+\begin{equation}
+\label{eq:generalizedcnot}
+\sqrt{\ud(A)}\,\,
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (b) [graydot] at (0,0) {};
+\node (w) [whitedot] at (1,1) {};
+\draw (-0.75,2) to [out=down, in=left] (b.center);
+\draw (b.center) to [out=right, in=left] (w.center);
+\draw (w.center) to (1,2);
+\draw (b.center) to (0,-1);
+\draw (w.center) to [out=right, in=up] (1.75,-1);
+\end{pic}
+\end{equation}
+Here we have assumed that we operate in a category where square roots of scalars exist.  The two algebras are complementary exactly when this composite is unitary, as we show in the following theorem.
+
+\begin{theorem}[Complementarity via a unitary]
+\label{thm:complementarityunitary}
+  In a dagger symmetric monoidal category, two symmetric dagger-Frobenius algebras are complementary if and only if the composite \eqref{eq:generalizedcnot} is unitary.
+\end{theorem}
+\begin{proof}
+  Composing ~\eqref{eq:generalizedcnot} with its adjoint in one order, we obtain the following:
+\begin{equation}
+\label{eq:generalizedcnotunitaryproof}
+\input{tikz/3_complunitaryproof.tikz}
+\end{equation}
+  If the complementarity condition~\eqref{eq:complementarity} holds then this is clearly the identity on \mbox{$A \otimes A$}. The other composite can be shown to be the identity in a similar way, and so~\eqref{eq:generalizedcnot} is unitary.
+
+  Conversely, suppose~\eqref{eq:generalizedcnot} is unitary. Then the final expression of~\eqref{eq:generalizedcnotunitaryproof} certainly equals the identity on $A \otimes A$:
+\begin{equation}
+\input{tikz/3_unitary2.tikz}
+\end{equation}
+ Composing with the black counit at the top-left and the white unit at the bottom-right then gives back complementarity condition~\eqref{eq:complementarity} as required:
+\begin{equation}
+\input{tikz/3_unitary3.tikz}
+\end{equation}
+This completes the proof.
+\end{proof}
+
+\subsection{Families of unitary oracles}
+
+This pair of complementary observables automatically gives rise to a much larger family of unitaries, one for each self-conjugate comonoid homomorphism onto one of the classical structures in the pair. See equation~\eqref{eq:comonoidhomomorphismselfconjugate} for the definition of the self-conjugacy property. Lemma~\ref{lem:comonoidhomomorphismselfconjugate} demonstrated that in \cat{FHilb}, every comonoid homomorphism of classical structures is self-conjugate.
+\begin{defn}[Oracle]
+\label{oracle}
+In a symmetric monoidal dagger-category, given a dagger-Frobenius comonoid $\blackcomonoid{A}$, a pair of complementary symmetric dagger-Frobenius comonoids \graycomonoid{B} and \whitecomonoid{B}, and a self-conjugate comonoid homomorphism $f : \blackcomonoid{A} \to \graycomonoid{B}$, the \emph{oracle} is defined to be the following endomorphism of $A \otimes B$:
+\begin{equation}
+\label{eq:oracle}
+\input{tikz/3_oracle.tikz}
+\end{equation}
+\end{defn}
+
+\begin{theorem}
+\label{thm:familyofunitaries}
+Oracles are unitary.
+\end{theorem}
+\begin{proof}
+To demonstrate that the oracle \eqref{eq:oracle} is unitary, we must compose it with its adjoint on both sides and show that we get the identity in each case. In one case, we obtain the following, making use of the Frobenius laws, self-conjugacy of $f$, associativity and coassociativity, the fact that $f$ preserves comultiplication, the complementarity condition, the fact that $f$ preserves the counit, and the unit and counit laws:
+\begin{align*}
+\input{tikz/3_oracleproof.tikz}
+\end{align*}
+There is a similar argument that the other composite also gives the identity. \end{proof}
+
 \section{The Deutsch-Jozsa algorithm}
 The abstract structure of the Deutsch-Jozsa quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. This proof inspires new ways to implement the DJ algorithm, where Fourier transforms are replaced by more general Hadamard transformations, without effecting the algorithm. We investigate these new implementations numerically and analytically. {\bf Status:} undrafted, though the proof and numerical results have been completed.
 

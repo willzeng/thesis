@@ -1,0 +1,196 @@
+&\ud(A)
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=1.2*\tikzyscale]
+\node (A) at (0,2) {};
+\node (B) at (1.75,0) {};
+\node (b1) [blackdot] at (0,1) {};
+\node (w1) [whitedot] at (1,-1) {};
+\node (w2) [whitedot] at (1,-2) {};
+\node (b2) [blackdot] at (0,-4) {};
+\node (C) at (0,-5) {};
+\node (D) at (1.75,-5) {};
+\node (f1) [morphism, wedge] at (0.5,-3) {$f$};
+\node (f2) [morphism, wedge, hflip] at (0.5,0) {$f$};
+\draw (A.center) to (b1.center);
+\draw (b1.center) to [out=right, in=up] (f2.north);
+\draw (f2.south) to [out=down, in=left] (w1.center);
+\draw (w1.center) to (w2.center);
+\draw (w2.center) to [out=left, in=up] (f1.north);
+\draw (b2.center) to (C.center);
+\draw (w2.center) to [out=right, in=up] (1.5,-3 |- f1.north) to (1.5,-5);
+\draw (w1.center) to [out=right, in=down] (1.5,1 |- f2.south) to (1.5,2);
+\draw (b1.center) to [out=left, in=up] (-0.5,0 |- f2.north) to (-0.5,0 |- f1.south) to [out=down, in=left] (b2.center);
+\draw (f1.south) to [out=down, in=right] (b2.center);
+\end{tikzpicture}
+\end{aligned}
+=\,\,
+\ud(A)
+\hspace{-3pt}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.3*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f1) [morphism, wedge] at (0.5,-4) {$f$};
+\node (f2) [morphism, wedge, hflip] at (-0.5,-2) {$f$};
+\node (A) at (-2,0) {};
+\node (B) at (0.5,0) {};
+\node (w1) [whitedot] at (0.5,-2.0) {};
+\node (w2) [whitedot] at (1.0,-3) {};
+\node (w3) [whitedot] at (-0.125,-3) {};
+\node (b1) [blackdot] at (-1.5,-3) {};
+\node (b2) [blackdot] at (0,-5) {};
+\node (b3) [blackdot] at (-0.75,-1) {};
+\node (C) at (0,-6) {};
+\node (D) at (1.5,-6) {};
+\draw (A.center) to +(0,-1.5) to [out=down, in=left] (b1.center);
+\draw (w1.center) to [out=right, in=up] (w2.center);
+\draw (w2.center) to [out=left, in=up] (f1.north);
+\draw (f1.south) to [out=down, in=right] (b2.center);
+\draw (b2.center) to (C.center);
+\draw (w2.center) to [out=right, in=up] (D.center |- f1.north) to (D.center);
+\draw (w1.center) to [out=up, in=down] (B.center);
+\draw (b1.center) to [out=down, in=left] (b2.center);
+\draw (b1.center) to [out=right, in=left] (b3.center);
+\draw (f2.south) to [out=down, in=left] (w3.center);
+\draw (w3.center) to [out=right, in=left] (w1.center);
+\draw (b3.center) to [out=right, in=up] (f2.north);
+\end{tikzpicture}
+\end{aligned}
+=\,\,
+\ud(A)
+\hspace{-3pt}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.3*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f1) [morphism, wedge] at (0.5,-4) {$f$};
+\node (f2) [morphism, wedge] at (-1,-2) {$f$};
+\node (A) at (-2,0) {};
+\node (B) at (0.68,0) {};
+\node (w1) [whitedot] at (0.68,-2.0) {};
+\node (w2) [whitedot] at (1.0,-3) {};
+\node (w3) [whitedot] at (0.25,-3) {};
+\node (b1) [blackdot] at (-1.5,-3) {};
+\node (b2) [blackdot] at (0,-5) {};
+\node (b3) [graydot] at (-0.5,-1) {};
+\node (C) at (0,-6) {};
+\node (D) at (1.5,-6) {};
+\draw (A.center) to +(0,-1.5) to [out=down, in=left] (b1.center);
+\draw (w1.center) to [out=right, in=up] (w2.center);
+\draw (w2.center) to [out=left, in=up] (f1.north);
+\draw (f1.south) to [out=down, in=right] (b2.center);
+\draw (b2.center) to (C.center);
+\draw (w2.center) to [out=right, in=up] (D.center |- f1.north) to (D.center);
+\draw (w1.center) to [out=up, in=down] (B.center);
+\draw (b1.center) to [out=down, in=left] (b2.center);
+\draw (w3.center) to [out=left, in=right] (b3.center);
+\draw (f2.south) to [out=down, in=right] (b1.center);
+\draw (w3.center) to [out=right, in=left] (w1.center);
+\draw (b3.center) to [out=left, in=up] (f2.north);
+\end{tikzpicture}
+\end{aligned}
+\\
+&
+\hspace{2cm}
+= \,\,\ud(A)
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f1) [morphism, wedge] at (-0.25,-3) {$f$};
+\node (f2) [morphism, wedge] at (1.25,-3) {$f$};
+\node (A) at (-1,0) {};
+\node (B) at (1.5,0) {};
+\node (w1) [whitedot] at (1.5,-1.0) {};
+\node (w2) [whitedot] at (1.0,-2) {};
+\node (w3) [whitedot] at (0.5,-2.5) {};
+\node (b1) [blackdot] at (0.5,-4) {};
+\node (b2) [blackdot] at (0,-5) {};
+\node (b3) [graydot] at (0,-2) {};
+\node (C) at (0,-6) {};
+\node (D) at (2.25,-6) {};
+\draw (A.center) to [out=down, in=left, in looseness=0.59] (b2.center);
+\draw (w1.center) to [out=left, in=up] (w2.center);
+\draw (w2.center) to [out=right, in=up] (f2.north);
+\draw (b2.center) to (C.center);
+\draw (w1.center) to [out=right, in=up, out looseness=0.45] (D.center);
+\draw (w1.center) to [out=up, in=down] (B.center);
+\draw (b1.center) to [out=down, in=right] (b2.center);
+\draw (b1.center) to [out=left, in=down] (f1.south);
+\draw (b3.center) to [out=right, in=left] (w3.center);
+\draw (w2.center) to [out=left, in=right] (w3.center);
+\draw (f1.north) to [out=up, in=left] (b3.center);
+\draw (f2.south) to [out=down, in=right] (b1.center);
+\end{tikzpicture}
+\end{aligned}
+= \,\,\ud(A)
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge] at (0.5,-4) {$f$};
+\node (A) at (-0.5,0) {};
+\node (B) at (1.5,0) {};
+\node (w1) [whitedot] at (1.5,-1.0) {};
+\node (w2) [whitedot] at (1.0,-2) {};
+\node (w3) [whitedot] at (0.5,-2.5) {};
+\node (b1) [graydot] at (0.5,-3.25) {};
+\node (b2) [blackdot] at (0,-5) {};
+\node (b3) [graydot] at (0,-2) {};
+\node (C) at (0,-6) {};
+\node (D) at (2,-6) {};
+\draw (A.center) to +(0,-4) to [out=down, in=left] (b2.center);
+\draw (w1.center) to [out=left, in=up] (w2.center);
+\draw (w2.center) to [out=right, in=right] (b1.center);
+\draw (b2.center) to (C.center);
+\draw  (D.center) to +(0,4) to [out=up, in=right] (w1.center);
+\draw (w1.center) to [out=up, in=down] (B.center);
+\draw (b1.center) to [out=down, in=up] (f.north);
+\draw (f.south) to [out=down, in=right] (b2.center);
+\draw (b1.center) to [out=left, in=left] (b3.center);
+\draw (b3.center) to [out=right, in=left] (w3.center);
+\draw (w2.center) to [out=left, in=right] (w3.center);
+\end{tikzpicture}
+\end{aligned}
+\\
+&
+\hspace{2cm}
+=\hspace{5pt}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.2*\tikzyscale]
+\node (f) [morphism, wedge] at (0.5,-4) {$f$};
+\node (A) at (-0.5,0) {};
+\node (B) at (1.5,0) {};
+\node (w1) [whitedot] at (1.5,-1.0) {};
+\node (w2) [whitedot] at (1.0,-2) {};
+\node (b1) [graydot] at (0.5,-3) {};
+\node (b2) [blackdot] at (0,-5) {};
+\node (C) at (0,-6) {};
+\node (D) at (2,-6) {};
+\draw (A.center) to +(0,-4) to [out=down, in=left] (b2.center);
+\draw (w1.center) to [out=left, in=up] (w2.center);
+\draw (b2.center) to (C.center);
+\draw  (D.center) to +(0,4) to [out=up, in=right] (w1.center);
+\draw (w1.center) to [out=up, in=down] (B.center);
+\draw (b1.center) to [out=down, in=up] (f.north);
+\draw (f.south) to [out=down, in=right] (b2.center);
+\end{tikzpicture}
+\end{aligned}
+\hspace{5pt}=\hspace{5pt}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.2*\tikzyscale]
+\node (A) at (-0.5,0) {};
+\node (B) at (1.5,0) {};
+\node (w1) [whitedot] at (1.5,-1.0) {};
+\node (w2) [whitedot] at (1.0,-2) {};
+\node (b1) [blackdot] at (0.5,-4) {};
+\node (b2) [blackdot] at (0,-5) {};
+\node (C) at (0,-6) {};
+\node (D) at (2,-6) {};
+\draw (A.center) to +(0,-4) to [out=down, in=left] (b2.center);
+\draw (w1.center) to [out=left, in=up] (w2.center);
+\draw (b2.center) to (C.center);
+\draw  (D.center) to +(0,4) to [out=up, in=right] (w1.center);
+\draw (w1.center) to [out=up, in=down] (B.center);
+\draw (b1.center) to [out=down, in=right] (b2.center);
+\end{tikzpicture}
+\end{aligned}
+\hspace{5pt}=\hspace{5pt}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=1.2*\tikzyscale]
+\draw (0,0) to (0,6);
+\draw (1.5,0) to (1.5,6);
+\end{tikzpicture}
+\end{aligned}

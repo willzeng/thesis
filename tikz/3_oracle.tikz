@@ -1,0 +1,20 @@
+\sqrt{\ud(A)}
+\begin{pic}[xscale=1.8*\tikzxscale, yscale=1.5*\tikzyscale]
+    \node (dot) [blackdot] at (0,1) {};
+    \node (f) [morphism, wedge] at (0.7,2) {$f$};
+    \node (m) [whitedot] at (1.4,3) {};
+\draw (0,0.25)
+        node [below] {$A$}
+    to (0,1)
+    to [out=left, in=south] (-0.7,2)
+    to (-0.7,3.75)
+        node [above] {$A$};
+\draw (0,1)
+    to [out=right, in=south] (f.south);
+\draw  (f.north)
+    to [out=up, in=left] (1.4,3)
+    to [out=right, in=up] +(0.7,-1)
+    to (2.1,0.25)
+        node [below] {$B$};;
+\draw (m.center) to +(0,0.75) node [above] {$B$};
+\end{pic}

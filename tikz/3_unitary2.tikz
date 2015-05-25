@@ -1,0 +1,32 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.1*\tikzyscale]
+  \draw (0.5,-5) to (0.5,1);
+  \draw (-1.5,-5) to (-1.5,1);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.1*\tikzyscale]
+  \node at (-1.9,-3.1) {$\ud (A)$};  
+  \node (A) at (-1,0) {};
+  \node (B) at (1.5,0) {};
+  \node (w1) [whitedot] at (1.5,-1.0) {};
+  \node (w2) [whitedot] at (1.0,-2) {};
+  \node (w3) [whitedot] at (0.5,-3) {};
+  \node (b1) [graydot] at (0.5,-4) {};
+  \node (b2) [graydot] at (0,-5) {};
+  \node (b3) [graydot] at (0,-2) {};
+  \node (C) at (0,-6) {};
+  \node (D) at (2.5,-6) {};
+  \draw (A.center) to [out=down, in=left, in looseness=0.6] (b2.center);
+  \draw (w1.center) to [out=left, in=up] (w2.center);
+  \draw (w2.center) to [out=right, in=right] (b1.center);
+  \draw (b2.center) to (C.center);
+  \draw (w1.center) to [out=right, in=up, out looseness=0.6] (D.center);
+  \draw (w1.center) to [out=up, in=down] (B.center);
+  \draw (b1.center) to [out=down, in=right] (b2.center);
+  \draw (b1.center) to [out=left, in=left] (b3.center);
+  \draw (b3.center) to [out=right, in=left] (w3.center);
+  \draw (w2.center) to [out=left, in=right] (w3.center);
+\end{tikzpicture}
+\end{aligned}
