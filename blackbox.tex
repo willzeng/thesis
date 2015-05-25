@@ -2,7 +2,7 @@
 
 \todo{\chapabstract{}}
 
-\section{The abstract structure of unitary oracles}
+\section{\color{blue} The abstract structure of unitary oracles}
 
 
 \subsection{Complementarity via unitarity}
@@ -78,7 +78,148 @@ For completeness, we summarize the results of \cite{vicary-tqa}, where the singl
 Similarly, we abstractly demonstrate the function of the hidden subgroup algorithm, which leads us to conjecture that a speedup is possible by altering an input query representation. {\bf Status:} undrafted.
 
 \section{\color{blue} The group homomorphism identification algorithm}
-We present a new quantum algorithm for the identification of group homomorphisms into abelian groups. {\bf Status:} DRAFTED.
+
+\subsection{The problem}
+
+In this section we construct a new deterministic quantum algorithm to identify  group homomorphisms.  
+\begin{defn}[Group homomorphism identification problem]
+Given finite groups $G$ and $A$ where $A$ is abelian, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, identify the homomorphism $f$.
+\end{defn}
+
+\noindent
+We will define a quantum algorithm that solves the group homomorphism identification problem with a number of queries equal to the number of simple factors of the abelian group $A$.
+
+For comparison, we can consider the obvious classical algorithm for this problem.
+\begin{lemma}
+Given finite groups $G$ and $A$, where $A$ is abelian and $G$ has a generating set of order $m$, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, a classical algorithm can determine $f$ with $m$ oracle queries.
+\end{lemma}
+\begin{proof}
+Once we have evaluated $f$ classically on the generating set of $G$, we have fully characterized~$f$. 
+\end{proof}
+
+\noindent
+We are unable to prove optimality in either the quantum or classical case. However, we note that the query complexities of these quantum and classical algorithms depend of different and unrelated parameters of the problem. Instances where the order of the generating set of $G$ is larger than the number of factors in the target group $A$ will demonstrate a quantum advantage. 
+
+In  the simpler case where $G$ is an abelian group this quantum algorithm was previously described by H\o yer \cite{hoyer1999conjugated}, though his algebraic presentation differs significantly from ours. H\o yer also notes that the algorithm by Bernstein and Vazirani in~\cite{bernstein1993quantum} is an instance of the abelian group identification problem where $G=\mathbb{Z}_n^n$ and $A=\mathbb{Z}_2$. Independently, Cleve et. al.~\cite{cleve1998quantum} also presented an algorithm for the abelian case where $G=\mathbb{Z}_2^n$ and $A=\mathbb{Z}_2^m$.
+
+%Our results give a new approach to the solution of the group homomorphism identification problem that both extends the existing results to the case where $G$ is non-abelian, and clearly connects the structure of our algorithm to that of other black-box quantum algorithms, such as the Deutsch-Jozsa and hidden subgroup algorithms.
+
+We will proceed using the abstract structure defined earlier, but will now work in the dagger-symmetric monoidal category {\bf FHilb}. Any choice of orthonormal basis for  an object $A$ in {\bf FHilb} endows it with a dagger-Frobenius algebra $(A,\tinymult[blackdot],\tinyunit[blackdot])$, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as~$(A, \tinymult[whitedot], \tinyunit[whitedot])$. These two Frobenius algebras are complementary.
+
+\def\Mat{\mathrm{Mat}}
+In the case that $G$ is finite, its representations can be characterized as the homomorphisms \mbox{$G \sxto \rho \mbox{Mat}(n)$}. The homomorphism conditions take the following form~\cite[Section~A.7]{vicary-tqa}:
+\begin{calign}
+\label{eq:rhocopied}
+\input{tikz/3_multidimReps.tikz}
+\end{calign}
+These will be essential for our proofs below.
+
+\subsection{The algorithm}
+
+The structure of the quantum algorithm that solves the group homomorphism identification problem is given by the topological diagram~\eqref{eq:theAlg} below. Here $\sigma:G\to\mathbb{C}$ is a normalized irreducible representation of $G$, representing the result of the measurement, and $\rho:A\to\mathbb{C}$ is a normalized irreducible representation of $A$. The representation $\rho$ is one-dimensional as $A$ is an abelian group. Physically, we are able to produce the input  state $\rho$ efficiently, using $O(\log n)$ time steps, via the quantum Fourier transform for any finite abelian group~\cite{cleve2000fast}. The measurement  result $\sigma$ arises from  a measurement in the Fourier basis, which can, by a similar procedure for any finite group~\cite{childs2010quantum}, also be implemented efficiently.
+\begin{align}
+\label{eq:theAlg}
+\input{tikz/3_groupidalg.tikz}
+\end{align}
+
+We can compare the structure of this algorithm to that of the standard quantum algorithm for the hidden subgroup problem. There, the second system is prepared in a state given by the identity element of the group, corresponding to a uniform linear combination of the irreducible representations.  A later measurement of this second system---which is not a part of the standard hidden subgroup algorithm, but can be done without changing the result of the procedure---would collapse this combination to a classical mixture of these representations. The hidden subgroup algorithm therefore contains an amount of classical nondeterminism in its initial setup. In principle removing this, and selecting the input representation strategically, can only improve performance, and we take advantage of this here.
+
+We analyze the effect of our new algorithm as follows.
+\begin{lemma}
+The algorithm defined by~\eqref{eq:theAlg} gives output $\sigma$ with probability given by the square norm of~$\sigma\circ f^*\circ\rho^*$.
+\end{lemma}
+\begin{proof}
+Using that $\rho$ is a group homomorphism and simple diagrammatic rewrites defined in~\cite[Section~A.9]{vicary-tqa},
+ we show the following, making use of the fact that representations are copyable points for group multiplication:
+\begin{align}
+\label{simplifyAlg}
+\input{tikz/3_simplifygroupIDalg.tikz}
+\end{align}
+The left hand system is thus in the state $\sigma\circ f^*\circ\rho^*$, and using the Born rule, the squared norm of this state gives the probability of this experimental outcome.
+\end{proof}
+
+\begin{lemma}\label{lem:irrep}
+The composite $\rho\circ f$ is an irreducible representation of $G$.
+\end{lemma}
+\begin{proof}
+The map $f$ is a homomorphism, so $\rho\circ f:G\to\mathbb{C}$ is a one-dimensional representation of $G$. All one-dimensional representations are irreducible, so $\rho\circ f$ is an irreducible representation.
+\end{proof}
+
+% \begin{lemma}
+% The fundamental representation of a group is a monomorphism.
+% \end{lemma}
+
+\begin{lemma}
+\label{lem:equaliso}
+One-dimensional representations are equivalent only if they are equal.
+\end{lemma}
+\begin{proof}
+Let $\rho_1,\rho_2:G\to \mathbb{C}$ be irreducible representations of $G$. If they are isomorphic, then there exists a linear map $\mathcal{L}:\mathbb{C}\to\mathbb{C}$, i.e. some complex number, such that $\forall g\in G$
+$$\mathcal{L}\rho_1(g) = \rho_2(g)\mathcal{L}.$$
+Hence we see that $\forall g\in G$, $\rho_1(g) = \rho_2(g)$.
+\end{proof}
+
+\begin{theorem}[Structure theorem for finite abelian groups]
+\label{thm:structure}
+Every finite abelian group is isomorphic to a direct product of cyclic groups of prime power order.
+\end{theorem}
+\begin{proof}
+See~\cite[Theorem 6.4]{artin-algebra} for a proof of this standard result.
+\end{proof}
+
+\begin{theorem}\label{rightCyclic}
+For a finite group $G$ and cyclic group of prime power order $\mathbb{Z}_{p^n}$, the algorithm~\eqref{eq:theAlg} identifies a group homomorphism $f:G\to \mathbb{Z}_{p^n}$ in a single query.
+\end{theorem}
+\begin{proof}
+Choose the input representation $\rho$ to be the fundamental representation of $\mathbb{Z}_{p^n}$. This representation is faithful.  This means exactly that 
+\[ \rho\circ f = \rho\circ f' \qquad \Leftrightarrow \qquad f=f'. \]
+Thus $\rho\circ f$ and $\rho\circ f'$ are different irreducible representations if and only if$f$ and $f'$ are different group homomorphisms.  The single measurement on the state $(\rho\circ f)^*$ is performed by the algorithm in the representation basis of $G$, allowing us to determine $\rho\circ f$ up to isomorphism. Due to Lemma~\ref{lem:equaliso} we know that each equivalence class contains only one representative, and thus we can determine $f$ with a single query.
+\end{proof}
+
+\begin{theorem}\label{thm:intoAbThm}
+For any two finite groups $G$ and $A$, where $A$ is abelian with $n$ simple factors, the quantum algorithm~\eqref{eq:theAlg} can identify a group homomorphism $f:G \to A$ with $n$ oracle queries.
+\end{theorem}
+\begin{proof}
+We prove the result by induction. 
+\newline\newline
+\noindent{\bf Base case.} When $A=\mathbb{Z}_{p^n}$ is simple, then by Theorem~\ref{rightCyclic} we can identify the homomorphism with a single query.
+\newline\newline
+\noindent{\bf Inductive step.} If $A$ is not simple, then we must have $A=H_1\times H_2$ by Theorem~\ref{thm:structure}, where the following hold:
+\begin{enumerate}
+
+\item The product $\times$ is the direct product whose projectors ($p_1,p_2$) are homomorphisms.
+
+\item  $H_1$ and $H_2$ are groups with $n_1$ and $n_2$ factors respectively such  that the theorem holds, i.e. homomorphisms of the type $f_{1}:G\to H_1$ and $f_{2}:G\to H_2$  can be identified in $n_1$ and $n_2$ queries respectively.
+
+\end{enumerate} 
+Since $p_1\circ f$ and $p_2\circ f$ are homomorphisms, we can run subroutines of the algorithm to determine them. Hence we recover $f$ as
+\begin{align*}
+f(x) = ( (p_1\circ f)(x),(p_2\circ f)(x) ).
+\end{align*}
+The first subroutine will require $n_1$ queries and the second will require $n_2$ queries, so the total number of queries will be $n_1+n_2$, which is the number of factors of $H_1\times H_2$.
+\end{proof}
+
+\ignore{In practice we run the algorithm once on each $k$-th factor of $A$ to determine homomorphisms 
+\[ p_k\circ f = f_k:G\to H_k \]
+We then know $f$ as 
+\begin{align*}
+f(n_0,n_1,...n_{n-1}) = \left(f_0(n_0), f_1(n_1),..., f_{n-1}(n_{n-1})\right)
+\end{align*}
+we know that each isomorphic class contains only one representation}
+
+\todo{\subsection{Optimality}}
+
+\subsection{Extension to the non-abelian case}
+We now consider the more general case where the target group $A$ is non-abelian. We do not know how to extend the algorithm described above to this case.  Nevertheless, it is instructive to analyze this scenario in our graphical approach. 
+
+Irreducible representations of a non-abelian group $A$ are not necessarily one dimensional, though we are still able to compute them via the Fourier transform efficiently \cite{childs2010quantum}. In this case the algorithm has the following structure, where $\psi$ represents the initial state of the right-hand system in the representation space:
+\begin{equation}
+\label{eq:NonAbAlg}
+\input{tikz/3_nonAbGroupIDalg.tikz}
+\end{equation}
+We notice two additional features in this case. First, it is clear that the left and right systems are no longer in a product state at the end of the protocol, as they were in the final diagram of \eqref{simplifyAlg}. Second, we now have an additional choice when preparing the input representation $\rho$; in order to construct a state from a representation $\rho$ we also must choose the state $\psi$.
+
+While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \emph{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
 
 \section{\color{blue} The hidden shift problem}
 {\bf Status:} UNDRAFTED.

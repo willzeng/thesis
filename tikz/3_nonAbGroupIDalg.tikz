@@ -1,0 +1,37 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw [use as bounding box, draw=none] (-0.3,-0.3) rectangle +(3.45,4.55);
+\node (f) [morphism, wedge] at (1.25,2) {$f$};
+\node (topsig) [morphism, wedge] at (0,3.5) {$\sigma$};
+\node (r) at (2.5,0.75) [morphism, wedge, hflip] {$\rho$};
+\draw (f.south) to [out=down, in=right] +(-0.625,-0.5) node (b) [blackdot] {} to [out=left, in=down] +(-0.625, 0.5) to (s.south);
+\draw (b.center) to +(0,-0.5) node [blackdot] {} node [anchor=east] {$\frac {1} {\sqrt{G}}$};
+\draw ([xshift=4pt] s.north) to +(0,0.5);
+\draw ([xshift=-4pt] s.north) to +(0,0.5);
+\draw (f.north) to [out=up, in=left] +(0.625,0.5) node (w) [whitedot] {} to [out=right, in=up] +(0.625,-0.5) to (r.north);
+\draw (w.center) to +(0,1.5);
+\draw ([xshift=4pt] r.south) to +(0,-0.3);
+\draw ([xshift=-4pt] r.south) to +(0,-0.3);
+\node [morphism, wedge, anchor=north] at ([yshift=-0.3cm] r.south) {$\psi$};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw [use as bounding box, draw=none] (-0.3,-0.3) rectangle +(3.45,4.55);
+\node (s) [morphism, wedge] at (0,3.5) {$\sigma$};
+\node (f) [morphism, wedge] at (1.25,1.2) {$f$}; 
+\node (r) at (1.25, 2.15) [morphism, wedge] {$\rho$};
+\node (r2) at (2.5,3.5) [morphism, wedge, hflip] {$\rho$};
+\draw (r2.north) to +(0,0.5);
+\draw ([xshift=4pt] s.north) to +(0,0.5);
+\draw ([xshift=-4pt] s.north) to +(0,0.5);
+\draw (r.south) to (f.north);
+\draw (f.south) to [out=down, in=right] +(-0.625,-0.5) node (b) [blackdot] {} to [out=left, in=down] +(-0.625, 0.5) to (s.south);
+\draw (b.center) to +(0,-0.5) node [blackdot] {};
+\node (psi) [morphism, wedge, anchor=north] at (2.5,0.2) {$\psi$};
+\draw ([xshift=4pt] psi.north) to ([xshift=4pt] r2.south);
+\draw ([xshift=-4pt] psi.north) to ([xshift=-4pt] r.north -| r2.south) to [out=up, in=up] ([xshift=4pt] r.north);
+\draw ([xshift=-4pt] r.north) to [out looseness=1.3, out=up, in=down, in looseness=0.8] ([xshift=-4pt] r2.south);
+\end{tikzpicture}
+\end{aligned}

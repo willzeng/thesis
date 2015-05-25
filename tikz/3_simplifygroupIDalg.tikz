@@ -1,0 +1,45 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw [use as bounding box, draw=none] (-0.3,0.6) rectangle +(3.45,3.7);
+    \node (f) [morphism, wedge] at (1.25,2) {$f$};
+    \node (s) [morphism, wedge] at (0,3.5) {$\sigma$};
+\node (r) at (2.5,0.75) [morphism, wedge, hflip] {$\rho$};
+\draw (f.south) to [out=down, in=right] +(-0.625,-0.5) node (b) [blackdot] {} to [out=left, in=down] +(-0.625, 0.5) to (s.south);
+\draw (b.center) to +(0,-0.5) node [blackdot] {};
+\draw ([xshift=4pt] s.north) to +(0,0.5);
+\draw ([xshift=-4pt] s.north) to +(0,0.5);
+\draw (f.north) to [out=up, in=left] +(0.625,0.5) node (w) [whitedot] {} to [out=right, in=up] +(0.625,-0.5) to (r.north);
+\draw (w.center) to +(0,1.5);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw [use as bounding box, draw=none] (-0.3,0.6) rectangle +(3.45,3.7);
+\node (s) [morphism, wedge] at (0,3.5) {$\sigma$};
+\node (f) [morphism, wedge] at (1.25,2) {$f$}; 
+\node (r) at (1.25, 3) [morphism, wedge] {$\rho$};
+\node (r2) at (2.5,3.5) [morphism, wedge, hflip] {$\rho$};
+\draw (r2.north) to +(0,0.5);
+\draw ([xshift=4pt] s.north) to +(0,0.5);
+\draw ([xshift=-4pt] s.north) to +(0,0.5);
+\draw (r.south) to (f.north);
+\draw (f.south) to [out=down, in=right] +(-0.625,-0.5) node (b) [blackdot] {} to [out=left, in=down] +(-0.625, 0.5) to (s.south);
+\draw (b.center) to +(0,-0.5) node [blackdot] {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw [use as bounding box, draw=none] (-0.66,0.6) rectangle +(2.75,3.7);
+\node (r) [morphism, wedge, hflip, vflip] at (0,1.5) {$\rho$};
+\node (s) [morphism, wedge] at (0,3.5) {$\sigma$};
+\node (f) [morphism, wedge, hflip, vflip] at (0,2.5) {$f$};
+\node (r2) at (1.5,3.5) [morphism, wedge, hflip] {$\rho$};
+\draw ([xshift=4pt] s.north) to +(0,0.5);
+\draw ([xshift=-4pt] s.north) to +(0,0.5);
+\draw (s.south) to (f.north);
+\draw (f.south) to (r.north);
+\draw (r2.north) to +(0,0.5);
+\end{tikzpicture}
+\end{aligned}
