@@ -1,0 +1,27 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\node [morphism] (f) at (2,1) {$f$};
+\draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
+\draw (1,2) to [out=right, in=up] (f.north);
+\draw (f.south) to [out=down, in=left] (3,-0.7) node [blackdot] {} to [out=right, in=down, out looseness=0.9] (4,3);
+\draw (3,-0.7) to (3,-1.2) node [blackdot] {};
+\node [graydot] at (1,2) {};
+\node at (0,-1.25) {\small $(g,n)$};
+\node at (-0.25,1.5) {\small $(g,n)$};
+\node at (1,3) {\small $\langle\bigcup_n(\mbox{id}_G,n)|$};
+\node at (2.5,1.7) {\small $(g^{-1},n)$};
+\node at (2.1,-0.15) {\small $f^{-1}(g^{-1},n)$};
+\node at (4.3,0) {\small $\left[f^{-1}(g^{-1},n)\right]^{-1}$};
+\node at (3,-1.7) {\small $\langle\bigcup_{n'}(\mbox{id}_H,n')|$};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[string]
+\node (f) at (0,0) [morphism] {$f^{-1}$};
+\draw (0,-1.5) to (f.south);
+\draw (f.north) to (0,1.5);
+\node at (0,-2) {\small $(g,n)$};
+\node at (0,2) {\small $f^{-1}(g,n)$};
+\end{tikzpicture}
+\end{aligned}

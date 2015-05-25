@@ -1,0 +1,30 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$R$};
+\end{pgfonlayer}
+    \node (dot) [blackdot] at (0,1) {};
+    \node (m) [whitedot] at ([xshift=0.7cm, yshift=1cm] f.north) {};
+\draw (0,-0.25)
+        node [blackdot] (bdot) {}
+    to (0,1)
+    to [out=\nwangle, in=south] (-0.7,2)
+    to ([yshift=1.4cm] m.center -| -0.7,1)
+        node (rho) [smallbox] {$\rho$};
+\draw (0,1)
+    to [out=\neangle, in=south] (f.south)
+    to (f.north)
+    to [out=up, in=\swangle] +(0.7,1)
+    to [out=\seangle, in=up] +(0.7,-1)
+    to (2.1,-0.25)
+        node [smallbox] (sigmadag) {$\sigma$};
+\draw (m.center) to (1.4,5.75)
+        node [above] {};
+\node [smallbox] at (-0.7,3.5) {$D$};
+\node at (3.5,-0.25) [anchor=west] {\textit{Preparation}};
+\draw [thin, dashed] (-2,0.5) to (7,0.5);
+\node at (3.5,2.25) [anchor=west] {\textit{Dynamics}};
+\draw [thin, dashed] (-2,4.4) to (7,4.4);
+\node at (3.5,5) [anchor=west] {\textit{Measurement}};
+\end{tikzpicture}
+\end{aligned}

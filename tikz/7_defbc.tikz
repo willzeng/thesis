@@ -1,0 +1,28 @@
+\label{eq:bc}
+\mbox{\\ constant}:\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\node (f) [morphism] at (0,0) {$f$};
+\draw (0,-1) to (f.south);
+\draw (f.north) to (0,1);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw (0,-1) to (0,-.4)
+    node [blackdot] {};
+\draw (0,0.5) node [state] {$x$} to (0,1);
+\end{tikzpicture}
+\end{aligned}
+\qquad\qquad\qquad \mbox{balanced:\quad}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\node [morphism] (f) at (0,0) {$f$};
+\draw (0,-0.85) node [blackdot] {} to (f.south);
+\draw (f.north) to (0,0.75) node [graydot, hflip] {};
+\node at (0.05,0.75) [anchor=west] {$2$};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+0,

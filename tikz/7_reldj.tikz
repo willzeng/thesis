@@ -1,0 +1,28 @@
+\begin{pic}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+    \node (dot) [blackdot] at (0,1) {};
+    \node (f) [morphism] at (0.7,2) {$f$};
+    \node (m) [whitedot] at (1.4,3) {};
+\draw (0,0.25)
+        node [blackdot] {}
+    to (0,1)
+    to [out=left, in=south] (-0.7,2)
+    to (-0.7,3.75)
+        node [blackdot] {};
+\draw (0,1)
+    to [out=right, in=south] (f.south);
+\draw  (f.north)
+    to [out=up, in=left] (1.4,3)
+    to [out=right, in=up] +(0.7,-1)
+    to (2.1,0.25)
+        node [graydot] {};
+\node at (2.15,0.25) [anchor=west] {$|H^B_1\rangle$};
+\node at (0.05,0.25) [anchor=west] {$|H^A_0\rangle$};
+\node at (-0.65,3.75) [anchor=west] {$\langle H^A_0|$};
+\draw (m.center) to +(0,0.75)
+        node [above] {};
+\draw [thin, dashed] (-1.25,0.7) to (7.5,0.7);
+\draw [thin, dashed] (-1.25,3.3) to (7.5,3.3);
+\node at (4,0) [anchor=west] {Prepare initial states};
+\node at (4,2) [anchor=west] {Apply a unitary map};
+\node at (4,4) [anchor=west] {Measure the first system};
+\end{pic}

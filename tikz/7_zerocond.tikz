@@ -1,0 +1,13 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw (0,0) node [smallbox] {$\rho$} to (0,1.25) node [smallbox] {$R$} to (0,2.5) node [smallbox] {$\sigma$};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw (0,0) node [blackdot] {} to (0,1.25) node [smallbox] {$R$} to (0,2.5) node [smallbox] {$\sigma$};
+\node [smallbox, draw=white, fill=none] at (0,0) {};
+\draw (0,0) to (0,0.5);
+\end{tikzpicture}
+\end{aligned}

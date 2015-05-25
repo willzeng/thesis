@@ -1,4 +1,4 @@
-\chapter{Models of quantum algorithms in sets and relations}
+\chapter{\color{blue} Models of quantum algorithms in sets and relations}
 
 \begin{chapabstract}
         In this paper we construct abstract models of blackbox quantum algorithms using a model of quantum computation in sets and relations, a setting that is usually considered as a model for nondeterministic classical computation.  This work provides an alternative model of quantum computation (QCRel) that, though unphysical, nevertheless faithfully models its computational structure.  Our main results are models of the Deutsch-Jozsa, single-shot Grovers, and GroupHomID algorithms in QCRel. These models provide new tools to analyze the semantics of quantum computation and improve our understanding of the relationship between computational speedups and the structure of physical theories. They also exemplify a method of extending physical/computational intuition into new mathematical settings.
@@ -288,32 +288,7 @@ We then dualize the proof of Lemma \ref{lem:mongrphom} to conclude that:
 \label{lem:classicalRelation}
 For a functor $F:H\to G$ such that $F^{\mbox{\tiny op}}$ is a groupoid homomorphism that is surjective on objects, $F$ defines a comonoid homomorphism relation.
 \end{lemma}
-\noindent We call these comonoid homomorphism relations \emph{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples\footnote{These examples were generated with Mathematica code that is available at https://github.com/willzeng/GroupoidHomRelations} in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we will also need these relations to be self-conjugate:
-
-\begin{defn}
-In a monoidal dagger-category, a comonoid homomorphism \newline $f:\blackcomonoid{A} \to \graycomonoid{B}$ between dagger-Frobenius comonoids is \emph{self-conjugate} when the following property holds:
-\begin{equation}
-\label{eq:comonoidhomomorphismselfconjugate}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\node [morphism] (f) at (2,1) {$f$};
-\draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
-\draw (1,2) to [out=right, in=up] (f.north);
-\draw (f.south) to [out=down, in=left] (3,0) node [blackdot] {} to [out=right, in=down, out looseness=0.9] (4,3);
-\draw (3,0) to (3,-0.5) node [blackdot] {};
-\node [graydot] at (1,2) {};
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\begin{aligned}
-\begin{tikzpicture}[string]
-\node (f) at (0,0) [morphism] {$f^{\dagger}$};
-\draw (0,-1.5) to (f.south);
-\draw (f.north) to (0,1.5);
-\end{tikzpicture}
-\end{aligned}
-\end{equation}
-\end{defn}
+\noindent We call these comonoid homomorphism relations \emph{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples\footnote{These examples were generated with Mathematica code that is available at https://github.com/willzeng/GroupoidHomRelations} in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we will also need these relations to be self-conjugate by Definition \ref{def:selfconj}.
 
 \begin{lemma}
 All classical relations $f:Z^A\to Z^B$ between groupoids $Z^A=\bigoplus^NG^B$ and $Z^B=\bigoplus^{N'}G^B$ are self-conjugate.
@@ -321,33 +296,7 @@ All classical relations $f:Z^A\to Z^B$ between groupoids $Z^A=\bigoplus^NG^B$ an
 \begin{proof}
 In QCRel, our dagger-Frobenius structures are groupoids and, if they are complementary to some other groupoid, then they are of the form $Z^A=\bigoplus^NG$ and $Z^B=\bigoplus^{N'}H$. We annotate the definition of self-conjugacy for some arbitrary element $(g,n)$, the element $g$ from the $n$-th group:
 \begin{equation}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\node [morphism] (f) at (2,1) {$f$};
-\draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
-\draw (1,2) to [out=right, in=up] (f.north);
-\draw (f.south) to [out=down, in=left] (3,-0.7) node [blackdot] {} to [out=right, in=down, out looseness=0.9] (4,3);
-\draw (3,-0.7) to (3,-1.2) node [blackdot] {};
-\node [graydot] at (1,2) {};
-\node at (0,-1.25) {\small $(g,n)$};
-\node at (-0.25,1.5) {\small $(g,n)$};
-\node at (1,3) {\small $\langle\bigcup_n(\mbox{id}_G,n)|$};
-\node at (2.5,1.7) {\small $(g^{-1},n)$};
-\node at (2.1,-0.15) {\small $f^{-1}(g^{-1},n)$};
-\node at (4.3,0) {\small $\left[f^{-1}(g^{-1},n)\right]^{-1}$};
-\node at (3,-1.7) {\small $\langle\bigcup_{n'}(\mbox{id}_H,n')|$};
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\begin{aligned}
-\begin{tikzpicture}[string]
-\node (f) at (0,0) [morphism] {$f^{-1}$};
-\draw (0,-1.5) to (f.south);
-\draw (f.north) to (0,1.5);
-\node at (0,-2) {\small $(g,n)$};
-\node at (0,2) {\small $f^{-1}(g,n)$};
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/7_selfconj.tikz}
 \end{equation}
 Thus, a relation is self-conjugate if and only if for all elements $(g,n)$ it is the case that $[f^{-1}(g^{-1},n)]^{-1}=f^{-1}(g,n)$. From Lemma \ref{lem:classicalRelation} the inverse of the classical relation $f$ is a groupoid homomorphism, so this condition will hold.
 \end{proof}
@@ -358,28 +307,8 @@ Classical relations, as self-conjugate comonoid homomorphisms, will allow us to 
 \label{oracle}
 Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B:\graycomonoid{B}$ and $X^B:\whitecomonoid{B}$, and a classical relation $R : \blackcomonoid{A} \to \graycomonoid{B}$, an \emph{oracle} is defined to be the following endomorphism of $A \times B$:
 \begin{equation}
-\label{eq:oracle}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-    \node (dot) [blackdot] at (0,1) {};
-    \node (f) [morphism] at (0.7,2) {$R$};
-    \node (m) [whitedot] at (1.4,3) {};
-\draw (0,0.25)
-        node [below] {$A$}
-    to (0,1)
-    to [out=left, in=south] (-0.7,2)
-    to (-0.7,3.75)
-        node [above] {$A$};
-\draw (0,1)
-    to [out=right, in=south] (f.south);
-\draw  (f.north)
-    to [out=up, in=left] (1.4,3)
-    to [out=right, in=up] +(0.7,-1)
-    to (2.1,0.25)
-        node [below] {$B$};;
-\draw (m.center) to +(0,0.75) node [above] {$B$};
-\end{tikzpicture}
-\end{aligned}
+\label{eq:reloracle}
+\input{tikz/7_reloracle.tikz}
 \end{equation}
 \end{defn}
 
@@ -437,7 +366,7 @@ To run this algorithm in QCRel we use two systems.  System $A$ has cardinality $
 
 \item Apply the Fourier transform, as given by Definition \ref{def:FTRel}, to each system, resulting in states $\ket{H_0^A}$ and $\ket{H_1^B}$ respectively.
 
-\item Apply an oracle from Equation \ref{eq:oracle}, built from a classical relation $f:Z^A\to Z^B$.
+\item Apply an oracle from Equation \ref{eq:reloracle}, built from a classical relation $f:Z^A\to Z^B$.
 
 \item Again apply the Fourier transform to system $A$ and then measure it in the $Z$ basis.
 \end{enumerate}
@@ -447,70 +376,14 @@ To run this algorithm in QCRel we use two systems.  System $A$ has cardinality $
 
 \begin{equation}
 \label{eq:reldj}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-    \node (dot) [blackdot] at (0,1) {};
-    \node (f) [morphism] at (0.7,2) {$f$};
-    \node (m) [whitedot] at (1.4,3) {};
-\draw (0,0.25)
-        node [blackdot] {}
-    to (0,1)
-    to [out=left, in=south] (-0.7,2)
-    to (-0.7,3.75)
-        node [blackdot] {};
-\draw (0,1)
-    to [out=right, in=south] (f.south);
-\draw  (f.north)
-    to [out=up, in=left] (1.4,3)
-    to [out=right, in=up] +(0.7,-1)
-    to (2.1,0.25)
-        node [graydot] {};
-\node at (2.15,0.25) [anchor=west] {$|H^B_1\rangle$};
-\node at (0.05,0.25) [anchor=west] {$|H^A_0\rangle$};
-\node at (-0.65,3.75) [anchor=west] {$\langle H^A_0|$};
-\draw (m.center) to +(0,0.75)
-        node [above] {};
-\draw [thin, dashed] (-1.25,0.7) to (7.5,0.7);
-\draw [thin, dashed] (-1.25,3.3) to (7.5,3.3);
-\node at (4,0) [anchor=west] {Prepare initial states};
-\node at (4,2) [anchor=west] {Apply a unitary map};
-\node at (4,4) [anchor=west] {Measure the first system};
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/7_reldj.tikz}
 \end{equation}
 
 \begin{theorem}[\cite{vicary-tqa}]
 \label{def:bc}
 In any dagger compact category with complementary observables, the algorithm in Equation \ref{eq:reldj} will, with a single oracle query, distinguish \emph{constant} and \emph{balanced} classical relations $f:Z^A\to Z^B$ according to the following abstract definitions:
 \begin{equation}
-\label{eq:bc}
-\mbox{\\ constant}:\quad
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\node (f) [morphism] at (0,0) {$f$};
-\draw (0,-1) to (f.south);
-\draw (f.north) to (0,1);
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\draw (0,-1) to (0,-.4)
-    node [blackdot] {};
-\draw (0,0.5) node [state] {$x$} to (0,1);
-\end{tikzpicture}
-\end{aligned}
-\qquad\qquad\qquad \mbox{balanced:\quad}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\node [morphism] (f) at (0,0) {$f$};
-\draw (0,-0.85) node [blackdot] {} to (f.south);
-\draw (f.north) to (0,0.75) node [graydot, hflip] {};
-\node at (0.05,0.75) [anchor=west] {$2$};
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-0,
+\input{tikz/7_defbc.tikz}
 \end{equation}
 where \begin{tikzpicture}[string]
 \draw (f.north) to (0,0.75) node [graydot, hflip] {};
@@ -535,7 +408,6 @@ $X^A = \mathbb{Z}_2\oplus\mathbb{Z}_2 \mbox{~~s.t.}$ & $X^B = \mathbb{Z}_2\oplus
 $H_0^A=\{0,2\},H_1^A=\{1,3\}$ & $H_0^B=\{a,c\},H_1^B=\{b,d\}$ \\ \hline
 \end{tabular}
 \end{align*}
-
 
 From Equation \ref{eq:bc}, we then define constant and balanced classical relations using the following dictionary:
 \begin{align}
@@ -626,61 +498,14 @@ In QCRel, the algorithm proceeds by the following steps:
 The diagrammatic presentation for this procedure from \cite{vicary-tqa} is:
 \begin{equation}
 \label{eq:grovertopological}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\begin{pgfonlayer}{foreground}
-    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$R$};
-\end{pgfonlayer}
-    \node (dot) [blackdot] at (0,1) {};
-    \node (m) [whitedot] at ([xshift=0.7cm, yshift=1cm] f.north) {};
-\draw (0,-0.25)
-        node [blackdot] (bdot) {}
-    to (0,1)
-    to [out=\nwangle, in=south] (-0.7,2)
-    to ([yshift=1.4cm] m.center -| -0.7,1)
-        node (rho) [smallbox] {$\rho$};
-\draw (0,1)
-    to [out=\neangle, in=south] (f.south)
-    to (f.north)
-    to [out=up, in=\swangle] +(0.7,1)
-    to [out=\seangle, in=up] +(0.7,-1)
-    to (2.1,-0.25)
-        node [smallbox] (sigmadag) {$\sigma$};
-\draw (m.center) to (1.4,5.75)
-        node [above] {};
-\node [smallbox] at (-0.7,3.5) {$D$};
-\node at (3.5,-0.25) [anchor=west] {\textit{Preparation}};
-\draw [thin, dashed] (-2,0.5) to (7,0.5);
-\node at (3.5,2.25) [anchor=west] {\textit{Dynamics}};
-\draw [thin, dashed] (-2,4.4) to (7,4.4);
-\node at (3.5,5) [anchor=west] {\textit{Measurement}};
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/7_grovertop.tikz}
 \end{equation}
 where numerical scalars have been dropped as there is only one non-zero scalar in QCRel.
 
 Here there is a special relation $D:S\to S$ called the diffusion operator and defined abstractly in \cite{vicary-tqa}:
 \begin{equation}
 \label{eq:difftopological}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\draw (0,0) node [below] {$S$} to node [smallbox] {$D$} (0,2) node [above] {$S$};
-\end{tikzpicture}
-\end{aligned}
-\hspace{5pt}\quad=\quad\hspace{5pt}
-\hspace{-5pt}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\draw (0,0) node [below] {$S$} to (0,2) node [above] {$S$};
-\end{tikzpicture}
-\end{aligned}
-\quad-\quad
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\draw (0,0) node [below] {$S$} to (0,0.7) node [blackdot] {};
-\draw (0,2) node [above] {$S$} to (0,1.3) node [blackdot] {};
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/7_diffop.tikz}
 \end{equation}
 where the subtraction of two relations is given by the symmetric difference of their images.
 
@@ -689,19 +514,7 @@ where the subtraction of two relations is given by the symmetric difference of t
 Equation \ref{eq:grovertopological} is zero only for classical points of $X^S$ denoted $\ket{\rho}$ that satisfy the following equation:
 \begin{equation}
 \label{eq:zerocondition}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\draw (0,0) node [smallbox] {$\rho$} to (0,1.25) node [smallbox] {$R$} to (0,2.5) node [smallbox] {$\sigma$};
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\draw (0,0) node [blackdot] {} to (0,1.25) node [smallbox] {$R$} to (0,2.5) node [smallbox] {$\sigma$};
-\node [smallbox, draw=white, fill=none] at (0,0) {};
-\draw (0,0) to (0,0.5);
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/7_zerocond.tikz}
 \end{equation}
 \end{theorem}
 
@@ -745,33 +558,7 @@ From Lemma \ref{lem:classicalRelation}, the converse of a classical relation mus
 The algorithm has the following abstract specification \todo{REF BACK}:
 \begin{align}
 \label{eq:groupdIDAlg}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-    \node (dot) [blackdot] at (0,1) {};
-    \node (f) [morphism] at (0.7,2) {$f$};
-    \node (m) [whitedot] at (1.4,3) {};
-    \node (topsig) [morphism, fill=white, anchor=south] at (-0.7,3.6) {$\rho$};
-\draw (0,0)
-        node [blackdot] {}
-    to (0,1)
-    to [out=left, in=south] (-0.7,2)
-    to (topsig.south);
-\draw (0,1)
-    to [out=right, in=south] (f.south);
-\draw  (f.north)
-    to [out=up, in=left] (1.4,3)
-    to [out=right, in=up] +(0.7,-1)
-    to (2.1,0.4)
-        node [morphism, hflip, anchor=north] {$\sigma$};
-\draw (m.center) to (1.4,4.4)
-        node [above] {};
-\draw [thin, dashed] (-1.25,0.7) to (7.5,0.7);
-\draw [thin, dashed] (-1.25,3.3) to (7.5,3.3);
-\node at (3,0) [anchor=west] {Prepare initial states};
-\node at (3,2) [anchor=west] {Apply a unitary map};
-\node at (3,4) [anchor=west] {Measure the left system};
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/7_groupidspec.tikz}
 \end{align}
 where $\ket{\rho}$ and $\ket{\sigma}$ are classical points of $H$ and $B$ respectively. We will denote them as sets by their corresponding groups $H_\rho$ and $B_\sigma$.
 
@@ -781,17 +568,7 @@ The algorithm defined by~\eqref{eq:groupdIDAlg} has output state $\ket{\sigma}$ 
 \begin{proof}
 The verification in \todo{REF BACK} shows that the algorithm in Equation \ref{eq:groupdIDAlg} simplifies to:
 \begin{equation}
-\begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\node (r) [morphism] at (0,1.5) {$\sigma$};
-\node (s) [morphism] at (0,4) {$\rho$};
-\node (f) [morphism] at (0,2.75) {$f^{-1}$};
-\node (r2) at (1.5,3.5) [morphism] {$\sigma$};
-\draw (s.south) to (f.north);
-\draw (f.south) to (r.north);
-\draw (r2.north) to +(0,0.5);
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/7_proofgid.tikz}
 \end{equation}
 where $f^{-1}$ is the relational converse of $f$ in our setting, and we see that post-selection on the left hand system implies the theorem's condition.
 \end{proof}
@@ -804,3 +581,5 @@ Groupoid isomorphisms relate every element of the domain to every element in the
 \end{proof}
 
 Still, we can imagine running the algorithm from Equation \ref{eq:groupdIDAlg} where any classical relation is allowed as input to obtain non-trivial outcomes.
+
+\todo{\subsection{Conclusion}}

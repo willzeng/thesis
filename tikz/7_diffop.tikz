@@ -1,0 +1,19 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw (0,0) node [below] {$S$} to node [smallbox] {$D$} (0,2) node [above] {$S$};
+\end{tikzpicture}
+\end{aligned}
+\hspace{5pt}\quad=\quad\hspace{5pt}
+\hspace{-5pt}
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw (0,0) node [below] {$S$} to (0,2) node [above] {$S$};
+\end{tikzpicture}
+\end{aligned}
+\quad-\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\draw (0,0) node [below] {$S$} to (0,0.7) node [blackdot] {};
+\draw (0,2) node [above] {$S$} to (0,1.3) node [blackdot] {};
+\end{tikzpicture}
+\end{aligned}

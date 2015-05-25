@@ -1,0 +1,27 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+    \node (dot) [blackdot] at (0,1) {};
+    \node (f) [morphism] at (0.7,2) {$f$};
+    \node (m) [whitedot] at (1.4,3) {};
+    \node (topsig) [morphism, fill=white, anchor=south] at (-0.7,3.6) {$\rho$};
+\draw (0,0)
+        node [blackdot] {}
+    to (0,1)
+    to [out=left, in=south] (-0.7,2)
+    to (topsig.south);
+\draw (0,1)
+    to [out=right, in=south] (f.south);
+\draw  (f.north)
+    to [out=up, in=left] (1.4,3)
+    to [out=right, in=up] +(0.7,-1)
+    to (2.1,0.4)
+        node [morphism, hflip, anchor=north] {$\sigma$};
+\draw (m.center) to (1.4,4.4)
+        node [above] {};
+\draw [thin, dashed] (-1.25,0.7) to (7.5,0.7);
+\draw [thin, dashed] (-1.25,3.3) to (7.5,3.3);
+\node at (3,0) [anchor=west] {Prepare initial states};
+\node at (3,2) [anchor=west] {Apply a unitary map};
+\node at (3,4) [anchor=west] {Measure the left system};
+\end{tikzpicture}
+\end{aligned}

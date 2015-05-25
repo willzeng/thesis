@@ -1,0 +1,11 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+\node (r) [morphism] at (0,1.5) {$\sigma$};
+\node (s) [morphism] at (0,4) {$\rho$};
+\node (f) [morphism] at (0,2.75) {$f^{-1}$};
+\node (r2) at (1.5,3.5) [morphism] {$\sigma$};
+\draw (s.south) to (f.north);
+\draw (f.south) to (r.north);
+\draw (r2.north) to +(0,0.5);
+\end{tikzpicture}
+\end{aligned}
