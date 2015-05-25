@@ -1,0 +1,59 @@
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.5*\tikzxscale, yscale=1.5*\tikzyscale]
+
+                \node  (0) at (-5.5, 0) {\ket{\phi}};
+                \node  (0) at (-4.5, 0) {=};       
+                \node  (0) at (-3.5, 1) {};
+                \node  (1) at (-2, 1) {};
+                \node  (2) at (-2.75, 2) {};
+                \node  (3) at (-1, 1) {};
+                \node  (4) at (2, 1) {};
+                \node  (5) at (0.5, 2.25) {};
+                \node  (6) at (4.5, 1) {};
+                \node  (7) at (3.75, 2) {};
+                \node  (8) at (3, 1) {};
+                \node  (9) at (-2.75, 1) {};
+                \node  (10) at (-0.25, 1) {};
+                \node  (11) at (0.5, 1) {};
+                \node  (12) at (1.25, 1) {};
+                \node  (13) at (3.75, 1) {};
+                \node  (14) at (-2.75, 0.5) {};
+                \node  (15) at (-0.25, 0.5) {};
+                \node  (16) at (0.5, 0.5) {};
+                \node  (17) at (1.25, 0.5) {};
+                \node  (18) at (3.75, 0.5) {};
+                \node  (19) at (-2.75, 0) {$N$};
+                \node  (20) at (-0.25, 0) {$N$};
+                \node  (21) at (0.5, 0) {$S$};
+                \node  (22) at (1.25, 0) {$N$};
+                \node  (23) at (3.75, 0) {$N$};
+                \node  (24) at (-2.75, -0.5) {};
+                \node  (25) at (-0.25, -0.5) {};
+                \node  (26) at (0.5, -0.5) {};
+                \node  (27) at (1.25, -0.5) {};
+                \node  (28) at (3.75, -0.5) {};
+                \node  (29) at (0.5, -1.75) {};
+                \node  (30) at (-2.75, 2.75) {kids};
+                \node  (31) at (0.5, 2.75) {play};
+                \node  (32) at (3.75, 2.75) {football};
+
+                \draw [style = thick] (0.center) to (1.center);
+                \draw [style = thick] (1.center) to (2.center);
+                \draw [style = thick] (2.center) to (0.center);
+                \draw [style = thick]  (3.center) to (4.center);
+                \draw [style = thick] (8.center) to (6.center);
+                \draw [style = thick] (6.center) to (7.center);
+                \draw [style = thick] (4.center) to (5.center);
+                \draw [style = thick] (3.center) to (5.center);
+                \draw [style = thick] (8.center) to (7.center);
+                \draw [style = thick] (9.center) to (14.center);
+                \draw [style = thick] (10.center) to (15.center);
+                \draw [style = thick] (11.center) to (16.center);
+                \draw [style = thick] (12.center) to (17.center);
+                \draw [style = thick] (13.center) to (18.center);
+                \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
+                \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
+                \draw [style = thick] (26.center) to (29.center);
+
+\end{tikzpicture}
+\end{aligned}

@@ -1,0 +1,79 @@
+\overrightarrow{\mbox{Mary}}\in \mathcal{N} :=
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node  (20) at (0, 0) {$\mathcal{N}$};
+                \node  (31) at (0, 2.5) {Mary};
+                \node (1) [state, hflip] at (0,1) {};
+                \draw [style = thick]  (0,0.5) to (1.center);
+\end{pic} 
+\qquad f:\mathcal{N}\to\mathcal{N} :=
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node  (20) at (0, -1.5) {$\mathcal{M}$};
+                \node  (20) at (0, 1.5) {$\mathcal{N}$};                
+                \node (1) [morphism] at (0,0) {f};
+                \draw [style = thick]  (0,1) to (0,0.5);   
+                \draw [style = thick]  (0,-1) to (0,-0.5);
+\end{pic} 
+\end{equation*}
+\begin{equation*}
+\overrightarrow{\mbox{likes}}\in \mathcal{N}\otimes\mathcal{S}\otimes \mathcal{N} :=
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node  (3) at (-1, 1) {};
+                \node  (4) at (2, 1) {};
+                \node  (5) at (0.5, 2.25) {};
+                \node  (10) at (-0.25, 1) {};
+                \node  (11) at (0.5, 1) {};
+                \node  (12) at (1.25, 1) {};
+                \node  (15) at (-0.25, 0.5) {};
+                \node  (16) at (0.5, 0.5) {};
+                \node  (17) at (1.25, 0.5) {};
+                \node  (20) at (-0.25, 0) {$\mathcal{N}$};
+                \node  (21) at (0.5, 0) {$\mathcal{S}$};
+                \node  (22) at (1.25, 0) {$\mathcal{N}$};
+                \node  (31) at (0.5, 2.75) {likes};
+                \draw [style = thick]  (3.center) to (4.center);
+                \draw [style = thick] (4.center) to (5.center);
+                \draw [style = thick] (3.center) to (5.center);
+                \draw [style = thick] (10.center) to (15.center);
+                \draw [style = thick] (11.center) to (16.center);
+                \draw [style = thick] (12.center) to (17.center);
+\end{pic} \qquad
+\begin{pic}[xscale=\tikzxscale, yscale=2.5*\tikzyscale]
+                \node (0) at (0, 1) {};
+                \node (2) at (-2.25, 0) {$g\circ f := $};
+                \node (1) at (0.75, 1) {$\mathcal{N}$};
+                \node (3) at (0, -1) {};
+                \node [style=morphism] (4) at (0, -0.5) {$g$};
+                \node (5) at (0.75, -1) {$\mathcal{N}$};
+                \node (6) at (0.75, 0) {$\mathcal{M}$};
+                \node [style=morphism] (7) at (0, 0.5) {$f$};
+                \draw (3.center) to (0, -0.75);
+                \draw (0, -0.25) to (0, 0.25);
+                \draw (0, 0.75) to (0.center);
+\end{pic}
+\end{equation*}
+\begin{equation*}
+\overrightarrow{\mbox{Mary}}\otimes \overrightarrow{\mbox{likes}} :=
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node  (20) at (0, 0) {$\mathcal{N}$};
+                \node  (31) at (0, 2.5) {Mary};
+                \node (1) [state, hflip] at (0,1) {};
+                \draw [style = thick]  (0,0.5) to (1.center);
+                \node (2) [state, hflip, xscale=1.5, yscale=1] at (3,1) {};
+                \node  (32) at (3, 2.5) {likes};
+                \node  (20) at (2.25, 0) {$\mathcal{N}$};                               
+                \node  (20) at (3, 0) {$\mathcal{S}$};
+                \node  (20) at (3.75, 0) {$\mathcal{N}$};
+                \draw [style = thick]  (3,0.5) to (2.center);
+                \draw [style = thick]  (3.75,0.5) to (3.75,1);                            
+                \draw [style = thick]  (2.25,0.5) to (2.25,1);    
+\end{pic} \qquad\qquad
+\sum\limits_i \langle ii| :=
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node  (0) at (-1, 1.5) {$\mathcal{N}$};
+                \node  (1) at (1, 1.5) {$\mathcal{N}$};
+                \node  (0) at (-1, 1) {};
+                \node  (1) at (1, 1) {};
+                \node  (2) at (0, 0) {};
+                \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
+                \draw [bend right=45, looseness=1.00] (2.center) to (1.center);               
+\end{pic}

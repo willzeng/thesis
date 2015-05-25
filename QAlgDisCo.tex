@@ -1,0 +1,219 @@
+\chapter{Quantum Applications in Natural Language Processing}
+
+\begin{chapabstract}
+        We present advantages that quantum computation can provide for natural language processing.  In particular, we develop a machine learning algorithm from \cite{wiebe2012quantum} into a quantum algorithm to categorize similar sentence in the model of Distributional Compositional Semantics (DisCo). This algorithm that demonstrates a quadratic speedup over classical methods under certain conditions. We show how computational shortcomings of the  DisCo approach could be resolved using quantum computation, and also briefly discuss the noise tolerance of our models.
+\end{chapabstract}
+
+\section{Introduction}
+
+Quantum computation is naturally suited to managing high dimensional tensor product spaces. Recent literature has shown that quantum algorithms can thus provide advantages for machine learning \cite{rebentrost2014quantum}\cite{wiebe2014quantum}\cite{wiebe2014quantumDeepLearning}, inference \cite{low2014quantum}, and regression \cite{wang2014quantum}\cite{wiebe2012quantum} tasks.  We leverage this in two ways:
+\begin{enumerate}
+\item We employ the scaling of quantum systems to address computational difficulties inherent in tensor-product based compositional semantics.
+\item Shared structure makes algorithms in distributional compositional semantics (DisCo)\cite{clark2008compositional} especially amenable to quantum speedups.  We specify a DisCo sentence similarity algorithm that, under certain conditions, demonstrates quadratic speedups for natural language tasks.
+\end{enumerate}
+
+In Section \ref{sec:disco}, we cover the basic framework of distributional compositional linguistics. Section 3 introduces the advantages of quantum representations for this framework.  Sections 4 and 5 propose a quantum algorithm with quadratic speedup for calculating sentence similarity within DisCo. Section 6 briefly discusses the noise tolerance of these methods.
+
+\section{Distributional Compositional Semantics}
+\label{sec:disco}
+In modern natural language processing, the \emph{vector space model} is widely used to compute the meaning of individual words \cite{schutze1998automatic}. In this approach we first specify a set of context words, for example the 2000 most common words in a given corpus.  These context words then form the basis of the vector space of word meanings in the following manner: for some given word, say  ``quantum", we look through a corpus and count the frequency with which each basis word    appears `near' to ``quantum". It is likely that we would have a high frequency for words like ``physics" and ``information" for example.  These frequencies then form the \emph{word vector} for ``quantum". Words are similar if the inner product of their word vectors is close to one. These `bag of words' methods are typically referred to as \emph{distributional}.
+
+As the same sentence rarely occurs repeatedly, this distributional technique cannot be directly extended to calculate the meaning of longer phrases, sentences, paragraphs, etc. Instead, \emph{compositional} semantics designs algorithms for deriving the meaning of a sentence or phrase from known meanings of component words,  taking into account types and grammatical structure \cite{lambek2008word}. The \emph{distributional compositional} semantic model\cite{clark2008compositional} (DisCo) combines both approaches to introduce grammatical form to the composition of word vectors (Fig. 1). 
+
+\begin{figure}[ht]
+\label{fig:discofig}
+\begin{center}
+\begin{tabular}{m{0.31\linewidth}@{}m{0.1\linewidth}@{}m{0.31\linewidth}}
+ Distributional & & Compositional \\
+ $\begin{aligned}
+ \includegraphics[width=\linewidth]{distributional.png}
+ \end{aligned}$
+ & $\begin{aligned}\mbox{{\color{blue} \huge +}}\end{aligned}$ & 
+  $\begin{aligned}
+ \includegraphics[width=\linewidth]{compositional.png}
+ \end{aligned}$
+\end{tabular}
+\end{center}
+\caption{The DisCo approach combines word vectors with pregroup or combinatory categorical grammar.}
+\end{figure}
+
+In this model, each grammatical type is assigned a tensor product space based on Lambek's pregroup grammar \cite{lambek2008word} or combinatorial categorical grammar \cite{hermann2013role}. The meaning of nouns is, for example, calculated as in the distributional case, and we label their vector space $\mathcal{N}$.  A transitive verb's meaning is then, following the grammar, a vector in the space $\mathcal{N}\otimes \mathcal{S} \otimes \mathcal{N}$, where $\mathcal{S}$ is the meaning space for sentences.\footnote{More details on the role of pregroup grammars in this model can be found in \cite{clark2008compositional}.} An intuition for this is that the transitive verb takes a subject noun as a left argument and an object noun as a right argument. An adjective lives in the space $\mathcal{N}\otimes\mathcal{N}$.
+
+We use a diagrammatic notation for vectors, tensors, and linear maps as is common for both DisCo NLP and quantum information. Here vertical composition (read top to bottom) represents composition of linear maps and horizontal composition represents the tensor product:
+\begin{equation*}
+\input{tikz/6_diagramlang.tikz}
+\end{equation*}
+where $f:\mathcal{N}\to\mathcal{M}$ and $g:\mathcal{M}\to\mathcal{N}$ are linear maps and the linear map $\sum_i\langle ii|$ sums over all the basis vectors of $\mathcal{N}$ and is called a \emph{cap}.
+
+Given a well-typed sentence with meaning vectors $w_j$ for each of $k$ words, the classical DisCo algorithm for calculating a sentence's meaning is \cite{clark2013quantum}:
+\begin{enumerate}
+\item Compute the tensor product $\overrightarrow{\mbox{words}}=w_0\otimes...\otimes w_k$ in the order that each word appears in the sentence.
+
+\item Construct a linear map that represents the type reduction by ``wiring up" the vectors with the appropriate caps as in the following example:
+
+\begin{equation}
+\label{eq:svo}
+\input{tikz/6_svoexample.tikz}
+\end{equation}
+
+\item Compute the meaning of the sentence by applying linear map to the $\overrightarrow{\mbox{words}}$ vector. This results in a vector in $\mathcal{S}$ which corresponds to the meaning of the sentence.
+\end{enumerate}
+
+\noindent We refer the reader to \cite{coecke2010mathematical} for a fuller description of the distributional compositional model and to \cite{experimental-catcompdist} and \cite{kartsaklis2012unified} for experimental implementations.
+
+These models suggest a promising approach to incorporate grammatical structure with vector space models of meaning, yet they come with the computational challenges of large tensor product spaces \cite{GrefenstetteThesis2013}. While there do exist some approaches to avoid the calculation of the full tensor product, such as the holographic reduced representations from \cite{plate1991holographic} or the use of dimensionality reduction \cite{polajnar2013learning}, these approaches introduce further assumptions and inaccuracies.  For this reason, ameliorating the large computational costs introduced these large spaces through quantum computation is of particular interest.
+
+\section{Quantum computation for DisCo}
+
+The most immediate advantage for quantum implementations of DisCo models is gained by storing meaning vectors in quantum systems.  For $\alpha,\beta\in \mathbb{C}$ a two-level quantum system, a qubit, is defined by:
+\begin{center}
+  \begin{tabular}{cc}
+   Qubit & Qubits  \\
+   $\begin{array}{lcl}
+        \ket{\psi} &=& \alpha\ket{0}+\beta\ket{1} \\[0.2cm]
+        &=&\alpha\left(\begin{array}{c} 1 \\ 0 \end{array}\right)
+            +\beta\left(\begin{array}{c} 0 \\ 1 \end{array}\right)
+   \end{array}$ 
+   &\qquad\qquad
+   $\ket{\psi_1}\otimes\ket{\psi_2} = \left(\begin{array}{c} \alpha_1\alpha_2 \\ \alpha_1\beta_2\\\beta_1\alpha_2\\\beta_2\beta_2 \end{array}\right)$
+   \\
+  \end{tabular}
+\end{center}
+and composition of qubits is given by the tensor product.  This leaves each $n$-qubit system with $2^n$ degrees of freedom, indicating that $N$-dimensional classical vectors can be stored in $\log_2 N$ qubits.
+Consider a corpus whose word-meaning space is given by a basis of the 2,000 most common words. Even if we make the simplifying assumption that the sentence-meaning space is no larger than the word-meaning space we obtain:
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+ & ~~One Transitive Verb~~ & ~~10k tr. verbs~~ \\\hline
+ ~Classical~ & $8\times 10^{9}$ bits & $8\times 10^{13}$ bits \\\hline
+ ~~Quantum~~ & 33 qubits & 47 qubits \\\hline
+\end{tabular}
+\end{center}
+Further, these word meanings can be imported into a ``bucket bridgade" quantum RAM that allows them to retrieved with a complexity linear in the number of qubits \cite{giovannetti2008quantum}. The general point is that because quantum systems compose via the tensor product they are natural choices to store complex types and sentences that have the same compositional structure. We can then employ quantum algorithms on for natural language classification as presented in Section \ref{sec:discoQalg}.
+
+\section{A quantum algorithm for the closest vector problem}
+\label{sec:qalg}
+
+Many tasks in computational linguistics such as clustering, text classification, phrase/word similarity, and sentiment analysis rely on computations that determine the closest vector to $\vec{s}$ out of some set of $N$-dimensional vectors $\{\vec{v}_0,\vec{v}_1,...\vec{v}_{M-1}\}$. In clustering algorithms, for example, the set of vectors could be either the centroids of different clusters or the full set of training vectors, as in nearest neighbor clustering algorithms. Either the inner-product distance or Euclidean distance can be used.
+
+\begin{defn}
+Given vector $s$ and a set of $M$ vectors $U = \{\vec{v}_0,\vec{v}_1,...\vec{v}_{M-1}\}$ the \emph{closest vector problem} asks one to determine which $v_j$ has the smallest inner product distance with $s$. We will assume that all vectors are $N$-dimensional.
+\end{defn}
+
+Direct calculation of the smallest vector would have complexity $\mathcal{O}(MN)$.  In \cite{wiebe2014quantum} the authors introduce a quantum algorithm for this problem that, under certain conditions, demonstrate quadratic speedups over direct calculation and polynomial speedups over Monte-Carlo methods. Some proof of principle experiments have then demonstrated clustering of eight-dimensional vectors, based on these techniques, on a small photonic quantum computer \cite{cai2015entanglement}. This algorithm requires the following assumptions, where we write $v_{ji}$ for the $i^{\tiny\mbox{th}}$ entry of the $j^{\tiny\mbox{th}}$ vector:
+\begin{enumerate}
+\item Vectors $v_j$ and $s$ are $d$-sparse, with no more than $d$ non-zero entries.
+\item The relevant vectors are stored in some kind of quantum memory so that the quantum computer can access their entries with the two oracles of the form:
+\begin{equation}
+\begin{array}{c}
+\mathcal{O}\ket{j}\ket{i}\ket{0}:=\ket{j}\ket{i}\ket{v_{ji}}, \\
+\mathcal{F}\ket{j}\ket{l}:= \ket{j}\ket{f(j,l)},
+\end{array}
+\end{equation}
+where $f(j,l)$ is the location of the $l^{\tiny\mbox{th}}$ non-zero entry of $v_j$.  It is against these memory access oracles that the performance of our algorithm will be measured.
+
+\item $\max(|v_{ji}|^2)\le r_{\small\mbox{max}}$ for some known constant $r_{\small\mbox{max}}$.
+
+\item All the vectors are normalized.
+ 
+\end{enumerate}
+
+Under these assumptions we are able to run a quantum nearest-neighbor algorithm with complexity characterized by the following theorem:
+
+\begin{theorem}[\cite{wiebe2014quantum}]
+We can find $\max_j|\langle s|v_j\rangle|^2$ with success probability $1-\delta$ and error $\epsilon$ using an expected number of $\mathcal{O}$ and $\mathcal{F}$ queries that is bounded above by
+\begin{equation}
+1080\sqrt{M}\left\lceil\frac{4\pi(\pi+1)d^2r^4_{\tiny\mbox{max}}}{\epsilon}\right\rceil\left\lceil \frac{\ln\left(81M(\ln(M)+\gamma)\right)/\delta_0}{2(8/\pi^2-1/2)^2}\right\rceil,
+\end{equation}
+where $\gamma\approx 0.5772$ is Euler's constant.
+\end{theorem}
+
+It is clear that for this quantum algorithm there is a quadratic improvement in scaling with $M$, the number of training vectors. While the dimension of the vectors $N$ is not explicitly included, in general it is implicitly there through the dependence on $d$.  It is also clear that if $r_{\small\mbox{max}}\propto 1/\sqrt{d}$, then the algorithm's dependence on both $d$ and $N$ drops out. As the vectors are normalized, this can be expected to occur if the vectors have sparsity that grows linearly with their size \cite{wiebe2014quantum}. The authors further assume that for ``typical" cases the error $\epsilon$ scales as $\Theta(1/\sqrt{N})$ so that the runtime for the quantum inner-product algorithm becomes $\mathcal{O}\left(\sqrt{NM}\ln(M)d^2r^4_{\small\mbox{max}}\right)$.\footnote{
+This is argued for in Appendix D of \cite{wiebe2014quantum} for a ``typical" case where the vectors are uniformly distributed over the unit sphere.} This result shows a quadratic improvement over direct calculations and also shows improvement over Monte Carlo methods, whose complexity is $\mathcal{O}\left(NMd^2r^4_{\small\mbox{max}}\right)$. These comparisons are summarized in Figure.
+
+\begin{figure}[ht]
+\label{fig:comp}
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+ Type & Typical cases & Atypical cases   \\ \hline
+ Classical Direct & $\mathcal{O}(NM)$ & $\mathcal{O}(NM)$ \\
+ Classical Monte Carlo & $\mathcal{O}\left(NMd^2r_{\small\mbox{max}}^4\right)$ & $\mathcal{O}\left(Md^2r_{\small\mbox{max}}^4/\epsilon^2\right)$ \\
+ Quantum & $\mathcal{O}\left(\sqrt{NM}\log(M)d^2r^4_{\small\mbox{max}}\right)$ &  $\mathcal{O}\left(\sqrt{M}\log(M)d^2r^4_{\small\mbox{max}}/\epsilon\right)$ \\\hline
+\end{tabular}
+\end{center}
+\caption{Complexity comparisons for different closest vector algorithms. Adapted from \cite{wiebe2014quantum}.}
+\end{figure}
+
+ In the following section we adapt this algorithm to sentence similarity calculations in the distributional compositional framework.
+
+\section{A quantum algorithm for DisCo sentence similarity}
+\label{sec:discoQalg}
+
+The quantum algorithm from Section \ref{sec:qalg} can be used to advantage in natural language processing tasks however, the computational overhead of the DisCo approach would dwarf this algorithm's advantages if it were naively applied.  
+Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/\sqrt{d}$ and that the accuracy necessary for our calculation means $\epsilon$ scales as $\Theta(1/\sqrt{N})$. Consider the example of probabilistically classifying the meaning of a  simple sentence. We illustrate this example with a noun-verb-noun sentence. The meaning of the nouns are vectors in an $N$-dimensional vector space and the meaning of the verb is a vector in the space $N\otimes S \otimes N$. We represent a derivation of the meaning of the full sentence with the following map:
+
+\begin{equation}
+\label{eqn:phi}
+\input{tikz/6_derivationeqn.tikz}
+\end{equation}
+
+From now on, we will take sentences to exist in the same meaning space as words, i.e. $S\simeq N$.
+
+\begin{defn}
+For meaning vector $s$ and sets of $m$ meaning vectors $V$ and $W$, a \emph{classification task} assigns $s$ to the set containing the nearest-neighbor of $s$.
+\end{defn}
+
+An example task would be to determine if a sentence is about sports or politics or if a sentence expresses agreement or disagreement. 
+
+If, to present a simplified example, we take each cluster to only contain a single vector ($v$ and $w$ respectively) then the sentence would be classified by computing 
+\begin{equation}
+\label{eq:exampleCalcs}
+\input{tikz/6_examplecalc.tikz}
+\end{equation}
+and assigning the sentence to the one of smaller value.  We would proceed with two steps:
+
+\begin{enumerate}
+\item Compute the derivation of $\ket{\psi}$, which, by classical direct calculation, takes  $\mathcal{O}(3N)$ operations. 
+
+\item See which of $v$ and $w$ is closest to $\ket{\phi}$. This is an instance of the closest vector problem where $s = \ket{\phi}$, $M=2$, and $U = \{v,w\}$. With direct calculation or Monte Carlo the second step requires\footnote{If we assume the appropriate $d$-sparsity scaling.} $\mathcal{O}(2N)$ to be compared with the quantum method at $\mathcal{O}(\sqrt{2N}\log 2)$. Even if we include the step to import the classical data from step one into quantum form, which can be done with $\mathcal{O}(\log_2N)$ overhead \cite{lloyd2013quantum}, then we obtain a speedup for this step. 
+\end{enumerate}
+
+Still, despite the quantum speedup from step two, the full algorithm for general $M$ runs in $\mathcal{O}(3N\sqrt{M}\log M)$, remaining linear in $N$.
+
+In order to recover a speedup we refine the application of the quantum algorithm by posing a version of the closest vector problem that avoids the initial calculation of $\ket{\phi}$ altogether. Note the equivalence of the calculations in Equation \ref{eq:exampleCalcs} with 
+\begin{equation}
+\label{eqn:trick}
+\input{tikz/6_trick.tikz}
+\end{equation}
+Rather than directly calculating $\ket{\phi}$, which is not relevant to the classification task, we can formulate a closest vector problem where $s = \ket{play}$, $M=2$ and $U = \{\ket{kids}\otimes\ket{v} \otimes\ket{football},\ket{kids}\otimes\ket{w} \otimes\ket{football}\}$.
+The runtime of this \emph{deferred quantum algorithm}, including import, will then be $\mathcal{O}(\sqrt{MN})$, showing our desired quadratic speedup in both variable.
+
+We extend this to result to include general sentences in the DisCo model with the following theorem.
+
+\begin{theorem}
+For an $N$-dimensional noun meaning space, there exists a quantum algorithm to classify any DisCo model sentence composed of $n$ tensors $w_0,w_1,...,w_{n-1}$ into $M$ classes with time $\mathcal{O}(\sqrt{MN}\log M)$. This improves on classical methods that require $\mathcal{O}(NM)$.
+\end{theorem}
+\begin{proof}
+The trick we play in Equation \ref{eqn:trick} amounts to splitting the sentence derivation into a bipartite graph.  As the DisCo connections are based on a pregroup derivation, the connections will always form a tree, taking words as nodes and connections as edges. Trees can always be partitioned into bipartite graphs, thus, up to the ordering of inputs on each tensor which can be kept track of, we can always give a deferred quantum algorithm with associated speedup for any such DisCo sentence.
+ The following procedure explicitly details how to construct this bipartite partitioning.
+
+For every DisCo sentence there is one word that acts as the \emph{head} of the derivation.  This is the word whose output $S$ wire contains the sentence meaning following its derivation's linear map. In Equation \ref{eqn:phi} this is the word ``play". Connect the dangling wire of the head word $w_h$ with the vector $v_i$ against which similarity is being measured.  Starting with this head word we then separate the sentence into a top layer and a bottom layer with the following steps.  Assign the head word to the top layer. Place every word it is connected to on the bottom layer. Next for every word just assigned to the bottom, take all their connected words, which are not yet assigned, and assign them to the top.  Continue this procedure while alternating top and bottom until all words are assigned. This gives a simple two-coloring of the derivation graph. 
+\end{proof}
+
+\begin{example}
+Consider the following sentence \cite{dimitriThesis}:
+\begin{equation*}
+\input{tikz/6_bipartition.tikz}
+\end{equation}
+where we have labeled the vectors based on their depth in the derivation tree.  The two-layer form assigns even vectors to the top layer and odd vectors to the bottom:
+\begin{equation*}
+\input{tikz/6_bipartitionexample.tikz}
+\end{equation*}
+\end{example}
+
+\noindent Hooking the dangling wire up to a classifying vector reduces the similarity computation to the calculation of a single inner product. Note that this procedure works for any derivation tree,\footnote{Even non-pregroup and non-CCG models will work as long as there is some tree derivation.} so sentence fragments, such as noun phrases, can be easily analyzed in exactly the same manner.
+
+\section{Noise tolerance and Conclusion}
+
+To reap the benefits of quantum algorithm in the domain of natural language processing, we  apply a new technique to defers the calculation of a sentences compositional meaning, eliminating the overhead costs. By this method we are able to introduce a quantum algorithm for calculating sentence similarity that offers quadratic speedup over classical direct calculation and Monte-Carlo methods. These kinds of algorithms are particularly attractive for practical applications of quantum computing as noisy results can be tolerated: in our case when the desired errors is lower bounded by $1/\sqrt{N}$.  Vector space models are already inherently noisy and typical tasks allow for errors in results, so this restriction does not affect rule out their efficacy. 
+
+An additional point is that the density matrix formalism of \cite{piedeleu2015open} can also be naturally modeled by mixed states of quantum systems.  In fact, this analogy was the genesis for the theory for disambiguation presented there. It is likely that quantum algorithms for these approaches can be introduced as well in future work.

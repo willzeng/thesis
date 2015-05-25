@@ -1,0 +1,25 @@
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
+                \node [style=state] (0) at (-5, 0) {};
+                \node [style=state, hflip] (1) at (-2.5, 1) {};
+                \node [style=state, hflip] (2) at (-1.25, 1) {};
+                \node [style=state] (3) at (-0.75, 0) {};
+                \node (4) at (-4.5, 1) {};
+                \node (5) at (-3.5, 1) {};
+                \node (6) at (-2.5, -1) {};
+                \node (7) at (-2, 0) {};
+                \node [style=state, xscale=2] (8) at (-2.5, 0) {};
+                \node [style=state, hflip, xscale=2] (9) at (-4, 1) {};
+                \node (10) at (-4, -1) {};
+                \node (11) at (-5, -0.75) {John};
+                \node (12) at (-4, 1.75) {saw};
+                \node (13) at (-2.5, 1.75) {Mary};
+                \node (14) at (-2.5, -0.75) {read};
+                \node (15) at (-1.25, 1.75) {a};
+                \node (16) at (-0.75, -0.75) {book};
+                \draw (9) to (10.center);
+                \draw (4.center) to (0);
+                \draw (1) to (-2.5,0);
+                \draw (7.center) to (-1.4,1);
+                \draw (-1,1) to (3);
+                \draw (5.center) to (-3,0);
+\end{tikzpicture}
