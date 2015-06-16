@@ -1,0 +1,16 @@
+\begin{pic}[scale=1.2,xscale=1.3]
+\node (qinf) [draw, align=left, inner sep = -20pt] at (0,0) {\\[2em] Quantum Information \\ \small \hspace{20pt}$\cat{FHilb} $ \\[1.4em]};
+\node at (3.2,-0.2) {\small represented by};
+\node (qc) [draw, align=left, inner sep = 10pt] at (6.2,0) {Quantum Circuits};
+\draw[->, line width=2pt] (qinf) to (qc);
+
+
+\node (abs) [draw, align=left, inner sep = -30pt] at (0,3.5) {\\[3em] Abstract Process Theories \\ \small \hspace{20pt}$\dagger$-SMC \\ \small \hspace{30pt}$\dagger$-compact categories \\[2.4em]};
+\node at (3.2,3.3) {\small represented by};
+\node at (0.8,1.5) {\small generalize to};
+\node (cd) [draw, align=left, inner sep = 10pt] at (6.2,3.5) {Categorical Diagrams};
+\draw[->,line width=2pt] (qinf) to (abs);
+\draw[->,line width=2pt] (abs) to (cd);
+
+\draw[densely dotted, red, ->, line width=2pt] (qc) to (cd);
+\end{pic}

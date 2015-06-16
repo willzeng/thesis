@@ -1,16 +1,14 @@
-\chapter{\color{blue} Models of quantum algorithms in sets and relations}
+\section{\color{blue} Models of quantum algorithms in sets and relations}
 
-\begin{chapabstract}
-        In this paper we construct abstract models of blackbox quantum algorithms using a model of quantum computation in sets and relations, a setting that is usually considered as a model for nondeterministic classical computation.  This work provides an alternative model of quantum computation (QCRel) that, though unphysical, nevertheless faithfully models its computational structure.  Our main results are models of the Deutsch-Jozsa, single-shot Grovers, and GroupHomID algorithms in QCRel. These models provide new tools to analyze the semantics of quantum computation and improve our understanding of the relationship between computational speedups and the structure of physical theories. They also exemplify a method of extending physical/computational intuition into new mathematical settings.
-\end{chapabstract}
+In this section we construct abstract models of blackbox quantum algorithms using a model of quantum computation in sets and relations, a setting that is usually considered as a model for nondeterministic classical computation.  This work provides an alternative model of quantum computation (QCRel) that, though unphysical, nevertheless faithfully models its computational structure.  Our main results are models of the Deutsch-Jozsa, single-shot Grovers, and GroupHomID algorithms in QCRel. These models provide new tools to analyze the semantics of quantum computation and improve our understanding of the relationship between computational speedups and the structure of physical theories. They also exemplify a method of extending physical/computational intuition into new mathematical settings.
 
-\section{Introduction}
+\suubsection{Introduction}
 
 Having grasped the abstract structure at play in the protocols and algorithms of quantum computation, we can conceive of modelling quantum computation in settings other than Hilbert spaces and linear maps.  There are two main thrusts that make this investigation, the subject of this paper, interesting.  The first is to further analyze the structure of quantum computation, advancing our understanding of the relationship between computational speedups and the structure of physical theories. We use the QCRel model defined here to model some example quantum algorithms as non-deterministic classical algorithms while preserving their query-complexity (and, in fact, all their abstract structure). The second thrust is for the insights that become available by extending physical/computational intuition into new areas of mathematics. While other toy models of a relational flavor for quantum mechanics have been proposed \cite{ellermanModelQM}\cite{discreteQT}\cite{modalQT}\cite{spekk}, and some even discuss protocols \cite{QCFF_James}, these works have not developed the structures necessary to model quantum algorithms.
 
 The next section of this paper will construct our chosen model of quantum information.  This is the setting of sets and relations, rather than Hilbert spaces and linear maps, and it will be introduced by rephrasing the axioms of quantum mechanics. Section 3 will introduce a graphical notation for analyzing processes in this setting. Sections 4-9 present the novel contributions of this paper: relational models of unitary oracles, the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the group homomorphism identification algorithm.
 
-\section{The model of quantum computation in relations}
+\subsection{The model of quantum computation in relations}
 
 We begin with definitions of the key components of quantum computation in this new setting, e.g. systems, states, bases, observables, etc.  The following definitions are motivated \todo{CHAPTER}, whose general theorems prove useful.
 
@@ -97,7 +95,7 @@ Classical structures in the category of finite dimensional Hilbert spaces and li
 Classical structures in the category of sets and relations are exactly abelian groupoids.\footnote{In \cite{heunen-relFrob} this connection is extended to the non-abelian case where it is shown that all relative Frobenius algebras as groupoids.}
 \end{lemma}
 
-\subsection{Complementarity}
+\subsubsection*{Complementarity}
 Complementary bases\footnote{Theorem \ref{thm:compl} holds as long as we consider bases to be the same if their lists of groups are isomorphic.} in the relational setting are understood using a different abstraction that more narrowly specifies their structure:
 \begin{theorem}[\cite{cqm-notes}\todo{better reference}]
 \label{thm:compl}
@@ -135,7 +133,7 @@ Take $Z = \mathbb{Z}_2\oplus\mathbb{Z}_2=\{0_a,1_a,0_b,1_b\}$. The classical poi
 
 It is easy to check that complementary observables as specified by Theorem \ref{thm:compl} have the property that each classical point $\ket{G_i}$ of the observable $Z$ corresponds to one unbiased point of $X$ and vice versa, i.e. $\ket{U_i}=\ket{H_i}$.
 
-\subsection{Phases}
+\subsubsection*{Phases}
 
 Phases are also defined in this relational setting.  In Hilbert space quantum mechanics a quantum phase for an n-dimensional system is given by the vector
 \begin{align*}
@@ -168,7 +166,7 @@ For a basis $Z$, a \emph{GHZ} state is given by
 For a state $|\psi\rangle$, the \emph{density matrix} $|\psi\rangle\langle\psi|$ is given by the relation $xRy$ s.t. $x,y\in \psi$.
 \end{defn}
 
-\subsection{The model QCRel}
+\subsubsection*{The model QCRel}
 
 \begin{defn}
 Axioms 1-4, and subsequent definitions, specify the abstract process theory for \emph{quantum computation in relations}: QCRel.
@@ -185,7 +183,7 @@ This is true by construction.  The axioms on the preceding section can be interp
 
 It is worth noting that QCRel can be simply viewed as a local hidden variable theory. We consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  From this perspective, QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics.\footnote{See \cite{abramsky2012operational} for details of this interpretation as an operational theory.}  This means that protocols exist for entanglement, teleportation, and, as we show in this paper, some familiar blackbox algorithms.
 
-\section{Unitary Oracles}
+\subsubsection*{Unitary Oracles}
 
 In order to model blackbox quantum algorithms in this setting, we must define the oracles themselves.
 We do this by building up from an abstract definition of the controlled-not gate from the literature. Let the gray classical structure on a system $A$ be given by a basis $Z=\bigoplus^{|H|}G$ and the white classical structure be a basis $X=\bigoplus^{|G|}H$. The comonoid for the gray dot is then the relation $\tinycomult[graydot]:A\to A\times A$ that for $x,a,b\in H$ given by
@@ -332,7 +330,7 @@ OracleRel is a bijection.
 This follows directly from Theorem \ref{thm:familyofunitaries} and Corollary \ref{cor:bijections}.
 \end{proof}
 
-\section{The Fourier transform in relations}
+\subsection{The Fourier transform in relations}
 \label{sec:FT}
 
 In these algorithms we use the relational quantum Fourier transform for relations  \todo{from section TODO}. This is a generalized quantum Fourier transform whose definition is motivated as a relationship between classical and unbiased points of two observables.  For abelian groups $G$ and $H$, consider two groupoids $Z=\bigoplus^{|H|}G$ and $X=\bigoplus^{|G|}H$ to be complementary bases of the same system.
@@ -356,7 +354,7 @@ Take $G=\mathbb{Z}_2=\{0,1\}$, $H=\mathbb{Z}_2=\{a,b\}$, $Z = G \oplus G = \{ 0_
 
 See \cite{strongCompFT} to fully motivate this definition of the Fourier transform in QCRel and for its relationship to the usual Hadamard and Fourier transforms for Hilbert spaces and linear maps.
 
-\section{The Deutsch-Jozsa algorithm in QCRel}
+\subsection{The Deutsch-Jozsa algorithm in QCRel}
 
 The well known Deutsch-Jozsa algorithm is an early quantum algorithm that demonstrates a speedup over exact classical computation \cite{deutsch1992rapid}. It takes as input a function promised to be either constant or balanced and returns which deterministically and with a single oracle query. In this section, we model the algorithms steps in QCRel just as it is implemented with Hilbert spaces and linear maps. This approach is somewhat dual to the usual one where different algorithms are compared on the same problem. Here we run the same abstract protocol (implemented in a different model) with the same query complexity and compare the different problems that it solves.
 
@@ -477,7 +475,7 @@ This follows immediately from the abstract proof of the Deutsch-Jozsa algorithm 
 
 This result shows that we are able to model the Deutsch-Jozsa algorithm in the nondeterministic classical setting of QCRel.
 
-\section{Single-shot Grover's algorithm}
+\subsection{Single-shot Grover's algorithm}
 
 Grover's algorithm \cite{grover1996fast} takes as input a set $S$ and an indicator function $f:S\to\{0,1\}$. Though the algorithm is usually probabilistic and runs a repeated series of ``Grover steps", here we consider the deterministic version that runs with a single step. Our setup requires the set $S$, as one system, as well as another system $B=\{0,1\}$. We define the basis $Z^{S}=\bigoplus^NG$ and $X^S=\bigoplus^{|G|}H$ on the $S$ system.  System $B$ has complementary bases $Z^B=\mathbb{Z}_2$ and $X^B=\mathbb{Z}_1\oplus\mathbb{Z}_1$.
 
@@ -545,7 +543,7 @@ As $D$ is a bijection, it is a unitary relation and thus a possible evolution in
 This will be the same as the above example, but now take $R$ to be the classical relation $\{(0,0),(2,0),(0,1),(2,1)\}$. As an element of $H_0$ is related to $\ket{\sigma}$, the algorithm will return classical points of $X^S$ which are \emph{not} mapped to $\ket{\sigma}$, i.e. the state $\ket{1\vee3}$.
 \end{example}
 
-\section{The groupoid homomorphism promise algorithm}
+\subsection{The groupoid homomorphism promise algorithm}
 
 This section models the group homomorphism algorithm \todo{from REF BACK} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that paper the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups\footnote{Making use of the structure theorem for abelian groups to complete the general case.}. It is this cyclic group subroutine that we consider here. In the relational setting, the analogous GroupHomID algorithm takes as input a groupoid isomorphism $f:G\to A$, where groupoid $H$ is complementary to $G$ and groupoid $B$ is complementary to $A$.  The requirement of oracle unitarity restricts our input from groupoid homomorphisms to groupoid isomorphisms.
 \begin{corollary}

@@ -1,11 +1,9 @@
-\chapter{Quantum Blackbox Algorithms}
+\section{Quantum Blackbox Algorithms}
 
-\todo{\chapabstract{}}
-
-\section{\color{blue} The abstract structure of unitary oracles}
+\subsection{\color{blue} The abstract structure of unitary oracles}
 
 
-\subsection{Complementarity via unitarity}
+\subsubsection*{Complementarity via unitarity}
 A pair of symmetric dagger-Frobenius algebras can be used to build a linear map in the following way:
 \begin{equation}
 \label{eq:generalizedcnot}
@@ -45,7 +43,7 @@ Here we have assumed that we operate in a category where square roots of scalars
 This completes the proof.
 \end{proof}
 
-\subsection{Families of unitary oracles}
+\subsubsection*{Families of unitary oracles}
 
 This pair of complementary observables automatically gives rise to a much larger family of unitaries, one for each self-conjugate comonoid homomorphism onto one of the classical structures in the pair. See equation~\eqref{eq:comonoidhomomorphismselfconjugate} for the definition of the self-conjugacy property. Lemma~\ref{lem:comonoidhomomorphismselfconjugate} demonstrated that in \cat{FHilb}, every comonoid homomorphism of classical structures is self-conjugate.
 \begin{defn}[Oracle]
@@ -68,18 +66,18 @@ To demonstrate that the oracle \eqref{eq:oracle} is unitary, we must compose it 
 \end{align*}
 There is a similar argument that the other composite also gives the identity. \end{proof}
 
-\section{The Deutsch-Jozsa algorithm}
+\subsection{The Deutsch-Jozsa algorithm}
 The abstract structure of the Deutsch-Jozsa quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. This proof inspires new ways to implement the DJ algorithm, where Fourier transforms are replaced by more general Hadamard transformations, without effecting the algorithm. We investigate these new implementations numerically and analytically. {\bf Status:} undrafted, though the proof and numerical results have been completed.
 
-\section{Grover's algorithm}
+\subsection{Grover's algorithm}
 For completeness, we summarize the results of \cite{vicary-tqa}, where the single-shot Grover's algorithm is investigated using categorical techniques. {\bf Status:} undrafted.
 
-\section{The hidden subgroup algorithm}
+\subsection{The hidden subgroup algorithm}
 Similarly, we abstractly demonstrate the function of the hidden subgroup algorithm, which leads us to conjecture that a speedup is possible by altering an input query representation. {\bf Status:} undrafted.
 
-\section{\color{blue} The group homomorphism identification algorithm}
+\subsection{\color{blue} The group homomorphism identification algorithm}
 
-\subsection{The problem}
+\subsubsection*{The problem}
 
 In this section we construct a new deterministic quantum algorithm to identify  group homomorphisms.  
 \begin{defn}[Group homomorphism identification problem]
@@ -114,7 +112,7 @@ In the case that $G$ is finite, its representations can be characterized as the 
 \end{calign}
 These will be essential for our proofs below.
 
-\subsection{The algorithm}
+\subsubsection*{The algorithm}
 
 The structure of the quantum algorithm that solves the group homomorphism identification problem is given by the topological diagram~\eqref{eq:theAlg} below. Here $\sigma:G\to\mathbb{C}$ is a normalized irreducible representation of $G$, representing the result of the measurement, and $\rho:A\to\mathbb{C}$ is a normalized irreducible representation of $A$. The representation $\rho$ is one-dimensional as $A$ is an abelian group. Physically, we are able to produce the input  state $\rho$ efficiently, using $O(\log n)$ time steps, via the quantum Fourier transform for any finite abelian group~\cite{cleve2000fast}. The measurement  result $\sigma$ arises from  a measurement in the Fourier basis, which can, by a similar procedure for any finite group~\cite{childs2010quantum}, also be implemented efficiently.
 \begin{align}
@@ -207,9 +205,9 @@ f(n_0,n_1,...n_{n-1}) = \left(f_0(n_0), f_1(n_1),..., f_{n-1}(n_{n-1})\right)
 \end{align*}
 we know that each isomorphic class contains only one representation}
 
-\todo{\subsection{Optimality}}
+\todo{\subsubsection*{Optimality}}
 
-\subsection{Extension to the non-abelian case}
+\subsubsection*{Extension to the non-abelian case}
 We now consider the more general case where the target group $A$ is non-abelian. We do not know how to extend the algorithm described above to this case.  Nevertheless, it is instructive to analyze this scenario in our graphical approach. 
 
 Irreducible representations of a non-abelian group $A$ are not necessarily one dimensional, though we are still able to compute them via the Fourier transform efficiently \cite{childs2010quantum}. In this case the algorithm has the following structure, where $\psi$ represents the initial state of the right-hand system in the representation space:
@@ -221,5 +219,5 @@ We notice two additional features in this case. First, it is clear that the left
 
 While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \emph{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
 
-\section{\color{blue} The hidden shift problem}
+\subsection{\color{blue} The hidden shift problem}
 {\bf Status:} UNDRAFTED.

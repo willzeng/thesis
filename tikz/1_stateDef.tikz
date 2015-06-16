@@ -4,7 +4,7 @@
 
 \node (1) at (0,3) {};
 \node at (0.6,3) {$A$};
-\node (2) [style=state] at (0,1) {$f$};
+\node (2) [style=state] at (0,1) {$\psi$};
 
 \draw [style = thick] (1.center) to (2.center);
 

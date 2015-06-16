@@ -14,15 +14,15 @@ f:A\to B :=
 \end{tikzpicture}
 \end{aligned}
 \qquad
-f \circ g := 
+g \circ f := 
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 
 \node (0) at (0,2.5) {};
 \node at (0.6,2.5) {$C$};
-\node (1) [style=morphism] at (0,1.2) {$f$};
+\node (1) [style=morphism] at (0,1.2) {$g$};
 \node at (0.6,0) {$B$};
-\node (2) [style=morphism] at (0,-1.2) {$g$};
+\node (2) [style=morphism] at (0,-1.2) {$f$};
 \node at (0.6,-2.5) {$A$};
 \node (3) at (0,-2.5) {};
 
@@ -38,7 +38,7 @@ f \circ g :=
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 
 \node (1) at (0,2.5) {};
-\node at (0.6,2.5) {$B$};
+\node at (0.6,2.5) {$A$};
 \node at (0.6,-2.5) {$A$};
 \node (3) at (0,-2.5) {};
 

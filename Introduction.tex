@@ -5,7 +5,7 @@
 \paragraph{Prerequisites} Quantum Circuits $\cdot$
 
 \section{Monoidal categories}
-Monoidal categories give an abstract structure for processes with both sequential and parallel composition. One could be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in, for example, quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We sometimes leave the objects of morphisms implicit when they can be inferred from context.
+Monoidal categories provide an abstract structure for processes that are equipped with both sequential and parallel composition. One might be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in cases like, for example, quantum theory.  A process $f:A\to B$ is a \emph{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \emph{objects} and we sometimes say that $f$ is a morphism \emph{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \emph{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We sometimes leave the objects of morphisms implicit when they can be inferred from context.
 
 \begin{defn}
 A \emph{category} \cat{C} is a set of objects $\objs{C}$ and a set of morphisms $\arrs{C}$ between them, such that for all $A,C,B,D\in \objs{C}$ and all $f:A\to B$, $g:B\to C$, $h:C\to D$ in $\arrs{C}$:
@@ -21,8 +21,6 @@ h\circ(g\circ f) = (h\circ g)\circ f
 \end{align}
 \end{itemize}
 \end{defn}
- 
-\todo{defn functor?}
 
 A category can thus be thought of as encoding processes where sequences can be associatively composed  and where we always have access to a ``do-nothing`` process, which is the identity morphism. Note that the objects of a category are somewhat superfluous, as they are in one-to-one correspondence with the identity morphisms. Due to this we refer interchangeable to an object and its identity morphism throughout. It is because categories are really focused on morphisms that we seem them as encoding a process theory.
 
@@ -100,5 +98,29 @@ This thesis applies the graphical calculi for SMC's to the study of protocols an
 \caption[Comparison of quantum circuits and symmetric monoidal diagrams]{On the left we have a quantum circuit (read left to right) and its corresponding categorical diagram in \cat{FHilb} on the right (read bottom to top). In both depictions, the boxes are linear maps and the wires are Hilbert spaces. In quantum circuits these are implicitly qubits, with a slash used to denote products of qubits. In the categorical diagram we explicitly write spaces.}
 \end{figure}
 
+\subsection{Other Categorical Definitions}
+
+We make use of several other standard categorical concepts, whose definitions are reproduced here.
+
+\begin{defn}
+Given a category $\cat{C}$ and $A,B\in\objs{C}$, the \emph{homset} Hom$(A,B)$ is the set of arrows in the category $f:A\to B$.
+\end{defn}
+
+We can think of Hom$(A,B)$ as all the processes that input system $A$ and output $B$. Sometimes, to specify the category, we write $\cat{C}(A,B)$ for the homset Hom$(A,B)$ in $\cat{C}$.
+
+As we often consider the relationship between categories, we introduce the notion of a structure preserving map between categories that is called a functor.
+
+\begin{defn}
+Given two categories \cat{C} and \cat{D} a \emph{functor} $F:\cat{C}\to\cat{D}$ consists of
+\begin{enumerate}
+\item A mapping on objects $F:\objs{C}\to\objs{D}::A\mapsto F(A)$
+\item A mapping on arrows $F:\cat{C}(A,B)\to\cat{D}(F(A),F(B))::f\mapsto F(f)$ that preserves composition and identities, i.e. 
+\begin{enumerate}
+\item For $f:A\to B$ and $g:B\to C$ then $F(g\circ f) = F(g)\circ F(f)$
+\item $F(1_A)=1_{F(A)}$
+\end{enumerate}
+\end{enumerate}
+\end{defn}
+
 \section{Further Reading}
-Other examples of ways that monoidal cats formalize diagrammatic languages in physics etc.  Categories in Control. Penrose diagrams. Feynman diagrams. Etc.  Note that monoidal categories are themselves coherent for planar isotopy \cite{joyal1991geometry}. Indeed the coherence of many of these graphical languages can be regarded are geometric isotopies in higher dimensions, e.g. coherence for SMC's is up to a 4-dimensional isotopy \cite{selinger2011survey}.
+There are other examples, besides quantum information, where diagrammatic concepts in computer science and physics can be formalized using symmetric monoidal categories.  Categories in Control. Penrose diagrams. Feynman diagrams. Reversible flow circuits. Petri nets. Etc.  Note that monoidal categories are themselves coherent for planar isotopy \cite{joyal1991geometry}. Indeed the coherence of many of these graphical languages can be regarded are geometric isotopies in higher dimensions, e.g. coherence for SMC's is up to a 4-dimensional isotopy \cite{selinger2011survey}.
