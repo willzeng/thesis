@@ -1,12 +1,12 @@
-\chapter{Abstract Process Theories}
+\chapter{Generalized Compositional Theories}
 \label{chap:cqm}
 
 \todo{\chapabstract{}}
 
-In this chapter we further develop the categorical structure into a notion of an abstract process theory. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Abstract process theories that posses these properties can be considered quantum-like.
+In this chapter we further develop the categorical structure into a notion of an generalized compositional theory. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Generalized compositional theories that posses these properties can be considered quantum-like.
 
 \section{The dagger}
-In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced to our diagrams by adding a so-called \emph{dagger functor}.  In the case of \cat{FHilb} this corresponds with the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to begin recognize symmetric monoidal categories (not just \cat{FHilb}) as a kind of abstract process theory. 
+In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced to our diagrams by adding a so-called \emph{dagger functor}.  In the case of \cat{FHilb} this corresponds with the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to recognize symmetric monoidal categories (not just \cat{FHilb}) as a kind of generalized compositional theory. 
 
 \begin{defn}
 \label{defn:dagger}
@@ -20,11 +20,11 @@ Spelling out this definition, the dagger functor has the following properties fo
 (g\circ f)^{\dagger} = f^{\dagger}\circ g^{\dagger}
 \end{equation}
 \begin{equation}
-\idm{A}^{\dagger} = \idm{H}
+\idm{A}^{\dagger} = \idm{A}
 \end{equation}
 Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
 
-The quantum setting \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
+The quantum setting of \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
 \begin{defn}
 A morphism $f:A\to B$ in a dagger category is:
 \begin{itemize}
@@ -36,7 +36,7 @@ A morphism $f:A\to B$ in a dagger category is:
 \end{itemize}
 \end{defn}
 
-\noindent These concepts both have meaning as mathematical objects in linear algebra and as information theoretic concepts in a process theory.  For example, a projector is some process where multiple application has the same effect as a single application in the broadest possible sense.
+\noindent These concepts both have meaning as mathematical objects in linear algebra and as information theoretic concepts in a process theory.  For example, a projector is some process where multiple sequential applications have the same effect as a single application in the broadest possible sense.
 
 Further, the dagger can be intuitively extended to an operation on diagrams: it flips the picture upside-down around the horizontal axes.  As a visual aid, morphisms are now drawn with broken symmetry as follows:
 \begin{equation}
@@ -50,11 +50,11 @@ Thus the unitarity condition becomes:
 \input{tikz/1_unitarityPics.tikz}
 \end{equation}
 
-The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's as abstract processes theories and allow us to define a generalized version of the Born Rule in Section \ref{sec:observables} that provides a basic notion of measurement.
+The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's as generalized compositional theories and allow us to define a generalized version of the Born Rule that provides a basic notion of measurement.
 
 \begin{defn}
 \label{defn:scalar}
-A \emph{scalar} in a SMC a morphism $a:I\to I$. As maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
+A \emph{scalar} in a SMC a morphism $a:I\to I$. As these are maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
 \begin{equation}
 \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
 \node [whitedot] (0) at (-1, -0) {$a$};
@@ -78,12 +78,12 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
-\noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps $\mathbb{C}\to\mathbb{C}$.
+\noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps~$\mathbb{C}\to\mathbb{C}$.
 
 \begin{defn}
 In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{defn}
-\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them their process theoretic interpretation: just as some preparation $a:I\to A$ prepares system $A$ in that state, the effect $\dag{a}:A\to I$ eliminates the system $A$ by the process $\dag{a}$.  \todo{this is a duality}.  Generalized \emph{inner products} are compositions of states and effects \cite{abramsky2004categorical} that are reminiscent of the usual Dirac notation:
+\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them their process theoretic interpretation: just as some preparation $a:I\to A$ prepares system $A$ in that state, the effect $\dag{a}:A\to I$ eliminates the system $A$ by the process $\dag{a}$.  This duality presents generalized \emph{inner products} as compositions of states and effects \cite{abramsky2004categorical} that are reminiscent of the usual Dirac notation:
 \begin{equation}
 \left(
 \begin{aligned}
@@ -112,20 +112,18 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 \end{aligned}
 \end{equation}
 
-\todo{Superpositions? aka sums of diagrams?}
+\subsection{\todo{Conjugation}}
 
-\begin{defn}
-\todo{TODO:CONJUGATION?}
-\end{defn}
+We also define a second kind of duality, akin to conjugation in $\cat{FHilb}$, that is represented by a horizontal reflection.
 
 \subsection{The generalized Born rule}
 
-Measurement in these abstract process theories comes from a statement connecting probabilities to inner products in a generalized Born Rule.
+Measurement in these generalized compositional theories comes from a statement connecting probabilities and inner products in a generalized Born Rule.
 
-\begin{defn}
+\begin{defn}[Generalized Born Rule]
 For a state $X:I\to A$ and an effect $Y:A\to I$ in a dagger-SMC, the probability of outcome $X$ given preparation $Y$ is:
 \begin{equation}
-\mbox{Prob}(X|Y) = \dag{Y}\circ\dag{X}\circ X\circ Y
+\mbox{Prob}(X|Y) = X^*\circ Y^*\circ X\circ Y
 \end{equation}
 \end{defn}
 
@@ -137,8 +135,8 @@ Diagrammatically this is:
 \node (1) [state] at (0, -0.5) {$Y$};
 \node (2) [state, hflip] at (0, 0.5) {$X$};
 \draw (1.center) to (2.center);
-\node (3) [state] at (0, 3.5) {$X$};
-\node (4) [state, hflip] at (0, 4.5) {$Y$};
+\node (3) [state] at (0, 3.5) {$Y^{*}$};
+\node (4) [state, hflip] at (0, 4.5) {$X^{*}$};
 \draw (3.center) to (4.center);
 \end{tikzpicture}
 \end{aligned}
@@ -148,8 +146,8 @@ Diagrammatically this is:
 \node (1) [state] at (0, -0.5) {$Y$};
 \node (2) [state, hflip] at (0, 0.5) {$X$};
 \draw (1.center) to (2.center);
-\node (3) [state] at (3, -0.5) {$X$};
-\node (4) [state, hflip] at (3, 0.5) {$Y$};
+\node (3) [state] at (3, -0.5) {$Y^{*}$};
+\node (4) [state, hflip] at (3, 0.5) {$X^{*}$};
 \draw (3.center) to (4.center);
 \end{tikzpicture}
 \end{aligned}
@@ -161,6 +159,12 @@ In a monoidal dagger-category with simple tensor unit, which has all finite dagg
 \end{theorem}
 
 For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities.
+
+\section{\todo{Other possibilities if needed}}
+\todo{Superpositions? aka sums of diagrams?}
+\begin{defn}
+\todo{TODO:CONJUGATION?}
+\end{defn}
 
 \section{Observables}
 \label{sec:observables}
