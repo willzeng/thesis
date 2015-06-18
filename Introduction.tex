@@ -123,4 +123,22 @@ Given two categories \cat{C} and \cat{D} a \emph{functor} $F:\cat{C}\to\cat{D}$ 
 \end{defn}
 
 \section{Further Reading}
-There are other examples, besides quantum information, where diagrammatic concepts in computer science and physics can be formalized using symmetric monoidal categories.  Categories in Control. Penrose diagrams. Feynman diagrams. Reversible flow circuits. Petri nets. Etc.  Note that monoidal categories are themselves coherent for planar isotopy \cite{joyal1991geometry}. Indeed the coherence of many of these graphical languages can be regarded are geometric isotopies in higher dimensions, e.g. coherence for SMC's is up to a 4-dimensional isotopy \cite{selinger2011survey}.
+Monoidal and symmetric monoidal categories were introduced as ``categories with multiplication" by MacLane in \cite{maclane1963natural} and later formalized as string diagrams by \cite{joyal1991geometry}. There are other examples, besides quantum information, where diagrammatic concepts in computer science and physics have been formalized using them.  In general, this approach is most useful when there are processes have both a natural diagrammatic (\emph{geometric}) presentation, but that also have an \emph{algebraic} interpretation.
+
+In physics, Penrose's tensor notation \cite{penrose1971applications} is, in modern language, precisely the diagrammatic representation of the symmetric monoidal category $\cat{FVect}$ of finite dimensional vector spaces and linear maps. Feynman diagrams are representations of morphisms in the symmetric monoidal category of positive energy representations of the Poincar\'{e} group \cite{baez2009prehistory}. The symmetric (and braided) monoidal category framework is an important foundation for $n$-dimensional topological quantum field theories (symmetric monoidal functors $T:\cat{nCob}\to \cat{FVect}$) \cite{atiyah1988topological}. In fact, two-dimensional TQFT's are equivalent to commutative Frobenius algebras, which we introduce later in \todo{DEFINITION cFAlg} \cite{abrams1996two,kock2004frobenius}. This perspective also plays an important role in the study of generalized knot invariants \cite{reshetikhin1990ribbon} and quantum groups \cite{baez2009prehistory}. 
+
+We also find example in computer science and control theory. Petri nets (Figure~\ref{petri}) have been connected to linear logic through their connection with monoidal categories \cite{abramsky2008petri,marti1989petri,sassone1998axiomatization}.
+\begin{figure}[t]
+\label{fig:petri}
+\begin{align*}
+\includegraphics[width=\textwidth]{images/petri.png}
+\end{align*}
+\caption{Two examples of Petri nets.  On the left is a Petri net for a predator prey system and on the right is one for a chemical reaction. Figure reproduced with permission from \cite{petriBlog}.}
+\end{figure}
+Each Petri net, by closure under sequential and parallel composition makes a suitable kind of symmetric monoidal category \cite{marti1989petri,meseguer1990petri}. Categories in Control. Reversible flow circuits.  Electrical
+circuits. Cannabalize Kissinger/Vladimir's introductions.
+
+Note that monoidal categories are themselves coherent for planar isotopy \cite{joyal1991geometry}. Indeed the coherence of many of these graphical languages can be regarded are geometric isotopies in higher dimensions, e.g. coherence for SMC's is up to a 4-dimensional isotopy \cite{selinger2011survey}. This establishes a hierarchy of diagrams that ...
+
+A general reference for the connections between computation, topology, and physics that emerge from symmetric monoidal categories is \cite{baez2011physics}.
+
