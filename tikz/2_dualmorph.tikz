@@ -1,0 +1,25 @@
+\begin{pic}[xscale={\tikzxscale}, yscale=2*\tikzyscale]
+\node (0) at (0,0) {};
+\node (1) at (0,2) {};
+\node [morphism] (2) at (0,1) {$f^*$};
+\draw [reverse arrow=.5] (0) to (2.south);
+\draw [reverse arrow=.5] (2.north) to (1);
+\end{pic}
+\;=\;
+\begin{pic}[xscale={\tikzxscale}, yscale=0.8\tikzyscale]
+                \node [style=none] (0) at (-1, -0) {};
+                \node [style=none] (1) at (1, -0) {};
+                \node [style=none] (2) at (0, -1) {};
+                \node [style=none] (3) at (2, 1) {};
+                \node [style=none] (4) at (1, -0) {};
+                \node [style=none] (5) at (3, -0) {};
+                \node [style=none] (6) at (3, -1) {};
+                \node [style=none] (7) at (-1, 1) {};
+                \node [style=morphism] (8) at (1, -0) {f};
+                \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
+                \draw [bend right=45, looseness=1.00] (2.center) to (8.south);
+                \draw [bend left=45, looseness=1.00] (8.north) to (3.center);
+                \draw [bend left=45, looseness=1.00] (3.center) to (5.center);
+                \draw [reverse arrow=.5] (6.center) to (5.center);
+                \draw [reverse arrow=.5] (0.center) to (7.center);
+\end{pic}

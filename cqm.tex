@@ -112,16 +112,12 @@ In a \dsmc, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{aligned}
 \end{equation}
 
-\subsection{The generalized Born rule}
+\section{The generalized Born rule}
 
-Measurement in these generalized compositional theories comes from a statement connecting probabilities and inner products in a generalized Born Rule.
-
-\begin{defn}[Generalized Born rule]
-For a state $X:I\to A$ and an effect $Y:A\to I$ in a dagger-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
+Measurement in these generalized compositional theories comes from a statement connecting probabilities and inner products in a sense that approaches a generalized Born Rule. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
 \begin{equation}
 a = X\circ Y:\mathbb{I}\to\mathbb{I}
 \end{equation}
-\end{defn}
 
 %Diagrammatically this is:
 %\begin{equation}
@@ -149,15 +145,11 @@ a = X\circ Y:\mathbb{I}\to\mathbb{I}
 %\end{aligned}
 %\end{equation}
 
-We then define the operational probability Prob$(X|Y)=|a|^2$. While this clearly makes sense in \cat{FHilb}, where amplitudes are complex numbers, one might ask when under what general conditions the scalars $I\to I$ will square to our usual notion of probability. An answer is found in the following theorem:
+\noindent We could then define the operational probability Prob$(X|Y)=|a|^2$. While this clearly makes sense in \cat{FHilb}, where amplitudes are complex numbers, one might ask when under what general conditions the scalars $I\to I$ will square to our usual notion of probability. An answer is found in the following theorem:
 \begin{theorem}{\cite[Thm 4.2]{vicary2011completeness}}
 In a monoidal dagger-category with simple tensor unit, which has all finite dagger-limits and for which the self-adjoint scalars are Dedekind-complete, the scalars have an involution-preserving embedding into the complex numbers.
 \end{theorem}
-\noindent For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities.
-
-Still, even if the scalars do not embed in the complex numbers one can generally handle the needed structure of complex conjugation. There is a way to define conjugation in any $\dagger$-SMC which has duals, as we describe in the following section.\footnote{These are sometimes called autonomous categories in the literature \cite{joyal1993braided,selinger2011survey}.}
-
-\section{Duality and Conjugation}
+\noindent For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities. Still, even if the scalars do not embed in the complex numbers one can generally handle the needed structure of complex conjugation to obtain a generalized Born rule. There is a way to define conjugation in any $\dagger$-SMC which has duals, as we describe in this section.\footnote{These are sometimes called autonomous categories in the literature \cite{joyal1993braided,selinger2011survey}.}
 
 Duals in a generalized compositional theory help us define both entanglement and conjugation.
 
@@ -184,13 +176,52 @@ Thus the duality maps, commonly called ``cups" and ``caps" and their ``snake equ
 \begin{equation}
 \input{tikz/2_snake.tikz}
 \end{equation} 
-\noindent and are well behaved under the dagger functor, i.e. $\dag{e_A}=d_A$.
+\noindent and are well behaved under the dagger functor, i.e.
+\begin{equation}
+\input{tikz/2_daggerdual.tikz}
+\end{equation}
+
+We can compose these caps and cups to define the dual of any process $f:A\to B$ as $f^*:B^*\to A^*$:
+\begin{equation}
+\input{tikz/2_dualmorph.tikz}
+\end{equation}
+
+\begin{example}
+To get a better handle on what this structure means, we consider the example of \cat{FHilb}. Given some finite dimensional Hilbert space $A\in\objs{FHilb}$, its dual $A^*$ is the usual dual space, i.e. the space of linear functionals $A\to \mathbb{C}$. Note that in this case $A$ is isomorphic to $A^*$. Using this and given a basis $\{ \ket{i} \}$ for $A$, the cups and the caps are maps:
+\begin{equation}
+e_A :: 1\mapsto \sum_i\ket{i}\otimes\ket{i}
+\qquad\qquad
+d_A :: \sum_i\bra{i}\otimes\bra{i} \mapsto 1
+\end{equation}
+We then immediately recognize $e_A$ as entangled state preparation. In particular, when $A$ is a two-dimensional Hilbert space, $e_A$ is a Bell state preparation of $\ket{\psi_{00}}=\ket{00}+\ket{11}$ and  and $d_A$ is a post-selected Bell measurement for $\ket{\psi_{00}}$. For any process in \cat{FHilb} its dual gives the transpose, which is in general the \emph{upper-star} of $f$.
+\end{example}
+
+This provides a motivating example for the following, which acts as a generalized conjugation operation:
+
+\begin{defn}
+Given a oCGT \cat{C}, the \emph{lower-star} is an involutive map 
+\begin{align*}
+(-)_*:\arrs{C}&\to\arrs{C} \\
+\left(f:A\to B\right) &\mapsto f_*:=(\dag{f})^*=\dag{(f^*)}.
+\end{align*}
+\end{defn}
+
+This now gives us a way to talk about abstract probabilities for the generalized Born rule:
+\begin{defn}[Generalized Born Rule]
+For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probability of outcome $X$ given preparation $Y$ is:
+\begin{equation}
+\mbox{Prob}(X|Y) = (X\circ Y)^*\otimes X\circ Y:\mathbb{I}\to\mathbb{I}
+\end{equation}
+\end{defn}
+\noindent It is easy to see that this reduces to the usual Born rule in \cat{FHilb}.
+
+\subsection{Operational Generalized Compositional Theories}
 
 The addition of states and a generalized Born rule (with further details in the following section), give our generalized compositional theories a notion of measurement and an operational character.
 
-\begin{defn}(Operational Generalized Process Theories)
+\begin{defn}(Operational Generalized Compositional Theories)
 \label{thm:ogct}
-A $\dagger$-SMC where all objects have duals is called a \emph{$\dagger$-compact category}. \emph{Operational generalized compositional theories} (oGCTs) are \dcc where objects are interpreted as systems and morphisms are interpreted as processes.
+A $\dagger$-SMC where all objects have duals is called a \emph{$\dagger$-compact category}. An \emph{operational generalized compositional theory} (oGCT) is a \dcc where objects are interpreted as systems and morphisms are interpreted as processes.
 \end{defn}
 
 Duals and their ``wire-straightening" equations give diagrams in an oGCT a lot of power to encode topological equivalences.  This is well expressed in the following graphical coherence theorem, whose mathematical details are shown in~\cite{selinger2011survey}.
@@ -198,10 +229,6 @@ Duals and their ``wire-straightening" equations give diagrams in an oGCT a lot o
 \begin{theorem}[Fundamental Theorem of Diagrams~\cite{coecke2015generalised}]
 Two diagrams in an oGCT are considered equal if one can be smoothly transformed to another by bending, stretching, or crossing wires, and by moving boxes around. Given any two oGCTs $\cat{C}$ and $\cat{D}$ and a map $F:\cat{C}\to\cat{D}$, for any two diagrams $d$ and $d'$ in $\cat{C}$, if $d=d'$ as diagrams then $F(d)=F(d')$ in $\cat{D}$.
 \end{theorem}
-
-\subsection{\todo{Conjugation}}
-
-We also define a second kind of duality, akin to conjugation in $\cat{FHilb}$, that is represented by a horizontal reflection. Define Operational Generalized Compositional Theory.
 
 \section{\todo{Other possibilities if needed}}
 \todo{Superpositions? aka sums of diagrams?}
@@ -480,7 +507,8 @@ with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classic
 \todo{Include proof or cite CQM notes?}
 \end{proof}
 
-\section{Quantum protocols}
+\section{\todo{Measurements}}
 
+\section{\todo{Quantum protocols}}
 Here we reference some existing work that has been done on quantum protocols in abstract process theories: state transfer, teleportation, etc.
 
