@@ -1,4 +1,4 @@
-\chapter{Generalized Compositional Theories}
+\chapter{Structures in Generalized Compositional Theories}
 \label{chap:cqm}
 
 \todo{\chapabstract{}}
@@ -50,7 +50,7 @@ Thus the unitarity condition becomes:
 \input{tikz/1_unitarityPics.tikz}
 \end{equation}
 
-The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's as generalized compositional theories and allow us to define a generalized version of the Born Rule that provides a basic notion of measurement.
+The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's as generalized compositional theories with additional structure that allows us to define a generalized version of the Born Rule that provides a basic notion of measurement.
 
 \begin{defn}
 \label{defn:scalar}
@@ -81,7 +81,7 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 \noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps~$\mathbb{C}\to\mathbb{C}$.
 
 \begin{defn}
-In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
+In a \dsmc, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{defn}
 \noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them their process theoretic interpretation: just as some preparation $a:I\to A$ prepares system $A$ in that state, the effect $\dag{a}:A\to I$ eliminates the system $A$ by the process $\dag{a}$.  This duality presents generalized \emph{inner products} as compositions of states and effects \cite{abramsky2004categorical} that are reminiscent of the usual Dirac notation:
 \begin{equation}
@@ -112,59 +112,99 @@ In a dagger-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to 
 \end{aligned}
 \end{equation}
 
-\subsection{\todo{Conjugation}}
-
-We also define a second kind of duality, akin to conjugation in $\cat{FHilb}$, that is represented by a horizontal reflection.
-
 \subsection{The generalized Born rule}
 
 Measurement in these generalized compositional theories comes from a statement connecting probabilities and inner products in a generalized Born Rule.
 
-\begin{defn}[Generalized Born Rule]
-For a state $X:I\to A$ and an effect $Y:A\to I$ in a dagger-SMC, the probability of outcome $X$ given preparation $Y$ is:
+\begin{defn}[Generalized Born rule]
+For a state $X:I\to A$ and an effect $Y:A\to I$ in a dagger-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
 \begin{equation}
-\mbox{Prob}(X|Y) = X^*\circ Y^*\circ X\circ Y
+a = X\circ Y:\mathbb{I}\to\mathbb{I}
 \end{equation}
 \end{defn}
 
-Diagrammatically this is:
-\begin{equation}
-\mbox{Prob}(X|Y) \;=\; 
-\begin{aligned}
-\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
-\node (1) [state] at (0, -0.5) {$Y$};
-\node (2) [state, hflip] at (0, 0.5) {$X$};
-\draw (1.center) to (2.center);
-\node (3) [state] at (0, 3.5) {$Y^{*}$};
-\node (4) [state, hflip] at (0, 4.5) {$X^{*}$};
-\draw (3.center) to (4.center);
-\end{tikzpicture}
-\end{aligned}
-\;=\;
-\begin{aligned}
-\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
-\node (1) [state] at (0, -0.5) {$Y$};
-\node (2) [state, hflip] at (0, 0.5) {$X$};
-\draw (1.center) to (2.center);
-\node (3) [state] at (3, -0.5) {$Y^{*}$};
-\node (4) [state, hflip] at (3, 0.5) {$X^{*}$};
-\draw (3.center) to (4.center);
-\end{tikzpicture}
-\end{aligned}
-\end{equation}
-While this clearly makes sense in \cat{FHilb}, one might ask when under what general conditions these scalars will corresponding to our usual notion of probability. An answer is found in the following theorem:
+%Diagrammatically this is:
+%\begin{equation}
+%\mbox{Prob}(X|Y) \;=\; 
+%\begin{aligned}
+%\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+%\node (1) [state] at (0, -0.5) {$Y$};
+%\node (2) [state, hflip] at (0, 0.5) {$X$};
+%\draw (1.center) to (2.center);
+%\node (3) [state] at (0, 3.5) {$Y^{*}$};
+%\node (4) [state, hflip] at (0, 4.5) {$X^{*}$};
+%\draw (3.center) to (4.center);
+%\end{tikzpicture}
+%\end{aligned}
+%\;=\;
+%\begin{aligned}
+%\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+%\node (1) [state] at (0, -0.5) {$Y$};
+%\node (2) [state, hflip] at (0, 0.5) {$X$};
+%\draw (1.center) to (2.center);
+%\node (3) [state] at (3, -0.5) {$Y^{*}$};
+%\node (4) [state, hflip] at (3, 0.5) {$X^{*}$};
+%\draw (3.center) to (4.center);
+%\end{tikzpicture}
+%\end{aligned}
+%\end{equation}
 
+We then define the operational probability Prob$(X|Y)=|a|^2$. While this clearly makes sense in \cat{FHilb}, where amplitudes are complex numbers, one might ask when under what general conditions the scalars $I\to I$ will square to our usual notion of probability. An answer is found in the following theorem:
 \begin{theorem}{\cite[Thm 4.2]{vicary2011completeness}}
 In a monoidal dagger-category with simple tensor unit, which has all finite dagger-limits and for which the self-adjoint scalars are Dedekind-complete, the scalars have an involution-preserving embedding into the complex numbers.
 \end{theorem}
+\noindent For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities.
 
-For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities.
+Still, even if the scalars do not embed in the complex numbers one can generally handle the needed structure of complex conjugation. There is a way to define conjugation in any $\dagger$-SMC which has duals, as we describe in the following section.\footnote{These are sometimes called autonomous categories in the literature \cite{joyal1993braided,selinger2011survey}.}
+
+\section{Duality and Conjugation}
+
+Duals in a generalized compositional theory help us define both entanglement and conjugation.
+
+\begin{defn}
+In a $\dagger$-SMC, a system $A$ has a\footnote{In general, there can be separate left and right duals for an object in any category, where the definition given here corresponds to a right dual. In a \dsmc(in fact in any braided monoidal category with left duals), these are necessarily equal, so we need only speak of one dual~\cite[Prop.~7.2]{joyal1993braided}. } \emph{dual} system $A^*$ if there exist processes 
+\begin{align}
+e_A:I\to A^*\otimes A \quad \mbox{and}\quad d_A:A\otimes A^*\to I
+\end{align}
+such that the following equations hold:
+\begin{align}
+(d_A\otimes \idm{A})\circ(\idm{A}\otimes e_A) = \idm{A} \qquad (\idm{A^*}\otimes d_A)\circ(e_A\otimes \idm{A^*})=\idm{A^*}
+\end{align}
+\end{defn}
+
+When duals are introduced, we common denote them by placing arrows on the objects:
+\begin{equation}
+\input{tikz/2_arrowdual.tikz}
+\end{equation}
+
+Thus the duality maps, commonly called ``cups" and ``caps" and their ``snake equations" have the following diagrammatic form:
+\begin{align}
+\input{tikz/2_capcup.tikz}
+\end{align}
+\begin{equation}
+\input{tikz/2_snake.tikz}
+\end{equation} 
+\noindent and are well behaved under the dagger functor, i.e. $\dag{e_A}=d_A$.
+
+The addition of states and a generalized Born rule (with further details in the following section), give our generalized compositional theories a notion of measurement and an operational character.
+
+\begin{defn}(Operational Generalized Process Theories)
+\label{thm:ogct}
+A $\dagger$-SMC where all objects have duals is called a \emph{$\dagger$-compact category}. \emph{Operational generalized compositional theories} (oGCTs) are \dcc where objects are interpreted as systems and morphisms are interpreted as processes.
+\end{defn}
+
+Duals and their ``wire-straightening" equations give diagrams in an oGCT a lot of power to encode topological equivalences.  This is well expressed in the following graphical coherence theorem, whose mathematical details are shown in~\cite{selinger2011survey}.
+
+\begin{theorem}[Fundamental Theorem of Diagrams~\cite{coecke2015generalised}]
+Two diagrams in an oGCT are considered equal if one can be smoothly transformed to another by bending, stretching, or crossing wires, and by moving boxes around. Given any two oGCTs $\cat{C}$ and $\cat{D}$ and a map $F:\cat{C}\to\cat{D}$, for any two diagrams $d$ and $d'$ in $\cat{C}$, if $d=d'$ as diagrams then $F(d)=F(d')$ in $\cat{D}$.
+\end{theorem}
+
+\subsection{\todo{Conjugation}}
+
+We also define a second kind of duality, akin to conjugation in $\cat{FHilb}$, that is represented by a horizontal reflection. Define Operational Generalized Compositional Theory.
 
 \section{\todo{Other possibilities if needed}}
 \todo{Superpositions? aka sums of diagrams?}
-\begin{defn}
-\todo{TODO:CONJUGATION?}
-\end{defn}
 
 \section{Observables}
 \label{sec:observables}
@@ -439,20 +479,6 @@ with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classic
 \begin{proof}
 \todo{Include proof or cite CQM notes?}
 \end{proof}
-
-\section{Duality}
-
-\begin{defn}
-In a monoidal category 
-\end{defn}
-
-\begin{defn}
-\todo{Compact categories?} (closed follows)
-\end{defn}
-
-\begin{defn}
-\todo{dagger compact categories?} (closed follows)
-\end{defn}
 
 \section{Quantum protocols}
 

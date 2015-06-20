@@ -1,0 +1,22 @@
+\idm{A} = \;
+\begin{pic}[xscale={\tikzxscale}, yscale=2*\tikzyscale]
+\node (0) at (0,0) {};
+\node (1) at (0,2) {};
+\draw [arrow=.5] (0) to (1);
+\end{pic}
+\qquad \qquad
+\idm{A^*} = \;
+\begin{pic}[xscale={\tikzxscale}, yscale=2*\tikzyscale]
+\node (0) at (1,0) {};
+\node (1) at (1,2) {};
+\draw [reverse arrow=.5] (0) to (1);
+\end{pic}
+\qquad \qquad
+f:A^*\to B^* = \;
+\begin{pic}[xscale={\tikzxscale}, yscale=2*\tikzyscale]
+\node (0) at (0,0) {};
+\node (1) at (0,2) {};
+\node [morphism] (2) at (0,1) {$f$};
+\draw [reverse arrow=.5] (0) to (2.south);
+\draw [reverse arrow=.5] (2.north) to (1);
+\end{pic}
