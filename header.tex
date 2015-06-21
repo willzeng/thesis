@@ -900,6 +900,9 @@
 \newcommand{\Hsp}{\mathcal{H}}
 \newcommand{\dsmc}{$\dagger$-SMC~}
 \newcommand{\dcc}{$\dagger$-compact category~}
+\newcommand{\tikzeq}[1]{
+  \begin{equation}\input{#1}\end{equation}
+}
 
 % From Bob/Aleks 
 \newcommand{\name}[1]{\ensuremath{\ulcorner #1 \urcorner}}
@@ -935,6 +938,18 @@
 \newcommand{\eg}{\textit{e.g.}\xspace}
 \newcommand\ud{\ensuremath{\mathrm{d}}}
 \newcommand{\todo}[1]{{\color{red}#1}}
+
+%NEW
+\tikzstyle{dotpic}=[scale=0.5]
+\newcommand{\dotonly}[1]{%
+\,\begin{tikzpicture}[dotpic,yshift=-0.3mm]
+\node [#1] (a) at (0,0) {};
+\end{tikzpicture}\,}
+\newcommand{\whitedot}{\dotonly{whitedot}}
+\tikzstyle{braceedge}=[decorate,decoration={brace,amplitude=2mm,raise=-1mm}]
+\tikzstyle{small braceedge}=[decorate,decoration={brace,amplitude=1mm,raise=-1mm}]
+\tikzstyle{wire label}=[font=\tiny, auto]
+
 
 \def\swangle{-145}
 \def\seangle{-35}

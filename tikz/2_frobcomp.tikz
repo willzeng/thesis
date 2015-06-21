@@ -1,0 +1,35 @@
+\begin{pic}
+                \node  (0) at (-1.75, 0.75) {};
+                \node  (1) at (-0.25, 0.75) {};
+                \node  (2) at (3.25, 0.75) {};
+                \node [style=whitedot] (3) at (-3.25, 0.5) {};
+                \node [style=whitedot] (4) at (1.25, 0.5) {};
+                \node  (5) at (-3.75, 0) {};
+                \node  (6) at (-2.75, 0) {};
+                \node  (7) at (-2.75, 0) {};
+                \node  (8) at (-1.75, 0) {};
+                \node  (9) at (-1, 0) {$=$};
+                \node  (10) at (-0.25, 0) {};
+                \node  (11) at (0.75, 0) {};
+                \node  (12) at (0.75, 0) {};
+                \node  (13) at (1.75, 0) {};
+                \node  (14) at (2.5, 0) {$=$};
+                \node [style=whitedot] (15) at (-2.25, -0.5) {};
+                \node [style=whitedot] (16) at (0.25, -0.5) {};
+                \node  (17) at (-3.75, -0.75) {};
+                \node  (18) at (1.75, -0.75) {};
+                \node  (19) at (3.25, -0.75) {};
+                \draw (18.center) to (13.center);
+                \draw (10.center) to (1.center);
+                \draw [in=165, out=-90] (10.center) to (16);
+                \draw [in=-90, out=15] (16) to (11.center);
+                \draw (19.center) to (2.center);
+                \draw [in=-90, out=165] (15) to (7.center);
+                \draw (17.center) to (5.center);
+                \draw (8.center) to (0.center);
+                \draw [in=-15, out=90] (7.center) to (3);
+                \draw [in=15, out=-90] (8.center) to (15);
+                \draw [in=-165, out=90] (11.center) to (4);
+                \draw [in=-165, out=90] (5.center) to (3);
+                \draw [in=-15, out=90] (13.center) to (4);
+\end{pic}

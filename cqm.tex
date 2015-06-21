@@ -154,6 +154,7 @@ In a monoidal dagger-category with simple tensor unit, which has all finite dagg
 Duals in a generalized compositional theory help us define both entanglement and conjugation.
 
 \begin{defn}
+\label{def:dual}
 In a $\dagger$-SMC, a system $A$ has a\footnote{In general, there can be separate left and right duals for an object in any category, where the definition given here corresponds to a left dual. In a \dsmc(in fact in any braided monoidal category with left duals), these are necessarily equal, so we need only speak of one dual~\cite[Prop.~7.2]{joyal1993braided}. } \emph{dual} system $A^*$ if there exist processes 
 \begin{align}
 e_A:I\to A^*\otimes A \quad \mbox{and}\quad d_A:A\otimes A^*\to I
@@ -285,17 +286,19 @@ This presentation of the teleportation protocol is useful in several ways:
 \end{enumerate}
 \end{example}
 
+Operational generalized compositional theories already give us some power above and beyond the usual quantum circuit formalism, and we add more structures to the toolbox in the next sections.  We have glossed over some of the details of how measurement should be represented in such theories, but the introduction of structures for observables in the next sections allows us to more exactly specify the details in Section \ref{sec:measurements}. 
+
 \section{\todo{Other possibilities if needed}}
 \todo{Superpositions? aka sums of diagrams?}
 
 \section{Observables}
 \label{sec:observables}
 
-Within a process theory we can construct objects that have the phenomenology of classical information: copying, deleting, etc. These structures become the observables of abstract process theories that allow us to extract classical information from them via measurements.
+Within a process theory we can construct objects that have the phenomenology of classical information: copying, deleting, etc. These structures become the observables of oGCTs that allow us to extract classical information from them via measurements.
 
 \subsection{Monoids and comonoids}
 
-Monoids and comonoids on objects embody our notions of copying and comparing states. As they are a particular kinds of morphisms we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,1)$ has states of $A$ as elements and maps:
+Monoids and comonoids on systems embody our notions of copying and comparing states. As they are a particular kinds of processes we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,1)$ has states of $A$ as elements and maps:
 \begin{equation}
 \input{tikz/1_monoidPics.tikz}
 \end{equation}
@@ -318,6 +321,7 @@ In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an 
 \end{equation}
 \end{defn}
 
+\noindent We use differently colored dots to represent different monoids on the same object.
 \begin{defn}
 In a monoidal category and object $A$, a \emph{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
 \begin{equation}
@@ -325,16 +329,16 @@ In a monoidal category and object $A$, a \emph{monoid homomorphism} $f:\whitemon
 \input{tikz/1_mon_hom.tikz}
 \end{equation}
 \end{defn}
-\noindent A \emph{comonoid homomorphism} is defined similarly, but with the dagger condition to Equation \ref{eq:mon_hom}.
+\noindent A \emph{comonoid homomorphism} is defined similarly, but with the dagger of the condition in~\eqref{eq:mon_hom}.
 
 We can then ask for the comonoid and monoid to interact in various ways.
 
 \subsection{Abstract observables}
 
-When monoids and comonoids combine under certain rules, we obtain the structure of classical information on objects of an abstract process theory.
+When monoids and comonoids combine under certain rules, we obtain the structure of classical information on systems in an oGCT.
 
 \begin{defn}
-In a monoidal dagger-category, the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} is \emph{dagger-Frobenius} when the following equation holds:
+In a \dsmc the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} form a \emph{dagger-Frobenius algebra} when the following equation holds:
 \begin{equation}
 \label{eq:frobenius}
 \input{tikz/1_Frobenius.tikz}
@@ -342,168 +346,139 @@ In a monoidal dagger-category, the pair of a monoid \whitemonoid{A} and comonoid
 \end{defn}
 
 \begin{defn}
-In a symmetric monoidal dagger-category, a \textit{classical structure} is a commutative dagger-Frobenius comonoid \whitecomonoid{A} satisfying the \textit{specialness} condition:
+\label{def:classicalstruct}
+A \emph{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} satisfying the \emph{specialness} \eqref{eq:special} and \emph{symmetry} \eqref{eq:sym} conditions:
 \begin{equation}
-\input{tikz/1_specialness.tikz}
+\label{eq:special}
+\begin{aligned}
+\begin{tikzpicture}[xscale={1.5*\tikzxscale}, yscale={1.5*\tikzyscale}]
+\draw (0,0.25) to (0,1) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.5) to [out=up, in=\swangle] (0,2) node [whitedot] {} to (0,2.75);
+\draw (0,1) to [out=\neangle, in=down] (0.5,1.5) to [out=up, in=\seangle] (0,2);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+  \begin{aligned}
+  \begin{tikzpicture}[xscale={1.5*\tikzxscale}, yscale={1.5*\tikzyscale}]
+  \draw (-0.5,0) to (-0.5,3);
+  \end{tikzpicture}
+  \end{aligned}
+  \end{equation}
+  
+  \vspace{-10pt}
+  \begin{equation}
+  \label{eq:sym}
+\begin{aligned}
+\begin{tikzpicture}[xscale={1.5*\tikzxscale}, yscale={1.5*\tikzyscale}]
+\draw (0,-0.5) node [whitedot] {} to (0,0.5) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.0) to [out=up, in=down] (0.5,2);
+\draw (0,0.5) to [out=\neangle, in=down] (0.5,1) to [out=up, in=down] (-0.5,2);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale={1.5*\tikzxscale}, yscale={1.5*\tikzyscale}]
+\draw (0,-0.5) node [whitedot] {} to (0,0.5) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.0) to [out=up, in=down] (-0.5,2);
+\draw (0,0.5) to [out=\neangle, in=down] (0.5,1) to [out=up, in=down] (0.5,2);
+\end{tikzpicture}
+\end{aligned}
 \end{equation}
 \end{defn}
 
-
 \begin{defn}
-In a symmetric monoidal dagger-category, a dagger-Frobenius comonoid is \emph{symmetric} when the following condition holds:
+\label{def:copyables}
+The set of \emph{classical states} $K_{\circ}$ for a classical structure \whitecomonoid{A} are all states $j:I\to A$ such that:
 \begin{equation}
-\input{tikz/1_symmetric.tikz}
+\begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
+\node [state] at (1.25,3) {$j$};
+\draw (2,0) to [out=up, in=\seangle] (1.25,1.5);
+\draw (0.5,0) to [out=up, in=\swangle] (1.25, 1.5);
+\draw (1.25,1.5) to (1.25, 3);
+\node [whitedot] at (1.25,1.5) {};
+\end{pic}
+\quad=\quad
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (a) [state] at (2.5,0) {$j$};
+\node (b) [state] at (0,0) {$j$};
+\draw (a) to (2.5,2);
+\draw (b) to (0,2);
+\end{pic}
 \end{equation}
 \end{defn}
+\noindent These classical points will be drawn as states that are the same color as the classical structure to which they correspond.
+
+The following theorems characterize the relationship between classical structures and observables. 
+
+\begin{theorem}[{\cite[Cor 4.3]{coecke2013new}}]
+Special dagger Frobenius algebras in \cat{FHilb} are precisely finite-dimensional C$^*$-algebras.
+\end{theorem}
+\noindent Note that this correspondence holds for both symmetric and non-symmetric special dagger Frobenius algebras, which are commutative and non-commutative $C^*$ algebras respectively.
+
+\begin{theorem}[{\cite[Thm 5.1]{coecke2013new}}]
+Symmetric dagger Frobenius algebras in FHilb are orthogonal bases.
+\end{theorem}
+\noindent The additional condition of specialness for classical structures acts as a normalizing condition so that:
+\begin{theorem}[{\cite[Sec 6]{coecke2013new}}]
+\label{thm:cstructBases}
+Classical structures in FHilb are orthonormal bases.
+\end{theorem}
+
+\noindent \noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an oGCT. The copyable states of classical structures  (Definition~\ref{def:copyables}) form the elements of these bases, more specifically the eigenvectors of the observables, though we should be careful that in categories other than $\cat{FHilb}$ they do not necessarily have all the familiar properties of bases for Hilbert spaces.
+\begin{remark}
+The correspondence in Theorem \ref{thm:cstructBases} was modified for the infinite dimensional case in \cite{abramsky2012h}, where it still holds. We will only use the the finite dimensional case in this thesis as we are concerned only with algorithms that run on computers of finite size.
+\end{remark}
 
 \begin{defn}
-In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius comonoid \whitecomonoid{A} is given by the following composite:
+In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitecomonoid{A} is given by the following composite:
 \begin{equation}
 \label{eq:dim}
 \input{tikz/1_dimension.tikz}
 \end{equation}
 \end{defn}
 \noindent
-When the algebra is commutative and special, Equation~\eqref{eq:dim} can be simplified to the composition of the unit and counit.
-
-\begin{defn}
-\todo{copyable states}
-\end{defn}
-
-\begin{theorem}{Gelfand-Neumark}
-Special dagger Frobenius algebras in \cat{FHilb} are precisely finite-dimensional C$^*$-algebras.
-\end{theorem}
-
-\begin{theorem}{\cite[Thm 5.1]{coecke2013new}}
-Commutative dagger Frobenius algebras in FHilb are orthogonal bases.
-\end{theorem}
-
-\begin{defn}
-A \emph{classical structure} in a SMC is a dagger special commutative Frobenius algebras ($\dagger$-sCFA).
-\end{defn}
-\noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an abstract process theory.
-
-\begin{theorem}{\cite[Sec 6]{coecke2013new}}
-\label{thm:cstructBases}
-Classical structures in FHilb are orthonormal bases.
-\end{theorem}
-
-\noindent The copyable states form the elements of these bases.
+When the algebra is in fact a classical structure, Equation~\eqref{eq:dim} can be simplified to the composition of the unit and counit:
+\begin{equation}
+d(A) \;= \;
+\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node (t) [whitedot] at (0,1) {};
+\node (b) [whitedot] at (0,-1) {};
+\draw (t) to (b.center);
+\end{pic}
+\end{equation}
 
 \begin{remark}
-The correspondence in Theorem \ref{thm:cstructBases} was modified for the infinite dimensional case in \cite{abramsky2012h}.
+It is important to note that the dimension of a system does not always equal the number of classical states of the associated classical structure. One example where this does not hold is \cat{FRel}, where this fact plays an important role in its oGCT characterization in Chapter~\ref{chap:mermin}.
 \end{remark}
 
-\begin{theorem}
-\todo{Normal Forms/Spider law: cqm-notes Lemma 5.21}
+The rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams for an oGCT. We recursively define
+maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ by:
+\begin{align}
+\tinycomult[whitedot]_0:=\tinycounit[whitedot]
+\qquad\qquad
+\tinycomult[whitedot]_{n+1}:=\left(\tinycomult[whitedot]_{n}\otimes\idm{A}\right)\circ\tinycomult[whitedot]
+\end{align}
+where $\tinymult[whitedot]_n$ is similarly defined.
+\begin{theorem}[Spider Theorem]
+Given a classical structure, let \newline$f:A^{\otimes n}\to A^{\otimes m}$  be constructed from $\{\tinymult[whitedot],\tinycomult[whitedot],\tinyunit[whitedot],\tinycounit[whitedot]\}$ such that the diagram is connected. Then $f=\tinycomult[whitedot]_m\circ\tinymult[whitedot]_n$.
 \end{theorem}
 
-\begin{corollary}
-In \cat{FHilb}, a morphism between commutative dagger Frobenius structures acts as a function on copyable states if and only if it is a comonoid homomorphism.
-\end{corollary}
+\noindent We then define a neat diagrammatic representation for this normal form.
 
-The says that functions that map from one basis to another will necessarily be comonoid homomorphisms.  We will generalize this when we consider oracles in quantum algorithms.
-
-\begin{defn}
-\label{def:selfconj}
-In a monoidal dagger-category, a comonoid homomorphism \\$f:\blackcomonoid{A} \to \graycomonoid{B}$ between dagger-Frobenius comonoids is \emph{self-conjugate} when the following property holds:
+\begin{proposition}\label{prop:spider}\em 
+Given a classical structure on $A$, let
+$(\whitedot)_n^m$ denote the `$(n,m)$-legged spider':
 \begin{equation}
-\label{eq:comonoidhomomorphismselfconjugate}
-\begin{aligned}
-\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
-\node [morphism, wedge] (f) at (2,1) {$f$};
-\draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
-\draw (1,2) to [out=right, in=up] (f.north);
-\draw (f.south) to [out=down, in=left] (3,0) node [blackdot] {} to [out=right, in=down, out looseness=0.9] (4,3);
-\draw (3,0) to (3,-0.5) node [blackdot] {};
-\node [graydot] at (1,2) {};
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\begin{aligned}
-\begin{tikzpicture}[string]
-\node (f) at (0,0) [morphism, wedge, hflip] {$f$};
-\draw (0,-1.5) to (f.south);
-\draw (f.north) to (0,1.5);
-\end{tikzpicture}
-\end{aligned}
+\input{tikz/2_spiderdef.tikz}
 \end{equation}
-\end{defn}
-
-\begin{lemma}
-\label{lem:comonoidhomomorphismselfconjugate}
-In {\bf Hilb}, comonoid homomorphisms $f:\blackcomonoid{A} \to \graycomonoid{B}$ of classical structures are self-conjugate.
-\end{lemma}
-
-
-\begin{proof}
-Recall that comonoid homomorphisms between classical structures in \cat{Hilb} are exactly classical functions between the copyable points~\cite{coecke2013new}. The linear maps on either side of~\eqref{eq:comonoidhomomorphismselfconjugate} will be the same if and only if their matrix elements are the same, obtained by composing with $\ket i$ at the bottom and $\bra j$ at the top. On the left-hand side, this gives the following result:
-\begin{equation}
-\begin{aligned}
-\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
-\node [morphism, wedge] (f) at (2,1) {$f$};
-\draw (0,0) node [state] {$i$} to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
-\draw (1,2) to [out=right, in=up] (f.north);
-\draw (f.south)
-    to [out=down, in=left] (3,0)
-        node [blackdot] {}
-    to [out=right, in=down, out looseness=0.9] (4,2)
-        node [state, hflip] {$j$};
-\draw (3,0) to (3,-0.5) node [blackdot] {};
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\begin{aligned}
-\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
-\node (f) [morphism, wedge] at (0,0) {$f$};
-\draw (0,-0.75) node [state] {$j$} to (f.south);
-\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\left\{
-\begin{array}{ll}
-1 & \text{ if } i=f(j), \\
-0 & \text{ if } i \neq f(j).
-\end{array}
-\right.
+then any process $A^{\otimes n}\to A^{\otimes m}$ built from $\{\tinymult[whitedot], \tinycomult[whitedot], \tinyunit[whitedot],\tinycounit[whitedot]\}$ which has a connected graph is equal to $(\whitedot)^m_n$. Spider
+composition is:
+\begin{equation}\label{eq:spidercomp}
+ \input{tikz/2_spidercomp.tikz}
 \end{equation}
-On the right we can do this calculation:
-\begin{equation}
-\begin{aligned}
-\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
-\node (f) [morphism, wedge, hflip] at (0,0) {$f$};
-\draw (0,-0.75) node [state] {$i$} to (f.south);
-\draw (0,0.75) node [state, hflip] {$j$} to (f.north);
-\end{tikzpicture}
-\end{aligned}
-\quad=\quad
-\left(
-\begin{aligned}
-\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
-\node (f) [morphism, wedge] at (0,0) {$f$};
-\draw (0,-0.75) node [state] {$j$} to (f.south);
-\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
-\end{tikzpicture}
-\end{aligned}
-\right) ^\dagger
-\quad=\quad
-\left\{
-\begin{array}{ll}
-1 & \text{ if } i=f(j) \\
-0 & \text{ if } i \neq f(j)
-\end{array}
-\right\}^\dagger 
-\quad = \quad
-\left\{
-\begin{array}{ll}
-1 & \text{ if } i=f(j), \\
-0 & \text{ if } i \neq f(j).
-\end{array}
-\right.
-\end{equation}
-This is the same result as for the left-hand side, and so Equation~\eqref{eq:comonoidhomomorphismselfconjugate} holds.
-\end{proof}
+\end{proposition}
+
+The spider rule makes it clear that every classical structure on $A$ can be used to make $A$ dual (Definition~\ref{def:dual}) to itself using cups and caps built from the white dot:
+\tikzeq{tikz/2_frobcomp.tikz}
+
+The upper and lower star operations with respect to this white dot cup and cap corresponds in \cat{FHilb} to transposition and conjugation in the white dot  basis respectively.
 
 \section{Complementarity}
 \todo{Connection to mutual unbiasedness}
@@ -563,6 +538,7 @@ with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classic
 \end{proof}
 
 \section{\todo{Measurements}}
+\label{sec:measurements}
 
 \section{\todo{Quantum protocols}}
 Here we reference some existing work that has been done on quantum protocols in abstract process theories: state transfer, teleportation, etc.

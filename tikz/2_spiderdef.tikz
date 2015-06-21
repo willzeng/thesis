@@ -1,0 +1,45 @@
+ \begin{pic}
+        \node  (0) at (-2, 1) {};
+        \node  (1) at (-0.5, 1) {};
+        \node  (2) at (0, 1) {};
+        \node  (3) at (1, 1) {};
+        \node  (4) at (1.5, 1) {};
+        \node  (5) at (-2, 0.75) {};
+        \node  (6) at (-1.5, 0.75) {};
+        \node  (7) at (-0.5, 0.75) {};
+        \node [style=whitedot] (8) at (1.25, 0.75) {};
+        \node  (9) at (-1, 0.5) {...};
+        \node  (10) at (1, 0.5) {\small \rotatebox[origin=c]{45}{...}};
+        \node [style=whitedot] (11) at (0.75, 0.25) {};
+        \node [style=whitedot] (12) at (-1.25, 0) {};
+        \node [anchor=east] (13) at (0, 0) {$:=$};
+        \node [style=whitedot] (14) at (0.75, -0.25) {};
+        \node  (15) at (-1, -0.5) {...};
+        \node  (16) at (1, -0.5) {\small \rotatebox[origin=c]{-45}{...}};
+        \node  (17) at (-2, -0.75) {};
+        \node  (18) at (-1.5, -0.75) {};
+        \node  (19) at (-0.5, -0.75) {};
+        \node [style=whitedot] (20) at (1.25, -0.75) {};
+        \node  (21) at (-2, -1) {};
+        \node  (22) at (-0.5, -1) {};
+        \node  (23) at (0, -1) {};
+        \node  (24) at (1, -1) {};
+        \node  (25) at (1.5, -1) {};
+
+        \draw [bend left=15] (18.center) to (12);
+        \draw (14) to (11);
+        \draw (11) to (2.center);
+        \draw [style=small braceedge] (22.center) to node[wire label, inner sep=3 pt]{$m$} (21.center);
+        \draw (8) to (4.center);
+        \draw (23.center) to (14);
+        \draw (24.center) to (20);
+        \draw (8) to (3.center);
+        \draw [bend left=15] (12) to (5.center);
+        \draw [bend right=15] (19.center) to (12);
+        \draw [bend left=15] (17.center) to (12);
+        \draw [bend right=15] (12) to (7.center);
+        \draw (25.center) to (20);
+        \draw [bend left=15] (12) to (6.center);
+        \draw [style=small braceedge] (0.center) to node[wire label, inner sep=3 pt]{$n$} (1.center);
+
+\end{pic}

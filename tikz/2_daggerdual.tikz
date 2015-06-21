@@ -9,23 +9,23 @@
 \right)^{\dagger}
 \;=\;
 \begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
-                \node [style=none] (0) at (-1, -0) {};
-                \node [style=none] (1) at (1, -0) {};
-                \node [style=none] (2) at (0, 1) {};
-                \node [style=none] (3) at (0, -1) {};
-                \node [style=none] (4) at (1, -2) {};
-                \node [style=none] (5) at (0, -1) {};
-                \node [style=none] (6) at (-1, -2) {};
+                \node  (0) at (-1, -0) {};
+                \node  (1) at (1, -0) {};
+                \node  (2) at (0, 1) {};
+                \node  (3) at (0, -1) {};
+                \node  (4) at (1, -2) {};
+                \node  (5) at (0, -1) {};
+                \node  (6) at (-1, -2) {};
                 \draw [bend left=45, looseness=1.00] (0.center) to (2.center);
                 \draw [reverse arrow=-.01, bend left=45, looseness=1.00] (2.center) to (1.center);
-                \draw [arrow, bend right=15, looseness=1.00] (0.center) to (3.center);
+                \draw [arrow=0, bend right=15, looseness=1.00] (0.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (1.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (6.center) to (5.center);
                 \draw [bend right=15, looseness=1.00] (4.center) to (5.center);
 \end{pic}
 \qquad \qquad
 \left(
-\begin{pic}[xscale={\tikzxscale}, yscale={-\tikzyscale}]
+\begin{pic}[xscale={\tikzxscale}, yscale={-1*\tikzyscale}]
 \node (0) at (-1, -0) {};
 \node (1) at (1, -0) {};
 \node (2) at (0, -1) {};
@@ -34,17 +34,17 @@
 \end{pic}
 \right)^{\dagger}
 \;=\;
-\begin{pic}[xscale={\tikzxscale}, yscale={-\tikzyscale}]
-                \node [style=none] (0) at (-1, -0) {};
-                \node [style=none] (1) at (1, -0) {};
-                \node [style=none] (2) at (0, 1) {};
-                \node [style=none] (3) at (0, -1) {};
-                \node [style=none] (4) at (1, -2) {};
-                \node [style=none] (5) at (0, -1) {};
-                \node [style=none] (6) at (-1, -2) {};
+\begin{pic}[xscale={\tikzxscale}, yscale={-1*\tikzyscale}]
+                \node  (0) at (-1, -0) {};
+                \node  (1) at (1, -0) {};
+                \node  (2) at (0, 1) {};
+                \node  (3) at (0, -1) {};
+                \node  (4) at (1, -2) {};
+                \node  (5) at (0, -1) {};
+                \node  (6) at (-1, -2) {};
                 \draw [bend left=45, looseness=1.00] (0.center) to (2.center);
-                \draw [reverse arrow=-.01, bend left=45, looseness=1.00] (2.center) to (1.center);
-                \draw [arrow, bend right=15, looseness=1.00] (0.center) to (3.center);
+                \draw [reverse arrow=-0.01, bend left=45, looseness=1.00] (2.center) to (1.center);
+                \draw [arrow=0, bend right=15, looseness=1.00] (0.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (1.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (6.center) to (5.center);
                 \draw [bend right=15, looseness=1.00] (4.center) to (5.center);

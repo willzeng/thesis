@@ -6,7 +6,7 @@
 \node (0b) at (1, -2) {};
 \node at (1.5, -2) {$A$};
 \node (1) [brnode, xscale=1.5] at (0, 0) {};
-\node at (0.25,0) {$f$};
+\node at (0.25,0) {$*$};
 \node (2) at (0.25, 2) {};
 \node at (0.75, 2) {$A$};
 

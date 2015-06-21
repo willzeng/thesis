@@ -1,5 +1,113 @@
 \section{Quantum Blackbox Algorithms}
 
+
+\begin{corollary}
+In \cat{FHilb}, a morphism between classical structures acts as a function on copyable (i.e. basis) states if and only if it is a comonoid homomorphism.
+\end{corollary}
+The says that functions that map from one basis to another will necessarily be comonoid homomorphisms.  We will generalize this when we consider oracles in quantum algorithms.
+
+
+\begin{defn}
+\label{def:selfconj}
+In a monoidal dagger-category, a comonoid homomorphism \\$f:\blackcomonoid{A} \to \graycomonoid{B}$ is \emph{self-conjugate} when the following property holds:
+\begin{equation}
+\label{eq:comonoidhomomorphismselfconjugate}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node [morphism, wedge] (f) at (2,1) {$f$};
+\draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
+\draw (1,2) to [out=right, in=up] (f.north);
+\draw (f.south) to [out=down, in=left] (3,0) node [blackdot] {} to [out=right, in=down, out looseness=0.9] (4,3);
+\draw (3,0) to (3,-0.5) node [blackdot] {};
+\node [graydot] at (1,2) {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[string]
+\node (f) at (0,0) [morphism, wedge, hflip] {$f$};
+\draw (0,-1.5) to (f.south);
+\draw (f.north) to (0,1.5);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\end{defn}
+
+\begin{lemma}
+\label{lem:comonoidhomomorphismselfconjugate}
+In {\bf Hilb}, comonoid homomorphisms $f:\blackcomonoid{A} \to \graycomonoid{B}$ of classical structures are self-conjugate.
+\end{lemma}
+
+
+\begin{proof}
+Recall that comonoid homomorphisms between classical structures in \cat{Hilb} are exactly classical functions between the copyable points~\cite{coecke2013new}. The linear maps on either side of~\eqref{eq:comonoidhomomorphismselfconjugate} will be the same if and only if their matrix elements are the same, obtained by composing with $\ket i$ at the bottom and $\bra j$ at the top. On the left-hand side, this gives the following result:
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node [morphism, wedge] (f) at (2,1) {$f$};
+\draw (0,0) node [state] {$i$} to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
+\draw (1,2) to [out=right, in=up] (f.north);
+\draw (f.south)
+    to [out=down, in=left] (3,0)
+        node [blackdot] {}
+    to [out=right, in=down, out looseness=0.9] (4,2)
+        node [state, hflip] {$j$};
+\draw (3,0) to (3,-0.5) node [blackdot] {};
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$j$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j), \\
+0 & \text{ if } i \neq f(j).
+\end{array}
+\right.
+\end{equation}
+On the right we can do this calculation:
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge, hflip] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$i$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$j$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+\left(
+\begin{aligned}
+\begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
+\node (f) [morphism, wedge] at (0,0) {$f$};
+\draw (0,-0.75) node [state] {$j$} to (f.south);
+\draw (0,0.75) node [state, hflip] {$i$} to (f.north);
+\end{tikzpicture}
+\end{aligned}
+\right) ^\dagger
+\quad=\quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j) \\
+0 & \text{ if } i \neq f(j)
+\end{array}
+\right\}^\dagger 
+\quad = \quad
+\left\{
+\begin{array}{ll}
+1 & \text{ if } i=f(j), \\
+0 & \text{ if } i \neq f(j).
+\end{array}
+\right.
+\end{equation}
+This is the same result as for the left-hand side, and so Equation~\eqref{eq:comonoidhomomorphismselfconjugate} holds.
+\end{proof}
+
 \subsection{\color{blue} The abstract structure of unitary oracles}
 
 
