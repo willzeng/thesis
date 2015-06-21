@@ -154,7 +154,7 @@ In a monoidal dagger-category with simple tensor unit, which has all finite dagg
 Duals in a generalized compositional theory help us define both entanglement and conjugation.
 
 \begin{defn}
-In a $\dagger$-SMC, a system $A$ has a\footnote{In general, there can be separate left and right duals for an object in any category, where the definition given here corresponds to a right dual. In a \dsmc(in fact in any braided monoidal category with left duals), these are necessarily equal, so we need only speak of one dual~\cite[Prop.~7.2]{joyal1993braided}. } \emph{dual} system $A^*$ if there exist processes 
+In a $\dagger$-SMC, a system $A$ has a\footnote{In general, there can be separate left and right duals for an object in any category, where the definition given here corresponds to a left dual. In a \dsmc(in fact in any braided monoidal category with left duals), these are necessarily equal, so we need only speak of one dual~\cite[Prop.~7.2]{joyal1993braided}. } \emph{dual} system $A^*$ if there exist processes 
 \begin{align}
 e_A:I\to A^*\otimes A \quad \mbox{and}\quad d_A:A\otimes A^*\to I
 \end{align}
@@ -174,6 +174,7 @@ Thus the duality maps, commonly called ``cups" and ``caps" and their ``snake equ
 \input{tikz/2_capcup.tikz}
 \end{align}
 \begin{equation}
+\label{eq:snake}
 \input{tikz/2_snake.tikz}
 \end{equation} 
 \noindent and are well behaved under the dagger functor, i.e.
@@ -187,12 +188,13 @@ We can compose these caps and cups to define the dual of any process $f:A\to B$ 
 \end{equation}
 
 \begin{example}
-To get a better handle on what this structure means, we consider the example of \cat{FHilb}. Given some finite dimensional Hilbert space $A\in\objs{FHilb}$, its dual $A^*$ is the usual dual space, i.e. the space of linear functionals $A\to \mathbb{C}$. Note that in this case $A$ is isomorphic to $A^*$. Using this and given a basis $\{ \ket{i} \}$ for $A$, the cups and the caps are maps:
-\begin{equation}
-e_A :: 1\mapsto \sum_i\ket{i}\otimes\ket{i}
-\qquad\qquad
-d_A :: \sum_i\bra{i}\otimes\bra{i} \mapsto 1
-\end{equation}
+\label{ex:bellduals}
+To get a better handle on what this structure means, we consider the example of \cat{FHilb}. Given some finite dimensional Hilbert space $A\in\objs{FHilb}$, its dual $A^*$ is the usual dual space, i.e. the space of linear functionals $A\to \mathbb{C}$. Note that in this case $A$ is isomorphic to $A^*$, and thus we can canonically map $\bra{i}\mapsto\ket{i}$. Because of this isomorphism, we will often omit the arrows on wires when working in this case. Using this and given a basis $\{ \ket{i} \}$ for $A$, the cups and the caps are maps:
+\begin{align}
+e_A &:: 1\mapsto \sum_i\bra{i}\otimes\ket{i}\cong\sum_i\ket{i}\otimes\ket{i}
+\\
+d_A &:: \sum_i\ket{i}\otimes\bra{i}\cong\sum_i\bra{i}\otimes\bra{i} \mapsto 1
+\end{align}
 We then immediately recognize $e_A$ as entangled state preparation. In particular, when $A$ is a two-dimensional Hilbert space, $e_A$ is a Bell state preparation of $\ket{\psi_{00}}=\ket{00}+\ket{11}$ and  and $d_A$ is a post-selected Bell measurement for $\ket{\psi_{00}}$. For any process in \cat{FHilb} its dual gives the transpose, which is in general the \emph{upper-star} of $f$.
 \end{example}
 
@@ -227,8 +229,61 @@ A $\dagger$-SMC where all objects have duals is called a \emph{$\dagger$-compact
 Duals and their ``wire-straightening" equations give diagrams in an oGCT a lot of power to encode topological equivalences.  This is well expressed in the following graphical coherence theorem, whose mathematical details are shown in~\cite{selinger2011survey}.
 
 \begin{theorem}[Fundamental Theorem of Diagrams~\cite{coecke2015generalised}]
+\label{thm:fund}
 Two diagrams in an oGCT are considered equal if one can be smoothly transformed to another by bending, stretching, or crossing wires, and by moving boxes around. Given any two oGCTs $\cat{C}$ and $\cat{D}$ and a map $F:\cat{C}\to\cat{D}$, for any two diagrams $d$ and $d'$ in $\cat{C}$, if $d=d'$ as diagrams then $F(d)=F(d')$ in $\cat{D}$.
 \end{theorem}
+
+To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by diagrammatic manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through matrix mechanics that accompany it. The use of this difference - the  additional structure of operational generalized compositional theories versus generalized compositional theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by~\cite{abramsky2004categorical}.
+
+\begin{example} 
+We saw in Example \ref{ex:bellduals} that caps and cups represent preparation and post-selected measurement of one of the Bell states $\ket{\psi_{00}}$. The other Bell states can be prepared and/or measured by the application of a unitary to one of the entangled systems:
+\begin{equation}
+\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node (0) at (-1, -0) {};
+\node (1) at (1, -0) {};
+\node (2) at (0, -1) {};
+\node (r) at (1,3) {};
+\node (l) at (-1,3) {};
+\node [morphism, wedge] (u) at (-1,1) {$U_i$};
+\draw (1.center) to (r);
+\draw (u.north) to (l);
+\draw [bend right=45, looseness=1.00] (u.south) to (2.center);
+\draw [bend right=45, looseness=1.00] (2.center) to (1.center);
+\end{pic}
+\qquad \qquad
+\begin{pic}[xscale={\tikzxscale}, yscale={-1*\tikzyscale}]
+\node (0) at (-1, -0) {};
+\node (1) at (1, -0) {};
+\node (2) at (0, -1) {};
+\node (r) at (1,3) {};
+\node (l) at (-1,3) {};
+\node [morphism, wedge, hflip] (u) at (-1,1) {$U_i$};
+\draw (1.center) to (r);
+\draw (u.south) to (l);
+\draw [bend right=45, looseness=1.00] (u.north) to (2.center);
+\draw [bend right=45, looseness=1.00] (2.center) to (1.center);
+\end{pic}
+\end{equation}
+
+A teleportation protocol can then be represented by the process where Alice and Bob share an entangled system that will be used to teleport from Alice to Bob:
+\begin{equation}
+\input{tikz/2_teleportation.tikz}
+\end{equation}
+Here the cup map represents the shared Bell state.  Alice performs a Bell measurement on the source system and her half of the entangled system. Bob then performs a unitary that matches Alice's Bell measurement. We can verify the effect of the protocol using purely diagrammatic equivalences:
+\begin{equation}
+\label{eq:teleportderive}
+\input{tikz/2_teleportderive.tikz}
+\end{equation}
+This presentation of the teleportation protocol is useful in several ways:
+\begin{enumerate}
+\item This presentation of teleportation make the high level structure of the protocol (the teleportation) immediately manifest without accompanying calculation.
+\item It is obvious how to design equivalent teleportation protocols with multiple parties and Bell measurements in more elaborate arrangements, e.g.
+\begin{equation}
+\input{tikz/2_weirdteleport.tikz}
+\end{equation}
+\item By specifying the teleportation protocol at the level of oGCTs, we can consider models of teleportation in theories other than quantum theory, i.e. categories other than $\cat{FHilb}$. As an example, the oGCT $\cat{FRel}$ where systems are sets and processes are relations also has entangled states established by duals, where the dagger functor is the relational converse. All the protocol specifications given in this section apply equally well in the $\cat{FRel}$ setting, just as they will in any other oGCT.
+\end{enumerate}
+\end{example}
 
 \section{\todo{Other possibilities if needed}}
 \todo{Superpositions? aka sums of diagrams?}

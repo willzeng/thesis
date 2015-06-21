@@ -1,0 +1,39 @@
+\begin{pic}[xscale=2*\tikzxscale, yscale=1.5*\tikzyscale]
+    \node [style=none] (0) at (-1, -1) {};
+    \node [style=none] (1) at (1, -1) {};
+    \node [style=none] (2) at (0, -2) {};
+    \node [style=none] (3) at (1.25, -2) {};
+    \node [style=none] (4) at (2.5, -1) {};
+    \node [style=morphism, wedge, hflip] (5) at (0, -1) {$U_i$};
+    \node [style=none] (6) at (0.5, 0) {};
+    \node [style=none] (7) at (3.5, -0) {};
+    \node [style=none] (8) at (0.5, -3) {};
+    \node [style=none] (9) at (2.5, -0) {};
+    \node [style=none] (10) at (0, 2.5) {};
+    \node [style=none] (11) at (2.5, -0) {};
+    \node [style=morphism, wedge] (12) at (-2.5, -0) {$U_i$};
+    \node [style=none] (13) at (-2.25, 2.5) {};
+    \node [style=none] (14) at (-1, 1) {};
+    \node [style=morphism, wedge, hflip] (15) at (-3.5, 1) {$U_i$};
+    \node [style=none] (16) at (-3.5, -3) {};
+    \node [style=none] (19) at (3.5, 2.5) {};
+    \node [style=morphism, wedge, hflip, vflip] (20) at (-1, -0) {$U_i$};
+
+    \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
+    \draw [bend right=45, looseness=1.00] (2.center) to (1.center);
+    \draw [bend right=45, looseness=1.00] (5.south) to (3.center);
+    \draw [bend right=45, looseness=1.00] (3.center) to (4.center);
+    \draw [bend left=45, looseness=1.00] (5.north) to (6.center);
+    \draw [bend left=45, looseness=1.00] (6.center) to (1.center);
+    \draw [bend right=45, looseness=1.00] (8.center) to (7.center);
+    \draw [bend left=45, looseness=1.00] (12.north) to (10.center);
+    \draw [bend left=45, looseness=1.00] (10.center) to (11.center);
+    \draw (4.center) to (9.center);
+    \draw [bend left=45, looseness=1.00] (15.north) to (13.center);
+    \draw [bend left=45, looseness=1.00] (13.center) to (14.center);
+    \draw (15.south) to (16.center);
+    \draw [bend right=45, looseness=1.00] (12.south) to (8.center);
+    \draw (14.center) to (20.north);
+    \draw (20.south) to (0.center);
+    \draw (19.center) to (7.center);
+\end{pic}
