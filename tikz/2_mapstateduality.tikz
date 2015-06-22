@@ -1,0 +1,25 @@
+\begin{pic}[dotpic]
+                \node  (0) at (3.25, 1) {};
+                \node  (1) at (-2, 1) {};
+                \node  (2) at (-0.5, 1) {};
+                \node [style={morphism}] (3) at (3.25, -0) {$\rho$};
+                \node  (4) at (1, -0) {$:=$};
+                \node  (5) at (-2, -0) {};
+                \node  (6) at (-0.5, -0) {};
+                \node  (7) at (3.25, -0.75) {};
+                \node [style={wide point}, yshift={0.1 mm}] (8) at (-1.25, -0.5) {$\rho$};
+                \node  (9) at (1.75, 1) {};
+                \node  (10) at (1.75, -0.75) {};
+                \node [style={morphism}] (11) at (-6.75, -0) {$\rho$};
+                \node  (12) at (-6.75, 1.25) {};
+                \node  (13) at (-6.75, -1.25) {};
+                \node  (14) at (-5, -0) {$\leftrightarrow$};
+                \draw [style=diredge] (3.north) to (0.center);
+                \draw [style=diredge] (7.center) to (3.south);
+                \draw [style=diredge] (1.center) to (5.center);
+                \draw [style=diredge] (6.center) to (2.center);
+                \draw (9.center) to (10.center);
+                \draw [in=-90, out=-90, looseness=1.50] (10.center) to (7.center);
+                \draw [style=diredge] (11.north) to (12.center);
+                \draw [style=diredge] (13.center) to (11.south);
+\end{pic}

@@ -1,0 +1,11 @@
+\begin{pic}[dotpic]
+                \node [style={gray copoint}] (0) at (0, -0) {$i$};
+                \node [style={gray point}] (1) at (0, 1.25) {$i$};
+                \node [style={morphism}] (2) at (0, -1.25) {$\rho$};
+                \node (3) at (0, -2.25) {};
+                \node (4) at (0, 2.25) {};
+
+                \draw [style=diredge] (2.north) to (0);
+                \draw [style=diredge] (3.center) to (2.south);
+                \draw [style=diredge] (1) to (4.center);
+\end{pic}

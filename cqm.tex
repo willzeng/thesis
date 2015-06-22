@@ -211,6 +211,7 @@ Given a oCGT \cat{C}, the \emph{lower-star} is an involutive map
 
 This now gives us a way to talk about abstract probabilities for the generalized Born rule:
 \begin{defn}[Generalized Born Rule]
+\label{def:bornrule}
 For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probability of outcome $X$ given preparation $Y$ is:
 \begin{equation}
 \mbox{Prob}(X|Y) = (X\circ Y)^*\otimes X\circ Y:\mathbb{I}\to\mathbb{I}
@@ -770,12 +771,53 @@ Given two two classical structures \whitecomonoid{A} and \graycomonoid{A} that a
 \end{pic}
 \end{equation}
 where we have assumed that a scalar equal to the square root of the dimension exists.
-\end{def}
+\end{defn}
 \noindent This scalar is needed to ensure the unitarity of the controlled-not gate, which we discuss in further details in Section \ref{sec:unitaryoracles}.
 
-\section{\todo{Measurements}}
+\section{Measurements}
 \label{sec:measurements}
 
-\section{\todo{Quantum protocols}}
+We have already introduced a notion of post-selected measurement in Definition~\ref{def:bornrule}. This section uses Selinger's CPM (completely positive map) construction~\cite{selinger2007dagger}, to present measurement as a process that outputs classical information~\cite{coecke2012strong}. We will need to be more precise about systems and their duals here so will be more consistent about using wires decorated with the proper arrows. 
+
+Using caps and cups, we can construct the unique ``name" of a process $\rho$ as:
+\begin{equation}
+\input{tikz/2_mapstateduality.tikz}
+\end{equation}
+The ``doubling" that occurs here, provides a natural way to represent measurements as completely positive maps. Suppose we wish to measure a system with respect to a classical structure $\graycomonoid{A}$,
+whose classical points form an orthonormal basis $\{ \ket{x_i} \}$. The probability
+of getting the $i$-th measurement outcome is computed using the Born
+rule: 
+\begin{equation}
+ \mbox{Prob}(i, \rho) = \mbox{Tr}(\ketbra{x_i}{x_i} \rho) 
+\end{equation}
+
+We can write this probability distribution as a vector in the basis $\{ \ket{x_i} \}$. That is, a vector whose $i$-th entry is the probability of the $i$-th outcome:
+\begin{equation}
+M_{\dotonly{graydot}}(\rho) = \sum 
+\mbox{Tr}(\ketbra{x_i}{x_i} \rho) \ket{x_i}
+\end{equation}
+
+So, $M$ defines a linear map from density matrices to probability distributions. Expanding this graphically, we have:
+\begin{equation}
+\sum_i \mbox{Tr}\left( \input{tikz/2_Prho.tikz} \right) 
+\begin{pic}
+\node [style={gray point}] (m) at (0, 1.25) {$i$};
+\draw [diredge] (m) to (0,2.25)
+\end{pic}
+\;=\;
+\input{tikz/2_measurementderivation2.tikz}
+\end{equation}
+
+\begin{defn}[{\cite{coecke2012strong}}]
+  For a classical structure \graycomonoid{A}, a measurement in that classical structure is defined as
+  the following map: 
+  \begin{equation}
+  \input{tikz/2_measurement.tikz}
+  \end{equation}
+\end{defn}
+
+\section{\todo{Quantum protocols in oGCTs}}
+
+
 Here we reference some existing work that has been done on quantum protocols in abstract process theories: state transfer, teleportation, etc.
 

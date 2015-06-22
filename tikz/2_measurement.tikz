@@ -1,0 +1,10 @@
+\begin{pic}[yscale=0.8]
+                \node (0) at (0.75, 0.75) {};
+                \node (1) at (-1.25, 0) {$m_{\dotonly{graydot}} :=$ };
+                \node [style=graydot] (2) at (0.75, 0) {};
+                \node (3) at (0.25, -0.75) {};
+                \node (4) at (1.25, -0.75) {};
+                \draw [style=diredge, bend right] (4.center) to (2);
+                \draw [style=diredge, bend right] (2) to (3.center);
+                \draw [style=diredge] (2) to (0.center);
+\end{pic}
