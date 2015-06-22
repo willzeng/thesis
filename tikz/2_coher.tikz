@@ -1,0 +1,44 @@
+\begin{pic}[scale=0.75]
+                \node (0) at (-4.5, 0.75) {};
+                \node (1) at (-3.5, 0.75) {};
+                \node (2) at (1.75, 0.75) {};
+                \node (3) at (2.75, 0.75) {};
+                \node (4) at (-2, 0.5) {};
+                \node (5) at (-1.25, 0.5) {};
+                \node (6) at (4.25, 0.5) {};
+                \node (7) at (5, 0.5) {};
+                \node [style=whitedot] (8) at (-5.25, 0.25) {};
+                \node [style=graydot] (9) at (1, 0.25) {};
+                \node [style=whitedot] (10) at (6.75, 0.25) {};
+                \node [style=graydot] (11) at (8.25, 0.25) {};
+                \node [style=whitedot] (12) at (-4, 0) {};
+                \node (13) at (-3, 0) {$=$};
+                \node [style=graydot] (14) at (2.25, 0) {};
+                \node [style=none] (15) at (3.25, 0) {$=$};
+                \node (16) at (7.5, 0) {$=$};
+                \node [style=graydot] (17) at (-5.25, -0.25) {};
+                \node [style=whitedot] (18) at (1, -0.25) {};
+                \node [style=graydot] (19) at (6.75, -0.25) {};
+                \node [style=whitedot] (20) at (8.25, -0.25) {};
+                \node [style=graydot] (21) at (-2, -0.5) {};
+                \node [style=graydot] (22) at (-1.25, -0.5) {};
+                \node [style=whitedot] (23) at (4.25, -0.5) {};
+                \node [style=whitedot] (24) at (5, -0.5) {};
+                \node [style=graydot] (25) at (-4, -0.75) {};
+                \node [style=whitedot] (26) at (2.25, -0.75) {};
+
+                \draw [bend left=15] (12) to (0.center);
+                \draw (22) to (5.center);
+                \draw [bend left=15] (14) to (2.center);
+                \draw [bend right=15, looseness=0.75] (12) to (1.center);
+                \draw (24) to (7.center);
+                \draw [style=medium diredge] (26) to (14);
+                \draw (19) to (10);
+                \draw (18) to (9);
+                \draw (21) to (4.center);
+                \draw (20) to (11);
+                \draw [style=medium diredge] (25) to (12);
+                \draw (23) to (6.center);
+                \draw (17) to (8);
+                \draw [bend right=15, looseness=0.75] (14) to (3.center);
+\end{pic}

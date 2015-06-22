@@ -1,0 +1,13 @@
+\begin{pic}[dotpic]
+                \node [style=graydot] (0) at (1, -0) {};
+                \node [style=whitedot] (1) at (-1, -0) {};
+                \node (2) at (1, -1) {};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1, 1) {};
+                \draw (2.center) to (0);
+                \draw (0) to (1);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+                \draw (0) to (5.center);
+\end{pic}

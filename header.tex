@@ -903,6 +903,13 @@
 \newcommand{\tikzeq}[1]{
   \begin{equation}\input{#1}\end{equation}
 }
+\tikzstyle{copoint}=[regular polygon,regular polygon sides=3,draw=black,scale=0.75,inner sep=-0.5pt,minimum width=7mm,fill=white]
+\tikzstyle{point}=[regular polygon,regular polygon sides=3,draw=black,scale=0.75,inner sep=-0.5pt,minimum width=7mm,fill=white,regular polygon rotate=180]
+\tikzstyle{gray point}=[point,fill=gray!40!white]
+\tikzstyle{gray copoint}=[copoint,fill=gray!40!white]
+\tikzstyle{antipode}=[whitedot,inner sep=0.3mm,font=\footnotesize]
+
+
 
 % From Bob/Aleks 
 \newcommand{\name}[1]{\ensuremath{\ulcorner #1 \urcorner}}
@@ -949,6 +956,10 @@
 \tikzstyle{braceedge}=[decorate,decoration={brace,amplitude=2mm,raise=-1mm}]
 \tikzstyle{small braceedge}=[decorate,decoration={brace,amplitude=1mm,raise=-1mm}]
 \tikzstyle{wire label}=[font=\tiny, auto]
+\newcommand{\lildot}[1]{%
+\,\begin{tikzpicture}[dotpic,yshift=-0.15mm]
+\node [#1,inner sep=0.4mm,minimum width=0pt,minimum height=0pt] (a) at (0,0) {};
+\end{tikzpicture}\,}
 
 
 \def\swangle{-145}

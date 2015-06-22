@@ -387,6 +387,7 @@ A \emph{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} sat
 \label{def:copyables}
 The set of \emph{classical states} $K_{\circ}$ for a classical structure \whitecomonoid{A} are all states $j:I\to A$ such that:
 \begin{equation}
+\label{eq:copy}
 \begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
 \node [state] at (1.25,3) {$j$};
 \draw (2,0) to [out=up, in=\seangle] (1.25,1.5);
@@ -403,7 +404,41 @@ The set of \emph{classical states} $K_{\circ}$ for a classical structure \whitec
 \end{pic}
 \end{equation}
 \end{defn}
-\noindent These classical points will be drawn as states that are the same color as the classical structure to which they correspond.
+\noindent These classical points will be drawn as states that are the same color as the classical structure to which they correspond. It is also easy to determine the behavior of classical points under composition with the (co)unit:
+\begin{equation}
+\label{eq:unitscalar}
+\begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
+\node [state] at (1.25,3) {$j$};
+\draw (1.25,0) to (1.25, 3);
+\end{pic}
+\;\stackrel{\eqref{eq:comonoid}}{=}\;
+\begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
+\node [state] at (1.25,3) {$j$};
+\draw (2,0) to [out=up, in=\seangle] (1.25,1.5);
+\draw (0.5,0) to [out=up, in=\swangle] (1.25, 1.5);
+\draw (1.25,1.5) to (1.25, 3);
+\node [whitedot] at (1.25,1.5) {};
+\node [whitedot] at (0.5,0) {};
+\end{pic}
+\quad\stackrel{\eqref{eq:copy}}{=}\quad
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (a) [state] at (2.5,0) {$j$};
+\node (b) [state] at (0,0) {$j$};
+\draw (a) to (2.5,2);
+\draw (b) to (0,2);
+\node [whitedot] at (0,2) {};
+\end{pic}
+\qquad\Leftrightarrow\qquad
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+
+\node (b) [state] at (0,0) {$j$};
+
+\draw (b) to (0,2);
+\node [whitedot] at (0,2) {};
+\end{pic}
+\;=\;1
+\end{equation}
+\noindent where $1$ is the unit scalar, i.e. $1\circ s = s = s\circ 1$ for all scalars $s$. In this sense the counit ``erases" classical points.
 
 The following theorems characterize the relationship between classical structures and observables. 
 
@@ -421,7 +456,16 @@ Symmetric dagger Frobenius algebras in FHilb are orthogonal bases.
 Classical structures in FHilb are orthonormal bases.
 \end{theorem}
 
-\noindent \noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an oGCT. The copyable states of classical structures  (Definition~\ref{def:copyables}) form the elements of these bases, more specifically the eigenvectors of the observables, though we should be careful that in categories other than $\cat{FHilb}$ they do not necessarily have all the familiar properties of bases for Hilbert spaces.
+\noindent \noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an oGCT. The copyable states of classical structures  (Definition~\ref{def:copyables}) form the elements of these bases, more specifically the eigenvectors of the observables, though we should be careful that in categories other than $\cat{FHilb}$ they do not necessarily have all the familiar properties of bases for Hilbert spaces.  For example, we usually expect to be able to distinguish maps by testing them on basis elements. In general this only holds for certain classical structures:
+
+\begin{defn}
+\label{def:enoughclassicalpoints}
+A classical structure has \emph{enough classical points} when for all processes $f,g:A\to B$: 
+\begin{align}
+f=g \qquad \mbox{iff}\qquad \left(\forall \ket{j}\in K_{\circ}:f\circ\ket{j}=g\circ\ket{j}\right)\; 
+\end{align}
+\end{defn}
+
 \begin{remark}
 The correspondence in Theorem \ref{thm:cstructBases} was modified for the infinite dimensional case in \cite{abramsky2012h}, where it still holds. We will only use the the finite dimensional case in this thesis as we are concerned only with algorithms that run on computers of finite size.
 \end{remark}
@@ -436,6 +480,7 @@ In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an objec
 \noindent
 When the algebra is in fact a classical structure, Equation~\eqref{eq:dim} can be simplified to the composition of the unit and counit:
 \begin{equation}
+\label{eq:defdim}
 d(A) \;= \;
 \begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
 \node (t) [whitedot] at (0,1) {};
@@ -445,7 +490,7 @@ d(A) \;= \;
 \end{equation}
 
 \begin{remark}
-It is important to note that the dimension of a system does not always equal the number of classical states of the associated classical structure. One example where this does not hold is \cat{FRel}, where this fact plays an important role in its oGCT characterization in Chapter~\ref{chap:mermin}.
+It is important to note that the dimension of a system does not always equal the number of classical states of the associated classical structure. One setting where this does not hold is \cat{FRel}, where this fact plays an important role in its oGCT characterization in Chapter~\ref{chap:mermin}.
 \end{remark}
 
 The rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams for an oGCT. We recursively define
@@ -478,36 +523,12 @@ composition is:
 The spider rule makes it clear that every classical structure on $A$ can be used to make $A$ dual (Definition~\ref{def:dual}) to itself using cups and caps built from the white dot:
 \tikzeq{tikz/2_frobcomp.tikz}
 
-The upper and lower star operations with respect to this white dot cup and cap corresponds in \cat{FHilb} to transposition and conjugation in the white dot  basis respectively.
-
-\section{Complementarity}
-\todo{Connection to mutual unbiasedness}
-\begin{defn}[Complementarity]
-\label{def:complementarity}
-In a symmetric monoidal dagger-category, two special symmetric dagger-Frobenius comonoids \whitecomonoid{A} and \graycomonoid{A} are \emph{complementary} when the following equation holds:
+The upper and lower star operations with respect to this white dot cup and cap corresponds in \cat{FHilb} to transposition and conjugation in the white dot  basis respectively. Further it can be shown that transposition with respect to a classical structure is equivalent to the dagger when applied to its classical states:
 \begin{equation}
-\label{eq:complementarity}
-\input{tikz/2_complementarity.tikz}
+\label{eq:dagfrob}
+\input{tikz/2_dagfrobtranspose.tikz}
 \end{equation}
-\end{defn}
-\noindent
-Note that this is not a symmetric condition between the gray and white structures. However, thanks to the symmetric property of the dagger-Frobenius algebras, it is equivalent to the following alternative condition:
-\begin{equation}
-\input{tikz/2_complementarity2.tikz}
-\end{equation}
-The daggers of these equations give rise to two further equivalent conditions.
-
-\begin{defn}\label{def_StrongComplementarity}
-A pair of classical structures \whitecomonoid{A} and \blackcomonoid{A} is \emph{strongly complementary} if it satisfies the following \emph{bialgebra equation} (\ref{eqn:bialgebraEqns}) and \emph{coherence equations} (\ref{eqn:unitCopyEqns}):
-\begin{equation}
-\label{eqn:bialgebraEqns}
-\input{tikz/2_bialgebra.tikz}
-\end{equation}
-\begin{equation}
-\label{eqn:unitCopyEqns}
-\hbox{\input{tikz/2_unitcopy.tikz}}
-\end{equation}
-\end{defn}
+\noindent This is of course not true on general states.
 
 \section{Phases}
 Phases were introduced in \cite{coecke2011interacting}.
@@ -536,6 +557,210 @@ with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classic
 \begin{proof}
 \todo{Include proof or cite CQM notes?}
 \end{proof}
+
+\section{Complementarity}
+The notion of complementary bases can also lifted to the abstract level of classical structures in oGCTs~\cite{coecke2011interacting}. This extension is perhaps best presented as emergent from a suitable generalization of mutual unbiasedness.\footnote{Our presentation in this regard is heavily influenced by the approach in \cite{coecke2015generalised}.}  This means that for two bases $\{\ket{i}\}$ and $\{\ket{j}\}$ on a $D$-dimensional Hilbert space, $\langle i|j\rangle = 1/D$ for all $i,j$. In diagrams we then have:
+\tikzeq{tikz/2_mub.tikz}
+as the mutual unbiasedness condition, where we have assumed that $D$ is invertible and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain to the right hand form.
+\begin{defn}[Complementarity]
+\label{def:complementarity}
+In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \emph{complementary} when the following equation holds:
+\begin{equation}
+\label{eq:complementarity}
+\input{tikz/2_antipodehopf.tikz}
+\qquad \mbox{where} \qquad
+\input{tikz/2_antipode.tikz}
+\end{equation}
+The map $S:A\to A$ is called the \emph{antipode}.
+\end{defn}
+The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. We show this with a quick calculation:
+\tikzeq{tikz/2_complemub.tikz}
+where $(*)$ is an application of Theorem \ref{thm:fund}.
+
+%\noindent 
+%Note that this is not a symmetric condition between the gray and white structures. %However, thanks to the symmetric property of the dagger-Frobenius algebras, %it is equivalent to the following alternative condition:
+%\begin{equation}
+%\input{tikz/2_complementarity2.tikz}
+%\end{equation}
+%The daggers of these equations give rise to two further equivalent conditions.
+
+\begin{defn}\label{def:coherence}
+In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \emph{coherent} when the following equations hold:
+\begin{equation}
+\label{eq:coherence}
+ \input{tikz/2_coher.tikz}
+\end{equation}
+\end{defn}
+
+\begin{proposition}[{\cite[Prop.~3]{coecke2015generalised}}]
+\label{prop:cohere}
+In \cat{FHilb} if we are given two are self-adjoint operators corresponding to complementary classical structures, then we can always construct a pair of coherent classical structures with the same classical points.
+\end{proposition}
+\noindent This means that in the oGCT for quantum computation, we can take complementary classical structures to be coherent without loss of generality.
+
+The terminology for the antipode comes from the fact that complementarity requires the classical structures to almost form a Hopf algebra using this antipode. Some complementary classical structures do indeed form Hopf algebras and these ones are called strongly complementary. They will be discussed in Section~\ref{sec:strcomplFT} in detail.
+
+\begin{example}
+Complementary observables allow us to construct a generalized from of the controlled-not gate in any oGCT. In \cat{FHilb} we can choose classical structures on the two-dimensional Hilbert space that correspond with the usual Z and X observables:  \begin{align*}
+    \tinycomult[whitedot] : &
+      \begin{array}{rcl}
+        \ket{0} & \mapsto & \ket{00} \\
+        \ket{1} & \mapsto & \ket{11}
+      \end{array}
+&
+    \tinymult[graydot] : &
+      \begin{array}{rcl}
+        \ket{+} & \mapsto & \ket{++} \\
+        \ket{-} & \mapsto & \ket{--}
+      \end{array}
+\\ \\
+    \tinycounit[whitedot] : &
+      \begin{array}{rcl}
+        \ket{0} & \mapsto & 1 \\
+        \ket{1} & \mapsto & 1
+      \end{array}
+&
+    \tinycounit[graydot] : &
+      \begin{array}{rcl}
+        \ket{+} & \mapsto & 1 \\
+        \ket{-} & \mapsto & 1
+      \end{array}
+\\ \\
+K_{\dotonly{whitedot}} &= \{\ket{0},\ket{1}\}
+& 
+K_{\dotonly{graydot}} &= \{\ket{+},\ket{-}\}
+\end{align*}
+
+These classical structures are coherent and complementary and can be used to define the controlled-not $\mbox{CNOT}:H_2\otimes H_2\to H_2\otimes H_2$ whose diagram is:
+\begin{align}
+\input{tikz/2_cnot.tikz}
+\end{align}
+\noindent where the right system acts as the control. We can verify that this behaves as usual for qubits using Z (the whitedot classical structure as their computational basis.
+\begin{align}
+\begin{pic}[dotpic]
+                \node [style=graydot] (0) at (1, -0) {};
+                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [point] (2) at (1, -1) {$0$};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1, 1) {};
+                \draw (2.north) to (0);
+                \draw (0) to (1);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+                \draw (0) to (5.center);
+\end{pic}
+\;&=\;
+\begin{pic}[dotpic]
+                \node [style=graydot] (0) at (1, -0) {};
+                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [whitedot] (2) at (1, -1) {};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1, 1) {};
+                \draw (2.north) to (0);
+                \draw (0) to (1);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+                \draw (0) to (5.center);
+\end{pic}
+\;\stackrel{\eqref{eq:coherence}}{=}\;
+\begin{pic}[dotpic]
+                \node [style=whitedot] (0) at (0, -0) {};
+                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [whitedot] (2) at (1, 0) {};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1, 1) {};
+                \draw (2.north) to (5.center);
+                \draw (0) to (1);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+\end{pic}
+\;=\;
+\begin{pic}[dotpic]
+                \node [whitedot] (2) at (1, 0) {};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1, 1) {};
+                \draw (2.north) to (5.center);
+                \draw (3.center) to (4.center);
+\end{pic}
+\\
+\begin{pic}[dotpic]
+                \node [style=graydot] (0) at (1, -0) {};
+                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [point] (2) at (1, -1) {$1$};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1, 1) {};
+                \draw (2.north) to (0);
+                \draw (0) to (1);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+                \draw (0) to (5.center);
+\end{pic}
+\;&=\;
+\begin{pic}[dotpic]
+                \node [style=graydot] (0) at (1, -0) {};
+                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [whitedot] (2) at (1, -1) {$\pi$};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1, 1) {};
+                \draw (2.north) to (0);
+                \draw (0) to (1);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+                \draw (0) to (5.center);
+\end{pic}
+\;\stackrel{\eqref{eq:coherence}}{=}\;
+\begin{pic}[dotpic]
+                \node [style=whitedot] (0) at (0, -0) {$\pi$};
+                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [whitedot] (2) at (1.5, 0) {$\pi$};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1.5, 1) {};
+                \draw (2.north) to (5.center);
+                \draw (0) to (1);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+\end{pic}
+\;=\;
+\begin{pic}[dotpic]
+                \node [style=whitedot] (1) at (-1, -0) {$\pi$};
+                \node [whitedot] (2) at (1.5, 0) {$\pi$};
+                \node (3) at (-1, -1) {};
+                \node (4) at (-1, 1) {};
+                \node (5) at (1.5, 1) {};
+                \draw (2.north) to (5.center);
+                \draw (3.center) to (1);
+                \draw (1) to (4.center);
+\end{pic}
+\end{align}
+This shows that on computational basis elements, the control is left unchanged while a $\pi$ Z-rotation (a computational bit flip) is conditionally applied.
+\end{example}
+
+This example construction motivates the following definition on any kind of system in any oGCT:
+\begin{defn}
+Given two two classical structures \whitecomonoid{A} and \graycomonoid{A} that are complementary and coherent, the generalized \emph{controlled-not} is the map:
+\begin{equation}
+\label{eq:generalizedcnot}
+\sqrt{\ud(A)}\,\,
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (b) [graydot] at (0,0) {};
+\node (w) [whitedot] at (1,1) {};
+\draw (-0.75,2) to [out=down, in=left] (b.center);
+\draw (b.center) to [out=right, in=left] (w.center);
+\draw (w.center) to (1,2);
+\draw (b.center) to (0,-1);
+\draw (w.center) to [out=right, in=up] (1.75,-1);
+\end{pic}
+\end{equation}
+where we have assumed that a scalar equal to the square root of the dimension exists.
+\end{def}
+\noindent This scalar is needed to ensure the unitarity of the controlled-not gate, which we discuss in further details in Section \ref{sec:unitaryoracles}.
 
 \section{\todo{Measurements}}
 \label{sec:measurements}

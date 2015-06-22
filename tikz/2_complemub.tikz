@@ -1,0 +1,64 @@
+\begin{pic}
+\node [style=point] (p) at (-1.75, -0.5) {$i$};
+\node [whitedot] (t) at (-1.75, 0.25) {};
+\draw (p) to (t);
+\node [graydot] (p) at (-1, -0.5) {};
+\node [gray copoint] (t) at (-1, 0.25) {$j$};
+\draw (p) to (t);
+\end{pic}
+\;\stackrel{\eqref{eq:mub}}{=}
+\begin{pic}[dotpic, xscale=1.2, yscale=1.2]
+    \node [style=point] (0) at (5, -2.25) {$i$};
+    \node [style=point] (1) at (9.5, -2.25) {$i$};
+    \node [style=whitedot] (2) at (5, -1.25) {};
+    \node [style=point] (3) at (-1.25, -1) {$i$};
+    \node [style=point] (4) at (1.5, -1) {$i$};
+    \node [style=point] (5) at (-5.25, -0.5) {$i$};
+    \node [style={gray point}] (6) at (-4, -0.5) {$j$};
+    \node [style=graydot] (7) at (0.25, -0.5) {};
+    \node [style=graydot] (8) at (5.25, -0.25) {};
+    \node (9) at (-2.9, 0) {$\stackrel{\eqref{eq:dagfrob}}{=}$};
+    \node (10) at (2, 0) {$\stackrel{(*)}{=}$};
+    \node (11) at (7, 0) {$=$};
+    \node [style=whitedot] (12) at (1, 0.25) {};
+    \node [style={gray copoint}] (13) at (-5.25, 0.5) {$j$};
+    \node [style=copoint] (14) at (-4, 0.5) {$i$};
+    \node [style=whitedot] (15) at (6, 0.5) {};
+    \node [style={gray copoint}] (16) at (-1.25, 1) {$j$};
+    \node [style={gray copoint}] (17) at (-0.25, 1) {$j$};
+    \node [style=graydot] (18) at (4.5, 1.25) {};
+    \node [style={gray copoint}] (19) at (9.5, 2.25) {$j$};
+    \node [style={gray copoint}] (20) at (4.5, 2.25) {$j$};
+    \node [style=whitedot] (21) at (9.5, -1) {};
+    \node [style=graydot] (22) at (9.5, 1) {};
+    \node [style=antipode] (23) at (10.25, 0) {$S$};
+    \node [style=whitedot] (24) at (-6.5, 0.5) {};
+    \node [style=whitedot] (25) at (-6.5, -0.5) {};
+    \node [style=whitedot] (26) at (-2, 0.5) {};
+    \node [style=whitedot] (27) at (-2, -0.5) {};
+    \node [style=whitedot] (28) at (3, 0.5) {};
+    \node [style=whitedot] (29) at (3, -0.5) {};
+    \node [style=whitedot] (30) at (8, 0.5) {};
+    \node [style=whitedot] (31) at (8, -0.5) {};
+    \draw [in=-165, out=15, looseness=1.00] (8) to (15);
+    \draw [in=-15, out=90, looseness=1.00] (4) to (12);
+    \draw [in=-30, out=165, looseness=1.00] (8) to (18);
+    \draw (18) to (20);
+    \draw (0) to (2);
+    \draw (6) to (14);
+    \draw [in=-90, out=165, looseness=1.00] (7) to (17);
+    \draw [in=-135, out=165, looseness=1.25] (2) to (18);
+    \draw [in=-45, out=15, looseness=1.00] (2) to (15);
+    \draw (3) to (16);
+    \draw (5) to (13);
+    \draw [in=-150, out=30, looseness=1.00] (7) to (12);
+    \draw [in=-90, out=15, looseness=1.00] (21) to (23);
+    \draw [in=-165, out=165, looseness=1.00] (21) to (22);
+    \draw [in=-15, out=90, looseness=1.00] (23) to (22);
+    \draw (1) to (21);
+    \draw (22) to (19);
+    \draw (24) to (25);
+    \draw (26) to (27);
+    \draw (28) to (29);
+    \draw (30) to (31);
+\end{pic}

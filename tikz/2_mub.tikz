@@ -1,0 +1,31 @@
+\label{eq:mub}
+\begin{pic}[dotpic]
+                \node [style=point] (0) at (-1.75, -0.5) {$i$};
+                \node [style={gray point}] (1) at (-0.5, -0.5) {$j$};
+                \node (2) at (1, 0) {$\quad=\;  \frac{1}{D}$};
+                \node [style={gray copoint}] (3) at (-1.75, 0.5) {$j$};
+                \node [style=copoint] (4) at (-0.5, 0.5) {$i$};
+                \draw (1) to (4);
+                \draw (0) to (3);
+\end{pic}
+\qquad\Leftrightarrow\qquad
+\begin{pic}[dotpic]
+\node [whitedot] (a) at (-3,0.5) {};
+\node [whitedot] (b) at (-3,-0.5) {};
+\draw (a) to (b);
+                \node [style=point] (0) at (-1.75, -0.5) {$i$};
+                \node [style={gray point}] (1) at (-0.5, -0.5) {$j$};
+                \node [style={gray copoint}] (3) at (-1.75, 0.5) {$j$};
+                \node [style=copoint] (4) at (-0.5, 0.5) {$i$};
+                \draw (1) to (4);
+                \draw (0) to (3);
+\end{pic}
+\;=\;
+\begin{pic}
+\node [style=point] (p) at (-1.75, -0.5) {$i$};
+\node [whitedot] (t) at (-1.75, 0.25) {};
+\draw (p) to (t);
+\node [graydot] (p) at (-1, -0.5) {};
+\node [gray copoint] (t) at (-1, 0.25) {$j$};
+\draw (p) to (t);
+\end{pic}

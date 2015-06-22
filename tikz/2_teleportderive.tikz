@@ -19,7 +19,7 @@
     \draw (8.south) to (1.center);
     \draw (8.north) to (9.center);
 \end{pic}
-\stackrel{Thm~\ref{thm:fund}}{=}
+\stackrel{\mbox{\small Thm}~\ref{thm:fund}}{=}
 \begin{pic}[xscale=0.9*\tikzxscale, yscale=\tikzyscale]
     \node (0) at (-1, -2) {};
     \node (1) at (1, -2) {};
