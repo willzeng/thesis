@@ -14,7 +14,7 @@
                 \node [style=whitedot] (12) at (-4, 0) {};
                 \node (13) at (-3, 0) {$=$};
                 \node [style=graydot] (14) at (2.25, 0) {};
-                \node [style=none] (15) at (3.25, 0) {$=$};
+                \node (15) at (3.25, 0) {$=$};
                 \node (16) at (7.5, 0) {$=$};
                 \node [style=graydot] (17) at (-5.25, -0.25) {};
                 \node [style=whitedot] (18) at (1, -0.25) {};
@@ -32,12 +32,12 @@
                 \draw [bend left=15] (14) to (2.center);
                 \draw [bend right=15, looseness=0.75] (12) to (1.center);
                 \draw (24) to (7.center);
-                \draw [style=medium diredge] (26) to (14);
+                \draw (26) to (14);
                 \draw (19) to (10);
                 \draw (18) to (9);
                 \draw (21) to (4.center);
                 \draw (20) to (11);
-                \draw [style=medium diredge] (25) to (12);
+                \draw (25) to (12);
                 \draw (23) to (6.center);
                 \draw (17) to (8);
                 \draw [bend right=15, looseness=0.75] (14) to (3.center);

@@ -1,0 +1,27 @@
+\begin{pic}[font=\footnotesize, scale=1.5]
+                \node  (0) at (-1.5, 0.5) {};
+                \node  (1) at (-1, 0.5) {\raisebox{-2mm}{...}};
+                \node  (2) at (-0.5, 0.5) {};
+                \node  (3) at (0.75, 0.5) {};
+                \node  (4) at (1.25, 0.5) {\raisebox{-2mm}{...}};
+                \node  (5) at (1.75, 0.5) {};
+                \node [style=whitedot] (6) at (-1, 0) {$\alpha$};
+                \node  (7) at (0, 0) {$:=$};
+                \node [style=whitedot] (8) at (1.25, 0) {};
+                \node [style=whitedot] (9) at (2, -0.25) {$\alpha$};
+                \node  (10) at (-1.5, -0.5) {};
+                \node  (11) at (-1, -0.5) {\raisebox{2mm}{...}};
+                \node  (12) at (-0.5, -0.5) {};
+                \node  (13) at (0.5, -0.5) {};
+                \node  (14) at (1, -0.5) {\raisebox{2mm}{...}};
+                \node  (15) at (1.5, -0.5) {};
+                \draw [bend left=15] (10.center) to (6);
+                \draw [bend right=15] (8) to (5.center);
+                \draw [bend left=15] (8) to (3.center);
+                \draw [in=-15, out=150, looseness=0.75] (9) to (8);
+                \draw [bend right=15] (12.center) to (6);
+                \draw [bend right=15] (15.center) to (8);
+                \draw [bend right=15] (6) to (2.center);
+                \draw [bend left=15] (6) to (0.center);
+                \draw [bend left=15] (13.center) to (8);
+\end{pic}

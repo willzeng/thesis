@@ -502,6 +502,7 @@ maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ by:
 \end{align}
 where $\tinymult[whitedot]_n$ is similarly defined.
 \begin{theorem}[Spider Theorem]
+\label{thm:spider}
 Given a classical structure, let \newline$f:A^{\otimes n}\to A^{\otimes m}$  be constructed from $\{\tinymult[whitedot],\tinycomult[whitedot],\tinyunit[whitedot],\tinycounit[whitedot]\}$ such that the diagram is connected. Then $f=\tinycomult[whitedot]_m\circ\tinymult[whitedot]_n$.
 \end{theorem}
 
@@ -531,7 +532,7 @@ The upper and lower star operations with respect to this white dot cup and cap c
 \noindent This is of course not true on general states.
 
 \section{Phases}
-Phases were introduced in \cite{coecke2011interacting}.
+Phases were introduced in this setting by \cite{coecke2011interacting}.
 
 \begin{defn}
 \label{def:phases}
@@ -540,7 +541,7 @@ A \emph{phase state} for a Frobenius algebra $\whitecomonoid{A}$ is a state $\ke
 \label{eqn:zphasestate}
 \input{tikz/2_phasestate.tikz}
 \end{equation}
-Each phase state corresponds to a \emph{phase} that is a map in the following form:
+Each phase state corresponds to a \emph{phase} that is a unitary map in the following form:
 \begin{equation}
 \label{eqn:zphase}
 \input{tikz/2_phase.tikz}
@@ -548,15 +549,25 @@ Each phase state corresponds to a \emph{phase} that is a map in the following fo
 \end{defn}
 
 \begin{proposition}[Phase groups]
-Given a dagger Frobenius algebra $\whitemonoid$ in a monoidal dagger category, its phases form a group under the following addition:
+Given a dagger Frobenius algebra $\whitemonoid{A}$ in an oGCT, its phases form a group under the following addition:
 \begin{equation}
 \input{tikz/2_phasegroups.tikz}
 \end{equation}
-with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classical structure in a $\dagger$-SMC, then its phases form an abelian group.
+with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classical structure, then its phases form an abelian group.
 \end{proposition}
 \begin{proof}
 \todo{Include proof or cite CQM notes?}
 \end{proof}
+
+Phases can be added to the normal form from Theorem~\ref{thm:spider} to give a decorated spider rule~\cite[Thm 7.11]{coecke2011interacting}:
+\begin{equation}
+\input{tikz/2_decspider.tikz}
+\end{equation}
+with composition
+\begin{equation}
+\input{tikz/2_decspidercomp.tikz}
+\end{equation}
+This normal form is a powerful simplifying tool and will often be used in the analysis of diagrams of processes in oGCTs.
 
 \section{Complementarity}
 The notion of complementary bases can also lifted to the abstract level of classical structures in oGCTs~\cite{coecke2011interacting}. This extension is perhaps best presented as emergent from a suitable generalization of mutual unbiasedness.\footnote{Our presentation in this regard is heavily influenced by the approach in \cite{coecke2015generalised}.}  This means that for two bases $\{\ket{i}\}$ and $\{\ket{j}\}$ on a $D$-dimensional Hilbert space, $\langle i|j\rangle = 1/D$ for all $i,j$. In diagrams we then have:
