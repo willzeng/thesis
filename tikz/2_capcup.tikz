@@ -1,4 +1,4 @@
-e_A = \;
+e_A = \,
 \begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
 \node (0) at (-1, -0) {};
 \node (1) at (1, -0) {};
@@ -6,8 +6,8 @@ e_A = \;
 \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
 \draw [bend right=45, looseness=1.00, ->] (2.center) to (1.center);
 \end{pic}
-\qquad \qquad \qquad
-d_A = \;
+\qquad \qquad 
+d_A = \,
 \begin{pic}[xscale={\tikzxscale}, yscale={-\tikzyscale}]
 \node (0) at (-1, -0) {};
 \node (1) at (1, -0) {};

@@ -6,7 +6,7 @@
 \draw [reverse arrow=.5] (2.north) to (1);
 \end{pic}
 \;=\;
-\begin{pic}[xscale={\tikzxscale}, yscale=0.8*\tikzyscale]
+\begin{pic}[xscale={\tikzxscale}, yscale=1.75*\tikzyscale]
                 \node  (0) at (-1, -0) {};
                 \node  (1) at (1, -0) {};
                 \node  (2) at (0, -1) {};

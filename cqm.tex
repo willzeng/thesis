@@ -816,8 +816,72 @@ So, $M$ defines a linear map from density matrices to probability distributions.
   \end{equation}
 \end{defn}
 
-\section{\todo{Quantum protocols in oGCTs}}
+\section{Summary of oGCTs}
 
+This chapter has introduced the main framework that is used in this thesis. This framework performs two functions:
+\begin{enumerate}
+\item This lifts the structure of quantum computation into the general setting of operational generalised compositional theories. This allows the study of protocols like teleportation, state transfer, quantum secret sharing, quantum bit commitment, Mermin non-locality tests, and other protocols to be handled at an abstract level and studied in different oGCTs.
+\item The categorical diagrams that accompany oGCT's present a more powerful quantum circuit language. This is one that includes bases, classical information, complementarity, and phases explicitly and posses rules for manipulating these structures within the diagrams themselves. We give a summarizing table of these structures at the end of this chapter.
+\end{enumerate}
+Both the abstraction and diagrammatic formalism provide powerful tools throughout the results presented here.
 
-Here we reference some existing work that has been done on quantum protocols in abstract process theories: state transfer, teleportation, etc.
+%\newpage
+
+\begin{figure}[b]
+\caption{A summary of the diagrammatic elements that oGCTs have above quantum circuit diagrams.}
+\begin{tabulary}{\linewidth}{|p{5cm}|c|}\hline
+The Dagger $\dagger:\cat{C}\to\cat{C}$ generalizes the adjoint and vertically flips the whole diagram.
+& \input{tikz/1_daggerPics.tikz} \\\hline
+Scalars $s:I\to I$. These float freely in diagrams
+& \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (-2, -0) {$s$};
+\end{tikzpicture} \\\hline
+States and effects 
+& \left(
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.75) {$\psi$};
+\node (2) at (0, 0.75) {};
+\draw (1.center) to (2.center);
+\end{tikzpicture}
+\end{aligned}\right)^{\dagger}
+=
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) at (0, -0.75) {};
+\node (2) [state, hflip] at (0, 0.75) {$\psi$};
+\draw (1.center) to (2.center);
+\end{tikzpicture}
+\end{aligned} \\\hline
+Post-selected measurement 
+& \langle\phi|\psi\rangle =
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.75) {$\psi$};
+\node (2) [state, hflip] at (0, 0.75) {$\phi$};
+\draw (1.center) to (2.center);
+\end{tikzpicture}
+\end{aligned} \\\hline
+Bell states and measurements
+& \input{tikz/2_capcup.tikz} \\\hline
+Duals
+& \input{tikz/2_dualmorph.tikz} \\\hline
+Classical structures (i.e. generalized observables) & \input{tikz/2_spiderdef.tikz} \\\hline
+Dimension of a system 
+& d(A) \;= \;
+\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node (t) [whitedot] at (0,1) {};
+\node (b) [whitedot] at (0,-1) {};
+\draw (t) to (b.center);
+\end{pic} \\\hline
+Phases: a group 
+& \input{tikz/2_decspidercomp.tikz} \\\hline
+Complementarity 
+& \input{tikz/2_antipodehopf.tikz} \\\hline
+Measurement 
+& \input{tikz/2_measurement.tikz} \\\hline
+\end{tabulary}
+
+\end{figure}
+
 

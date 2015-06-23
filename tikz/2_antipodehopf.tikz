@@ -1,4 +1,4 @@
-\begin{pic}[scale=0.75]
+\begin{pic}[scale=0.65]
                 \node (0) at (-2, 1.75) {};
                 \node (1) at (1.25, 1.5) {};
                 \node [style=graydot] (2) at (-2, 1) {};
