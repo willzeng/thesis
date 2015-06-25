@@ -81,6 +81,7 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 \noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps~$\mathbb{C}\to\mathbb{C}$.
 
 \begin{defn}
+\label{def:effect}
 In a \dsmc, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{defn}
 \noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them their process theoretic interpretation: just as some preparation $a:I\to A$ prepares system $A$ in that state, the effect $\dag{a}:A\to I$ eliminates the system $A$ by the process $\dag{a}$.  This duality presents generalized \emph{inner products} as compositions of states and effects \cite{abramsky2004categorical} that are reminiscent of the usual Dirac notation:
@@ -113,7 +114,7 @@ In a \dsmc, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{equation}
 
 \section{The generalized Born rule}
-
+\label{sec:bornrule}
 Measurement in these generalized compositional theories comes from a statement connecting probabilities and inner products in a sense that approaches a generalized Born Rule. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
 \begin{equation}
 a = X\circ Y:\mathbb{I}\to\mathbb{I}
@@ -185,6 +186,7 @@ Thus the duality maps, commonly called ``cups" and ``caps" and their ``snake equ
 
 We can compose these caps and cups to define the dual of any process $f:A\to B$ as $f^*:B^*\to A^*$:
 \begin{equation}
+\label{eq:dualmorph}
 \input{tikz/2_dualmorph.tikz}
 \end{equation}
 
@@ -421,7 +423,7 @@ The set of \emph{classical states} $K_{\circ}$ for a classical structure \whitec
 \node [whitedot] at (1.25,1.5) {};
 \node [whitedot] at (0.5,0) {};
 \end{pic}
-\quad\stackrel{\eqref{eq:copy}}{=}\quad
+\;\stackrel{\eqref{eq:copy}}{=}\;
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node (a) [state] at (2.5,0) {$j$};
 \node (b) [state] at (0,0) {$j$};
@@ -429,7 +431,7 @@ The set of \emph{classical states} $K_{\circ}$ for a classical structure \whitec
 \draw (b) to (0,2);
 \node [whitedot] at (0,2) {};
 \end{pic}
-\qquad\Leftrightarrow\qquad
+\quad\qquad\Leftrightarrow\qquad\quad
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
 
 \node (b) [state] at (0,0) {$j$};
@@ -472,6 +474,7 @@ The correspondence in Theorem \ref{thm:cstructBases} was modified for the infini
 \end{remark}
 
 \begin{defn}
+\label{def:dimension}
 In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitecomonoid{A} is given by the following composite:
 \begin{equation}
 \label{eq:dim}
@@ -533,6 +536,7 @@ The upper and lower star operations with respect to this white dot cup and cap c
 \noindent This is of course not true on general states.
 
 \section{Phases}
+\label{sec:phases}
 Phases were introduced in this setting by \cite{coecke2011interacting}.
 
 \begin{defn}
@@ -809,6 +813,7 @@ So, $M$ defines a linear map from density matrices to probability distributions.
 \end{equation}
 
 \begin{defn}[{\cite{coecke2012strong}}]
+\label{def:meas2}
   For a classical structure \graycomonoid{A}, a measurement in that classical structure is defined as
   the following map: 
   \begin{equation}
@@ -828,18 +833,20 @@ Both the abstraction and diagrammatic formalism provide powerful tools throughou
 %\newpage
 
 \begin{figure}[b]
-\caption{A summary of the diagrammatic elements that oGCTs have above quantum circuit diagrams.}
-\begin{tabulary}{\linewidth}{|p{5cm}|c|}\hline
-The Dagger $\dagger:\cat{C}\to\cat{C}$ generalizes the adjoint and vertically flips the whole diagram.
+\caption{A summary of the diagrammatic elements for oGCTs above and beyond quantum circuit diagrams.}
+{\renewcommand{\arraystretch}{2}\small
+\begin{tabulary}{\linewidth}{|p{7cm}|c|}\hline
+The \textbf{dagger} $\dagger:\cat{C}\to\cat{C}$ generalizes the adjoint and vertically flips the whole diagram. See Definition \ref{defn:dagger}.
 & \input{tikz/1_daggerPics.tikz} \\\hline
-Scalars $s:I\to I$. These float freely in diagrams
-& \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
-\node [whitedot] (0) at (-2, -0) {$s$};
-\end{tikzpicture} \\\hline
-States and effects 
+\textbf{Scalars} $s:I\to I$. These float freely in diagrams. See Definition \ref{defn:scalar}.
+& \begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (0, -1) {$s$};
+\node [none] (0) at (0, -0) {};
+\end{pic} \\\hline
+\textbf{States} and \textbf{effects}. Definition~\ref{def:effect}
 & \left(
 \begin{aligned}
-\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=0.5*\tikzyscale]
 \node (1) [state] at (0, -0.75) {$\psi$};
 \node (2) at (0, 0.75) {};
 \draw (1.center) to (2.center);
@@ -847,40 +854,42 @@ States and effects
 \end{aligned}\right)^{\dagger}
 =
 \begin{aligned}
-\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=0.5*\tikzyscale]
 \node (1) at (0, -0.75) {};
 \node (2) [state, hflip] at (0, 0.75) {$\psi$};
 \draw (1.center) to (2.center);
 \end{tikzpicture}
 \end{aligned} \\\hline
-Post-selected measurement 
+\textbf{Post-selected measurement}.\newline Section~\ref{sec:bornrule}.
 & \langle\phi|\psi\rangle =
 \begin{aligned}
-\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=0.5*\tikzyscale]
 \node (1) [state] at (0, -0.75) {$\psi$};
 \node (2) [state, hflip] at (0, 0.75) {$\phi$};
 \draw (1.center) to (2.center);
 \end{tikzpicture}
 \end{aligned} \\\hline
-Bell states and measurements
+\textbf{Bell states} and measurements, i.e. cups and caps. Definition~\ref{def:dual}.
 & \input{tikz/2_capcup.tikz} \\\hline
-Duals
+\textbf{Duals}. See \eqref{eq:dualmorph}.
 & \input{tikz/2_dualmorph.tikz} \\\hline
-Classical structures (i.e. generalized observables) & \input{tikz/2_spiderdef.tikz} \\\hline
-Dimension of a system 
+\textbf{Classical structures} i.e. generalized observables (Def.~\ref{def:classicalstruct}). Their \textbf{classical states} (Def. \ref{def:copyables}) act as ``basis elements". 
+& \input{tikz/2_spiderdef.tikz} \\\hline
+\textbf{Dimension} of a system. Def.~\ref{def:dimension}
 & d(A) \;= \;
-\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\begin{pic}[xscale={\tikzxscale}, yscale={0.5*\tikzyscale}]
 \node (t) [whitedot] at (0,1) {};
 \node (b) [whitedot] at (0,-1) {};
 \draw (t) to (b.center);
 \end{pic} \\\hline
-Phases: a group 
+\textbf{Phases}: A group of states for each classical structure. Section~\ref{sec:phases}.
 & \input{tikz/2_decspidercomp.tikz} \\\hline
-Complementarity 
+\textbf{Complementarity} between classical structures. Definition~\ref{def:complementarity}.
 & \input{tikz/2_antipodehopf.tikz} \\\hline
-Measurement 
+\textbf{Measurement} by a classical structure. Definition~\ref{def:meas2}.
 & \input{tikz/2_measurement.tikz} \\\hline
 \end{tabulary}
+}
 
 \end{figure}
 
