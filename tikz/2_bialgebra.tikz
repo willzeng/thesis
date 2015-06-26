@@ -1,5 +1,9 @@
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 
+\node (t) [whitedot] [left of = center, yshift = -3mm] {};
+\node (b) [whitedot] [left of = center, yshift = 3mm] {};
+\draw (t) to (b.center);
+
 \node (center) {};
 
 \node (algebraTop) [whitedot]   

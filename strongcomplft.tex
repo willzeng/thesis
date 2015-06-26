@@ -1,19 +1,197 @@
-\section{\color{blue} Strong Complementarity and the Fourier Transform}
+\section{\color{blue} The Fourier Transform}
 \label{sec:strcomplFT}
 
+\subsection{Strong Complementarity}
+Strong complementarity was originally introduced in~\cite{coecke2011interacting} as the additional rule that makes classical structures into a Hopf algebra.
+
 \begin{defn}\label{def_StrongComplementarity}
-A pair of classical structures \whitecomonoid{A} and \blackcomonoid{A} is \emph{strongly complementary} if it satisfies the following \emph{bialgebra equation} (\ref{eqn:bialgebraEqns}) and \emph{coherence equations} (\ref{eqn:unitCopyEqns}):
+A pair of classical structures \whitecomonoid{A} and \blackcomonoid{A} is \emph{strongly complementary} if they are coherent (Definition \ref{def:coherence})  and  satisfy the following \emph{bialgebra equation} (\ref{eqn:bialgebraEqns}):
 \begin{equation}
 \label{eqn:bialgebraEqns}
 \input{tikz/2_bialgebra.tikz}
 \end{equation}
-\begin{equation}
-\label{eqn:unitCopyEqns}
-\hbox{\input{tikz/2_unitcopy.tikz}}
-\end{equation}
 \end{defn}
 
-\todo{strongly compl classification} 
+It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}. \todo{Clean this up:}
+\begin{equation}
+\input{tikz/3_SCIsC.tikz}
+\end{equation}
+
+Strongly complementary classical structures have a specific relationship between their phase groups and classical states.
+
+\begin{theorem}[\cite{coecke2011interacting}]
+Let \whitecomonoid{A} and \blackcomonoid{A} be a pair of strong complementary classical structures with finite numbers of classical states. Then $K_{\dotonly{blackdot}}\subseteq P_{\dotonly{whitedot}}$, i.e. the classical states of the black classical structure form a subgroup of the phase group of the white classical structure. The converse is true when \whitecomonoid{A} has enough classical points.
+\end{theorem}
+
+This leads to a useful classification of strongly complementary observables in $\cat{FHilb}$:
+\begin{corollary}[{\cite[Cor. 3.10]{coecke2012strong}}]
+\label{col:SCclassification}
+Every pair of strongly complementary observables in \fhilb is
+of the following form: 
+\begin{equation}
+\left\{\begin{array}{cl}
+\tinycomult[blackdot]   & :: \ket{g}\mapsto \ket{g}\otimes \ket{g}\vspace{1mm}\\
+\tinycounit[blackdot] & :: \ket{g}\mapsto 1
+\end{array}\right.
+\quad
+\left\{\begin{array}{cl}
+\tinymult[whitedot]   & :: \ket{g}\otimes \ket{h} \mapsto {1\over\sqrt{D}} \ket{g + h}\vspace{1mm} \\
+\tinyunit[whitedot] & :: 1 \mapsto \sqrt{D} \ket{0}
+\end{array}\right.
+\end{equation}
+where $(G =\{g, h, \ldots\}, +, 0)$ is a finite Abelian
+group. Conversely, each such pair is always strongly complementary.  
+\end{corollary}
+
+\subsection{The Fourier Transform}
+
+In the next sections, we elucidate a general connection between strongly complementary observables and the Fourier Transform. We begin with a quick review of Pontryagin duality and the Fourier Transform as it relates to quantum computation. A number of different notions related to the Fourier Transform on finite abelian groups can be found in mathematics, physics, computer science and quantum computation, so it is useful to clarify them:
+
+\begin{enumerate}
+  \item[1.] In mathematics, the Fourier Transform is understood through Pontryagin duality.
+  \item[2.] In physics and signal processing, the Fourier Transform is understood as a transformation of fields/signals from time/space domain to energy\footnote{Or frequency.}/momentum domain.
+  \item[3.] In quantum computing, the Hadamard transform.
+  \item[4.] In quantum computing, the Quantum Fourier Transform algorithm.
+\end{enumerate}
+
+This work is ultimately concerned with the first notion, where the Fourier Transform is defined on locally compact groups. Still, the other notions are relevant, as our work situates this abstract definition in the context of process theories for dagger symmetric monoidal categories and their strongly complementary observables, a structure inherited from quantum information~\cite{abramsky2008categorical, coecke2011interacting, coecke2015generalised}. 
+
+We begin by explaining the relationship of Notion 1 with the others listed above. In what follows, $(G,+,0)$ is a finite abelian group of order $N$, and $\complexs^{\times}=\complexs\setminus\{0\}$ is the multiplicative group of non-zero complex numbers.
+
+A \textbf{(multiplicative) character} of $G$ is a group homomorphism $\chi:G\to \complexs^\times$.\footnote{For finite $G$, $\chi$ maps into the subgroup $S^1 \subseteq C^\times$ of unit complex numbers.} If $G = \prod_j \integersMod{n_j}$,\footnote{Which is always true when $G$ is finite, for some family $(n_j)_j$ of positive integers.} the multiplicative characters of $G$ take the following form, for any $(h_j)_j \in G$:
+\begin{equation}\label{eqn_FTDefCharacters}
+  (g_j)_j \mapsto \exp\left[\, i \, \sum_j \frac{2 \pi}{n_j} \left(\modclass{g_j-h_j}{n_j}\right) \, \right].
+\end{equation}
+
+The set of characters, with pointwise multiplication defined as $(\chi\cdot\psi)(x):=\chi(x)\psi(x)$, forms a group; this is called the \textbf{Pontryagin dual} (or \textbf{dual group}) of $G$, and is denoted $G^\wedge$. In fact, the Pontryagin construction can be made (contravariantly) functorial on the category \cat{Grp} of groups and group homomorphisms. Defining $f^\wedge : G^\wedge \rightarrow H^\wedge$, for any $f: H \rightarrow G$ morphism of abelian groups, as follows:
+\begin{equation*}
+  f^\wedge( \chi ) = \chi \cdot f.
+\end{equation*}
+
+From~\eqref{eqn_FTDefCharacters} it is not hard to see that $G^\wedge \isom G$.\footnote{Note that if $G \isom H$, then there are always exactly as many isomorphisms $G \isom H$ as there are automorphisms $G \isom G$.} However, this isomorphism is \emph{not canonical}. This means that there is no natural way of identifying the multiplicative characters with group elements, and we must keep track of our choice of isomorphism $G^\wedge \isom G$; for a proof of this, \todo{see Section \ref{section_Proofs} of the Appendix}. Remarkably though, there is a canonical isomorphism $G \isom (G^\wedge)^\wedge$ given as follows, making the functor $(-)^{\wedge}:$ \cat{Grp} $\to$ \cat{Grp} is its own (weak) inverse:
+\begin{equation*}
+  g \mapsto (\chi \mapsto \chi(g)).
+\end{equation*}
+
+\newcommand{\FourierTransformSym}[1]{\mathcal{F}_{#1}}
+\newcommand{\InverseFourierTransformSym}[1]{\mathcal{F}_{#1}^{-1}}
+\newcommand{\FourierTransform}[1]{\mathcal{F}_G[#1]}
+\newcommand{\InverseFourierTransform}[1]{\mathcal{F}_G^{-1}[#1]}
+
+We are now ready to introduce the Fourier Transform in the context of Pontryagin duality: this is the most abstract amongst the notions above, and the other ones are derived from it. Let $\Ltwo{G}$ denote the space of functions $f:G\to \complexs$. These functions are necessarily square-integrable (as $G$ is finite), and thus $\Ltwo{G}$ is an $N$-dimensional complex Hilbert space (and lives in the category $\fdHilbCategory$ of finite-dimensional complex Hilbert spaces and linear maps). 
+
+\begin{definition}
+The \textbf{Fourier Transform} for a finite abelian group $G$ is a bijection $\mathcal{F}_G:\Ltwo{G}\rightarrow\Ltwo{G^\wedge}$, sending $f:G\to\complexs$ to the $\bar{f}:=\FourierTransform{f}:G^\wedge\to\complexs$ defined as follows:
+\begin{equation}\label{eqn_DefTraditionalFT}
+  \FourierTransform{f}(\chi) := \frac{1}{N}\sum_{g \in G}\chi^{-1}(g)f(g).
+\end{equation}
+The \textbf{Inverse Fourier Transform} is the inverse bijection $\mathcal{F}_G^{-1}: \Ltwo{G^\wedge} \rightarrow \Ltwo{G}$ and is defined as follows:
+\begin{equation}\label{eqn_DefTraditionalInverseFT}
+  \InverseFourierTransform{\tilde{f}}(g) := \sum_{\chi \in G^\wedge}\chi(g)\tilde{f}(\chi).
+\end{equation}
+\end{definition}
+
+The Fourier Transform is natural.  This means it is invariant under automorphisms of abelian groups (note the isomorphism $G \isom G^\wedge$ was not). Let $\Psi : H \rightarrow G$ be some isomorphism where $M_\Psi = \Ltwo{G} \rightarrow \Ltwo{H}$ is the corresponding unitary isomorphism that takes $f\mapsto f\cdot \Psi$. We then always have:
+\begin{equation}\label{eqn_FTcanonicity}
+  M_{\Psi^\wedge} \cdot \mathcal{F}_H \cdot M_\Psi =  \mathcal{F}_G,
+\end{equation}
+For a proof of this, \todo{see Section \ref{section_Proofs} of the Appendix}. \\
+
+There are a number of properties of interest for the Fourier Transform, some rather straightforward and others more complicated to prove. One of specific interest to this work, because of its wide application and relationship with structures in Categorical Quantum Mechanics, is the Convolution Theorem. The space $\Ltwo{G}$ comes with a distinguished orthonormal basis, given by the \textbf{delta functions} $(\delta_g)_{g\in G}$ defined as follows.
+\begin{align}\label{eqn_computationalBasis}
+  \delta_g(h):=\begin{cases}
+    1, & \text{if $h=g$}.\\
+    0, & \text{otherwise}.
+  \end{cases}
+\end{align}
+We refer to this as the \textbf{computational basis}, the name usually given to it in the context of (group-theoretic) quantum algorithms.
+
+The computational basis comes with a monoid structure, defined below and with unit $\delta_0$:
+\begin{equation*}
+  \left(\delta_g*\delta_h\right):=\delta_{g+h}.
+\end{equation*}
+
+Linearly extended to $\Ltwo{G}$, this structure yields the \textbf{convolution operation} $\left( \Ltwo{G},*,\delta_0 \right)$.
+\begin{align}
+\label{eqn_convolutionOperation}
+  \left(f * f'\right) = \left(\sum_{g\in G} f(g) \delta_g \right) * \left( \sum_{g' \in  G} f'(g') \delta_{g'} \right) &= \sum_{g\in G} \sum_{g'\in G'} f(g) f'(g') \delta_{g+g'} \\ &= \sum_{h\in G} \left(\sum_{g'\in G} f(h-g') f'(g')\right) \delta_h
+\end{align}
+
+The Fourier Transforms of the delta functions yield the following orthogonal basis for $\Ltwo{G^\wedge}$, which we refer to as the \textbf{basis of evaluation functions}:
+\begin{align*}
+\xi_{g} := \sqrt{N}\tilde{\delta}_{-g} = \chi \mapsto \sum_{h \in G}\chi^{-1}(h)\delta_{-g}(h) = \chi \mapsto \chi(g).
+\end{align*}
+
+The basis of evaluation functions also comes with a monoid structure, with unit $\xi_0: \chi \mapsto 1$:
+\begin{equation*}
+  \left(\xi_g\cdot\xi_h\right):= \chi \mapsto \xi_g(\chi)\xi_h(\chi) = \chi \mapsto \chi(g)\chi(h).
+\end{equation*}
+
+Functions $F \in \Ltwo{G^\wedge}$ on the dual group have the following expansion in terms of evaluation functions.
+\begin{equation*}
+  F = \sum_{g\in G} \left( \frac{1}{N}\sum_{\chi \in G^\wedge} F(\chi) \chi^{-1}(g) \right) \xi_g
+\end{equation*}
+
+Linearly extended to $\Ltwo{G^\wedge}$, the monoid structure above yields the \textbf{pointwise multiplication} $\left( \Ltwo{G^\wedge},\cdot,\xi_0 \right)$: 
+\begin{align}
+\label{eqn_PointwiseMultCharacters}
+  \left(F \cdot F' \right) &= \tau \mapsto \sum_{\chi,\kappa \in G^\wedge}  F(\chi)  F'(\kappa) \left(\frac{1}{N} \sum_{g\in G} \chi^{-1}(g)\tau(g)\right) \left(\frac{1}{N} \sum_{g'\in G}\kappa^{-1}(g') \tau(g') \right) \\ &= \tau \mapsto F(\tau) F'(\tau)
+\end{align}
+We use the (easy to check) fact that, for any $\chi,\tau : G^\wedge$, the expression $\frac{1}{N} \sum_{g:G}\chi^{-1}(g) \tau(g)$ yields $1$ if $\tau = \chi$ and $0$ otherwise (this is usually referred to as \textbf{orthogonality of (multiplicative) characters}).
+
+\begin{theorem}[Convolution Theorem]
+The Fourier Transform is a monoid isomorphism in $\fdHilbCategory$, from the convolution monoid $\left( \Ltwo{G},*,\delta_0 \right)$ to the pointwise multiplication monoid $\left( \Ltwo{G^\wedge},\cdot, \xi_0 \right)$. This statement amounts exactly to the following expression (for every $f\in \Ltwo{G}$), which is the usual formulation of the Convolution Theorem: 
+\begin{equation}\label{eqn_ConvolutionTheorem}
+  \mathcal{F}_G (f') \cdot \mathcal{F}_G (f) = \mathcal{F}_G (f * f').
+\end{equation}
+\end{theorem}
+
+This concludes our presentation of the Fourier Transform in the context of Pontryagin duality. The Fourier Transform finds wide applicability in signal processing, physics, engineering and the applied sciences, but the full formulation based on Pontryagin duality is rarely used, if mentioned at all. In this context, one usually considers periodic real-valued or complex-valued functions on a $D$-dimensional space, discretized in a rectangular $D$-dimensional lattice, and defines the (Discrete) Fourier Transform as a transformation on them. Due to the periodicity conditions, complex-valued functions on a rectangular $D$-dimensional lattice can be equivalently seen as living in $\Ltwo{G}$, where $G = \prod_{j=1}^D \integersMod{n_j}$ and $n_j$ is the number of lattice sites along the $j$-th dimension. The  Fourier Transform $\mathcal{G} : \Ltwo{G} \rightarrow \Ltwo{G^\wedge}$ defined above sends these functions onto functions on another, isomorphic $D$-dimensional lattice corresponding to $G^\wedge$. In order to obtain functions living again on the original lattice, one \emph{fixes an isomorphism} $\Psi : G \rightarrow G^\wedge$ (traditionally the one from Equation \ref{eqn_FTDefCharacters}), and defines the Discrete Fourier Transform as the following transformation on $\Ltwo{G}$:
+\begin{equation}\label{eqn_FTDefDFT}
+  \mathbf{H} := f \mapsto \mathcal{F}_G(f) \cdot \Psi.
+\end{equation}
+
+This definition has the advantage of working with functions on the same lattice, but the disadvantage of implicitly depending on the choice $\Psi$ of isomorphism.\footnote{This is a common issue in signal processing and physics, where it is related to the symmetry group of the underlying space and the choice of units of measure for energy/frequency. We will not discuss this further.} The transformation $\mathbf{H}$ from Equation \ref{eqn_FTDefDFT} is in fact a unitary automorphism of $\Ltwo{G}$. Its matrix $(\mathbf{H}_{hg})_{h,g \in G}$ in the computational basis is:
+\begin{equation} \label{eqn_HadamardMatrixDef}
+  \mathbf{H}_{hg} = \exp\left[\, i \, \sum_j \frac{2 \pi}{n_j} \left(\modclass{g_j-h_j}{n_j}\right) \, \right] %\text{ for } h = (h_j)_{j=1,...,D} \text{ and } g = (g_j)_{j=1,...,D} \text{ in } G = \prod_{j=1}^D \integersMod{n_j}
+\end{equation}
+and it is called a \textbf{Hadamard matrix} in the context of quantum computing.\footnote{These are sometimes referred to as complex Hadamard matrices, while Hadamard matrix refers to those where $n_j=2$.} The unitary automorphism $\mathbf{H}:\Ltwo{G} \rightarrow \Ltwo{G}$ itself is known as a \textbf{Hadamard transform}. Thus the Hadamard transform, exactly like the definition of the Discrete Fourier Transform above, is non-canonical, and depends on an implicit choice of isomorphism $\Psi$. This contrasts with the Fourier transform, which is itself canonical.
+
+Lastly we address the Quantum Fourier Transform (QFT). The operational specification for the QFT step of a quantum algorithm is often given as follows (\cite{nielsen2010quantum} is a canonical reference):
+\begin{enumerate}
+  \item[1.] Input a quantum state $\ket{\psi} \in \SpaceH$, which in some orthonormal \textit{computational basis} $\ket{g}_{g\in G}$ encodes some complex-valued function $f \in \Ltwo{G}$, in the sense that 
+    \begin{equation*}
+      \ket{\psi} = \sum_{g\in G} f(g) \ket{g}
+    \end{equation*}
+  \item[2.] Apply a unitary $U : \SpaceH \rightarrow \SpaceH$ to the quantum state. This is the quantum algorithm, usual implemented as a sequence of gates.
+  \item[3.] Output a quantum state $U\ket{\psi} \in \SpaceH$, which in the computational basis $\ket{h}_{h\in G}$ encodes the Discrete Fourier Transform $\bar{f} \equiv \mathcal{F}_G(f) \cdot \Psi$ of $f$, in the sense that 
+    \begin{equation*}
+      U \ket{\psi} = \sum_{h\in G} \bar{f}(h)\ket{h}
+    \end{equation*}
+  \item[4.] Continue to work in the computational basis.
+\end{enumerate}
+Under the specification above, the QFT is implemented by taking $U$ to be the linear transformation corresponding to the Hadamard matrix in the computational basis, where $\Psi$ is (usually) the isomorphism arising from~\eqref{eqn_FTDefCharacters}. We no longer use the notation $\bar{f}$ after this section.
+
+There is a particularly interesting reason the lack of canonicity is not usually an issue in quantum computing. Most of the algorithms are traditionally formulated for qubits, and the state-space for a $D$-qubit system is isomorphic to $\Ltwo{G}$ for $G = \prod_{j=1}^D \integersMod{2}$. The group $\integersMod{2}$ has a unique automorphism (the identity), and thus a unique isomorphism $\integersMod{2} \rightarrow \integersMod{2}^\wedge$. Furthermore, there is a unique isomorphism $\Psi : G \rightarrow G^\wedge$, namely the one arising from Equation \ref{eqn_FTDefCharacters}, which results in a Hadamard transform which is separable over the $D$ qubits. Hence, there is usually a unique, obvious choice of isomorphism $\Psi$ for the implementation of the QFT on systems of qubits. However, sometimes the need for a Hadamard transform results in more complicated implementations, and the following variant of the QFT is used instead.
+\begin{enumerate}
+  \item[1.] Take as input a quantum state $\ket{\psi} \in  \SpaceH$, which in some orthonormal \textit{computational basis} $\ket{g}_{g\in G}$ encodes some complex-valued function $f \in \Ltwo{G}$.
+  \item[2.] Apply a unitary $U : \SpaceH \rightarrow \SpaceH$ to the quantum state.
+  \item[3.] Obtain in output a quantum state $U\ket{\psi} \in \SpaceH$, which in some other basis $\ket{\chi}_{\chi\in G^\wedge}$, often called the \emph{Fourier basis}, that encodes the Fourier Transform $\tilde{f}$ of $f$.
+  \item[4.] Continue to work in the new basis $\ket{\chi}_{\chi\in G^\wedge}$.
+\end{enumerate}
+
+For a qubit system, one can start in the computational basis $Z$ and take $X$ as the new basis, resulting in a very convenient $U = \id{\SpaceH}$. This approach to QFT has the advantage of canonicity (for systems more complicated than qubits) and, subject to an appropriate choice of new basis, of skipping Hadamard transforms altogether; however, it may be harder to implement the remaining steps of the algorithm in the new basis. In this work, we  adopt this ``basis change" perspective to the QFT, as it is categorically and conceptually cleaner. When talking about Fourier Transform, we refer to the one defined in terms of Pontryagin duality. We will no longer talk about Hadamard transforms and the Discrete Fourier Transform (with the exception of a brief mention in \todo{Section \ref{section_RelFT})}.
+
+There are a number of existing generalizations in the literature of the Fourier Transform presented here that we make contact with to varying degrees. 
+\begin{enumerate}
+\item[1.] The Pontryagin theory can be extended from finite abelian groups to arbitrary locally compact abelian groups equipped with the Haar measure: the groups $G$ and $G^\wedge$ are not necessarily isomorphic (e.g. $\reals^\wedge = \reals$ but $\integers^\wedge = S^1$), but the Fourier Transform is still a canonical isomorphism between $\Ltwo{G}$ and $\Ltwo{G^\wedge}$, and it's still true that $(G^\wedge)^\wedge = G$. 
+
+\item[2.] The representation theory can be extended from abelian to arbitrary locally compact groups by observing that $\Ltwo{G}$ is always a $C^\star$ algebra, and considering the Gelfand-Naimark representation. In the abelian case, this representation coincides with the Fourier transform. We elaborate more on this finite-dimensional case in \todo{Section \ref{section_FourierTransform}}. 
+
+\item[3.] Tannaka-Krein duality provides a different generalisation from compact abelian groups to arbitrary compact groups: the finite-dimensional linear representations of a compact group $G$ form a symmetric monoidal category $\Pi(G)$, generalising $G^\wedge$, with representations $R:G \rightarrow \Endoms{}{V_R}$ as objects, intertwiners (linear maps $f: V_R \rightarrow V_S$ s.t. $f \cdot R(g) = S(g) \cdot f$ for all $g\in G$) as morphisms and tensor product of representations as monoidal tensor. The category $\Pi(G)$ comes with a complex conjugation operation on morphisms, and a theorem of Tannaka shows that the set $\Gamma(\Pi(G))$ of all self-conjugate monoidal natural transformations $\id{\Pi(G)} \rightarrow \id{\Pi(G)}$ forms (once equipped with composition of natural transformations and an appropriate topology) a compact group isomorphic to $G$. A generalisation of Tannaka-Krein duality to braided monoidal categories appears in the representation theory of Drinfeld-Jimbo quantum groups. In this work, we do not deal with either Tannaka-Krein theory or Drinfeld-Jimbo quantum groups.
+\end{enumerate}
+
+
 
 \subsection{Measurements and Representation Theory}
 There is a correspondence between morphisms and states given by the following.

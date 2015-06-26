@@ -901,6 +901,11 @@
 \newcommand{\Hsp}{\mathcal{H}}
 \newcommand{\dsmc}{$\dagger$-SMC~}
 \newcommand{\dcc}{$\dagger$-compact category~}
+\newcommand{\isom}{\cong} % Isomorphism
+\newcommand{\iso}{\cong} % Another definition for isomorphism
+\newcommand{\LtwoSym}{\operatorname{L}^2} % Symbol for L2 spaces
+\newcommand{\Ltwo}[1]{\LtwoSym[#1]} % L2 space over space #1
+\newcommand{\SpaceH}{\mathcal{H}}
 \newcommand{\tikzeq}[1]{
   \begin{equation}\input{#1}\end{equation}
 }
@@ -910,7 +915,19 @@
 \tikzstyle{gray copoint}=[copoint,fill=gray!40!white]
 \tikzstyle{antipode}=[whitedot,inner sep=0.3mm,font=\footnotesize]
 
-
+%% Sets, groups and algebra
+        \newcommand{\Powerset}[1]{\mathcal{P}(#1)} % Powerset of #1
+        \newcommand{\naturals}{\mathbb{N}} % Set of natural numbers
+        \newcommand{\integers}{\mathbb{Z}} % Set of interer numbers
+        \newcommand{\rationals}{\mathbb{Q}} % Set of rational numbers
+        \newcommand{\reals}{\mathbb{R}} % Set of real numbers
+        \newcommand{\complexs}{\mathbb{C}} % Set of complex numbers
+        \newcommand{\integersMod}[1]{\mathbb{Z}_{#1}} % Set/group/ring of integers mod #1
+        \newcommand{\modclass}[2]{#1 \; (\text{mod } #2)} % Equivalence class of integers mod #2 corresponding to representative #1
+        \newcommand{\restrict}[2]{\left. #1 \right\vert_{#2}} % Restriction of function/morphism #1 to subset/subobject #2
+        \newcommand{\domain}[1]{\operatorname{dom}#1} % Domain of function/morphism #1
+        \newcommand{\inject}{\hookrightarrow} % Set-theoretic injection
+        \newcommand{\Irreps}[1]{\operatorname{Irr}[#1]} % Set of irreps for group #1
 
 % From Bob/Aleks 
 \newcommand{\name}[1]{\ensuremath{\ulcorner #1 \urcorner}}
