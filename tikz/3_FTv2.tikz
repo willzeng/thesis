@@ -1,0 +1,61 @@
+\begin{pic}[node distance = 10mm]
+
+
+\node (idCenterL)  {};
+\node (idOut) [below of = idCenterL, yshift = 1mm] {};
+
+\node [blackdot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [blackdot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+
+
+\node [draw, diamond](idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};
+
+\node [state](idIn) [below of = idCenterR,yshift = 4mm,inner sep = 1mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idOut) to (idCenterL.90);
+\draw[-] [out=90,in=270](idIn) to (idCenterR.south);
+\draw[-] [out=90,in=225](idCenterL) to (Xmult);
+\draw[-] [out=90,in=315](idCenterR) to (Xmult);
+\draw[-] [out=90,in=270](Xmult) to (Xcounit);
+\end{pgfonlayer}
+
+
+\node (equals) [right of = idCenterL, xshift = +7mm, yshift = 0mm] {$=$};
+
+\node (projCenter) [right of = equals, xshift = 14mm, yshift = +5mm]  {};
+\node (sum) [left of = projCenter, xshift = -4mm, yshift = -5mm]  {$\dfrac{1}{N}\mathlarger{\sum}\limits_\chi$};
+
+\node [state, hflip] (projL) [left of = projCenter, xshift=5mm] {$\chi$};
+\node [draw, diamond] (projR2) [right of = projCenter,xshift=-5mm,yshift = -6mm] {};
+\node [state, hflip] (projR) [right of = projCenter,xshift=-5mm] {$\chi$};
+
+\node (projOut) [below of = projL, yshift = -5mm] {};
+\node [state](projIn) [below of = projR, yshift = -3mm,inner sep = 1mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](projOut) to (projL);
+\draw[-] [out=90,in=270](projIn) to (projR2.south);
+\draw[-](projR2.north) to (projR);
+\end{pgfonlayer}
+
+\node (eqdef) [left of = idCenterL, xshift = +3mm, yshift = +2mm] {$=$};
+
+\node (fhatCenter) [left of = eqdef, xshift = 0mm] {};
+
+\node [state, hflip] (fhatOut) [above  of = fhatCenter, yshift = -5mm,inner sep = 1mm] {$\hat{f}$};
+\node (fhatIn) [below  of = fhatCenter, yshift = 0mm] {};
+
+\node (mapsto) [left of = fhatCenter,xshift = 2mm]{$\mapsto$};
+
+\node (fCenter) [left of = mapsto, xshift = +3mm] {};
+
+\node (fOut) [above of = fCenter, yshift = -2mm] {};
+\node [state] (fIn) [below of = fCenter, yshift = 3mm,inner sep = 1mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\draw[-] [out=90,in=270](fIn) to (fOut);
+\end{pgfonlayer}
+
+\end{pic}

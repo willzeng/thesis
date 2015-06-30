@@ -1,0 +1,27 @@
+\begin{pic}[node distance = 10mm]
+
+\node (aligner) {};
+
+\node (center) {};
+
+\node (algebraTop) [blackdot]   
+  [above of = center, yshift = -4mm]{};
+\node (normalisation) [left of = algebraTop] {$\frac{1}{N}$};
+\node (Hout) [state, hflip, scale=0.8, fill = \Zcolour,above of = algebraTop, xshift = -5mm,yshift = 0mm] {$\chi$};
+\node (antipode) [above of = algebraTop, xshift = -4.5mm,yshift = -5mm] {};
+\node (Tout) [state, hflip, scale=0.8,above of = algebraTop, xshift = +5mm,yshift = 0mm] {$\chi'$};
+
+\node (algebraBot) [blackdot]  
+  [below of = center, yshift = +8mm]{};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=90,in=270] (algebraBot) to (algebraTop);
+\draw[-,out=135,in=270] (algebraTop) to (Hout);
+\draw[-,out=45,in=270] (algebraTop) to (Tout);
+\end{pgfonlayer}
+
+\node (equals) [right of = center, xshift = +3mm,yshift = 5mm]{$=$};
+
+\node (center) [right of = equals, xshift = 0mm,yshift = 0mm] {$\delta_{\chi\chi'}$};
+
+\end{pic}

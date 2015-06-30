@@ -1,4 +1,4 @@
-\section{\color{blue} The Fourier Transform in oGCT's}
+\section{The Fourier Transform in oGCT's}
 \label{sec:strcomplFT}
 
 This section elucidates the connection between the Fourier transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We summarize the section's outline and main results in the following paragraphs.
@@ -30,12 +30,12 @@ This work is ultimately concerned with the first notion, where the Fourier Trans
 
 We begin by explaining the relationship of Notion 1 with the others listed above. In what follows, $(G,+,0)$ is a finite abelian group of order $N$, and $\complexs^{\times}=\complexs\setminus\{0\}$ is the multiplicative group of non-zero complex numbers.
 
-A \textbf{(multiplicative) character} of $G$ is a group homomorphism $\chi:G\to \complexs^\times$.\footnote{For finite $G$, $\chi$ maps into the subgroup $S^1 \subseteq C^\times$ of unit complex numbers.} If $G = \prod_j \integersMod{n_j}$,\footnote{Which is always true when $G$ is finite, for some family $(n_j)_j$ of positive integers.} the multiplicative characters of $G$ take the following form, for any $(h_j)_j \in G$:
+A \emph{(multiplicative) character} of $G$ is a group homomorphism $\chi:G\to \complexs^\times$.\footnote{For finite $G$, $\chi$ maps into the subgroup $S^1 \subseteq C^\times$ of unit complex numbers.} If $G = \prod_j \integersMod{n_j}$,\footnote{Which is always true when $G$ is finite, for some family $(n_j)_j$ of positive integers.} the multiplicative characters of $G$ take the following form, for any $(h_j)_j \in G$:
 \begin{equation}\label{eqn_FTDefCharacters}
   (g_j)_j \mapsto \exp\left[\, i \, \sum_j \frac{2 \pi}{n_j} \left(\modclass{g_j-h_j}{n_j}\right) \, \right].
 \end{equation}
 
-The set of characters, with pointwise multiplication defined as $(\chi\cdot\psi)(x):=\chi(x)\psi(x)$, forms a group; this is called the \textbf{Pontryagin dual} (or \textbf{dual group}) of $G$, and is denoted $G^\wedge$. In fact, the Pontryagin construction can be made (contravariantly) functorial on the category \cat{Grp} of groups and group homomorphisms. Defining $f^\wedge : G^\wedge \rightarrow H^\wedge$, for any $f: H \rightarrow G$ morphism of abelian groups, as follows:
+The set of characters, with pointwise multiplication defined as $(\chi\cdot\psi)(x):=\chi(x)\psi(x)$, forms a group; this is called the \emph{Pontryagin dual} (or \emph{dual group}) of $G$, and is denoted $G^\wedge$. In fact, the Pontryagin construction can be made (contravariantly) functorial on the category \cat{Grp} of groups and group homomorphisms. Defining $f^\wedge : G^\wedge \rightarrow H^\wedge$, for any $f: H \rightarrow G$ morphism of abelian groups, as follows:
 \begin{equation*}
   f^\wedge( \chi ) = \chi \cdot f.
 \end{equation*}
@@ -52,7 +52,7 @@ From~\eqref{eqn_FTDefCharacters} it is not hard to see that $G^\wedge \isom G$.\
 
 We are now ready to introduce the Fourier Transform in the context of Pontryagin duality: this is the most abstract amongst the notions above, and the other ones are derived from it. Let $\Ltwo{G}$ denote the space of functions $f:G\to \complexs$. These functions are necessarily square-integrable (as $G$ is finite), and thus $\Ltwo{G}$ is an $N$-dimensional complex Hilbert space (and lives in the category $\fdHilbCategory$ of finite-dimensional complex Hilbert spaces and linear maps). 
 
-\begin{definition}
+\begin{defn}
 The \textbf{Fourier Transform} for a finite abelian group $G$ is a bijection $\mathcal{F}_G:\Ltwo{G}\rightarrow\Ltwo{G^\wedge}$, sending $f:G\to\complexs$ to the $\bar{f}:=\FourierTransform{f}:G^\wedge\to\complexs$ defined as follows:
 \begin{equation}\label{eqn_DefTraditionalFT}
   \FourierTransform{f}(\chi) := \frac{1}{N}\sum_{g \in G}\chi^{-1}(g)f(g).
@@ -61,7 +61,7 @@ The \textbf{Inverse Fourier Transform} is the inverse bijection $\mathcal{F}_G^{
 \begin{equation}\label{eqn_DefTraditionalInverseFT}
   \InverseFourierTransform{\tilde{f}}(g) := \sum_{\chi \in G^\wedge}\chi(g)\tilde{f}(\chi).
 \end{equation}
-\end{definition}
+\end{defn}
 
 The Fourier Transform is natural.  This means it is invariant under automorphisms of abelian groups (note the isomorphism $G \isom G^\wedge$ was not). Let $\Psi : H \rightarrow G$ be some isomorphism where $M_\Psi = \Ltwo{G} \rightarrow \Ltwo{H}$ is the corresponding unitary isomorphism that takes $f\mapsto f\cdot \Psi$. We then always have:
 \begin{equation}\label{eqn_FTcanonicity}
@@ -301,6 +301,236 @@ In $\cat{Fhilb}$, the point structure $(\dotonly{whitedot})$ characterises the g
 \todo{FIX reference: This idea, and Theorem~\ref{thm_InteralGroupsTraditionalGroups}, is an straightforward extension of results in~\cite{coecke2011interacting} where the matchable points are called a ``phase group."}
 
 From the point of view of the category $\cat{Grp}[\cat{C}]$, $\mathbb{G}$ should be understood as the group $G$ encoded by $\XdotSym$, while from the point of view of the category $\fdHilbCategory$ it should be considered as endowing $\SpaceG$ with the structure of $\Ltwo{G}$.\footnote{In this correspondence, the orthogonal basis in $\SpaceG$ corresponds to the basis of delta functions in $\Ltwo{G}$, as given in Equation \ref{eqn_computationalBasis}. The groups structure given by $\XdotSym$ corresponds to the convolution operation from Equation \ref{eqn_convolutionOperation}.} As we abstract away from Hilbert spaces, we will take this conceptual standpoint. Sometimes, when talking about an internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$, we will refer to states $\ket{f} : \tensorUnit \rightarrow \SpaceG$ as \textbf{states of $\mathbb{G}$}, generalising square-integrable functions $f\in \Ltwo{G}$.
+
+\subsection{Abelian Fourier transform}
+\label{section_AbelianGroups_FourierTransform}
+
+The previous section provides us with the basic tools to do group theory in arbitrary $\dagger$-SMCs. It defines general Pontryagin duals, introduces the Fourier Transform and connects it to the more traditional theory presented in Section \ref{sec:FT}. We begin by introducing multiplicative characters as co-states, building on ideas in~\cite{vicary-tqa} and~\cite{zeng2014abstract}.
+
+The use of the $\Ltwo{G}$ notation in this section is consistent with the fact that $\LtwoSym$-spaces over finite groups are exactly finite-dimensional Hilbert spaces that come with a canonical choice of basis (the group elements) and a group operation over them. Throughout, we have identified $\Ltwo{\hat{G}}\isom \Ltwo{G}^\star$ as the multiplicative characters are a basis of $\Ltwo{G}^\star$.
+
+\begin{defn}\label{def_MultiplicativeCharacters}
+A \emph{multiplicative character} for a monoid $(\, \SpaceG, \XmultSym, \XunitSym)$ in a $\dagger$-SMC is a monoid homomorphism from $(\timemultSym, \timeunitSym)$ to the canonical monoid on the trivial object $\tensorUnit$ induced by the unitors, or equivalently it is a co-state $\multCharacterEffectSym{}: \SpaceG \rightarrow I$ satisfying the following equations:
+        \begin{equation}\label{eqn_MultCharDef}
+                \input{tikz/3_multchardef.tikz}
+        \end{equation}
+\end{defn}
+
+\begin{lemma}\label{thm_AbCopiablesMultiplicativeCharacters}
+If $(\,\SpaceG,\XdotSym,\ZdotSym)$ is an internal group in a $\dagger$-SMC, then the classical points of the group structure are exactly the (adjoints of its) multiplicative characters. In the case of $\fdHilbCategory$, the group structure of an abelian internal group thus characterises the (group theoretic) multiplicative characters of $G$ as a co-basis for $\SpaceG$, all characters having norm $N$, the normalisation factor for $\XdotSym$.
+\end{lemma}
+\begin{proof} 
+  The first part is immediate, the second follows from the results in \cite{coecke2013new}.
+\end{proof}
+
+In $\fdHilbCategory$, the multiplicative characters of an internal group $(\,\SpaceG,\XdotSym,\ZdotSym)$ are co-states $\SpaceG \rightarrow \complexs$, while the multiplicative characters defined in Section \ref{sec:FT} are group homomorphisms $G \rightarrow \complexs^\times$. Under the isomorphism $\Ltwo{G} \isom \SpaceG$ given by the point structure, the multiplicative characters of the internal group are exactly the linear extensions to $\Ltwo{G}$ of the multiplicative characters of $G$. If the internal group is abelian, then the multiplicative character are exactly the adjoints of the unique orthogonal basis associated with the $\XdotSym$ structure.
+
+\begin{theorem}\label{thm_PontryaginDualsSMC}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an abelian internal group in a $\dagger$-SMC $\CategoryC$.
+Then $\mathbb{G}^\wedge := (\,\SpaceG,\ZdotSym,\XdotSym)$ is an abelian internal group in the $\dagger$-SMC $\cat{C^{op}}$, and we shall refer to it as the \emph{Pontryagin dual} of $(\,\SpaceG,\XdotSym,\ZdotSym)$. The group elements of $(\,\SpaceG,\ZdotSym,\XdotSym)$ are exactly the multiplicative characters of $(\,\SpaceG,\XdotSym,\ZdotSym)$ -- this is to say that $\timediagSym$ acts as a group, the \emph{pointwise multiplication} group, on the multiplicative characters, with the \emph{trivial character} $\trivialcharSym$ as unit. The antipode acts again as group inverse. 
+\end{theorem}
+
+It is worth clarifying that the pointwise multiplication of Equation \ref{eqn_PointwiseMultCharacters} is different from the pointwise multiplication of Theorem \ref{thm_PontryaginDualsSMC}: the former is a pointwise product of functions of characters, and would correspond to the co-monoid $(\timecomultSym,\timecounitSym)$ (because the group multiplication duplicates multiplicative characters), while the latter is a pointwise product of functions of group elements, and thus corresponds to the co-monoid $(\timediagSym,\trivialcharSym)$ (which duplicates group elements). Also, note that $(\mathbb{G}^\wedge)^\wedge = \mathbb{G}$, as in the traditional formulation of Pontryagin duality.
+
+The usual formulation of the Fourier Transform, and of its properties, involves several summations, but a careful analysis shows that they all boil down to appropriate resolutions of the identity, like $\frac{1}{N} \sum_{g\in G} \ket{g}\bra{g} = \idm{\Ltwo{G}}$, and to various formulations of orthogonality of characters. The following lemma shows that, from a categorical perspective, the two are equivalent.
+
+\begin{lemma}\label{lemma_BasisResolutionPartition}
+Let $\ZdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a $\dagger$-SMC which is distributively $\fComMonCategory$-enriched, and let $\ket{x}_{x\in X}$ be a finite set of classical states for the co-monoid $(\tinycomult[whitedot],\tinycounit[whitedot])$ such that
+\begin{enumerate}
+\item[(a.)] the family is \emph{orthogonal}, i.e. $\langle x'|x}\rangle= 0$ (the zero scalar) for all $x \neq x'$
+\item[(b.)] the family is \emph{normalisable}, i.e. $\langle x|x\rangle$ is an invertible scalar for all $x$.
+\end{enumerate} 
+Then the following are equivalent:
+\begin{enumerate}
+\item[(i)] The classical states $\ket{x}_{x\in X}$ form a (orthogonal) basis, as per Definition \ref{def_basis}.
+\item[(ii)] The classical states $\ket{x}_{x\in X}$ form an \emph{(orthogonal) resolution of the identity}:
+        \begin{equation}\label{eqn_ResolutionId}
+                \hbox{\input{tikz/3_multcharresolutionID.tikz}}
+        \end{equation}
+\item[(iii)] The adjoints of the classical states form an \emph{(orthogonal) partition of the counit}, i.e. they satisfy the following equation:
+\begin{equation}\label{eqn_PartitionCounit}
+\frac{1}{N}\sum_x \!\!\!\!\text{\effectSym{x}}\!\! = \tinycounit[whitedot]
+\end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Since we have assumed that $\langle \chi|\chi\rangle$ is invertible, then $\langle \chi|\chi\rangle = N$ as observed in Section \ref{section_InternalGroups}.
+\begin{itemize}
+
+\item $(i) \implies (ii)$ Suppose that the classical states form a basis, i.e. further to orthogonality of the family suppose that $\forall \chi , f \cdot \ket{\chi} = g \cdot \ket{\chi}$ implies $f=g$ (completeness). Then we get, for all $\chi'$:
+\begin{equation*}
+\left(\frac{1}{N} \sum_\chi \, \ket{\chi}\bra{\chi}\right) \cdot \ket{\chi'} = \frac{1}{N} \ket{\chi'} \braket{\chi'}{\chi'} = \ket{\chi'} = \idm{\SpaceG} \cdot \ket{\chi'}
+\end{equation*}
+where we have used orthogonality. We conclude $(ii)$ by completeness.
+
+\item $(ii) \implies (iii)$ By using the fact that $\XcounitSym \cdot \ket{\chi} = 1$ for all $\chi\in X$ we immediately get $(iii)$:
+\begin{equation*}
+\XcounitSym \cdot \left(\frac{1}{N} \sum_\chi \ket{\chi} \bra{\chi} \right) = \frac{1}{N} \sum_\chi \left( \XcounitSym \cdot \ket{\chi} \right) \bra{\chi} = \frac{1}{N} \sum_\chi \bra{\chi}
+\end{equation*}
+ 
+\item $(ii) \implies (i)$ All we have to prove is completeness, as orthogonality of the family $\ket{\chi}_{\chi\in X}$ was assumed as a hypothesis of the lemma. Assume $f \cdot \ket{\chi} = g \cdot \ket{\chi}$ for all $\chi$, then we get:
+\begin{equation*}
+\frac{1}{N} \sum_\chi f \cdot \ket{\chi} \bra{\chi} = \frac{1}{N} \sum_\chi g \cdot \ket{\chi} \bra{\chi}
+\end{equation*}
+But the LHS is $f \cdot \id{\SpaceG}$, i.e. $f$, and the RHS is $g \cdot \idm{\SpaceG}$, i.e. $g$.
+
+
+\item $(iii) \implies (ii)$ Assume that $\XcounitSym = \frac{1}{N} \sum_\chi \bra{\chi}$, then we get (using Frobenius law in the first equality):
+\begin{align*}
+\idm{\SpaceG} &= (\tinycounit[blackdot] \tensor \idm{\SpaceG})\cdot (\XmultSym \tensor \idm{\SpaceG}) \cdot (\idm{\SpaceG} \tensor \tinycomult[blackdot]) \cdot (\idm{\SpaceG} \tensor \XunitSym) \\&= \frac{1}{N} \sum_\chi \frac{1}{N} \sum_{\chi'} \ket{\chi'} \braket{\chi'}{\chi} \bra{\chi} \\&= \frac{1}{N} \sum_\chi \ket{\chi} \bra{\chi}
+\end{align*}
+ 
+\end{itemize}
+
+As a final remark, note that orthogonality, assumed separately, is already included in the definition of basis used in point $(i)$; it is, however, necessary to assume it explicitly in points $(ii)$ and $(iii)$. As for point $(iii)$, a counterexample can be found in $\fRelCategory$, by replacing an orthogonal family with the one obtained by repeating some element $\bra{\chi}$, and using the fact that $\bra{\chi} + \bra{\chi} = \bra{\chi}$ (since the monoidal operation $\sum$ is just the union $\cup$). As for point $(ii)$, one can consider the category of finite-dimensional vector spaces over the field with 2 elements (where $1+1=0$): if $\ket{\chi}$ is a norm-1 vector in a 1-dimensional space $\SpaceG$, the family $(\ket{\chi},\ket{\chi},\ket{\chi})$ is non-orthogonal, and yet a resolution of the identity as $\ket{\chi}\bra{\chi}+\ket{\chi}\bra{\chi}+\ket{\chi}\bra{\chi} = \ket{\chi}\bra{\chi} = \idm{\SpaceG}$ (this cannot happen in $\fdHilbCategory$).
+\end{proof}
+
+The formulation in terms of orthogonal partition of the counit is related to the orthogonality of (multiplicative) characters traditionally mentioned in the context of Fourier Transform (e.g. used here in Equation \ref{eqn_PointwiseMultCharacters}), as the following lemma shows. 
+
+\begin{theorem}[Orthogonality of Multiplicative Characters] \label{lemma_OrthogonalityCharacters}
+Let $(\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$, and $N$ be the normalisation factor for $\XdotSym$. Assume that the characters are all orthogonal, in the sense that $\braket{\chi}{\chi'} = 0$ for $\chi \neq \chi'$, and that $\braket{1}{1} = N$, where $\bra{1} := \tinycounit[whitedot]$ is the trivial character. Then if $\ket{\chi},\ket{\chi'}$ are (not necessarily distinct) multiplicative characters of the internal group, the following notion \emph{orthogonality of multiplicative characters} holds:
+\begin{equation}\label{eqn_orthogonalityMultChars}
+        \input{tikz/3_orthogonalityMultChar.tikz}
+\end{equation}
+Now assume that \cat{C} is distributively $\cat{fCommMon}$-enriched. If the family $\bra{g}_{g\in G}$ of (adjoints of) group elements is normalisable and forms an orthogonal partition of the counit, then Equation \ref{eqn_orthogonalityMultChars} can be re-written in the following, more familiar form (where we have set $\ket{\chi^{-1}} := \ket{\chi} \cdot \antipodeSym$):
+\begin{equation}\label{eqn_orthogonalityMultCharsFamiliar}
+\frac{1}{N}\sum_{g\in G} \braket{\chi^{-1}}{g}\braket{\chi'}{g} = \delta_{\chi\chi'}
+\end{equation} 
+\end{theorem}
+\begin{proof}
+By Theorem \ref{thm_PontryaginDualsSMC}, the comultiplication $\ZcomultSym$ acts as a group on the multiplicative characters, and $\antipodeSym$ as the group inverse. The LHS of Equation \ref{eqn_orthogonalityMultChars} can be re-written as $\braket{\chi^{-1} \cdot \tau}{1}$, and $\cdot$ is the pointwise multiplication: since we assumed that the multiplicative characters are orthogonal, the result follows. In order to obtain Equation \ref{eqn_orthogonalityMultCharsFamiliar} from Equation \ref{eqn_orthogonalityMultChars}, all we have to do is observe that the group elements $\ket{g}_{g\in G}$ form an orthogonal partition of the unit $\ZunitSym$ (by taking adjoints), and that they are classical points of $\ZdotSym$.
+\end{proof}
+Note that, by Definition \ref{def_Antipode} and Frobenius law for $\ZdotSym$, Equation \ref{eqn_orthogonalityMultChars} can equivalently be written as the following, stating that the multiplicative characters are a matching family for $(\tinycomult[blackdot],\tinycounit[blackdot])$: 
+\begin{equation}
+\label{eqn_orthogonalityMultCharsRed}
+\input{tikz/3_orthRED.tikz}
+\end{equation}
+Equations \ref{eqn_orthogonalityMultChars} and \ref{eqn_orthogonalityMultCharsRed} provide a summation-free version of the orthogonality of multiplicative characters of Equation \ref{eqn_orthogonalityMultCharsFamiliar} (under appropriate conditions). This leads us to the following summation-free definition of the Fourier Transform, valid for any internal group in any $\dagger$-SMC.
+
+\begin{defn}\label{def_FourierTransform}
+        Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in any $\dagger$-SMC. The \emph{Fourier Transform} is defined to be the following mapping $\FourierTransformSym{\mathbb{G}}$ of states of $\SpaceG$ to co-states of $\SpaceG$:
+\begin{equation}\label{eqn_FT}
+\input{tikz/3_FTv3.tikz}
+\end{equation} 
+The \emph{inverse Fourier transform} is defined to be the following mapping $\InverseFourierTransformSym{\mathbb{G}}$ of co-states of $\SpaceG$ to states of $\SpaceG$: 
+\begin{equation}\label{eqn_InverseFT}
+\input{tikz/3_inverseFTv3.tikz}
+ \end{equation} 
+\end{defn}
+
+Under appropriate circumstances, the Fourier Transform of Definition \ref{def_FourierTransform} takes the more familiar form of Equation \ref{eqn_DefTraditionalFT}, as shown by the following lemma and its subsequent application to $\fdHilbCategory$.
+
+\begin{lemma}\label{lemma_FTTraditionalSMC}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC which is distributively $\fComMonCategory$-enriched. Further assume that the multiplicative characters and the group elements of $\mathbb{G}$ are both finite, normalisable families, which form an orthogonal partition of the counits $\XcounitSym$ and $\ZcounitSym$ respectively. Then the Fourier Transform of Definition \ref{eqn_FT} can be written in the following way:
+\begin{equation}\label{eqn_FTSummation}
+\input{tikz/3_FTv2.tikz}
+\end{equation} 
+Furthermore, the Inverse Fourier Transform of Definition \ref{eqn_InverseFT} can be written in the following way \todo{the g states should be filled in black}:
+\begin{equation}\label{eqn_InverseFTSummation}
+\input{tikz/3_inverseFTv2.tikz}
+ \end{equation} 
+\end{lemma}
+\begin{proof}
+For the Fourier Transform, use the fact that the multiplicative characters form an orthogonal partition of the counit $\XcounitSym$, as per Equation \ref{eqn_PartitionCounit}, and that they are classical states of $\tinycomult[blackdot]$, as per Equation \ref{eqn_MultCharDef}. Similar reasoning if used for the Inverse Fourier Transform.
+\end{proof}
+
+In $\fdHilbCategory$, the conditions of Lemma \ref{lemma_FTTraditionalSMC} hold for abelian inner groups (but not for non-abelian ones, as the multiplicative characters fail to form a basis). The rightmost expression in equation \ref{eqn_FTSummation} can be written as follows, where we have $\ket{\chi^{-1}} = \ket{\chi} \cdot \antipodeSym$ (as in Lemma \ref{lemma_OrthogonalityCharacters}):
+\begin{equation*}
+\frac{1}{N} \sum_\chi \bra{\chi} \braket{\chi^{-1}}{f}
+\end{equation*}
+The vector $\ket{f}$ can be expanded by using a resolution of the identity in terms of the group elements, courtesy of Lemma \ref{lemma_BasisResolutionPartition}:
+\begin{equation*}
+\sum_\chi \bra{\chi} \frac{1}{N} \sum_g \braket{\chi^{-1}}{g} \braket{g}{f}
+\end{equation*}
+Now we use the isomorphism $\SpaceG \isom \Ltwo{G}$ induced by the point structure, under which $f : \Ltwo{G}$ gets mapped to $\ket{f} := \sum_g \ket{g} f(g)$, to obtain:
+\begin{equation*}
+\sum_\chi \bra{\chi} \frac{1}{N} \sum_g \braket{\chi^{-1}}{g} f(g)
+\end{equation*}
+Furthermore, the multiplicative characters of $\mathbb{G}$ are, in $\fdHilbCategory$ and under the isomorphism $\SpaceG \isom \Ltwo{G}$ above, the linear extensions of the multiplicative characters of the $G$, and we can re-write the above as:
+\begin{equation*}
+ \sum_\chi \bra{\chi} \frac{1}{N} \sum_g \chi^{-1}(g) f(g)
+\end{equation*}
+Finally, we use the isomorphism $\SpaceG^\star \isom \Ltwo{G^\wedge}$ induced by the group structure,\footnote{Where we have used the fact that $\fdHilbCategory$ can be $\fdHilbCategory$-enriched, and thus that the homset $\fdHilbCategory(\SpaceG,\complexs)$ can be canonically endowed with the finite-dimensional Hilbert space structure of the space $\SpaceG^\star$ of linear functionals $\SpaceG \rightarrow \complexs$.} under which $\tilde{f}:\Ltwo{G^\wedge}$ gets mapped to $\bra{\tilde{f}} := \sum_\chi \bra{\chi} \tilde{f}(\chi)$, to finally obtain:
+\begin{equation*}
+\tilde{f}(\chi) = \frac{1}{N} \sum_g \chi^{-1}(g) f(g)
+\end{equation*}
+
+This is exactly the same as Equation \ref{eqn_DefTraditionalFT}, and a similar reasoning shows that in $\fdHilbCategory$ Equation \ref{eqn_InverseFTSummation} coincides with Equation \ref{eqn_DefTraditionalInverseFT}. Therefore Definition \ref{def_FourierTransform} matches the traditional definition in the case of abelian internal groups of $\fdHilbCategory$, but it remains to be seen under which circumstances and in which form its usual properties extend to the general setting of internal groups in $\dagger$-SMCs. Here we will focus on three particularly important results: the Fourier Inversion Theorem, the Convolution Theorem and Pontryagin Duality.
+
+\begin{theorem}[Categorical Fourier Inversion Theorem]\label{thm_CategoricalFourierInversion}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in any $\dagger$-SMC $\CategoryC$. Then the Fourier Transform and the Inverse Fourier Transform from Definition \ref{def_FourierTransform} are mutually inverse bijections between states and co-states of $\SpaceG$.
+\end{theorem}
+\begin{proof}
+The following shows that $\InverseFourierTransformSym{\mathbb{G}} \cdot \FourierTransformSym{\mathbb{G}} = \id{}$, by using the Definition \ref{def_Antipode} for the antipode and Lemma \ref{lemma_AntipodeInverse}:
+\begin{equation}\label{eqn_FTInversionThm}
+\input{tikz/3_FTInversionThm.tikz}
+\end{equation} 
+A similar proof holds for $\FourierTransformSym{\mathbb{G}} \cdot \InverseFourierTransformSym{\mathbb{G}} = \id{}$, by expanding the antipode in terms of its definition and using Frobenius law (once per colour, exactly like in the proof of Lemma  \ref{lemma_AntipodeInverse}).
+\end{proof}
+
+\begin{theorem}[\todo{FIXTHIS} Categorical Convolution Theorem] \label{thm_categoricalConvolutionTheorem}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in any $\dagger$-SMC $\CategoryC$. Then the Fourier Transform is a monoid homomorphism:
+\begin{equation}
+\FourierTransformSym{\mathbb{G}} : (\,\SpaceG,\XmultSym,\XunitSym) \longrightarrow  (\,\SpaceG,\tinymult[whitedot],\tinyunit[whitedot])
+\end{equation}
+\end{theorem}
+\begin{proof}
+Using associativity, followed by one application of Frobenius Law, we get the desired:
+\begin{equation}\label{eqn_ConvolutionThmProof}
+    %\hbox{\input{modules/pictures/ConvolutionThmProof.tex}}
+\end{equation} 
+\end{proof}
+
+In $\fdHilbCategory$, Theorem \ref{thm_categoricalConvolutionTheorem} can be seen to reduce to Equation \ref{eqn_ConvolutionTheorem}. The monoid $(\,\SpaceG,\XmultSym,\XunitSym)$ acts on states $\ket{f} = \sum_g \ket{g} f(g)$ as the following convolution operation:
+\begin{align}
+\XmultSym \cdot (\ket{f} \tensor \ket{f'}) &= \sum_g \sum_{g'} f(g)f'(g') \XmultSym \cdot (\ket{g} \tensor \ket{g'}) \\&= \sum_h \left(\sum_{g'} f(h-g')f'(g')\right) \ket{h}
+\end{align}
+
+\begin{theorem}[Categorical Pontryagin Duality]\label{thm_CategoricalPontryaginDuality}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. Then the Fourier Transform $\FourierTransformSym{\mathbb{G}}$ is a bijection between states of $\mathbb{G}$ and states of $\mathbb{G}^\wedge$, which is furthermore canonical in the sense that:
+\begin{equation}
+^{(\varphi^\wedge)}M \cdot \FourierTransformSym{\mathbb{H}} \cdot _{\varphi\!}M = \FourierTransformSym{\mathbb{G}}
+\end{equation}
+where $\varphi: \mathbb{G} \rightarrow \mathbb{H}$ is any unitary isomorphim of internal groups in $\CategoryC$, for  $\mathbb{H} = (\,\SpaceH,\dotonly{altblackdot},\dotonly{altwhitedot})$ any other internal group of $\CategoryC$. We have defined the following:
+\begin{enumerate}
+\item[(i)] $\varphi^\wedge := \varphi$ is an isomorphism of internal groups $\mathbb{H}^\wedge \rightarrow \mathbb{G}^\wedge$ in $\cat{C^{op}}$
+\item[(ii)] $_\varphi M$ as the map sending state $\ket{f} : \tensorUnit \rightarrow \SpaceG$ to state $\varphi \cdot \ket{f}: \tensorUnit \rightarrow \SpaceH$
+\item[(iii)] $^{(\varphi^\wedge)} M$ as the map sending co-state $\bra{f} : \SpaceH \rightarrow \tensorUnit$ (a state in $\cat{C^{op}}$) to co-state $\bra{f}\cdot \varphi : \SpaceG \rightarrow I$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The bijection is proven by Theorem \ref{thm_CategoricalFourierInversion}, so all we have to show is canonicity:
+\begin{equation}\label{eqn_PontDualityCanonProof}
+\input{tikz/3_PontDualityCanonProof.tikz}
+\end{equation} 
+The first equality follows from the fact that $\varphi$ is a morphism of internal groups. The second equality follows from the (easy to check) fact that, if $\varphi$ is a unitary isomorphism $\varphi: \mathbb{G} \rightarrow \mathbb{H}$, then $\varphi^\dagger$ is a unitary isomorphism $\varphi^\dagger: \mathbb{H} \rightarrow \mathbb{G}$, and hence we have:
+\begin{equation}
+\tinycounit[altblackdot] \cdot \varphi = \left(\varphi^\dagger \cdot\tinyunit[altblackdot] \right)^\dagger = \left(  \XunitSym\right)^\dagger = \XcounitSym
+\end{equation}
+\end{proof}
+In $\fdHilbCategory$ (with abelian internal groups), Equation \ref{eqn_PontDualityCanonProof} takes the form of Equation \ref{eqn_FTcanonicity}. To conclude, we provide a categorical definition of Hadamard transforms, which helps to frame the difference between the Hadamard Transforms and the Fourier Transforms.
+
+\begin{defn}
+\label{def_CategoricalHadamard}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. A \emph{Hadamard transform} is defined to be a co-monoid isomorphism $h:(\,\tinycomult[whitedot],\tinycounit[whitedot]) \rightarrow (\,\XcomultSym,\XcounitSym)$ which is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\tinycomult[blackdot],\tinycounit[blackdot])$
+%s.t. $h^\dagger$ is also a monoid isomorphism $h^\dagger:(\;\timemultSym,\timeunitSym) %\rightarrow (\;\timematchSym,\timematchunitSym)$. 
+\end{defn}
+Definition \ref{def_CategoricalHadamard} may look cryptic at first, but it is in fact quite natural as we clarify in the following remark.
+\begin{remark}\label{rmrk_CategoricalHadamard}
+A co-monoid isomorphims $h:(\;\ZcomultSym,\ZcounitSym) \rightarrow (\;\XcomultSym,\XcounitSym)$ is an isomorphism $h: \SpaceG \rightarrow \SpaceG$ which satisfies:
+\begin{align}
+    \XcomultSym \cdot h &= \left( h \tensor h \right) \cdot \tinycomult[whitedot] \\
+    \XcounitSym \cdot h &= \tinycounit[whitedot]
+\end{align}
+and in particular it maps $\ZdotSym$-copyable states to $\XdotSym$-copyable states (since it is an isomorphism, it is a bijection between the classical states of the two comonoids). The requirement that $h$ is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\XcomultSym,\XcounitSym)$ amounts to the requirement that:
+\begin{align}
+    h \cdot \XmultSym &= \ZmultSym \cdot \left( h \tensor h \right)\\
+    h \cdot \XunitSym &= \ZunitSym
+\end{align}
+and in particular, as a bijection of classical states, $h$ is a group isomorphism from the group given by $(\XmultSym,\XunitSym)$ acting on $\ZdotSym$-classical states to the group given by $(\ZmultSym,\ZunitSym)$ acting on $\XdotSym$-classical states.
+\end{remark}
+
+In $\fdHilbCategory$ (with abelian internal groups), Definition \ref{def_CategoricalHadamard} yields the usual Hadamard transform. Indeed $h$ corresponds to an isomorphism $\Psi: G \rightarrow G^\wedge$ (by considering its action on classical states): the linear isomorphism $h$ is itself the Discrete Fourier Transform of Equation \ref{eqn_FTDefDFT} (where $\SpaceG$ is identified with $\Ltwo{G}$ and $\Ltwo{G^\wedge}$ using $\ZdotSym$ and $\XdotSym$ respectively), and the matrix of $h$ in the basis defined by $\ZdotSym$ is the Hadamard matrix of Equation \ref{eqn_HadamardMatrixDef}.
 
 \subsection{Measurements and Representation Theory}
 There is a correspondence between morphisms and states given by the following.

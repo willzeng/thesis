@@ -828,6 +828,7 @@
 %        \end{pgfonlayer}
     }
 }
+
 \makeatother
 
 % Little pictures
@@ -951,6 +952,7 @@
 \DeclareMathOperator{\Ob}{Ob}
 \newcommand\ket[1]{\ensuremath{| #1 \rangle}}
 \newcommand\bra[1]{\ensuremath{\langle #1 |}}
+\newcommand{\braket}[2]{\langle #1 \vert #2 \rangle} % Inner product of bra %labelled #1 with ket labelled #2
 \newcommand\C{\ensuremath{\mathbb{C}}}
 \newcommand{\inprod}[2]{\ensuremath{\langle #1\hspace{0.5pt}|\hspace{0.5pt}#2 \rangle}}
 \newcommand{\defined}{\ensuremath{\mathop{\downarrow}}}
@@ -995,6 +997,36 @@
 \newcommand{\XdotSym}{\dotonly{blackdot}}
 \newcommand{\ZdotSym}{\dotonly{whitedot}}
 \newcommand{\fdHilbCategory}{\cat{FHilb}}
+\newcommand{\XmultSym}{\tinymult[blackdot]}
+\newcommand{\XunitSym}{\tinyunit[blackdot]}
+\newcommand{\XcomultSym}{\tinycomult[blackdot]}
+\newcommand{\XcounitSym}{\tinycounit[blackdot]}
+\newcommand{\ZmultSym}{\tinymult[whitedot]}
+\newcommand{\ZunitSym}{\tinyunit[whitedot]}
+\newcommand{\ZcomultSym}{\tinycomult[whitedot]}
+\newcommand{\ZcounitSym}{\tinycounit[whitedot]}
+\newcommand{\tempSymLabel}{}
+\newcommand{\effectSym}[1]{
+  \renewcommand{\tempSymLabel}{#1}
+  \hbox{\input{tikz/effectSym.tikz}}
+}
+\newcommand{\groupStateSym}[1]{
+  \renewcommand{\tempSymLabel}{#1}
+  \hbox{\input{tikz/groupStateSym.tikz}}
+}
+\newcommand{\multCharacterEffectSym}[1]{
+  \renewcommand{\tempSymLabel}{#1}
+  \hbox{\input{tikz/multCharacterEffectSym.tikz}}
+}   
+\newcommand{\linearFunctionalSym}[1]{
+  \renewcommand{\tempSymLabel}{#1}
+  \hbox{\input{tikz/linearFunctionalSym.tikz}}
+}
+\newcommand{\characterSym}[1]{
+  \renewcommand{\tempSymLabel}{#1}
+  \hbox{\input{tikz/characterSym.tikz}}
+}
+\newcommand{\tensor}{\otimes}
 %% General purpose space names 
                 \newcommand{\SpaceH}{\mathcal{H}} 
                 \newcommand{\SpaceA}{\mathcal{A}}

@@ -1,0 +1,61 @@
+\begin{tikzpicture}[node distance = 10mm]
+
+
+
+\node [state, hflip,inner sep = 1mm](idCenterL) {$\tilde{f}$};
+\node (idOut) [below of = idCenterL, yshift = 1mm] {};
+
+\node [whitedot] (Zcomult) [left of = idOut, xshift = +6mm, yshift = -4mm] {};
+\node [whitedot] (Zunit) [below of = Zcomult, yshift = +5mm] {};
+\node (ZOut) [left of = idOut, xshift = +2mm] {};
+\node (ZOutHigh) [above of = ZOut, yshift = +5mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idOut) to (idCenterL.90);
+\draw[-] [out=270,in=45](idOut.90) to (Zcomult);
+\draw[-] [out=270,in=135](ZOut.90) to (Zcomult);
+\draw[-] [out=90,in=270](Zunit) to (Zcomult);
+\draw[-] [out=90,in=270](ZOut) to (ZOutHigh);
+\end{pgfonlayer}
+
+
+
+\node (equals) [right of = idCenterL, xshift = 0mm, yshift = -3mm] {$=$};
+
+\node (projCenter) [right of = equals, xshift = 10mm,yshift = 5mm] {};
+
+\node (sum) [left of = projCenter, xshift = -1mm, yshift=-5mm] {$\mathlarger{\sum}\limits_g$};
+\node (projL) [left of = projCenter, xshift=5mm,yshift = +5mm] {};
+
+\node [state, hflip](projR) [right of = projCenter,xshift=-7mm,inner sep = 1mm] {$\tilde{f}$};
+
+\node [state, fill=black] (projOut) [below of = projL, yshift = -8mm] {$g$};
+\node [state, fill=black](projIn) [below of = projR, yshift = -3mm] {$g$};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](projOut) to (projL);
+\draw[-] [out=90,in=270](projIn) to (projR);
+\end{pgfonlayer}
+
+
+
+\node (eqdef) [left of = idCenterL, xshift = -4mm] {$=$};
+
+\node (fhatCenter) [left of = eqdef, xshift = 0mm] {};
+
+\node  (fhatOut) [above  of = fhatCenter, yshift = 0mm] {};
+\node [state] (fhatIn) [below  of = fhatCenter, yshift = +5mm,inner sep = 1mm] {$\tilde{\tilde{f}}$};
+
+\node (mapsto) [left of = fhatCenter,xshift = 2mm]{$\mapsto$};
+
+\node (fCenter) [left of = mapsto, xshift = +3mm] {};
+
+\node [state, hflip] (fOut) [above of = fCenter, yshift = -5mm,inner sep = 1mm] {$\tilde{f}$};
+\node  (fIn) [below of = fCenter, yshift = 0mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\draw[-] [out=90,in=270](fIn) to (fOut);
+\end{pgfonlayer}
+
+\end{tikzpicture}

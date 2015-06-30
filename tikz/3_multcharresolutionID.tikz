@@ -1,0 +1,30 @@
+\begin{tikzpicture}[node distance = 11mm]
+
+\node (spacer) {};
+
+\node (sum) {$\dfrac{1}{N}\mathlarger{\sum}\limits_x$};
+\node (projCenter) [right of = sum, xshift = -1mm, yshift=1mm] {};
+\node [morphism, wedge, scale=1] (projTop) [above of = projCenter, yshift=-6mm] {x};
+\node [morphism, wedge, hflip, scale=1] (projBot) [below of = projCenter,yshift=+6mm] {x};
+
+\node (projIn) [below of = projBot, yshift = 4mm] {};
+\node (projOut) [above of = projTop, yshift = -4mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](projIn) to (projBot.south);
+\draw[-] [out=90,in=270](projTop.north) to (projOut);
+\end{pgfonlayer}
+
+\node (equals) [right of = projCenter, xshift = 0mm] {$=$};
+
+\node (idCenter) [right of = equals, xshift = -3mm] {};
+
+\node (idIn) [below of = idCenter] {};
+\node (idOut) [above of = idCenter] {};;
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idIn) to (idOut);
+\end{pgfonlayer}
+
+
+\end{tikzpicture}

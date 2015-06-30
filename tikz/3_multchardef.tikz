@@ -1,0 +1,44 @@
+\begin{pic}[scale=0.6]
+
+\def\deltax{1} 
+\def\deltay{1} 
+
+\path[use as bounding box] (-\deltax-7,-1.5*\deltay) rectangle (12*\deltax,1.75*\deltay);
+
+\node (mult_label_inl_L) at (-\deltax,-1.5*\deltay) {};
+\node (mult_label_inr_L) at (+\deltax,-1.5*\deltay) {};
+\node [blackdot] (mult_L) at (0,-0.25*\deltay) {};
+
+\node [morphism, wedge, hflip, scale=0.8] (effect_L) at (0,+1*\deltay) {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=225](mult_label_inl_L) to (mult_L);
+\draw[-] [out=90,in=315](mult_label_inr_L) to (mult_L);
+\draw[-] (mult_L) to (effect_L.south);
+\end{pgfonlayer}
+
+\node at (2*\deltax,0) {$=$};
+
+\node (mult_label_inl_R) at (3.5*\deltax,-1.5*\deltay) {};
+\node (mult_label_inr_R) at (5*\deltax,-1.5*\deltay) {};
+\node [morphism, wedge, hflip, scale=0.8] (effectl_R) at (3.5*\deltax,+1*\deltay) {};
+\node [morphism, wedge, hflip, scale=0.8] (effectr_R) at (5*\deltax,+1*\deltay) {};
+
+
+\begin{pgfonlayer}{background}
+\draw[-] (mult_label_inl_R) to (effectl_R.south);
+\draw[-] (mult_label_inr_R) to (effectr_R.south);
+\end{pgfonlayer}
+
+
+\node [blackdot] (unit_L) at (8.5*\deltax,-0.25*\deltay) {};
+\node [morphism, wedge, hflip, scale=0.8] (effect_L2) at (8.5*\deltax,\deltay) {};
+\begin{pgfonlayer}{background}
+\draw[-] (unit_L) to (effect_L2.south);
+\end{pgfonlayer}
+
+\node at (10*\deltax,0) {$=$};
+
+%\draw (current bounding box.south west) rectangle (current bounding box.north east);
+
+\end{pic}

@@ -1,0 +1,39 @@
+\begin{pic}[node distance = 11mm]
+
+\node (aligner) {};
+
+\node (center) {};
+
+\node (algebraTop) [whitedot]   
+  [above of = center, yshift = -4mm]{};
+\node (normalisation) [left of = algebraTop] {$\frac{1}{N}$};
+\node (Hout) [state, hflip, scale=0.8,  above of = algebraTop, xshift = -6mm,yshift = 0mm] {$\chi$};
+\node (antipode) [draw, diamond, scale=0.7,above of = algebraTop, xshift = -7mm,yshift = -3mm] {};
+\node (Tout) [state, hflip, scale=0.8, fill = \Zcolour,above of = algebraTop, xshift = +6mm,yshift = 0mm] {$\chi'$};
+
+\node (algebraBot) [whitedot]  
+  [below of = center, yshift = +8mm]{};
+
+\begin{pgfonlayer}{background}
+\draw[-,out=90,in=270] (algebraBot) to (algebraTop);
+\draw[-,out=135,in=270] (algebraTop) to (antipode);
+\draw (antipode) to (Hout);
+\draw[-,out=45,in=270] (algebraTop) to (Tout.south);
+\end{pgfonlayer}
+
+\node (equals) [right of = center, xshift = +3mm,yshift = 5mm]{$=$};
+
+\node (center) [right of = equals, xshift = 0mm,yshift = 0mm] {$\delta_{\chi\chi'}$};
+
+
+%\node (scalarBot) [dot, fill = \Zcolour]  
+% [right of = center, xshift = -6mm,yshift = -5mm]{};
+%\node (scalarTop) [dot, fill = \Zcolour]  
+% [right of = center, xshift = -6mm,yshift = +5mm]{};
+  
+%\begin{pgfonlayer}{background}
+%\draw[-,out=90,in=270] (scalarBot) to (scalarTop);
+%\end{pgfonlayer}
+
+
+\end{pic}

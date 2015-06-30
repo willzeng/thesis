@@ -1,0 +1,45 @@
+\begin{pic}[node distance = 10mm, xscale=1]
+
+
+\node (idCenterL)  {};
+\node (idOut) [below of = idCenterL, yshift = 1mm] {};
+
+\node [blackdot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [blackdot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+
+
+\node [diamond, draw, scale=1](idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};
+
+\node [state](idIn) [below of = idCenterR,yshift = 4mm,inner sep = 1mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idOut) to (idCenterL.90);
+\draw[-] [out=90,in=270](idIn) to (idCenterR.south);
+\draw[-] [out=90,in=225](idCenterL) to (Xmult);
+\draw[-] [out=90,in=315](idCenterR) to (Xmult);
+\draw[-] [out=90,in=270](Xmult) to (Xcounit);
+\end{pgfonlayer}
+
+
+
+
+\node (eqdef) [left of = idCenterL, xshift = +3mm, yshift = +2mm] {$=$};
+
+\node (fhatCenter) [left of = eqdef, xshift = 0mm] {};
+
+\node [state, hflip, scale=0.8] (fhatOut) [above  of = fhatCenter, yshift = -5mm,inner sep = 1mm] {$\hat{f}$};
+\node (fhatIn) [below  of = fhatCenter, yshift = 0mm] {};
+
+\node (mapsto) [left of = fhatCenter,xshift = 2mm]{$\mapsto$};
+
+\node (fCenter) [left of = mapsto, xshift = +3mm] {};
+
+\node (fOut) [above of = fCenter, yshift = -2mm] {};
+\node [state, scale=0.8] (fIn) [below of = fCenter, yshift = 3mm,inner sep = 1mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\draw[-] [out=90,in=270](fIn) to (fOut);
+\end{pgfonlayer}
+
+\end{pic}

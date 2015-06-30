@@ -1,0 +1,13 @@
+\begin{tikzpicture} [scale=1.2,transform shape] %% DO NOT CHANGE
+
+\def\deltax{0.4} %% CAN BE CHANGED
+\def\deltay{0.7} %% DO NOT CHANGE
+
+\path[use as bounding box] (-\deltax,-0.2) rectangle (\deltax,\deltay);
+
+\node [morphism, wedge, hflip, scale=0.8] (mult) at (0,0) {$x$};
+\node (mult_label_in) at (0,-1*\deltay) {};
+\draw[-] (mult_label_in) to (mult.south);
+
+%\draw (current bounding box.south west) rectangle (current bounding box.north east);
+\end{tikzpicture}

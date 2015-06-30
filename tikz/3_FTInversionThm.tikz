@@ -1,0 +1,73 @@
+\begin{pic}[node distance = 10mm]
+
+\node (eqdef) {$=$};
+
+\node (idCenterL) [right of = eqdef, xshift = +5mm, yshift=-2mm] {};
+\node (idOut) [below of = idCenterL, yshift = 7mm] {};
+
+\node [whitedot] (Zcomult) [left of = idOut, xshift = +6mm, yshift = -4mm] {};
+\node [whitedot] (Zunit) [below of = Zcomult, yshift = +5mm] {};
+\node (ZOut) [left of = idOut, xshift = +2mm] {};
+\node (ZOutHigh) [above of = ZOut, yshift = +5mm] {};
+
+\node [blackdot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [blackdot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+
+\node [draw, diamond](idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};
+
+\node [state](idIn) [below of = idCenterR,yshift = 4mm,inner sep = 1mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idOut) to (idCenterL.90);
+\draw[-] [out=90,in=270](idIn) to (idCenterR.south);
+\draw[-] [out=90,in=225](idCenterL) to (Xmult);
+\draw[-] [out=90,in=315](idCenterR) to (Xmult);
+\draw[-] [out=90,in=270](Xmult) to (Xcounit);
+\draw[-] [out=270,in=45](idOut.90) to (Zcomult);
+\draw[-] [out=270,in=135](ZOut.90) to (Zcomult);
+\draw[-] [out=90,in=270](Zunit) to (Zcomult);
+\draw[-] [out=90,in=270](ZOut) to (ZOutHigh);
+\end{pgfonlayer}
+
+
+\node (fhatCenter) [left of = eqdef, xshift = 0mm] {};
+
+\node  (fhatOut) [above  of = fhatCenter, yshift = 0mm] {};
+\node [state] (fhatIn) [below  of = fhatCenter, yshift = +2mm,inner sep = 1mm] {$\tilde{\tilde{f}}$};
+
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\end{pgfonlayer}
+
+
+
+\node (eqdef) [right of = eqdef, xshift = +22mm] {$=$};
+
+\node (fhatCenter) [right of = eqdef, xshift = 0mm] {};
+\node [draw, diamond](antipodeup) [right of = eqdef, yshift = 2mm] {};
+\node (antipodeInverseSym) [above right of = antipodeup, xshift = -4mm, yshift = -4.5mm] {\small{-1}};
+\node [draw diamond](antupodedown) [right of = eqdef, yshift = -2mm] {};
+
+\node  (fhatOut) [above  of = fhatCenter, yshift = 0mm] {};
+\node [state] (fhatIn) [below  of = fhatCenter, yshift = +2mm,inner sep = 1mm] {$f$};
+
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (antipodeup);
+\draw[-] (antipodeup) to (fhatOut);
+\end{pgfonlayer}
+
+\node (eqdef) [right of = eqdef, xshift = +7mm] {$=$};
+
+\node (fhatCenter) [right of = eqdef, xshift = -4mm] {};
+\node  (fhatOut) [above  of = fhatCenter, yshift = 0mm] {};
+\node [state] (fhatIn) [below  of = fhatCenter, yshift = +2mm,inner sep = 1mm] {$f$};
+
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\end{pgfonlayer}
+
+
+\end{pic}
