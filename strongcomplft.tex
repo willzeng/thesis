@@ -1,50 +1,22 @@
-\section{\color{blue} The Fourier Transform}
+\section{\color{blue} The Fourier Transform in oGCT's}
 \label{sec:strcomplFT}
 
-\subsection{Strong Complementarity}
-Strong complementarity was originally introduced in~\cite{coecke2011interacting} as the additional rule that makes classical structures into a Hopf algebra.
+This section elucidates the connection between the Fourier transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We summarize the section's outline and main results in the following paragraphs.
 
-\begin{defn}\label{def_StrongComplementarity}
-A pair of classical structures \whitecomonoid{A} and \blackcomonoid{A} is \emph{strongly complementary} if they are coherent (Definition \ref{def:coherence})  and  satisfy the following \emph{bialgebra equation} (\ref{eqn:bialgebraEqns}):
-\begin{equation}
-\label{eqn:bialgebraEqns}
-\input{tikz/2_bialgebra.tikz}
-\end{equation}
-\end{defn}
+In Section \ref{sec:FT} we cover the traditional notion of the Fourier Transform that is relevant for our construction.  
 
-It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}. \todo{Clean this up:}
-\begin{equation}
-\input{tikz/3_SCIsC.tikz}
-\end{equation}
+In Section \ref{sec:strcompl} we cover the definition of strong complementarity~\cite{coecke2011interacting}, which has been used in the foundations of quantum mechanics to study non-locality~\cite{coecke2012strong, gogioso2015mermin} (\todo{SECTION}), quantum secret sharing~\cite{gogioso2015mermin, zamdzhiev2012abstract} (\todo{SECTION}), and blackbox quantum algorithms~\cite{vicary-tqa, zeng2014abstract, zeng2015models} (\todo{SECTION}). This allows a generalization beyond $\cat{FHilb}$ to strongly complementarity of pairs of a quasi-Special $\dagger$-Frobenius Algebra ($\dagger$-qSFA or $\dagger$-qSCFA if commutative) and a $\dagger$-SCFA. We use this generalization to embed finite groups in arbitrary dagger symmetric monoidal categories.
 
-Strongly complementary classical structures have a specific relationship between their phase groups and classical states.
+In Section \ref{section_AbelianGroups_FourierTransform} traditional concepts from Section \ref{sec:FT} are lifted to general symmetric monoidal categories. We give the accompanying general definitions for multiplicative characters and the abelian Fourier transform in this setting.  These results allow us to provide categorical versions, with abstract proofs, of the Fourier inversion theorem, the convolution theorem, and Pontryagin duality that are all based on a strongly complementary pair of observables.
 
-\begin{theorem}[\cite{coecke2011interacting}]
-Let \whitecomonoid{A} and \blackcomonoid{A} be a pair of strong complementary classical structures with finite numbers of classical states. Then $K_{\dotonly{blackdot}}\subseteq P_{\dotonly{whitedot}}$, i.e. the classical states of the black classical structure form a subgroup of the phase group of the white classical structure. The converse is true when \whitecomonoid{A} has enough classical points.
-\end{theorem}
+In Section \ref{section_RelFT}, we study $\RelCategory$ as an example setting for our categorical Fourier transform. This example is of particular interest as it often acts as a toy model for quantum theory~\cite{pavlovic2009quantum, evans2009classifying, cqm-notes, zeng2015models}.  We find that while the Hadamard transform is not suitably defined, a Fourier transform can be.
 
-This leads to a useful classification of strongly complementary observables in $\cat{FHilb}$:
-\begin{corollary}[{\cite[Cor. 3.10]{coecke2012strong}}]
-\label{col:SCclassification}
-Every pair of strongly complementary observables in \fhilb is
-of the following form: 
-\begin{equation}
-\left\{\begin{array}{cl}
-\tinycomult[blackdot]   & :: \ket{g}\mapsto \ket{g}\otimes \ket{g}\vspace{1mm}\\
-\tinycounit[blackdot] & :: \ket{g}\mapsto 1
-\end{array}\right.
-\quad
-\left\{\begin{array}{cl}
-\tinymult[whitedot]   & :: \ket{g}\otimes \ket{h} \mapsto {1\over\sqrt{D}} \ket{g + h}\vspace{1mm} \\
-\tinyunit[whitedot] & :: 1 \mapsto \sqrt{D} \ket{0}
-\end{array}\right.
-\end{equation}
-where $(G =\{g, h, \ldots\}, +, 0)$ is a finite Abelian
-group. Conversely, each such pair is always strongly complementary.  
-\end{corollary}
+In Section \ref{section_FourierTransform} these results are extended to the non-abelian case. The Gelfand-Naimark construction is presented as the natural generalisation of the Fourier transform using its Pontryagin duality formulation.
+
+These results both move Fourier theory into a new mathematical setting and capture the structural connection between quantum theory and the Fourier transform.  Though this connection has been much exploited in quantum algorithms, this work is the first abstract presentation that shows its place in the structure of quantum theory, i.e. alongside strongly complementary observables.
 
 \subsection{The Fourier Transform}
-
+\label{sec:FT}
 In the next sections, we elucidate a general connection between strongly complementary observables and the Fourier Transform. We begin with a quick review of Pontryagin duality and the Fourier Transform as it relates to quantum computation. A number of different notions related to the Fourier Transform on finite abelian groups can be found in mathematics, physics, computer science and quantum computation, so it is useful to clarify them:
 
 \begin{enumerate}
@@ -95,7 +67,7 @@ The Fourier Transform is natural.  This means it is invariant under automorphism
 \begin{equation}\label{eqn_FTcanonicity}
   M_{\Psi^\wedge} \cdot \mathcal{F}_H \cdot M_\Psi =  \mathcal{F}_G,
 \end{equation}
-For a proof of this, \todo{see Section \ref{section_Proofs} of the Appendix}. \\
+For a proof of this, \todo{see Section \ref{section_Proofs} of the Appendix}.
 
 There are a number of properties of interest for the Fourier Transform, some rather straightforward and others more complicated to prove. One of specific interest to this work, because of its wide application and relationship with structures in Categorical Quantum Mechanics, is the Convolution Theorem. The space $\Ltwo{G}$ comes with a distinguished orthonormal basis, given by the \textbf{delta functions} $(\delta_g)_{g\in G}$ defined as follows.
 \begin{align}\label{eqn_computationalBasis}
@@ -188,10 +160,147 @@ There are a number of existing generalizations in the literature of the Fourier 
 
 \item[2.] The representation theory can be extended from abelian to arbitrary locally compact groups by observing that $\Ltwo{G}$ is always a $C^\star$ algebra, and considering the Gelfand-Naimark representation. In the abelian case, this representation coincides with the Fourier transform. We elaborate more on this finite-dimensional case in \todo{Section \ref{section_FourierTransform}}. 
 
-\item[3.] Tannaka-Krein duality provides a different generalisation from compact abelian groups to arbitrary compact groups: the finite-dimensional linear representations of a compact group $G$ form a symmetric monoidal category $\Pi(G)$, generalising $G^\wedge$, with representations $R:G \rightarrow \Endoms{}{V_R}$ as objects, intertwiners (linear maps $f: V_R \rightarrow V_S$ s.t. $f \cdot R(g) = S(g) \cdot f$ for all $g\in G$) as morphisms and tensor product of representations as monoidal tensor. The category $\Pi(G)$ comes with a complex conjugation operation on morphisms, and a theorem of Tannaka shows that the set $\Gamma(\Pi(G))$ of all self-conjugate monoidal natural transformations $\id{\Pi(G)} \rightarrow \id{\Pi(G)}$ forms (once equipped with composition of natural transformations and an appropriate topology) a compact group isomorphic to $G$. A generalisation of Tannaka-Krein duality to braided monoidal categories appears in the representation theory of Drinfeld-Jimbo quantum groups. In this work, we do not deal with either Tannaka-Krein theory or Drinfeld-Jimbo quantum groups.
+\item[3.] Tannaka-Krein duality provides a different generalisation from compact abelian groups to arbitrary compact groups: the finite-dimensional linear representations of a compact group $G$ form a symmetric monoidal category $\Pi(G)$, generalising $G^\wedge$, with representations $R:G \rightarrow \Endoms{}{V_R}$ as objects, intertwiners (linear maps $f: V_R \rightarrow V_S$ s.t. $f \cdot R(g) = S(g) \cdot f$ for all $g\in G$) as morphisms and tensor product of representations as monoidal tensor. The category $\Pi(G)$ comes with a complex conjugation operation on morphisms, and a theorem of Tannaka shows that the set $\Gamma(\Pi(G))$ of all self-conjugate monoidal natural transformations $\idm{\Pi(G)} \rightarrow \idm{\Pi(G)}$ forms (once equipped with composition of natural transformations and an appropriate topology) a compact group isomorphic to $G$. A generalisation of Tannaka-Krein duality to braided monoidal categories appears in the representation theory of Drinfeld-Jimbo quantum groups. In this work, we do not deal with either Tannaka-Krein theory or Drinfeld-Jimbo quantum groups.
 \end{enumerate}
 
+\subsection{Strong Complementarity}
+\label{sec:strcompl}
 
+In Definition \ref{def:classicalstruct}, we introduced classical structures as special and symmetric (a.k.a. commutative) Frobenius algebras.  In the setting of this section on the Fourier transform we operate with the slightly weaker notion of a quasi-special commutative Frobenius algebras.
+
+\begin{defn}\label{def_QuasiSpecial}
+A \emph{quasi-special} $\dagger$-Frobenius algebra 
+$(\timemultSym,\timeunitSym,\timecomultSym,\timecounitSym)$ is one that satisfies the following equation for some invertible scalar $N$:
+\begin{equation}\label{eqn_QuasiSpecialDef}
+\begin{aligned}
+\begin{tikzpicture}[xscale={1.5*\tikzxscale}, yscale={1.5*\tikzyscale}]
+\draw (0,0.25) to (0,1) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.5) to [out=up, in=\swangle] (0,2) node [whitedot] {} to (0,2.75);
+\draw (0,1) to [out=\neangle, in=down] (0.5,1.5) to [out=up, in=\seangle] (0,2);
+\end{tikzpicture}
+\end{aligned}
+\quad=\quad
+  \begin{aligned}
+  \begin{tikzpicture}[xscale={1.5*\tikzxscale}, yscale={1.5*\tikzyscale}]
+  \node [whitedot] at (-1.5,1.5) {$N$};
+  \draw (-0.5,0) to (-0.5,3);
+  \end{tikzpicture}
+  \end{aligned}
+\end{equation}
+We will use the shorthand $\dagger$-qSFA, and refer to $N$ as the \textbf{normalisation factor} for the $\dagger$-qSFA.
+\end{defn}
+
+These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized. The invertibility assumption is applies in any category enriched in finite commutative monoids, i.e. whose homsets are finite commutative monoids.  We call such categories $\cat{fCommMon}$-enriched and call them distributively $\cat{fCommMon}$-enriched when scalars distribute over the monoidal product. We work in $\dagger$-SMCs, where in particular the scalars form semiring and one can talk about the 0 scalar sensibly.
+
+\begin{defn}
+Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in a $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched. The \emph{matchable states} $\ket{x}_{x \in X}$ for a monoid $(\SpaceG,\timemultSym, \timeunitSym)$ are those for which the following holds for all $x,y \in X$:
+\begin{equation}\label{eqn:matchables}
+    \timemultSym \cdot \left( \ket{x} \tensor \ket{y} \right) = 
+    \begin{cases} 
+        \ket{x} \text{ if } \ket{x} = \ket{y}\\
+        0 \text{ otherwise }
+    \end{cases}
+\end{equation}
+\end{defn}
+
+We re-epmhasize that while $\dagger$-qSCFA correspond to bases in $\cat{FHilb}$, the general notion of a (orthogonal) basis is somewhat different.
+
+\begin{defn}\label{def_basis}
+A finite family of states $\ket{x}_{x\in X}: I \rightarrow \SpaceH$ is a \emph{(orthogonal) basis} (for~$\SpaceH$) if it satisfies the following conditions:
+\begin{enumerate}
+\item[(i)] Orthogonality, i.e. $\langle y|x\rangle = 0$ if $x \neq y$ (where $\bra{y}$ stands for $\ket{y}^\dagger$).
+\item[(ii)] Completeness, i.e. for every $f,g : \SpaceH \rightarrow \SpaceH'$ we have that $\forall x:X \, f \ket{x} = g \ket{x}$ implies $f=g$. 
+\end{enumerate}
+A finite family of co-states $\bra{x}_{x\in X}: \SpaceH \rightarrow \tensorUnit$ is a \emph{(orthogonal) cobasis} (for $\SpaceH$) if the family of states $\ket{x}_{x\in X}: I \rightarrow \SpaceH$ is a basis.
+\end{defn}
+\noindent When the classical states for a classical structure form a basis in this manner, the algebra has ``enough classical points" (Definition \ref{def:enoughclassicalpoints}).
+ 
+Strong complementarity was originally introduced in~\cite{coecke2011interacting} as the additional rule that makes classical structures into a Hopf algebra.
+
+\begin{defn}\label{def_StrongComplementarity}
+A pair of $\dagger$-qSFAs \whitecomonoid{A} and \blackcomonoid{A}, henceforth written as \scpair, is \emph{strongly complementary} if they are coherent (Definition \ref{def:coherence})  and  satisfy the following \emph{bialgebra equation} (\ref{eqn:bialgebraEqns}):
+\begin{equation}
+\label{eqn:bialgebraEqns}
+\input{tikz/2_bialgebra.tikz}
+\end{equation}
+\end{defn}
+\noindent Though this definition is usually given for classical structures, we generalise to $\dagger$-qSFAs to include non-commutative algebras and, hence, the construction of a generalized non-abelian Fourier Transform.
+
+It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}. \todo{Clean this up:}
+\begin{equation}
+\input{tikz/3_SCIsC.tikz}
+\end{equation}
+
+As we have slightly generalized the definition of strong complementarity, we also wish to present a slightly more general concept of an antipode that is not self-inverse.
+
+\begin{defn}\label{def_Antipode} 
+Given a strongly complementary pair of $\dagger$-FAs $\scpair$ on some object $\SpaceG$ in a $\dagger$-SMC, the \emph{antipode} $\antipodeSym:\SpaceG \rightarrow \SpaceG$ is defined to be the following map:
+\begin{equation}
+    \input{tikz/3_antipode.tikz}
+\end{equation}
+\end{defn}
+
+\begin{lemma}\label{lemma_AntipodeInverse}
+Given a strongly complementary pair of $\dagger$-FAs \scpair~on some object $\SpaceG$ in a $\dagger$-SMC, the \emph{antipode inverse} $\antipodeSym^{-1}:\SpaceG \rightarrow \SpaceG$ is the following map:
+\begin{equation}
+    \input{tikz/3_antipodeInverse.tikz}
+\end{equation}
+Furthermore, if at least one of the two $\dagger$-FAs has matchable states forming a basis, then the antipode is self-adjoint and unitary, i.e. antipode and antipode inverse coincide.
+\end{lemma}
+\begin{proof}
+    The fact that $\antipodeSym^{-1}$ as defined is indeed the inverse of $\antipodeSym$ is an immediate consequence of Frobenius law (one application per colour). Now suppose without loss of generality that the matchable points $\ket{g}_{g \in G}$ of $\ZdotSym$ form a basis, and remember that $\XdotSym$ acts as some (possibly non-abelian) group $(G,\cdot,1)$ on them~\cite{CQM-ZXCalculusSeminal}. Then $\bra{h}\, \antipodeSym \ket{g} = \braket{h \cdot g}{1}$ and $\bra{h} \; \antipodeSym^{-1} \ket{g} = \braket{1}{h \cdot g}$ and $\bra{h}\; \antipodeSym^\dagger \ket{g} = \braket{1}{g \cdot h}$ and $\bra{h}\; (\antipodeSym^{-1})^\dagger \ket{g} = \braket{g \cdot h}{1}$ coincide for all $g,h \in G$, proving that $\antipodeSym = \antipodeSym^{-1} = \antipodeSym^{\dagger} = \ket{g} \mapsto \ket{g^{-1}}$ for all $g\in G$.
+\end{proof}
+
+Strongly complementary classical structures have a specific relationship between their phase groups and classical states.
+
+\begin{theorem}[\cite{coecke2011interacting}]
+Let \whitecomonoid{A} and \blackcomonoid{A} be a pair of strong complementary classical structures with finite numbers of classical states. Then $K_{\dotonly{blackdot}}\subseteq P_{\dotonly{whitedot}}$, i.e. the classical states of the black classical structure form a subgroup of the phase group of the white classical structure. The converse is true when \whitecomonoid{A} has enough classical points.
+\end{theorem}
+
+This leads to a useful classification of strongly complementary observables in $\cat{FHilb}$:
+\begin{corollary}[{\cite[Cor. 3.10]{coecke2012strong}}]
+\label{col:SCclassification}
+Every pair of strongly complementary observables in \fhilb is
+of the following form: 
+\begin{equation}
+\left\{\begin{array}{cl}
+\tinycomult[blackdot]   & :: \ket{g}\mapsto \ket{g}\otimes \ket{g}\vspace{1mm}\\
+\tinycounit[blackdot] & :: \ket{g}\mapsto 1
+\end{array}\right.
+\quad
+\left\{\begin{array}{cl}
+\tinymult[whitedot]   & :: \ket{g}\otimes \ket{h} \mapsto {1\over\sqrt{D}} \ket{g + h}\vspace{1mm} \\
+\tinyunit[whitedot] & :: 1 \mapsto \sqrt{D} \ket{0}
+\end{array}\right.
+\end{equation}
+where $(G =\{g, h, \ldots\}, +, 0)$ is a finite Abelian
+group. Conversely, each such pair is always strongly complementary.  
+\end{corollary}
+
+Inspired by this classification, we use strongly copmlemnetary structures to embed groups into an arbitrary oGCT.
+
+\begin{defn}\label{def_AbClassicalGroup} An \emph{internal group}, denoted by $(\,\SpaceG , \timemultSym, \timeunitSym, \tinycomult[blackdot], \tinycounit[blackdot]$ ) or  $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$ when no confusion should arise), consists of a strongly complementary pair on the same object $\SpaceG$ of a $\dagger$-SMC and
+\begin{enumerate}
+\item A $\dagger$-qSFA $(\;\timemultSym, \timeunitSym, \timecomultSym, \timecounitSym)$, the \emph{group structure}, denoted by $\dotonly{whitedot}$.
+\item A $\dagger$-qSCFA $(\;\tinymult[blackdot], \tinyunit[blackdot], \tinycomult[blackdot], \tinycounit[blackdot])$, the \emph{point structure}, denoted by $\dotonly{blackdot}$.
+\end{enumerate}
+The multiplication and unit for the group structure are called \emph{group multiplication} and \emph{group unit}, and the antipode $\antipodeSym$ for the pair is called the \emph{group inverse}. An \emph{abelian internal group} is one where the group structure is commutative.
+\end{defn}
+
+The internal groups in a oGCT form a category $\cat{Grp}[\cat{C}]$, with objects the strongly complementary pairs $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$, and where morphisms $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot}) \rightarrow (\,\SpaceG' , \dotonly{altwhitedot}, \dotonly{altblackdot})$ are defined to be the morphisms $f: \SpaceG \rightarrow \SpaceG'$ in $\CategoryC$ which are furthermore co-monoid homomorphisms $f: (\tinycomult[blackdot],\tinycounit[blackdot]) \rightarrow (\tinycomult[altblackdot],\tinycounit[altblackdot])$ and monoid homomorphisms $f: (\tinymult[whitedot],\tinyunit[whitedot]) \rightarrow ( \tinymult[altwhitedot],\tinyunit[altwhitedot])$; the abelian internal groups form a full subcategory $\IntAbCategory{\CategoryC}$. We will refer to these morphisms as \emph{internal group homomorphisms}, both when seen as morphisms in $\cat{Grp}[\cat{C}]$ and in $\cat{C}$.
+
+\begin{theorem}\label{thm_InteralGroupsTraditionalGroups} 
+        If $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$  is an (abelian) internal group in any $\dagger$-SMC, then $(\;\timemultSym, \timeunitSym)$ acts as an (abelian) group $G$ on the classical points of $(\;\timediagSym, \trivialcharSym)$, henceforth the \emph{group elements}. Furthermore, this correspondence yields an equivalence between the the category of (abelian) internal groups in $\cat{Fhilb}$ and the category of finite (abelian) groups.
+\end{theorem}
+
+In $\cat{Fhilb}$, the point structure $(\dotonly{whitedot})$ characterises the group elements $\ket{g}_{g\in G}$ as an orthonormal basis for $\SpaceG$.  This is the basis of delta functions from Equation \ref{eqn_computationalBasis}, with $\ket{g} := \delta_g$. The corresponding isomorphism $\Ltwo{G} \isom \SpaceG$ sends any square-integrable $f: G \rightarrow \complexs$ to the vector $\ket{f} \in \SpaceG$ defined by $\ket{f} = \sum_{g\in G} f(g) \ket{g}$. Also under this isomorphism, the multiplicative fragment $(\, \SpaceG,\timemultSym,\timeunitSym)$ of the group structure acts on the convolution operation from Equation \ref{eqn_convolutionOperation}. Simply put, an internal group  $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ consists of:
+\begin{enumerate}
+\item[(i)] a space $\SpaceG$
+\item[(ii)] a distinguished orthogonal basis, encoded by the $\dagger$-qSCFA $\ZdotSym$
+\item[(iii)] a group structure on that basis, encoded by the $\dagger$-qSFA $\XdotSym$
+\end{enumerate}
+\todo{FIX reference: This idea, and Theorem~\ref{thm_InteralGroupsTraditionalGroups}, is an straightforward extension of results in~\cite{coecke2011interacting} where the matchable points are called a ``phase group."}
+
+From the point of view of the category $\cat{Grp}[\cat{C}]$, $\mathbb{G}$ should be understood as the group $G$ encoded by $\XdotSym$, while from the point of view of the category $\fdHilbCategory$ it should be considered as endowing $\SpaceG$ with the structure of $\Ltwo{G}$.\footnote{In this correspondence, the orthogonal basis in $\SpaceG$ corresponds to the basis of delta functions in $\Ltwo{G}$, as given in Equation \ref{eqn_computationalBasis}. The groups structure given by $\XdotSym$ corresponds to the convolution operation from Equation \ref{eqn_convolutionOperation}.} As we abstract away from Hilbert spaces, we will take this conceptual standpoint. Sometimes, when talking about an internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$, we will refer to states $\ket{f} : \tensorUnit \rightarrow \SpaceG$ as \textbf{states of $\mathbb{G}$}, generalising square-integrable functions $f\in \Ltwo{G}$.
 
 \subsection{Measurements and Representation Theory}
 There is a correspondence between morphisms and states given by the following.
@@ -217,4 +326,3 @@ Given a morphism $f:A\to B$ in a monoidal category and a Frobenius algebra $\bla
 \end{equation}
 \end{defn}
 
-\subsection{The Fourier Transform}

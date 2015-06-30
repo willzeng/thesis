@@ -1,0 +1,47 @@
+\begin{pic}[node distance = 10mm]
+
+\node (eqdef) {$=$};
+
+\node (idCenterL) [right of = eqdef, xshift = +5mm, yshift=-2mm] {};
+\node (idOut) [below of = idCenterL, yshift = 7mm] {};
+
+\node [blackdot] (Zcomult) [left of = idOut, xshift = +6mm, yshift = -4mm] {};
+\node [blackdot] (Zunit) [below of = Zcomult, yshift = +5mm] {};
+\node (ZOut) [left of = idOut, xshift = +2mm] {};
+\node (ZOutHigh) [above of = ZOut, yshift = +5mm] {};
+
+\node [whitedot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [whitedot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+
+\node (idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};
+
+\node (idIn) [below of = idCenterR,yshift = 4mm] {};
+
+\node [draw, diamond, scale=0.5] (fhatCenter) [left of = eqdef, xshift = 0mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idOut) to (idCenterL.90);
+\draw[-] [out=90,in=270](idIn) to (idCenterR.90);
+\draw[-] [out=90,in=225](idCenterL) to (Xmult);
+\draw[-] [out=90,in=315](idCenterR) to (Xmult);
+\draw[-] [out=90,in=270](Xmult) to (Xcounit);
+\draw[-] [out=270,in=45](idOut.90) to (Zcomult);
+\draw[-] [out=270,in=135](ZOut.90) to (Zcomult);
+\draw[-] [out=90,in=270](Zunit) to (Zcomult);
+\draw[-] [out=90,in=270](ZOut) to (ZOutHigh);
+\end{pgfonlayer}
+
+
+
+
+\node  (fhatOut) [above  of = fhatCenter, yshift = 0mm] {};
+\node (fhatIn) [below  of = fhatCenter, yshift = +2mm] {};
+
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\end{pgfonlayer}
+
+
+
+\end{pic}

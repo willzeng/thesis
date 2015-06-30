@@ -19,7 +19,7 @@
 \usepackage{datetime}
 \usepackage{tabulary}
 \usepackage{array}
-\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
 %\usepackage{booktabs}
 
 %\usetikzlibrary{arrows,shapes,backgrounds,positioning}
@@ -166,6 +166,8 @@
 \tikzstyle{blackdot}=[circle, draw=black, fill=black!100, inner sep=.4ex, line width=\thickness, node on layer=foreground]
 \tikzstyle{graydot}=[circle, draw=black, fill=gray!40!white, inner sep=.4ex, line width=\thickness, node on layer=foreground]
 \tikzstyle{whitedot}=[circle, draw=black, fill=white, inner sep=0.4ex, line width=\thickness, node on layer=foreground]
+\tikzstyle{altwhitedot}=[circle, draw=black, fill=-red, inner sep=0.4ex, line width=\thickness, node on layer=foreground]
+\tikzstyle{altblackdot}=[circle, draw=black, fill=red!72.5375!blue, inner sep=0.4ex, line width=\thickness, node on layer=foreground]
 \tikzstyle{mixedmorphism}=[morphism, minimum width=30pt, minimum height=16pt, draw, font=\small, inner sep=0pt, fill=white, line width=\thickness,rounded corners=1ex]
 \tikzstyle{thick}=[line width=\thickness]
 \tikzstyle{tiny}=[font=\tiny]
@@ -981,6 +983,24 @@
 \tikzstyle{diredge}=[->]
 \tikzstyle{wide point}=[fill=white,draw=black,shape=isosceles triangle,shape border rotate=-90,isosceles triangle stretches=true,inner sep=1pt,minimum width=1.5cm,minimum height=4mm]
 \tikzstyle{square box}=[rectangle,fill=white,draw=black,minimum height=5mm,minimum width=5mm,font=\small]
+\newcommand{\RelCategory}{\cat{Rel}}
+\newcommand{\timemultSym}{\tinymult[whitedot]}
+\newcommand{\timeunitSym}{\tinyunit[whitedot]}
+\newcommand{\timecomultSym}{\tinycomult[whitedot]}
+\newcommand{\timecounitSym}{\tinycounit[whitedot]}
+\newcommand{\antipodeSym}{\hbox{\input{tikz/antipodeSym.tikz}}\!} % Antipode (group inverse)
+\newcommand{\timediagSym}{\tinycomult[blackdot]}
+\newcommand{\trivialcharSym}{\tinycounit[blackdot]}
+\newcommand{\scpair}{(\dotonly{whitedot},\dotonly{blackdot})}
+\newcommand{\XdotSym}{\dotonly{blackdot}}
+\newcommand{\ZdotSym}{\dotonly{whitedot}}
+\newcommand{\fdHilbCategory}{\cat{FHilb}}
+%% General purpose space names 
+                \newcommand{\SpaceH}{\mathcal{H}} 
+                \newcommand{\SpaceA}{\mathcal{A}}
+                \newcommand{\SpaceB}{\mathcal{B}}
+                \newcommand{\SpaceG}{\mathcal{G}}
+
 
 
 \def\swangle{-145}
