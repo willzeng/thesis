@@ -532,6 +532,154 @@ and in particular, as a bijection of classical states, $h$ is a group isomorphis
 
 In $\fdHilbCategory$ (with abelian internal groups), Definition \ref{def_CategoricalHadamard} yields the usual Hadamard transform. Indeed $h$ corresponds to an isomorphism $\Psi: G \rightarrow G^\wedge$ (by considering its action on classical states): the linear isomorphism $h$ is itself the Discrete Fourier Transform of Equation \ref{eqn_FTDefDFT} (where $\SpaceG$ is identified with $\Ltwo{G}$ and $\Ltwo{G^\wedge}$ using $\ZdotSym$ and $\XdotSym$ respectively), and the matrix of $h$ in the basis defined by $\ZdotSym$ is the Hadamard matrix of Equation \ref{eqn_HadamardMatrixDef}.
 
+\subsection{The Fourier transform in the Category $\fRelCategory$}
+\label{section_RelFT}
+
+\todo{Fix notation of booleans throughout}
+
+The abstract correspondence between strongly complementary observables and Fourier transforms in Section \ref{section_AbelianGroups_FourierTransform} means that a characterization of strongly complementary observables in any $\dagger$-SMC allows for definition of a Fourier transform in that category.  In this section, we apply this idea to $\fRelCategory$, the category of finite sets and relations (for an introduction, see \cite{pavlovic2009quantum,zeng2015models} and references therein). In this setting, the relevant classical structures are classified by abelian groupoids, in a sense made clear by Theorem \ref{thm_classicalStructuresRel} below. Please note that in $\fRelCategory$ the scalars are the booleans $\{\bot,\top\}$, and $\top = \id{\tensorUnit}: \tensorUnit \rightarrow I$ is the only invertible scalar. As a consequence, all $\dagger$-qSFAs are automatically $\dagger$-SFAs (and thus all $\dagger$-qSCFAs are in fact classical structures). 
+
+\begin{defn}
+A \emph{(finite) abelian groupoid} on some finite set $A$ is any finite family $(G_\lambda,+_\lambda,0_\lambda)_{\lambda \in \Lambda}$ of finite abelian groups such that $(G_\lambda)_{\lambda \in \Lambda}$ is a finite partition of $A$ into disjoint subsets. We denote one such groupoid by $\oplus_{\lambda \in \Lambda} G_\lambda$, leaving the groups' structures understood.
+\end{defn}
+
+\begin{theorem}\label{thm_classicalStructuresRel}
+Let $\XdotSym$ be a classical structure in $\fRelCategory$ on a finite set $X$. Then there exists a (unique) abelian groupoid $\oplus_{\lambda \in \Lambda} G_\lambda$ on $A$ such that, for all $a,b \in A$:
+\begin{equation}
+    \XmultSym \cdot \left( \{a\} \times \{b\} \right) = 
+    \begin{cases}
+        \{ a +_\lambda b\} \text{ if for some } \lambda \in \Lambda \text{ we have } a,b \in G_\lambda \\
+        \emptyset \text{ otherwise}
+    \end{cases}
+\end{equation}
+Furthermore, each abelian groupoid defines a unique $\dagger$-SCFA in this way. The classical states of the co-monoid fragment $(\XcomultSym,\XcounitSym)$ are the family $(G_\lambda)_{\lambda \in \Lambda}$, which is also a matching family for the monoid fragment $(\XmultSym,\XunitSym)$.\footnote{Recall that the states $1 \rightarrow A$ of a finite set $A$ in $\fRelCategory$ are exactly the subsets of $A$.}
+\end{theorem}
+\begin{proof}
+Proven in \cite{pavlovic2009quantum}, extended to the case of non-commutative $\dagger$-SFAs / non-abelian groupoids in \cite{heunen-relFrob}.
+\end{proof}
+
+The groupoids corresponding to complementary / strongly complementary classical structures take a particularly nice form.
+
+\begin{theorem}\label{thm_StrongComplementarityRel}
+Let $\oplus_{\gamma \in \Gamma} H_\gamma$ and $\oplus_{\lambda \in \Lambda} G_\lambda$ be abelian groupoids on some finite set $A$, and let $\ZdotSym$ and $\XdotSym$ be the corresponding classical structures on $A$ in $\fRelCategory$. Then $\ZdotSym$ and $\XdotSym$ are strongly complementary if and only if: 
+\begin{enumerate}
+\item[(i)] there is a finite abelian group $H$ such that for all $\gamma \in \Gamma$ we have $H_\gamma \isom H$ as groups.
+\item[(ii)] there is a finite abelian group $G$ such that for all $\lambda \in \Lambda$ we have $G_\lambda \isom G$ as groups.
+\item[(iii)] for each $(\lambda,\gamma) \in \Lambda \times \Gamma$, the intersection $G_\lambda \cap H_\gamma$ is a singleton. 
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Proven in \cite{evans2009classifying}.
+\end{proof}
+
+In particular, this means that $\Lambda \isom H$ and $\Gamma \isom G$ as sets: as a consequence, we will write abelian groupoids corresponding to strongly complementary classical structures as $\oplus^{|G|}H$ and $\oplus^{|H|}G$, leaving the indexing of the partitions as understood. We will also implicitly label the elements of the underlying set $A$ as:
+\begin{equation}
+A \isom \suchthat{(h,g)}{h \in H \text{ and } g \in G}
+\end{equation}
+
+In $\fdHilbCategory$, strongly complementary pairs of classical structures have the same number of classical states, and their monoid fragments act on each other's classical states as isomorphic groups $G$ and $G^\wedge$. As a consequence, it is possible to fix isomorphisms between the two groups and construct Hadamard transforms as per Definition \ref{def_CategoricalHadamard}. In $\fRelCategory$, on the other hand, Hadamard transforms only exist in very special cases.
+
+\begin{theorem} Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an abelian internal group in $\fRelCategory$, and let $Z = \oplus^{|G|}H$ and $X = \oplus^{|H|}G$ be the groupoids corresponding to the $\ZdotSym$ and $\XdotSym$ classical structures respectively. Then $(\XmultSym,\XunitSym)$ acts on the $\ZdotSym$-classical states $(H_g)_{g \in G}$ as the finite abelian group $G$, and $(\ZmultSym,\ZunitSym)$ acts on the $\XdotSym$-classical states $(G_h)_{h \in H}$ as the finite abelian group $H$.
+\end{theorem}
+\begin{proof}
+Sufficient to prove for $(\XmultSym,\XunitSym)$ acting on the $\ZdotSym$-classical states. Indeed we have that $\XunitSym = H_0$ is a $\ZdotSym$-classical state, and that:
+\begin{align}
+\XmultSym \cdot \left( \ket{H_g} \times \ket{H_{g'}} \right) &= \bigcup_{h,h' \in H} \XmultSym \cdot \left( \{(h,g)\} \times \{(h',g')\} \right) \\&= \bigcup_{h \in H} \{(h,g+g')\} = \ket{H_{g+g'}}
+\end{align}
+\end{proof}
+
+\begin{example}
+The groupoids $Z = \mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$ and $X = \mathbb{Z}_3 \oplus \mathbb{Z}_3$ correspond to strongly complementary structures, call them $\ZdotSym$ and $\XdotSym$ respectively, on a 6-element set $A$. We can label the elements of $A$ as:
+\begin{equation}
+A \isom \suchthat{(h,g)}{h \in \integersMod{2} \text{ and } g \in \integersMod{3}}
+\end{equation}
+The classical states of $\ZdotSym$ are the 3 subsets $(\integersMod{2},g)$ for $g \in \integersMod{3}$, while the classical states of $\XdotSym$ are the 2 subsets $(h,\integersMod{3})$ for $h \in \integersMod{2}$. The monoid $(\XmultSym,\XunitSym)$ acts on the $\ZdotSym$-classical states as the group $\integersMod{3}$, while the monoid $(\ZmultSym,\ZunitSym)$ acts on the $\XdotSym$-classical states as the group $\integersMod{2}$.
+\end{example}
+
+\begin{corollary}
+Let $\mathbb{G} = (\,A,\XdotSym,\ZdotSym)$ be an abelian internal group in $\cat{FRel}$. Hadamard transforms for $\mathbb{G}$ exist if and only if the two groups $G$ and $H$ are isomorphic.
+\end{corollary}
+\begin{proof}
+By Remark \ref{rmrk_CategoricalHadamard}, a Hadamard transform gives a group isomorphism between the groups given by the action of the two monoid fragments on each other's classical points: in this case, the existence of a Hadamard transform forces $G$ and $H$ to be isomorphic. On the other hand, if $\Psi: G \rightarrow H$ is a group isomorphism, one could define a map $M_\Psi: A \rightarrow A$ as follows:
+\begin{equation}
+M_\Psi := \bigcup_{g \in G} \ket{G_{\Psi(g)}}\bra{H_g}  
+\end{equation}
+This satisfies the monoid and comonoid homomorphism requirements from Definition \ref{def_CategoricalHadamard}, but is not an isomorphism in $\fRelCategory$. To get an isomorphism, and prove the existence of a relevant Hadamard transform in $\fRelCategory$, we consider a new map $t: A \rightarrow A$, which we give in the form of a relation $t \subseteq A \times A$:
+\begin{equation}
+t := \suchthat{\left((h,g),(\Psi g,\Psi^{-1}h)\right)}{h \in H \text{ and } g \in G}
+\end{equation}
+\end{proof}
+
+The Fourier Transform as given by Definition \ref{def_FourierTransform} is valid in any $\dagger$-SMC with a pair of strongly complementary classical structures, and in particular it holds in $\fRelCategory$. The more traditional formulation given by Lemma \ref{lemma_FTTraditionalSMC}, which allows one to see the Fourier Transform as a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, is based on the assumption that the group elements of an abelian internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ form a basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G}$ in a natural way, and that the multiplicative characters form a co-basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G^\wedge}$ in a natural way; more details about this can be found in Section \ref{section_EnrichedPontryaginDuality} below.
+
+In $\fRelCategory$, however, the assumptions of Lemma \ref{lemma_FTTraditionalSMC} only hold in one, trivial case. The classical points of a classical structure in $\fRelCategory$ are always a finite, orthogonal and normalisable family, and $\fRelCategory$ is distributively $\cat{fCommMon}$-enriched as required. However, as Lemma \ref{thm_partitionIdentityRel} below notes, there is a unique classical structure on any finite set $A$ with classical points forming the resolution of the identity, and the only abelian internal group in $\fRelCategory$ satisfying the assumptions of Lemma \ref{lemma_FTTraditionalSMC} is the one on the tensor unit $\{\star\}$ of $\fRelCategory$.
+
+\begin{lemma}
+\label{thm_partitionIdentityRel}
+Let $\ZdotSym$ be a classical structure on a finite set $A$ in $\fRelCategory$, and let $Z$ be the associated abelian groupoid. The classical points of $\ZdotSym$ form an orthogonal resolution of the identity if and only if the abelian groupoid is discrete, i.e.  $Z=\bigoplus^{A}\mathbb{Z}_1$. Furthermore, if $(\ZdotSym,\XdotSym)$ is a strongly complementary pair on $A$, with $\ZdotSym$ associated to an abelian groupoid $Z=\bigoplus^{A}\mathbb{Z}_1$, then the abelian groupoid associated with $\XdotSym$ is in fact a group, in the form $X = G$ for some finite abelian group $G = (A,+,0)$ on the element set $A$. As a consequence, the only abelian internal group in $\fRelCategory$ satisfying the assumptions of Lemma \ref{lemma_FTTraditionalSMC} is the (unique) abelian internal group on the tensor unit $\{\star\}$.
+\end{lemma}
+\begin{proof} 
+In $\RelCategory$ the scalars are $0$ or $1$ and summation is given by set union.  Thus a resolution of the identity must satisfy the following equation, where each $\chi$ is a classical point:
+  \begin{equation}\label{eqn_MultCharResolutionIdRel}
+    %\hbox{\input{modules/pictures/MultCharResolutionID_Rel.tex}}
+  \end{equation}
+In the specific case of $Z=\bigoplus^{A}\mathbb{Z}_1$, we have that classical points are in the form $\chi = \{(\star,a)\}$ and Equation \ref{eqn_MultCharResolutionIdRel} reads
+\begin{align}
+\bigcup_{a \in A} \{(\star, a)\}\circ\{(a,\star)\} 
+= \bigcup_{a \in A} \{(a, a)\} = \id{A}
+\end{align}
+
+When $Z$ is of the generic form $Z = \bigoplus_{\lambda \in \Lambda} G_\lambda$, the classical points are in the form $\chi = G_\lambda$, and Equation \ref{eqn_MultCharResolutionIdRel} reads
+\begin{align}
+\bigcup_{\lambda \in \Lambda} \{(\star, g')|g': G_\lambda\}\circ\{(g,\star)|g: G_\lambda\} =  \bigcup_{\lambda \in \Lambda} \{(g, g')|g,g': G_\lambda\}
+\end{align}
+which cannot be the identity if $|G_h|>1$. Therefore the unique classical structures $\ZdotSym$ with classical states forming an orthogonal resolution of the identity are the ones associated to discrete abelian groupoids, in the form $Z=\bigoplus^{A}\mathbb{Z}_1$. If $\ZdotSym$ is one such classical structure, and $\XdotSym$ is strongly complementary to it, then it follows immediately from Theorem \ref{thm_StrongComplementarityRel}, and subsequent remarks, that the abelian groupoid $X$ associated to $\XdotSym$ must be in fact an abelian group, in the form $X = \oplus^{\integersMod{1}} G$, where $G$ is some finite abelian group with element set $A$. But to satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}, we must have that $X$ is also a discrete groupoid, which forces $G \isom \integersMod{1}$ and $A \isom \{\star\}$.
+\end{proof}
+
+So there is no direct parallel in $\fRelCategory$ of the $\fdHilbCategory$ view that the Fourier Transform is a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, or of its traditional formulation from Equation \ref{eqn_DefTraditionalFT}. At first sight, this seems to be because the copyable states of the two structures of a generic abelian internal group need not form a basis: the question then naturally arises whether restricting our attention to some subclass of states (e.g. those which are linear combinations of the copyable states) would lead to a canonical isomorphism similar to the $\fdHilbCategory$ one. Theorem \ref{thm_NoCanonicalIsomRel} below answers this question negatively.
+
+Define the \textbf{span} $\langle s_j \rangle_{j \in J}$ of a family of states $s_j \subseteq A$ to be the set of all states $r \subseteq A$ which can be obtained as the union $r = \cup_{j \in I} s_j$ of some subfamily $(s_j)_{j \in I\subseteq J}$. If the $(s_j)_{j \in J}$ are pairwise disjoint, then the states $r \in \langle s_j \rangle_{j \in J}$ are exactly those that descend to boolean functions over the set $\suchthat{s_j}{j \in J}$:
+\begin{align}\label{eqn_spanBooleanFunctions}
+    r \in \langle s_j \rangle_{j \in J} \;\; \mapsto \;\; \left(j \mapsto \braket{s_j}{r}\right) \in \mathbb{B}[J]
+\end{align}
+where we denoted by $\ket{s} : \tensorUnit \rightarrow A$ the state corresponding to subset $s \subseteq A$. Now consider an abelian internal group $\mathbb{G} = (A,\ZdotSym,\XdotSym)$ in $\fRelCategory$, and let $Z = \bigoplus^{|G|}H$ and $X = \bigoplus^{|H|}G$ be the abelian groupoids corresponding to $\ZdotSym$ and $\XdotSym$ respectively. Then $\langle H_g \rangle_{g\in G}$, seen as the set $\{0,1\}^G$ of boolean functions on $\suchthat{H_g}{g\in G}$, plays the role in $\RelCategory$ that $\Ltwo{G}$ played in $\fdHilbCategory$, and similarly $\langle G_h \rangle_{h\in H}$, seen as $\{0,1\}^H$, is the analogue of $\Ltwo{H}$ (and takes the place $\Ltwo{G^\wedge}$ had in $\fdHilbCategory$). 
+
+\begin{theorem}\label{thm_NoCanonicalIsomRel}
+Let $\mathbb{G} = (A,\ZdotSym,\XdotSym)$ be an abelian internal group in $\fRelCategory$, and let $Z = \bigoplus^{|G|}H$ and $X = \bigoplus^{|H|}G$ be the abelian groupoids corresponding to $\ZdotSym$ and $\XdotSym$ respectively. Then $\langle H_g \rangle_{g \in G} \cap \langle G_h \rangle_{h \in H} = \{\emptyset, A\}$. In particular, under the correspondence of Equation \ref{eqn_spanBooleanFunctions},  the Fourier Transform of $\fRelCategory$ does not restrict to an isomorphism $\{\bot,\top\}^G \isom \{\bot,\top\}^H$, nor can be restricted to an isomorphism $S_G \isom S_H$ for any $S_G \subseteq \{\bot,\top\}^G$ and $S_H \subseteq\{\bot,\top\}^H$ containing non-constant functions. 
+\end{theorem}
+\begin{proof}
+Let $r \in \langle H_g \rangle_{g\in G} \cap \langle G_h \rangle_{h \in H}$, then $r$ is either the empty set or it contains some $(h',g') \in A$. But if $(h',g') \in r$, then for all $g \in G$ we have $(h',g) \in r$ (because $r \in \langle G_h \rangle_{h\in H}$), and then for any $g \in G$ we have that for all $h \in H$ $(h,g) \in r$ (because  $r \in \langle H_g \rangle_{g \in G}$). Thus for all $g \in G$ and $h \in H$ we have $(h,g) \in r$, i.e. $r = A$. The state $r = \emptyset$ in $\langle H_g \rangle_{g\in G} \cap \langle G_h \rangle_{h \in H}$ corresponds the constant $\bot$ function in $\{\bot,\top\}^H$ and in $\{\bot,\top\}^G$ (under Equation \ref{eqn_spanBooleanFunctions}), while the state $r = A$ corresponds to the constant $\top$ function. The Fourier Transform maps the constant $\bot$ function of $\{\bot,\top\}^G$ to the constant $\bot$ function of $\{\bot,\top\}^H$, and similarly with the constant $\top$ functions. However, if $r \in \langle H_g \rangle_{g\in G}$ is neither empty nor the whole of $A$, i.e. if it corresponds to a non-constant function in $\{\bot,\top\}^G$, then its Fourier Transform does not lie in the span $\langle G_h \rangle_{h \in H}$, and thus cannot be seen as a function in $\{\bot,\top\}^H$.
+\end{proof}
+
+As a consequence of Theorem \ref{thm_NoCanonicalIsomRel}, the best analogue in $\fRelCategory$ of the statement that the Fourier Transform is a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$ in $\fdHilbCategory$ is the trivial statement that the Fourier Transform in $\fRelCategory$ is an isomorphism $\{\bot_G,\top_G\} \isom \{\bot_H,\top_H\}$ between the constant functions of $\{\bot,\top\}^G$ and of $\{\bot,\top\}^H$.
+
+To summarise, in $\fdHilbCategory$ we have the following views of the Fourier transform for abelian internal groups:
+\begin{enumerate}
+\item[1.] As Quantum Fourier Transform, implemented by application of a Hadamard transform (subject to a non-canonical choice of isomorphism $G \isom G^\wedge$) followed by operations in the computational basis.
+\item[2.] In the sense of Pontryagin duality, as a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$.
+\item[3.] Again as quantum Fourier Transform, but implemented without Hadamard transform by operating in the strongly complementary basis of multiplicative characters.
+\end{enumerate}
+
+In $\RelCategory$, on the other hand, things are very different:
+\begin{enumerate}
+\item[1.] Except in the case where $Z = \bigoplus^{|G|}G$ and $X = \bigoplus^{|G|}G$ (isomorphic, but different), no Hadamard transform can exist in $\RelCategory$.
+\item[2.] The Fourier transform does not give, in $\RelCategory$, an isomorphism $\{0,1\}^G \isom \{0,1\}^H$ between the spaces of boolean-valued functions on the group elements / multiplicative characters.
+\item[3.] The operational definition based on strong complementarity, however, is still valid in $\fRelCategory$. 
+\end{enumerate}
+
+%To conclude, the following examples give explicit examples of quantum Fourier transforms in $\RelCategory$.
+
+%\begin{example}
+%Take $G=\integersMod{2}=\{0,1\}$, $H=\integersMod{1}=\{\star\}$, $Z = G = \{ 0_\star,1_\star \}$ and $X=H\oplus H = \{ \star_0,\star_1 \}$. The computational basis is the family $(H_g)_{g:G}$ of copyable points for $X$, i.e. $H_0 = \{(\star,0)\}$ and $H_1 = \{(\star,1)\}$. The character family used for the quantum Fourier transform consists a single copyable point $G_\star = \{(\star,0), (\star,1)\}$ for $Z$. In this case all states can be prepared in the computational basis, but the measurement in the character family will be trivial.
+%\end{example}
+
+%\begin{example}
+%Take $G=\integersMod{2}=\{0,1\}$, $H=\integersMod{2}=\{a,b\}$, $Z = G \oplus G = \{ 0_a,1_a,0_b,1_b\}$ and $X= H \oplus H = \{ a_0, b_0, a_1, b_1 \}$. The computational \inlineQuote{basis} is the family $(H_g)_{g:G}$ of copyable points for $X$, i.e. $H_0 = \{(a,0),(b,0)\}$ and $H_1 = \{(a,1),(b,1)\}$. The character family used for the quantum Fourier transform is the family $(G_h)_{h:H}$ of copyable points for $Z$, i.e. $G_a = \{(a,0),(a,1)\}$ and $G_b = \{(b,0),(b,1)\}$.
+%\end{example}
+
+It is part of the CQM programme that the operational features of quantum theory should be modelled categorically, and that any category sharing features with $\fdHilbCategory$ should be considered, at least in principle, as a potential (toy?) model of quantum mechanics. The category $\fRelCategory$ is an example of one such model. We have shown that Hadamard matrices do not generalise well outside $\fdHilbCategory$, and certainly fail to implement a Quantum Fourier Transform in $\RelCategory$, but that our treatment of Fourier theory based on strong complementarity goes through unharmed. As a consequence, categorical quantum algorithms where the Quantum Fourier Transform is formulated using strong complementarity will straightforwardly generalise to $\RelCategory$ and other categories in the CQM programme. We take this to be an indication that our perspective on the Quantum Fourier Transform is conceptually sound and operationally advantageous.
+
+
 \subsection{Measurements and Representation Theory}
 There is a correspondence between morphisms and states given by the following.
 
