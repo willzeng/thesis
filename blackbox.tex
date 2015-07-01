@@ -177,7 +177,143 @@ There is a similar argument that the other composite also gives the identity. \e
 Note that this construction works for pairs of observables that a complementary, but not necessarily strongly complementary.  Still, in the examples we consider, we will use strongly complementary $(\dotonly{graydot},\dotonly{whitedot})$ as we wish to embed an internal group onto them.
 
 \subsection{\todo{The Deutsch-Jozsa algorithm}}
-The abstract structure of the Deutsch-Jozsa quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. This proof inspires new ways to implement the DJ algorithm, where Fourier transforms are replaced by more general Hadamard transformations, without effecting the algorithm. We investigate these new implementations numerically and analytically. {\bf Status:} undrafted, though the proof and numerical results have been completed.
+In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see this formulation can be easily verified and generalized by the oGCT approach.
+
+First we define the promise at the level of processes in an oGCT.
+
+\begin{defn}
+Let $A$ and $B$ be systems in an oGCT such that $A$ has an internal group $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $B$ has an internal group $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$. A process $f:A\to B$ is
+\begin{itemize}
+\item[(i)] \emph{constant} when for \dotonly{whitedot}-classical state $c:I\to B $
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[yscale=1]
+\node (f) [morphism, wedge, scale=1] at (0,0) {$f$};
+\draw (0,-1) to (f.south);
+\draw (f.north) to (0,1);
+\end{tikzpicture}
+\end{aligned}
+\;=
+\begin{aligned}
+\begin{tikzpicture}[yscale=1]
+\draw (0,-1) to (0,-.4)
+    node [blackdot] {};
+\draw (0,0.5) node [state, scale=1] {$c$} to (0,1);
+\end{tikzpicture}
+\end{aligned}
+\end{equation}
+\item[(ii)] \emph{balanced} when for non-trivial representation $\sigma:B\to I$
+\begin{equation}
+\begin{aligned}
+\begin{tikzpicture}[string, yscale=1]
+\node [morphism, wedge, scale=1] (f) at (0,0) {$f$};
+\draw (0,-0.85) node [blackdot] {} to (f.south);
+\node [morphism, wedge, scale=1] at (0,1){$\sigma$};
+\draw (f.north) to (0,0.65) ;
+\end{tikzpicture}
+\end{aligned}
+\;=\;
+0
+\end{equation} 
+\end{defn}
+
+It is easy to see that this definition coincides with the original formulation in $\cat{FHilb}$ for internal groups $\mathbb{G}=\mathbb{Z}_2^n$ and $\mathbb{H}=\mathbb{Z}_2$. In this case the \dotonly{whitedot}-classical states of $B$ are the group elements $\{0,1\}$, so a constant function simply ignores all input (as \tinycounit[blackdot] send all input to 1)  and outputs one element. In the balanced case, there is only one non-trivial representation of $\mathbb{Z}_2$, namely $\sigma(0)=1$ and $\sigma(1)=-1$. Thus
+\begin{align}
+\sigma\circ f\circ\tinyunit[blackdot] = \sigma \left(\sum_{x\in\mathbb{H}}\ket{f(x)}\right) = \sum_{x\in\mathbb{H}}\sigma\left(\ket{f(x)}\right),
+\end{align}
+which is clearly 0 if and only if half the number of inputs for which $f(x)=0$ is the same as the number of inputs for which $f(x)=1$. Picking different internal groups and representations gives different behaviors for balanced functions.
+
+\begin{example}
+Let $\mathbb{G}=\mathbb{Z}_2^n$ and $\mathbb{H}=\mathbb{Z}_2\times\mathbb{Z}_2$. We then have a choice of different non-trivial representations. Choose $\sigma = (1,-1,1,-1)$. Denoting $\#f_0$ as the number of inputs for which $f(x) = 0$, balanced functions are now $f$ such that:
+\begin{align*}
+\#f_{00}+\#f_{10} = \#f_{01}+\#f_{11}
+\end{align*}
+\end{example}
+
+Directly mapping the (rotated) quantum circuit for the DJ algorithm into an oGCT process gives:
+\begin{align}
+\begin{aligned}
+\includegraphics[width=14em]{images/DJQcircuit.eps}
+\end{aligned}
+\mapsto
+\qquad
+\input{tikz/3_DJmorphism.tikz}
+\end{align}
+
+Simplifying using the Fourier Transform rules we obtain:
+\begin{align}
+\input{tikz/3_labeledDJ.tikz}
+\end{align}
+
+Using the rules of oGCT's we obtain:
+\begin{equation}
+\begin{pic}[scale=0.8, yscale=0.6]
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
+\end{pgfonlayer}
+    \node (dot) [blackdot] at (0,1) {};
+    \node (m) [whitedot] at ([xshift=0.7cm, yshift=1cm] f.north) {};
+\draw (0,-0.25)
+        node [blackdot] (bdot) {}
+    to (0,1)
+    to [out=\nwangle, in=south] (-0.7,2)
+    to ([yshift=2.5cm] m.center -| -0.7,1)
+        node (rho) [blackdot] {};
+\draw (0,1)
+    to [out=\neangle, in=south] (f.south)
+    to (f.north)
+    to [out=up, in=\swangle] +(0.7,1)
+    to [out=\seangle, in=up] +(0.7,-1)
+    to (2.1,2)
+        node [morphism, wedge,hflip, below, scale=0.8] (sigmadag) {$\sigma$};
+\draw (m.center) to (1.4,6.75)
+        node [above] {$\{0,1\}$};
+\node [anchor=east] at ([xshift=3pt] bdot.west) {$\scriptstyle \frac{1}{\sqrt{|S|}}$};
+\node [anchor=east] at ([xshift=0pt] rho.west) {$\scriptstyle \frac{1}{\sqrt{|S|}}$};
+\node [anchor=east] at ([xshift=4pt] sigmadag.west) {$\scriptstyle \frac{1}{\sqrt{2}}$};
+\end{pic}
+\;=
+\begin{pic}[scale=0.8, yscale=0.6]
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
+\end{pgfonlayer}
+    \node (dot) [blackdot] at (0,1) {};
+\draw (0,-0.25)
+        node [blackdot] (bdot) {}
+    to (0,1)
+    to [out=\nwangle, in=south] (-0.7,2)
+    to ([yshift=2.5cm] m.center -| -0.7,1)
+        node (rho) [blackdot] {};
+\draw (0,1)
+    to [out=\neangle, in=south] (f.south)
+    to (f.north) to +(0,0.2) node [morphism, wedge, scale=0.7, anchor=south] {$\sigma$};
+\draw (1.4,6) node [morphism, wedge, hflip, scale=0.7, anchor=north] (sigmadag) {$\sigma$} to (1.4,6.75)
+        node [above] {$\{0,1\}$};
+\node [anchor=east] at ([xshift=3pt] bdot.west) {$\scriptstyle \frac{1}{\sqrt{|S|}}$};
+\node [anchor=east] at ([xshift=0pt] rho.west) {$\scriptstyle \frac{1}{\sqrt{|S|}}$};
+\node [anchor=east] at ([xshift=4pt] sigmadag.west) {$\scriptstyle \frac{1}{\sqrt{2}}$};
+\end{pic}
+\end{equation}
+If we now ignore the right hand system, we obtain:
+\begin{equation}
+\begin{pic}
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
+\end{pgfonlayer}
+\node (dot) [blackdot] at (0.7,1.25) {};
+\draw (0.7,1.25)
+    to [out=north, in=south] (f.south)
+    to (f.north) to +(0,0.4) node [morphism, wedge, anchor=south, scale=0.7] {$\sigma$};
+\node [anchor=east] at ([xshift=0pt] f.west) {$\scriptstyle \frac{1}{|S|}$};
+\end{pic}
+\;= \;   \begin{cases}
+        0 \text{ if $f$ is balanced } \\
+        \sigma(c) \text{ if $f$ is constant s.t. } f(x)=c
+    \end{cases}
+\end{equation}
+Thus, by the oGCT Born rule, there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
+
+In a single proof, this method and its extension to arbitrary finite groups~\cite{vicary-tqa} captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oGCT's besides quantum theory. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{Rel}$. 
 
 \subsection{\todo{Grover's algorithm}}
 For completeness, we summarize the results of \cite{vicary-tqa}, where the single-shot Grover's algorithm is investigated using categorical techniques. {\bf Status:} undrafted.
@@ -187,7 +323,6 @@ Similarly, we abstractly demonstrate the function of the hidden subgroup algorit
 
 \subsection{\color{blue} The group homomorphism identification algorithm}
 \label{sec:grouphomid}
-\subsubsection*{The problem}
 
 In this section we construct a new deterministic quantum algorithm to identify  group homomorphisms.  
 \begin{defn}[Group homomorphism identification problem]

@@ -1,0 +1,40 @@
+\begin{aligned}
+\def\ydiff{1.619cm}
+\def\yoff{-0.25cm}
+\begin{tikzpicture}[thick, scale=0.8]
+\uabb
+\draw [thick, white] (-1.33,6) rectangle (2.975,1);
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
+\end{pgfonlayer}
+    \node (dot) [blackdot] at (0,1) {};
+    \node (m) [whitedot, thick] at ([xshift=0.7cm, yshift=1cm] f.north) {};
+\draw (0,-0.25)
+        node [blackdot] (bdot) {}
+    to (0,1)
+    to [out=\nwangle, in=south] (-0.7,2)
+    to ([yshift=2.5cm] m.center -| -0.7,1)
+        node (rho) [blackdot] {};
+\draw (0,1)
+    to [out=\neangle, in=south] (f.south)
+    to (f.north)
+    to [out=up, in=\swangle] +(0.7,1)
+    to [out=\seangle, in=up] +(0.7,-1)
+    to (2.1,0.25)
+        node [morphism, wedge, hflip, below] (sigmadag) {$\sigma$};
+\draw (m.center) to (1.4,6.75)
+        node [above] {$\{0,1\}$};
+\node [anchor=east] at ([xshift=3pt] bdot.west) {$\scriptstyle \frac{1}{\sqrt{|S|}}$};
+\node [anchor=east] at ([xshift=0pt] rho.west) {$\scriptstyle \frac{1}{\sqrt{|S|}}$};
+\node [anchor=east] at ([xshift=2pt] sigmadag.west) {$\scriptstyle \frac{1}{\sqrt{2}}$};
+\node [draw, dotted, minimum width=2.8cm, minimum height=2.7cm, thick] at ([yshift=2pt] f.center) {};
+\begin{scope}[thin,red]
+\draw [thin] (sigmadag) to (4,0+\yoff) node [right] {Non-trivial representation of $\mathbb{H}$};
+\draw [thin] (bdot) to (4,\ydiff+\yoff) node [right] {Linear maps from classical structure \blackcomonoid{A}};
+\draw [thin] (dot) to (4,\ydiff+\yoff);
+\draw (f) to (4,2*\ydiff+\yoff) node [right] {Function $f:A \to B$};
+\draw (m) to (4,3*\ydiff+\yoff) node [right] {Group multiplication operation on $\mathbb{H}$ };
+\draw (rho) to (4,4*\ydiff+\yoff) node [right] {Projection onto $\sum_{s\in\mathbb{G}} \ket s$ (measure X to be 0)};
+\end{scope}
+\end{tikzpicture}
+\end{aligned}
