@@ -334,13 +334,13 @@ The performance of the hidden subgroup algorithm can be improved by a particular
 \subsection{\color{blue} The group homomorphism identification algorithm}
 \label{sec:grouphomid}
 
-In this section we construct a new deterministic quantum algorithm to identify  group homomorphisms.  
+In this section we use the framework of oGCT's to construct a new deterministic quantum algorithm to identify  group homomorphisms.  
 \begin{defn}[Group homomorphism identification problem]
 Given finite groups $G$ and $A$ where $A$ is abelian, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, identify the homomorphism $f$.
 \end{defn}
 
 \noindent
-We will define a quantum algorithm that solves the group homomorphism identification problem with a number of queries equal to the number of simple factors of the abelian group $A$.
+We demonstrate a quantum algorithm that solves the group homomorphism identification problem with a number of queries equal to the number of simple factors of the abelian group $A$.
 
 For comparison, we can consider the obvious classical algorithm for this problem.
 \begin{lemma}
@@ -460,7 +460,28 @@ f(n_0,n_1,...n_{n-1}) = \left(f_0(n_0), f_1(n_1),..., f_{n-1}(n_{n-1})\right)
 \end{align*}
 we know that each isomorphic class contains only one representation}
 
-\todo{\subsubsection*{Optimality}}
+The GROUPHOMID algorithm given here is approximately quantum optimal for large $G$ and shows a vast speedup over the classical lower bound.
+
+\begin{theorem}
+For large groups $G$, the number of quantum queries needed for the GROUPHOMID problem is $\theta(k)$, where $k$ is the number of simple factors of $A$. The number of classical queries needed is $\theta(\log|G|)$.
+\end{theorem}
+
+\begin{proof}
+In general the number of generators of a group $G$ is upper bounded by $\log |G|$. Thus $\log|G|$ gives an upper bound on the number of queries needed to identify the group homomorphism. That is we can simply query the homomorphism on each generators. Let there be $\mathfrak{h}$ homomorphisms between $G$ and $A$, i.e. $\mathfrak{h}=|\cat{Grp}(G,A)|$. The total information available to us in quantum case of the problem comes from the generators of $G$ and $A$. The number of generators in a group at worst goes like the $\log$ of its size. Since $A$ is abelian, we can expect it to have a number of generators equal to the number of its simple factors. Thus the total information in all the generators of the two groups is $k+\log|G|$. A lower bound on the number of quantum queries is thus given by 
+\begin{align}
+\#\mbox{ queries} \ge\frac{\log \mathfrak{h}}{k+\log|G|}.
+\end{align}
+An \todo{improve THIS} upper bound on the number of homomorphisms is $|H|^{\log|G|}$ as each homomorphism needs to specify where each generator of $G$ goes. Thus the quantum bound is 
+\begin{align}
+\#\mbox{ queries} \ge \frac{\log\left(|H|^{\log|G|}\right)}{k+\log|G|} = \frac{\log|G|\log|H|}{k+\log|G|} = \frac{k\log|G|}{k+\log|G|} \approx k,
+\end{align}
+in the limit of large $G$. Since the algorithm given here requires $k$ queries we know this bound to be tight.
+
+A classical lower bound on the number of queries is then
+\begin{align}
+\#\mbox{ queries}\ge \frac{k\log|G|}{\log|A|} = \frac{k\log|G|}{k} = \log|G|
+\end{align}
+\end{proof}
 
 \subsubsection*{Extension to the non-abelian case}
 We now consider the more general case where the target group $A$ is non-abelian. We do not know how to extend the algorithm described above to this case.  Nevertheless, it is instructive to analyze this scenario in our graphical approach. 
