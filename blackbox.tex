@@ -176,7 +176,7 @@ There is a similar argument that the other composite also gives the identity. \e
 
 Note that this construction works for pairs of observables that a complementary, but not necessarily strongly complementary.  Still, in the examples we consider, we will use strongly complementary $(\dotonly{graydot},\dotonly{whitedot})$ as we wish to embed an internal group onto them.
 
-\subsection{\todo{The Deutsch-Jozsa algorithm}}
+\subsection{The Deutsch-Jozsa algorithm}
 In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see this formulation can be easily verified and generalized by the oGCT approach.
 
 First we define the promise at the level of processes in an oGCT.
@@ -313,13 +313,23 @@ If we now ignore the right hand system, we obtain:
 \end{equation}
 Thus, by the oGCT Born rule, there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
 
-In a single proof, this method and its extension to arbitrary finite groups~\cite{vicary-tqa} captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oGCT's besides quantum theory. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{Rel}$. 
+In a single proof, this method and its extension to arbitrary finite groups~\cite{vicary-tqa} captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oGCT's besides quantum theory that has strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{Rel}$. 
 
-\subsection{\todo{Grover's algorithm}}
-For completeness, we summarize the results of \cite{vicary-tqa}, where the single-shot Grover's algorithm is investigated using categorical techniques. {\bf Status:} undrafted.
+\subsection{\todo{The Grover's and hidden subgroup algorithms}}
+Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. \todo{comment on connection to amplitude amplification}
 
-\subsection{\todo{The hidden subgroup algorithm}}
-Similarly, we abstractly demonstrate the function of the hidden subgroup algorithm, which leads us to conjecture that a speedup is possible by altering an input query representation. {\bf Status:} undrafted.
+\begin{figure}[t]
+\label{fig:algtriplet}
+\input{tikz/3_algtriplet.tikz}
+\caption{Three blackbox quantum algorithms presented as processes in an operational generalized compositional theory.}
+\end{figure}
+
+
+Similarly, the function of the quantum part of hidden subgroup algorithm can be demonstrated. That is, one can abstractly verify that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup~\cite{vicary-tqa}. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to a the unit for $\dotonly{whitedot}$. This unit, via strong complementarity, is equivalent to uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
+\begin{conjecture}
+The performance of the hidden subgroup algorithm can be improved by a particular chosen distribution of input representation in the second system.
+\end{conjecture}
+\noindent Though in small examples it is easy to see the advantage, we have so far been unable to find a general rule beyond using a uniform distribution over representations excepting the trivial representation, which provides no information. 
 
 \subsection{\color{blue} The group homomorphism identification algorithm}
 \label{sec:grouphomid}
