@@ -1,11 +1,18 @@
 \section{Quantum Blackbox Algorithms}
 
+The Fourier Transform is a powerful tool in most quantum algorithms for algebraic problems. Now that we have a structural handle on this tool, we use it to verify, generalize, and construct quantum algorithms.
+
+In this section we first consider the structure of unitary oracles and then review the Deutsch-Jozsa, Grover's single shot, and hidden subgroup algorithms as examples of the approach.  These three initial algorithms were analyzed by Vicary in~\cite{vicary-tqa}, though the structure of the underlying oracles was assumed there.  We then expand on this base to develop a new quantum algorithm for the GROUPHOMID problem. The analysis of this algorithm is presented in Section~\ref{sec:grouphomid}.
+
+\subsection{\color{blue} The abstract structure of unitary oracles}
+\label{sec:unitaryoracles}
+
+When we program an abstract problem into an oGCT, we have a choice of embeddings, but typically assign classical information to the classical states. This was the case in our treatment of the Fourier transform for example. Of course, we will also want to consider how to program functions between those classical states.
 
 \begin{corollary}
-In \cat{FHilb}, a morphism between classical structures acts as a function on copyable (i.e. basis) states if and only if it is a comonoid homomorphism.
+In \cat{FHilb}, a morphism between classical structures acts as a function on classical states if and only if it is a self-conjugate comonoid homomorphism.
 \end{corollary}
-The says that functions that map from one basis to another will necessarily be comonoid homomorphisms.  We will generalize this when we consider oracles in quantum algorithms.
-
+In \cat{FHilb}, this says that functions mapping from one basis to another will necessarily be comonoid homomorphisms.  This idea and its generalizations form the core of oracles in quantum and oGCT computation.
 
 \begin{defn}
 \label{def:selfconj}
@@ -40,7 +47,7 @@ In {\bf Hilb}, comonoid homomorphisms $f:\blackcomonoid{A} \to \graycomonoid{B}$
 
 
 \begin{proof}
-Recall that comonoid homomorphisms between classical structures in \cat{Hilb} are exactly classical functions between the copyable points~\cite{coecke2013new}. The linear maps on either side of~\eqref{eq:comonoidhomomorphismselfconjugate} will be the same if and only if their matrix elements are the same, obtained by composing with $\ket i$ at the bottom and $\bra j$ at the top. On the left-hand side, this gives the following result:
+Recall that comonoid homomorphisms between classical structures in \cat{Hilb} are exactly classical functions between the classical states~\cite{coecke2013new}. The linear maps on either side of~\eqref{eq:comonoidhomomorphismselfconjugate} will be the same if and only if their matrix elements are the same, obtained by composing with $\ket i$ at the bottom and $\bra j$ at the top. On the left-hand side, this gives the following result:
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
@@ -108,11 +115,7 @@ On the right we can do this calculation:
 This is the same result as for the left-hand side, and so Equation~\eqref{eq:comonoidhomomorphismselfconjugate} holds.
 \end{proof}
 
-\subsection{\color{blue} The abstract structure of unitary oracles}
-\label{sec:unitaryoracles}
-
-\subsubsection*{Complementarity via unitarity}
-A pair of symmetric dagger-Frobenius algebras can be used to build a linear map in the following way:
+The oracle that we will build it actually similar to the CNOT from Section \todo{REFERENCE}. Recall that a pair of symmetric dagger-Frobenius algebras can be used to build a linear map in the following way:
 \begin{equation}
 \sqrt{\ud(A)}\,\,
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
@@ -150,9 +153,7 @@ Here we have assumed that we operate in a category where square roots of scalars
 This completes the proof.
 \end{proof}
 
-\subsubsection*{Families of unitary oracles}
-
-This pair of complementary observables automatically gives rise to a much larger family of unitaries, one for each self-conjugate comonoid homomorphism onto one of the classical structures in the pair. See equation~\eqref{eq:comonoidhomomorphismselfconjugate} for the definition of the self-conjugacy property. Lemma~\ref{lem:comonoidhomomorphismselfconjugate} demonstrated that in \cat{FHilb}, every comonoid homomorphism of classical structures is self-conjugate.
+This pair of complementary observables automatically gives rise to a much larger family of unitaries, one for each self-conjugate comonoid homomorphism onto one of the classical structures in the pair. See ~\eqref{eq:comonoidhomomorphismselfconjugate} for the definition of the self-conjugacy property. Lemma~\ref{lem:comonoidhomomorphismselfconjugate} demonstrated that in \cat{FHilb}, every comonoid homomorphism of classical structures is self-conjugate.
 \begin{defn}[Oracle]
 \label{oracle}
 In a symmetric monoidal dagger-category, given a dagger-Frobenius comonoid $\blackcomonoid{A}$, a pair of complementary symmetric dagger-Frobenius comonoids \graycomonoid{B} and \whitecomonoid{B}, and a self-conjugate comonoid homomorphism $f : \blackcomonoid{A} \to \graycomonoid{B}$, the \emph{oracle} is defined to be the following endomorphism of $A \otimes B$:
@@ -173,17 +174,19 @@ To demonstrate that the oracle \eqref{eq:oracle} is unitary, we must compose it 
 \end{align*}
 There is a similar argument that the other composite also gives the identity. \end{proof}
 
-\subsection{The Deutsch-Jozsa algorithm}
+Note that this construction works for pairs of observables that a complementary, but not necessarily strongly complementary.  Still, in the examples we consider, we will use strongly complementary $(\dotonly{graydot},\dotonly{whitedot})$ as we wish to embed an internal group onto them.
+
+\subsection{\todo{The Deutsch-Jozsa algorithm}}
 The abstract structure of the Deutsch-Jozsa quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. This proof inspires new ways to implement the DJ algorithm, where Fourier transforms are replaced by more general Hadamard transformations, without effecting the algorithm. We investigate these new implementations numerically and analytically. {\bf Status:} undrafted, though the proof and numerical results have been completed.
 
-\subsection{Grover's algorithm}
+\subsection{\todo{Grover's algorithm}}
 For completeness, we summarize the results of \cite{vicary-tqa}, where the single-shot Grover's algorithm is investigated using categorical techniques. {\bf Status:} undrafted.
 
-\subsection{The hidden subgroup algorithm}
+\subsection{\todo{The hidden subgroup algorithm}}
 Similarly, we abstractly demonstrate the function of the hidden subgroup algorithm, which leads us to conjecture that a speedup is possible by altering an input query representation. {\bf Status:} undrafted.
 
 \subsection{\color{blue} The group homomorphism identification algorithm}
-
+\label{sec:grouphomid}
 \subsubsection*{The problem}
 
 In this section we construct a new deterministic quantum algorithm to identify  group homomorphisms.  

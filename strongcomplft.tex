@@ -679,8 +679,22 @@ In $\RelCategory$, on the other hand, things are very different:
 
 It is part of the CQM programme that the operational features of quantum theory should be modelled categorically, and that any category sharing features with $\fdHilbCategory$ should be considered, at least in principle, as a potential (toy?) model of quantum mechanics. The category $\fRelCategory$ is an example of one such model. We have shown that Hadamard matrices do not generalise well outside $\fdHilbCategory$, and certainly fail to implement a Quantum Fourier Transform in $\RelCategory$, but that our treatment of Fourier theory based on strong complementarity goes through unharmed. As a consequence, categorical quantum algorithms where the Quantum Fourier Transform is formulated using strong complementarity will straightforwardly generalise to $\RelCategory$ and other categories in the CQM programme. We take this to be an indication that our perspective on the Quantum Fourier Transform is conceptually sound and operationally advantageous.
 
+\subsection{\todo{Non-abelian Fourier Transform}}
+\label{section_NonAbelianFourierTransform}
 
-\subsection{Measurements and Representation Theory}
+In $\fdHilbCategory$, abelian internal groups satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}, and the corresponding Fourier Transform can be seen, via enrichment, as a canonical isomorphism of $\LtwoSym$-spaces $\Ltwo{G} \isom \Ltwo{G^\wedge}$. Non-abelian internal groups in $\fdHilbCategory$, however, fail those assumptions, as we will see that the classical states of the group structure never form a basis. However, it is a consequence of the Peter-Weyl theorem that the irreducible representations can be used to obtain a resolution of the identity. In this section, we generalise our treatment of internal groups from multiplicative characters to full-blown representation theory, concluding with a formulation of non-abelian Fourier Transform connected with the Gelfand--Naimark--Segal construction.
+
+\begin{theorem}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. If the classical states of $\XdotSym$ form a basis, then $\mathbb{G}$ is necessarily an abelian internal group.
+\end{theorem}
+\begin{proof}
+All we have to show is that $\XmultSym = \XmultSym \cdot s_{\SpaceG\SpaceG}$, where $s_{\SpaceG\SpaceG}$ is the braiding operator. Equivalently, it is enough to show that $\XcomultSym = s_{\SpaceG\SpaceG} \cdot \XcomultSym$. But indeed for any classical $\ket{\chi}$ of $\XdotSym$ we have $\XcomultSym \cdot \ket{\chi} = \ket{\chi} \tensor \ket{\chi} = s_{\SpaceG\SpaceG} \cdot \ket{\chi} \tensor \ket{\chi} =   s_{\SpaceG\SpaceG} \cdot \XcomultSym \cdot \ket{\chi}$, and the classical states form a basis.
+\end{proof}
+
+\subsection{\todo{Measurements and Representation Theory}}
+\todo{ADD\ IN\ NONABELIAN\ MATRIX\ ALGEBRA\ PARTS}\\
+We have seen that the representations of an abelian internal group form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. It is in this sense that representations correspond to measurements.  
+
 There is a correspondence between morphisms and states given by the following.
 
 \begin{defn}
