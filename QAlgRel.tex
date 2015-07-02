@@ -70,7 +70,7 @@ The possibility of measuring the state $\ket{\psi}$, having prepared state $\ket
 \end{align}
 \end{axiom}
 
-In the relational model, bases are characterized as particular generalizations of groups known as \textit{groupoids} \cite{cqm-notes,pavlovic-2009}.  Groupoids can be viewed as groups where multiplication is relaxed to be a partial function.
+In the relational model, bases are characterized as particular generalizations of groups known as \textit{groupoids} \cite{cqm-notes,pavlovic2009quantum}.  Groupoids can be viewed as groups where multiplication is relaxed to be a partial function.
 
 \begin{defn}
 \label{def:basis}
@@ -86,27 +86,27 @@ x +_{G_i} y & i=j \\
 \noindent This makes $Z$ an \emph{abelian groupoid} with groupoid multiplication $\bullet_Z$.
 \end{defn}
 
-At first guess, one might be motivated by the intuition that a basis for a system breaks it up into parts, and so a basis would be a partition of $H$.  This is not a bad start, however, bases have additional structure: namely that we can copy, delete and combine them at will.  This idea is used to motivate Definition \ref{def:basis} by abstracting bases to special dagger-commutative Frobenius algebras (Definition \ref{def:classicalstruct}) that we call classical structures \cite{coecke-pavlovic-vicary-2008}.
+At first guess, one might be motivated by the intuition that a basis for a system breaks it up into parts, and so a basis would be a partition of $H$.  This is not a bad start, however, bases have additional structure: namely that we can copy, delete and combine them at will.  This idea is used to motivate Definition \ref{def:basis} by abstracting bases to special dagger-commutative Frobenius algebras (Definition \ref{def:classicalstruct}) that we call classical structures \cite{coecke2013new}.
 
 Classical structures' properties, allowing the copying, deleting, and combining that accompany classical (as opposed to quantum) information, give them this name. The definition of a special dagger-commutative Frobenius algebra in our model is given in Section \ref{section:graphical}, and we can interpret it through pair of lemmas corresponding to the traditional model and the relational model of quantum computation.
-\begin{lemma}[\cite{coecke-pavlovic-vicary-2008}]
+\begin{lemma}[\cite{coecke2013new}]
 \label{lem:sdfa-hilb}
 The classical structures in the category of finite dimensional Hilbert spaces and linear maps are exactly the orthonormal bases.
 \end{lemma}
 
-\begin{lemma}[\cite{evans2009classifying,pavlovic-2009}]
+\begin{lemma}[\cite{evans2009classifying,pavlovic2009quantum}]
 \label{lem:sdfa-rel}
 The classical structures in the category of sets and relations are exactly the abelian groupoids.\footnote{In \cite{heunen-relFrob} this connection is extended to the non-abelian case where it is shown that all relative Frobenius algebras are groupoids.}
 \end{lemma}
 
 \subsection{Complementarity}
-Complementary bases are important features of quantum theory. In the general setting, complementary bases are understood as mutually unbiased bases in a certain sense \cite{InteractQOb}.  In relations there is a more direct characterization:\footnote{Theorem \ref{thm:compl} holds as long as we consider bases to be the same if their lists of groups are isomorphic.}
+Complementary bases are important features of quantum theory. In the general setting, complementary bases are understood as mutually unbiased bases in a certain sense \cite{coecke2011interacting}.  In relations there is a more direct characterization:\footnote{Theorem \ref{thm:compl} holds as long as we consider bases to be the same if their lists of groups are isomorphic.}
 \begin{theorem}[\cite{evans2009classifying}]
 \label{thm:compl}
 Two bases $Z$ and $X$ are complementary if and only if they are of the following form. Basis $Z = \bigoplus^{|H|}G$ and basis $X = \bigoplus^{|G|}H$ given by copies of abelian groups $G$ and $H$ respectively.
 \end{theorem}
 
-This theorem follows from the requirement that the classical points of one basis must be isomorphic to the unbiased points of its complement. We will return to this idea in the Section \ref{sec:FT} when we address the quantum Fourier transform. Classical and unbiased points of bases in the relational model are specified in the following corollaries that again correspond to abstract definitions in \cite{InteractQOb}. An example on the six element system is illustrated with Figure \ref{complEx}.
+This theorem follows from the requirement that the classical points of one basis must be isomorphic to the unbiased points of its complement. We will return to this idea in the Section \ref{sec:FT} when we address the quantum Fourier transform. Classical and unbiased points of bases in the relational model are specified in the following corollaries that again correspond to abstract definitions in \cite{coecke2011interacting}. An example on the six element system is illustrated with Figure \ref{complEx}.
 
 \begin{figure}[tb]
 \begin{center}
@@ -176,16 +176,16 @@ Axioms 1-4, and subsequent definitions, specify the abstract process theory for 
 QCRel is a model of quantum computation with sets and unitary relations.
 \end{theorem}
 \begin{proof}
-This is true by construction.  The axioms on the preceding section can be interpreted as structures in any dagger compact category. In particular, {\bf FHilb}, the category of finite dimensional Hilbert spaces and linear maps,  is a dagger compact category in which interpretation of those axioms results in the usual Hilbert space quantum mechanics \cite{coecke-abramsky-cqm}.  {\bf Rel}, the category of sets and relations, is also dagger compact.  It is the interpretation of the abstract axioms for quantum computation in {\bf Rel}, rather than {\bf FHilb}, that produces QCRel as a model. References that covers the dagger compact abstraction and some of its interpretation in different categories are \cite{coecke2011categories,cqm-notes}.
+This is true by construction.  The axioms on the preceding section can be interpreted as structures in any dagger compact category. In particular, {\bf FHilb}, the category of finite dimensional Hilbert spaces and linear maps,  is a dagger compact category in which interpretation of those axioms results in the usual Hilbert space quantum mechanics \cite{abramsky2008categorical}.  {\bf Rel}, the category of sets and relations, is also dagger compact.  It is the interpretation of the abstract axioms for quantum computation in {\bf Rel}, rather than {\bf FHilb}, that produces QCRel as a model. References that covers the dagger compact abstraction and some of its interpretation in different categories are \cite{coecke2011categories,cqm-notes}.
 \end{proof}
 
 It is worth noting that QCRel can be simply viewed as a local hidden variable theory. We consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  From this perspective, QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics \cite{abramsky2012operational}. This means that protocols exist for entanglement, teleportation, and, as we show in this paper, some familiar blackbox algorithms.
-\vspace{-10pt}
+
 \section{Graphical Notation}
 \label{section:graphical}
 In this section, we introduce a simple graphical notation that is commonly used in the literature for abstract process theories \cite{qcs-notes,coecke2011categories}.  This notation will ease the inclusion of higher level proofs in our particular setting. In the context of this paper, this graphical notation acts as a more formal circuit-like model to present protocols and algorithms. For systems $A$ and $B$, we represent the relation $f:A\to B$ as:
 \begin{align*}
-    \begin{tikzpicture}[yscale=1]
+    \begin{tikzpicture}[yscale=0.9]
                 \node (0) at (0, 1) {};
                 \node (1) at (0.3, 1) {B};
                 \node [style=morphism] (2) at (0, -0) {f};
@@ -266,7 +266,7 @@ In this section, we introduce a simple graphical notation that is commonly used 
 \\
 \end{tabular}
 \end{align*}
-The state relation is understood where the missing input wire means a map from the ``empty" diagram which is the set $\{\bullet\}$, so that all relations $\ket{\psi}:\{\bullet\}\to A$ give subsets of $A$.\footnote{In any dagger compact category states are morphisms from the monoidal unit, which, in \textbf{Rel} is the singleton \cite{coecke-abramsky-cqm}.}
+The state relation is understood where the missing input wire means a map from the ``empty" diagram which is the set $\{\bullet\}$, so that all relations $\ket{\psi}:\{\bullet\}\to A$ give subsets of $A$.\footnote{In any dagger compact category states are morphisms from the monoidal unit, which, in \textbf{Rel} is the singleton \cite{abramsky2008categorical}.}
 
 \begin{defn}
 The \emph{adjoint} of a relation $f:A\to B$ is its relational converse $f^{-1}:B\to A$.
@@ -274,7 +274,7 @@ The \emph{adjoint} of a relation $f:A\to B$ is its relational converse $f^{-1}:B
 
 \noindent This is what motivated our definition of unitary relations and is graphically represented by simply flipping the diagram upside down.
 
-Having introduced this notation, we are now able to collect some standard results from the literature~\cite{InteractQOb}, where they are often defined as more general structures. We include these definitions for use in later proofs, and so present them in terms specific and sufficient for our setting.
+Having introduced this notation, we are now able to collect some standard results from the literature~\cite{coecke2011interacting}, where they are often defined as more general structures. We include these definitions for use in later proofs, and so present them in terms specific and sufficient for our setting.
 \begin{defn}
 A \textit{comonoid} is a triple \whitecomonoid{A} of a system $A$, a relation  $\tinycomult[whitedot] : A \to A \times A$ called the comultiplication, and a relation $\tinycounit[whitedot] : A \to \{\bullet\}$ called the counit, satisfying coassociativity and counitality equations:
 \def\frobscale{0.5}
@@ -331,7 +331,7 @@ In equational form, writing $\delta=\tinycomult[whitedot]$ and $\epsilon=\tinyco
 A comonoid \whitecomonoid{A} and its monoid under the relational converse form a \emph{dagger-Frobenius algebra} when the following equation holds:
 \begin{equation}\label{eq:frobenius}
 \begin{aligned}
-\begin{tikzpicture}[thick, yscale=0.4, xscale=0.4]
+\begin{tikzpicture}[thick, yscale=0.6, xscale=0.6]
     \draw (0,0) to (0,1) to [out=up, in=\swangle] (0.5,2) node [whitedot] {} to (0.5,3);
     \draw (0.5,2) to [out=\seangle, in=\nwangle] (1.5,1) node [whitedot] {};
     \draw (1.5,0) to (1.5,1) to [out=\neangle, in=down] (2,2) to (2,3);
@@ -339,7 +339,7 @@ A comonoid \whitecomonoid{A} and its monoid under the relational converse form a
 \end{aligned}
     \quad = \quad
 \begin{aligned}
-\begin{tikzpicture}[thick, yscale=-0.4, xscale=0.4]
+\begin{tikzpicture}[thick, yscale=-0.6, xscale=0.6]
     \draw (0,0) to (0,1) to [out=up, in=\swangle] (0.5,2) node [whitedot] {} to (0.5,3);
     \draw (0.5,2) to [out=\seangle, in=\nwangle] (1.5,1) node [whitedot] {};
     \draw (1.5,0) to (1.5,1) to [out=\neangle, in=down] (2,2) to (2,3);
@@ -356,14 +356,14 @@ A \emph{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} sat
 \begin{equation}
 \label{eq:special}
 \begin{aligned}
-\begin{tikzpicture}[thick, yscale=0.4, xscale=0.4]
+\begin{tikzpicture}[thick, yscale=0.6, xscale=0.5]
 \draw (0,0.25) to (0,1) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.5) to [out=up, in=\swangle] (0,2) node [whitedot] {} to (0,2.75);
 \draw (0,1) to [out=\neangle, in=down] (0.5,1.5) to [out=up, in=\seangle] (0,2);
 \end{tikzpicture}
 \end{aligned}
 \quad=\quad
   \begin{aligned}
-  \begin{tikzpicture}[thick, yscale=0.4, xscale=0.4]
+  \begin{tikzpicture}[thick, yscale=0.6, xscale=0.5]
   \draw (-0.5,0) to (-0.5,3);
   \end{tikzpicture}
   \end{aligned}
@@ -375,14 +375,14 @@ A \emph{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} sat
   \begin{equation}
   \label{eq:sym}
 \begin{aligned}
-\begin{tikzpicture}[yscale=0.4, xscale=0.4]
+\begin{tikzpicture}[yscale=0.6, xscale=0.5]
 \draw (0,-0.5) node [whitedot] {} to (0,0.5) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.0) to [out=up, in=down] (0.5,2);
 \draw (0,0.5) to [out=\neangle, in=down] (0.5,1) to [out=up, in=down] (-0.5,2);
 \end{tikzpicture}
 \end{aligned}
 \quad=\quad
 \begin{aligned}
-\begin{tikzpicture}[yscale=0.4, xscale=0.4]
+\begin{tikzpicture}[yscale=0.6, xscale=0.5]
 \draw (0,-0.5) node [whitedot] {} to (0,0.5) node [whitedot] {} to [out=\nwangle, in=down] (-0.5,1.0) to [out=up, in=down] (-0.5,2);
 \draw (0,0.5) to [out=\neangle, in=down] (0.5,1) to [out=up, in=down] (0.5,2);
 \end{tikzpicture}
@@ -395,7 +395,7 @@ A \emph{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} sat
 
 As was noted in Lemma \ref{lem:sdfa-rel} these classical structures exactly correspond to groupoids. The map $\tinymult[whitedot]:A\times A\to A$ corresponds exactly to groupoid multiplication defined by Equation \ref{eq:groupoid_mult}. When these classical structures are defined with Hilbert spaces and linear maps instead of sets and relations they exactly correspond to orthonormal bases, as stated in Lemma \ref{lem:sdfa-hilb}.
 
-%Our definition for complementary bases is also motivated from an abstract %construction \cite{InteractQOb}. Here we color the maps for two different %classical structures differently.
+%Our definition for complementary bases is also motivated from an abstract %construction \cite{coecke2011interacting}. Here we color the maps for two different %classical structures differently.
 %\begin{defn}[Complementarity]
 %\label{def:complementarity}
 %Two special symmetric dagger-Frobenius algebras \whitecomonoid{A} and \graycomonoid{A} %are \emph{complementary} when the following equation holds:
@@ -420,14 +420,14 @@ In order to model blackbox quantum algorithms in this setting, we must define th
 We do this by building up from an abstract definition of the controlled-not gate in the literature. Let the gray classical structure on a system $A$ be given by a basis $Z=\bigoplus^{|H|}G$ and the white classical structure be a basis $X=\bigoplus^{|G|}H$. The comonoid for the gray dot is then the relation $\tinycomult[graydot]:A\to A\times A$ that for $x,a,b\in H$ is given by
 \[ \{(x,(a,b))~|~a\bullet_Zb=x\}. \]
 
-\begin{defn}[\cite{zeng-unitary}]
+\begin{defn}[\cite{zeng2014abstract}]
 \label{eq:generalizedcnot}
 The abstract controlled-not is given by a composition of the comonoid for Z and the monoid for X:
 \begin{equation}
 \label{eq:cnot_rel}
 \,\,
 \begin{aligned}
-\begin{tikzpicture}[yscale=0.4, xscale=0.4,string]
+\begin{tikzpicture}[yscale=0.6, xscale=0.6,string]
 \node (b) [graydot] at (0,0) {};
 \node (w) [whitedot] at (1,1) {};
 \draw (-0.75,2) to [out=down, in=left] (b.center);
@@ -446,7 +446,7 @@ $\{((x,y),(a,b\circ_Xy))~|~a\bullet_Zb=x\}.$ \\
 \end{defn}
 It can be shown that in the traditional quantum setting of Hilbert spaces and linear maps, this exactly corresponds to the usual controlled-not. This also leads to the following useful theorem, which can be abstractly proved.
 
-\begin{theorem}[Complementarity via a unitary \cite{zeng-unitary}]
+\begin{theorem}[Complementarity via a unitary \cite{zeng2014abstract}]
 \label{thm:complementarityunitary}
   Two symmetric dagger-Frobenius algebras are complementary if and only if the abstract controlled-not from Definition \ref{eq:generalizedcnot} is unitary.
 \end{theorem}
@@ -460,10 +460,10 @@ The relevant relation can clearly be seen to be the composite in Definition~\ref
 \begin{align}
 \{((a,b,y),(a,b\circ_Xy))\} \circ \{((x,y),(a,b,y))~|~a\bullet_Zb=x\}.
 \end{align}
-Thus the abstract proof of\ Theorem \ref{thm:complementarityunitary} from \cite{zeng-unitary} goes through unchanged.
+Thus the abstract proof of\ Theorem \ref{thm:complementarityunitary} from \cite{zeng2014abstract} goes through unchanged.
 \end{proof}
 
-An oracle is then introduced as a controlled-not where we have embedded a particular kind of relation that abstractly must be a self-conjugate comonoid homomorphism \cite{zeng-unitary}. We construct such relations in the following lemmas.
+An oracle is then introduced as a controlled-not where we have embedded a particular kind of relation that abstractly must be a self-conjugate comonoid homomorphism \cite{zeng2014abstract}. We construct such relations in the following lemmas.
 
 \begin{defn}
 Given groupoids $G$ and $H$ and groupoid homomorphism $F:G\to H$, we can define an associated \emph{groupoid homomorphism relation} $R:G\to H$ where, for morphism $x$ in $G$ and morphism $y$ in $H$,
@@ -477,7 +477,7 @@ $$
 Given a groupoid homomorphism that is surjective on objects, its associated groupoid homomorphism relation $R:G\to H$, is a monoid homomorphism relation.
 \end{lemma}
 \begin{proof}
-Included in Appendix \ref{app:grphom}.
+\todo{Included in Appendix \ref{app:grphom}.}
 \end{proof}
 
 \noindent In fact, when the monoid is part of a classical structure (and so given by groupoid multiplication) is it easy to see that all the monoid homomorphism relations come in the form of Lemma \ref{lem:mongrphom}.
@@ -487,14 +487,14 @@ We then dualize the proof of Lemma \ref{lem:mongrphom} to conclude that:
 \label{lem:classicalRelation}
 For a functor $F:H\to G$ such that $F^{\mbox{\tiny op}}$ is a groupoid homomorphism that is surjective on objects, $F$ defines a comonoid homomorphism relation.
 \end{lemma}
-\noindent We call these comonoid homomorphism relations \emph{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we also need these relations to be self-conjugate:
+\noindent We call these comonoid homomorphism relations \emph{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples in QCRel are listed in \todo{Appendix \ref{app:clRel}}. In order to define unitary oracles, we also need these relations to be self-conjugate:
 
-\begin{defn}[\cite{zeng-unitary}]
+\begin{defn}[\cite{zeng2014abstract}]
 In a monoidal dagger-category, a comonoid homomorphism \mbox{$f:\blackcomonoid{A} \to \graycomonoid{B}$} between dagger-Frobenius comonoids is \emph{self-conjugate} when the following property holds:
 \begin{equation}
 \label{eq:comonoidhomomorphismselfconjugate}
 \begin{aligned}
-\begin{tikzpicture}[yscale=0.5, xscale=0.5, thick]
+\begin{tikzpicture}[yscale=0.8, xscale=0.8, thick]
 \node [morphism] (f) at (2,1) {$f$};
 \draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,2.5) node [graydot] {};
 \draw (1,2) to [out=right, in=up] (f.north);
@@ -505,7 +505,7 @@ In a monoidal dagger-category, a comonoid homomorphism \mbox{$f:\blackcomonoid{A
 \end{aligned}
 \quad=\quad
 \begin{aligned}
-\begin{tikzpicture}[yscale=0.6, xscale=0.5, thick]
+\begin{tikzpicture}[yscale=1.05, xscale=0.8, thick]
 \node (f) at (0,0) [morphism] {$f^{\dagger}$};
 \draw (0,-1.5) to (f.south);
 \draw (f.north) to (0,1.5);
@@ -522,7 +522,7 @@ All classical relations $f:Z^A\to Z^B$ between groupoids $Z^A=\bigoplus^NG^B$ an
 In QCRel, our dagger-Frobenius structures are groupoids and, if they are complementary to some other groupoid, then they are of the form $Z^A=\bigoplus^NG$ and $Z^B=\bigoplus^{N'}H$. We annotate the definition of self-conjugacy for some arbitrary element $(g,n)$, the element $g$ from the $n$-th group:
 \begin{equation}
 \begin{aligned}
-\begin{tikzpicture}[yscale=0.7, xscale=1.1, thick]
+\begin{tikzpicture}[yscale=0.9, xscale=1.3, thick]
 \node [morphism] (f) at (2,1) {$f$};
 \draw (0,-1) to [out=up, in=left, in looseness=0.9] (1,2) node [graydot] {} to (1,3.3) node [graydot] {};
 \draw (1,2) to [out=right, in=up] (f.north);
@@ -540,7 +540,7 @@ In QCRel, our dagger-Frobenius structures are groupoids and, if they are complem
 \end{aligned}
 \quad=\quad
 \begin{aligned}
-\begin{tikzpicture}[yscale=0.9, xscale=1.1, thick]
+\begin{tikzpicture}[yscale=1.2, xscale=1.3, thick]
 \node (f) at (0,0) [morphism] {$f^{-1}$};
 \draw (0,-1.5) to (f.south);
 \draw (f.north) to (0,1.5);
@@ -554,13 +554,13 @@ Thus, a relation is self-conjugate if and only if for all elements $(g,n)$ it is
 
 Classical relations, as self-conjugate comonoid homomorphisms, lead to unitary oracles.
 
-\begin{defn}[Oracle \cite{zeng-unitary}]
+\begin{defn}[Oracle \cite{zeng2014abstract}]
 \label{oracle}
 Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B:\graycomonoid{B}$ and $X^B:\whitecomonoid{B}$, and a classical relation $R : \blackcomonoid{A} \to \graycomonoid{B}$, an \emph{oracle} is defined to be the following endomorphism of $A \times B$:
 \begin{equation}
 \label{eq:oracle}
 \begin{aligned}
-\begin{tikzpicture}[string,xscale=0.6, yscale=0.4]
+\begin{tikzpicture}[string,xscale=0.9, yscale=0.7]
     \node (dot) [blackdot] at (0,1) {};
     \node (f) [morphism] at (0.7,2) {$R$};
     \node (m) [whitedot] at (1.4,3) {};
@@ -592,7 +592,7 @@ Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B
 Oracles are unitary.
 \end{theorem}
 \begin{proof}
-Proved in the abstract setting for Definition \ref{oracle} in \cite{zeng-unitary}, when $R$ is a self-conjugate comonoid homomorphism.  Though there are others, classical relations $R$ are necessary and sufficient in our cases as the algorithms that follow additionally require that the comonoids be part of classical structures.
+Proved in the abstract setting for Definition \ref{oracle} in \cite{zeng2014abstract}, when $R$ is a self-conjugate comonoid homomorphism.  Though there are others, classical relations $R$ are necessary and sufficient in our cases as the algorithms that follow additionally require that the comonoids be part of classical structures.
 \end{proof}
 
 \begin{corollary}
@@ -646,7 +646,7 @@ To run this algorithm in QCRel we use two systems.  System $A$ has cardinality $
 \begin{equation}
 \label{eq:reldj}
 \begin{aligned}
-\begin{tikzpicture}[string, yscale=0.7, xscale=0.8]
+\begin{tikzpicture}[string, yscale=1, xscale=1]
     \node (dot) [blackdot] at (0,1) {};
     \node (f) [morphism] at (0.7,2) {$f$};
     \node (m) [whitedot] at (1.4,3) {};
@@ -694,7 +694,7 @@ In any dagger compact category with complementary bases, the algorithm in Equati
 \label{eq:bc}
 \mbox{\\ constant}:\quad
 \begin{aligned}
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=1]
 \node (f) [morphism] at (0,0) {$f$};
 \draw (0,-1) to (f.south);
 \draw (f.north) to (0,1);
@@ -702,7 +702,7 @@ In any dagger compact category with complementary bases, the algorithm in Equati
 \end{aligned}
 \quad=\quad
 \begin{aligned}
-\begin{tikzpicture}[scale=0.8]
+\begin{tikzpicture}[scale=1]
 \draw (0,-1) to (0,-.4)
     node [blackdot] {};
 \draw (0,0.5) node [state] {$x$} to (0,1);
@@ -710,7 +710,7 @@ In any dagger compact category with complementary bases, the algorithm in Equati
 \end{aligned}
 \qquad\qquad\qquad \mbox{balanced:\quad}
 \begin{aligned}
-\begin{tikzpicture}[string, scale=0.8]
+\begin{tikzpicture}[string, scale=1]
 \node [morphism] (f) at (0,0) {$f$};
 \draw (0,-0.85) node [blackdot] {} to (f.south);
 \draw (f.north) to (0,0.75) node [graydot, hflip] {};
@@ -721,7 +721,7 @@ In any dagger compact category with complementary bases, the algorithm in Equati
 0, \vspace{-5pt}
 \end{equation}
 where 
-\begin{tikzpicture}[string, yscale=0.75]
+\begin{tikzpicture}[string, yscale=1]
 \draw (f.north) to (0,0.75) node [graydot, hflip] {};
 \node at (0.05,0.75) [anchor=west] {$2$};
 \end{tikzpicture} is the dagger adjoint of the second classical point of $X^B$.
@@ -836,7 +836,7 @@ The diagrammatic presentation for this procedure from \cite{vicary-tqa} is:
 \begin{equation}
 \label{eq:grovertopological}
 \begin{aligned}
-\begin{tikzpicture}[thick, xscale=0.7, yscale=0.35]
+\begin{tikzpicture}[thick, xscale=1, yscale=0.6]
 \begin{pgfonlayer}{foreground}
     \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
 \end{pgfonlayer}
@@ -869,29 +869,27 @@ The diagrammatic presentation for this procedure from \cite{vicary-tqa} is:
 \vspace{-17pt}
 
 \noindent where numerical scalars have been dropped as there is only one non-zero scalar in QCRel. Here there is a special relation $D:S\to S$ called the diffusion operator and defined abstractly in \cite{vicary-tqa}:
-\vspace{-10pt}
 \begin{equation}
 \label{eq:difftopological}
 \begin{aligned}
-\begin{tikzpicture}[thick, scale=0.5]
+\begin{tikzpicture}[thick, scale=1]
 \draw (0,0) node [below] {$S$} to node [smallbox] {$D$} (0,2) node [above] {$S$};
 \end{tikzpicture}
 \end{aligned}
 \hspace{5pt}\;=\;\hspace{5pt}
 \hspace{-5pt}
 \begin{aligned}
-\begin{tikzpicture}[thick, scale=0.5]
+\begin{tikzpicture}[thick, scale=1]
 \draw (0,0) node [below] {$S$} to (0,2) node [above] {$S$};
 \end{tikzpicture}
 \end{aligned}
 \;-\;
 \begin{aligned}
-\begin{tikzpicture}[thick, scale=0.5]
+\begin{tikzpicture}[thick, scale=1]
 \draw (0,0) node [below] {$S$} to (0,0.7) node [blackdot] {};
 \draw (0,2) node [above] {$S$} to (0,1.3) node [blackdot] {};
 \end{tikzpicture}
 \end{aligned}
-\vspace{-10pt}
 \qquad\qquad \qquad D := \{(x,x)|x\in S\}\backslash (H_0\times H_0)
 \end{equation}
 where the subtraction of two relations is given by the symmetric difference of their images. Explicitly then, the relational model for Grover's algorithm is:
@@ -958,7 +956,7 @@ This is the same as the above example, but take $f$ to be the classical relation
 
 \section{The Groupoid Homomorphism Promise Algorithm}
 
-This section models the group homomorphism algorithm from \cite{zeng-unitary} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that paper the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups.\footnote{Making use of the structure theorem for abelian groups to complete the general case.} It is this cyclic group subroutine that we consider here. In the relational setting, the analogous GroupHomID algorithm takes as input a groupoid isomorphism $f:G\to A$, where groupoid $H$ is complementary to $G$ and groupoid $B$ is complementary to $A$.  The requirement of oracle unitarity restricts our input from groupoid homomorphisms to groupoid isomorphisms.
+This section models the group homomorphism algorithm from \cite{zeng2014abstract} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that paper the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups.\footnote{Making use of the structure theorem for abelian groups to complete the general case.} It is this cyclic group subroutine that we consider here. In the relational setting, the analogous GroupHomID algorithm takes as input a groupoid isomorphism $f:G\to A$, where groupoid $H$ is complementary to $G$ and groupoid $B$ is complementary to $A$.  The requirement of oracle unitarity restricts our input from groupoid homomorphisms to groupoid isomorphisms.
 \begin{corollary}
 Groupoid homomorphisms $f:G\to A$ are classical relations if and only if they are groupoid isomorphisms.
 \end{corollary}
@@ -966,7 +964,7 @@ Groupoid homomorphisms $f:G\to A$ are classical relations if and only if they ar
 From Lemma \ref{lem:classicalRelation}, the converse of a classical relation must be a groupoid homomorphism $f^{-1}:A\to G$.
 \end{proof}
 
-The algorithm has the following abstract specification\cite{zeng-unitary}:
+The algorithm has the following abstract specification\cite{zeng2014abstract}:
 \begin{align}
 \label{eq:groupdIDAlg}
 \begin{aligned}
@@ -1011,7 +1009,7 @@ where $\ket{\rho}$ and $\ket{\sigma}$ are classical points of $H$ and $B$ respec
 The algorithm defined by~\eqref{eq:groupdIDAlg} has output state $\ket{\rho}$ only when for some $x\in H_\rho$ and some $y\in B_\sigma$ we have $(y,x)\in f$.
 \end{theorem}
 \begin{proof}
-The verification in \cite{zeng-unitary} simplifies the algorithm in Equation \ref{eq:groupdIDAlg} to:
+The verification in \cite{zeng2014abstract} simplifies the algorithm in Equation \ref{eq:groupdIDAlg} to:
 %\vspace{-7pt}
 \begin{equation}
 \begin{aligned}

@@ -9,9 +9,9 @@ We show that the existence of more phases than classical points (aka eigenstates
 
         Non-locality is a fundamental property of quantum mechanics.  It impacts both foundations and application, ruling out the existence of \emph{local hidden variable theories} consistent with quantum theory \cite{bell}, and underpinning protocols like quantum key distribution \cite{Ekert1999} and quantum secret sharing \cite{HBB}. The importance of this property pushed the development of methods to characterise it both in general (e.g. the sheaf-theoretic methods of \cite{NLC-SheafSeminal}) and in specific extensions of quantum theory (e.g. the generalized probabilistic theories of \cite{barrett2007information}).
         
-        We focus on a particular possibilistic class of non-locality arguments generalized from Mermin's argument \cite{mermin1990quantum} and related to the recent work on All-versus-Nothing arguments by Abramsky et al. \cite{NLC-AvN}. These experiments produce possibilistic evidence for quantum mechanical non-locality, i.e. certain measurement outcomes that can only be realized by non-local theories.  Mermin scenarios are typically described by triples $(N,M,D)$ for $N$ parties with $M$ measurement choices for each party, each having $D$ classical outcomes. Current literature generalises from the original $(3,2,2)$ scenario~\cite{mermin1990quantum} to derive non-locality proofs for the $(D+1,2,D)$\cite{zukowski-GHZ-multiport}, $(N>D, 2, D \mbox{ even})$\cite{cerf-GHZ-many}, and $(\mbox{odd }N, 2, \mbox{even }D)$\cite{lee-even-dim}. One contribution of our work is to extend the work of \cite{CQM-StrongComplementarity} to cover all $(N,M,D)$ scenarios.
+        We focus on a particular possibilistic class of non-locality arguments generalized from Mermin's argument \cite{mermin1990quantum} and related to the recent work on All-versus-Nothing arguments by Abramsky et al. \cite{NLC-AvN}. These experiments produce possibilistic evidence for quantum mechanical non-locality, i.e. certain measurement outcomes that can only be realized by non-local theories.  Mermin scenarios are typically described by triples $(N,M,D)$ for $N$ parties with $M$ measurement choices for each party, each having $D$ classical outcomes. Current literature generalises from the original $(3,2,2)$ scenario~\cite{mermin1990quantum} to derive non-locality proofs for the $(D+1,2,D)$\cite{zukowski-GHZ-multiport}, $(N>D, 2, D \mbox{ even})$\cite{cerf-GHZ-many}, and $(\mbox{odd }N, 2, \mbox{even }D)$\cite{lee-even-dim}. One contribution of our work is to extend the work of \cite{coecke2012strong} to cover all $(N,M,D)$ scenarios.
 
-In \cite{CQM-StrongComplementarity}, Coecke et al. used strong complementarity to formulate Mermin arguments within the the framework of Categorical Quantum Mechanics \cite{CQM-seminal}. Not only does this approach help generalize non-locality arguments within quantum theory, but this approach also paved the way towards an understanding of Mermin non-locality in \emph{abstract process theories}, aka dagger symmetric monoidal categories. As a corollary, they are able to identify the difference between Stabilizer Quantum Mechanics (which is non-local) and Spekken's toy theory (which is local) in the structure of the respective phase groups \cite{CQM-StrongComplementarity,coecke2011phase}.
+In \cite{coecke2012strong}, Coecke et al. used strong complementarity to formulate Mermin arguments within the the framework of Categorical Quantum Mechanics \cite{abramsky2008categorical}. Not only does this approach help generalize non-locality arguments within quantum theory, but this approach also paved the way towards an understanding of Mermin non-locality in \emph{abstract process theories}, aka dagger symmetric monoidal categories. As a corollary, they are able to identify the difference between Stabilizer Quantum Mechanics (which is non-local) and Spekken's toy theory (which is local) in the structure of the respective phase groups \cite{coecke2012strong,coecke2011phase}.
 
 In Sections \ref{section_MerminMeasurements} and \ref{section_MerminLocality}, we use strongly complementary structures to generalise Mermin measurements to abstract process theories, defining Mermin non-locality as the existence of a Mermin measurement scenario not admitting a local hidden variable model.
 
@@ -19,7 +19,7 @@ In Section \ref{section_MerminLocality}, we show that strong complementarity is 
 \begin{theorem}\hspace{-3pt}\text{\textbf{\ref{thm_MerminLocality}.}}
                 Let $\CategoryC$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. If the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points, i.e. if there exist no algebraically non-trivial $\ZdotSym$-phases, then $\CategoryC$ is Mermin local.
         \end{theorem}
-Thus $\ZdotSym$-phase groups which are trivial algebraic extensions of the respective subgroups of $\XdotSym$-classical points always lead to local hidden variable models, irregardless of whether there are enough $\XdotSym$-classical points to form a basis and/or strictly more $\ZdotSym$-phases than $\XdotSym$-classical points. Indeed, we show that the category $\fRelCategory$ of finite sets and relations is Mermin local (despite it having arbitrarily many more $\ZdotSym$-phases than $\XdotSym$-classical points), and also confirm that Spekken's toy theory is Mermin local (despite it having enough $\XdotSym$-classical points to form a basis). 
+Thus $\ZdotSym$-phase groups which are trivial algebraic extensions of the respective subgroups of $\XdotSym$-classical points always lead to local hidden variable models, regardless of whether there are enough $\XdotSym$-classical points to form a basis and/or strictly more $\ZdotSym$-phases than $\XdotSym$-classical points. Indeed, we show that the category $\fRelCategory$ of finite sets and relations is Mermin local (despite it having arbitrarily many more $\ZdotSym$-phases than $\XdotSym$-classical points), and also confirm that Spekken's toy theory is Mermin local (despite it having enough $\XdotSym$-classical points to form a basis). 
 
 Also in Section \ref{section_MerminLocality}, we show that the existence of algebraically non-trivial $\ZdotSym$-phases is sufficient, under mild additional assumptions, to formulate a non-locality argument. This leads to our second main result:
         \begin{theorem}\hspace{-3pt}\text{\textbf{\ref{thm_MerminNonLocality}.}}
@@ -34,7 +34,7 @@ In Section \ref{section:non-compl}, we use our general framework to investigate 
 \section{Mermin measurements}
         \label{section_MerminMeasurements}
 
-Unlike Bell tests, which produce outcomes with probabilities that are forbidden to local hidden variable theories, the Mermin argument produces outcomes which are impossible to observe in a local hidden variable theory \cite{mermin1990quantum}. This section introduces the definitions necessary to generalise the Mermin argument to abstract process theories. We make use of the standard definitions for strongly complementary observables, phase states and phases. We often refer to quasi-special $\dagger$-Frobenius algebras as \textbf{non-degenerate observables} and use the shorthand $\dagger$-qSFA. The acronym $\dagger$-qSCFA refers to a commutative $\dagger$-qSFA. Definitions of these concepts are reproduced in Appendix \ref{app:defs}.
+Unlike Bell tests, which produce outcomes with probabilities that are forbidden to local hidden variable theories, the Mermin argument produces outcomes which are impossible to observe in a local hidden variable theory \cite{mermin1990quantum}. This section introduces the definitions necessary to generalise the Mermin argument to abstract process theories. We make use of the standard definitions for strongly complementary observables, phase states and phases. We often refer to quasi-special $\dagger$-Frobenius algebras as \textbf{non-degenerate observables} and use the shorthand $\dagger$-qSFA. The acronym $\dagger$-qSCFA refers to a commutative $\dagger$-qSFA. Definitions of these concepts are reproduced in \todo{Appendix \ref{app:defs}}.
 
         \begin{defn}\label{def_basis}
                 A family $(\ket{\psi_j})_j$ of states of an object $\SpaceH$ in a $\dagger$-SMC forms a \textbf{basis} if the following two conditions hold:
@@ -50,21 +50,19 @@ Unlike Bell tests, which produce outcomes with probabilities that are forbidden 
                 Let $\ZdotSym$ and $\XdotSym$ be strongly complementary $\dagger$-qSFAs. Phase states (resp. phases) of $\ZdotSym$ form group under the action of $(\ZmultSym,\ZunitSym)$. This group of phase states is denoted the {\bf phase group} P$_{\ZdotSym}$. The classical points (resp. the induced phases) of $\XdotSym$ are a subgroup, i.e. K$_{\XdotSym}\subseteq $P$_{\ZdotSym}$. 
         \end{theorem}
         \begin{proof}
-                Proof that phases form a group can be found in \cite{CQM-CQMnotes}. Proof that classical points form a group can be found in \cite{CQM-StrongComplementarity} (for $\dagger$-SCFAs) and \cite{StefanoGogioso-RepTheoryCQM}. Statement follows from this.
+                Proof that phases form a group can be found \todo{REF HERE. Proof that classical points form a group can be found in \cite{coecke2012strong} (for $\dagger$-SCFAs) and reptheory}. Statement follows from this.
         \end{proof}
         \noindent As the phase group of a $\dagger$-qSCFA is commutative, we use additive notation: given two $\ZdotSym$-phase states $\ket{\alpha}$ and $\ket{\beta}$, we denote by $\ket{\alpha+\beta}$ their addition in the phase group. From now on, we interchangeably use phase states and phases, leaving disambiguation to context.
         
-        The GHZ states and Mermin measurements are the main ingredients needed in our argument.  GHZ states appear in the ZX calculus fragment of our framework in \cite{CQM-ZXCalculusSeminal} and our was generalized to the definition we use here in \cite{CQM-StrongComplementarity}.
+        The GHZ states and Mermin measurements are the main ingredients needed in our argument.  GHZ states appear in the ZX calculus fragment of our framework in \cite{coecke2011interacting} and our was generalized to the definition we use here in \cite{coecke2012strong}.
 \begin{defn}
 Given a $\dagger$-qSFA $\ZdotSym$ in a $\dagger$-SMC, an \emph{$N$-partite GHZ state} for $\ZdotSym$ is:
-\vspace{-5pt}
 \begin{equation}\label{eqn_GHZstate}
 \input{tikz/5_GHZ.tikz}
                 \end{equation}
 \end{defn}
 
-We follow \cite{CQM-StrongComplementarity} to build Mermin type scenarios out of them.
-\newpage
+We follow \cite{coecke2012strong} to build Mermin type scenarios out of them.
         \begin{defn}\label{def_MerminMeasurements} 
                 Let $\ZdotSym$ and $\XdotSym$ be a pair of strongly complementary $\dagger$-qSFAs. An $N$-partite \textbf{Mermin measurement} is obtained by applying $N$ $\ZdotSym$-phases $\alpha_1,...,\alpha_N$ to the $N$ components of an $N$-partite GHZ state, and then measuring each component in the $\XdotSym$ structure:
                 \begin{equation}\label{eqn_MerminMeasurementGHZstate}
@@ -75,14 +73,13 @@ We follow \cite{CQM-StrongComplementarity} to build Mermin type scenarios out of
 
         \begin{lemma}\label{thm_MerminMeasurementGHZstate}
                 The $N$-partite Mermin measurement shown in Equation \ref{eqn_MerminMeasurementGHZstate} is equivalent to the following state:
-        \vspace{-10pt}
         \begin{equation}\label{eqn_MerminMeasurementGHZstateSimplified}
                 \input{tikz/5_MerminSimp.tikz}
         \end{equation}          
         \end{lemma}
         \vspace{-6pt}
         \begin{proof}
-                Pushing the phases down through the $\ZdotSym$ nodes and using strong complementarity. See \cite{CQM-StrongComplementarity}.
+                Pushing the phases down through the $\ZdotSym$ nodes and using strong complementarity. See \cite{coecke2012strong}.
         \end{proof}
         
         While this defines a single Mermin experiment, the full non-locality argument requires the joint outcomes of several Mermin measurements.
@@ -96,7 +93,7 @@ We follow \cite{CQM-StrongComplementarity} to build Mermin type scenarios out of
 \section{Mermin locality and non-locality}
         \label{section_MerminLocality}
         
-        The last definitions we need for our main results, Theorems \ref{thm_MerminNonLocality} and \ref{thm_MerminLocality}, are those of local hidden variable models (following the construction of \cite{CQM-StrongComplementarity}) and non-trivial algebraic extensions.
+        The last definitions we need for our main results, Theorems \ref{thm_MerminNonLocality} and \ref{thm_MerminLocality}, are those of local hidden variable models (following the construction of \cite{coecke2012strong}) and non-trivial algebraic extensions.
 
         \begin{defn}\label{def_LHVMerminMeasurement}
                 Let $\ZdotSym$ and $\XdotSym$ be strongly complementary $\dagger$-qSCFAs on some system $\SpaceH$. Consider an $N$-partite Mermin measurement scenario $(\underline{\alpha}^s)_{s=1,...,S}$, and let $a_1,...,a_M$ be the distinct $\ZdotSym$-phases appearing in it. The \textbf{local map} for the scenario is the map $\SpaceH^{\tensor (M \cdot N)} \rightarrow \SpaceH^{\tensor (N \cdot S)}$ defined as follows:
@@ -132,7 +129,7 @@ Mermin non-locality will shortly be shown to be equivalent to the following alge
 If $G = P_{\; \ZdotSym}$ is a non-trivial algebraic extension of $H = K_{\; \XdotSym}$, then the $\ZdotSym$-phases involved in any solution $x_j := \alpha_j$ to a system unsolvable in $K_{\;\XdotSym}$ will be called \textbf{algebraically non-trivial phases}.
 
         \begin{example}\label{example_PhaseGroupZX}
-                Let $G = \{0,\pi/2,\pi,-\pi/2\} < \reals / 2\pi\integers$ and $H = \{0,\pi\} < G$. Then $G$ is a non-trivial algebraic extension of $H$, because the single equation $2x = \pi$ has no solution in $H$ but has solution(s) $\pm \pi/2$ in $G$. It is in fact this example that yields the original argument in $\fdHilbCategory$ from \cite{CQM-StrongComplementarity}.
+                Let $G = \{0,\pi/2,\pi,-\pi/2\} < \reals / 2\pi\integers$ and $H = \{0,\pi\} < G$. Then $G$ is a non-trivial algebraic extension of $H$, because the single equation $2x = \pi$ has no solution in $H$ but has solution(s) $\pm \pi/2$ in $G$. It is in fact this example that yields the original argument in $\fdHilbCategory$ from \cite{coecke2012strong}.
         \end{example}
 
         \begin{lemma}\label{thm_EqnToSystem}
@@ -239,13 +236,13 @@ We are now able to introduce our first main result:
 
 The abstract framework can now be applied to some particular examples of interest.
 
-        \begin{corollary} The ZX calculus from \cite{CQM-ZXCalculusSeminal,CQM-ZXCalculusComplete} (referred to as Stab in \cite{CQM-StrongComplementarity}) is Mermin non-local.
+        \begin{corollary} The ZX calculus from \cite{coecke2011interacting,backens2014ZX} (referred to as Stab in \cite{coecke2012strong}) is Mermin non-local.
         \end{corollary}
         \begin{proof} 
                 Take $\ZdotSym$ and $\XdotSym$ to be the $Z$ and $X$ single-qubit observables in the ZX calculus. Then the group of $\XdotSym$-phases is $\integersMod{4}$ and the subgroup of $\XdotSym$-classical points is $\integersMod{2}$. Conclude using Theorem \ref{thm_MerminNonLocality} and Example \ref{example_PhaseGroupZX}.
         \end{proof}
 
-        \begin{corollary} The toy theory Spekk from \cite{CQM-StrongComplementarity} is Mermin local.
+        \begin{corollary} The toy theory Spekk from \cite{coecke2012strong} is Mermin local.
         \end{corollary}
         \begin{proof} 
                 Same setup as in the previous corollary, but the phase group is now $\integersMod{2} \times \integersMod{2}$. Conclude using Theorem \ref{thm_MerminLocality} and Example \ref{example_PhaseGroupRel} with $d=2$.
@@ -254,14 +251,14 @@ The abstract framework can now be applied to some particular examples of interes
         \begin{corollary} The category $\fRelCategory$ of finite sets and relations is Mermin local. 
         \end{corollary}
         \begin{proof} 
-                See \cite{CQM-CQMnotes, StefanoGogioso-RepTheoryCQM} for more details on strong complementarity in $\fRelCategory$. Any $\dagger$-qSCFA on a set $\SpaceH$ in $\fRelCategory$ is a groupoid: we write it in the form $\oplus_{h\in H} G_h$, where $H$ is a set, $G_h$ are disjoint groups and $\cup_{h\in H} G_h = \SpaceH$. Any strongly complementary pair $\ZdotSym,\XdotSym$ is in the form $(\oplus_{h\in H} G,\oplus_{g\in G}H)$, where both $G$ and $H$ are groups (seen as sets when indexing the groupoids), and we can w.l.o.g. write $\SpaceH$ as $G \times H$. Each $\XdotSym$-classical points is in the form $\suchthat{(g,h)}{h\in H}$ for some $g\in G$, while the $\ZdotSym$-phases are in the form $\suchthat{(g_h,h)}{h\in H}$, for some family $(g_h)_{h \in H}$ of elements of $G$. Thus the group of $\ZdotSym$-phases is the group $G^H$ of $H$-indexed vectors with values in $G$, and the subgroup of $\XdotSym$-classical points, isomorphic to $G$, is that of vectors with constant components. Conclude using Theorem \ref{thm_MerminLocality} and Example \ref{example_PhaseGroupRel}.
+                \todo{REF the right SECTIONS!} for more details on strong complementarity in $\fRelCategory$. Any $\dagger$-qSCFA on a set $\SpaceH$ in $\fRelCategory$ is a groupoid: we write it in the form $\oplus_{h\in H} G_h$, where $H$ is a set, $G_h$ are disjoint groups and $\cup_{h\in H} G_h = \SpaceH$. Any strongly complementary pair $\ZdotSym,\XdotSym$ is in the form $(\oplus_{h\in H} G,\oplus_{g\in G}H)$, where both $G$ and $H$ are groups (seen as sets when indexing the groupoids), and we can w.l.o.g. write $\SpaceH$ as $G \times H$. Each $\XdotSym$-classical points is in the form $\suchthat{(g,h)}{h\in H}$ for some $g\in G$, while the $\ZdotSym$-phases are in the form $\suchthat{(g_h,h)}{h\in H}$, for some family $(g_h)_{h \in H}$ of elements of $G$. Thus the group of $\ZdotSym$-phases is the group $G^H$ of $H$-indexed vectors with values in $G$, and the subgroup of $\XdotSym$-classical points, isomorphic to $G$, is that of vectors with constant components. Conclude using Theorem \ref{thm_MerminLocality} and Example \ref{example_PhaseGroupRel}.
         \end{proof}
         
         
     This latter result is particularly interesting for the following reasons:
     \begin{enumerate}
         \item[1.] Almost no $\dagger$-qSCFAs in $\fRelCategory$ have enough classical points (exactly one per space, out of exponentially many).      
-        \item[2.] The family of arguments from \cite{CQM-StrongComplementarity} fails in $\fRelCategory$ (partially as a consequence of the previous point).
+        \item[2.] The family of arguments from \cite{coecke2012strong} fails in $\fRelCategory$ (partially as a consequence of the previous point).
         \item[3.] There are plenty of strongly complementary pairs in $\fRelCategory$, and arbitrarily many more $\ZdotSym$-phases than $\XdotSym$ classical points, but the lack of \textit{algebraically non-trivial} phases results in $\fRelCategory$ being Mermin local.
         \item[4.] As a consequence of 3, quantum protocols relying only on Mermin non-locality will show no quantum advantage in $\fRelCategory$.
     \end{enumerate}
@@ -272,7 +269,7 @@ The abstract framework can now be applied to some particular examples of interes
 \section{Quantum Secret Sharing: non-locality as a resource}
 \label{section_QSS}
 
-The HBB CQ (N,N) family of Quantum Secret Sharing protocols originates in \cite{HBB, HBB2}, and has been abstractly formulated in Categorical Quantum Mechanics \cite{HBBVlad}. We generalise this construction to abstract process theories, showing its connection with Mermin non-locality. The protocol's implementation is summarised in Diagram \ref{HBBQSS}: the dealer measures its part of the shared $(N+1)$-partite GHZ state with phase $\alpha_0$ and uses the $\XdotSym$-classical result to encode the $\XdotSym$-classical secret; at a later stage, if all players agree to measure their parts of the state and share the respective $\XdotSym$-classical results, the secret can be decoded.
+The HBB CQ (N,N) family of Quantum Secret Sharing protocols originates in \cite{HBB, HBB2}, and has been abstractly formulated in Categorical Quantum Mechanics \cite{zamdzhiev2012abstract}. We generalise this construction to abstract process theories, showing its connection with Mermin non-locality. The protocol's implementation is summarised in Diagram \ref{HBBQSS}: the dealer measures its part of the shared $(N+1)$-partite GHZ state with phase $\alpha_0$ and uses the $\XdotSym$-classical result to encode the $\XdotSym$-classical secret; at a later stage, if all players agree to measure their parts of the state and share the respective $\XdotSym$-classical results, the secret can be decoded.
 \begin{equation}\label{HBBQSS}
 \input{tikz/5_HBBQSS.tikz}
 \end{equation}
