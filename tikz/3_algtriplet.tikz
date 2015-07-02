@@ -1,0 +1,105 @@
+
+\def\licsscale{0.65}
+%\scriptsize
+
+\begin{calign}
+\begin{aligned}
+\nonumber
+\begin{tikzpicture}[thick, scale=\licsscale]
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
+\end{pgfonlayer}
+\node (dot) [blackdot] at (0,1) {};
+\node (m) [whitedot] at ([xshift=0.7cm, yshift=1cm] f.north) {};
+\draw (0,-0.25)
+        node [blackdot] (bdot) {}
+    to (0,1)
+    to [out=\nwangle, in=south] (-0.7,2)
+    to ([yshift=1.2cm] m.center -| -0.7,1)
+        node (top) [blackdot] {};
+\draw (0,1)
+    to [out=\neangle, in=south] (f.south)
+    to (f.north)
+    to [out=up, in=\swangle] +(0.7,1)
+    to [out=\seangle, in=up] +(0.7,-1)
+    to (2.1,-0.25)
+        node (sigmadag) [smallbox] {$\sigma ^\dagger$};
+\draw (m.center) to (1.4,5.95)
+        node [above] {$\{0,1\}$};
+\node [anchor=east, smallfont, inner sep=0pt] at (bdot.west) {$\displaystyle \frac{1}{\sqrt{|S|}}$};
+\node [anchor=east, smallfont, inner sep=0pt] at (top.west) {\makebox[0pt][r]{$\displaystyle \frac{1}{\sqrt{|S|}}$}};
+\node [anchor=east, smallfont, inner sep=0pt] at (sigmadag.west) {$\displaystyle \frac{1}{\sqrt{2}}$};
+%\draw [sepstyle] (-1.5,0.5) to (3,0.5);
+%\draw [sepstyle] (-1.5,4.25) to (3,4.25);
+\end{tikzpicture}
+\end{aligned}
+& \quad
+\begin{aligned}
+\begin{tikzpicture}[thick, scale=\licsscale]
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
+\end{pgfonlayer}
+\node (dot) [blackdot] at (0,1) {};
+\node (m) [whitedot, thick] at ([xshift=0.7cm, yshift=1cm] f.north) {};
+\draw (0,-0.25)
+        node [blackdot] (bdot) {}
+    to (0,1)
+    to [out=\nwangle, in=south] (-0.7,2)
+    to ([yshift=1.2cm] m.center -| -0.7,1)
+        node (rho) [smallbox] {$s ^\dagger$};
+\draw (0,1)
+    to [out=\neangle, in=south] (f.south)
+    to (f.north)
+    to [out=up, in=\swangle] +(0.7,1)
+    to [out=\seangle, in=up] +(0.7,-1)
+    to (2.1,-0.25)
+        node [smallbox] (sigmadag) {$\sigma ^\dagger$};
+\draw (m.center) to (1.4,5.95)
+        node [above] {$\{0,1\}$};
+\node [anchor=east, smallfont, inner sep=0pt] at (bdot.west) {$\displaystyle \frac{1}{\sqrt{|S|}}$};
+%\draw [sepstyle] (-1.5,0.5) to (3,0.5);
+%\draw [sepstyle] (-1.5,4.25) to (3,4.25);
+\node [anchor=east, smallfont, inner sep=0pt] at (sigmadag.west) {$\displaystyle \frac{1}{\sqrt{2}}$};
+\node [smallbox] at (-0.7,3.5) {$D$};
+\end{tikzpicture}
+\end{aligned}
+& \quad
+\begin{aligned}
+\begin{tikzpicture}[thick, scale=\licsscale]
+\begin{pgfonlayer}{foreground}
+    \node (f) [smallbox, anchor=south, thick] at (0.7,2) {$f$};
+\end{pgfonlayer}
+\node (dot) [blackdot] at (0,1) {};
+\node (m) [whitedot] at ([xshift=0.7cm, yshift=1cm] f.north) {};
+\draw (0,-0.25)
+        node [blackdot] (bdot) {}
+    to (0,1)
+    to [out=\nwangle, in=south] (-0.7,2)
+    to ([yshift=1.2cm] m.center -| -0.7,0.8)
+        node (rho) [smallbox] {$\rho$};
+\node [above] at (-0.7,5.95) {$\mbox{Mat}(n)$};
+\draw (0,1)
+    to [out=\neangle, in=south] (f.south)
+    to (f.north)
+    to [out=up, in=\swangle] +(0.7,1)
+    to [out=\seangle, in=up] +(0.7,-1)
+    to (2.1,-0.25)
+        node [whitedot] {};
+\draw (m.center) to (1.4,5.95)
+        node [above] {$S\vphantom($};
+\node [anchor=east, smallfont, inner sep=0pt] at (bdot.west) {$\displaystyle \frac{1}{\sqrt{|S|}}$};
+%\draw [sepstyle] (-1.5,0.5) to (3,0.5);
+%\draw [sepstyle] (-1.5,4.25) to (3,4.25);
+\node at (rho.west) [anchor=east, smallfont, inner sep=2pt] {\makebox[0pt][r]{$\displaystyle \sqrt{\frac{n}{|G|}}$}};
+\draw (rho.60) to (rho.60 |- 0,5.95);
+\draw (rho.120) to (rho.120 |- 0,5.95);
+\end{tikzpicture}
+\end{aligned}
+\\
+\nonumber
+\text{\textbf{Deutsch-Jozsa}}
+& \quad
+\text{\textbf{Single-shot Grover}}
+& \quad
+\text{\textbf{Hidden subgroup}}
+\end{calign}

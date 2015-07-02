@@ -1,0 +1,110 @@
+\begin{pic}[node distance = 9.5mm]
+
+\node (equals) {$=$};
+
+%% LHS
+
+\node (LHSanchor) [left of = equals, xshift = -30mm]{$\cdot \cdot \cdot$};
+
+\node (alphajNstar) [whitedot,inner sep = 0.6mm,right of = LHSanchor] {$-\alpha^s_N$};
+\node (alphajN) [whitedot,inner sep = 0.6mm,right of = alphajNstar, xshift=3mm] {$+\alpha^s_N$};
+
+\node (alphaj1) [whitedot,inner sep = 1mm,left of = LHSanchor] {$+\alpha^s_1$};
+\node (alphaj1star) [whitedot,inner sep = 1mm,left of = alphaj1, xshift=-3mm] {$-\alpha^s_1$};
+
+\node (reddotl) [blackdot, above of = LHSanchor, yshift = 5mm, xshift = -15mm] {};
+\node (reddotr) [blackdot, above of = LHSanchor, yshift = 5mm, xshift = +15mm] {};
+
+\node (outl) [above of = reddotl, xshift = +9mm]{$\alpha^s_1$};
+\node (outdots) [above of = LHSanchor, yshift = 15mm]{$...$};
+\node (outr) [above of = reddotr, xshift = -9mm]{$\alpha^s_N$};
+
+\node (greendotl) [whitedot, below of = LHSanchor, yshift = -5mm, xshift = -7mm] {};
+\node (greendotr) [whitedot, below of = LHSanchor, yshift = -5mm, xshift = +7mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[->-=.5,out=90,in=315] (alphaj1) to (reddotl);
+\draw[-<-=.5,out=90,in=225] (alphaj1star) to (reddotl);
+
+\draw[->-=.5,out=90,in=315] (alphajN) to (reddotr);
+\draw[-<-=.5,out=90,in=225] (alphajNstar) to (reddotr);
+
+
+\draw[-<-=.5,out=135,in=270] (greendotl) to (alphaj1star);
+\draw[-<-=.5,out=45,in=270] (greendotl) to (alphajNstar);
+
+\draw[->-=.5,out=135,in=270] (greendotr) to (alphaj1);
+\draw[->-=.5,out=45,in=270] (greendotr) to (alphajN);
+
+\draw[->-=.5,out=90,in=270] (reddotl) to (outl);
+\draw[->-=.5,out=90,in=270] (reddotr) to (outr);
+
+\end{pgfonlayer}
+
+
+%% RHS
+
+\node (RHSanchor) [right of = equals, xshift = 15mm, yshift = -4mm] {};
+
+\node (lambda) [state, below of = RHSanchor, minimum width = 30mm, minimum height = 9mm] {$\Lambda'$};
+
+\node (a1sys1) [above of = lambda, xshift = -16mm] {};
+\node (ellipsissys1) [above of = lambda, xshift = -11mm] {$\cdot\cdot\cdot$};
+\node (aMsys1) [above of = lambda, xshift = -7mm] {};
+
+
+\node (a1sysN) [above of = lambda, xshift = +16mm] {};
+\node (ellipsissysN) [above of = lambda, xshift = +11mm] {$\cdot\cdot\cdot$};
+\node (aMsysN) [above of = lambda, xshift = +7mm] {};
+
+\node (localmap) [box, draw, above of = RHSanchor, minimum height = 16mm, minimum width = 36mm] {
+\textbf{Local Map}};
+
+
+\node (RHSanchorhigh) [above of = RHSanchor, yshift = 15mm] {};
+
+\node (RHSanchordots) [above of = RHSanchorhigh, yshift = -6mm] {$...$};
+
+
+\node (alfa11anchor) [below of = RHSanchorhigh, xshift = -16mm, yshift = +4mm] {};
+\node (alfa11) [blackdot, above of = alfa11anchor, yshift = -4mm] {};
+
+\node (meas1ellipsis) [below of = RHSanchorhigh, xshift = -13mm, yshift = +10mm] {$...$};
+
+\node (alfa1nanchor) [below of = RHSanchorhigh, xshift = -10mm, yshift = +4mm] {};
+\node (alfa1n) [blackdot, above of = alfa1nanchor, yshift = -4mm] {};
+
+
+\node (alfaj1anchor) [below of = RHSanchorhigh, xshift = -3mm, yshift = +4mm] {};
+\node (alfaj1) [above of = alfaj1anchor, yshift = +0mm,xshift = -3mm] {$\alpha^s_1$};
+
+\node (alfajnanchor) [below of = RHSanchorhigh, xshift = +3mm, yshift = +4mm] {};
+\node (alfajn) [above of = alfajnanchor, yshift = +0mm,xshift = +3mm] {$\alpha^s_N$};
+
+\node (alfaS1anchor) [below of = RHSanchorhigh, xshift = +16mm, yshift = +4mm] {};
+\node (alfaS1) [blackdot, above of = alfaS1anchor, yshift = -4mm] {};
+
+\node (measSellipsis) [below of = RHSanchorhigh, xshift = +13mm, yshift = +10mm] {$...$};
+
+\node (alfaSnanchor) [below of = RHSanchorhigh, xshift = +10mm, yshift = +4mm] {};
+\node (alfaSn) [blackdot, above of = alfaSnanchor, yshift = -4mm] {};
+
+
+\begin{pgfonlayer}{background}
+
+\draw[->-=.5,out=90,in=270] (lambda.150) to (a1sys1.90);
+\draw[->-=.5,out=90,in=270] (lambda.135) to (aMsys1.90);
+
+\draw[->-=.5,out=90,in=270] (lambda.45) to (a1sysN.90);
+\draw[->-=.5,out=90,in=270] (lambda.60) to (aMsysN.90);
+
+\draw[->-=.5,out=90,in=270] (alfa11anchor.270) to (alfa11);
+\draw[->-=.5,out=90,in=270] (alfa1nanchor.270) to (alfa1n);
+\draw[->-=.5,out=90,in=270] (alfaj1anchor.270) to (alfaj1);
+\draw[->-=.5,out=90,in=270] (alfajnanchor.270) to (alfajn);
+\draw[->-=.5,out=90,in=270] (alfaS1anchor.270) to (alfaS1);
+\draw[->-=.5,out=90,in=270] (alfaSnanchor.270) to (alfaSn);
+
+\end{pgfonlayer}
+
+\end{pic}

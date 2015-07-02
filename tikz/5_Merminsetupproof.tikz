@@ -1,0 +1,74 @@
+\begin{pic}[node distance = 12mm]
+
+\node (a) [whitedot, inner sep = 1mm] {$a$};
+\node (topdot) [whitedot, below of = a, yshift = 2mm] {};
+\node (antipode) [diamond,draw, below left of = topdot,  yshift = 2mm,xshift = -3mm] {};
+\node (antipoderfiller) [below right of = topdot, yshift = 2mm,xshift = +6mm] {};
+
+\node (ldot) [whitedot, below left of = antipode, yshift = 2mm, xshift = -3mm] {};
+\node (rdot) [whitedot, below right of = antipoderfiller, yshift = 2mm, xshift = + 6mm] {};
+
+
+\node (lcontroldot) [whitedot, below left of = ldot, yshift = 2mm, xshift = -2mm] {};
+\node (lcontrol) [box, below of = lcontroldot, yshift = 2mm] {$0 ... 0$};
+
+\node (rcontroldot) [whitedot, below right of = ldot, yshift = 2mm,xshift = +2mm] {};
+\node (rcontrol) [box, below of = rcontroldot, yshift = 2mm] {$0 ... 0$};
+
+\node (lvariationdot) [whitedot, below left of = rdot, yshift = 2mm,xshift = -8mm] {};
+\node (lvariation) [box, below of = lvariationdot, yshift = 2mm] {$a_1...a_m0...0$};
+
+\node (rvariationdot) [whitedot, below right of = rdot, yshift = 2mm,xshift = +8mm] {};
+\node (rvariation) [box, below of = rvariationdot, yshift = 2mm] {$0a_1...a_m0...0$};
+
+\node (controlellipsis) [below of = ldot, yshift = -2.5mm] {...};
+\node (variationellipsis) [below of = rdot, yshift = -2.5mm] {...};
+\node (controllabel) [below of = controlellipsis, yshift = 3mm] {$n_0$ controls};
+\node (variationlabel) [below of = variationellipsis, yshift = 3mm] {$V$ variations};
+
+
+
+\node (lcontrolellipsis) [below of = lcontroldot, yshift = +7mm] {...};
+\node (rcontrolellipsis) [below of = rcontroldot, yshift = +7mm] {...};
+\node (lvariationellipsis) [below of = lvariationdot, yshift = +7mm] {...};
+\node (rvariationellipsis) [below of = rvariationdot, yshift = +7mm] {...};
+
+
+\begin{pgfonlayer}{background}
+\draw[->-=.5,out=90,in=270] (topdot) to (a);
+\draw[->-=.5,out=45,in=225] (antipode) to (topdot);
+\draw[->-=.5,out=45,in=225] (ldot) to (antipode);
+\draw[->-=.5,out=135,in=315] (rdot) to (topdot);
+
+\draw[->-=.5,out=45,in=225] (lcontroldot) to (ldot);
+\draw[->-=.5,out=135,in=315] (rcontroldot) to (ldot);
+\draw[->-=.5,out=45,in=225] (lvariationdot) to (rdot);
+\draw[->-=.5,out=135,in=315] (rvariationdot) to (rdot);
+
+
+\draw[->-=.5,out=90,in=225] (lcontrol.135) to (lcontroldot);
+\draw[->-=.5,out=90,in=315] (lcontrol.45) to (lcontroldot);
+\draw[->-=.5,out=90,in=225] (rcontrol.135) to (rcontroldot);
+\draw[->-=.5,out=90,in=315] (rcontrol.45) to (rcontroldot);
+
+\draw[->-=.5,out=90,in=225] (lvariation.155) to (lvariationdot);
+\draw[->-=.5,out=90,in=315] (lvariation.25) to (lvariationdot);
+\draw[->-=.5,out=90,in=225] (rvariation.155) to (rvariationdot);
+\draw[->-=.5,out=90,in=315] (rvariation.25) to (rvariationdot);
+\end{pgfonlayer}
+
+
+%% Labels
+
+\node (l0) [left of = ldot, xshift = +3mm, yshift = -1mm] {$0$};
+\node (r0) [right of = ldot, xshift = -3mm, yshift = -1mm] {$0$};
+
+\node (la) [left of = rdot, xshift = +2mm, yshift = 0mm] {$a$};
+\node (ra) [right of = rdot, xshift = -2mm, yshift = 0mm] {$a$};
+
+\node (n00) [left of = antipode, xshift = +3mm, yshift = 0mm] {$n_0 \cdot 0$};
+\node (vaa) [right of = topdot, xshift = 0mm, yshift = -2mm] {$V \cdot a$};
+
+\node (topa) [left of = topdot, xshift = +7mm, yshift = 3.5mm] {$a$};
+
+\end{pic}

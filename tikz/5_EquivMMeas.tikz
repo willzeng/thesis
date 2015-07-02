@@ -1,0 +1,50 @@
+\begin{pic}[node distance=10mm, xscale=1, yscale=1]
+
+\node [whitedot] (0) at (-3.75, -1.25) {};
+\node [whitedot] (1) at (-2.75, -1.25) {};
+\node [whitedot, inner sep={0 pt}] (2) at (-5.45, 0.25) {$-\alpha_1^s$};
+\node [whitedot, inner sep={3 pt}] (3) at (-4.05, 0.25) {$\alpha_1^s$};
+\node [whitedot, inner sep={0 pt}] (4) at (-2.45, 0.25) {$-\alpha_N^s$};
+\node [whitedot, inner sep={2.4 pt}] (5) at (-1.05, 0.25) {$\alpha_N^s$};
+\node [blackdot] (6) at (-1.75, 1.25) {};
+\node [blackdot] (7) at (-4.75, 1.25) {};
+\node (8) at (-1.75, 2) {};
+\node (9) at (-4.75, 2) {};
+\node (10) at (-3.25, 1) {$\cdot\;\cdot\;\cdot$};
+\node (11) at (3.25, 1) {$\cdot\;\cdot\;\cdot$};
+\node [whitedot, inner sep={0 pt}] (12) at (1.05, 0.25) {$-\beta_1^s$};
+\node [whitedot] (13) at (2.75, -1.25) {};
+\node [blackdot] (14) at (4.75, 1.25) {};
+\node [blackdot] (15) at (1.75, 1.25) {};
+\node [whitedot, inner sep={3 pt}] (16) at (2.45, 0.25) {$\beta_1^s$};
+\node [whitedot, inner sep={3 pt}] (17) at (5.45, 0.25) {$\beta_N^s$};
+\node (18) at (1.75, 2) {};
+\node [whitedot] (19) at (3.75, -1.25) {};
+\node (20) at (4.75, 2) {};
+\node [whitedot, inner sep={0 pt}] (21) at (4.05, 0.25) {$-\beta_N^s$};
+\node (22) at (0, -0) {$=$};
+
+\begin{pgfonlayer}{background}
+\draw [->-=.5] (2) to (0);
+\draw [->-=.5] (1) to (3);
+\draw [->-=.5] (4) to (0);
+\draw [->-=.5] (1) to (5);
+\draw [->-=.5, bend right=45, looseness=1.00] (5) to (6.center);
+\draw [->-=.5, bend right=45, looseness=1.00] (6.center) to (4);
+\draw [->-=.5, bend right=45, looseness=1.00] (3) to (7.center);
+\draw [->-=.5, bend right=45, looseness=1.00] (7.center) to (2);
+\draw [->-=.5] (7.center) to (9.center);
+\draw [->-=.5] (6.center) to (8.center);
+\draw [->-=.5] (12) to (13);
+\draw [->-=.5] (19) to (16);
+\draw [->-=.5] (21) to (13);
+\draw [->-=.5] (19) to (17);
+\draw [->-=.5, bend right=45, looseness=1.00] (17) to (14.center);
+\draw [->-=.5, bend right=45, looseness=1.00] (14.center) to (21);
+\draw [->-=.5, bend right=45, looseness=1.00] (16) to (15.center);
+\draw [->-=.5, bend right=45, looseness=1.00] (15.center) to (12);
+\draw [->-=.5] (15.center) to (18.center);
+\draw [->-=.5] (14.center) to (20.center);
+\end{pgfonlayer}
+
+\end{pic}

@@ -1,0 +1,184 @@
+\begin{pic}[node distance = 10mm]
+
+%% Bottom
+
+
+%% Sys 1
+
+\node (a1sys1dot) [blackdot] {};
+\node (a1sys1dotl) [above of = a1sys1dot, xshift = -4mm,yshift = -3mm] {};
+\node (a1sys1dotr) [above of = a1sys1dot, xshift = +4mm,yshift = -3mm] {};
+\node (a1sys1dotellipsis) [above of = a1sys1dot, yshift = -2mm,yshift = -3mm] {$...$};
+
+\node (a1sys1) [below of = a1sys1dot,yshift = +3mm] {$a_1$};
+
+\node (sys1dotellipsis) [right of = a1sys1dot,xshift = -3mm] {$\cdot \cdot \cdot$};
+\node (sys1label) [below of = sys1dotellipsis, yshift = -2mm] {System $1$};
+
+\node (aMsys1dot) [blackdot, right of = sys1dotellipsis,xshift = -3mm] {};
+\node (aMsys1dotl) [above of = aMsys1dot, xshift = -4mm,yshift = -3mm] {};
+\node (aMsys1dotr) [above of = aMsys1dot, xshift = +4mm,yshift = -3mm] {};
+\node (aMsys1dotellipsis) [above of = aMsys1dot, yshift = -2mm,yshift = -3mm] {$...$};
+
+\node (aMsys1) [below of = aMsys1dot,yshift = +3mm] {$a_M$};
+
+\node (sys1sysiellipsis) [right of = aMsys1dot, yshift = -3mm, xshift = -1mm] {};
+
+%% Sys i
+
+\node (a1sysidot) [blackdot, right of = sys1sysiellipsis, yshift = +3mm, xshift = -1mm] {};
+\node (a1sysidotl) [above of = a1sysidot, xshift = -4mm,yshift = -3mm] {};
+\node (a1sysidotr) [above of = a1sysidot, xshift = +4mm,yshift = -3mm] {};
+\node (a1sysidotellipsis) [above of = a1sysidot, yshift = -2mm,yshift = -3mm] {$...$};
+
+\node (a1sysi) [below of = a1sysidot,yshift = +3mm] {$a_1$};
+
+\node (sysidotellipsis) [right of = a1sysidot,xshift = -3mm] {$\cdot \cdot \cdot$};
+
+\node (arsysidot) [blackdot, right of = sysidotellipsis,xshift = -3mm] {};
+\node (arsysidotl) [above of = arsysidot, xshift = -4mm,yshift = -3mm] {};
+\node (arsysidotc) [above of = arsysidot, xshift = +4mm,yshift = -3mm] {};
+\node (arsysidotr) [above of = arsysidot, xshift = +8mm,yshift = -3mm] {};
+\node (arsysidotellipsis) [above of = arsysidot, yshift = -2mm,yshift = -3mm] {$...$};
+\node (arsysidotellipsis) [above of = arsysidot, xshift = +6mm,yshift = -2mm,yshift = -3mm] {$...$};
+
+\node (arsysi) [below of = arsysidot,yshift = +3mm] {$a_r$};
+
+\node (sysilabel) [below of = arsysidot, yshift = -2mm] {System $i$};
+\node (sysidotellipsis2) [right of = arsysidot,xshift = -3mm] {$\cdot \cdot \cdot$};
+
+\node (aMsysidot) [blackdot, right of = sysidotellipsis2,xshift = -3mm] {};
+\node (aMsysidotl) [above of = aMsysidot, xshift = -4mm,yshift = -3mm] {};
+\node (aMsysidotr) [above of = aMsysidot, xshift = +4mm,yshift = -3mm] {};
+\node (aMsysidotellipsis) [above of = aMsysidot, yshift = -2mm,yshift = -3mm] {$...$};
+
+\node (aMsysi) [below of = aMsysidot,yshift = +3mm] {$a_M$};
+
+\node (sysisysNellipsis) [right of = aMsysidot, yshift = -3mm, xshift = -1mm] {};
+
+%% Sys N
+
+\node (a1sysNdot) [blackdot, right of = sysisysNellipsis, yshift = +3mm, xshift = -1mm] {};
+\node (a1sysNdotl) [above of = a1sysNdot, xshift = -4mm,yshift = -3mm] {};
+\node (a1sysNdotr) [above of = a1sysNdot, xshift = +4mm,yshift = -3mm] {};
+\node (a1sysNdotellipsis) [above of = a1sysNdot, yshift = -2mm,yshift = -3mm] {$...$};
+
+\node (a1sysN) [below of = a1sysNdot,yshift = +3mm] {$a_1$};
+
+\node (sysNdotellipsis) [right of = a1sysNdot,xshift = -3mm] {$\cdot \cdot \cdot$};
+\node (sysNlabel) [below of = sysNdotellipsis, yshift = -2mm] {System $N$};
+
+\node (aMsysNdot) [blackdot, right of = sysNdotellipsis,xshift = -3mm] {};
+\node (aMsysNdotl) [above of = aMsysNdot, xshift = -4mm,yshift = -3mm] {};
+\node (aMsysNdotr) [above of = aMsysNdot, xshift = +4mm,yshift = -3mm] {};
+\node (aMsysNdotellipsis) [above of = aMsysNdot, yshift = -2mm,yshift = -3mm] {$...$};
+
+\node (aMsysN) [below of = aMsysNdot,yshift = +3mm] {$a_M$};
+
+
+\begin{pgfonlayer}{background}
+\draw[->-=.5,out=90,in=270] (a1sys1) to (a1sys1dot);
+\draw[->-=.5,out=90,in=270] (a1sys1dot) to (a1sys1dotl);
+\draw[->-=.5,out=90,in=270] (a1sys1dot) to (a1sys1dotr);
+
+\draw[->-=.5,out=90,in=270] (aMsys1) to (aMsys1dot);
+\draw[->-=.5,out=90,in=270] (aMsys1dot) to (aMsys1dotl);
+\draw[->-=.5,out=90,in=270] (aMsys1dot) to (aMsys1dotr);
+
+\draw[->-=.5,out=90,in=270] (a1sysi) to (a1sysidot);
+\draw[->-=.5,out=90,in=270] (a1sysidot) to (a1sysidotl);
+\draw[->-=.5,out=90,in=270] (a1sysidot) to (a1sysidotr);
+
+\draw[->-=.5,out=90,in=270] (arsysi) to (arsysidot);
+\draw[->-=.5,out=90,in=270] (arsysidot) to (arsysidotl);
+\draw[-,out=90,in=270] (arsysidot) to (arsysidotc);
+\draw[->-=.5,out=90,in=270] (arsysidot) to (arsysidotr);
+
+\draw[->-=.5,out=90,in=270] (aMsysi) to (aMsysidot);
+\draw[->-=.5,out=90,in=270] (aMsysidot) to (aMsysidotl);
+\draw[->-=.5,out=90,in=270] (aMsysidot) to (aMsysidotr);
+
+\draw[->-=.5,out=90,in=270] (a1sysN) to (a1sysNdot);
+\draw[->-=.5,out=90,in=270] (a1sysNdot) to (a1sysNdotl);
+\draw[->-=.5,out=90,in=270] (a1sysNdot) to (a1sysNdotr);
+
+\draw[->-=.5,out=90,in=270] (aMsysN) to (aMsysNdot);
+\draw[->-=.5,out=90,in=270] (aMsysNdot) to (aMsysNdotl);
+\draw[->-=.5,out=90,in=270] (aMsysNdot) to (aMsysNdotr);
+
+\end{pgfonlayer}
+
+
+%% Top
+
+%% Meas 1
+
+\node (alfa1dotellipsis) [above of = sys1dotellipsis, yshift = 20mm] {$...$};
+\node (alfa1label) [above of = alfa1dotellipsis, yshift = 0mm] {Measurement $1$};
+
+\node (alfa1sys1anchor) [left of = alfa1dotellipsis, yshift = -5mm, xshift = 5mm] {};
+\node (alfa1sys1) [above of = alfa1sys1anchor,yshift = -2mm] {$\alpha^1_1$};
+
+\node (alfa1sysNanchor) [right of = alfa1dotellipsis,yshift = -5mm, xshift = -5mm] {};
+\node (alfa1sysN) [above of = alfa1sysNanchor,yshift = -2mm] {$\alpha^1_N$};
+
+%% Meas s
+
+\node (alfasanchor) [above of = arsysidot, yshift = 20mm] {};
+\node (alfaslabel) [above of = alfasanchor, yshift = 0mm] {Measurement $s$};
+\node (alfassysianchor) [below of = alfasanchor, yshift = 5mm] {};
+\node (alfassysi) [above of = alfassysianchor,yshift = -2mm] {$\alpha^s_j$};
+
+\node (alfasdotellipsisl) [left of = alfasanchor, xshift = 5mm] {$...$};
+\node (alfasdotellipsisr) [right of = alfasanchor, xshift = -5mm] {$...$};
+
+\node (alfassys1anchor) [left of = alfasdotellipsisl, yshift = -5mm, xshift = 5mm] {};
+\node (alfassys1) [above of = alfassys1anchor,yshift = -2mm] {$\alpha^s_1$};
+
+\node (alfassysNanchor) [right of = alfasdotellipsisr,yshift = -5mm, xshift = -5mm] {};
+\node (alfassysN) [above of = alfassysNanchor,yshift = -2mm] {$\alpha^s_N$};
+
+%% Meas S
+
+\node (alfaSdotellipsis) [above of = sysNdotellipsis, yshift = 20mm] {$...$};
+\node (alfaSlabel) [above of = alfaSdotellipsis, yshift = 0mm] {Measurement $S$};
+
+\node (alfaSsys1anchor) [left of = alfaSdotellipsis, yshift = -5mm, xshift = 5mm] {};
+\node (alfaSsys1) [above of = alfaSsys1anchor,yshift = -2mm] {$\alpha^S_1$};
+
+\node (alfaSsysNanchor) [right of = alfaSdotellipsis,yshift = -5mm, xshift = -5mm] {};
+\node (alfaSsysN) [above of = alfaSsysNanchor,yshift = -2mm] {$\alpha^S_N$};
+
+
+\begin{pgfonlayer}{background}
+\draw[->-=.5,out=90,in=270] (alfa1sys1anchor) to (alfa1sys1);
+\draw[->-=.5,out=90,in=270] (alfa1sysNanchor) to (alfa1sysN);
+
+\draw[->-=.5,out=90,in=270] (alfassys1anchor) to (alfassys1);
+\draw[->-=.5,out=90,in=270] (alfassysianchor) to (alfassysi);
+\draw[->-=.5,out=90,in=270] (alfassysNanchor) to (alfassysN);
+
+\draw[->-=.5,out=90,in=270] (alfaSsys1anchor) to (alfaSsys1);
+\draw[->-=.5,out=90,in=270] (alfaSsysNanchor) to (alfaSsysN);
+\end{pgfonlayer}
+
+
+%% Connecting wire and label
+
+\node (label) [above of = arsysidotc, xshift = -2mm,yshift = -2mm] {Connected iff $i=j$ and $a_r = \alpha^s_j$};
+
+\node (localmaplabel) [below of = alfa1sys1anchor, yshift = 7mm] {\textbf{Local Map}};
+
+\begin{pgfonlayer}{background}
+\node (box) [box, draw, above of = label, yshift = -8.8mm, xshift = -3mm, minimum width = 115mm, minimum height = 20.8mm, fill = none] {};
+\end{pgfonlayer}
+
+
+\begin{pgfonlayer}{background}
+\draw[->-=.5,out=90,in=270] (arsysidotc.270) to (label);
+\draw[-,out=90,in=270] (label) to (alfassysianchor.90);
+\end{pgfonlayer}
+
+
+
+\end{pic}

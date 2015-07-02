@@ -1,0 +1,57 @@
+\begin{pic}[xscale=1, yscale=1]
+\node [whitedot] (0) at (-0.75, -3) {};
+\node [whitedot] (1) at (0.75, -3) {};
+\node [blackdot] (2) at (1.75, -2.25) {};
+\node [blackdot] (3) at (-1.75, -2.25) {};
+\node [blackdot] (4) at (-1.75, -1.5) {};
+\node [blackdot] (5) at (1.75, -1.5) {};
+\node [whitedot, inner sep=2] (6) at (-2.5, -0.5) {$\beta_1$};
+\node [whitedot, inner sep=1] (7) at (-1, -0.5) {$\beta_M$};
+\node [whitedot, inner sep=2] (8) at (1, -0.5) {$\beta_1$};
+\node [whitedot, inner sep=1] (9) at (2.5, -0.5) {$\beta_M$};
+\node [style=box, draw, xscale=24, yscale=4.2] (10) at (0, 1.07) {};
+\node at (0, 1.07) {\bf Local Map};
+\node (11) at (-2.5, 0.5) {};
+\node (12) at (-1, 0.5) {};
+\node (13) at (1, 0.5) {};
+\node (14) at (2.5, 0.5) {};
+\node (15) at (-1, 1.65) {};
+\node (16) at (1, 1.65) {};
+\node (17) at (2.5, 1.65) {};
+\node (18) at (-2.5, 1.65) {};
+\node (19) at (2.5, 2.5) {};
+\node (20) at (1, 2.5) {};
+\node (21) at (-1, 2.5) {};
+\node (22) at (-2.5, 2.5) {};
+\node (23) at (0, -1.5) {$\cdot\;\cdot\;\cdot$};
+\node (24) at (0, -0.5) {$\cdot\cdot\cdot$};
+\node (25) at (-1.75, -0.5) {$...$};
+\node (26) at (1.75, -0.5) {$...$};
+\node (27) at (-1.75, 2.25) {$\cdot\;\cdot\;\cdot$};
+\node (28) at (1.75, 2.25) {$\cdot\;\cdot\;\cdot$};
+
+\begin{pgfonlayer}{background}
+        \draw [->-=.5] (3) to (0);
+        \draw [->-=.5] (1) to (3);
+        \draw [->-=.5] (2) to (0);
+        \draw [->-=.5] (1) to (2);
+        \draw [->-=.5] (3) to (4);
+        \draw [->-=.5] (4) to (6);
+        \draw [->-=.5] (4) to (7);
+        \draw [->-=.5] (2) to (5);
+        \draw [->-=.5] (5) to (8);
+        \draw [->-=.5] (5) to (9);
+        \draw [->-=.5] (9) to (14.center);
+        \draw [->-=.5] (8) to (13.center);
+        \draw [->-=.5] (7) to (12.center);
+        \draw [->-=.5] (6) to (11.center);
+        \draw [->-=.5] (18.center) to (22.center);
+        \draw [->-=.5] (15.center) to (21.center);
+        \draw [->-=.5] (16.center) to (20.center);
+        \draw [->-=.5] (17.center) to (19.center);
+\end{pgfonlayer}
+        
+\node at (-3.3, -1.6) {system 1};
+\node at (3.3, -1.6) {system N};
+        
+\end{pic}

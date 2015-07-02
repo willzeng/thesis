@@ -1,0 +1,22 @@
+\begin{pic}[node distance=8mm, xscale=1, yscale=0.7]
+
+        \node [whitedot, inner sep=1pt] (0) at (-0.75, -1.95) {\small $-\sum\alpha_i$};
+        \node [whitedot, inner sep=1pt] (1) at (0.75, -1.95) {\small $+\sum\alpha_i$};
+        \node [blackdot] (2) at (0, 0) {};
+        \node [whitedot] (3) at (0, 1) {};
+        \node (4) at (-1.5,2.5) {};
+        \node (5) at (-1, 2.5) {};
+        \node (6) at (1.5, 2.5) {};
+        \node (7) at (0, 2.5) {$\cdot\cdot\cdot$};
+
+
+\begin{pgfonlayer}{background}
+        \draw [->-=.5, bend left, looseness=1.00] (3) to (4.center);
+        \draw [->-=.5, bend left=15, looseness=0.75] (3) to (5.center);
+        \draw [->-=.5, bend right=45, looseness=1.00] (3) to (6.center);
+        \draw [->-=.5, bend right=45, looseness=0.75] (1.north) to (2);
+        \draw [->-=.5, bend right=45, looseness=0.75] (2) to (0.north);
+        \draw [->-=.5] (2) to (3);
+\end{pgfonlayer}
+
+\end{pic}

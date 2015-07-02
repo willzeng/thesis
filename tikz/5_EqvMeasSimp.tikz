@@ -1,0 +1,45 @@
+\begin{pic}[node distance=10mm, xscale=1, yscale=1]
+
+\node (0) at (0.3, -0) {$=$};
+\node [whitedot] (1) at (-2.5, -1.25) {};
+\node (2) at (-1.5, 2.25) {};
+\node [whitedot, inner sep={3 pt}] (3) at (-3.8, 0.25) {$\beta_1^s$};
+\node (4) at (-4.5, 2.25) {};
+\node [whitedot, inner sep={0 pt}] (5) at (-5.2, 0.25) {$-\beta_1^s$};
+\node [blackdot] (6) at (-4.5, 1.25) {};
+\node (7) at (-3, 1.2) {$...$};
+\node [whitedot] (8) at (-3.5, -1.25) {};
+\node [whitedot, inner sep={3 pt}] (9) at (-0.7, 0.25) {$\beta_N^s$};
+\node [blackdot] (10) at (-1.5, 1.25) {};
+\node [whitedot, inner sep={0 pt}] (11) at (-2.2, 0.25) {$-\beta_N^s$};
+\node [whitedot] (12) at (1.5, -1.25) {};
+\node [whitedot] (13) at (2.5, -1.25) {};
+\node [blackdot] (14) at (1, -0.25) {};
+\node [blackdot] (15) at (3, -0.25) {};
+\node [whitedot, inner sep={3 pt}] (16) at (3, 1) {$\beta_1^s$};
+\node [whitedot, inner sep={3 pt}] (17) at (1, 1) {$\beta_N^s$};
+\node (18) at (3, 2.25) {};
+\node (19) at (1, 2.25) {};
+\node (20) at (2, 1) {$...$};
+
+\begin{pgfonlayer}{background}
+        \draw [->-=.5] (5) to (8);
+        \draw [->-=.5] (1) to (3);
+        \draw [->-=.5] (11) to (8);
+        \draw [->-=.5] (1) to (9);
+        \draw [->-=.5, bend right=45, looseness=1.00] (9) to (10.center);
+        \draw [->-=.5, bend right=45, looseness=1.00] (10.center) to (11);
+        \draw [->-=.5, bend right=45, looseness=1.00] (3) to (6.center);
+        \draw [->-=.5, bend right=45, looseness=1.00] (6.center) to (5);
+        \draw [->-=.5] (6.center) to (4.center);
+        \draw [->-=.5] (10.center) to (2.center);
+        \draw [->-=.5] (14) to (12);
+        \draw [->-=.5] (13) to (14);
+        \draw [->-=.5] (15) to (12);
+        \draw [->-=.5] (13) to (15);
+        \draw [->-=.5] (15) to (16);
+        \draw [->-=.5] (14) to (17);
+        \draw [->-=.5] (17) to (19.center);
+        \draw [->-=.5] (16) to (18.center);
+\end{pgfonlayer}
+\end{pic}

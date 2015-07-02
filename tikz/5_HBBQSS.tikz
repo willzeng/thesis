@@ -1,0 +1,68 @@
+\begin{pic}[node distance = 12mm]
+
+\node (a) {};
+\node (topdot) [whitedot, below of = a, yshift = 3mm] {};
+\node (antipode) [below left of = topdot,  yshift = 2mm,xshift = -3mm] {};
+\node (antipodefiller) [dot, inner sep = 1mm,fill = \Zcolour, below right of = topdot, yshift = 2mm,xshift = +6mm] {$a$};
+
+\node (ldot) [whitedot, below left of = antipode, yshift = -10mm, xshift = -3mm] {};
+\node (rdot) [whitedot, below right of = antipodefiller, yshift = 2mm, xshift = + 6mm] {};
+
+
+\node (lcontroldot) [below left of = ldot, yshift = -15mm, xshift = -5mm] {secret};
+
+\node (rcontroldot) [blackdot, below right of = ldot, yshift = -2mm,xshift = +2mm] {};
+\node (alpha0) [whitedot,inner sep = 0.1mm, below right of = rcontroldot,xshift = -3mm] {$+\alpha_0$};
+\node (alpha0star) [whitedot,inner sep = 0.1mm, below left of = rcontroldot,xshift = +3mm] {$-\alpha_0$};
+
+\node (lvariationdot) [blackdot, below left of = rdot, yshift = 0mm,xshift = -8mm] {};
+\node (alpha1) [whitedot,inner sep = 0.1mm, below right of = lvariationdot,xshift = -3mm] {$+\alpha_1$};
+\node (alpha1star) [whitedot,inner sep = 0.1mm, below left of = lvariationdot,xshift = +3mm] {$-\alpha_1$};
+
+\node (rvariationdot) [blackdot, below right of = rdot, yshift = 0mm,xshift = +8mm] {};
+\node (alphaN) [whitedot,inner sep = 0.1mm, below right of = rvariationdot,xshift = -3mm] {$+\alpha_N$};
+\node (alphaNstar) [whitedot,inner sep = 0.1mm, below left of = rvariationdot,xshift = +3mm] {$-\alpha_N$};
+
+\node (lGHZ) [whitedot,below of = lvariationdot, yshift = -27mm] {}; 
+\node (rGHZ) [whitedot,right of = lGHZ,yshift = 2mm] {}; 
+
+\begin{pgfonlayer}{background}
+\draw[->-=.5,out=90,in=270] (topdot) to (a);
+\draw[->-=.5,out=45,in=225] (ldot) to (topdot);
+\draw[->-=.5,out=135,in=315] (rdot) to (antipodefiller);
+\draw[->-=.5,out=135,in=315] (antipodefiller) to (topdot);
+
+\draw[->-=.5,out=90,in=225] (lcontroldot) to (ldot);
+\draw[->-=.5,out=135,in=315] (rcontroldot) to (ldot);
+\draw[->-=.5,out=45,in=225] (lvariationdot) to (rdot);
+\draw[->-=.5,out=135,in=315] (rvariationdot) to (rdot);
+
+\draw[->-=.5,out=90,in=225] (alpha0star) to (rcontroldot);
+\draw[->-=.5,out=90,in=315] (alpha0) to (rcontroldot);
+
+\draw[->-=.5,out=90,in=225] (alpha1star) to (lvariationdot);
+\draw[->-=.5,out=90,in=315] (alpha1) to (lvariationdot);
+
+\draw[->-=.5,out=90,in=225] (alphaNstar) to (rvariationdot);
+\draw[->-=.5,out=90,in=315] (alphaN) to (rvariationdot);
+
+
+\draw[->-=.5,out=45,in=270] (rGHZ) to (alphaN);
+\draw[->-=.5,out=90,in=270] (rGHZ) to (alpha1);
+\draw[->-=.5,out=135,in=270] (rGHZ) to (alpha0);
+
+\draw[->-=.5,out=270,in=45] (alphaNstar) to (lGHZ);
+\draw[->-=.5,out=270,in=90] (alpha1star) to (lGHZ);
+\draw[->-=.5,out=270,in=135] (alpha0star) to (lGHZ);
+
+\end{pgfonlayer}
+
+\node (lend) [below of = alpha0star, yshift = -7mm] {window of attack};
+\node (rend) [below of = alphaN, yshift = -5mm, xshift = 5mm] {};
+
+
+\begin{pgfonlayer}{background}
+\draw[dashed,out = 45, in=135] (lend) to (rend);
+\end{pgfonlayer}
+
+\end{pic}
