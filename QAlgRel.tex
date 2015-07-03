@@ -99,7 +99,7 @@ The classical structures in the category of finite dimensional Hilbert spaces an
 The classical structures in the category of sets and relations are exactly the abelian groupoids.\footnote{In \cite{heunen-relFrob} this connection is extended to the non-abelian case where it is shown that all relative Frobenius algebras are groupoids.}
 \end{lemma}
 
-\subsection{Complementarity}
+\subsubsection*{Complementarity}
 Complementary bases are important features of quantum theory. In the general setting, complementary bases are understood as mutually unbiased bases in a certain sense \cite{coecke2011interacting}.  In relations there is a more direct characterization:\footnote{Theorem \ref{thm:compl} holds as long as we consider bases to be the same if their lists of groups are isomorphic.}
 \begin{theorem}[\cite{evans2009classifying}]
 \label{thm:compl}
@@ -133,7 +133,7 @@ Take $Z = \mathbb{Z}_2\oplus\mathbb{Z}_2=\{0_a,1_a,0_b,1_b\}$. The classical poi
 
 It is easy to check that bases as specified by Theorem \ref{thm:compl} have the property that each classical point $\ket{G_i}$ of the basis $Z$ corresponds to one unbiased point of $X$ and vice versa, i.e. $\ket{U_i}=\ket{H_i}$.
 This allows us to call these bases mutually unbiased, i.e. complementary \cite{evans2009classifying}.
-\subsection{Phases}
+\subsubsection*{Phases}
 
 Phases are also defined in this relational setting.  In Hilbert space quantum mechanics a quantum phase for an n-dimensional system is given by the vector
 \begin{align*}
@@ -166,7 +166,7 @@ For a basis $Z$, a \emph{GHZ} state is given by
 For a state $|\psi\rangle$, the \emph{density matrix} $|\psi\rangle\langle\psi|$ is given by the relation $xRy$ s.t. $x,y\in \psi$.
 \end{defn}
 
-\subsection{The Model QCRel}
+\subsubsection*{The Model QCRel}
 
 \begin{defn}
 Axioms 1-4, and subsequent definitions, specify the abstract process theory for \emph{quantum computation in relations: QCRel}.
@@ -181,7 +181,7 @@ This is true by construction.  The axioms on the preceding section can be interp
 
 It is worth noting that QCRel can be simply viewed as a local hidden variable theory. We consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  From this perspective, QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics \cite{abramsky2012operational}. This means that protocols exist for entanglement, teleportation, and, as we show in this paper, some familiar blackbox algorithms.
 
-\section{Graphical Notation}
+\subsection{Graphical Notation}
 \label{section:graphical}
 In this section, we introduce a simple graphical notation that is commonly used in the literature for abstract process theories \cite{qcs-notes,coecke2011categories}.  This notation will ease the inclusion of higher level proofs in our particular setting. In the context of this paper, this graphical notation acts as a more formal circuit-like model to present protocols and algorithms. For systems $A$ and $B$, we represent the relation $f:A\to B$ as:
 \begin{align*}
@@ -414,7 +414,7 @@ As was noted in Lemma \ref{lem:sdfa-rel} these classical structures exactly corr
 %\end{equation}
 %\end{defn}
 
-\section{Unitary Oracles}
+\subsection{Unitary Oracles}
 
 In order to model blackbox quantum algorithms in this setting, we must define the oracles themselves.
 We do this by building up from an abstract definition of the controlled-not gate in the literature. Let the gray classical structure on a system $A$ be given by a basis $Z=\bigoplus^{|H|}G$ and the white classical structure be a basis $X=\bigoplus^{|G|}H$. The comonoid for the gray dot is then the relation $\tinycomult[graydot]:A\to A\times A$ that for $x,a,b\in H$ is given by
@@ -602,7 +602,7 @@ OracleRel is a bijection.
 This follows directly from Theorem \ref{thm:familyofunitaries} and Corollary \ref{cor:bijections}.
 \end{proof}
 
-\section{The Fourier Transform in Relations}
+\subsection{The Fourier Transform in Relations}
 \label{sec:FT}
 
 In these algorithms we use the quantum Fourier transform for relations \cite{strongCompFT}. This is a generalized quantum Fourier transform whose definition is motivated through the relationship between classical and unbiased points of two bases.  For abelian groups $G$ and $H$, consider two groupoids $Z=\bigoplus^{|H|}G$ and $X=\bigoplus^{|G|}H$ to be complementary bases of the same system.
@@ -626,7 +626,7 @@ Take $G=\mathbb{Z}_2=\{0,1\}$, $H=\mathbb{Z}_2=\{a,b\}$, $Z = G \oplus G = \{ 0_
 
 See \cite{strongCompFT} to fully motivate this definition of the Fourier transform in QCRel and for its relationship to the usual Hadamard and Fourier transforms for Hilbert spaces and linear maps.
 
-\section{The Deutsch-Jozsa Algorithm in QCRel}
+\subsection{The Deutsch-Jozsa Algorithm in QCRel}
 
 The well known Deutsch-Jozsa algorithm is an early quantum algorithm that demonstrates a speedup over exact classical computation \cite{DJAlg1992}. It takes as input a function promised to be either constant or balanced and returns which, deterministically using only single oracle query. In this section, we model the algorithm's steps in QCRel just as it is implemented with Hilbert spaces and linear maps. This approach is somewhat dual to the usual one where different algorithms are compared on the same problem. Here we run the same abstract protocol (implemented in a different model) with the same query complexity and compare the different problems that it solves.
 
@@ -814,7 +814,7 @@ This follows immediately from the abstract proof of the Deutsch-Jozsa algorithm 
 
 This result shows that we are able to model the Deutsch-Jozsa algorithm in the nondeterministic classical setting of QCRel.
 
-\section{Single-shot Grover's Algorithm}
+\subsection{Single-shot Grover's Algorithm}
 
 Grover's algorithm \cite{Grovers1996} takes as input a set $S$ and an indicator function $f:S\to\{0,1\}$. Though the algorithm is usually probabilistic and runs a repeated series of ``Grover steps", here we consider the deterministic version that runs with a single step. Our setup requires the set $S$, as one system, as well as another system $B=\{0,1\}$. We define the basis $Z^{S}=\bigoplus^NG$ and $X^S=\bigoplus^{|G|}H$ on the $S$ system.  System $B$ has complementary bases $Z^B=\mathbb{Z}_2$ and $X^B=\mathbb{Z}_1\oplus\mathbb{Z}_1$.
 
@@ -954,7 +954,7 @@ As $D$ is a bijection, it is a unitary relation and thus a possible evolution in
 This is the same as the above example, but take $f$ to be the classical relation $\{(0,0),(2,0),(0,1),(2,1)\}$. As an element of $H_0$ is related to $\ket{\sigma}$, the algorithm will return classical points of $X^S$ which are \emph{not} mapped to $\ket{\sigma}$, i.e. the state $\ket{1\vee3}$.
 \end{example}
 
-\section{The Groupoid Homomorphism Promise Algorithm}
+\subsection{The Groupoid Homomorphism Promise Algorithm}
 
 This section models the group homomorphism algorithm from \cite{zeng2014abstract} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that paper the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups.\footnote{Making use of the structure theorem for abelian groups to complete the general case.} It is this cyclic group subroutine that we consider here. In the relational setting, the analogous GroupHomID algorithm takes as input a groupoid isomorphism $f:G\to A$, where groupoid $H$ is complementary to $G$ and groupoid $B$ is complementary to $A$.  The requirement of oracle unitarity restricts our input from groupoid homomorphisms to groupoid isomorphisms.
 \begin{corollary}

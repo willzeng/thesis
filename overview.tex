@@ -1,7 +1,56 @@
 \chapter{Overview}
 
+Despite almost two decades of research, we still seek new and useful quantum algorithms.  This is of interest in cases where the meaning of useful ranges from ``able to generate experimental evidence against the extended Church-Turing thesis" to ``commercially viable". Better languages, frameworks, and techniques for analyzing the structure of quantum algorithms will aid in these attempts.  One such  programme initiated by Abramsky, Coecke, et. al de-emphasizes the role of Hilbert spaces and linear maps and instead focuses on topological flows of information within quantum-like systems
+\cite{abramsky2008categorical,coecke2011interacting,coecke2013new}. This approach captures all the familiar structure of quantum computation from teleportation  to quantum secret-sharing and locates the particular quantum setting of Hilbert spaces as an instance of \emph{generalized compositional theories} (GCTs) ~\cite{coecke2015generalised,qcs-notes,coecke2011categories}. 
+
+This thesis develops a GCT based approach to the structure of quantum algorithms and protocols, furthering the ``search for structure" in both the foundations and applications of quantum information. We first briefly clarify the relationship of this approach to these two domains.
+ 
+\subsubsection*{Foundations}
+
+Our approach begins by considering quantum computation (quantum theory on finite dimensional Hilbert spaces) as an instance of a larger class of \emph{generalized compositional theories} (GCTs). These theories start from an process based axiomatic structure, e.g. properties like sequential and parallel composition, as opposed to purely physical axioms. This work thus contributes to existing literature that present an information theoretic foundation for quantum theory, such as Hardy~\cite{hardy2001quantum}, Chiribella et al.~\cite{chiribella2011informational}, and work in generalized probabilistic theories Barrett~\cite{barrett2007information}.  The GCT generalization focuses on the abstracting the information processing features of quantum mechanics that generate properties like the quantum Fourier transform (Section ~\ref{sec:strcomplFT}), unitary oracles (Section~\ref{sec:blackbox}), and Mermin non-locality (Chapter~\ref{chap:mermin}). Further, it allows us to consider model complex quantum protocols in different mathematical settings (Section~\ref{sec:qalgrel}). This means that while it is less of a physical generalization - where we are less concerned
+with reproducing experimental outcomes - it is an apt setting for considering the abstract structure of quantum algorithms and protocols.
+
+\begin{figure}[t]
+\label{fig:overview}
 \begin{align*}
 \input{tikz/0_outline.tikz}
 \end{align*}
+\caption[Schematic of generalized compositional theories and categorical diagrams.]{Schematic of the approach taken in this thesis. A abstracting quantum information to generalized compositional theories provides a more powerful and diagrammatic approach to presenting quantum protocols.}
+\end{figure}
 
-By generalizing from quantum information to abstract process theories we are able to lift quantum circuit diagrams into a more powerful notation for specifying and verifying algorithms.  This can then be used to investigate quantum theory, where the high-level structures are now more readily available, and to consider quantum algorithms and protocols in the more general setting of generalized compositional theories.
+
+\subsubsection*{Applications} While there already exist many intriguing applications for quantum information, from quantum computers or quantum communications networks, our knowledge of these applications is often based on isolated techniques. As it becomes necessary to consider more advanced applications the language we have used to describe quantum mechanics has similarly advanced. Differential equations led to matrix mechanics and then to quantum circuits, which have formed most known quantum algorithms as well as the basis for the current generation of quantum programming languages~\cite{green2013quipper,wecker2014liqui}. Still these languages are, by a structural standard, more akin to quantum assembly language than high-level programming languages. 
+
+By generalizing from quantum information to generalized compositional theories (Figure~\ref{fig:overview}), we are able to lift quantum circuit diagrams into a more powerful notation for specifying and verifying algorithms (Chapters~\ref{chap:qalg} and \ref{chap:qDisCo}). These higher level techniques have an important role to play as we seek to best exploit the structure of quantum theory. 
+
+\subsection*{Outline}
+
+The first two chapters introduce background material. Chapter~\ref{chap:cats} cover the basic categorical diagrams for generalized compositional theories and connect them to examples, including quantum circuits. Chapter~\ref{chap:cqm} summarizes additional known structures to define an \emph{operational generalized compositional theory.} These oGCTs have additional power on top of the GCT for quantum circuits that allows direct reasoning about observables, phases, complementarity and measurements within the categorical diagrams. Examples for quantum teleportation and the controlled-not gate are provided.
+
+Chapter~\ref{chap:qalg} contains the first of the main results of this thesis as it applies oGCTs to the study of quantum algorithms in three ways.  In Section~\ref{sec:strcomplFT}, we develop a connection between the Fourier Transform and strongly complementary observables in an oGCT.  This connection is of interest in quantum information where the Fourier Transform plays a key role in many algorithms.  The connection to strongly complementary observables pinpoints exactly where this particular transformation appears in the structure of quantum theory.  This connection is also of independent mathematical interest, as we give new categorical proofs of Pontryagin duality, the convolution theorem, and the Fourier inversion theorem in arbitrary dagger symmetric monoidal categories. This construction allows us to investigate other mathematical settings where Fourier-like transforms occur, such as in the category of sets and relations.
+
+In Section~\ref{sec:blackbox}, we use the oGCT framework and its connection to the Fourier transform to analyze quantum blackbox algorithms.  We begin with a purely abstract construction and proof of unitarity for unitary oracles in arbitrary oGCT's. This construction directly connects these unitary oracles with complementary observables. Then, as warmup, we overview Vicary's abstract verifications and generalizations  of the Deutsch-Jozsa, single-shot Grover's and hidden subgroup algorithms from~\cite{vicary-tqa}.  This allows us to introduce a new blackbox quantum algorithm for the group homomorphism identification problem. \todo{include additions HERE}
+
+Section~\ref{sec:qalgrel} leverages the oGCT presentation of these algorithms to construct a toy model of the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the GROUPHOMID algorithm in the category of sets and relations. In a particular sense, these provide non-deterministic classical models for the structure of these quantum algorithms. This section also includes some new mathematical results on self-conjugate comonoid homomorphisms in sets and relations.
+
+Chapter~\ref{chap:mermin} investigates the connection between Mermin non-locality and strongly complementary observables that was first introduced by Kissinger et al. in~\cite{coecke2012strong}. We extend this work to cover all arbitrary oGCT's by developing the connection between locality and phase groups from Coecke et al.~\cite{coecke2011phase}. This leads us to easy to check algebraic conditions on the phase groups of an oGCT that acts as a check for Mermin non-locality and locality. In particular, this allows us to show that the oGCT in sets and relations is Mermin local.
+
+Chapter~\ref{chap:qDisCo} uses recent work in an oGCT-like framework from computational linguistics, called distributional compositional (DisCo) linguistics~\cite{clark2008compositional}, to investigate quantum algorithms for computational linguistic tasks. The shared oGCT structure of quantum theory and DisCo linguistics makes quantum algorithms particularly helpful, and allows to us improve on the naive application of such algorithms. As an example, we use classical preprocessing to adapt a quantum algorithm for clustering into a sentence classification algorithm with improved an speedup.
+
+\todo{We then conclude in Chapter END\ with some musing and such.}
+ 
+\subsection*{Related Papers}
+
+Material presented in this thesis has developed out of several publications and working papers over the last few years. Much of the material in this thesis has appeared in print in these original sources and specific citations are included in the abstracts of each chapter. Some of this work was completed jointly with other researchers and these sections are also highlighted throughout the next.  Selections from these joint papers are those that this author contributed significantly towards. We provide a list of these papers in chronological order here for convenience.
+
+\begin{enumerate}
+\item Zeng, William. Diagramming Quantum Algorithms: The Fourier Transform. In \emph{Proceedings of The XXIX International Colloquium on Group-Theoretical Methods in Physics
+: Posters}, Tianjin, China, August 2012.
+\item Zeng, William and Vicary, Jamie. Abstract structure of unitary oracles for quantum algorithms. \emph{Electronic Proceedings in Theoretical Computer Science} 172, 2014, pp. 270-284.
+\item Zeng, William. Models of Quantum Algorithms in Sets and Relations. \todo{RAMICS} 2015.
+\item Zeng, William and Gogioso, Stefano. Mermin Non-locality in Abstract Process Theories.
+\item Zeng, William and Gogioso, Stefano. Fourier transforms from strongly complementary observables.
+\item Zeng, William and Coecke, Bob. Quantum algorithms for compositional natural language processing}.
+
+\end{enumerate}
+
