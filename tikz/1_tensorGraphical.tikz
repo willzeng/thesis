@@ -48,9 +48,11 @@ f\otimes g :=
 
 \end{tikzpicture}
 \end{aligned}
-\qquad \quad
+\qquad \qquad \qquad
 \idm{I} := 
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node at (1,0) {};
+\node at (5,0) {};
 \end{tikzpicture}
 \end{aligned}

@@ -1,12 +1,10 @@
 \chapter{Structures in Generalized Compositional Theories}
 \label{chap:cqm}
 
-\todo{\chapabstract{}}
+\chapabstract{In this chapter we introduce the remaining background on categorical structures for GCTs. From this background we define an operational generalized compositional theory (oGCT) that comes equipped with an operational interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  oGCTs that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
 
-In this chapter we further develop the categorical structure into a notion of an generalized compositional theory. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Generalized compositional theories that posses these properties can be considered quantum-like.
-
-\section{The dagger}
-In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced to our diagrams by adding a so-called \emph{dagger functor}.  In the case of \cat{FHilb} this corresponds with the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to recognize symmetric monoidal categories (not just \cat{FHilb}) as a kind of generalized compositional theory. 
+\section{The Dagger}
+In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced by adding a so-called \emph{dagger functor}.  In the case of \cat{FHilb} this corresponds to the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to take an operational perspective on symmetric monoidal categories (not just \cat{FHilb}). 
 
 \begin{defn}
 \label{defn:dagger}
@@ -22,7 +20,7 @@ Spelling out this definition, the dagger functor has the following properties fo
 \begin{equation}
 \idm{A}^{\dagger} = \idm{A}
 \end{equation}
-Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
+Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists in that category. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
 
 The quantum setting of \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
 \begin{defn}
@@ -38,7 +36,7 @@ A morphism $f:A\to B$ in a dagger category is:
 
 \noindent These concepts both have meaning as mathematical objects in linear algebra and as information theoretic concepts in a process theory.  For example, a projector is some process where multiple sequential applications have the same effect as a single application in the broadest possible sense.
 
-Further, the dagger can be intuitively extended to an operation on diagrams: it flips the picture upside-down around the horizontal axes.  As a visual aid, morphisms are now drawn with broken symmetry as follows:
+Further, the dagger can be intuitively extended to an operation on diagrams: it flips the picture upside-down around the horizontal axes.  As a visual aid, morphisms can now be drawn with broken symmetry as follows:
 \begin{equation}
 \label{eq:daggerPics}
 \input{tikz/1_daggerPics.tikz}
@@ -50,11 +48,11 @@ Thus the unitarity condition becomes:
 \input{tikz/1_unitarityPics.tikz}
 \end{equation}
 
-The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's as generalized compositional theories with additional structure that allows us to define a generalized version of the Born Rule that provides a basic notion of measurement.
+The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's with a generalized version of the Born rule that provides a basic notion of measurement.
 
 \begin{defn}
 \label{defn:scalar}
-A \emph{scalar} in a SMC a morphism $a:I\to I$. As these are maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
+A \emph{scalar} in a SMC is a morphism $a:I\to I$. As these are maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
 \begin{equation}
 \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
 \node [whitedot] (0) at (-1, -0) {$a$};
@@ -62,7 +60,7 @@ A \emph{scalar} in a SMC a morphism $a:I\to I$. As these are maps from the empty
 \end{equation}
 \end{defn}
 
-This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, these scalars form a commutative monoid under categorical composition \cite[Prop 6.1]{kelly1980coherence}, as naturally expressed by:
+This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, these scalars form a commutative monoid under categorical composition \cite[Prop 6.1]{kelly1980coherence}, as is graphically expressed by:
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
@@ -82,9 +80,9 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 
 \begin{defn}
 \label{def:effect}
-In a \dsmc, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
+In a $\dagger$-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{defn}
-\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them their process theoretic interpretation: just as some preparation $a:I\to A$ prepares system $A$ in that state, the effect $\dag{a}:A\to I$ eliminates the system $A$ by the process $\dag{a}$.  This duality presents generalized \emph{inner products} as compositions of states and effects \cite{abramsky2004categorical} that are reminiscent of the usual Dirac notation:
+\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them an operational interpretation: just as some preparation $p:I\to A$ prepares system $A$ in that state, the effect $\dag{p}:A\to I$ eliminates the system $A$ by the process $\dag{p}$.  This duality presents generalized \emph{inner products} as compositions of states and effects that are reminiscent of the usual Dirac notation~\cite{abramsky2004categorical}:
 \begin{equation}
 \left(
 \begin{aligned}
@@ -115,9 +113,9 @@ In a \dsmc, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 
 \section{The generalized Born rule}
 \label{sec:bornrule}
-Measurement in these generalized compositional theories comes from a statement connecting probabilities and inner products in a sense that approaches a generalized Born Rule. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
+Measurement in these dagger generalized compositional theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
 \begin{equation}
-a = X\circ Y:\mathbb{I}\to\mathbb{I}
+a = X\circ Y:I\to I.
 \end{equation}
 
 %Diagrammatically this is:
@@ -146,7 +144,7 @@ a = X\circ Y:\mathbb{I}\to\mathbb{I}
 %\end{aligned}
 %\end{equation}
 
-\noindent We could then define the operational probability Prob$(X|Y)=|a|^2$. While this clearly makes sense in \cat{FHilb}, where amplitudes are complex numbers, one might ask when under what general conditions the scalars $I\to I$ will square to our usual notion of probability. An answer is found in the following theorem:
+\noindent We could then define the operational probability Prob$(X|Y)=|a|^2$. While this clearly makes sense in \cat{FHilb}, where amplitudes are complex numbers, one might ask under what general conditions the scalars $I\to I$ will square to our usual notion of probability. An answer is found in the following theorem:
 \begin{theorem}{\cite[Thm 4.2]{vicary2011completeness}}
 In a monoidal dagger-category with simple tensor unit, which has all finite dagger-limits and for which the self-adjoint scalars are Dedekind-complete, the scalars have an involution-preserving embedding into the complex numbers.
 \end{theorem}
@@ -166,12 +164,12 @@ such that the following equations hold:
 \end{align}
 \end{defn}
 
-When duals are introduced, we common denote them by placing arrows on the objects:
+When duals are introduced, we can denote them by placing arrows on the objects:
 \begin{equation}
 \input{tikz/2_arrowdual.tikz}
 \end{equation}
 
-Thus the duality maps, commonly called ``cups" and ``caps" and their ``snake equations" have the following diagrammatic form:
+Thus the duality maps, commonly called ``cups" and ``caps", and their ``snake equations" have the following diagrammatic form:
 \begin{align}
 \input{tikz/2_capcup.tikz}
 \end{align}
@@ -192,7 +190,7 @@ We can compose these caps and cups to define the dual of any process $f:A\to B$ 
 
 \begin{example}
 \label{ex:bellduals}
-To get a better handle on what this structure means, we consider the example of \cat{FHilb}. Given some finite dimensional Hilbert space $A\in\objs{FHilb}$, its dual $A^*$ is the usual dual space, i.e. the space of linear functionals $A\to \mathbb{C}$. Note that in this case $A$ is isomorphic to $A^*$, and thus we can canonically map $\bra{i}\mapsto\ket{i}$. Because of this isomorphism, we will often omit the arrows on wires when working in this case. Using this and given a basis $\{ \ket{i} \}$ for $A$, the cups and the caps are maps:
+To get a better handle on what this structure means, we consider the example of \cat{FHilb}. Given some finite dimensional Hilbert space $A\in\objs{FHilb}$, its dual $A^*$ is the usual dual space, i.e. the space of linear functionals $A\to \mathbb{C}$. Note that in this case $A$ is isomorphic to $A^*$, and thus we can canonically map $\bra{i}\mapsto\ket{i}$. Because of this isomorphism, we will often omit the arrows on wires when working in \cat{FHilb}. Using this and given a basis $\{ \ket{i} \}$ for $A$, the cups and the caps are maps:
 \begin{align}
 e_A &:: 1\mapsto \sum_i\bra{i}\otimes\ket{i}\cong\sum_i\ket{i}\otimes\ket{i}
 \\
@@ -204,26 +202,26 @@ We then immediately recognize $e_A$ as entangled state preparation. In particula
 This provides a motivating example for the following, which acts as a generalized conjugation operation:
 
 \begin{defn}
-Given a oCGT \cat{C}, the \emph{lower-star} is an involutive map 
+Given a GCT with duals \cat{C}, the \emph{lower-star} is an involutive map 
 \begin{align*}
 (-)_*:\arrs{C}&\to\arrs{C} \\
 \left(f:A\to B\right) &\mapsto f_*:=(\dag{f})^*=\dag{(f^*)}.
 \end{align*}
 \end{defn}
 
-This now gives us a way to talk about abstract probabilities for the generalized Born rule:
+The lower-star operation introduces abstract probabilities for the generalized Born rule:
 \begin{defn}[Generalized Born Rule]
 \label{def:bornrule}
 For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probability of outcome $X$ given preparation $Y$ is:
 \begin{equation}
-\mbox{Prob}(X|Y) = (X\circ Y)^*\otimes X\circ Y:\mathbb{I}\to\mathbb{I}
+\mbox{Prob}(X|Y) = (X\circ Y)^*\otimes X\circ Y:I\to I.
 \end{equation}
 \end{defn}
 \noindent It is easy to see that this reduces to the usual Born rule in \cat{FHilb}.
 
 \subsection{Operational Generalized Compositional Theories}
 
-The addition of states and a generalized Born rule (with further details in the following section), give our generalized compositional theories a notion of measurement and an operational character.
+The addition of states and a generalized Born rule (with further details in this section), give our generalized compositional theories a notion of measurement and an operational character.
 
 \begin{defn}(Operational Generalized Compositional Theories)
 \label{thm:ogct}
@@ -237,7 +235,7 @@ Duals and their ``wire-straightening" equations give diagrams in an oGCT a lot o
 Two diagrams in an oGCT are considered equal if one can be smoothly transformed to another by bending, stretching, or crossing wires, and by moving boxes around. Given any two oGCTs $\cat{C}$ and $\cat{D}$ and a map $F:\cat{C}\to\cat{D}$, for any two diagrams $d$ and $d'$ in $\cat{C}$, if $d=d'$ as diagrams then $F(d)=F(d')$ in $\cat{D}$.
 \end{theorem}
 
-To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by diagrammatic manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through matrix mechanics that accompany it. The use of this difference - the  additional structure of operational generalized compositional theories versus generalized compositional theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by~\cite{abramsky2004categorical}.
+To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through the matrix mechanics that accompany it. The use of this difference - the  additional structure of operational generalized compositional theories versus generalized compositional theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by~\cite{abramsky2004categorical}.
 
 \begin{example} 
 We saw in Example \ref{ex:bellduals} that caps and cups represent preparation and post-selected measurement of one of the Bell states $\ket{\psi_{00}}$. The other Bell states can be prepared and/or measured by the application of a unitary to one of the entangled systems:
@@ -280,7 +278,7 @@ Here the cup map represents the shared Bell state.  Alice performs a Bell measur
 \end{equation}
 This presentation of the teleportation protocol is useful in several ways:
 \begin{enumerate}
-\item This presentation of teleportation make the high level structure of the protocol (the teleportation) immediately manifest without accompanying calculation.
+\item The high level structure of the protocol (the teleportation) is immediately manifest without accompanying calculation.
 \item It is obvious how to design equivalent teleportation protocols with multiple parties and Bell measurements in more elaborate arrangements, e.g.
 \begin{equation}
 \input{tikz/2_weirdteleport.tikz}
@@ -289,7 +287,7 @@ This presentation of the teleportation protocol is useful in several ways:
 \end{enumerate}
 \end{example}
 
-Operational generalized compositional theories already give us some power above and beyond the usual quantum circuit formalism, and we add more structures to the toolbox in the next sections.  We have glossed over some of the details of how measurement should be represented in such theories, but the introduction of structures for observables in the next sections allows us to more exactly specify the details in Section \ref{sec:measurements}. 
+Operational generalized compositional theories already give us some power above and beyond the usual quantum circuit formalism, and we add more structures to the toolbox in the next sections.  We have glossed over some of the details of how measurement should be represented in such theories, but the introduction of structures for observables in the next sections allows us to be more exact in Section~\ref{sec:measurements}. 
 
 \section{\todo{Other possibilities if needed}}
 \todo{Superpositions? aka sums of diagrams?}
@@ -297,11 +295,11 @@ Operational generalized compositional theories already give us some power above 
 \section{Observables}
 \label{sec:observables}
 
-Within a process theory we can construct objects that have the phenomenology of classical information: copying, deleting, etc. These structures become the observables of oGCTs that allow us to extract classical information from them via measurements.
+Within a process theory we can construct objects that have the phenomenology of classical information: copying, deleting, etc. These structures become the observables of oGCTs that allow us to extract classical information via measurements.
 
 \subsection{Monoids and comonoids}
 
-Monoids and comonoids on systems embody our notions of copying and comparing states. As they are a particular kinds of processes we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,1)$ has states of $A$ as elements and maps:
+Monoids and comonoids on systems embody our notions of copying and comparing states. As they are a particular kinds of processes we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,\mathbbm{1})$ has states of $A$ as elements and maps:
 \begin{equation}
 \input{tikz/1_monoidPics.tikz}
 \end{equation}
@@ -326,7 +324,7 @@ In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an 
 
 \noindent We use differently colored dots to represent different monoids on the same object.
 \begin{defn}
-In a monoidal category and object $A$, a \emph{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
+In a monoidal category with object $A$, a \emph{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
 \begin{equation}
 \label{eq:mon_hom}
 \input{tikz/1_mon_hom.tikz}
@@ -341,6 +339,7 @@ We can then ask for the comonoid and monoid to interact in various ways.
 When monoids and comonoids combine under certain rules, we obtain the structure of classical information on systems in an oGCT.
 
 \begin{defn}
+\label{def:frobenius}
 In a \dsmc the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} form a \emph{dagger-Frobenius algebra} when the following equation holds:
 \begin{equation}
 \label{eq:frobenius}
@@ -475,7 +474,7 @@ The correspondence in Theorem \ref{thm:cstructBases} was modified for the infini
 
 \begin{defn}
 \label{def:dimension}
-In a symmetric monoidal dagger-category, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitecomonoid{A} is given by the following composite:
+In an oGCT, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitecomonoid{A} is given by the following composite:
 \begin{equation}
 \label{eq:dim}
 \input{tikz/1_dimension.tikz}
@@ -497,20 +496,19 @@ d(A) \;= \;
 It is important to note that the dimension of a system does not always equal the number of classical states of the associated classical structure. One setting where this does not hold is \cat{FRel}, where this fact plays an important role in its oGCT characterization in Chapter~\ref{chap:mermin}.
 \end{remark}
 
-The rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams for an oGCT. We recursively define
-maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ by:
+The rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams of an oGCT. Let the maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ be defined recursively by:
 \begin{align}
 \tinycomult[whitedot]_0:=\tinycounit[whitedot]
 \qquad\qquad
 \tinycomult[whitedot]_{n+1}:=\left(\tinycomult[whitedot]_{n}\otimes\idm{A}\right)\circ\tinycomult[whitedot]
 \end{align}
-where $\tinymult[whitedot]_n$ is similarly defined.
+Let $\tinymult[whitedot]_n$ be similarly defined.
 \begin{theorem}[Spider Theorem]
 \label{thm:spider}
 Given a classical structure, let \newline$f:A^{\otimes n}\to A^{\otimes m}$  be constructed from $\{\tinymult[whitedot],\tinycomult[whitedot],\tinyunit[whitedot],\tinycounit[whitedot]\}$ such that the diagram is connected. Then $f=\tinycomult[whitedot]_m\circ\tinymult[whitedot]_n$.
 \end{theorem}
 
-\noindent We then define a neat diagrammatic representation for this normal form.
+\noindent This normal form has a neat diagrammatic representation.
 
 \begin{proposition}\label{prop:spider}\em 
 Given a classical structure on $A$, let
@@ -525,7 +523,7 @@ composition is:
 \end{equation}
 \end{proposition}
 
-The spider rule makes it clear that every classical structure on $A$ can be used to make $A$ dual (Definition~\ref{def:dual}) to itself using cups and caps built from the white dot:
+The spider rule makes it clear that every classical structure on $A$ can be used to make $A$ dual to itself (Definition~\ref{def:dual}) using cups and caps built from the white dot:
 \tikzeq{tikz/2_frobcomp.tikz}
 
 The upper and lower star operations with respect to this white dot cup and cap corresponds in \cat{FHilb} to transposition and conjugation in the white dot  basis respectively. Further it can be shown that transposition with respect to a classical structure is equivalent to the dagger when applied to its classical states:
@@ -537,7 +535,7 @@ The upper and lower star operations with respect to this white dot cup and cap c
 
 \section{Phases}
 \label{sec:phases}
-Phases were introduced in this setting by \cite{coecke2011interacting}.
+Phases for oGCTs were introduced by \cite{coecke2011interacting}.
 
 \begin{defn}
 \label{def:phases}
