@@ -219,6 +219,20 @@ For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probabil
 \end{defn}
 \noindent It is easy to see that this reduces to the usual Born rule in \cat{FHilb}.
 
+The cup and cap maps also provide an abstract definition for the trace of a process:
+\begin{equation}
+\label{eq:trace}
+\Tr \left(\begin{pic}
+\node (0) at (0,0) {};
+\node [morphism, wedge] (1) at (0,1) {$f$};
+\node (2) at (0,2) {};
+\draw (0) to (1.south);
+\draw (1.north) to (2);
+\end{pic} \right) = 
+\input{tikz/3_trace.tikz},
+\end{equation}
+whose correspondence with the usual trace is easy to check~\cite{coecke2015generalised}.
+
 \subsection{Operational Generalized Compositional Theories}
 
 The addition of states and a generalized Born rule (with further details in this section), give our generalized compositional theories a notion of measurement and an operational character.
@@ -288,9 +302,6 @@ This presentation of the teleportation protocol is useful in several ways:
 \end{example}
 
 Operational generalized compositional theories already give us some power above and beyond the usual quantum circuit formalism, and we add more structures to the toolbox in the next sections.  We have glossed over some of the details of how measurement should be represented in such theories, but the introduction of structures for observables in the next sections allows us to be more exact in Section~\ref{sec:measurements}. 
-
-\section{\todo{Other possibilities if needed}}
-\todo{Superpositions? aka sums of diagrams?}
 
 \section{Observables}
 \label{sec:observables}
@@ -462,7 +473,7 @@ Classical structures in FHilb are orthonormal bases.
 
 \begin{defn}
 \label{def:enoughclassicalpoints}
-A classical structure has \emph{enough classical points} when for all processes $f,g:A\to B$: 
+A classical structure has \emph{enough classical states} when for all processes $f,g:A\to B$: 
 \begin{align}
 f=g \qquad \mbox{iff}\qquad \left(\forall \ket{j}\in K_{\circ}:f\circ\ket{j}=g\circ\ket{j}\right)\; 
 \end{align}
@@ -564,6 +575,7 @@ with unit $\tinyunit[whitedot]$. When the Frobenius algebra is part of a classic
 
 Phases can be added to the normal form from Theorem~\ref{thm:spider} to give a decorated spider rule~\cite[Thm 7.11]{coecke2011interacting}:
 \begin{equation}
+\label{eq:decspider}
 \input{tikz/2_decspider.tikz}
 \end{equation}
 with composition
@@ -589,7 +601,21 @@ The map $S:A\to A$ is called the \emph{antipode}.
 \end{defn}
 The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. We show this with a quick calculation:
 \tikzeq{tikz/2_complemub.tikz}
-where $(*)$ is an application of Theorem \ref{thm:fund}.
+where $(*)$ is an application of Theorem \ref{thm:fund}. 
+%We refer to the gray states $\{\ket{j}\}$ as \emph{unbiased states} for %the $\dotonly{whitedot}$-classical structure. Similarly the white states %$\{\keti}\}$ are unbiased states for the $\dotonly{graydot}$-classical structure.
+
+Complementarity relates the classical states of classical structures to their phase groups.
+\begin{lemma}
+\label{lem:phaseunbiased}
+If two classical structures in an oGCT are complementary, then, up to an idempotent scalar, a state that is a classical point of one is a phase state for the other.
+\end{lemma}
+\begin{proof}
+We prove this using diagrams, following~\cite{qcs-notes}:
+\begin{equation}
+\input{tikz/3_phaseUnbiased.tikz}
+\end{equation}
+\end{proof}
+Though the converse of this lemma holds in \cat{FHilb}, i.e. each phase is also a classical point of the complementary structure, the converse does not hold in general.
 
 %\noindent 
 %Note that this is not a symmetric condition between the gray and white structures. %However, thanks to the symmetric property of the dagger-Frobenius algebras, %it is equivalent to the following alternative condition:
@@ -645,15 +671,52 @@ K_{\dotonly{whitedot}} &= \{\ket{0},\ket{1}\}
 K_{\dotonly{graydot}} &= \{\ket{+},\ket{-}\}
 \end{align*}
 
-These classical structures are coherent and complementary and can be used to define the controlled-not $\mbox{CNOT}:H_2\otimes H_2\to H_2\otimes H_2$ whose diagram is:
+These classical structures are coherent and complementary and each have $\mathbb{Z}_2$ as their phase groups, which we will write as $\{0,\pi\}$ where addition is modulo $2\pi$.  By Lemma~\ref{lem:phaseunbiased}, we know that the classical points of the $\dotonly{whitedot}$-structure are phases for the $\dotonly{graydot}$-structure. In particular we have:
+\begin{equation}
+\label{ex:cnottypes}
+\begin{pic}
+\node [style=state] (0) at (1, -0) {$0$};
+\node (1) at (1, 1) {};
+\draw (0) to (1);
+\end{pic}
+\;=\;
+\begin{pic}
+\node [style=graydot] (0) at (1, -0) {};
+\node (1) at (1, 1) {};
+\draw (0) to (1);
+\end{pic}
+\qquad\qquad\qquad
+\begin{pic}
+\node [style=state] (0) at (1, -0) {$1$};
+\node (1) at (1, 1) {};
+\draw (0) to (1);
+\end{pic}
+\;=\;
+\begin{pic}
+\node [style=graydot] (0) at (1, -0) {$\pi$};
+\node (1) at (1, 1) {};
+\draw (0) to (1);
+\end{pic}
+\qquad\qquad\qquad
+\begin{pic}[scale=0.8]
+\node [style=graydot] (0) at (1, -0) {$\pi$};
+\node (1) at (1, 1) {};
+\node (2) at (1, -1) {};
+\draw (0) to (1);
+\draw (0) to (2);
+\end{pic}
+\;=\;
+X\mbox{-gate}
+\end{equation}
+These structures can be used to define the controlled-not $\mbox{CNOT}:H_2\otimes H_2\to H_2\otimes H_2$ whose diagram is:
 \begin{align}
 \input{tikz/2_cnot.tikz}
 \end{align}
-\noindent where the right system acts as the control. We can verify that this behaves as usual for qubits using Z (the whitedot classical structure as their computational basis.
+\noindent where the right system acts as the control. We can verify that this behaves as usual for qubits using Z (the $\dotonly{whitedot}$-classical structure as their computational basis).
 \begin{align}
 \begin{pic}[dotpic]
-                \node [style=graydot] (0) at (1, -0) {};
-                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [style=whitedot] (0) at (1, -0) {};
+                \node [style=graydot] (1) at (-1, -0) {};
                 \node [point] (2) at (1, -1) {$0$};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
@@ -664,11 +727,11 @@ These classical structures are coherent and complementary and can be used to def
                 \draw (1) to (4.center);
                 \draw (0) to (5.center);
 \end{pic}
-\;&=\;
+\;&\stackrel{\eqref{ex:cnottypes}}{=}\;
 \begin{pic}[dotpic]
-                \node [style=graydot] (0) at (1, -0) {};
-                \node [style=whitedot] (1) at (-1, -0) {};
-                \node [whitedot] (2) at (1, -1) {};
+                \node [style=whitedot] (0) at (1, -0) {};
+                \node [style=graydot] (1) at (-1, -0) {};
+                \node [graydot] (2) at (1, -1) {};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
                 \node (5) at (1, 1) {};
@@ -680,9 +743,9 @@ These classical structures are coherent and complementary and can be used to def
 \end{pic}
 \;\stackrel{\eqref{eq:coherence}}{=}\;
 \begin{pic}[dotpic]
-                \node [style=whitedot] (0) at (0, -0) {};
-                \node [style=whitedot] (1) at (-1, -0) {};
-                \node [whitedot] (2) at (1, 0) {};
+                \node [style=graydot] (0) at (0, -0) {};
+                \node [style=graydot] (1) at (-1, -0) {};
+                \node [graydot] (2) at (1, 0) {};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
                 \node (5) at (1, 1) {};
@@ -691,9 +754,9 @@ These classical structures are coherent and complementary and can be used to def
                 \draw (3.center) to (1);
                 \draw (1) to (4.center);
 \end{pic}
-\;=\;
+\;\stackrel{\eqref{eq:decspider}}{=}\;
 \begin{pic}[dotpic]
-                \node [whitedot] (2) at (1, 0) {};
+                \node [point] (2) at (1, 0) {$0$};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
                 \node (5) at (1, 1) {};
@@ -702,8 +765,8 @@ These classical structures are coherent and complementary and can be used to def
 \end{pic}
 \\
 \begin{pic}[dotpic]
-                \node [style=graydot] (0) at (1, -0) {};
-                \node [style=whitedot] (1) at (-1, -0) {};
+                \node [style=whitedot] (0) at (1, -0) {};
+                \node [style=graydot] (1) at (-1, -0) {};
                 \node [point] (2) at (1, -1) {$1$};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
@@ -714,11 +777,11 @@ These classical structures are coherent and complementary and can be used to def
                 \draw (1) to (4.center);
                 \draw (0) to (5.center);
 \end{pic}
-\;&=\;
+\;&\stackrel{\eqref{ex:cnottypes}}{=}\;
 \begin{pic}[dotpic]
-                \node [style=graydot] (0) at (1, -0) {};
-                \node [style=whitedot] (1) at (-1, -0) {};
-                \node [whitedot] (2) at (1, -1) {$\pi$};
+                \node [style=whitedot] (0) at (1, -0) {};
+                \node [style=graydot] (1) at (-1, -0) {};
+                \node [graydot] (2) at (1, -1) {$\pi$};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
                 \node (5) at (1, 1) {};
@@ -728,11 +791,11 @@ These classical structures are coherent and complementary and can be used to def
                 \draw (1) to (4.center);
                 \draw (0) to (5.center);
 \end{pic}
-\;\stackrel{\eqref{eq:coherence}}{=}\;
+\,\stackrel{\eqref{eq:coherence}}{=}\,
 \begin{pic}[dotpic]
-                \node [style=whitedot] (0) at (0, -0) {$\pi$};
-                \node [style=whitedot] (1) at (-1, -0) {};
-                \node [whitedot] (2) at (1.5, 0) {$\pi$};
+                \node [style=graydot] (0) at (0, -0) {$\pi$};
+                \node [style=graydot] (1) at (-1, -0) {};
+                \node [graydot] (2) at (1.5, 0) {$\pi$};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
                 \node (5) at (1.5, 1) {};
@@ -741,10 +804,10 @@ These classical structures are coherent and complementary and can be used to def
                 \draw (3.center) to (1);
                 \draw (1) to (4.center);
 \end{pic}
-\;=\;
+\;\stackrel{\eqref{eq:decspider}}{=}\;
 \begin{pic}[dotpic]
-                \node [style=whitedot] (1) at (-1, -0) {$\pi$};
-                \node [whitedot] (2) at (1.5, 0) {$\pi$};
+                \node [style=graydot] (1) at (-1, -0) {$\pi$};
+                \node [point] (2) at (1.5, 0) {$1$};
                 \node (3) at (-1, -1) {};
                 \node (4) at (-1, 1) {};
                 \node (5) at (1.5, 1) {};
@@ -753,7 +816,7 @@ These classical structures are coherent and complementary and can be used to def
                 \draw (1) to (4.center);
 \end{pic}
 \end{align}
-This shows that on computational basis elements, the control is left unchanged while a $\pi$ Z-rotation (a computational bit flip) is conditionally applied.
+This shows that on computational basis elements, the control is left unchanged while a $X$-gate (a computational bit flip) is conditionally applied.
 \end{example}
 
 This example construction motivates the following definition on any kind of system in any oGCT:
@@ -776,6 +839,50 @@ where we have assumed that a scalar equal to the square root of the dimension ex
 \end{defn}
 \noindent This scalar is needed to ensure the unitarity of the controlled-not gate, which we discuss in further details in Section \ref{sec:unitaryoracles}.
 
+\section{Enriched oGCTs}
+\label{sec:enrichedogcts}
+Some oGCTs, such as \cat{FHilb} come equipped with linear structure on their processes. Abstractly these are enriched categories, i.e. categories where hom-sets are replaced with other objects.\footnote{A standard reference for enriched category theory is~\cite{kelly1982basic}.}
+
+\begin{defn}
+\label{def:enrichedcat}
+Given a monoidal category $K$, a $K$-enriched category \cat{C} has objects $\objs{C}$ such that:
+\begin{itemize}
+\item For every pair of $A,B\in\objs{C}$ there is a hom-object:
+\begin{align}
+\cat{C}(A,B)\in \objs{K}.
+\end{align}
+\item For all objects $A,B,C\in\objs{C}$ composition is given by a morphism in $\arrs{K}$ of type:
+\begin{align}
+ $\circ_{A,B,C}:\cat{C}(B,C)\otimes\cat{C}(A,B)\to\cat{C}(C,A).
+\end{align}
+\end{itemize}
+\end{defn}
+
+Linear maps between Hilbert spaces themselves form a vector space, so \cat{FHilb} is in fact a $\cat{FVect}$-enriched category. Another way of saying this is that \cat{FHilb} is enriched in \cat{FVect}. As diagrams of a GCT are morphisms in a category, diagrams in an enriched category have additional operations. The \cat{FVect} enrichment of \cat{FHilb}, for example, allows us to sum diagrams, as in the following property. Here \cat{Mon} is the category of monoids and monoid homomorphisms.
+
+
+\begin{defn}
+In a \cat{Mon}-enriched oGCT, a set of states $\{\ket{x}\}$ on a system $A$ forms a \emph{resolution of the identity} when:
+\begin{equation}
+\label{eq:ResolutionId}
+\input{tikz/3_multcharresolutionID.tikz}
+\end{equation}
+\end{defn}
+
+\noindent Where the sum operation comes from a monoid structure of the hom-object \cat{C}(A,A). In \cat{FHilb} more specifically, this the addition is inherited  from the vector space enrichment. In fact, in Hilbert spaces all the classical states of any classical structure form a resolution of the identity. Further, we are able to link the classical structure maps to classical states in the following ways~\cite{coecke2015generalised}:
+\begin{align}
+\label{eq:spidersums}
+\input{tikz/3_spider_sums.tikz}
+\end{align}
+Arbitrary spiders can then be written as:
+\begin{align}
+\input{tikz/3_spider_sums_n_legs.tikz}
+\end{align}
+
+\begin{remark}
+We emphasize that this connection between classical states and classical structures does not hold in general oGCTs, but merely serves to further motivate abstract constructions that generalize from \cat{FHilb}. We make use of this technique in the following section on measurements.
+\end{remark}
+
 \section{Measurements}
 \label{sec:measurements}
 
@@ -783,10 +890,11 @@ We have already introduced a notion of post-selected measurement in Definition~\
 
 Using caps and cups, we can construct the unique ``name" of a process $\rho$ as:
 \begin{equation}
+\label{eq:cj}
 \input{tikz/2_mapstateduality.tikz}
 \end{equation}
-The ``doubling" that occurs here, provides a natural way to represent measurements as completely positive maps. Suppose we wish to measure a system with respect to a classical structure $\graycomonoid{A}$,
-whose classical points form an orthonormal basis $\{ \ket{x_i} \}$. The probability
+This is the usual Choi-Jamiolkowski  isomorphism for map-state duality in quantum information. The ``doubling" that occurs here, provides a natural way to represent measurements as completely positive maps. Suppose we wish to measure a system with respect to a classical structure $\graycomonoid{A}$,
+whose classical states form an orthonormal basis $\{ \ket{x_i} \}$. The probability
 of getting the $i$-th measurement outcome is computed using the Born
 rule: 
 \begin{equation}
@@ -806,7 +914,7 @@ So, $M$ defines a linear map from density matrices to probability distributions.
 \node [style={gray point}] (m) at (0, 1.25) {$i$};
 \draw [diredge] (m) to (0,2.25)
 \end{pic}
-\;=\;
+\;\stackrel{\eqref{eq:trace}}{=}\;
 \input{tikz/2_measurementderivation2.tikz}
 \end{equation}
 
@@ -819,14 +927,18 @@ So, $M$ defines a linear map from density matrices to probability distributions.
   \end{equation}
 \end{defn}
 
+\begin{example}
+
+\end{example}
+
 \section{Summary of oGCTs}
 
 This chapter has introduced the main framework that is used in this thesis. This framework performs two functions:
 \begin{enumerate}
-\item This lifts the structure of quantum computation into the general setting of operational generalised compositional theories. This allows the study of protocols like teleportation, state transfer, quantum secret sharing, quantum bit commitment, Mermin non-locality tests, and other protocols to be handled at an abstract level and studied in different oGCTs.
-\item The categorical diagrams that accompany oGCT's present a more powerful quantum circuit language. This is one that includes bases, classical information, complementarity, and phases explicitly and posses rules for manipulating these structures within the diagrams themselves. We give a summarizing table of these structures at the end of this chapter.
+\item oGCTs lift the structure of quantum computation into the general setting of operational generalised compositional theories. This allows the study of protocols like teleportation, state transfer~\cite{cqm-notes}, quantum secret sharing (Section~\ref{section_QSS}), quantum bit commitment~\cite{katriel-commitment}, Mermin non-locality tests (Chapter~\ref{chap:mermin}), and other protocols (Chapters~\ref{chap:qalg} and~\ref{chap:qDisCo}) to be handled at an abstract level and studied in different oGCTs.
+\item The categorical diagrams that accompany oGCT's present a more powerful quantum circuit language. This is one that includes bases, classical information, complementarity, and phases explicitly and gives rules for manipulating these structures within the diagrams themselves. We present a summarizing table of these structures at the end of this chapter.
 \end{enumerate}
-Both the abstraction and diagrammatic formalism provide powerful tools throughout the results presented here.
+Both the abstraction and diagrammatic formalism provide powerful tools throughout the results in this thesis.
 
 %\newpage
 

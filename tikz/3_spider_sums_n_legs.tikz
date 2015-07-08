@@ -1,0 +1,30 @@
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node (0) at (-3.5, -1.25) {};
+                \node (1) at (-0.75, -0) {$=$};
+                \node (2) at (-3.25, 1.25) {};
+                \node [style={graydot}] (3) at (-2.5, -0) {};
+                \node (4) at (-1.5, -1.25) {};
+                \node (5) at (1.75, -1.5) {};
+                \node [yshift={-0.8 mm}] (6) at (0.5, -0) {$\underset{i}{\sum}$};
+                \node [style={gray point}] (7) at (2, 0.75) {$i$};
+                \node [style={gray copoint}] (8) at (1.75, -0.75) {$i$};
+                \node [style={gray copoint}] (9) at (3.75, -0.75) {$i$};
+                \node (10) at (3.75, -1.5) {};
+                \node (11) at (2, 1.5) {};
+                \node (12) at (-1.75, 1.25) {};
+                \node (13) at (-2.5, 0.75) {...};
+                \node (14) at (-2.5, -0.75) {...};
+                \node [style={gray point}] (15) at (3.5, 0.75) {$i$};
+                \node (16) at (3.5, 1.5) {};
+                \node (17) at (2.75, -0.5) {...};
+                \node (18) at (2.75, 0.5) {...};
+
+                \draw [in=-165, out=90, looseness=1.00] (0.center) to (3);
+                \draw [in=-15, out=90, looseness=1.00] (4.center) to (3);
+                \draw [in=-90, out=165, looseness=1.00] (3) to (2.center);
+                \draw (7) to (11.center);
+                \draw (10.center) to (9);
+                \draw (5.center) to (8);
+                \draw [in=-90, out=15, looseness=1.00] (3) to (12.center);
+                \draw (15) to (16.center);
+\end{pic}

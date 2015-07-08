@@ -1,0 +1,94 @@
+\begin{pic}[xscale=-1*\tikzxscale, yscale=\tikzyscale]
+\node [style=state] (0) at (0, -1) {$a$};
+\node [style=graydot] (1) at (0, -0) {};
+\node [style=state, hflip] (2) at (-1, 1) {$a$};
+\node (3) at (1, 1) {};
+\node (4) at (1, 2) {};                
+
+\draw (0) to (1);
+\draw (3.center) to (4);
+\draw [bend left=45, looseness=1.00] (1) to (2);
+\draw [bend right=45, looseness=1.00] (1) to (3.center);
+\end{pic}
+\;\stackrel{\small \mbox{Thm}~\ref{thm:spider}}{=}\;
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node [style=state] (0) at (-2, -0.5) {$a$};
+                \node [style=graydot] (1) at (-1, 0.5) {};
+                \node [style=graydot] (2) at (1, -1.5) {};
+                \node [style=state, hflip] (3) at (2, -0.5) {$a$};
+                \node (4) at (-1, 1.5) {};
+                \node (5) at (0, -0.5) {};
+                \draw [bend left=45, looseness=0.75] (0) to (1);
+                \draw (1) to (4.center);
+                \draw [bend right=45, looseness=1.00] (2) to (3);
+                \draw [bend left=45, looseness=0.75] (1) to (5.center);
+                \draw [bend right=45, looseness=0.75] (5.center) to (2);
+\end{pic}
+\;\stackrel{\eqref{eq:sym}}{=}\;
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node [style=state] (0) at (-2, -0.25) {$a$};
+                \node [style=graydot] (1) at (-1, 1.5) {};
+                \node [style=state, hflip] (2) at (0, -0.5) {$a$};
+                \node (3) at (-1, 2.5) {};
+                \node (4) at (1.75, -0.5) {};
+                \node [style=graydot] (5) at (1, -1.5) {};
+
+                \draw [bend left=45, looseness=0.75] (0) to (1);
+                \draw (1) to (3.center);
+                \draw [bend left=60, looseness=0.50] (1) to (4.center);
+                \draw [bend right=45, looseness=1.00] (5) to (4.center);
+                \draw [in=-90, out=180, looseness=1.00] (5) to (2);
+\end{pic}
+\qquad\qquad\qquad\quad\;\;\;
+\end{equation}
+\begin{equation}
+\;\stackrel{\eqref{eq:dagfrob}}{=}\;
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node [style=state] (0) at (-3.25, -1.5) {$a$};
+                \node [style=graydot] (1) at (-1.5, 0.75) {};
+                \node (2) at (-1.5, 1.75) {};
+                \node (3) at (1.75, -0.5) {};
+                \node [style=graydot] (4) at (1, -1.5) {};
+                \node [style=state] (5) at (-1.25, -1.5) {$a$};
+                \node [style=whitedot] (6) at (-0.5, -0.5) {};
+                \node (7) at (0.25, -1) {};
+                \draw [bend left=45, looseness=0.75] (0) to (1);
+                \draw (1) to (2.center);
+                \draw [bend left=60, looseness=0.50] (1) to (3.center);
+                \draw [bend right=45, looseness=1.00] (4) to (3.center);
+                \draw [bend right=45, looseness=1.00] (6) to (5);
+                \draw [bend left, looseness=1.25] (4) to (7.center);
+                \draw [bend right, looseness=1.00] (7.center) to (6);
+\end{pic}
+\;\stackrel{\eqref{eq:copy}}{=}\;
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+                \node [style=graydot] (0) at (-1.5, 0.75) {};
+                \node (1) at (-1.5, 1.75) {};
+                \node (2) at (1.75, -0.5) {};
+                \node [style=graydot] (3) at (1, -1.5) {};
+                \node [style=whitedot] (4) at (-0.5, -0.5) {};
+                \node (5) at (0.25, -1) {};
+                \node [style=whitedot] (6) at (-2, -1.5) {};
+                \node [style=state] (7) at (-2, -2.25) {$a$};
+                \node (8) at (-2.75, -0.25) {};
+                \node (9) at (-1.25, -1) {};
+                \draw (0) to (1.center);
+                \draw [bend left=60, looseness=0.50] (0) to (2.center);
+                \draw [bend right=45, looseness=1.00] (3) to (2.center);
+                \draw [bend left, looseness=1.25] (3) to (5.center);
+                \draw [bend right, looseness=1.00] (5.center) to (4);
+                \draw (7) to (6);
+                \draw [bend left, looseness=1.00] (6) to (8.center);
+                \draw [bend right=45, looseness=1.00] (0) to (8.center);
+                \draw [bend right, looseness=1.00] (6) to (9.center);
+                \draw [bend right, looseness=1.00] (4) to (9.center);
+\end{pic}
+\;\stackrel{\eqref{eq:complementarity}}{=}\;
+\begin{pic}
+\node [state] (1) at (0,-1) {$a$};
+\node [whitedot] (2) at (0,-0.5) {};
+\node [graydot] (3) at (0,0.25) {};
+\node (4) at (0,1) {};
+\draw (1) to (2);
+\draw (3) to (4);
+\end{pic}

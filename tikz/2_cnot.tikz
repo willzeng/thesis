@@ -1,4 +1,4 @@
-\begin{pic}[dotpic]
+\begin{pic}[dotpic, xscale=-1]
                 \node [style=graydot] (0) at (1, -0) {};
                 \node [style=whitedot] (1) at (-1, -0) {};
                 \node (2) at (1, -1) {};
