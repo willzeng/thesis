@@ -1,4 +1,11 @@
 \section{The Fourier Transform in oGCT's}
+\begin{align}
+s
+\end{align}
+\begin{align}
+s
+\end{align}
+
 \label{sec:strcomplFT}
 
 Ongoing work in quantum algorithms emphasizes the need for a structural understanding of quantum speedups~\cite{aaronson2014need}. In this section we investigate the structure in quantum theory that enables the quantum Fourier Transform. We elucidate a general connection in any oGCT between the Fourier Transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We proceed along the following outline:
@@ -14,7 +21,6 @@ In Section \ref{section_RelFT}, we study $\RelCategory$ as an example setting fo
 \todo{In Section \ref{section_FourierTransform} these results are extended to the non-abelian case. The Gelfand-Naimark construction is presented as the natural generalisation of the Fourier transform using its Pontryagin duality formulation.}
 
 These results both move Fourier theory into a new mathematical setting and capture the structural connection between quantum theory and the Fourier Transform.  Though this connection has been much exploited in quantum algorithms, this work is the first abstract presentation that shows its place in the structure of quantum theory, i.e. alongside strongly complementary observables.
-
 \subsection{The Fourier Transform}
 \label{sec:FT}
 We begin with a quick review of Pontryagin duality and the Fourier Transform as it relates to quantum computation. A number of different notions related to the Fourier Transform on finite abelian groups can be found in mathematics, physics, computer science and quantum computation, so it is useful to clarify them:
@@ -81,17 +87,18 @@ There are a number of properties of interest for the Fourier Transform, some rat
 We refer to this as the \emph{computational basis}, the name usually given to it in the context of (group-theoretic) quantum algorithms.
 
 The computational basis comes with a monoid structure, defined below and with unit $\delta_0$:
-\begin{equation*}
+\begin{equation}
   \left(\delta_g*\delta_h\right):=\delta_{g+h}.
-\end{equation*}
+\end{equation}
 
-Linearly extended to $\Ltwo{G}$, this structure yields the \textbf{convolution operation} $\left( \Ltwo{G},*,\delta_0 \right)$.
+Linearly extended to $\Ltwo{G}$, this structure yields the \emph{convolution operation} $\left( \Ltwo{G},*,\delta_0 \right)$.
 \begin{align}
 \label{eqn_convolutionOperation}
-  \left(f * f'\right) = \left(\sum_{g\in G} f(g) \delta_g \right) * \left( \sum_{g' \in  G} f'(g') \delta_{g'} \right) &= \sum_{g\in G} \sum_{g'\in G'} f(g) f'(g') \delta_{g+g'} \\ &= \sum_{h\in G} \left(\sum_{g'\in G} f(h-g') f'(g')\right) \delta_h
+\left(f * f'\right) = \left(\sum_{g\in G} f(g) \delta_g \right) * \left( \sum_{g' \in  G} f'(g') \delta_{g'} \right) &= \sum_{g\in G} \sum_{g'\in G'} f(g) f'(g') \delta_{g+g'} \\ 
+&= \sum_{h\in G} \left(\sum_{g'\in G} f(h-g') f'(g')\right) \delta_h
 \end{align}
 
-The Fourier Transforms of the delta functions yield the following orthogonal basis for $\Ltwo{G^\wedge}$, which we refer to as the \textbf{basis of evaluation functions}:
+The Fourier Transforms of the delta functions yield the following orthogonal basis for $\Ltwo{G^\wedge}$, which we refer to as the \textbfemph{basis of evaluation functions}:
 \begin{align*}
 \xi_{g} := \sqrt{N}\tilde{\delta}_{-g} = \chi \mapsto \sum_{h \in G}\chi^{-1}(h)\delta_{-g}(h) = \chi \mapsto \chi(g).
 \end{align*}
@@ -106,12 +113,12 @@ Functions $F \in \Ltwo{G^\wedge}$ on the dual group have the following expansion
   F = \sum_{g\in G} \left( \frac{1}{N}\sum_{\chi \in G^\wedge} F(\chi) \chi^{-1}(g) \right) \xi_g
 \end{equation*}
 
-Linearly extended to $\Ltwo{G^\wedge}$, the monoid structure above yields the \textbf{pointwise multiplication} $\left( \Ltwo{G^\wedge},\cdot,\xi_0 \right)$: 
+Linearly extended to $\Ltwo{G^\wedge}$, the monoid structure above yields the \emph{pointwise multiplication} $\left( \Ltwo{G^\wedge},\cdot,\xi_0 \right)$: 
 \begin{align}
 \label{eqn_PointwiseMultCharacters}
   \left(F \cdot F' \right) &= \tau \mapsto \sum_{\chi,\kappa \in G^\wedge}  F(\chi)  F'(\kappa) \left(\frac{1}{N} \sum_{g\in G} \chi^{-1}(g)\tau(g)\right) \left(\frac{1}{N} \sum_{g'\in G}\kappa^{-1}(g') \tau(g') \right) \\ &= \tau \mapsto F(\tau) F'(\tau)
 \end{align}
-We use the (easy to check) fact that, for any $\chi,\tau : G^\wedge$, the expression $\frac{1}{N} \sum_{g:G}\chi^{-1}(g) \tau(g)$ yields $1$ if $\tau = \chi$ and $0$ otherwise (this is usually referred to as \textbf{orthogonality of (multiplicative) characters}).
+We use the (easy to check) fact that, for any $\chi,\tau \in G^\wedge$, the expression $\frac{1}{N} \sum_{g\in G}\chi^{-1}(g) \tau(g)$ yields $1$ if $\tau = \chi$ and $0$ otherwise (this is usually referred to as \emph{orthogonality of (multiplicative) characters}).
 
 \begin{theorem}[Convolution Theorem]
 The Fourier Transform is a monoid isomorphism in $\fdHilbCategory$, from the convolution monoid $\left( \Ltwo{G},*,\delta_0 \right)$ to the pointwise multiplication monoid $\left( \Ltwo{G^\wedge},\cdot, \xi_0 \right)$. This statement amounts exactly to the following expression (for every $f\in \Ltwo{G}$), which is the usual formulation of the Convolution Theorem: 
@@ -129,7 +136,7 @@ This definition has the advantage of working with functions on the same lattice,
 \begin{equation} \label{eqn_HadamardMatrixDef}
   \mathbf{H}_{hg} = \exp\left[\, i \, \sum_j \frac{2 \pi}{n_j} \left(\modclass{g_j-h_j}{n_j}\right) \, \right] %\text{ for } h = (h_j)_{j=1,...,D} \text{ and } g = (g_j)_{j=1,...,D} \text{ in } G = \prod_{j=1}^D \integersMod{n_j}
 \end{equation}
-and it is called a \textbf{Hadamard matrix} in the context of quantum computing.\footnote{These are sometimes referred to as complex Hadamard matrices, while Hadamard matrix refers to those where $n_j=2$.} The unitary automorphism $\mathbf{H}:\Ltwo{G} \rightarrow \Ltwo{G}$ itself is known as a \textbf{Hadamard transform}. Thus the Hadamard transform, exactly like the definition of the Discrete Fourier Transform above, is non-canonical, and depends on an implicit choice of isomorphism $\Psi$. This contrasts with the Fourier transform, which is itself canonical.
+and it is called a \emph{Hadamard matrix} in the context of quantum computing.\footnote{These are sometimes referred to as complex Hadamard matrices, while Hadamard matrix refers to those where $n_j=2$.} The unitary automorphism $\mathbf{H}:\Ltwo{G} \rightarrow \Ltwo{G}$ itself is known as a \emph{Hadamard transform}. Thus the Hadamard transform, exactly like the definition of the Discrete Fourier Transform above, is non-canonical, and depends on an implicit choice of isomorphism $\Psi$. This contrasts with the Fourier transform, which is itself canonical.
 
 Lastly we address the Quantum Fourier Transform (QFT). The operational specification for the QFT step of a quantum algorithm is often given as follows (\cite{nielsen2010quantum} is a canonical reference):
 \begin{enumerate}
@@ -154,21 +161,21 @@ There is a particularly interesting reason the lack of canonicity is not usually
   \item[4.] Continue to work in the new basis $\ket{\chi}_{\chi\in G^\wedge}$.
 \end{enumerate}
 
-For a qubit system, one can start in the computational basis $Z$ and take $X$ as the new basis, resulting in a very convenient $U = \id{\SpaceH}$. This approach to QFT has the advantage of canonicity (for systems more complicated than qubits) and, subject to an appropriate choice of new basis, of skipping Hadamard transforms altogether; however, it may be harder to implement the remaining steps of the algorithm in the new basis. In this work, we  adopt this ``basis change" perspective to the QFT, as it is categorically and conceptually cleaner. When talking about Fourier Transform, we refer to the one defined in terms of Pontryagin duality. We will no longer talk about Hadamard transforms and the Discrete Fourier Transform (with the exception of a brief mention in \todo{Section \ref{section_RelFT})}.
+For a qubit system, one can start in the computational basis $Z$ and take $X$ as the new basis, resulting in a very convenient $U = \idm{\SpaceH}$. This approach to QFT has the advantage of canonicity (for systems more complicated than qubits) and, subject to an appropriate choice of new basis, of skipping Hadamard transforms altogether; however, it may be harder to implement the remaining steps of the algorithm in the new basis. In this work, we  adopt this ``basis change" perspective to the QFT, as it is categorically and conceptually cleaner. When talking about Fourier Transform, we refer to the one defined in terms of Pontryagin duality. We will no longer talk about Hadamard transforms and the Discrete Fourier Transform (with the exception of a brief mention in \todo{Section~\ref{section_RelFT})}.
 
 There are a number of existing generalizations in the literature of the Fourier Transform presented here that we make contact with to varying degrees. 
 \begin{enumerate}
-\item[1.] The Pontryagin theory can be extended from finite abelian groups to arbitrary locally compact abelian groups equipped with the Haar measure: the groups $G$ and $G^\wedge$ are not necessarily isomorphic (e.g. $\reals^\wedge = \reals$ but $\integers^\wedge = S^1$), but the Fourier Transform is still a canonical isomorphism between $\Ltwo{G}$ and $\Ltwo{G^\wedge}$, and it's still true that $(G^\wedge)^\wedge = G$. 
+\item[1.] Pontryagin theory can be extended from finite abelian groups to arbitrary locally compact abelian groups equipped with the Haar measure: the groups $G$ and $G^\wedge$ are not necessarily isomorphic (e.g. $\reals^\wedge = \reals$ but $\integers^\wedge = S^1$), but the Fourier Transform is still a canonical isomorphism between $\Ltwo{G}$ and $\Ltwo{G^\wedge}$, and it's still true that $(G^\wedge)^\wedge = G$. 
 
-\item[2.] The representation theory can be extended from abelian to arbitrary locally compact groups by observing that $\Ltwo{G}$ is always a $C^\star$ algebra, and considering the Gelfand-Naimark representation. In the abelian case, this representation coincides with the Fourier transform. We elaborate more on this finite-dimensional case in \todo{Section \ref{section_FourierTransform}}. 
+\item[2.] The representation theory can be extended from abelian to arbitrary locally compact groups by observing that $\Ltwo{G}$ is always a $C^\star$ algebra, and considering the Gelfand-Naimark representation. In the abelian case, this representation coincides with the Fourier transform. We elaborate more on the finite-dimensional case of this in \todo{Section \ref{section_FourierTransform}}. 
 
-\item[3.] Tannaka-Krein duality provides a different generalisation from compact abelian groups to arbitrary compact groups: the finite-dimensional linear representations of a compact group $G$ form a symmetric monoidal category $\Pi(G)$, generalising $G^\wedge$, with representations $R:G \rightarrow \Endoms{}{V_R}$ as objects, intertwiners (linear maps $f: V_R \rightarrow V_S$ s.t. $f \cdot R(g) = S(g) \cdot f$ for all $g\in G$) as morphisms and tensor product of representations as monoidal tensor. The category $\Pi(G)$ comes with a complex conjugation operation on morphisms, and a theorem of Tannaka shows that the set $\Gamma(\Pi(G))$ of all self-conjugate monoidal natural transformations $\idm{\Pi(G)} \rightarrow \idm{\Pi(G)}$ forms (once equipped with composition of natural transformations and an appropriate topology) a compact group isomorphic to $G$. A generalisation of Tannaka-Krein duality to braided monoidal categories appears in the representation theory of Drinfeld-Jimbo quantum groups. In this work, we do not deal with either Tannaka-Krein theory or Drinfeld-Jimbo quantum groups.
+\item[3.] \todo{clarify this in relation to Hopf algebras} Tannaka-Krein duality provides a different generalisation from compact abelian groups to arbitrary compact groups: the finite-dimensional linear representations of a compact group $G$ form a symmetric monoidal category $\Pi(G)$, generalising $G^\wedge$, with representations $R:G \rightarrow \Endoms{}{V_R}$ as objects, intertwiners (linear maps $f: V_R \rightarrow V_S$ s.t. $f \cdot R(g) = S(g) \cdot f$ for all $g\in G$) as morphisms and tensor product of representations as monoidal tensor. The category $\Pi(G)$ comes with a complex conjugation operation on morphisms, and a theorem of Tannaka shows that the set $\Gamma(\Pi(G))$ of all self-conjugate monoidal natural transformations $\idm{\Pi(G)} \rightarrow \idm{\Pi(G)}$ forms (once equipped with composition of natural transformations and an appropriate topology) a compact group isomorphic to $G$. A generalisation of Tannaka-Krein duality to braided monoidal categories appears in the representation theory of Drinfeld-Jimbo quantum groups. In this work, we do not deal with either Tannaka-Krein theory or Drinfeld-Jimbo quantum groups.
 \end{enumerate}
 
 \subsection{Strong Complementarity}
 \label{sec:strcompl}
 
-In Definition \ref{def:classicalstruct}, we introduced classical structures as special and symmetric (a.k.a. commutative) Frobenius algebras.  In the setting of this section on the Fourier transform we operate with the slightly weaker notion of a quasi-special commutative Frobenius algebras.
+In Definition \ref{def:classicalstruct}, we introduced classical structures as special and symmetric (a.k.a. commutative) Frobenius algebras.  In the setting of this section on the Fourier Transform we operate with the slightly weaker notion of a quasi-special commutative Frobenius algebras.
 
 \begin{defn}\label{def_QuasiSpecial}
 A \emph{quasi-special} $\dagger$-Frobenius algebra 
@@ -188,10 +195,10 @@ $(\timemultSym,\timeunitSym,\timecomultSym,\timecounitSym)$ is one that satisfie
   \end{tikzpicture}
   \end{aligned}
 \end{equation}
-We will use the shorthand $\dagger$-qSFA, and refer to $N$ as the \textbf{normalisation factor} for the $\dagger$-qSFA.
+We will use the shorthand $\dagger$-qSFA, and refer to $N$ as the \emph{normalisation factor} for the $\dagger$-qSFA.
 \end{defn}
 
-These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized. The invertibility assumption is applies in any category enriched in finite commutative monoids, i.e. whose homsets are finite commutative monoids.  We call such categories $\cat{fCommMon}$-enriched and call them distributively $\cat{fCommMon}$-enriched when scalars distribute over the monoidal product. We work in $\dagger$-SMCs, where in particular the scalars form semiring and one can talk about the 0 scalar sensibly.
+These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized. The invertibility assumption is applies in any category enriched in finite commutative monoids, i.e. whose homsets are finite commutative monoids.  Recalling Section~\ref{sec:enrichedogcts}, we call such categories $\cat{fCommMon}$-enriched and call them distributively $\cat{fCommMon}$-enriched when scalars distribute over the enriched monoidal product. We work in $\dagger$-SMCs, where in particular the scalars form a semiring and one can talk about the 0 scalar sensibly.
 
 \begin{defn}
 Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in a $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched. The \emph{matchable states} $\ket{x}_{x \in X}$ for a monoid $(\SpaceG,\timemultSym, \timeunitSym)$ are those for which the following holds for all $x,y \in X$:
@@ -204,7 +211,13 @@ Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in 
 \end{equation}
 \end{defn}
 
-We re-epmhasize that while $\dagger$-qSCFA correspond to bases in $\cat{FHilb}$, the general notion of a (orthogonal) basis is somewhat different.
+\todo{
+\begin{lemma}
+Matchable states for a monoid $(\SpaceG,\timemultSym, \timeunitSym)$ are the phase group of an observable complementary to $\dotonly{whitedot}$.
+\end{lemma}
+}
+
+We re-epmhasize that while $\dagger$-qSCFA correspond to bases in $\cat{FHilb}$ by Theorem~\ref{thm:cstructBases}, the general notion of a (orthogonal) basis is somewhat different.
 
 \begin{defn}\label{def_basis}
 A finite family of states $\ket{x}_{x\in X}: I \rightarrow \SpaceH$ is a \emph{(orthogonal) basis} (for~$\SpaceH$) if it satisfies the following conditions:
@@ -212,7 +225,7 @@ A finite family of states $\ket{x}_{x\in X}: I \rightarrow \SpaceH$ is a \emph{(
 \item[(i)] Orthogonality, i.e. $\langle y|x\rangle = 0$ if $x \neq y$ (where $\bra{y}$ stands for $\ket{y}^\dagger$).
 \item[(ii)] Completeness, i.e. for every $f,g : \SpaceH \rightarrow \SpaceH'$ we have that $\forall x:X \, f \ket{x} = g \ket{x}$ implies $f=g$. 
 \end{enumerate}
-A finite family of co-states $\bra{x}_{x\in X}: \SpaceH \rightarrow \tensorUnit$ is a \emph{(orthogonal) cobasis} (for $\SpaceH$) if the family of states $\ket{x}_{x\in X}: I \rightarrow \SpaceH$ is a basis.
+A finite family of co-states $\bra{x}_{x\in X}: \SpaceH \rightarrow I$ is a \emph{(orthogonal) cobasis} (for $\SpaceH$) if the family of states $\ket{x}_{x\in X}: I \rightarrow \SpaceH$ is a basis.
 \end{defn}
 \noindent When the classical states for a classical structure form a basis in this manner, the algebra has ``enough classical points" (Definition \ref{def:enoughclassicalpoints}).
  
@@ -225,14 +238,14 @@ A pair of $\dagger$-qSFAs \whitecomonoid{A} and \blackcomonoid{A}, henceforth wr
 \input{tikz/2_bialgebra.tikz}
 \end{equation}
 \end{defn}
-\noindent Though this definition is usually given for classical structures, we generalise to $\dagger$-qSFAs to include non-commutative algebras and, hence, the construction of a generalized non-abelian Fourier Transform.
+\noindent Though this definition is usually given for classical structures, we generalise to $\dagger$-qSFAs to include non-commutative algebras and, hence, our later construction of a generalized non-abelian Fourier Transform.
 
-It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}. \todo{Clean this up:}
+It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}.
 \begin{equation}
 \input{tikz/3_SCIsC.tikz}
 \end{equation}
 
-As we have slightly generalized the definition of strong complementarity, we also wish to present a slightly more general concept of an antipode that is not self-inverse.
+As we have slightly generalized the definition of strong complementarity, we also wish to present a slightly more general concept of an antipode that is not self-inverse. Note the slight difference between this definition and Definition~\ref{def:complementarity}.
 
 \begin{defn}\label{def_Antipode} 
 Given a strongly complementary pair of $\dagger$-FAs $\scpair$ on some object $\SpaceG$ in a $\dagger$-SMC, the \emph{antipode} $\antipodeSym:\SpaceG \rightarrow \SpaceG$ is defined to be the following map:
@@ -249,7 +262,7 @@ Given a strongly complementary pair of $\dagger$-FAs \scpair~on some object $\Sp
 Furthermore, if at least one of the two $\dagger$-FAs has matchable states forming a basis, then the antipode is self-adjoint and unitary, i.e. antipode and antipode inverse coincide.
 \end{lemma}
 \begin{proof}
-    The fact that $\antipodeSym^{-1}$ as defined is indeed the inverse of $\antipodeSym$ is an immediate consequence of Frobenius law (one application per colour). Now suppose without loss of generality that the matchable points $\ket{g}_{g \in G}$ of $\ZdotSym$ form a basis, and remember that $\XdotSym$ acts as some (possibly non-abelian) group $(G,\cdot,1)$ on them~\cite{CQM-ZXCalculusSeminal}. Then $\bra{h}\, \antipodeSym \ket{g} = \braket{h \cdot g}{1}$ and $\bra{h} \; \antipodeSym^{-1} \ket{g} = \braket{1}{h \cdot g}$ and $\bra{h}\; \antipodeSym^\dagger \ket{g} = \braket{1}{g \cdot h}$ and $\bra{h}\; (\antipodeSym^{-1})^\dagger \ket{g} = \braket{g \cdot h}{1}$ coincide for all $g,h \in G$, proving that $\antipodeSym = \antipodeSym^{-1} = \antipodeSym^{\dagger} = \ket{g} \mapsto \ket{g^{-1}}$ for all $g\in G$.
+    The fact that $\antipodeSym^{-1}$ as defined is indeed the inverse of $\antipodeSym$ is an immediate consequence of the Frobenius law (one application per colour). Now suppose without loss of generality that the matchable points $\ket{g}_{g \in G}$ of $\ZdotSym$ form a basis, and remember that $\XdotSym$ acts as some (possibly non-abelian) group $(G,\cdot,1)$ on them (Lemma~\ref{lem:phaseunbiased}). Then $\bra{h}\, \antipodeSym \ket{g} = \braket{h \cdot g}{1}$ and $\bra{h} \; \antipodeSym^{-1} \ket{g} = \braket{1}{h \cdot g}$ and $\bra{h}\; \antipodeSym^\dagger \ket{g} = \braket{1}{g \cdot h}$ and $\bra{h}\; (\antipodeSym^{-1})^\dagger \ket{g} = \braket{g \cdot h}{1}$ coincide for all $g,h \in G$, proving that $\antipodeSym = \antipodeSym^{-1} = \antipodeSym^{\dagger} = \ket{g} \mapsto \ket{g^{-1}}$ for all $g\in G$.
 \end{proof}
 
 Strongly complementary classical structures have a specific relationship between their phase groups and classical states.
@@ -278,7 +291,7 @@ where $(G =\{g, h, \ldots\}, +, 0)$ is a finite Abelian
 group. Conversely, each such pair is always strongly complementary.  
 \end{corollary}
 
-Inspired by this classification, we use strongly copmlemnetary structures to embed groups into an arbitrary oGCT.
+Inspired by this classification, we use strongly complementary structures to embed groups into an arbitrary oGCT.
 
 \begin{defn}\label{def_AbClassicalGroup} An \emph{internal group}, denoted by $(\,\SpaceG , \timemultSym, \timeunitSym, \tinycomult[blackdot], \tinycounit[blackdot]$ ) or  $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$ when no confusion should arise), consists of a strongly complementary pair on the same object $\SpaceG$ of a $\dagger$-SMC and
 \begin{enumerate}
@@ -288,26 +301,26 @@ Inspired by this classification, we use strongly copmlemnetary structures to emb
 The multiplication and unit for the group structure are called \emph{group multiplication} and \emph{group unit}, and the antipode $\antipodeSym$ for the pair is called the \emph{group inverse}. An \emph{abelian internal group} is one where the group structure is commutative.
 \end{defn}
 
-The internal groups in a oGCT form a category $\cat{Grp}[\cat{C}]$, with objects the strongly complementary pairs $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$, and where morphisms $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot}) \rightarrow (\,\SpaceG' , \dotonly{altwhitedot}, \dotonly{altblackdot})$ are defined to be the morphisms $f: \SpaceG \rightarrow \SpaceG'$ in $\CategoryC$ which are furthermore co-monoid homomorphisms $f: (\tinycomult[blackdot],\tinycounit[blackdot]) \rightarrow (\tinycomult[altblackdot],\tinycounit[altblackdot])$ and monoid homomorphisms $f: (\tinymult[whitedot],\tinyunit[whitedot]) \rightarrow ( \tinymult[altwhitedot],\tinyunit[altwhitedot])$; the abelian internal groups form a full subcategory $\IntAbCategory{\CategoryC}$. We will refer to these morphisms as \emph{internal group homomorphisms}, both when seen as morphisms in $\cat{Grp}[\cat{C}]$ and in $\cat{C}$.
+The internal groups in an oGCT form a category $\cat{Grp}[\cat{C}]$, with objects given by the strongly complementary pairs $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$, and morphisms $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot}) \rightarrow (\,\SpaceG' , \dotonly{altwhitedot}, \dotonly{altblackdot})$ given by $f: \SpaceG \rightarrow \SpaceG'$ in $\CategoryC$ that co-monoid homomorphisms $f: (\tinycomult[blackdot],\tinycounit[blackdot]) \rightarrow (\tinycomult[altblackdot],\tinycounit[altblackdot])$ and monoid homomorphisms $f: (\tinymult[whitedot],\tinyunit[whitedot]) \rightarrow ( \tinymult[altwhitedot],\tinyunit[altwhitedot])$; the abelian internal groups form a full subcategory $\cat{AbGrp}[\cat{C}]$. We will refer to these morphisms as \emph{internal group homomorphisms}, both when seen as morphisms in $\cat{Grp}[\cat{C}]$ and in $\cat{C}$.
 
 \begin{theorem}\label{thm_InteralGroupsTraditionalGroups} 
-        If $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$  is an (abelian) internal group in any $\dagger$-SMC, then $(\;\timemultSym, \timeunitSym)$ acts as an (abelian) group $G$ on the classical points of $(\;\timediagSym, \trivialcharSym)$, henceforth the \emph{group elements}. Furthermore, this correspondence yields an equivalence between the the category of (abelian) internal groups in $\cat{Fhilb}$ and the category of finite (abelian) groups.
+        If $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$  is an (abelian) internal group in any $\dagger$-SMC, then $(\;\timemultSym, \timeunitSym)$ acts as an (abelian) group $G$ on the classical points of $(\;\timediagSym, \trivialcharSym)$, henceforth the \emph{group elements}. Furthermore, this correspondence yields an equivalence between the the category of (abelian) internal groups in $\cat{FHilb}$ and the category of finite (abelian) groups.
 \end{theorem}
 
-In $\cat{Fhilb}$, the point structure $(\dotonly{whitedot})$ characterises the group elements $\ket{g}_{g\in G}$ as an orthonormal basis for $\SpaceG$.  This is the basis of delta functions from Equation \ref{eqn_computationalBasis}, with $\ket{g} := \delta_g$. The corresponding isomorphism $\Ltwo{G} \isom \SpaceG$ sends any square-integrable $f: G \rightarrow \complexs$ to the vector $\ket{f} \in \SpaceG$ defined by $\ket{f} = \sum_{g\in G} f(g) \ket{g}$. Also under this isomorphism, the multiplicative fragment $(\, \SpaceG,\timemultSym,\timeunitSym)$ of the group structure acts on the convolution operation from Equation \ref{eqn_convolutionOperation}. Simply put, an internal group  $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ consists of:
+In $\cat{FHilb}$, the point structure $(\dotonly{blackdot})$ characterises the group elements $\ket{g}_{g\in G}$ as an orthonormal basis for $\SpaceG$.  This is the basis of delta functions from Equation \ref{eqn_computationalBasis}, with $\ket{g} := \delta_g$. The corresponding isomorphism $\Ltwo{G} \isom \SpaceG$ sends any square-integrable $f: G \rightarrow \complexs$ to the vector $\ket{f} \in \SpaceG$ defined by $\ket{f} = \sum_{g\in G} f(g) \ket{g}$. Also under this isomorphism, the multiplicative fragment $(\, \SpaceG,\timemultSym,\timeunitSym)$ of the internal group structure acts as the convolution operation from Equation \ref{eqn_convolutionOperation}. Simply put, an internal group  $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ consists of:
 \begin{enumerate}
 \item[(i)] a space $\SpaceG$
-\item[(ii)] a distinguished orthogonal basis, encoded by the $\dagger$-qSCFA $\ZdotSym$
-\item[(iii)] a group structure on that basis, encoded by the $\dagger$-qSFA $\XdotSym$
+\item[(ii)] a distinguished orthogonal basis, encoded by the $\dagger$-qSCFA $\XdotSym$
+\item[(iii)] a group structure on that basis, encoded by the $\dagger$-qSFA $\ZdotSym$
 \end{enumerate}
-\todo{FIX reference: This idea, and Theorem~\ref{thm_InteralGroupsTraditionalGroups}, is an straightforward extension of results in~\cite{coecke2011interacting} where the matchable points are called a ``phase group."}
+This idea, and Theorem~\ref{thm_InteralGroupsTraditionalGroups}, though the terminology and perspective are quite different,  is an straightforward extension of results in~\cite{coecke2011interacting} where the matchable points are called a ``phase group." \todo{REF\ THIS!!!}
 
-From the point of view of the category $\cat{Grp}[\cat{C}]$, $\mathbb{G}$ should be understood as the group $G$ encoded by $\XdotSym$, while from the point of view of the category $\fdHilbCategory$ it should be considered as endowing $\SpaceG$ with the structure of $\Ltwo{G}$.\footnote{In this correspondence, the orthogonal basis in $\SpaceG$ corresponds to the basis of delta functions in $\Ltwo{G}$, as given in Equation \ref{eqn_computationalBasis}. The groups structure given by $\XdotSym$ corresponds to the convolution operation from Equation \ref{eqn_convolutionOperation}.} As we abstract away from Hilbert spaces, we will take this conceptual standpoint. Sometimes, when talking about an internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$, we will refer to states $\ket{f} : \tensorUnit \rightarrow \SpaceG$ as \textbf{states of $\mathbb{G}$}, generalising square-integrable functions $f\in \Ltwo{G}$.
+From the point of view of the category $\cat{Grp}[\cat{C}]$, $\mathbb{G}$ should be understood as the group $G$ encoded by $\ZdotSym$, while from the point of view of the category $\fdHilbCategory$ it should be considered as endowing $\SpaceG$ with the structure of $\Ltwo{G}$.\footnote{In this correspondence, the orthogonal basis in $\SpaceG$ corresponds to the basis of delta functions in $\Ltwo{G}$, as given in Equation \ref{eqn_computationalBasis}. The groups structure given by $\ZdotSym$ corresponds to the convolution operation from Equation \ref{eqn_convolutionOperation}.} As we abstract away from Hilbert spaces, we will take this conceptual standpoint. Sometimes, when talking about an internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$, we will refer to states $\ket{f} : I \rightarrow \SpaceG$ as \emph{states of $\mathbb{G}$}, generalising square-integrable functions $f\in \Ltwo{G}$.
 
 \subsection{Abelian Fourier transform}
 \label{section_AbelianGroups_FourierTransform}
 
-The previous section provides us with the basic tools to do group theory in arbitrary $\dagger$-SMCs. It defines general Pontryagin duals, introduces the Fourier Transform and connects it to the more traditional theory presented in Section \ref{sec:FT}. We begin by introducing multiplicative characters as co-states, building on ideas in~\cite{vicary-tqa} and~\cite{zeng2014abstract}.
+The previous section provides us with the basic tools to do group theory in arbitrary $\dagger$-SMCs. We can now connects it to the more traditional theory from in Section~\ref{sec:FT}. We begin by introducing multiplicative characters as co-states, building on ideas in~\cite{vicary-tqa} and~\cite{zeng2014abstract}.
 
 The use of the $\Ltwo{G}$ notation in this section is consistent with the fact that $\LtwoSym$-spaces over finite groups are exactly finite-dimensional Hilbert spaces that come with a canonical choice of basis (the group elements) and a group operation over them. Throughout, we have identified $\Ltwo{\hat{G}}\isom \Ltwo{G}^\star$ as the multiplicative characters are a basis of $\Ltwo{G}^\star$.
 
@@ -319,13 +332,14 @@ A \emph{multiplicative character} for a monoid $(\, \SpaceG, \XmultSym, \XunitSy
 \end{defn}
 
 \begin{lemma}\label{thm_AbCopiablesMultiplicativeCharacters}
-If $(\,\SpaceG,\XdotSym,\ZdotSym)$ is an internal group in a $\dagger$-SMC, then the classical points of the group structure are exactly the (adjoints of its) multiplicative characters. In the case of $\fdHilbCategory$, the group structure of an abelian internal group thus characterises the (group theoretic) multiplicative characters of $G$ as a co-basis for $\SpaceG$, all characters having norm $N$, the normalisation factor for $\XdotSym$.
+If $(\,\SpaceG,\XdotSym,\ZdotSym)$ is an internal group in a $\dagger$-SMC, then the classical points of the group structure are exactly the (adjoints of its) multiplicative characters. In the case of $\fdHilbCategory$, the group structure of an abelian internal group thus characterises the (group theoretic) multiplicative characters of $G$ as a co-basis for $\SpaceG$.
+% all characters having norm $N$, the normalisation factor for $\XdotSym$.
 \end{lemma}
 \begin{proof} 
-  The first part is immediate, the second follows from the results in \cite{coecke2013new}.
+  The first part is immediate, the second follows from the equivalence of classical structures and bases in Theorem~\ref{thm:cstructBases}.
 \end{proof}
 
-In $\fdHilbCategory$, the multiplicative characters of an internal group $(\,\SpaceG,\XdotSym,\ZdotSym)$ are co-states $\SpaceG \rightarrow \complexs$, while the multiplicative characters defined in Section \ref{sec:FT} are group homomorphisms $G \rightarrow \complexs^\times$. Under the isomorphism $\Ltwo{G} \isom \SpaceG$ given by the point structure, the multiplicative characters of the internal group are exactly the linear extensions to $\Ltwo{G}$ of the multiplicative characters of $G$. If the internal group is abelian, then the multiplicative character are exactly the adjoints of the unique orthogonal basis associated with the $\XdotSym$ structure.
+In $\fdHilbCategory$, the multiplicative characters of an internal group $(\,\SpaceG,\XdotSym,\ZdotSym)$ are co-states $\SpaceG \rightarrow \complexs$, while the multiplicative characters defined in Section \ref{sec:FT} are group homomorphisms $G \rightarrow \complexs^\times$. Under the isomorphism $\Ltwo{G} \isom \SpaceG$ given by the point structure, the multiplicative characters of the internal group are exactly the linear extensions to $\Ltwo{G}$ of the multiplicative characters of $G$. If the internal group is abelian, then the multiplicative characters are exactly the adjoints of the unique orthogonal basis associated with the $\XdotSym$ structure.
 
 \begin{theorem}\label{thm_PontryaginDualsSMC}
 Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an abelian internal group in a $\dagger$-SMC $\CategoryC$.
@@ -334,10 +348,10 @@ Then $\mathbb{G}^\wedge := (\,\SpaceG,\ZdotSym,\XdotSym)$ is an abelian internal
 
 It is worth clarifying that the pointwise multiplication of Equation \ref{eqn_PointwiseMultCharacters} is different from the pointwise multiplication of Theorem \ref{thm_PontryaginDualsSMC}: the former is a pointwise product of functions of characters, and would correspond to the co-monoid $(\timecomultSym,\timecounitSym)$ (because the group multiplication duplicates multiplicative characters), while the latter is a pointwise product of functions of group elements, and thus corresponds to the co-monoid $(\timediagSym,\trivialcharSym)$ (which duplicates group elements). Also, note that $(\mathbb{G}^\wedge)^\wedge = \mathbb{G}$, as in the traditional formulation of Pontryagin duality.
 
-The usual formulation of the Fourier Transform, and of its properties, involves several summations, but a careful analysis shows that they all boil down to appropriate resolutions of the identity, like $\frac{1}{N} \sum_{g\in G} \ket{g}\bra{g} = \idm{\Ltwo{G}}$, and to various formulations of orthogonality of characters. The following lemma shows that, from a categorical perspective, the two are equivalent.
+The usual formulation of the Fourier Transform, and of its properties, involves several summations, but a careful analysis shows that they boil down to appropriate resolutions of the identity, like $\frac{1}{N} \sum_{g\in G} \ket{g}\bra{g} = \idm{\Ltwo{G}}$, and to various formulations of orthogonality of characters. The following lemma shows that, from a categorical perspective, the two are equivalent.
 
 \begin{lemma}\label{lemma_BasisResolutionPartition}
-Let $\ZdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a $\dagger$-SMC which is distributively $\fComMonCategory$-enriched, and let $\ket{x}_{x\in X}$ be a finite set of classical states for the co-monoid $(\tinycomult[whitedot],\tinycounit[whitedot])$ such that
+Let $\ZdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched, and let $\ket{x}_{x\in X}$ be a finite set of classical states for the co-monoid $(\tinycomult[whitedot],\tinycounit[whitedot])$ such that
 \begin{enumerate}
 \item[(a.)] the family is \emph{orthogonal}, i.e. $\langle x'|x}\rangle= 0$ (the zero scalar) for all $x \neq x'$
 \item[(b.)] the family is \emph{normalisable}, i.e. $\langle x|x\rangle$ is an invertible scalar for all $x$.
@@ -345,10 +359,7 @@ Let $\ZdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a $\dagger$-SMC whi
 Then the following are equivalent:
 \begin{enumerate}
 \item[(i)] The classical states $\ket{x}_{x\in X}$ form a (orthogonal) basis, as per Definition \ref{def_basis}.
-\item[(ii)] The classical states $\ket{x}_{x\in X}$ form an \emph{(orthogonal) resolution of the identity}:
-        \begin{equation}\label{eqn_ResolutionId}
-                \hbox{\input{tikz/3_multcharresolutionID.tikz}}
-        \end{equation}
+\item[(ii)] The classical states $\ket{x}_{x\in X}$ form a \emph{ resolution of the identity} Definition~\ref{def:resid}.
 \item[(iii)] The adjoints of the classical states form an \emph{(orthogonal) partition of the counit}, i.e. they satisfy the following equation:
 \begin{equation}\label{eqn_PartitionCounit}
 \frac{1}{N}\sum_x \!\!\!\!\text{\effectSym{x}}\!\! = \tinycounit[whitedot]

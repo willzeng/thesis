@@ -34,12 +34,14 @@
 \node (antipodeInverseSym) [above right of = fhatCenter, xshift = -4mm, yshift = -4.5mm] {\small{-1}};
 
 \node  (fhatOut) [above  of = fhatCenter, yshift = 0mm] {};
-\node (fhatIn) [below  of = fhatCenter, yshift = +2mm] {};
+\node (fhatIn) [below  of = fhatCenter, yshift = 0mm] {};
 
 
 \begin{pgfonlayer}{background}
-\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\draw[-] [out=90,in=270](fhatIn) to (fhatCenter);
+\draw[-] (fhatCenter) to (fhatOut);
 \end{pgfonlayer}
+
 
 
 \end{pic}

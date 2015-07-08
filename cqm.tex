@@ -521,7 +521,8 @@ Given a classical structure, let \newline$f:A^{\otimes n}\to A^{\otimes m}$  be 
 
 \noindent This normal form has a neat diagrammatic representation.
 
-\begin{proposition}\label{prop:spider}\em 
+\begin{proposition}
+\label{prop:spider} 
 Given a classical structure on $A$, let
 $(\whitedot)_n^m$ denote the `$(n,m)$-legged spider':
 \begin{equation}
@@ -590,7 +591,7 @@ The notion of complementary bases can also lifted to the abstract level of class
 as the mutual unbiasedness condition, where we have assumed that $D$ is invertible and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain to the right hand form.
 \begin{defn}[Complementarity]
 \label{def:complementarity}
-In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \emph{complementary} when the following equation holds:
+In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \emph{complementary} when the following equation holds up to a scalar:
 \begin{equation}
 \label{eq:complementarity}
 \input{tikz/2_antipodehopf.tikz}
@@ -601,7 +602,7 @@ The map $S:A\to A$ is called the \emph{antipode}.
 \end{defn}
 The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. We show this with a quick calculation:
 \tikzeq{tikz/2_complemub.tikz}
-where $(*)$ is an application of Theorem \ref{thm:fund}. 
+where $(*)$ is an application of Theorem \ref{thm:fund}, and the last step uses the fact that there are enough classical points.  In some literature the dimensional scalar is explicitly included in the abstract definition of strong complementarity, but, for the purposes of this thesis, it is suffices to define complementarity up to a scalar. 
 %We refer to the gray states $\{\ket{j}\}$ as \emph{unbiased states} for %the $\dotonly{whitedot}$-classical structure. Similarly the white states %$\{\keti}\}$ are unbiased states for the $\dotonly{graydot}$-classical structure.
 
 Complementarity relates the classical states of classical structures to their phase groups.
@@ -862,6 +863,7 @@ Linear maps between Hilbert spaces themselves form a vector space, so \cat{FHilb
 
 
 \begin{defn}
+\label{def:resid}
 In a \cat{Mon}-enriched oGCT, a set of states $\{\ket{x}\}$ on a system $A$ forms a \emph{resolution of the identity} when:
 \begin{equation}
 \label{eq:ResolutionId}
@@ -928,7 +930,7 @@ So, $M$ defines a linear map from density matrices to probability distributions.
 \end{defn}
 
 \begin{example}
-
+\todo{EXAMPLE on qubits}
 \end{example}
 
 \section{Summary of oGCTs}

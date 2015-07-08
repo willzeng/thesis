@@ -1,8 +1,8 @@
 \begin{pic}[scale=0.8, yscale=0.8]
 
-\node (t) [whitedot] at (-6,0.5) {};
-\node (b) [whitedot] at (-6,-0.5) {};
-\draw (t) to (b.center);
+%\node (t) [whitedot] at (-6,0.5) {};
+%\node (b) [whitedot] at (-6,-0.5) {};
+%\draw (t) to (b.center);
 
                 \node (0) at (6.5, 2) {};
                 \node (1) at (-4.5, 1.75) {};
@@ -13,8 +13,8 @@
                 \node [style=blackdot] (6) at (0, 1.25) {};
                 \node [style=blackdot] (7) at (3.5, 1.25) {};
                 \node [style=blackdot] (8) at (-4.5, 1) {};
-                \node [style=blackdot] (9) at (-1.75, 0.75) {};
-                \node [style=blackdot] (10) at (1.75, 0.75) {};
+                %\node [style=blackdot] (9) at (-1.75, 0.75) {};
+                %\node [style=blackdot] (10) at (1.75, 0.75) {};
                 \node [style=blackdot] (11) at (-1, 0.5) {};
                 \node [style=blackdot] (12) at (0, 0.5) {};
                 \node [style=whitedot] (13) at (2.75, 0.5) {};
@@ -22,23 +22,23 @@
                 \node [style=blackdot] (15) at (6.5, 0.5) {};
                 \node (16) at (-6.25, 0.25) {};
                 \node (17) at (-5.75, 0.25) {};
-                \node [style=whitedot] (18) at (-1.75, 0.25) {};
-                \node [style=whitedot] (19) at (1.75, 0.25) {};
+                %\node [style=whitedot] (18) at (-1.75, 0.25) {};
+                %\node [style=whitedot] (19) at (1.75, 0.25) {};
                 \node [style=antipode] (20) at (-3.75, 0) {$S$};
-                \node (21) at (-2.75, 0) {$=$};
-                \node (22) at (1, 0) {$=$};
-                \node (23) at (3.75, 0) {$=$};
-                \node (24) at (5.75, 0) {$=$};
+                \node (21) at (-2.75, 0) {$\stackrel{\eqref{eq:complementarity}}{=}}$};
+                \node (22) at (1, 0) {$\stackrel{\eqref{eqn:bialgebraEqns}}{=}}$};
+                \node (23) at (3.75, 0) {$\stackrel{\eqref{eq:coherence}}{=}}$};
+                \node (24) at (5.75, 0) {$\stackrel{\eqref{eq:dagfrob}}{=}}$};
                 \node (25) at (-6.25, -0.25) {};
                 \node (26) at (-5.75, -0.25) {};
-                \node [style=blackdot] (27) at (-1.75, -0.25) {};
-                \node [style=blackdot] (28) at (1.75, -0.25) {};
+                %\node [style=blackdot] (27) at (-1.75, -0.25) {};
+               % \node [style=blackdot] (28) at (1.75, -0.25) {};
                 \node [style=whitedot] (29) at (-1, -0.5) {};
                 \node [style=whitedot] (30) at (0, -0.5) {};
                 \node [style=blackdot] (31) at (2.75, -0.5) {};
                 \node [style=blackdot] (32) at (4.75, -0.5) {};
-                \node [style=whitedot] (33) at (-1.75, -0.75) {};
-                \node [style=whitedot] (34) at (1.75, -0.75) {};
+                %\node [style=whitedot] (33) at (-1.75, -0.75) {};
+                %\node [style=whitedot] (34) at (1.75, -0.75) {};
                 \node [style=whitedot] (35) at (6.5, -0.75) {};
                 \node [style=whitedot] (36) at (-4.5, -1) {};
                 \node [style=whitedot] (37) at (0, -1.25) {};
@@ -58,10 +58,10 @@
                 \draw [bend left=15, looseness=1.00] (43.center) to (32);
                 \draw [bend left=15, looseness=1.00] (40.center) to (31);
                 \draw [bend right=15, looseness=1.00] (38) to (31);
-                \draw (18) to (9);
+                %\draw (18) to (9);
                 \draw [in=-30, out=105, looseness=1.00] (41) to (32);
                 \draw [in=-15, out=90, looseness=1.00] (20) to (8);
-                \draw (34) to (28);
+                %\draw (34) to (28);
                 \draw (39.center) to (29);
                 \draw (11) to (3.center);
                 \draw [in=-90, out=15, looseness=1.00] (36) to (20);
@@ -74,8 +74,8 @@
                 \draw [in=-165, out=165, looseness=1.00] (36) to (8);
                 \draw (42.center) to (36);
                 \draw [bend left=15, looseness=1.00] (14) to (2.center);
-                \draw (33) to (27);
+                %\draw (33) to (27);
                 \draw (44.center) to (35);
-                \draw (19) to (10);
+                %\draw (19) to (10);
                 \draw [bend right=45, looseness=0.75] (30) to (12);
 \end{pic}
