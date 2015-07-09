@@ -7,7 +7,7 @@
 \node (algebraTop) [blackdot]   
   [above of = center, yshift = -4mm]{};
 \node (normalisation) [left of = algebraTop] {$\frac{1}{N}$};
-\node (Hout) [state, hflip, scale=0.8, fill = \Zcolour,above of = algebraTop, xshift = -5mm,yshift = 0mm] {$\chi$};
+\node (Hout) [state, hflip, scale=0.8,above of = algebraTop, xshift = -5mm,yshift = 0mm] {$\chi$};
 \node (antipode) [above of = algebraTop, xshift = -4.5mm,yshift = -5mm] {};
 \node (Tout) [state, hflip, scale=0.8,above of = algebraTop, xshift = +5mm,yshift = 0mm] {$\chi'$};
 

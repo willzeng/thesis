@@ -54,7 +54,7 @@ The GCT diagrammatic notation for vectors, tensors, and linear maps is commonly 
                 \node  (20) at (0, 0) {$\mathcal{N}$};
                 \node  (31) at (0, 2.5) {Mary};
                 \node (1) [state] at (0,1) {};
-                \draw [style = thick]  (0,0.5) to (1.center);
+                \draw  (0,0.5) to (1.center);
 \end{tikzpicture}
 \end{aligned} & \qquad
 $f:\mathcal{M}\to\mathcal{N} :=$
@@ -63,8 +63,8 @@ $f:\mathcal{M}\to\mathcal{N} :=$
                 \node  (20) at (0, -1.5) {$\mathcal{M}$};
                 \node  (20) at (0, 1.5) {$\mathcal{N}$};                
                 \node (1) [morphism] at (0,0) {f};
-                \draw [style = thick]  (0,1) to (0,0.5);   
-                \draw [style = thick]  (0,-1) to (0,-0.5);
+                \draw  (0,1) to (0,0.5);   
+                \draw  (0,-1) to (0,-0.5);
 \end{tikzpicture}
 \end{aligned} \\
 \overrightarrow{\mbox{likes}}\in \mathcal{N}\otimes\mathcal{S}\otimes \mathcal{N} :=
@@ -83,12 +83,12 @@ $f:\mathcal{M}\to\mathcal{N} :=$
                 \node  (21) at (0.5, 0) {$\mathcal{S}$};
                 \node  (22) at (1.25, 0) {$\mathcal{N}$};
                 \node  (31) at (0.5, 2.75) {likes};
-                \draw [style = thick]  (3.center) to (4.center);
-                \draw [style = thick] (4.center) to (5.center);
-                \draw [style = thick] (3.center) to (5.center);
-                \draw [style = thick] (10.center) to (15.center);
-                \draw [style = thick] (11.center) to (16.center);
-                \draw [style = thick] (12.center) to (17.center);
+                \draw  (3.center) to (4.center);
+                \draw (4.center) to (5.center);
+                \draw (3.center) to (5.center);
+                \draw (10.center) to (15.center);
+                \draw (11.center) to (16.center);
+                \draw (12.center) to (17.center);
 \end{tikzpicture}
 \end{aligned} 
  & \qquad
@@ -113,13 +113,13 @@ $f:\mathcal{M}\to\mathcal{N} :=$
                 \node  (20) at (0, 0) {$\mathcal{N}$};
                 \node  (31) at (0, 2.5) {Mary};
                 \node (1) [state] at (0,1) {};
-                \draw [style = thick]  (0,0.5) to (1.center);
+                \draw  (0,0.5) to (1.center);
                 \node (2) [state, xscale=1.5, yscale=1] at (3,1) {};
                 \node  (32) at (3, 2.5) {likes};
                 \node  (20) at (2.25, 0) {$\mathcal{N}$};                                \node  (20) at (3, 0) {$\mathcal{S}$};
                 \node  (20) at (3.75, 0) {$\mathcal{N}$};
-                \draw [style = thick]  (3,0.5) to (2.center);
-                \draw [style = thick]  (3.75,0.5) to (3.75,1);                            \draw [style = thick]  (2.25,0.5) to (2.25,1);    
+                \draw  (3,0.5) to (2.center);
+                \draw  (3.75,0.5) to (3.75,1);                            \draw  (2.25,0.5) to (2.25,1);    
 \end{tikzpicture}
 \end{aligned} & \qquad\qquad
 \sum\limits_i \langle ii| :=
@@ -149,58 +149,58 @@ Given a well-typed sentence with meaning vectors $\vec{w_j}$ for each of $k$ wor
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}     
-                \node [style=none] (0) at (-3.5, 1) {};
-                \node [style=none] (1) at (-2, 1) {};
-                \node [style=none] (2) at (-2.75, 2) {};
-                \node [style=none] (3) at (-1, 1) {};
-                \node [style=none] (4) at (2, 1) {};
-                \node [style=none] (5) at (0.5, 2.25) {};
-                \node [style=none] (6) at (4.5, 1) {};
-                \node [style=none] (7) at (3.75, 2) {};
-                \node [style=none] (8) at (3, 1) {};
-                \node [style=none] (9) at (-2.75, 1) {};
-                \node [style=none] (10) at (-0.25, 1) {};
-                \node [style=none] (11) at (0.5, 1) {};
-                \node [style=none] (12) at (1.25, 1) {};
-                \node [style=none] (13) at (3.75, 1) {};
-                \node [style=none] (14) at (-2.75, 0.5) {};
-                \node [style=none] (15) at (-0.25, 0.5) {};
-                \node [style=none] (16) at (0.5, 0.5) {};
-                \node [style=none] (17) at (1.25, 0.5) {};
-                \node [style=none] (18) at (3.75, 0.5) {};
-                \node [style=none] (19) at (-2.75, 0) {$N$};
-                \node [style=none] (20) at (-0.25, 0) {$N$};
-                \node [style=none] (21) at (0.5, 0) {$S$};
-                \node [style=none] (22) at (1.25, 0) {$N$};
-                \node [style=none] (23) at (3.75, 0) {$N$};
-                \node [style=none] (24) at (-2.75, -0.5) {};
-                \node [style=none] (25) at (-0.25, -0.5) {};
-                \node [style=none] (26) at (0.5, -0.5) {};
-                \node [style=none] (27) at (1.25, -0.5) {};
-                \node [style=none] (28) at (3.75, -0.5) {};
-                \node [style=none] (29) at (0.5, -1.75) {};
-                \node [style=none] (30) at (-2.75, 2.75) {Mary};
-                \node [style=none] (31) at (0.5, 2.75) {likes};
-                \node [style=none] (32) at (3.75, 2.75) {words.};
+                \node (0) at (-3.5, 1) {};
+                \node (1) at (-2, 1) {};
+                \node (2) at (-2.75, 2) {};
+                \node (3) at (-1, 1) {};
+                \node (4) at (2, 1) {};
+                \node (5) at (0.5, 2.25) {};
+                \node (6) at (4.5, 1) {};
+                \node (7) at (3.75, 2) {};
+                \node (8) at (3, 1) {};
+                \node (9) at (-2.75, 1) {};
+                \node (10) at (-0.25, 1) {};
+                \node (11) at (0.5, 1) {};
+                \node (12) at (1.25, 1) {};
+                \node (13) at (3.75, 1) {};
+                \node (14) at (-2.75, 0.5) {};
+                \node (15) at (-0.25, 0.5) {};
+                \node (16) at (0.5, 0.5) {};
+                \node (17) at (1.25, 0.5) {};
+                \node (18) at (3.75, 0.5) {};
+                \node (19) at (-2.75, 0) {$N$};
+                \node (20) at (-0.25, 0) {$N$};
+                \node (21) at (0.5, 0) {$S$};
+                \node (22) at (1.25, 0) {$N$};
+                \node (23) at (3.75, 0) {$N$};
+                \node (24) at (-2.75, -0.5) {};
+                \node (25) at (-0.25, -0.5) {};
+                \node (26) at (0.5, -0.5) {};
+                \node (27) at (1.25, -0.5) {};
+                \node (28) at (3.75, -0.5) {};
+                \node (29) at (0.5, -1.75) {};
+                \node (30) at (-2.75, 2.75) {Mary};
+                \node (31) at (0.5, 2.75) {likes};
+                \node (32) at (3.75, 2.75) {words.};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
-                \draw [style = thick] (0.center) to (1.center);
-                \draw [style = thick] (1.center) to (2.center);
-                \draw [style = thick] (2.center) to (0.center);
-                \draw [style = thick]  (3.center) to (4.center);
-                \draw [style = thick] (8.center) to (6.center);
-                \draw [style = thick] (6.center) to (7.center);
-                \draw [style = thick] (4.center) to (5.center);
-                \draw [style = thick] (3.center) to (5.center);
-                \draw [style = thick] (8.center) to (7.center);
-                \draw [style = thick] (9.center) to (14.center);
-                \draw [style = thick] (10.center) to (15.center);
-                \draw [style = thick] (11.center) to (16.center);
-                \draw [style = thick] (12.center) to (17.center);
-                \draw [style = thick] (13.center) to (18.center);
+                \draw (0.center) to (1.center);
+                \draw (1.center) to (2.center);
+                \draw (2.center) to (0.center);
+                \draw  (3.center) to (4.center);
+                \draw (8.center) to (6.center);
+                \draw (6.center) to (7.center);
+                \draw (4.center) to (5.center);
+                \draw (3.center) to (5.center);
+                \draw (8.center) to (7.center);
+                \draw (9.center) to (14.center);
+                \draw (10.center) to (15.center);
+                \draw (11.center) to (16.center);
+                \draw (12.center) to (17.center);
+                \draw (13.center) to (18.center);
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
-                \draw [style = thick] (26.center) to (29.center);
+                \draw (26.center) to (29.center);
         \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
@@ -310,60 +310,60 @@ Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/
 \begin{aligned}
 \begin{tikzpicture}[scale=0.6, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
-                \node [style=none] (0) at (-5.5, 0) {\ket{\phi}};
-                \node [style=none] (0) at (-4.5, 0) {=};       
-                \node [style=none] (0) at (-3.5, 1) {};
-                \node [style=none] (1) at (-2, 1) {};
-                \node [style=none] (2) at (-2.75, 2) {};
-                \node [style=none] (3) at (-1, 1) {};
-                \node [style=none] (4) at (2, 1) {};
-                \node [style=none] (5) at (0.5, 2.25) {};
-                \node [style=none] (6) at (4.5, 1) {};
-                \node [style=none] (7) at (3.75, 2) {};
-                \node [style=none] (8) at (3, 1) {};
-                \node [style=none] (9) at (-2.75, 1) {};
-                \node [style=none] (10) at (-0.25, 1) {};
-                \node [style=none] (11) at (0.5, 1) {};
-                \node [style=none] (12) at (1.25, 1) {};
-                \node [style=none] (13) at (3.75, 1) {};
-                \node [style=none] (14) at (-2.75, 0.5) {};
-                \node [style=none] (15) at (-0.25, 0.5) {};
-                \node [style=none] (16) at (0.5, 0.5) {};
-                \node [style=none] (17) at (1.25, 0.5) {};
-                \node [style=none] (18) at (3.75, 0.5) {};
-                \node [style=none] (19) at (-2.75, 0) {$N$};
-                \node [style=none] (20) at (-0.25, 0) {$N$};
-                \node [style=none] (21) at (0.5, 0) {$S$};
-                \node [style=none] (22) at (1.25, 0) {$N$};
-                \node [style=none] (23) at (3.75, 0) {$N$};
-                \node [style=none] (24) at (-2.75, -0.5) {};
-                \node [style=none] (25) at (-0.25, -0.5) {};
-                \node [style=none] (26) at (0.5, -0.5) {};
-                \node [style=none] (27) at (1.25, -0.5) {};
-                \node [style=none] (28) at (3.75, -0.5) {};
-                \node [style=none] (29) at (0.5, -1.75) {};
-                \node [style=none] (30) at (-2.75, 2.75) {kids};
-                \node [style=none] (31) at (0.5, 2.75) {play};
-                \node [style=none] (32) at (3.75, 2.75) {football};
+                \node (0) at (-5.5, 0) {\ket{\phi}};
+                \node (0) at (-4.5, 0) {=};       
+                \node (0) at (-3.5, 1) {};
+                \node (1) at (-2, 1) {};
+                \node (2) at (-2.75, 2) {};
+                \node (3) at (-1, 1) {};
+                \node (4) at (2, 1) {};
+                \node (5) at (0.5, 2.25) {};
+                \node (6) at (4.5, 1) {};
+                \node (7) at (3.75, 2) {};
+                \node (8) at (3, 1) {};
+                \node (9) at (-2.75, 1) {};
+                \node (10) at (-0.25, 1) {};
+                \node (11) at (0.5, 1) {};
+                \node (12) at (1.25, 1) {};
+                \node (13) at (3.75, 1) {};
+                \node (14) at (-2.75, 0.5) {};
+                \node (15) at (-0.25, 0.5) {};
+                \node (16) at (0.5, 0.5) {};
+                \node (17) at (1.25, 0.5) {};
+                \node (18) at (3.75, 0.5) {};
+                \node (19) at (-2.75, 0) {$N$};
+                \node (20) at (-0.25, 0) {$N$};
+                \node (21) at (0.5, 0) {$S$};
+                \node (22) at (1.25, 0) {$N$};
+                \node (23) at (3.75, 0) {$N$};
+                \node (24) at (-2.75, -0.5) {};
+                \node (25) at (-0.25, -0.5) {};
+                \node (26) at (0.5, -0.5) {};
+                \node (27) at (1.25, -0.5) {};
+                \node (28) at (3.75, -0.5) {};
+                \node (29) at (0.5, -1.75) {};
+                \node (30) at (-2.75, 2.75) {kids};
+                \node (31) at (0.5, 2.75) {play};
+                \node (32) at (3.75, 2.75) {football};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
-                \draw [style = thick] (0.center) to (1.center);
-                \draw [style = thick] (1.center) to (2.center);
-                \draw [style = thick] (2.center) to (0.center);
-                \draw [style = thick]  (3.center) to (4.center);
-                \draw [style = thick] (8.center) to (6.center);
-                \draw [style = thick] (6.center) to (7.center);
-                \draw [style = thick] (4.center) to (5.center);
-                \draw [style = thick] (3.center) to (5.center);
-                \draw [style = thick] (8.center) to (7.center);
-                \draw [style = thick] (9.center) to (14.center);
-                \draw [style = thick] (10.center) to (15.center);
-                \draw [style = thick] (11.center) to (16.center);
-                \draw [style = thick] (12.center) to (17.center);
-                \draw [style = thick] (13.center) to (18.center);
+                \draw (0.center) to (1.center);
+                \draw (1.center) to (2.center);
+                \draw (2.center) to (0.center);
+                \draw  (3.center) to (4.center);
+                \draw (8.center) to (6.center);
+                \draw (6.center) to (7.center);
+                \draw (4.center) to (5.center);
+                \draw (3.center) to (5.center);
+                \draw (8.center) to (7.center);
+                \draw (9.center) to (14.center);
+                \draw (10.center) to (15.center);
+                \draw (11.center) to (16.center);
+                \draw (12.center) to (17.center);
+                \draw (13.center) to (18.center);
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
-                \draw [style = thick] (26.center) to (29.center);
+                \draw (26.center) to (29.center);
         \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
@@ -388,60 +388,60 @@ If, to present a simplified example, we take each cluster to only contain a sing
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
-                \node [style=none] (0) at (-3.5, 1) {};
-                \node [style=none] (1) at (-2, 1) {};
-                \node [style=none] (2) at (-2.75, 2) {};
-                \node [style=none] (3) at (-1, 1) {};
-                \node [style=none] (4) at (2, 1) {};
-                \node [style=none] (5) at (0.5, 2.25) {};
-                \node [style=none] (6) at (4.5, 1) {};
-                \node [style=none] (7) at (3.75, 2) {};
-                \node [style=none] (8) at (3, 1) {};
-                \node [style=none] (9) at (-2.75, 1) {};
-                \node [style=none] (10) at (-0.25, 1) {};
-                \node [style=none] (11) at (0.5, 1) {};
-                \node [style=none] (12) at (1.25, 1) {};
-                \node [style=none] (13) at (3.75, 1) {};
-                \node [style=none] (14) at (-2.75, 0.5) {};
-                \node [style=none] (15) at (-0.25, 0.5) {};
-                \node [style=none] (16) at (0.5, 0.5) {};
-                \node [style=none] (17) at (1.25, 0.5) {};
-                \node [style=none] (18) at (3.75, 0.5) {};
-                \node [style=none] (19) at (-2.75, 0) {$N$};
-                \node [style=none] (20) at (-0.25, 0) {$N$};
-                \node [style=none] (21) at (0.5, 0) {$S$};
-                \node [style=none] (22) at (1.25, 0) {$N$};
-                \node [style=none] (23) at (3.75, 0) {$N$};
-                \node [style=none] (24) at (-2.75, -0.5) {};
-                \node [style=none] (25) at (-0.25, -0.5) {};
-                \node [style=none] (26) at (0.5, -0.5) {};
-                \node [style=none] (27) at (1.25, -0.5) {};
-                \node [style=none] (28) at (3.75, -0.5) {};
-                \node [style=none] (29) at (0.5, -1.75) {};
-                \node [style=none] (30) at (-2.75, 2.75) {kids};
-                \node [style=none] (31) at (0.5, 2.75) {play};
-                \node [style=none] (32) at (3.75, 2.75) {football};
+                \node (0) at (-3.5, 1) {};
+                \node (1) at (-2, 1) {};
+                \node (2) at (-2.75, 2) {};
+                \node (3) at (-1, 1) {};
+                \node (4) at (2, 1) {};
+                \node (5) at (0.5, 2.25) {};
+                \node (6) at (4.5, 1) {};
+                \node (7) at (3.75, 2) {};
+                \node (8) at (3, 1) {};
+                \node (9) at (-2.75, 1) {};
+                \node (10) at (-0.25, 1) {};
+                \node (11) at (0.5, 1) {};
+                \node (12) at (1.25, 1) {};
+                \node (13) at (3.75, 1) {};
+                \node (14) at (-2.75, 0.5) {};
+                \node (15) at (-0.25, 0.5) {};
+                \node (16) at (0.5, 0.5) {};
+                \node (17) at (1.25, 0.5) {};
+                \node (18) at (3.75, 0.5) {};
+                \node (19) at (-2.75, 0) {$N$};
+                \node (20) at (-0.25, 0) {$N$};
+                \node (21) at (0.5, 0) {$S$};
+                \node (22) at (1.25, 0) {$N$};
+                \node (23) at (3.75, 0) {$N$};
+                \node (24) at (-2.75, -0.5) {};
+                \node (25) at (-0.25, -0.5) {};
+                \node (26) at (0.5, -0.5) {};
+                \node (27) at (1.25, -0.5) {};
+                \node (28) at (3.75, -0.5) {};
+                \node (29) at (0.5, -1.75) {};
+                \node (30) at (-2.75, 2.75) {kids};
+                \node (31) at (0.5, 2.75) {play};
+                \node (32) at (3.75, 2.75) {football};
                 \node [style=state, hflip] (33) at (0.5, -1.75) {$\vec{v}$};
-                \node [style=none] (34) at (0.6, -3.5) {sports};
+                \node (34) at (0.6, -3.5) {sports};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
-                \draw [style = thick] (0.center) to (1.center);
-                \draw [style = thick] (1.center) to (2.center);
-                \draw [style = thick] (2.center) to (0.center);
-                \draw [style = thick]  (3.center) to (4.center);
-                \draw [style = thick] (8.center) to (6.center);
-                \draw [style = thick] (6.center) to (7.center);
-                \draw [style = thick] (4.center) to (5.center);
-                \draw [style = thick] (3.center) to (5.center);
-                \draw [style = thick] (8.center) to (7.center);
-                \draw [style = thick] (9.center) to (14.center);
-                \draw [style = thick] (10.center) to (15.center);
-                \draw [style = thick] (11.center) to (16.center);
-                \draw [style = thick] (12.center) to (17.center);
-                \draw [style = thick] (13.center) to (18.center);
+                \draw (0.center) to (1.center);
+                \draw (1.center) to (2.center);
+                \draw (2.center) to (0.center);
+                \draw  (3.center) to (4.center);
+                \draw (8.center) to (6.center);
+                \draw (6.center) to (7.center);
+                \draw (4.center) to (5.center);
+                \draw (3.center) to (5.center);
+                \draw (8.center) to (7.center);
+                \draw (9.center) to (14.center);
+                \draw (10.center) to (15.center);
+                \draw (11.center) to (16.center);
+                \draw (12.center) to (17.center);
+                \draw (13.center) to (18.center);
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
-                \draw [style = thick] (26.center) to (29.center);
+                \draw (26.center) to (29.center);
         \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
@@ -449,60 +449,60 @@ If, to present a simplified example, we take each cluster to only contain a sing
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
-                \node [style=none] (0) at (-3.5, 1) {};
-                \node [style=none] (1) at (-2, 1) {};
-                \node [style=none] (2) at (-2.75, 2) {};
-                \node [style=none] (3) at (-1, 1) {};
-                \node [style=none] (4) at (2, 1) {};
-                \node [style=none] (5) at (0.5, 2.25) {};
-                \node [style=none] (6) at (4.5, 1) {};
-                \node [style=none] (7) at (3.75, 2) {};
-                \node [style=none] (8) at (3, 1) {};
-                \node [style=none] (9) at (-2.75, 1) {};
-                \node [style=none] (10) at (-0.25, 1) {};
-                \node [style=none] (11) at (0.5, 1) {};
-                \node [style=none] (12) at (1.25, 1) {};
-                \node [style=none] (13) at (3.75, 1) {};
-                \node [style=none] (14) at (-2.75, 0.5) {};
-                \node [style=none] (15) at (-0.25, 0.5) {};
-                \node [style=none] (16) at (0.5, 0.5) {};
-                \node [style=none] (17) at (1.25, 0.5) {};
-                \node [style=none] (18) at (3.75, 0.5) {};
-                \node [style=none] (19) at (-2.75, 0) {$N$};
-                \node [style=none] (20) at (-0.25, 0) {$N$};
-                \node [style=none] (21) at (0.5, 0) {$S$};
-                \node [style=none] (22) at (1.25, 0) {$N$};
-                \node [style=none] (23) at (3.75, 0) {$N$};
-                \node [style=none] (24) at (-2.75, -0.5) {};
-                \node [style=none] (25) at (-0.25, -0.5) {};
-                \node [style=none] (26) at (0.5, -0.5) {};
-                \node [style=none] (27) at (1.25, -0.5) {};
-                \node [style=none] (28) at (3.75, -0.5) {};
-                \node [style=none] (29) at (0.5, -1.75) {};
-                \node [style=none] (30) at (-2.75, 2.75) {kids};
-                \node [style=none] (31) at (0.5, 2.75) {play};
-                \node [style=none] (32) at (3.75, 2.75) {football};
+                \node (0) at (-3.5, 1) {};
+                \node (1) at (-2, 1) {};
+                \node (2) at (-2.75, 2) {};
+                \node (3) at (-1, 1) {};
+                \node (4) at (2, 1) {};
+                \node (5) at (0.5, 2.25) {};
+                \node (6) at (4.5, 1) {};
+                \node (7) at (3.75, 2) {};
+                \node (8) at (3, 1) {};
+                \node (9) at (-2.75, 1) {};
+                \node (10) at (-0.25, 1) {};
+                \node (11) at (0.5, 1) {};
+                \node (12) at (1.25, 1) {};
+                \node (13) at (3.75, 1) {};
+                \node (14) at (-2.75, 0.5) {};
+                \node (15) at (-0.25, 0.5) {};
+                \node (16) at (0.5, 0.5) {};
+                \node (17) at (1.25, 0.5) {};
+                \node (18) at (3.75, 0.5) {};
+                \node (19) at (-2.75, 0) {$N$};
+                \node (20) at (-0.25, 0) {$N$};
+                \node (21) at (0.5, 0) {$S$};
+                \node (22) at (1.25, 0) {$N$};
+                \node (23) at (3.75, 0) {$N$};
+                \node (24) at (-2.75, -0.5) {};
+                \node (25) at (-0.25, -0.5) {};
+                \node (26) at (0.5, -0.5) {};
+                \node (27) at (1.25, -0.5) {};
+                \node (28) at (3.75, -0.5) {};
+                \node (29) at (0.5, -1.75) {};
+                \node (30) at (-2.75, 2.75) {kids};
+                \node (31) at (0.5, 2.75) {play};
+                \node (32) at (3.75, 2.75) {football};
                 \node [style=state, hflip] (33) at (0.5, -1.75) {$\vec{w}$};
-                \node [style=none] (34) at (0.6, -3.5) {politics};
+                \node (34) at (0.6, -3.5) {politics};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
-                \draw [style = thick] (0.center) to (1.center);
-                \draw [style = thick] (1.center) to (2.center);
-                \draw [style = thick] (2.center) to (0.center);
-                \draw [style = thick]  (3.center) to (4.center);
-                \draw [style = thick] (8.center) to (6.center);
-                \draw [style = thick] (6.center) to (7.center);
-                \draw [style = thick] (4.center) to (5.center);
-                \draw [style = thick] (3.center) to (5.center);
-                \draw [style = thick] (8.center) to (7.center);
-                \draw [style = thick] (9.center) to (14.center);
-                \draw [style = thick] (10.center) to (15.center);
-                \draw [style = thick] (11.center) to (16.center);
-                \draw [style = thick] (12.center) to (17.center);
-                \draw [style = thick] (13.center) to (18.center);
+                \draw (0.center) to (1.center);
+                \draw (1.center) to (2.center);
+                \draw (2.center) to (0.center);
+                \draw  (3.center) to (4.center);
+                \draw (8.center) to (6.center);
+                \draw (6.center) to (7.center);
+                \draw (4.center) to (5.center);
+                \draw (3.center) to (5.center);
+                \draw (8.center) to (7.center);
+                \draw (9.center) to (14.center);
+                \draw (10.center) to (15.center);
+                \draw (11.center) to (16.center);
+                \draw (12.center) to (17.center);
+                \draw (13.center) to (18.center);
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
-                \draw [style = thick] (26.center) to (29.center);
+                \draw (26.center) to (29.center);
         \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
@@ -523,45 +523,45 @@ In order to recover a speedup we refine the application of the quantum algorithm
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
-                \node [style=none] (3) at (-3, 1) {};
-                \node [style=none] (4) at (4, 1) {};
-                \node [style=none] (5) at (0.5, 2.25) {};
-                \node [style=none] (10) at (-2, 1) {};
-                \node [style=none] (11) at (0.5, 1) {};
-                \node [style=none] (12) at (3, 1) {};
-                \node [style=none] (13) at (3.75, 1) {};
-                \node [style=none] (14) at (-2.75, 0.5) {};
-                \node [style=none] (15) at (-2, 0.5) {};
-                \node [style=none] (16) at (0.5, 0.5) {};
-                \node [style=none] (17) at (3, 0.5) {};
-                \node [style=none] (18) at (3.75, 0.5) {};
-                \node [style=none] (20) at (-2, 0) {$N$};
-                \node [style=none] (21) at (0.5, 0) {$S$};
-                \node [style=none] (22) at (3, 0) {$N$};
-                \node [style=none] (24) at (-2.75, -0.5) {};
-                \node [style=none] (25) at (-0.25, -0.5) {};
-                \node [style=none] (26) at (0.5, -0.5) {};
-                \node [style=none] (27) at (1.25, -0.5) {};
-                \node [style=none] (28) at (3.75, -0.5) {};
-                \node [style=none] (29) at (0.5, -1.75) {};
-                \node [style=none] (30) at (-2, -3.5) {kids};
-                \node [style=none] (31) at (0.5, 2.75) {play};
-                \node [style=none] (32) at (3.5, -3.5) {football};
+                \node (3) at (-3, 1) {};
+                \node (4) at (4, 1) {};
+                \node (5) at (0.5, 2.25) {};
+                \node (10) at (-2, 1) {};
+                \node (11) at (0.5, 1) {};
+                \node (12) at (3, 1) {};
+                \node (13) at (3.75, 1) {};
+                \node (14) at (-2.75, 0.5) {};
+                \node (15) at (-2, 0.5) {};
+                \node (16) at (0.5, 0.5) {};
+                \node (17) at (3, 0.5) {};
+                \node (18) at (3.75, 0.5) {};
+                \node (20) at (-2, 0) {$N$};
+                \node (21) at (0.5, 0) {$S$};
+                \node (22) at (3, 0) {$N$};
+                \node (24) at (-2.75, -0.5) {};
+                \node (25) at (-0.25, -0.5) {};
+                \node (26) at (0.5, -0.5) {};
+                \node (27) at (1.25, -0.5) {};
+                \node (28) at (3.75, -0.5) {};
+                \node (29) at (0.5, -1.75) {};
+                \node (30) at (-2, -3.5) {kids};
+                \node (31) at (0.5, 2.75) {play};
+                \node (32) at (3.5, -3.5) {football};
                 \node [style=state, hflip] (33) at (-2, -1.75) {};
                 \node [style=state, hflip] (35) at (0.5, -1.75) {};
                 \node [style=state, hflip] (36) at (3, -1.75) {};
-                \node [style=none] (34) at (0.6, -3.5) {sports};
+                \node (34) at (0.6, -3.5) {sports};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
-                \draw [style = thick]  (3.center) to (4.center);
-                \draw [style = thick] (4.center) to (5.center);
-                \draw [style = thick] (3.center) to (5.center);
-                \draw [style = thick] (10.center) to (15.center);
-                \draw [style = thick] (11.center) to (16.center);
-                \draw [style = thick] (12.center) to (17.center);
-                \draw [style = thick] (26.center) to (29.center);
-                \draw [style = thick] (-2,-0.5) to (33.center);
-                \draw [style = thick] (3,-0.5) to (36.center);
+                \draw  (3.center) to (4.center);
+                \draw (4.center) to (5.center);
+                \draw (3.center) to (5.center);
+                \draw (10.center) to (15.center);
+                \draw (11.center) to (16.center);
+                \draw (12.center) to (17.center);
+                \draw (26.center) to (29.center);
+                \draw (-2,-0.5) to (33.center);
+                \draw (3,-0.5) to (36.center);
         \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
@@ -569,45 +569,45 @@ In order to recover a speedup we refine the application of the quantum algorithm
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
-                \node [style=none] (3) at (-3, 1) {};
-                \node [style=none] (4) at (4, 1) {};
-                \node [style=none] (5) at (0.5, 2.25) {};
-                \node [style=none] (10) at (-2, 1) {};
-                \node [style=none] (11) at (0.5, 1) {};
-                \node [style=none] (12) at (3, 1) {};
-                \node [style=none] (13) at (3.75, 1) {};
-                \node [style=none] (14) at (-2.75, 0.5) {};
-                \node [style=none] (15) at (-2, 0.5) {};
-                \node [style=none] (16) at (0.5, 0.5) {};
-                \node [style=none] (17) at (3, 0.5) {};
-                \node [style=none] (18) at (3.75, 0.5) {};
-                \node [style=none] (20) at (-2, 0) {$N$};
-                \node [style=none] (21) at (0.5, 0) {$S$};
-                \node [style=none] (22) at (3, 0) {$N$};
-                \node [style=none] (24) at (-2.75, -0.5) {};
-                \node [style=none] (25) at (-0.25, -0.5) {};
-                \node [style=none] (26) at (0.5, -0.5) {};
-                \node [style=none] (27) at (1.25, -0.5) {};
-                \node [style=none] (28) at (3.75, -0.5) {};
-                \node [style=none] (29) at (0.5, -1.75) {};
-                \node [style=none] (30) at (-2, -3.5) {kids};
-                \node [style=none] (31) at (0.5, 2.75) {play};
-                \node [style=none] (32) at (3.5, -3.43) {football};
+                \node (3) at (-3, 1) {};
+                \node (4) at (4, 1) {};
+                \node (5) at (0.5, 2.25) {};
+                \node (10) at (-2, 1) {};
+                \node (11) at (0.5, 1) {};
+                \node (12) at (3, 1) {};
+                \node (13) at (3.75, 1) {};
+                \node (14) at (-2.75, 0.5) {};
+                \node (15) at (-2, 0.5) {};
+                \node (16) at (0.5, 0.5) {};
+                \node (17) at (3, 0.5) {};
+                \node (18) at (3.75, 0.5) {};
+                \node (20) at (-2, 0) {$N$};
+                \node (21) at (0.5, 0) {$S$};
+                \node (22) at (3, 0) {$N$};
+                \node (24) at (-2.75, -0.5) {};
+                \node (25) at (-0.25, -0.5) {};
+                \node (26) at (0.5, -0.5) {};
+                \node (27) at (1.25, -0.5) {};
+                \node (28) at (3.75, -0.5) {};
+                \node (29) at (0.5, -1.75) {};
+                \node (30) at (-2, -3.5) {kids};
+                \node (31) at (0.5, 2.75) {play};
+                \node (32) at (3.5, -3.43) {football};
                 \node [style=state, hflip] (33) at (-2, -1.75) {};
                 \node [style=state, hflip] (35) at (0.5, -1.75) {};
                 \node [style=state, hflip] (36) at (3, -1.75) {};
-                \node [style=none] (34) at (0.6, -3.54) {politics};
+                \node (34) at (0.6, -3.54) {politics};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
-                \draw [style = thick]  (3.center) to (4.center);
-                \draw [style = thick] (4.center) to (5.center);
-                \draw [style = thick] (3.center) to (5.center);
-                \draw [style = thick] (10.center) to (15.center);
-                \draw [style = thick] (11.center) to (16.center);
-                \draw [style = thick] (12.center) to (17.center);
-                \draw [style = thick] (26.center) to (29.center);
-                \draw [style = thick] (-2,-0.5) to (33.center);
-                \draw [style = thick] (3,-0.5) to (36.center);
+                \draw (3.center) to (4.center);
+                \draw (4.center) to (5.center);
+                \draw (3.center) to (5.center);
+                \draw (10.center) to (15.center);
+                \draw (11.center) to (16.center);
+                \draw (12.center) to (17.center);
+                \draw (26.center) to (29.center);
+                \draw (-2,-0.5) to (33.center);
+                \draw (3,-0.5) to (36.center);
         \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
@@ -632,23 +632,23 @@ Consider the following example sentence from \cite{dimitriThesis}:
 \begin{equation*}
 \begin{tikzpicture}[scale=1, yscale=-1]
                 \node [style=state] (0) at (-6, 1) {1};
-                \node [style=none] (1) at (-5.25, 0.25) {};
+                \node (1) at (-5.25, 0.25) {};
                 \node [style=state] (2) at (-2, 1) {2};
                 \node [style=state] (3) at (2, 1) {2};
                 \node [style=state] (4) at (3.5, 1) {3};
-                \node [style=none] (5) at (-1.25, 0.25) {};
-                \node [style=none] (6) at (1.25, 0.25) {};
-                \node [style=none] (7) at (2.75, 0.25) {};
-                \node [style=none] (8) at (-4.5, 1) {};
-                \node [style=none] (9) at (-3.5, 1) {};
-                \node [style=none] (10) at (-0.5, 1) {};
-                \node [style=none] (11) at (0.5, 1) {};
-                \node [style=none] (label1) at (0, 1.175) {1};
+                \node (5) at (-1.25, 0.25) {};
+                \node (6) at (1.25, 0.25) {};
+                \node (7) at (2.75, 0.25) {};
+                \node (8) at (-4.5, 1) {};
+                \node (9) at (-3.5, 1) {};
+                \node (10) at (-0.5, 1) {};
+                \node (11) at (0.5, 1) {};
+                \node (label1) at (0, 1.175) {1};
                 \node [style=state, xscale=2] (12) at (0, 1) {};
-                \node [style=none] (label1) at (-4, 1.175) {0};
+                \node (label1) at (-4, 1.175) {0};
                 \node [style=state, xscale=2] (13) at (-4, 1) {};
-                \node [style=none] (14) at (-4, -1) {};
-                \node [style=none] (15) at (-1.75, -0.5) {};
+                \node (14) at (-4, -1) {};
+                \node (15) at (-1.75, -0.5) {};
                 \node (16) at (-6, 1.9) {John};
                 \node (17) at (-4, 1.9) {saw};
                 \node (18) at (-2, 1.9) {Mary};

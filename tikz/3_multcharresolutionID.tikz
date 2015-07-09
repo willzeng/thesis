@@ -2,7 +2,7 @@
 
 \node (spacer) {};
 
-\node (sum) {$\dfrac{1}{d(A)}\mathlarger{\sum}\limits_x$};
+\node (sum) {$\dfrac{1}{d(A)}\sum_x$};
 \node (projCenter) [right of = sum, xshift = -1mm, yshift=1mm] {};
 \node [point] (projTop) [above of = projCenter, yshift=-6mm] {x};
 \node [copoint] (projBot) [below of = projCenter,yshift=+6mm] {x};

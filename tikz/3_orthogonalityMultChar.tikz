@@ -18,7 +18,7 @@
 \draw[-,out=90,in=270] (algebraBot) to (algebraTop);
 \draw[-,out=135,in=270] (algebraTop) to (antipode);
 \draw (antipode) to (Hout);
-\draw[-,out=45,in=270] (algebraTop) to (Tout.south);
+\draw[-,out=45,in=270] (algebraTop) to (Tout);
 \end{pgfonlayer}
 
 \node (equals) [right of = center, xshift = +3mm,yshift = 5mm]{$=$};

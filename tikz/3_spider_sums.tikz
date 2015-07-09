@@ -24,7 +24,7 @@
                 \node (22) at (-1.5, -3.5) {};
                 \node [style={graydot}] (23) at (-1.5, -4.25) {};
                 \node (24) at (0, -4) {$=$};
-                \node [style=none, yshift={-0.8 mm}] (25) at (1.25, -4) {$\underset{i}{\sum}$};
+                \node [yshift={-0.8 mm}] (25) at (1.25, -4) {$\underset{i}{\sum}$};
                 \node (26) at (2.75, -3.25) {};
                 \node [style={gray point}] (27) at (2.75, -4.25) {$i$};
                 \node (28) at (6.5, -4.5) {};
@@ -32,9 +32,9 @@
                 \node (30) at (8, -4) {$=$};
                 \node [style={gray copoint}] (31) at (11.25, -3.75) {$i$};
                 \node (32) at (11.25, -4.75) {};
-                \node [style=none, yshift={-0.8 mm}] (33) at (9.5, -4) {$\underset{i}{\sum}$};
-                \node [style=none, yshift={-0.8 mm}] (34) at (1.25, -0) {$\underset{i}{\sum}$};
-                \node [style=none, yshift={-0.8 mm}] (35) at (9.5, -0) {$\underset{i}{\sum}$};
+                \node [yshift={-0.8 mm}] (33) at (9.5, -4) {$\underset{i}{\sum}$};
+                \node [yshift={-0.8 mm}] (34) at (1.25, -0) {$\underset{i}{\sum}$};
+                \node [yshift={-0.8 mm}] (35) at (9.5, -0) {$\underset{i}{\sum}$};
 
                 \draw [in=-165, out=90, looseness=1.00] (3.center) to (1);
                 \draw [in=-15, out=90, looseness=1.00] (4.center) to (1);

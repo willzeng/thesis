@@ -1,11 +1,4 @@
 \section{The Fourier Transform in oGCT's}
-\begin{align}
-s
-\end{align}
-\begin{align}
-s
-\end{align}
-
 \label{sec:strcomplFT}
 
 Ongoing work in quantum algorithms emphasizes the need for a structural understanding of quantum speedups~\cite{aaronson2014need}. In this section we investigate the structure in quantum theory that enables the quantum Fourier Transform. We elucidate a general connection in any oGCT between the Fourier Transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We proceed along the following outline:
@@ -481,7 +474,7 @@ The following shows that $\InverseFourierTransformSym{\mathbb{G}} \cdot \Fourier
 A similar proof holds for $\FourierTransformSym{\mathbb{G}} \cdot \InverseFourierTransformSym{\mathbb{G}} = \id{}$, by expanding the antipode in terms of its definition and using Frobenius law (once per colour, exactly like in the proof of Lemma  \ref{lemma_AntipodeInverse}).
 \end{proof}
 
-\begin{theorem}[\todo{FIXTHIS} Categorical Convolution Theorem] \label{thm_categoricalConvolutionTheorem}
+\begin{theorem}[Categorical Convolution Theorem] \label{thm_categoricalConvolutionTheorem}
 Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in any $\dagger$-SMC $\CategoryC$. Then the Fourier Transform is a monoid homomorphism:
 \begin{equation}
 \FourierTransformSym{\mathbb{G}} : (\,\SpaceG,\XmultSym,\XunitSym) \longrightarrow  (\,\SpaceG,\tinymult[whitedot],\tinyunit[whitedot])
@@ -490,7 +483,7 @@ Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in any $\d
 \begin{proof}
 Using associativity, followed by one application of Frobenius Law, we get the desired:
 \begin{equation}\label{eqn_ConvolutionThmProof}
-    %\hbox{\input{modules/pictures/ConvolutionThmProof.tex}}
+\input{tikz/3_ConvolutionThmProof.tikz}
 \end{equation} 
 \end{proof}
 
@@ -686,15 +679,15 @@ In $\cat{FRel}$, on the other hand, things are very different:
 \item[3.] The operational definition based on strong complementarity, however, is still valid in $\fRelCategory$. 
 \end{enumerate}
 
-%To conclude, the following examples give explicit examples of quantum Fourier transforms in $\RelCategory$.
+To conclude, the following examples give explicit examples of quantum Fourier transforms in $\RelCategory$.
 
-%\begin{example}
-%Take $G=\integersMod{2}=\{0,1\}$, $H=\integersMod{1}=\{\star\}$, $Z = G = \{ 0_\star,1_\star \}$ and $X=H\oplus H = \{ \star_0,\star_1 \}$. The computational basis is the family $(H_g)_{g:G}$ of copyable points for $X$, i.e. $H_0 = \{(\star,0)\}$ and $H_1 = \{(\star,1)\}$. The character family used for the quantum Fourier transform consists a single copyable point $G_\star = \{(\star,0), (\star,1)\}$ for $Z$. In this case all states can be prepared in the computational basis, but the measurement in the character family will be trivial.
-%\end{example}
+\begin{example}
+Take $G=\integersMod{2}=\{0,1\}$, $H=\integersMod{1}=\{\star\}$, $Z = G = \{ 0_\star,1_\star \}$ and $X=H\oplus H = \{ \star_0,\star_1 \}$. The computational basis is the family $(H_g)_{g:G}$ of copyable points for $X$, i.e. $H_0 = \{(\star,0)\}$ and $H_1 = \{(\star,1)\}$. The character family used for the quantum Fourier transform consists a single copyable point $G_\star = \{(\star,0), (\star,1)\}$ for $Z$. In this case all states can be prepared in the computational basis, but the measurement in the character family will be trivial.
+\end{example}
 
-%\begin{example}
-%Take $G=\integersMod{2}=\{0,1\}$, $H=\integersMod{2}=\{a,b\}$, $Z = G \oplus G = \{ 0_a,1_a,0_b,1_b\}$ and $X= H \oplus H = \{ a_0, b_0, a_1, b_1 \}$. The computational \inlineQuote{basis} is the family $(H_g)_{g:G}$ of copyable points for $X$, i.e. $H_0 = \{(a,0),(b,0)\}$ and $H_1 = \{(a,1),(b,1)\}$. The character family used for the quantum Fourier transform is the family $(G_h)_{h:H}$ of copyable points for $Z$, i.e. $G_a = \{(a,0),(a,1)\}$ and $G_b = \{(b,0),(b,1)\}$.
-%\end{example}
+\begin{example}
+Take $G=\integersMod{2}=\{0,1\}$, $H=\integersMod{2}=\{a,b\}$, $Z = G \oplus G = \{ 0_a,1_a,0_b,1_b\}$ and $X= H \oplus H = \{ a_0, b_0, a_1, b_1 \}$. The computational \inlineQuote{basis} is the family $(H_g)_{g:G}$ of copyable points for $X$, i.e. $H_0 = \{(a,0),(b,0)\}$ and $H_1 = \{(a,1),(b,1)\}$. The character family used for the quantum Fourier transform is the family $(G_h)_{h:H}$ of copyable points for $Z$, i.e. $G_a = \{(a,0),(a,1)\}$ and $G_b = \{(b,0),(b,1)\}$.
+\end{example}
 
 It is part of the CQM programme that the operational features of quantum theory should be modelled categorically, and that any category sharing features with $\fdHilbCategory$ should be considered, at least in principle, as a potential (toy?) model of quantum mechanics. The category $\fRelCategory$ is an example of one such model. We have shown that Hadamard matrices do not generalise well outside $\fdHilbCategory$, and certainly fail to implement a Quantum Fourier Transform in $\RelCategory$, but that our treatment of Fourier theory based on strong complementarity goes through unharmed. As a consequence, categorical quantum algorithms where the Quantum Fourier Transform is formulated using strong complementarity will straightforwardly generalise to $\RelCategory$ and other categories in the CQM programme. We take this to be an indication that our perspective on the Quantum Fourier Transform is conceptually sound and operationally advantageous.
 
