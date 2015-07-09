@@ -7,9 +7,11 @@
 \node (algebraTop) [whitedot]   
   [above of = center, yshift = -4mm]{};
 \node (normalisation) [left of = algebraTop] {$\frac{1}{N}$};
-\node (Hout) [state, hflip, scale=0.8,  above of = algebraTop, xshift = -6mm,yshift = 0mm] {$\chi$};
+\node (Hout) [copoint,fill=black, above of = algebraTop, xshift = -6mm,yshift = 6mm] {};
+\node [above of = algebraTop, xshift = -7mm,yshift = 4mm] {$\chi$};
 \node (antipode) [draw, diamond, scale=0.7,above of = algebraTop, xshift = -7mm,yshift = -3mm] {};
-\node (Tout) [state, hflip, scale=0.8, fill = \Zcolour,above of = algebraTop, xshift = +6mm,yshift = 0mm] {$\chi'$};
+\node (Tout) [copoint, fill = black,above of = algebraTop, xshift = +6mm,yshift = 6mm] {};
+\node [above of = algebraTop, xshift = 8mm,yshift = 4mm] {$\chi'$};
 
 \node (algebraBot) [whitedot]  
   [below of = center, yshift = +8mm]{};

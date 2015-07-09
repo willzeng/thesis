@@ -5,7 +5,7 @@
 
 \path[use as bounding box] (-\deltax,-0.8) rectangle (\deltax,\deltay);
 
-\node [copoint, scale=0.5] (mult) at (0,0) {\tempSymLabel};
+\node [copoint, fill=black, scale=0.5] (mult) at (0,0) {\tempSymLabel};
 \node (mult_label_out) at (0,-\deltay) {};
 \draw[-] (mult.south) to (mult_label_out);
 

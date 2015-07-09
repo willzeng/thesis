@@ -5,7 +5,7 @@
 
 \path[use as bounding box] (-\deltax,-0.2) rectangle (\deltax,\deltay);
 
-\node [morphism, wedge, hflip, scale=0.8] (mult) at (0,0) {$x$};
+\node [state, wedge, hflip, scale=0.8] (mult) at (0,0) {$x$};
 \node (mult_label_in) at (0,-1*\deltay) {};
 \draw[-] (mult_label_in) to (mult.south);
 

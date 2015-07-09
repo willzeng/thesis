@@ -318,7 +318,7 @@ The previous section provides us with the basic tools to do group theory in arbi
 The use of the $\Ltwo{G}$ notation in this section is consistent with the fact that $\LtwoSym$-spaces over finite groups are exactly finite-dimensional Hilbert spaces that come with a canonical choice of basis (the group elements) and a group operation over them. Throughout, we have identified $\Ltwo{\hat{G}}\isom \Ltwo{G}^\star$ as the multiplicative characters are a basis of $\Ltwo{G}^\star$.
 
 \begin{defn}\label{def_MultiplicativeCharacters}
-A \emph{multiplicative character} for a monoid $(\, \SpaceG, \XmultSym, \XunitSym)$ in a $\dagger$-SMC is a monoid homomorphism from $(\timemultSym, \timeunitSym)$ to the canonical monoid on the trivial object $\tensorUnit$ induced by the unitors, or equivalently it is a co-state $\multCharacterEffectSym{}: \SpaceG \rightarrow I$ satisfying the following equations:
+A \emph{multiplicative character} for a pair \scpair~in a $\dagger$-SMC is a monoid homomorphism from $(\timemultSym, \timeunitSym)$ to the canonical monoid on the trivial object $\tensorUnit$ induced by the unitors, or equivalently it is a co-state $\multCharacterEffectSym{}: \SpaceG \rightarrow I$ satisfying the following equations:
         \begin{equation}\label{eqn_MultCharDef}
                 \input{tikz/3_multchardef.tikz}
         \end{equation}
@@ -355,7 +355,7 @@ Then the following are equivalent:
 \item[(ii)] The classical states $\ket{x}_{x\in X}$ form a \emph{ resolution of the identity} Definition~\ref{def:resid}.
 \item[(iii)] The adjoints of the classical states form an \emph{(orthogonal) partition of the counit}, i.e. they satisfy the following equation:
 \begin{equation}\label{eqn_PartitionCounit}
-\frac{1}{N}\sum_x \!\!\!\!\text{\effectSym{x}}\!\! = \tinycounit[blackdot]
+\frac{1}{N}\sum_x \!\!\!\!\text{\effectSym{x}}\!\! = \tinycounit[whitedot]
 \end{equation}
 \end{enumerate}
 \end{lemma}
@@ -369,9 +369,9 @@ Since we have assumed that $\langle \chi|\chi\rangle$ is invertible, then $\lang
 \end{equation*}
 where we have used orthogonality. We conclude $(ii)$ by completeness.
 
-\item $(ii) \implies (iii)$ By using the fact that $\XcounitSym \cdot \ket{\chi} = 1$ for all $\chi\in X$ we immediately get $(iii)$:
+\item $(ii) \implies (iii)$ By using the fact that $\ZcounitSym \cdot \ket{\chi} = 1$ for all $\chi\in X$ we immediately get $(iii)$:
 \begin{equation*}
-\XcounitSym \cdot \left(\frac{1}{N} \sum_\chi \ket{\chi} \bra{\chi} \right) = \frac{1}{N} \sum_\chi \left( \XcounitSym \cdot \ket{\chi} \right) \bra{\chi} = \frac{1}{N} \sum_\chi \bra{\chi}
+\ZcounitSym \cdot \left(\frac{1}{N} \sum_\chi \ket{\chi} \bra{\chi} \right) = \frac{1}{N} \sum_\chi \left( \ZcounitSym \cdot \ket{\chi} \right) \bra{\chi} = \frac{1}{N} \sum_\chi \bra{\chi}
 \end{equation*}
  
 \item $(ii) \implies (i)$ All we have to prove is completeness, as orthogonality of the family $\ket{\chi}_{\chi\in X}$ was assumed as a hypothesis of the lemma. Assume $f \cdot \ket{\chi} = g \cdot \ket{\chi}$ for all $\chi$, then we get:
@@ -381,9 +381,9 @@ where we have used orthogonality. We conclude $(ii)$ by completeness.
 But the LHS is $f \cdot \idm{\SpaceG}$, i.e. $f$, and the RHS is $g \cdot \idm{\SpaceG}$, i.e. $g$.
 
 
-\item $(iii) \implies (ii)$ Assume that $\XcounitSym = \frac{1}{N} \sum_\chi \bra{\chi}$, then we get (using Frobenius law in the first equality):
+\item $(iii) \implies (ii)$ Assume that $\ZcounitSym = \frac{1}{N} \sum_\chi \bra{\chi}$, then we get (using Frobenius law in the first equality):
 \begin{align*}
-\idm{\SpaceG} &= (\tinycounit[blackdot] \tensor \idm{\SpaceG})\cdot (\XmultSym \tensor \idm{\SpaceG}) \cdot (\idm{\SpaceG} \tensor \tinycomult[blackdot]) \cdot (\idm{\SpaceG} \tensor \XunitSym) \\&= \frac{1}{N} \sum_\chi \frac{1}{N} \sum_{\chi'} \ket{\chi'} \braket{\chi'}{\chi} \bra{\chi} \\&= \frac{1}{N} \sum_\chi \ket{\chi} \bra{\chi}
+\idm{\SpaceG} &= (\tinycounit[whitedot] \tensor \idm{\SpaceG})\cdot (\ZmultSym \tensor \idm{\SpaceG}) \cdot (\idm{\SpaceG} \tensor \tinycomult[whitedot]) \cdot (\idm{\SpaceG} \tensor \ZunitSym) \\&= \frac{1}{N} \sum_\chi \frac{1}{N} \sum_{\chi'} \ket{\chi'} \braket{\chi'}{\chi} \bra{\chi} \\&= \frac{1}{N} \sum_\chi \ket{\chi} \bra{\chi}
 \end{align*}
  
 \end{itemize}
@@ -394,7 +394,7 @@ As a final remark, note that orthogonality, assumed separately, is already inclu
 The formulation in terms of orthogonal partition of the counit is related to the orthogonality of (multiplicative) characters traditionally mentioned in the context of Fourier Transform (e.g. used here in Equation \ref{eqn_PointwiseMultCharacters}), as the following lemma shows. 
 
 \begin{theorem}[Orthogonality of Multiplicative Characters] \label{lemma_OrthogonalityCharacters}
-Let $(\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$, and $N$ be the normalisation factor for te quasi-special condition of $\ZdotSym$. Assume that the characters are all orthogonal, in the sense that $\braket{\chi}{\chi'} = 0$ for $\chi \neq \chi'$, and that $\braket{1}{1} = N$, where $\bra{1} := \tinycounit[whitedot]$ is the trivial character. Then if $\ket{\chi},\ket{\chi'}$ are (not necessarily distinct) multiplicative characters of the internal group, the following \emph{orthogonality of multiplicative characters} holds:
+Let $(\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$, and $N$ be the normalisation factor for the quasi-special condition of $\ZdotSym$. Assume that the characters are all orthogonal, in the sense that $\braket{\chi}{\chi'} = 0$ for $\chi \neq \chi'$, and that $\braket{1}{1} = N$, where $\bra{1} := \tinycounit[blackdot]$ is the trivial character. Then if $\ket{\chi},\ket{\chi'}$ are (not necessarily distinct) multiplicative characters of the internal group, the following \emph{orthogonality of multiplicative characters} holds:
 \begin{equation}\label{eqn_orthogonalityMultChars}
         \input{tikz/3_orthogonalityMultChar.tikz}
 \end{equation}
@@ -404,7 +404,7 @@ Now assume that \cat{C} is distributively $\cat{fCommMon}$-enriched. If the fami
 \end{equation} 
 \end{theorem}
 \begin{proof}
-By Theorem \ref{thm_PontryaginDualsSMC}, the comultiplication $\ZcomultSym$ acts as a group on the multiplicative characters, and $\antipodeSym$ as the group inverse. The LHS of Equation \ref{eqn_orthogonalityMultChars} can be re-written as $\braket{\chi^{-1} \cdot \tau}{1}$, and $\cdot$ is the pointwise multiplication: since we assumed that the multiplicative characters are orthogonal, the result follows. In order to obtain Equation \ref{eqn_orthogonalityMultCharsFamiliar} from Equation \ref{eqn_orthogonalityMultChars}, all we have to do is observe that the group elements $\ket{g}_{g\in G}$ form an orthogonal partition of the unit $\ZunitSym$ (by taking adjoints), and that they are classical points of $\ZdotSym$.
+By Theorem \ref{thm_PontryaginDualsSMC}, the comultiplication $\XcomultSym$ acts as a group on the multiplicative characters, and $\antipodeSym$ as the group inverse. The LHS of Equation \ref{eqn_orthogonalityMultChars} can be re-written as $\braket{\chi^{-1} \cdot \tau}{1}$, and $\cdot$ is the pointwise multiplication: since we assumed that the multiplicative characters are orthogonal, the result follows. In order to obtain Equation \ref{eqn_orthogonalityMultCharsFamiliar} from Equation \ref{eqn_orthogonalityMultChars}, all we have to do is observe that the group elements $\ket{g}_{g\in G}$ form an orthogonal partition of the unit $\XunitSym$ (by taking adjoints), and that they are classical points of $\ZdotSym$.
 \end{proof}
 Note that, by Definition \ref{def_Antipode} and Frobenius law for $\ZdotSym$, Equation \ref{eqn_orthogonalityMultChars} can equivalently be written as the following, stating that the multiplicative characters are a matchable states for $(\tinycomult[blackdot],\tinycounit[blackdot])$: 
 \begin{equation}
@@ -694,14 +694,267 @@ It is part of the CQM programme that the operational features of quantum theory 
 \subsection{\todo{Non-abelian Fourier Transform}}
 \label{section_NonAbelianFourierTransform}
 
+\section{Non-abelian Fourier Transform}
+\label{section_NonAbelianFourierTransform}
+
 In $\fdHilbCategory$, abelian internal groups satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}, and the corresponding Fourier Transform can be seen, via enrichment, as a canonical isomorphism of $\LtwoSym$-spaces $\Ltwo{G} \isom \Ltwo{G^\wedge}$. Non-abelian internal groups in $\fdHilbCategory$, however, fail those assumptions, as we will see that the classical states of the group structure never form a basis. However, it is a consequence of the Peter-Weyl theorem that the irreducible representations can be used to obtain a resolution of the identity. In this section, we generalise our treatment of internal groups from multiplicative characters to full-blown representation theory, concluding with a formulation of non-abelian Fourier Transform connected with the Gelfand--Naimark--Segal construction.
 
+First, let's see why non-abelian internal groups in $\fdHilbCategory$ cannot satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}. Ihe copyables of the point structure form an orthogonal basis, and are the elements of some non-abelian group $G$. The copyables of the group structures are the multiplicative characters of $G$: they are always orthogonal and normalisable, but as long as we show that they are less than the number of elements of $G$, we can conclude that they won't form a co-basis as would be required by Lemma \ref{lemma_FTTraditionalSMC}. But the multiplicative characters of a group $G$ are the same as the multiplicative character of its abelianization $G'$, which is always strictly smaller than $G$ (at least by a factor of 2). Therefore there are always strictly less multiplicative characters than group elements for a non-abelian internal group in $\fdHilbCategory$, and hence the assumptions of Lemma \ref{lemma_FTTraditionalSMC} always fail. It turns out that this is not restricted to $\fdHilbCategory$:
+
 \begin{theorem}
-Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. If the classical states of $\XdotSym$ form a basis, then $\mathbb{G}$ is necessarily an abelian internal group.
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. If the copyables of $\XdotSym$ form a basis, then $\mathbb{G}$ is necessarily an abelian internal group.
 \end{theorem}
 \begin{proof}
-All we have to show is that $\XmultSym = \XmultSym \cdot s_{\SpaceG\SpaceG}$, where $s_{\SpaceG\SpaceG}$ is the braiding operator. Equivalently, it is enough to show that $\XcomultSym = s_{\SpaceG\SpaceG} \cdot \XcomultSym$. But indeed for any classical $\ket{\chi}$ of $\XdotSym$ we have $\XcomultSym \cdot \ket{\chi} = \ket{\chi} \tensor \ket{\chi} = s_{\SpaceG\SpaceG} \cdot \ket{\chi} \tensor \ket{\chi} =   s_{\SpaceG\SpaceG} \cdot \XcomultSym \cdot \ket{\chi}$, and the classical states form a basis.
+All we have to show is that $\XmultSym = \XmultSym \cdot s_{\SpaceG\SpaceG}$, where $s_{\SpaceG\SpaceG}$ is the braiding operator. Equivalently, it is enough to show that $\XcomultSym = s_{\SpaceG\SpaceG} \cdot \XcomultSym$. But indeed for any copyable $\ket{\chi}$ of $\XdotSym$ we have $\XcomultSym \cdot \ket{\chi} = \ket{\chi} \tensor \ket{\chi} = s_{\SpaceG\SpaceG} \cdot \ket{\chi} \tensor \ket{\chi} =   s_{\SpaceG\SpaceG} \cdot \XcomultSym \cdot \ket{\chi}$, and the copyables form a basis.
 \end{proof}
+
+Now that we have established that non-abelian internal groups will never satisfy the requirements of Lemma \ref{lemma_FTTraditionalSMC}, we can start paving the way towards a more general, representation-theoretic formulation.  We will work with compact closed $\dagger$-SMCs, using arrows to indicate which end of the cups and caps is the dual object:
+\begin{equation}\label{eqn_cupcap}
+        %\hbox{\input{modules/pictures/cupcap.tex}}
+\end{equation}
+To avoid misunderstanding, we give an example of the typing for adjoints and conjugates:
+\begin{equation}\label{eqn_adjconj}
+        %\hbox{\input{modules/pictures/adjconj.tex}}
+\end{equation}
+So if $f:\SpaceG \rightarrow \SpaceH$, we have that $f^\dagger: \SpaceH \rightarrow \SpaceG$ and that $f^\star : \SpaceG^\star \rightarrow \SpaceH^\star$. When drawing diagrams, we will usually drop the $\;^\dagger$ and $\;^\star$, as the graphical orientation of the boxes and the direction of the wires are sufficient to disambiguate. The cups and caps on a space $\SpaceH$ induce a $\dagger$-Frobenius algebra on $\SpaceH \tensor \SpaceH^\star$, given as follows:
+\begin{equation}\label{eqn_MatrixMultFrob}
+        %\hbox{\input{modules/pictures/MatrixMultFrob.tex}}
+\end{equation}
+This $\dagger$-Frobenius algebra is quasi-special if the composition $\cap_{\SpaceH} \cdot \cap_\SpaceH^\dagger$ of the counit with the unit is an invertible scalar. In $\fdHilbCategory$, it corresponds to matrix multiplication (where endomorphisms $\SpaceH \rightarrow \SpaceH$ are seen as tensors $\SpaceH \tensor \SpaceH^\star \rightarrow \tensorUnit$ by compact closure). The representations of a monoid $(\, \SpaceG , \XmultSym,\XunitSym)$ in a compact-closed $\dagger$-SMC are defined to be the morphisms of monoids from $(\, \SpaceG , \XmultSym,\XunitSym)$ to the monoid given in \ref{eqn_MatrixMultFrob}: the multiplicative characters given in Definition \ref{def_MultiplicativeCharacters} are then the special case $\SpaceH = \tensorUnit$, and this will form the starting point of our generalisation to representation theory.
+
+\begin{definition}\label{def_Reps}
+        The \textbf{representations} of a monoid $(\, \SpaceG , \XmultSym,\XunitSym)$ in a compact-closed $\dagger$-SMC are the morphisms $\repSym : \SpaceG \rightarrow \SpaceH \tensor \SpaceH^\star$ satisfying the first two equations in \ref{eqn_RepsDef}. The representations of an internal groups $(\, \SpaceG , \XdotSym,\ZdotSym)$ are the representations of the monoid $(\, \SpaceG , \XmultSym,\XunitSym)$. A representation of an internal group is \textbf{unitary} if it satisfies the third as well. A representation is \textbf{isometric} if it is an isometry.
+        \begin{equation}\label{eqn_RepsDef}
+                %\hbox{\input{modules/pictures/RepsDef1.tex}}
+        \end{equation}
+\end{definition}
+
+In \cite{StefanoGogioso-CategoricalSemanticsSchrodingersEqn}, (unitary) representations appear in a slightly different flavour, as certain Eilenberg-Moore algebras $\SpaceH \tensor \SpaceG \rightarrow \SpaceH$, without any need for compact closure. The (unitary) representations defined here in \ref{def_Reps} are exactly the morphisms obtained from the representations defined in \cite{StefanoGogioso-CategoricalSemanticsSchrodingersEqn} by using compact-closure to bend the input $\SpaceH$ wire of the latter into the output $\SpaceH^\star$ wire of the former. However, in this work compact-closure is explicitly needed to define the characters associated with the representations of internal groups.
+
+\begin{definition}\label{def_Characters}
+        The \textbf{character} associated with a representation $\rho: \SpaceG \rightarrow \SpaceH \tensor \SpaceH^\star$ of a monoid / internal group in a compact-closed $\dagger$-SMC is the morphism $\chi_\rho : \SpaceG \rightarrow \tensorUnit$ defined by Equation \ref{eqn_CharacterDef}. In the case of internal groups, a character $\chi_\rho$ is \textbf{unitary} if the representation $\rho$ is. 
+        \begin{equation}\label{eqn_CharacterDef}
+                %\hbox{\input{modules/pictures/CharacterDef.tex}}
+        \end{equation}
+\end{definition} 
+
+In particular, the multiplicative characters given in Definition \ref{def_MultiplicativeCharacters} are both unitary representations and the corresponding characters. As we will shortly see, representations will generalise multiplicative characters in their role as copyables, and in giving a resolution of the identity; characters, on the other hand, will generalise multiplicative characters in their role as matching family, and in giving a partition of the counit.
+
+\begin{definition}
+Let $(\,\SpaceG , \XmultSym,\XunitSym)$ be a monoid in a compact-closed $\dagger$-SMC which is distributively $\fComMonCategory$-enriched, and let $(\rho: \SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH^\star_\rho)_{\rho \in \mathcal{R}}$ be a finite family of representations of $(\,\SpaceG , \XmultSym,\XunitSym)$. We say that the family is \textbf{orthogonal} if:
+\begin{equation}
+\sigma \cdot \rho^\dagger = 0 \text{, for all } \sigma, \rho \in \mathcal{R} \text{ s.t. }\sigma \neq \rho
+\end{equation}
+where $0 : \SpaceH_\rho \tensor \SpaceH^\star_\rho \rightarrow \SpaceH_\sigma \tensor \SpaceH^\star_\sigma$ is the zero morphism given by $\fComMonCategory$-enrichment. We say that the family is \textbf{normalisable} with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$ if:
+\begin{equation}
+\rho \cdot \rho^\dagger = N_\rho \; \id{\SpaceH_\rho \tensor \SpaceH_\rho^\star} \text{, for some invertible scalar } N_\rho
+\end{equation}
+\end{definition}
+ 
+In a picture, a finite, normalisable, orthonormal family of representations $(\rho)_{\rho \in \mathcal{R}}$ is one that satisfies the following family of equations, where $(N_\rho)_{\rho \in \mathcal{R}}$ is a family of invertible scalars:\footnote{Note that the $\delta_{\rho \sigma}$ symbol allows for the equation to be correct in type. If $\rho = \sigma$, then the identities are well-typed; if $\rho \neq \sigma$, then the RHS is the unique, well defined zero morphism $0 : \SpaceH_\rho \tensor \SpaceH^\star_\rho \rightarrow \SpaceH_\sigma \tensor \SpaceH^\star_\sigma$, also well-typed.}
+        \begin{equation}\label{eqn_RepsOrthonormal}
+                %\hbox{\input{modules/pictures/RepsOrthonormal.tex}}
+        \end{equation}
+
+The following Lemma \ref{lemma_BasisResolutionPartition2} generalises Lemma \ref{lemma_BasisResolutionPartition} from copiables to representations.
+ 
+\begin{lemma}\label{lemma_BasisResolutionPartition2}
+Let $\XdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a compact-closed $\dagger$-SMC which is distributively $\fComMonCategory$-enriched, and let $(\rho: \SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH^\star_\rho)_{\rho \in \mathcal{R}}$ be a finite, normalisable (with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$), orthogonal family of representations of $(\,\SpaceG , \XmultSym,\XunitSym)$. Then the following are equivalent:
+\begin{enumerate}
+\item[(i)] the representations $(\rho)_{\rho \in \mathcal{R}}$ form an \textbf{(orthogonal) resolution of the identity}:
+        \begin{equation}\label{eqn_RepsResolutionId}
+                %\hbox{\input{modules/pictures/RepsResolutionId.tex}}
+        \end{equation}
+\item[(ii)] the characters $(\chi_\rho)_{\rho \in \mathcal{R}}$ form an \textbf{(orthogonal) partition of the counit}:
+        \begin{equation}\label{eqn_CharPartitionCounit}
+                %\hbox{\input{modules/pictures/CharPartitionCounit.tex}}
+        \end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The proof goes essentially like that of parts $(ii) \implies (iii)$ and $(iii) \implies (ii)$ from Lemma \ref{lemma_BasisResolutionPartition}, with representations and characters substituted to multiplicative characters in parts $(ii)$ and $(iii)$ respectively, and Definitions \ref{def_Reps} and \ref{def_Characters} in place of Definition \ref{def_MultiplicativeCharacters}.
+\end{proof}
+
+We saw at the beginning of this section that only abelian internal groups can have multiplicative characters forming an orthogonal resolution of the identity / partition of the counit: in $\fdHilbCategory$ this is the case for all abelian internal groups, while in $\fRelCategory$ only for selected special cases. The following Theorem shows that the generalisation of Lemma \ref{lemma_BasisResolutionPartition} to Lemma \ref{lemma_BasisResolutionPartition2} will be sufficient to cover all internal groups in $\fdHilbCategory$, both abelian and non-abelian.
+
+\begin{theorem}\label{thm_PeterWeyl} \textbf{(Peter-Weyl)}\\
+        If $\mathbb{G} = (\, \SpaceG , \XdotSym,\ZdotSym)$ is an internal group in $\fdHilbCategory$ (with $\ZdotSym$ a $\dagger$-SCFA), then there is a finite, normalisable, orthogonal family $\Irreps{\mathbb{G}}$ of unitary representations $\rho: \SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH_\rho^\star$, which form a resolution of the identity. The family can be obtained by taking exactly one representative for each equivalence class of irreducible representations of the finite group $G$, given by $(\XmultSym,\XunitSym)$ acting on the copyable states of $\ZdotSym$, and extending it linearly from $G$ to $\SpaceG$, under the isomorphism $\SpaceG \isom \Ltwo{G}$ induced by $\ZdotSym$. We shall refer to one such family $\Irreps{\mathbb{G}}$ as a family of \textbf{irreps} (or irreducible representations) for the internal group $\mathbb{G}$. The normalisation factors are given by $N_\rho = N / d_\rho$, where $N$ is the dimensionality of $\SpaceG$ (the normalisation factor for $\XdotSym$) and $d_\rho$ is the dimensionality of $\SpaceH_\rho$.
+\end{theorem}
+\begin{proof} This is the finite-dimensional case of the Peter-Weyl Theorem: see, for example, \cite{Msc-RepCharactersGroups} and \cite{CQM-PeterWeylTheorem}.
+\end{proof}
+
+In $\fdHilbCategory$, the resolution of the identity provided by representations takes the form of a complete family of projectors, one $d_\rho$-dimensional projector for each irrep $\rho$. By fixing a basis for $\SpaceH$, this family can be turned into a family of $1$-dimensional projectors, using matrix elements.
+
+\begin{definition}
+    Let $(\,\SpaceG , \XmultSym,\XunitSym)$ be a monoid in a compact-closed $\dagger$-SMC and let $\rho: \SpaceG \rightarrow \SpaceH \tensor \SpaceH^\star$ be a representation. Let $\ZaltdotSym$ be a $\dagger$-qSCFA on $\SpaceH$ with copyables $\ket{x}_{x \in X}$ forming a finite, normalisable, orthogonal basis for $\SpaceG$. The \textbf{matrix elements} of $\rho$ with respect to $\ZaltdotSym$ are the following states of $\SpaceG$:
+\begin{equation}
+    \rho^x_y := \rho^\dagger \tensor \left( \ket{x} \tensor \ket{y}^\star \right) \text{, for } x,y \in X   
+\end{equation}
+\end{definition}
+
+\begin{lemma}
+Let $\XdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a compact-closed $\dagger$-SMC which is distributively $\fComMonCategory$-enriched, and let $(\rho: \SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH^\star_\rho)_{\rho \in \mathcal{R}}$ be a finite, normalisable (with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$), orthogonal family of representations of $(\,\SpaceG , \XmultSym,\XunitSym)$ which forms an orthogonal resolution of the identity. For each $\rho \in \mathcal{R}$, let $\ZaltdotSym_\rho$ be a $\dagger$-qSCFA on $\SpaceH_\rho$ with copyables $\ket{x}_{x \in X_\rho}$ forming a finite, normalisable, orthogonal basis for $\SpaceG$. Then the family of all matrix elements for all the representations in $R$ forms a finite, normalisable, orthogonal basis for $\SpaceG$. 
+\end{lemma}
+\begin{proof}
+By inserting the (separable) resolution of the identity provided by the basis $\left(\ket{x} \tensor \ket{y}^\star \right)_{x,y \in X}$ of $\SpaceH_\rho \tensor \SpaceH^\star_\rho$ in the middle $\SpaceH_\rho \tensor \SpaceH^\star_\rho$ wires of the resolution of the identity provided by the representations.
+\end{proof}
+
+Another useful result is the following, which generalises Theorem \ref{lemma_OrthogonalityCharacters}, or more precisely the equivalent formulation given by Equation \ref{eqn_orthogonalityMultCharsRed}.
+
+\begin{theorem}[Orthogonality of Characters]\label{lemma_OrthogonalityCharacters2}
+Let $\XdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a compact-closed $\dagger$-SMC which is distributively $\fComMonCategory$-enriched, and let $(\rho)_{\rho \in \mathcal{R}}$ be a finite, normalisable, orthogonal family of representations of $(\,\SpaceG , \XmultSym,\XunitSym)$. If $(\rho)_{\rho \in \mathcal{R}}$ forms a resolution of the identity, then the \textbf{normalised characters} $(\frac{1}{N_\rho}\chi_\rho)_{\rho \in \mathcal{R}}$ are a matching family for $(\,\SpaceG , \XcomultSym,\XcounitSym)$:
+    \begin{equation}\label{eqn_orthogonalityChars}
+                %\hbox{\input{modules/pictures/orthogonalityChars.tex}}
+        \end{equation}
+\end{theorem}
+\begin{proof}
+The proof begins by using the resolution of the identity from Equation \ref{eqn_RepsResolutionId}, and then Equation \ref{eqn_RepsDef}:
+    \begin{equation}\label{eqn_CharOrthProof1}
+                %\hbox{\input{modules/pictures/CharOrthProof1.tex}}
+        \end{equation}
+The proof concludes by using orthogonality of representations from Equation \ref{eqn_RepsOrthonormal}:
+    \begin{equation}\label{eqn_CharOrthProof2}
+                %\hbox{\input{modules/pictures/CharOrthProof2.tex}}
+        \end{equation}
+\end{proof}
+
+Finally, Lemma \ref{lemma_FTTraditionalSMC2} provides the non-abelian analogue to the traditional formulation of the Fourier Transform given in Lemma \ref{lemma_FTTraditionalSMC}. It only deals with the Fourier Transform, i.e. with representations of $\XdotSym$: this is because $\ZdotSym$ is commutative, and hence the Inverse Fourier Transform is usually covered by Lemma \ref{lemma_FTTraditionalSMC}, but the result can be straightforwardly extended to the Inverse Fourier Transform
+
+\begin{lemma}\label{lemma_FTTraditionalSMC2}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a compact-closed $\dagger$-SMC which is distributively $\fComMonCategory$-enriched. Further assume that $(\rho)_{\rho \in \mathcal{R}}$ is a finite, normalisable family of representations of $\mathbb{G}$ (with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$), which forms an orthogonal resolution of the identity. Then the Fourier Transform of Definition \ref{eqn_FT} can be written in the following way:
+\begin{equation}\label{eqn_FTv2nonabelian}
+        %\hbox{\input{modules/pictures/FTv2nonabelian.tex}}
+\end{equation} 
+\end{lemma}
+\begin{proof}
+Goes on the same lines as the proof of Lemma \ref{lemma_FTTraditionalSMC}, using Lemma \ref{lemma_BasisResolutionPartition2} in place of Lemma \ref{lemma_BasisResolutionPartition}.
+\end{proof}
+
+Using Lemma \ref{lemma_FTTraditionalSMC2} and Theorem \ref{thm_PeterWeyl}, we recover a formulation of the Fourier Transform in $\fdHilbCategory$ which is reminiscent of the traditional abelian one, yet valid for all internal groups: the only thing missing is an analogue to the interpretation of $\mathcal{F}_{G}[f]$ as a function in $\Ltwo{G^\wedge}$. In the abelian case, this went as follows: 
+\begin{enumerate}
+\item[1.] The Fourier Transform for an abelian internal group  $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ is given by Definition \ref{def_FourierTransform}.
+\item[2.] By Theorem \ref{thm_CategoricalPontryaginDuality}, it is a canonical isomorphism of sets between states and co-states of $\SpaceG$.
+\item[3.] By Theorem \ref{thm_EnrichedPontryaginDuality}, it is furthermore an isomorphism of finite-dimensional Hilbert spaces.
+\item[4.] The group elements form a basis of $\SpaceG$, inducing a canonical isomorphism $\Hom{\fdHilbCategory}{\complexs}{\SpaceG} \isom \Ltwo{G}$ (see Section \ref{section_EnrichedPontryaginDuality}).
+\item[5.] The multiplicative characters form a co-basis of $\SpaceG$, inducing a canonical isomorphism $\Hom{\fdHilbCategory}{\SpaceG}{\complexs} \isom \Ltwo{G^\wedge}$  (see Section \ref{section_EnrichedPontryaginDuality}).
+\item[6.] Lemma \ref{lemma_FTTraditionalSMC} uses points 4 and 5 to turn the Fourier Transform into a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, sending $\ket{f} = \sum_{g \in G} f(g) \ket{g}$ to $\bra{\tilde{f}} = \sum_{\chi \in G^\wedge} \tilde{f}(\chi) \bra{\chi}$.
+\end{enumerate}
+
+In Section \ref{section_EnrichedPontryaginDuality}, we have seen how, if $\CategoryC$ is a $\dagger$-SMCwhich is distributively $\fComMonCategory$-enriched, then $\CategoryC$ can be enriched over the category of $R$-modules, where $R$ is its semiring of scalars. If $\CategoryC$ is furthermore compact-closed with self-dual objects (i.e. $\SpaceH^\star = \SpaceH$), then the requirement of compatibility between $\star: \SpaceH \rightarrow \SpaceH$ and the $R$-module structure should be added to the enrichment.
+
+In Section \ref{section_InternalGroups} we have defined the category $\IntGrpCategory{\CategoryC}$ of internal groups and internal group homomorphisms for any $\dagger$-SMC $\CategoryC$. Now we define a new category, $\IntGrpStructCategory{\CategoryC}$, with objects the internal groups and the same morphisms of $\CategoryC$:
+\begin{equation}
+\Hom{\IntGrpStructCategory{\CategoryC}}{(\SpaceG,\XdotSym,\ZdotSym)}{(\SpaceH,\XaltdotSym,\XaltdotSym)} = \Hom{\CategoryC}{\SpaceG}{\SpaceH}
+\end{equation}
+Then there is a faithful functor $\IntGrpStructCategory{\CategoryC} \monom \IntGrpStructCategory{\CategoryC}$ which is bijective on objects, and a full and faithful functor $\IntGrpStructCategory{\CategoryC} \rightarrow \CategoryC$, which is furthermore surjective on objects (and hence an equivalence of categories) if and only if each object of $\CategoryC$ has at least one internal group structure on it.
+
+Since $\IntGrpStructCategory{\CategoryC}$ keeps track of internal group structure, it can be enriched more than $\CategoryC$: if $\CategoryC$ is distributively $\fComMonCategory$-enriched, then the category $\IntGrpStructCategory{\CategoryC}$ can be enriched in unital $R$-algebras, where the unital ring structure on $\Hom{\IntGrpStructCategory{\CategoryC}}{(\SpaceG,\XdotSym,\ZdotSym)}{(\SpaceH,\XaltdotSym,\ZaltdotSym)}$ is given by the following operation and unit:
+\begin{equation}\label{eqn_GrpAlgebraStructure}
+        %\hbox{\input{modules/pictures/GrpAlgebraStructure.tex}}
+\end{equation}
+
+In the case of $\fdHilbCategory$, take $F,F' : \Ltwo{G} \rightarrow \Ltwo{H}$, where we already identified $\SpaceG \isom \Ltwo{G}$ via $\ZdotSym$ and $\SpaceH \isom \Ltwo{H}$ via $\ZaltdotSym$. Then the ring operation and unit take the following explicit form:
+\begin{align}
+F \bullet F' &= f \mapsto \sum_{g \in G} f(g) \, F(\delta_g) \star F'(\delta_g) \\
+1_\bullet &= f \mapsto \delta_0
+\end{align}
+where $\star$ is the convolution operation on $\Ltwo{H}$, and $\delta_0 \in \Ltwo{H}$ is its unit. In particula, the $\complexs$-algebra structure on $\Hom{\IntGrpStructCategory{\fdHilbCategory}}{\complexs}{(\SpaceG,\XdotSym,\ZdotSym)}$ is the convolution algebra on $\Ltwo{G}$, and the $\complexs$-algebra structure on $\Hom{\IntGrpStructCategory{\fdHilbCategory}}{(\SpaceG,\XdotSym,\ZdotSym)}{\complexs}$ is the pointwise multiplication algebra\footnote{Sending $f,f' \in \Ltwo{G^\wedge}$ to $f \bullet f' = \chi \mapsto f(\chi)f'(\chi)$.} on $\Ltwo{G^\wedge}$.
+
+The key point is that the $R$-algebra structures on states and co-states of $\mathbb{G} = (\SpaceG,\XdotSym,\ZdotSym)$ in any $\IntGrpStructCategory{\CategoryC}$ are enough to reconstruct $\XdotSym$ and $\ZdotSym$ respectively: the algebraic generalisation of Pontryagin duality from the abelian case to the non-abelian case goes through this shift of perspective from $\LtwoSym$-spaces to algebras. Remember that, if the group elements of an internal group $\mathbb{G} = (\SpaceG,\XdotSym,\ZdotSym)$ (in a distributively $\fComMonCategory$-enriched category $\CategoryC$) form a finite, normalisable orthogonal basis, then $\Hom{\CategoryC}{\tensorUnit}{\SpaceG}^{(R\text{-modules})} \isom R[G_{\ZdotSym}]$ as $R$-modules, where $R[G_{\ZdotSym}]$ is the free $R$-module on the group elements (see Section \ref{section_EnrichedPontryaginDuality}). This generalised the $\LtwoSym$-spaces from $\fdHilbCategory$.
+
+The corresponding statement in $\IntGrpStructCategory{\CategoryC}$ is that $\Hom{\IntGrpStructCategory{\CategoryC}}{\tensorUnit}{\mathbb{G}}^{(R\text{-algebras})}$ is isomorphic, as $R$-algebras, to the algebra on $R[G_{\ZdotSym}]$ induced by the isomorphism of $R$-modules above; we shall refer to this algebra over the $R$-module $R[G_{\ZdotSym}]$ as $R[\mathbb{G}]$, as it involves both the $\ZdotSym$ and the $\XdotSym$ structures. This generalises $\LtwoSym$-spaces with their convolution algebra structure. 
+
+\begin{lemma}\label{lemma_CategoricalGNRep}
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a compact-closed $\dagger$-SMC which is distributively $\fComMonCategory$-enriched. Assume that $(\rho:\SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH_\rho^\star)_{\rho \in \mathcal{R}}$ is a finite, normalisable family of representations of $\mathbb{G}$ (with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$), which forms an orthogonal resolution of the identity. If $(i_\rho : \SpaceH_\rho \rightarrow V)_{\rho \in \mathcal{R}}$ is a family of orthogonal isometries (i.e. $i_\rho^\dagger \cdot i_\sigma = 0$ whenever $\sigma \neq \rho$), then the following is an isometric representation of $\mathbb{G}$:
+        \begin{equation}\label{eqn_GNSRep}
+                %\hbox{\input{modules/pictures/GNSRep.tex}}
+        \end{equation}  
+\end{lemma}
+\begin{proof}
+A series of straightforward checks. The fact that it is a representation follows from the fact that all $\rho$ are: the missing $i_\rho,i_\rho^\star$ morphisms are obtained by expanding the caps as:
+\begin{equation}
+\cap_{\SpaceH_\rho}^\star = \cap_V^\star \cdot \left( i_\rho^\star \tensor i_\rho \right)
+\end{equation}
+The fact that it is an isometry follows from the fact that the $i_\rho$ (and hence the $i_\rho^\star$) are an orthogonal family of isometries, and that the representations form a resolution of the identity.
+\end{proof}
+
+In $\fdHilbCategory$, the algebra $\complexs[\mathbb{G}]$ is a C*-algebra, and the representation of Equation \ref{eqn_GNSRep} is a *-representation of C*-algebras. The typical example of one such representation involves taking $\mathcal{R}$ to be a complete set of representatives for the equivalence classes of irreducible representations of a finite group $G$, and letting $V = \oplus_{\rho \in \mathcal{R}} \SpaceH_\rho$ together with the isometric subspace injections $i_\rho : \SpaceH_\rho \monom V$ given by the biproduct structure. The resulting representation $\oplus_{\rho \in \mathcal{R}} \rho$ is reminiscent of the Gelfand-Naimark representation: the latter takes the same form, but with the entire set of pure states for the C*-algebra as $\mathcal{R}$, and the respective irreducible representations given by the GNS construction. For the purposes of proving the Gelfand-Naimark theorem in $\fdHilbCategory$, however, both representations are equally valid (they are both isometric).
+
+\begin{theorem}[Categorical Gelfand-Naimark Theorem]\label{thm_CategoricalGNTheorem}.\\
+Consider the situation where:
+\begin{enumerate}
+\item[(i)] $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ is an internal group in a compact-closed $\dagger$-SMC which is distributively $\fComMonCategory$-enriched.
+\item[(ii)] $(\rho:\SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH_\rho^\star)_{\rho \in \mathcal{R}}$ is a finite, normalisable family of representations of $\mathbb{G}$ (with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$), which forms an orthogonal resolution of the identity
+\item[(iii)] The group elements of $\mathbb{G}$ form a finite, normalisable orthogonal basis, so that the $R$-algebra $R[\mathbb{G}]$ is well defined and isomorphic to $\Hom{\IntGrpStructCategory{\CategoryC}}{\tensorUnit}{\mathbb{G}}^{(R\text{-algebras})}$.
+\item[(iv)] $(i_\rho : \SpaceH_\rho \rightarrow V)_{\rho \in \mathcal{R}}$ is a family of orthogonal isometries (i.e. $i_\rho^\dagger \cdot i_\sigma = 0$ whenever $\sigma \neq \rho$).
+\end{enumerate}
+Then the $R$-algebra $R[\mathbb{G}]$ is isometrically isomorphic to a sub-algebra of the operator algebra given on $(V \tensor V^\star)[\mathcal{R}]$ by pointwise composition, where by $V \tensor V^\star$ we mean the $R$-module $\Hom{\CategoryC}{V \tensor V^\star}{\tensorUnit}^{(R\text{-modules})}$.
+\end{theorem}
+\begin{proof}
+First of all, the $R$-module $V \tensor V^\star$ can be given a ring structure by the usual tensor composition:
+\begin{equation}
+M \cdot N := \left( M \tensor N \right) \cdot \left( \id{V} \tensor \cup_V \tensor \id{V^\star} \right)
+\end{equation}
+where $M,N \in \Hom{\CategoryC}{\tensorUnit}{V \tensor V^\star}$; the identity tesor is $\cap_V$. The free $(V \tensor V^\star)$-module $(V \tensor V^\star)[\mathcal{R}]$ is in particular an $R$-module (but not a free one), and admits the unital algebra structure of pointwise composition:
+\begin{equation}
+(M_\rho)_{\rho \in \mathcal{R}} \cdot (N_\rho)_{\rho \in \mathcal{R}} := (M_\rho \cdot N_\rho)_{\rho \in \mathcal{R}}
+\end{equation}
+where $(M_\rho)_\rho, (N_\rho)_\rho$ are $\mathcal{R}$-indexed families of co-states $V \tensor V^\star \rightarrow \tensorUnit$ of $\CategoryC$. Since the representations satisfy the hypotheses of Lemma \ref{lemma_FTTraditionalSMC2}, we can assume the Fourier Transform to take the form of Equation \ref{eqn_FTv2nonabelian}: then using isometry of $i_\rho$ (and hence of $i_\rho^\star$), we obtain the following expression for the Fourier Transform $\tilde{f}$:
+\begin{equation}\label{eqn_GNTheoremProof1}
+        %\hbox{\input{modules/pictures/GNTheoremProof1.tex}}
+\end{equation}  
+where we have defined states (which we will refer to as \textit{tensors}) $\bra{\tilde{f}(\rho)}: V \tensor V^\star \rightarrow \tensorUnit$ by:
+\begin{equation}
+\bra{\tilde{f}(\rho)} := \left( (i_\rho \tensor i_\rho^\star) \cdot \rho \cdot \antipodeSym \cdot \ket{f} \right)^T
+\end{equation}
+Exactly like in Equation \ref{eqn_FTSummation} one could recover each scalar $\tilde{f}(\chi)$ as the inner product $\braket{\tilde{f}}{\chi}$, i.e. as the composition $\bra{\tilde{f}} \cdot \left(\bra{\chi}\right)^\dagger$, so one can recover the tensor $\bra{\tilde{f}(\rho)}$ in Equation \ref{eqn_GNTheoremProof1} as the composition $\bra{\tilde{f}} \cdot \rho^\dagger$. Thus, like Equation \ref{eqn_FTSummation} turned the Fourier Transform into an injection of sets $\mathcal{F}_{\mathbb{G}}: R[G_{\ZdotSym}] \inject R[G_{\XdotSym}]$ (in fact, a bijection), so Equation \ref{eqn_GNTheoremProof1} turns the Fourier Transform into an injection of sets $\mathcal{F}_{\mathbb{G}}: R[\mathbb{G}] \inject (V\tensor V^\star)[\mathcal{R}]$ (but not a bijection unless the representation of Equation \ref{eqn_GNSRep} is a unitary morphism of $\CategoryC$):
+\begin{align}
+f \in R[\mathbb{G}] \mapsto \tilde{f} \in (V\tensor V^\star)[\mathcal{R}]\text{, where we defined } \tilde{f} = \rho \mapsto \bra{\tilde{f}(\rho)} 
+\end{align}
+Furthermore, the injection is necessarily $R$-linear, and isometric by Theorem \ref{lemma_CategoricalGNRep}, making it an isometry of $R$-modules. Finally, by the Convolution Theorem \ref{thm_categoricalConvolutionTheorem} it is a morphism of algebras from $R[\mathbb{G}]$ (which is defined as the $R$-algebra induced by $(\XmultSym,\XunitSym)$ on $R[G_{\ZdotSym}]$) to the $R$-algebra on $(V \tensor V^\star)[\mathcal{R}]$ induced by $(\XcomultSym,\XcounitSym)$: all we need to show is that the latter is the algebra of pointwise composition of tensors. By using the fact that all $i_\rho$ are isometries, and the fact that the representations form a resolution of the identity, we have:
+\begin{equation}\label{eqn_GNTheoremProof2}
+        %\hbox{\input{modules/pictures/GNTheoremProof2.tex}}
+\end{equation}  
+Then we use the definition of representation to eliminate $\XcomultSym$, followed by orthogonality of representations and, finally, isometry of $i_\rho$ again:
+\begin{equation}\label{eqn_GNTheoremProof3}
+        %\hbox{\input{modules/pictures/GNTheoremProof3.tex}}
+\end{equation}  
+The leftmost map in Equation \ref{eqn_GNTheoremProof2} is the product of $(M_\rho)_\rho$ and $(N_\rho)_\rho$ in the algebra induced on $(V \tensor V^\star)[\mathcal{R}]$ by $(\XcomultSym,\XunitSym)$, while the rightmost map in Equation \ref{eqn_GNTheoremProof3} is the product of $(M_\rho)_\rho$ and $(N_\rho)_\rho$ in the pointwise composition algebra on $(V \tensor V^\star)[\mathcal{R}]$. Furthermore, by definition of representation and isometry of $i_\rho$, it is immediate to see that the algebra unit $\XcounitSym$ acts exactly as the algebra unit $\cup_V$. Thus $\mathcal{F}_{\mathbb{G}}$ is indeed an isometric $R$-algebra homomorphism from $R[\mathbb{G}]$ to $(V \tensor V^\star)[\mathcal{R}]$ with pointwise composition. $\mathcal{F}_{\mathbb{G}}$ restricted to its image (which is necessarily an $R$-algebra) is the desired isometric $R$-algebra isomorphism between $R[\mathbb{G}]$ and a subalgebra of $(V \tensor V^\star)[\mathcal{R}]$.
+\end{proof}
+
+Theorem \ref{thm_CategoricalGNTheorem} finally provides us with an appropriate generalisation of Pontryagin duality to the case of non-abelian internal groups in $\fdHilbCategory$. The first part goes pretty much as in the abelian case:
+\begin{enumerate}
+\item[1.] The Fourier Transform for an internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ is given by Definition \ref{def_FourierTransform}.
+\item[2.] By Theorem \ref{thm_CategoricalPontryaginDuality}, it is a canonical isomorphism of sets between states and co-states of $\SpaceG$.
+\item[3.] By Theorem \ref{thm_EnrichedPontryaginDuality}, it is furthermore an isomorphism of finite-dimensional Hilbert spaces  
+\item[4.] The group elements form a basis of $\SpaceG$, inducing a canonical isomorphism $\Hom{\fdHilbCategory}{\complexs}{\SpaceG} \isom \Ltwo{G}$.
+\item[4b.] This is in fact an isomorphism of C*-algebras between $(\SpaceG,\XcomultSym,\XunitSym)$ and the convolution algebra on $\Ltwo{G}$
+\end{enumerate}
+
+When things come to the $\XdotSym$ structure, the generalisation to representations and $\complexs$-algebras kicks in:
+\begin{enumerate}
+\item[5.] By Theorem \ref{thm_PeterWeyl}, letting $(\rho: \SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH_\rho^\star)_{\rho \in \mathcal{R}}$ be the irreducible representations\footnote{To be more precise, a complete set of representatives from the equivalence classes of irreducible representations.} of $G$ yields a finite, normalisable orthogonal family of (necessarily unitary) representations,\footnote{With normalisation factors $d_\rho / N$, where $d_\rho$ is the dimensionality of irrep $\rho$ and $N$ is the dimensionality of $\SpaceG$, i.e. the number of elements in $G$}.
+\item[6.] Taking $V = \oplus_{\rho \in \mathcal{R}} \SpaceH_\rho$ and $i_\rho: \SpaceH_\rho \monom V$ the isometric subspace injections given by the biproduct $\oplus$ of Hilbert spaces, yields an isometric representation $\oplus_{\rho \in \mathcal{R}} \rho$ as per Lemma \ref{lemma_CategoricalGNRep} (which is in fact a representation of C*-algebras).
+\item[7.] A C*-algebra $(V \tensor V^\star)[\mathcal{R}]$ can be defined on the Hilbert space of $(V \tensor V^\star)$-valued functions on $\mathcal{R}$ by considering pointwise composition:
+\begin{equation}
+(M_\rho)_{\rho \in \mathcal{R}} \bullet (N_\rho)_{\rho \in \mathcal{R}} := (M_\rho \cdot N_\rho)_{\rho \in \mathcal{R}} 
+\end{equation}
+\item[7.] Theorem \ref{thm_CategoricalGNTheorem} (which uses Enriched Pontryagin Duality Theorem \ref{thm_EnrichedPontryaginDuality}, the Convolution Theorem \ref{thm_categoricalConvolutionTheorem}, Lemma \ref{lemma_FTTraditionalSMC2} and the C*-algebra representation given by Lemma \ref{lemma_CategoricalGNRep}) turns the Fourier Transform into an isomorphism of algebras between the convoluton algebra on $\Ltwo{G}$ and a subalgebra of the pointwise composition algebra on $(V \tensor V^\star)[\mathcal{R}]$. This is in fact an isomorphism of C*-algebras.
+\end{enumerate}
+
+To summarise, the Fourier Transform for an internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ is always given by Definition \ref{def_FourierTransform}, and the different forms it takes, as an isomorphism of $\LtwoSym$-spaces or of C*-algebras, all depend on which concrete decomposition is available for the abstract form. In $\fdHilbCategory$, the group elements always form a finite, normalisable orthogonal resolution of the identity, endowing the states of $\SpaceG$ with the structure of the convolution algebra on $\Ltwo{G}$, irregardles of whether $\mathbb{G}$ is abelian or not. All the internal groups in $\fdHilbCategory$ now fall within one of two categories: 
+\begin{enumerate}
+\item[(a)] If $\mathbb{G}$ is abelian, then the multiplicative characters $(\chi: \SpaceG \rightarrow \complexs)_{\chi \in G^\wedge}$ also form a finite, normalisable orthogonal resolution of the identity, and the Fourier Transform is a canonical isomorphism of C*-algebras between the convolution algebra on $\Ltwo{G}$ and the pointwise multiplication\footnote{Multiplication in $\complexs$, which is commutative.} algebra on $\Ltwo{G^\wedge}$:
+\begin{align}
+\mathcal{F}_{\mathbb{G}}[f] &:= \chi \mapsto \sum_{g \in G} f(g)\,\chi^\star(g)\\
+\mathcal{F}_{\mathbb{G}}[f\star f'] &:= \chi \mapsto \mathcal{F}_{\mathbb{G}}[f](\chi)\mathcal{F}_{\mathbb{G}}[f'](\chi)
+\end{align}
+\item[(b)] If $\mathbb{G}$ is not abelian then the multiplicative characters cannot form an orthogonal basis. However, Theorem \ref{thm_PeterWeyl} gives a finite, normalisable family $(\rho:\SpaceG \rightarrow \SpaceH_\rho \tensor \SpaceH_\rho^\star)_{\rho \in \mathcal{R}}$ of irreducible unitary representations of $G$ forming an orthogonal resolution of the identity. Letting $V = \oplus_{\rho \in \mathcal{R}}$, and $i_\rho: \SpaceH_\rho \monom V$ the subspace injections, the Fourier Transform is a canonical isomorphism of C*-algebras, this time between the convolution algebra on $\Ltwo{G}$ and a subalgebra of the pointwise composition\footnote{Composition in $V \tensor V^\star$, which is non-commutative.} algebra on $(V \tensor V^\star)[\mathcal{R}]$:
+\begin{align}
+\mathcal{F}_{\mathbb{G}}[f] &:= \rho \mapsto \sum_{g \in G} f(f)\, \rho^\star(g)\\
+\mathcal{F}_{\mathbb{G}}[f \star f'] &:= \rho \mapsto \mathcal{F}_{\mathbb{G}}[f](\rho)\cdot\mathcal{F}_{\mathbb{G}}[f](\rho)
+\end{align}
+\end{enumerate}
 
 \subsection{\todo{Measurements and Representation Theory}}
 \todo{ADD\ IN\ NONABELIAN\ MATRIX\ ALGEBRA\ PARTS}\\
