@@ -7,10 +7,10 @@
     \node (ftl) [morphism] at ([yshift=1.5cm] m.center -| -0.7,1) {$\mathcal{F}$};
     \node (ftb) [morphism] at (0,-0.25) {$\mathcal{F}$};
     \node (ftr) [morphism] at (2.1,-0.25) {$\mathcal{F}$};    
-    \node (dd) [whitedot] at ([yshift=2.5cm] m.center -| -0.7,1) {};
+    \node (dd) [altwhitedot] at ([yshift=2.5cm] m.center -| -0.7,1) {};
     \draw [use as bounding box, draw=none] (-2,-2) rectangle +(6,10);
 \draw (0,-1.5)
-        node [whitedot] (bdot) {}
+        node [altwhitedot] (bdot) {}
     to (ftb.south);       
 \draw (ftb.north) to (0,1)
     to [out=\nwangle, in=south] (-0.7,2)

@@ -362,7 +362,7 @@ Then the following are equivalent:
 \item[(ii)] The classical states $\ket{x}_{x\in X}$ form a \emph{ resolution of the identity} Definition~\ref{def:resid}.
 \item[(iii)] The adjoints of the classical states form an \emph{(orthogonal) partition of the counit}, i.e. they satisfy the following equation:
 \begin{equation}\label{eqn_PartitionCounit}
-\frac{1}{N}\sum_x \!\!\!\!\text{\effectSym{x}}\!\! = \tinycounit[whitedot]
+\frac{1}{N}\sum_x \!\!\!\!\text{\effectSym{x}}\!\! = \tinycounit[blackdot]
 \end{equation}
 \end{enumerate}
 \end{lemma}
@@ -370,7 +370,7 @@ Then the following are equivalent:
 Since we have assumed that $\langle \chi|\chi\rangle$ is invertible, then $\langle \chi|\chi\rangle = N$ as observed in Section \ref{section_InternalGroups}.
 \begin{itemize}
 
-\item $(i) \implies (ii)$ Suppose that the classical states form a basis, i.e. further to orthogonality of the family suppose that $\forall \chi , f \cdot \ket{\chi} = g \cdot \ket{\chi}$ implies $f=g$ (completeness). Then we get, for all $\chi'$:
+\item $(i) \implies (ii)$ Suppose that the classical states form a basis, i.e. suppose that $\forall \chi , f \cdot \ket{\chi} = g \cdot \ket{\chi}$ implies $f=g$ (completeness). Then we get, for all $\chi'$:
 \begin{equation*}
 \left(\frac{1}{N} \sum_\chi \, \ket{\chi}\bra{\chi}\right) \cdot \ket{\chi'} = \frac{1}{N} \ket{\chi'} \braket{\chi'}{\chi'} = \ket{\chi'} = \idm{\SpaceG} \cdot \ket{\chi'}
 \end{equation*}
@@ -385,7 +385,7 @@ where we have used orthogonality. We conclude $(ii)$ by completeness.
 \begin{equation*}
 \frac{1}{N} \sum_\chi f \cdot \ket{\chi} \bra{\chi} = \frac{1}{N} \sum_\chi g \cdot \ket{\chi} \bra{\chi}
 \end{equation*}
-But the LHS is $f \cdot \id{\SpaceG}$, i.e. $f$, and the RHS is $g \cdot \idm{\SpaceG}$, i.e. $g$.
+But the LHS is $f \cdot \idm{\SpaceG}$, i.e. $f$, and the RHS is $g \cdot \idm{\SpaceG}$, i.e. $g$.
 
 
 \item $(iii) \implies (ii)$ Assume that $\XcounitSym = \frac{1}{N} \sum_\chi \bra{\chi}$, then we get (using Frobenius law in the first equality):
@@ -395,13 +395,13 @@ But the LHS is $f \cdot \id{\SpaceG}$, i.e. $f$, and the RHS is $g \cdot \idm{\S
  
 \end{itemize}
 
-As a final remark, note that orthogonality, assumed separately, is already included in the definition of basis used in point $(i)$; it is, however, necessary to assume it explicitly in points $(ii)$ and $(iii)$. As for point $(iii)$, a counterexample can be found in $\fRelCategory$, by replacing an orthogonal family with the one obtained by repeating some element $\bra{\chi}$, and using the fact that $\bra{\chi} + \bra{\chi} = \bra{\chi}$ (since the monoidal operation $\sum$ is just the union $\cup$). As for point $(ii)$, one can consider the category of finite-dimensional vector spaces over the field with 2 elements (where $1+1=0$): if $\ket{\chi}$ is a norm-1 vector in a 1-dimensional space $\SpaceG$, the family $(\ket{\chi},\ket{\chi},\ket{\chi})$ is non-orthogonal, and yet a resolution of the identity as $\ket{\chi}\bra{\chi}+\ket{\chi}\bra{\chi}+\ket{\chi}\bra{\chi} = \ket{\chi}\bra{\chi} = \idm{\SpaceG}$ (this cannot happen in $\fdHilbCategory$).
+As a final remark, note that orthogonality, assumed separately, is already included in the definition of basis used in point $(i)$; it is, however, necessary to assume it explicitly in points $(ii)$ and $(iii)$. As for point $(iii)$, a counterexample can be found in $\fRelCategory$, by replacing an orthogonal family with the one obtained by repeating some element $\bra{\chi}$, and using the fact that $\bra{\chi} + \bra{\chi} = \bra{\chi}$ (since the enriched monoidal operation $\sum$ is just the union $\cup$). As for point $(ii)$, one can consider the category of finite-dimensional vector spaces over the field with 2 elements (where $1+1=0$): if $\ket{\chi}$ is a norm-1 vector in a 1-dimensional space $\SpaceG$, the family $(\ket{\chi},\ket{\chi},\ket{\chi})$ is non-orthogonal, and yet a resolution of the identity as $\ket{\chi}\bra{\chi}+\ket{\chi}\bra{\chi}+\ket{\chi}\bra{\chi} = \ket{\chi}\bra{\chi} = \idm{\SpaceG}$ (this cannot happen in $\fdHilbCategory$).
 \end{proof}
 
 The formulation in terms of orthogonal partition of the counit is related to the orthogonality of (multiplicative) characters traditionally mentioned in the context of Fourier Transform (e.g. used here in Equation \ref{eqn_PointwiseMultCharacters}), as the following lemma shows. 
 
 \begin{theorem}[Orthogonality of Multiplicative Characters] \label{lemma_OrthogonalityCharacters}
-Let $(\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$, and $N$ be the normalisation factor for $\XdotSym$. Assume that the characters are all orthogonal, in the sense that $\braket{\chi}{\chi'} = 0$ for $\chi \neq \chi'$, and that $\braket{1}{1} = N$, where $\bra{1} := \tinycounit[whitedot]$ is the trivial character. Then if $\ket{\chi},\ket{\chi'}$ are (not necessarily distinct) multiplicative characters of the internal group, the following notion \emph{orthogonality of multiplicative characters} holds:
+Let $(\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$, and $N$ be the normalisation factor for te quasi-special condition of $\ZdotSym$. Assume that the characters are all orthogonal, in the sense that $\braket{\chi}{\chi'} = 0$ for $\chi \neq \chi'$, and that $\braket{1}{1} = N$, where $\bra{1} := \tinycounit[whitedot]$ is the trivial character. Then if $\ket{\chi},\ket{\chi'}$ are (not necessarily distinct) multiplicative characters of the internal group, the following \emph{orthogonality of multiplicative characters} holds:
 \begin{equation}\label{eqn_orthogonalityMultChars}
         \input{tikz/3_orthogonalityMultChar.tikz}
 \end{equation}
@@ -413,7 +413,7 @@ Now assume that \cat{C} is distributively $\cat{fCommMon}$-enriched. If the fami
 \begin{proof}
 By Theorem \ref{thm_PontryaginDualsSMC}, the comultiplication $\ZcomultSym$ acts as a group on the multiplicative characters, and $\antipodeSym$ as the group inverse. The LHS of Equation \ref{eqn_orthogonalityMultChars} can be re-written as $\braket{\chi^{-1} \cdot \tau}{1}$, and $\cdot$ is the pointwise multiplication: since we assumed that the multiplicative characters are orthogonal, the result follows. In order to obtain Equation \ref{eqn_orthogonalityMultCharsFamiliar} from Equation \ref{eqn_orthogonalityMultChars}, all we have to do is observe that the group elements $\ket{g}_{g\in G}$ form an orthogonal partition of the unit $\ZunitSym$ (by taking adjoints), and that they are classical points of $\ZdotSym$.
 \end{proof}
-Note that, by Definition \ref{def_Antipode} and Frobenius law for $\ZdotSym$, Equation \ref{eqn_orthogonalityMultChars} can equivalently be written as the following, stating that the multiplicative characters are a matching family for $(\tinycomult[blackdot],\tinycounit[blackdot])$: 
+Note that, by Definition \ref{def_Antipode} and Frobenius law for $\ZdotSym$, Equation \ref{eqn_orthogonalityMultChars} can equivalently be written as the following, stating that the multiplicative characters are a matchable states for $(\tinycomult[blackdot],\tinycounit[blackdot])$: 
 \begin{equation}
 \label{eqn_orthogonalityMultCharsRed}
 \input{tikz/3_orthRED.tikz}
@@ -438,7 +438,7 @@ Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dag
 \begin{equation}\label{eqn_FTSummation}
 \input{tikz/3_FTv2.tikz}
 \end{equation} 
-Furthermore, the Inverse Fourier Transform of Definition \ref{eqn_InverseFT} can be written in the following way \todo{the g states should be filled in black}:
+Furthermore, the Inverse Fourier Transform of Definition \ref{eqn_InverseFT} can be written in the following way:
 \begin{equation}\label{eqn_InverseFTSummation}
 \input{tikz/3_inverseFTv2.tikz}
  \end{equation} 
@@ -447,7 +447,7 @@ Furthermore, the Inverse Fourier Transform of Definition \ref{eqn_InverseFT} can
 For the Fourier Transform, use the fact that the multiplicative characters form an orthogonal partition of the counit $\XcounitSym$, as per Equation \ref{eqn_PartitionCounit}, and that they are classical states of $\tinycomult[blackdot]$, as per Equation \ref{eqn_MultCharDef}. Similar reasoning if used for the Inverse Fourier Transform.
 \end{proof}
 
-In $\fdHilbCategory$, the conditions of Lemma \ref{lemma_FTTraditionalSMC} hold for abelian inner groups (but not for non-abelian ones, as the multiplicative characters fail to form a basis). The rightmost expression in equation \ref{eqn_FTSummation} can be written as follows, where we have $\ket{\chi^{-1}} = \ket{\chi} \cdot \antipodeSym$ (as in Lemma \ref{lemma_OrthogonalityCharacters}):
+In $\fdHilbCategory$, the conditions of Lemma \ref{lemma_FTTraditionalSMC} hold for abelian internal groups (but not for non-abelian ones, as the multiplicative characters fail to form a basis). The rightmost expression in equation \ref{eqn_FTSummation} can be written as follows, where we have $\ket{\chi^{-1}} = \ket{\chi} \cdot \antipodeSym$ (as in Lemma \ref{lemma_OrthogonalityCharacters}):
 \begin{equation*}
 \frac{1}{N} \sum_\chi \bra{\chi} \braket{\chi^{-1}}{f}
 \end{equation*}
@@ -507,8 +507,8 @@ Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dag
 where $\varphi: \mathbb{G} \rightarrow \mathbb{H}$ is any unitary isomorphim of internal groups in $\CategoryC$, for  $\mathbb{H} = (\,\SpaceH,\dotonly{altblackdot},\dotonly{altwhitedot})$ any other internal group of $\CategoryC$. We have defined the following:
 \begin{enumerate}
 \item[(i)] $\varphi^\wedge := \varphi$ is an isomorphism of internal groups $\mathbb{H}^\wedge \rightarrow \mathbb{G}^\wedge$ in $\cat{C^{op}}$
-\item[(ii)] $_\varphi M$ as the map sending state $\ket{f} : \tensorUnit \rightarrow \SpaceG$ to state $\varphi \cdot \ket{f}: \tensorUnit \rightarrow \SpaceH$
-\item[(iii)] $^{(\varphi^\wedge)} M$ as the map sending co-state $\bra{f} : \SpaceH \rightarrow \tensorUnit$ (a state in $\cat{C^{op}}$) to co-state $\bra{f}\cdot \varphi : \SpaceG \rightarrow I$
+\item[(ii)] $_\varphi M$ as the map sending state $\ket{f} : \tensorUnit \rightarrow \SpaceG$ to state $\varphi \cdot \ket{f}: I \rightarrow \SpaceH$
+\item[(iii)] $^{(\varphi^\wedge)} M$ as the map sending co-state $\bra{f} : \SpaceH \rightarrow I$ (a state in $\cat{C^{op}}$) to co-state $\bra{f}\cdot \varphi : \SpaceG \rightarrow I$
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -525,17 +525,24 @@ In $\fdHilbCategory$ (with abelian internal groups), Equation \ref{eqn_PontDuali
 
 \begin{defn}
 \label{def_CategoricalHadamard}
-Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. A \emph{Hadamard transform} is defined to be a co-monoid isomorphism $h:(\,\tinycomult[whitedot],\tinycounit[whitedot]) \rightarrow (\,\XcomultSym,\XcounitSym)$ which is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\tinycomult[blackdot],\tinycounit[blackdot])$
+Let $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. A \emph{Hadamard transform} is defined to be a co-monoid isomorphism $h:(\,\tinycomult[whitedot],\tinycounit[whitedot]) \rightarrow (\,\XcomultSym,\XcounitSym)$ which is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\tinymult[blackdot],\tinyunit[blackdot])$. We write it as:
+\begin{equation}
+\begin{pic}
+\node [morphism] (h) at (0,0) {$H$};
+\draw (0,-1) to (h.south);
+\draw (0,1) to (h.north);
+\end{pic}
+\end{equation}
 %s.t. $h^\dagger$ is also a monoid isomorphism $h^\dagger:(\;\timemultSym,\timeunitSym) %\rightarrow (\;\timematchSym,\timematchunitSym)$. 
 \end{defn}
 Definition \ref{def_CategoricalHadamard} may look cryptic at first, but it is in fact quite natural as we clarify in the following remark.
 \begin{remark}\label{rmrk_CategoricalHadamard}
-A co-monoid isomorphims $h:(\;\ZcomultSym,\ZcounitSym) \rightarrow (\;\XcomultSym,\XcounitSym)$ is an isomorphism $h: \SpaceG \rightarrow \SpaceG$ which satisfies:
+A co-monoid isomorphim $h:(\;\ZcomultSym,\ZcounitSym) \rightarrow (\;\XcomultSym,\XcounitSym)$ is an isomorphism $h: \SpaceG \rightarrow \SpaceG$ which satisfies:
 \begin{align}
     \XcomultSym \cdot h &= \left( h \tensor h \right) \cdot \tinycomult[whitedot] \\
     \XcounitSym \cdot h &= \tinycounit[whitedot]
 \end{align}
-and in particular it maps $\ZdotSym$-copyable states to $\XdotSym$-copyable states (since it is an isomorphism, it is a bijection between the classical states of the two comonoids). The requirement that $h$ is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\XcomultSym,\XcounitSym)$ amounts to the requirement that:
+and in particular it maps $\ZdotSym$-classical states to $\XdotSym$-classical states (since it is an isomorphism, it is a bijection between the classical states of the two comonoids). The requirement that $h$ is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\XmultSym,\XunitSym)$ amounts to the requirement that:
 \begin{align}
     h \cdot \XmultSym &= \ZmultSym \cdot \left( h \tensor h \right)\\
     h \cdot \XunitSym &= \ZunitSym
@@ -548,9 +555,8 @@ In $\fdHilbCategory$ (with abelian internal groups), Definition \ref{def_Categor
 \subsection{The Fourier transform in the Category $\fRelCategory$}
 \label{section_RelFT}
 
-\todo{Fix notation of booleans throughout}
 
-The abstract correspondence between strongly complementary observables and Fourier transforms in Section \ref{section_AbelianGroups_FourierTransform} means that a characterization of strongly complementary observables in any $\dagger$-SMC allows for definition of a Fourier transform in that category.  In this section, we apply this idea to $\fRelCategory$, the category of finite sets and relations (for an introduction, see \cite{pavlovic2009quantum,zeng2015models} and references therein). In this setting, the relevant classical structures are classified by abelian groupoids, in a sense made clear by Theorem \ref{thm_classicalStructuresRel} below. Please note that in $\fRelCategory$ the scalars are the booleans $\{\bot,\top\}$, and $\top = \id{\tensorUnit}: \tensorUnit \rightarrow I$ is the only invertible scalar. As a consequence, all $\dagger$-qSFAs are automatically $\dagger$-SFAs (and thus all $\dagger$-qSCFAs are in fact classical structures). 
+The abstract correspondence between strongly complementary observables and Fourier Transforms in Section \ref{section_AbelianGroups_FourierTransform} means that a characterization of strongly complementary observables in any $\dagger$-SMC allows for definition of a Fourier Transform in that category.  In this section, we apply this idea to $\fRelCategory$, the category of finite sets and relations (Example~\ref{ex:smcs}). More details on \cat{FRel} as an oGCT in Section~\ref{sec:qalgrel}. In this setting, the relevant classical structures are classified by abelian groupoids, in a sense made clear by Theorem \ref{thm_classicalStructuresRel} below. Also recall that the monoidal identity is given by the singleton, i.e. $I = \{\star\}$. Please note that in $\fRelCategory$ the scalars are the booleans $\{\bot,\top\}$, and $\top = \id{\tensorUnit}: I \rightarrow I$ is the only invertible scalar. As a consequence, all $\dagger$-qSFAs are automatically $\dagger$-SFAs (and thus all $\dagger$-qSCFAs are in fact classical structures). 
 
 \begin{defn}
 A \emph{(finite) abelian groupoid} on some finite set $A$ is any finite family $(G_\lambda,+_\lambda,0_\lambda)_{\lambda \in \Lambda}$ of finite abelian groups such that $(G_\lambda)_{\lambda \in \Lambda}$ is a finite partition of $A$ into disjoint subsets. We denote one such groupoid by $\oplus_{\lambda \in \Lambda} G_\lambda$, leaving the groups' structures understood.
@@ -565,7 +571,7 @@ Let $\XdotSym$ be a classical structure in $\fRelCategory$ on a finite set $X$. 
         \emptyset \text{ otherwise}
     \end{cases}
 \end{equation}
-Furthermore, each abelian groupoid defines a unique $\dagger$-SCFA in this way. The classical states of the co-monoid fragment $(\XcomultSym,\XcounitSym)$ are the family $(G_\lambda)_{\lambda \in \Lambda}$, which is also a matching family for the monoid fragment $(\XmultSym,\XunitSym)$.\footnote{Recall that the states $1 \rightarrow A$ of a finite set $A$ in $\fRelCategory$ are exactly the subsets of $A$.}
+Furthermore, each abelian groupoid defines a unique $\dagger$-SCFA in this way. The classical states of the co-monoid fragment $(\XcomultSym,\XcounitSym)$ are the family $(G_\lambda)_{\lambda \in \Lambda}$, which is also a matching family for the monoid fragment $(\XmultSym,\XunitSym)$.\footnote{Recall that the states $I \rightarrow A$ of a finite set $A$ in $\fRelCategory$ are exactly the subsets of $A$.}
 \end{theorem}
 \begin{proof}
 Proven in \cite{pavlovic2009quantum}, extended to the case of non-commutative $\dagger$-SFAs / non-abelian groupoids in \cite{heunen-relFrob}.
@@ -623,9 +629,9 @@ t := \suchthat{\left((h,g),(\Psi g,\Psi^{-1}h)\right)}{h \in H \text{ and } g \i
 \end{equation}
 \end{proof}
 
-The Fourier Transform as given by Definition \ref{def_FourierTransform} is valid in any $\dagger$-SMC with a pair of strongly complementary classical structures, and in particular it holds in $\fRelCategory$. The more traditional formulation given by Lemma \ref{lemma_FTTraditionalSMC}, which allows one to see the Fourier Transform as a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, is based on the assumption that the group elements of an abelian internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ form a basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G}$ in a natural way, and that the multiplicative characters form a co-basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G^\wedge}$ in a natural way; more details about this can be found in Section \ref{section_EnrichedPontryaginDuality} below.
+The Fourier Transform as given by Definition \ref{def_FourierTransform} is valid in any $\dagger$-SMC with a pair of strongly complementary classical structures, and in particular it holds in $\fRelCategory$. The more traditional formulation given by Lemma \ref{lemma_FTTraditionalSMC}, which allows one to see the Fourier Transform as a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, is based on the assumption that the group elements of an abelian internal group $\mathbb{G} = (\,\SpaceG,\XdotSym,\ZdotSym)$ in $\fdHilbCategory$ form a basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G}$ in a natural way, and that the multiplicative characters form a co-basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G^\wedge}$ in a natural way.
 
-In $\fRelCategory$, however, the assumptions of Lemma \ref{lemma_FTTraditionalSMC} only hold in one, trivial case. The classical points of a classical structure in $\fRelCategory$ are always a finite, orthogonal and normalisable family, and $\fRelCategory$ is distributively $\cat{fCommMon}$-enriched as required. However, as Lemma \ref{thm_partitionIdentityRel} below notes, there is a unique classical structure on any finite set $A$ with classical points forming the resolution of the identity, and the only abelian internal group in $\fRelCategory$ satisfying the assumptions of Lemma \ref{lemma_FTTraditionalSMC} is the one on the tensor unit $\{\star\}$ of $\fRelCategory$.
+In $\fRelCategory$, however, the assumptions of Lemma \ref{lemma_FTTraditionalSMC} only hold in one, somewhat trivial case. The classical points of a classical structure in $\fRelCategory$ are always a finite, orthogonal and normalisable family, and $\fRelCategory$ is distributively $\cat{fCommMon}$-enriched as required. However, as Lemma \ref{thm_partitionIdentityRel} below notes, there is a unique classical structure on any finite set $A$ with classical points forming the resolution of the identity, and the only abelian internal group in $\fRelCategory$ satisfying the assumptions of Lemma \ref{lemma_FTTraditionalSMC} is the one on the tensor unit $\{\star\}$ of $\fRelCategory$.
 
 \begin{lemma}
 \label{thm_partitionIdentityRel}
@@ -649,16 +655,16 @@ When $Z$ is of the generic form $Z = \bigoplus_{\lambda \in \Lambda} G_\lambda$,
 which cannot be the identity if $|G_h|>1$. Therefore the unique classical structures $\ZdotSym$ with classical states forming an orthogonal resolution of the identity are the ones associated to discrete abelian groupoids, in the form $Z=\bigoplus^{A}\mathbb{Z}_1$. If $\ZdotSym$ is one such classical structure, and $\XdotSym$ is strongly complementary to it, then it follows immediately from Theorem \ref{thm_StrongComplementarityRel}, and subsequent remarks, that the abelian groupoid $X$ associated to $\XdotSym$ must be in fact an abelian group, in the form $X = \oplus^{\integersMod{1}} G$, where $G$ is some finite abelian group with element set $A$. But to satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}, we must have that $X$ is also a discrete groupoid, which forces $G \isom \integersMod{1}$ and $A \isom \{\star\}$.
 \end{proof}
 
-So there is no direct parallel in $\fRelCategory$ of the $\fdHilbCategory$ view that the Fourier Transform is a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, or of its traditional formulation from Equation \ref{eqn_DefTraditionalFT}. At first sight, this seems to be because the copyable states of the two structures of a generic abelian internal group need not form a basis: the question then naturally arises whether restricting our attention to some subclass of states (e.g. those which are linear combinations of the copyable states) would lead to a canonical isomorphism similar to the $\fdHilbCategory$ one. Theorem \ref{thm_NoCanonicalIsomRel} below answers this question negatively.
+So there is no direct parallel in $\fRelCategory$ of the $\fdHilbCategory$ view that the Fourier Transform is a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, or of its traditional formulation from Equation \ref{eqn_DefTraditionalFT}. At first sight, this seems to be because the classical states of the two structures of a generic abelian internal group need not form a basis: the question then naturally arises whether restricting our attention to some subclass of states (e.g. those which are linear combinations of the classical states) would lead to a canonical isomorphism similar to the $\fdHilbCategory$ one. Theorem \ref{thm_NoCanonicalIsomRel} below answers this question negatively.
 
-Define the \textbf{span} $\langle s_j \rangle_{j \in J}$ of a family of states $s_j \subseteq A$ to be the set of all states $r \subseteq A$ which can be obtained as the union $r = \cup_{j \in I} s_j$ of some subfamily $(s_j)_{j \in I\subseteq J}$. If the $(s_j)_{j \in J}$ are pairwise disjoint, then the states $r \in \langle s_j \rangle_{j \in J}$ are exactly those that descend to boolean functions over the set $\suchthat{s_j}{j \in J}$:
+Define the \emph{span} $\langle s_j \rangle_{j \in J}$ of a family of states $s_j \subseteq A$ to be the set of all states $r \subseteq A$ which can be obtained as the union $r = \cup_{j \in I} s_j$ of some subfamily $(s_j)_{j \in I\subseteq J}$. If the $(s_j)_{j \in J}$ are pairwise disjoint, then the states $r \in \langle s_j \rangle_{j \in J}$ are exactly those that descend to boolean functions over the set $\suchthat{s_j}{j \in J}$:
 \begin{align}\label{eqn_spanBooleanFunctions}
     r \in \langle s_j \rangle_{j \in J} \;\; \mapsto \;\; \left(j \mapsto \braket{s_j}{r}\right) \in \mathbb{B}[J]
 \end{align}
-where we denoted by $\ket{s} : \tensorUnit \rightarrow A$ the state corresponding to subset $s \subseteq A$. Now consider an abelian internal group $\mathbb{G} = (A,\ZdotSym,\XdotSym)$ in $\fRelCategory$, and let $Z = \bigoplus^{|G|}H$ and $X = \bigoplus^{|H|}G$ be the abelian groupoids corresponding to $\ZdotSym$ and $\XdotSym$ respectively. Then $\langle H_g \rangle_{g\in G}$, seen as the set $\{0,1\}^G$ of boolean functions on $\suchthat{H_g}{g\in G}$, plays the role in $\RelCategory$ that $\Ltwo{G}$ played in $\fdHilbCategory$, and similarly $\langle G_h \rangle_{h\in H}$, seen as $\{0,1\}^H$, is the analogue of $\Ltwo{H}$ (and takes the place $\Ltwo{G^\wedge}$ had in $\fdHilbCategory$). 
+where we denoted by $\ket{s} : I \rightarrow A$ the state corresponding to subset $s \subseteq A$. Now consider an abelian internal group $\mathbb{G} = (A,\ZdotSym,\XdotSym)$ in $\fRelCategory$, and let $Z = \bigoplus^{|G|}H$ and $X = \bigoplus^{|H|}G$ be the abelian groupoids corresponding to $\ZdotSym$ and $\XdotSym$ respectively. Then $\langle H_g \rangle_{g\in G}$, seen as the set $\{0,1\}^G$ of boolean functions on $\suchthat{H_g}{g\in G}$, plays the role in $\RelCategory$ that $\Ltwo{G}$ played in $\fdHilbCategory$, and similarly $\langle G_h \rangle_{h\in H}$, seen as $\{0,1\}^H$, is the analogue of $\Ltwo{H}$ (and takes the place $\Ltwo{G^\wedge}$ had in $\fdHilbCategory$). 
 
 \begin{theorem}\label{thm_NoCanonicalIsomRel}
-Let $\mathbb{G} = (A,\ZdotSym,\XdotSym)$ be an abelian internal group in $\fRelCategory$, and let $Z = \bigoplus^{|G|}H$ and $X = \bigoplus^{|H|}G$ be the abelian groupoids corresponding to $\ZdotSym$ and $\XdotSym$ respectively. Then $\langle H_g \rangle_{g \in G} \cap \langle G_h \rangle_{h \in H} = \{\emptyset, A\}$. In particular, under the correspondence of Equation \ref{eqn_spanBooleanFunctions},  the Fourier Transform of $\fRelCategory$ does not restrict to an isomorphism $\{\bot,\top\}^G \isom \{\bot,\top\}^H$, nor can be restricted to an isomorphism $S_G \isom S_H$ for any $S_G \subseteq \{\bot,\top\}^G$ and $S_H \subseteq\{\bot,\top\}^H$ containing non-constant functions. 
+Let $\mathbb{G} = (A,\ZdotSym,\XdotSym)$ be an abelian internal group in $\fRelCategory$, and let $Z = \bigoplus^{|G|}H$ and $X = \bigoplus^{|H|}G$ be the abelian groupoids corresponding to $\ZdotSym$ and $\XdotSym$ respectively. Then $\langle H_g \rangle_{g \in G} \cap \langle G_h \rangle_{h \in H} = \{\emptyset, A\}$. In particular, under the correspondence of Equation \ref{eqn_spanBooleanFunctions},  the Fourier Transform of $\fRelCategory$ does not restrict to an isomorphism $\{\bot,\top\}^G \isom \{\bot,\top\}^H$, nor can it be restricted to an isomorphism $S_G \isom S_H$ for any $S_G \subseteq \{\bot,\top\}^G$ and $S_H \subseteq\{\bot,\top\}^H$ containing non-constant functions. 
 \end{theorem}
 \begin{proof}
 Let $r \in \langle H_g \rangle_{g\in G} \cap \langle G_h \rangle_{h \in H}$, then $r$ is either the empty set or it contains some $(h',g') \in A$. But if $(h',g') \in r$, then for all $g \in G$ we have $(h',g) \in r$ (because $r \in \langle G_h \rangle_{h\in H}$), and then for any $g \in G$ we have that for all $h \in H$ $(h,g) \in r$ (because  $r \in \langle H_g \rangle_{g \in G}$). Thus for all $g \in G$ and $h \in H$ we have $(h,g) \in r$, i.e. $r = A$. The state $r = \emptyset$ in $\langle H_g \rangle_{g\in G} \cap \langle G_h \rangle_{h \in H}$ corresponds the constant $\bot$ function in $\{\bot,\top\}^H$ and in $\{\bot,\top\}^G$ (under Equation \ref{eqn_spanBooleanFunctions}), while the state $r = A$ corresponds to the constant $\top$ function. The Fourier Transform maps the constant $\bot$ function of $\{\bot,\top\}^G$ to the constant $\bot$ function of $\{\bot,\top\}^H$, and similarly with the constant $\top$ functions. However, if $r \in \langle H_g \rangle_{g\in G}$ is neither empty nor the whole of $A$, i.e. if it corresponds to a non-constant function in $\{\bot,\top\}^G$, then its Fourier Transform does not lie in the span $\langle G_h \rangle_{h \in H}$, and thus cannot be seen as a function in $\{\bot,\top\}^H$.
@@ -673,7 +679,7 @@ To summarise, in $\fdHilbCategory$ we have the following views of the Fourier tr
 \item[3.] Again as quantum Fourier Transform, but implemented without Hadamard transform by operating in the strongly complementary basis of multiplicative characters.
 \end{enumerate}
 
-In $\RelCategory$, on the other hand, things are very different:
+In $\cat{FRel}$, on the other hand, things are very different:
 \begin{enumerate}
 \item[1.] Except in the case where $Z = \bigoplus^{|G|}G$ and $X = \bigoplus^{|G|}G$ (isomorphic, but different), no Hadamard transform can exist in $\RelCategory$.
 \item[2.] The Fourier transform does not give, in $\RelCategory$, an isomorphism $\{0,1\}^G \isom \{0,1\}^H$ between the spaces of boolean-valued functions on the group elements / multiplicative characters.

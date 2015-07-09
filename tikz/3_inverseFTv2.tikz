@@ -29,8 +29,10 @@
 
 \node [state, hflip](projR) [right of = projCenter,xshift=-7mm,inner sep = 1mm] {$\tilde{f}$};
 
-\node [state, fill=black] (projOut) [below of = projL, yshift = -8mm] {$g$};
-\node [state, fill=black](projIn) [below of = projR, yshift = -3mm] {$g$};
+\node [point, fill=black, scale=1.4] (projOut) [below of = projL, yshift = -8mm] {};
+\node [below of = projL, yshift = -13mm, xshift=2mm] {$g$};
+\node [point, fill=black, scale=1.4](projIn) [below of = projR, yshift = -3mm] {};
+\node [below of = projR, yshift = -8mm, xshift=2mm] {$g$};
 
 \begin{pgfonlayer}{background}
 \draw[-] [out=90,in=270](projOut) to (projL);

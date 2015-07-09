@@ -28,9 +28,9 @@
 \node [anchor=east] at ([xshift=0pt] rho.west) {$\scriptstyle \frac{1}{\sqrt{|S|}}$};
 \node [anchor=east] at ([xshift=2pt] sigmadag.west) {$\scriptstyle \frac{1}{\sqrt{2}}$};
 \node [draw, dotted, minimum width=2.8cm, minimum height=2.7cm, thick] at ([yshift=2pt] f.center) {};
-\begin{scope}[thin,red]
+\begin{scope}[thin,blue]
 \draw [thin] (sigmadag) to (4,0+\yoff) node [right] {Non-trivial representation of $\mathbb{H}$};
-\draw [thin] (bdot) to (4,\ydiff+\yoff) node [right] {Linear maps from classical structure \blackcomonoid{A}};
+\draw [thin] (bdot) to (4,\ydiff+\yoff) node [right] {Linear maps from $\dotonly{blackdot}$-classical structure};
 \draw [thin] (dot) to (4,\ydiff+\yoff);
 \draw (f) to (4,2*\ydiff+\yoff) node [right] {Function $f:A \to B$};
 \draw (m) to (4,3*\ydiff+\yoff) node [right] {Group multiplication operation on $\mathbb{H}$ };

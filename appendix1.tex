@@ -1,3 +1,220 @@
-\chapter{Sample Title}
+\chapter{Classical Relations}
+\label{app:clRel}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+In this appendix we list examples of classical relations as calculated by a Mathematica package available at:
+\url{https://github.com/willzeng/GroupoidHomRelations}
+\begin{align*}
+\begin{tabular}{lcl}
+Classical relations $\mathbb{Z}_3\to\mathbb{Z}_3$:  & \hspace{60pt} & Classical relations $\mathbb{Z}_4\to\mathbb{Z}_4$:  \\[-10t]
+\begin{tabular}{l}
+\{(0,0),   (0,1),   (0,2)\} \\
+\{(0,0),(1,1),(2,2)\} \\
+\{(0,0),(1,2),(2,1)\}
+\end{tabular} & &
+\begin{tabular}{l}
+\\
+\{(0,0),(0,1),(0,2),(0,3)\} \\
+\{(0,0),(1,1),(2,2),(3,3)\} \\
+\{(0,0),(2,1),(0,2),(2,3)\} \\
+\{(0,0),(3,1),(2,2),(1,3)\}
+\end{align*}
+\end{tabular}
+\end{tabular}
+\end{align*}
+
+\noindent The classical relations from  $\mathbb{Z}_2\oplus\mathbb{Z}_2\to\mathbb{Z}_2\oplus\mathbb{Z}_2$ are:
+\begin{align*}
+\begin{tabular}{cc}
+\{(0,2),(2,2),(1,3),(3,3)\} &\qquad \{(0,0),(1,1),(2,2),(3,3)\} \\
+\{(0,2),(2,2),(1,3),(2,3)\} &\qquad \{(0,0),(1,1),(2,2),(2,3)\} \\
+\{(0,2),(2,2),(0,3),(3,3)\} &\qquad \{(0,0),(0,1),(2,2),(3,3)\} \\
+\{(0,2),(2,2),(0,3),(2,3)\} &\qquad \{(0,0),(0,1),(2,2),(2,3)\} \\
+\{(2,0),(3,1),(0,2),(1,3)\} &\qquad \{(0,0),(2,0),(1,1),(3,1)\} \\
+\{(2,0),(3,1),(0,2),(0,3)\} &\qquad \{(0,0),(2,0),(1,1),(2,1)\} \\
+\{(2,0),(2,1),(0,2),(1,3)\} &\qquad \{(0,0),(2,0),(0,1),(3,1)\} \\
+\{(2,0),(2,1),(0,2),(0,3)\} &\qquad \{(0,0),(2,0),(0,1),(2,1)\} \\
+\end{tabular}
+\end{align*}
+
+\section{Mathematica Code}
+\begin{lstlisting}
+(* This code generate groupoid homomorphisms in the category of relations *)
+(* by William Zeng 2015 *)
+(* william.zeng@cs.ox.ac.uk *)
+
+Groupoid Definitions
+
+These multiplication tables define whatever groupoid homomorphisms you are considering. It is prepopulated with some usual small ones 
+
+(* Define the cyclic group multiplication *)
+(* INPUT: Integers 1,1 *)
+(* OUTPUT: Integer 2*)
+z3[x_, y_] := ({
+      {0, 1, 2},
+      {1, 2, 0},
+      {2, 0, 1}
+     })[[x + 1]][[y + 1]];
+(* This defines multiplication on a set of inputs *)
+(* INPUT: Integer sets {1,2},{2}*)
+(* OUTPUT: Integer set {0,2}*)
+z3Set[X_, Y_] := Union[Flatten[
+    Table[
+     Table[
+      z3[X[[x]], Y[[y]]]
+      , {x, 1, Length[X]}]
+     , {y, 1, Length[Y]}]
+    ]];
+z4[x_, y_] := ({
+      {0, 1, 2, 3},
+      {1, 2, 3, 0},
+      {2, 3, 0, 1},
+      {3, 0, 1, 2}
+     })[[x + 1]][[y + 1]];
+z4Set[X_, Y_] := Union[Flatten[
+    Table[
+     Table[
+      z4[X[[x]], Y[[y]]]
+      , {x, 1, Length[X]}]
+     , {y, 1, Length[Y]}]
+    ]];
+
+(* a is undefined *)
+z2z2[x_, y_] := ({
+      {0, 1, {}, {}},
+      {1, 0, {}, {}},
+      {{}, {}, 2, 3},
+      {{}, {}, 3, 2}
+     })[[x + 1]][[y + 1]];
+z2z2Set[X_, Y_] := Union[Flatten[
+    Table[
+     Table[
+      z2z2[X[[x]], Y[[y]]]
+      , {x, 1, Length[X]}]
+     , {y, 1, Length[Y]}]
+    ]];
+
+z2z2z2[x_, y_] := ({
+      {0, 1, {}, {}, {}, {}},
+      {1, 0, {}, {}, {}, {}},
+      {{}, {}, 2, 3, {}, {}},
+      {{}, {}, 3, 2, {}, {}},
+      {{}, {}, {}, {}, 4, 5},
+      {{}, {}, {}, {}, 5, 4}
+     })[[x + 1]][[y + 1]];
+z2z2z2Set[X_, Y_] := Union[Flatten[
+    Table[
+     Table[
+      z2z2z2[X[[x]], Y[[y]]]
+      , {x, 1, Length[X]}]
+     , {y, 1, Length[Y]}]
+    ]];
+
+(* Relational evaluation method *)
+(* INPUT: Relation R = {{0,0},{1,1},{2,2},{2,3}}; and argument x=2*)
+(* OUTPUT: List of Integers {2,3}*)
+eval[R_, x_] := Map[#[[2]] &, Select[R, #[[1]] == x &]];
+(* All possible relations *)
+(*allRelations = Subsets[Tuples[{0,1,2,3},2]];*)
+
+Choose Groupoids
+
+(*Set the size of the domain and coDomain*)
+nD = 4; (*Size of the domain *)
+ncoD = 4; (*Size of the coDomain *)
+
+(* YOU NEED TO SET THE GROUPOIDS HERE*)
+(* Test to see if monoid multiplication is preserved. *)
+(* Need this and unitality condition to define a groupoid homomorphism*)
+(* INPUT: Relation R = {{0,0},{1,1},{2,2}};*)
+(* OUTPUT: True or False *)
+isMonHom[R_] := If[Length[Position[Flatten[
+      Table[
+       Table[
+        (*Specify which groupoids are domain and coDomain here*)
+        (*Use the multiplication version that is defined on sets of elements \
+for the coDomain*)
+        eval[R, z2z2[x, y]] == z2z2Set[eval[R, x], eval[R, y]]
+        , {y, 0, nD - 1}]
+       , {x, 0, nD - 1}]]
+     , False]] == 0, True, False]
+
+Print["Be careful. A full search requires checking ", 2^(nD*ncoD), 
+  " relations."];
+
+(* R = {{0,0},{1,1},{2,2}};*)
+(* check which relations are comonoid homs*)
+(*passed =Select[allRelations\[LeftDoubleBracket]1;;1000\[RightDoubleBracket],
+isCoHom[#]&
+];
+Grid[%]*)
+
+Be careful. A full search requires checking 65536 relations.
+
+Search for Monoid Homomorphisms
+
+Print["Note that this outputs a Monoid Homomorphism relation.
+        If you are interested in a classical relations (comonoid homomorphism \
+relations), you will need to take the relational 
+        converse of this output.  See arXiv:1503.05857"];
+
+(* All possible pairs of elements one in domain and one in coDomain *)
+pairings = Tuples[{Range[0, nD - 1], Range[0, ncoD - 1]}];
+
+(* Specify the range of relations to search over *)
+(* They are defined as binary strings from 0 to 2^(nD*ncoD) and*)
+(* searched sequentially*)
+(* BE SURE TO HARD CODE IN THE UNITALITY CONDITION *)
+start = 0;
+end = 2^(nD*ncoD); (* MAX is 2^(nD*ncoD)*)
+
+results = {};
+For[i = start, i < end, i++,
+ (* We use binary numbers to index the different possible relations *)
+ (* where a 0 or a 1 indicates if one of the nD*ncoD pairings is present *)
+ binaryIndex = PadLeft[IntegerDigits[i, 2], nD*ncoD];
+ relation = Map[pairings[[#]] &, Flatten[Position[binaryIndex, 1]]];
+ 
+ (* Check the unitality condition *)
+ (* BE SURE TO HARD CODE IN THE UNITALITY CONDITION HERE*)
+ (* EXAMPLES *)
+ (* Z3 -> 3 should be unitalCondition=Union[eval[relation,0]]\[Equal]{0};*)
+ (* Z4 -> Z4 should be unitalCondition=Union[eval[relation,0]]\[Equal]{0};*)
+ (* Z2Z2 -> Z2Z2 should be unitalCondition=Union[eval[relation,0],eval[relation,2]]\[Equal]{0,2}; *)
+ unitalCondition = Union[eval[relation, 0], eval[relation, 2]] == {0, 2};
+ 
+ (* Return True if both the unitality condition and preservation of monoid
+mult are met*)
+ If[unitalCondition && isMonHom[relation],
+  Print[relation];
+  results = Append[results, relation];
+  ];
+ ]
+
+Note that this outputs a Monoid Homomorphism relation.
+        If you are interested in a classical relations (comonoid homomorphism relations), you will need to take the relational 
+        converse of this output.  See arXiv:1503.05857
+
+Tests - If you want to dive deeper into an example
+
+(* Prints the multiplication table for relation R *)
+(* BE SURE TO SPECIFY THE SAME GROUPOIDS*)
+(* INPUT: Relation R = {{0,0},{1,0}}; *)
+(* OUTPUT: {{0,0},True} {{0,1},True}    {{0,2},True}    {{0,3},True}
+{{1,0},True}    {{1,1},True}    {{1,2},True}    {{1,3},True}
+{{2,0},True}    {{2,1},True}    {{2,2},True}    {{2,3},True}
+{{3,0},True}    {{3,1},True}    {{3,2},True}    {{3,3},True}
+
+ *)
+mTable[R_] := Grid[Table[
+   Table[
+    (* Specify groupoids as in isMonHom *)
+    {{x, y}, eval[R, z2z2[x, y]] == z2z2z2Set[eval[R, x], eval[R, y]]}
+    , {y, 0, nD - 1}]
+   , {x, 0, nD - 1}]]
+
+(* Pick a relation to test and see its multiplication table*)
+R = {{0, 0}, {0, 4}, {1, 0}, {1, 4}, {2, 2}, {3, 2}};
+mTable[R]
+Union[eval[R, 0], eval[R, 2]] == {0, 2, 4}
+
+\end{lstlisting}
