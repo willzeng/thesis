@@ -1,21 +1,22 @@
-\chapter{\color{blue} Quantum Applications in Natural Language Processing}
+\chapter{Quantum Applications in Natural Language Processing}
 \label{chap:qDisCo}
 
 \begin{chapabstract}
-        We propose a new application of quantum computing to the field of natural language processing.  Ongoing work in this field attempts to incorporate grammatical structure into algorithms that compute meaning.  In \cite{clark2008compositional}, Clark et al. introduce such a model (the CCS model) based on tensor product composition. While this algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires. In this work we show how computational shortcomings of the  CCS approach could be resolved using quantum computation. We address the value of a qRAM \cite{giovannetti2008quantum} for this model and extend an algorithm from Wiebe et al. \cite{wiebe2014quantum} into a quantum algorithm to categorize similar sentences in CCS. Our new algorithm demonstrates a quadratic speedup over classical methods under certain conditions.
+        We propose a new application of quantum computing to the field of natural language processing (NLP).  Ongoing work in NLP attempts to incorporate grammatical structure into algorithms that compute meaning.  In \cite{clark2008compositional}, Clark et al. introduce such a model (the CCS model) that is based on tensor product composition. While this algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires. In this work we show how computational shortcomings of the  CCS approach could be resolved using quantum computation. We address the value of a qRAM \cite{giovannetti2008quantum} for this model and extend an algorithm from Wiebe et al. \cite{wiebe2014quantum} into a quantum algorithm to categorize similar sentences in CCS. Our new algorithm demonstrates a \todo{quadratic speedup} over classical methods under certain conditions.
 \end{chapabstract}
 
 \section{Introduction}
 
 As human computer interfaces become more advanced, natural language processing has grown to be a ubiquitous part of our world.  Its techniques allow computers to understand natural language to perform tasks like automatic summarization, machine translation, information retrieval, and sentiment analysis. Most approaches to this problem, such as Google's search, understand strings of separate words in a `bag of words' approach, ignoring any grammatical structure. This is certainly unsatisfactory, as we know that the meaning of a sentence is more than the meaning of its component words. Research in \textit{distributional compositional semantics} (DisCo) seeks to address this by incorporating grammatical structure into bag-of-words models. 
 
-In \cite{clark2008compositional}, Clark et al. introduce a DisCo model (the CCS model) based on tensor product composition that gives a grammatically informed algorithm to compute the meaning of sentences and phrases. While this algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires.  This paper presents ways that quantum computers can solve some of these problems, making the CCS an attractive application for quantum computation.
+In \cite{clark2008compositional}, Clark et al. introduce a DisCo model (the CCS model) based on tensor product composition that gives a grammatically informed algorithm to compute the meaning of sentences and phrases. This model, in fact, lives in the oGCT \cat{FVect}. While the algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires.  This paper presents ways that quantum computers can solve some of these problems, making the CCS an attractive application for quantum computation.
 
 We use the fact that quantum computation is naturally suited to managing high dimensional tensor product spaces. Recent literature has shown that quantum algorithms can thus provide advantages for machine learning \cite{wiebe2014quantum,rebentrost2014quantum}, inference \cite{low2014quantum}, and regression \cite{wiebe2012quantum,wang2014quantum} tasks.  We leverage these results in two particular ways:
 \begin{enumerate}
 \item We employ the scaling of quantum systems to address computational difficulties  inherent in tensor-product based compositional semantics.
-\item Shared structure makes algorithms in the CCS model especially amenable to quantum speedups.  We specify a CCS sentence similarity algorithm that, under certain conditions, gives quadratic speedups for natural language tasks.
+\item Shared GCT structure makes algorithms in the CCS model especially amenable to quantum speedups.  We specify a CCS sentence similarity algorithm that, under certain conditions, gives \todo{quadratic speedups} for natural language tasks.
 \end{enumerate}
+At an abstract level, we are taking a classical theory of NLP in the oGCT \cat{FVect} and computing outcomes in the oGCT of quantum theory $\cat{FHilb}$. The shared abstract structure makes the interface obvious.
 
 In Section \ref{sec:disco}, we cover the basic framework of distributional compositional linguistics. Section 3 introduces the advantages of quantum representations for this framework.  Sections 4 and 5 propose a quantum algorithm with quadratic speedup for calculating sentence similarity within CCS. Section 6 briefly discusses the noise tolerance of these methods.
 
@@ -44,15 +45,15 @@ As the same sentence rarely occurs repeatedly, this distributional technique can
 
 In this model, each grammatical type is assigned a tensor product space based on Lambek's pregroup grammar \cite{lambek2008word} or combinatorial categorical grammar \cite{hermann2013role}. The meaning of nouns is, for example, calculated as in the distributional case, and we label their vector space $\mathcal{N}$.  A transitive verb's meaning is then, following the grammar, a vector in the space $\mathcal{N}\otimes \mathcal{S} \otimes \mathcal{N}$, where $\mathcal{S}$ is the meaning space for sentences \cite{clark2008compositional}. An intuition for this is that the transitive verb takes a subject noun as a left argument and an object noun as a right argument. An adjective lives in the space $\mathcal{N}\otimes\mathcal{N}$.
 
-We use a diagrammatic notation for vectors, tensors, and linear maps as is common for both CCS and quantum information. Here vertical composition (read top to bottom) represents composition of linear maps and horizontal composition represents the tensor product:
+The GCT diagrammatic notation for vectors, tensors, and linear maps is commonly for CCS. Here vertical composition (read bottom to top) represents composition of linear maps and horizontal composition represents the tensor product:
 \begin{align*}
 \begin{tabular}{cc}
 \overrightarrow{\mbox{Mary}}\in \mathcal{N} :=
 \begin{aligned}
-\begin{tikzpicture}[scale=0.7]
+\begin{tikzpicture}[scale=0.7, yscale=-1]
                 \node  (20) at (0, 0) {$\mathcal{N}$};
                 \node  (31) at (0, 2.5) {Mary};
-                \node (1) [state, hflip] at (0,1) {};
+                \node (1) [state] at (0,1) {};
                 \draw [style = thick]  (0,0.5) to (1.center);
 \end{tikzpicture}
 \end{aligned} & \qquad
@@ -68,7 +69,7 @@ $f:\mathcal{M}\to\mathcal{N} :=$
 \end{aligned} \\
 \overrightarrow{\mbox{likes}}\in \mathcal{N}\otimes\mathcal{S}\otimes \mathcal{N} :=
 \begin{aligned}
-\begin{tikzpicture}[scale=0.7]
+\begin{tikzpicture}[scale=0.7,yscale=-1]
                 \node  (3) at (-1, 1) {};
                 \node  (4) at (2, 1) {};
                 \node  (5) at (0.5, 2.25) {};
@@ -98,8 +99,8 @@ $f:\mathcal{M}\to\mathcal{N} :=$
                 \node (1) at (0.5, 1) {$\mathcal{P}$};
                 \node (3) at (0, -1) {};
                 \node [style=morphism] (4) at (0, -0.5) {$f$};
-                \node (5) at (0.5, -1) {$\mathcal{N}$};
-                \node (6) at (0.5, 0) {$\mathcal{M}$};
+                \node (5) at (0.5, -1) {$\mathcal{M}$};
+                \node (6) at (0.5, 0) {$\mathcal{N}$};
                 \node [style=morphism] (7) at (0, 0.5) {$g$};
                 \draw (3.center) to (0, -0.75);
                 \draw (0, -0.25) to (0, 0.25);
@@ -108,12 +109,12 @@ $f:\mathcal{M}\to\mathcal{N} :=$
     \end{aligned} \\
 \overrightarrow{\mbox{Mary}}\otimes \overrightarrow{\mbox{likes}} :=
 \begin{aligned}
-\begin{tikzpicture}[scale=0.7]
+\begin{tikzpicture}[scale=0.7,yscale=-1]
                 \node  (20) at (0, 0) {$\mathcal{N}$};
                 \node  (31) at (0, 2.5) {Mary};
-                \node (1) [state, hflip] at (0,1) {};
+                \node (1) [state] at (0,1) {};
                 \draw [style = thick]  (0,0.5) to (1.center);
-                \node (2) [state, hflip, xscale=1.5, yscale=1] at (3,1) {};
+                \node (2) [state, xscale=1.5, yscale=1] at (3,1) {};
                 \node  (32) at (3, 2.5) {likes};
                 \node  (20) at (2.25, 0) {$\mathcal{N}$};                                \node  (20) at (3, 0) {$\mathcal{S}$};
                 \node  (20) at (3.75, 0) {$\mathcal{N}$};
@@ -123,7 +124,7 @@ $f:\mathcal{M}\to\mathcal{N} :=$
 \end{aligned} & \qquad\qquad
 \sum\limits_i \langle ii| :=
 \begin{aligned}
-\begin{tikzpicture}[scale=0.7]
+\begin{tikzpicture}[scale=0.7, yscale=-1]
                 \node  (0) at (-1, 1.5) {$\mathcal{N}$};
                 \node  (1) at (1, 1.5) {$\mathcal{N}$};
                 \node  (0) at (-1, 1) {};
@@ -135,7 +136,7 @@ $f:\mathcal{M}\to\mathcal{N} :=$
 \end{aligned}
 \end{tabular}
 \end{align*}
-where $f:\mathcal{N}\to\mathcal{M}$ and $g:\mathcal{M}\to\mathcal{P}$ are linear maps and the linear map $\sum_i\langle ii|$ sums over all the basis vectors of $\mathcal{N}$ and is called a \emph{cap}.
+where $f:\mathcal{N}\to\mathcal{M}$ and $g:\mathcal{M}\to\mathcal{P}$ are linear maps and the linear map $\sum_i\langle ii|$ sums over all the basis vectors of $\mathcal{N}$ and is the usual GCT cap.
 
 Given a well-typed sentence with meaning vectors $\vec{w_j}$ for each of $k$ words, the classical CCS algorithm for calculating a sentence's meaning is \cite{clark2013quantum}:
 \begin{enumerate}
@@ -146,7 +147,7 @@ Given a well-typed sentence with meaning vectors $\vec{w_j}$ for each of $k$ wor
 \begin{equation}
 \label{eq:svo}
 \begin{aligned}
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}     
                 \node [style=none] (0) at (-3.5, 1) {};
                 \node [style=none] (1) at (-2, 1) {};
@@ -243,7 +244,7 @@ Consider a corpus whose word-meaning space is given by a basis of the 2,000 most
 \caption{Rough comparisons of the storage necessary for verbs in quantum and classical frameworks.}
 \end{table}
 
-Further, these word meanings can be imported into a ``bucket bridgade" quantum RAM that allows them to retrieved with a complexity linear in the number of qubits \cite{giovannetti2008quantum}. The general point is that because quantum systems compose via the tensor product they are natural choices to store complex types and sentences that have the same compositional structure. We can then employ quantum algorithms on for natural language classification as presented in Section \ref{sec:discoQalg}.
+Further, these word meanings can be imported into a ``bucket bridgade" quantum RAM that allows them to retrieved with a complexity linear in the number of qubits \cite{giovannetti2008quantum}. The general point is that because quantum systems compose via the tensor product they are a natural choice to store complex types and sentences that have the same compositional structure. We can then employ quantum algorithms on for natural language classification as presented in Section \ref{sec:discoQalg}.
 
 \section{A quantum algorithm for the closest vector problem}
 \label{sec:qalg}
@@ -307,7 +308,7 @@ Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/
 \begin{equation*}
 \label{eqn:phi}
 \begin{aligned}
-\begin{tikzpicture}[scale=0.6]
+\begin{tikzpicture}[scale=0.6, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
                 \node [style=none] (0) at (-5.5, 0) {\ket{\phi}};
                 \node [style=none] (0) at (-4.5, 0) {=};       
@@ -385,7 +386,7 @@ If, to present a simplified example, we take each cluster to only contain a sing
 \begin{equation}
 \label{eq:exampleCalcs}
 \begin{aligned}
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
                 \node [style=none] (0) at (-3.5, 1) {};
                 \node [style=none] (1) at (-2, 1) {};
@@ -420,7 +421,7 @@ If, to present a simplified example, we take each cluster to only contain a sing
                 \node [style=none] (30) at (-2.75, 2.75) {kids};
                 \node [style=none] (31) at (0.5, 2.75) {play};
                 \node [style=none] (32) at (3.75, 2.75) {football};
-                \node [style=state] (33) at (0.5, -1.75) {$\vec{v}$};
+                \node [style=state, hflip] (33) at (0.5, -1.75) {$\vec{v}$};
                 \node [style=none] (34) at (0.6, -3.5) {sports};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
@@ -446,7 +447,7 @@ If, to present a simplified example, we take each cluster to only contain a sing
 \end{aligned}
 && \qquad \mbox{and}} \qquad
 \begin{aligned}
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
                 \node [style=none] (0) at (-3.5, 1) {};
                 \node [style=none] (1) at (-2, 1) {};
@@ -481,7 +482,7 @@ If, to present a simplified example, we take each cluster to only contain a sing
                 \node [style=none] (30) at (-2.75, 2.75) {kids};
                 \node [style=none] (31) at (0.5, 2.75) {play};
                 \node [style=none] (32) at (3.75, 2.75) {football};
-                \node [style=state] (33) at (0.5, -1.75) {$\vec{w}$};
+                \node [style=state, hflip] (33) at (0.5, -1.75) {$\vec{w}$};
                 \node [style=none] (34) at (0.6, -3.5) {politics};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
@@ -520,7 +521,7 @@ In order to recover a speedup we refine the application of the quantum algorithm
 \begin{equation}
 \label{eqn:trick}
 \begin{aligned}
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
                 \node [style=none] (3) at (-3, 1) {};
                 \node [style=none] (4) at (4, 1) {};
@@ -546,9 +547,9 @@ In order to recover a speedup we refine the application of the quantum algorithm
                 \node [style=none] (30) at (-2, -3.5) {kids};
                 \node [style=none] (31) at (0.5, 2.75) {play};
                 \node [style=none] (32) at (3.5, -3.5) {football};
-                \node [style=state] (33) at (-2, -1.75) {};
-                \node [style=state] (35) at (0.5, -1.75) {};
-                \node [style=state] (36) at (3, -1.75) {};
+                \node [style=state, hflip] (33) at (-2, -1.75) {};
+                \node [style=state, hflip] (35) at (0.5, -1.75) {};
+                \node [style=state, hflip] (36) at (3, -1.75) {};
                 \node [style=none] (34) at (0.6, -3.5) {sports};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
@@ -566,7 +567,7 @@ In order to recover a speedup we refine the application of the quantum algorithm
 \end{aligned}
 && \qquad \mbox{and}} \qquad
 \begin{aligned}
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.5, yscale=-1]
         \begin{pgfonlayer}{nodelayer}
                 \node [style=none] (3) at (-3, 1) {};
                 \node [style=none] (4) at (4, 1) {};
@@ -592,9 +593,9 @@ In order to recover a speedup we refine the application of the quantum algorithm
                 \node [style=none] (30) at (-2, -3.5) {kids};
                 \node [style=none] (31) at (0.5, 2.75) {play};
                 \node [style=none] (32) at (3.5, -3.43) {football};
-                \node [style=state] (33) at (-2, -1.75) {};
-                \node [style=state] (35) at (0.5, -1.75) {};
-                \node [style=state] (36) at (3, -1.75) {};
+                \node [style=state, hflip] (33) at (-2, -1.75) {};
+                \node [style=state, hflip] (35) at (0.5, -1.75) {};
+                \node [style=state, hflip] (36) at (3, -1.75) {};
                 \node [style=none] (34) at (0.6, -3.54) {politics};
         \end{pgfonlayer}
         \begin{pgfonlayer}{edgelayer}
@@ -617,7 +618,7 @@ The runtime of this \emph{deferred quantum algorithm}, including import, will th
 We extend this to result to include general sentences in the CCS model with the following theorem.\footnote{The authors would like to thank an anonymous reviewer for correcting an error in the original statement of the algorithm.}
 
 \begin{theorem}
-For an $N$-dimensional noun meaning space, there exists a quantum algorithm to classify any CCS model sentence composed of $n$ tensors $\vec{w_0},\vec{w_1},...,\vec{w_{n-1}}$ whose maximum order is $N^k$ into $M$ classes with time $\mathcal{O}(\sqrt{M N^k(n-1)/2} \log M)$. This is not always an improvement on the classical algorithm which runs in $\mathcal{O}(MN)$, but will be if $k(n-1) < 4$ (very short sentence fragments) or if $M$ is much larger than $N$, thought this lasts case is unlikely in practice.
+For an $N$-dimensional noun meaning space, there exists a quantum algorithm to classify any CCS model sentence composed of $n$ tensors $\vec{w_0},\vec{w_1},...,\vec{w_{n-1}}$ whose maximum dimension is $N^k$ into $M$ classes with time $\mathcal{O}(\sqrt{M N^{k(n-1)/2}} \log M)$. This is not always an improvement on the classical algorithm which runs in $\mathcal{O}(MN)$, but will be if $k(n-1) < 4$ (very short sentence fragments) or if $M$ is much larger than $N$, thought this lasts case is unlikely in practice.
 \end{theorem}
 \begin{proof}
 The trick we play in Equation \ref{eqn:trick} amounts to splitting the sentence derivation into a bipartite graph.  As the CCS connections are based on a pregroup derivation, the connections will always form a tree, taking words as nodes and connections as edges. Trees can always be partitioned into bipartite graphs, thus, up to the ordering of inputs on each tensor which can be kept track of, we can always give a deferred quantum algorithm with associated speedup for any such CCS sentence.
@@ -627,14 +628,14 @@ For every CCS sentence there is one word that acts as the \emph{head} of the der
 \end{proof}
 
 \begin{example}
-Consider the following sentence \cite{dimitriThesis}:
+Consider the following example sentence from \cite{dimitriThesis}:
 \begin{equation*}
-\begin{tikzpicture}[scale=1]
-                \node [style=state, hflip] (0) at (-6, 1) {1};
+\begin{tikzpicture}[scale=1, yscale=-1]
+                \node [style=state] (0) at (-6, 1) {1};
                 \node [style=none] (1) at (-5.25, 0.25) {};
-                \node [style=state, hflip] (2) at (-2, 1) {2};
-                \node [style=state, hflip] (3) at (2, 1) {2};
-                \node [style=state, hflip] (4) at (3.5, 1) {3};
+                \node [style=state] (2) at (-2, 1) {2};
+                \node [style=state] (3) at (2, 1) {2};
+                \node [style=state] (4) at (3.5, 1) {3};
                 \node [style=none] (5) at (-1.25, 0.25) {};
                 \node [style=none] (6) at (1.25, 0.25) {};
                 \node [style=none] (7) at (2.75, 0.25) {};
@@ -643,17 +644,17 @@ Consider the following sentence \cite{dimitriThesis}:
                 \node [style=none] (10) at (-0.5, 1) {};
                 \node [style=none] (11) at (0.5, 1) {};
                 \node [style=none] (label1) at (0, 1.175) {1};
-                \node [style=state, hflip, xscale=2] (12) at (0, 1) {};
+                \node [style=state, xscale=2] (12) at (0, 1) {};
                 \node [style=none] (label1) at (-4, 1.175) {0};
-                \node [style=state, hflip, xscale=2] (13) at (-4, 1) {};
+                \node [style=state, xscale=2] (13) at (-4, 1) {};
                 \node [style=none] (14) at (-4, -1) {};
                 \node [style=none] (15) at (-1.75, -0.5) {};
-                \node (16) at (-6, 1.75) {John};
-                \node (17) at (-4, 1.75) {saw};
-                \node (18) at (-2, 1.75) {Mary};
-                \node (19) at (0, 1.75) {read};
-                \node (20) at (2, 1.75) {a};
-                \node (21) at (3.5, 1.75) {book};
+                \node (16) at (-6, 1.9) {John};
+                \node (17) at (-4, 1.9) {saw};
+                \node (18) at (-2, 1.9) {Mary};
+                \node (19) at (0, 1.9) {read};
+                \node (20) at (2, 1.9) {a};
+                \node (21) at (3.5, 1.9) {book};
                 \draw [bend right=45, looseness=1.00] (0) to (1.center);
                 \draw [bend right=45, looseness=1.00] (2) to (5.center);
                 \draw [in=-90, out=0, looseness=1.00] (7.center) to (4);
@@ -669,17 +670,17 @@ Consider the following sentence \cite{dimitriThesis}:
 \end{equation}
 where we have labeled the vectors based on their depth in the derivation tree.  The two-layer form assigns even vectors to the top layer and odd vectors to the bottom:
 \begin{equation*}
-\begin{tikzpicture}[scale=1]
-                \node [style=state] (0) at (-5, 0) {};
-                \node [style=state, hflip] (1) at (-2.5, 1) {};
-                \node [style=state, hflip] (2) at (-1.25, 1) {};
-                \node [style=state] (3) at (-0.75, 0) {};
+\begin{tikzpicture}[scale=1, yscale=-1]
+                \node [style=state, hflip] (0) at (-5, 0) {};
+                \node [style=state] (1) at (-2.5, 1) {};
+                \node [style=state] (2) at (-1.25, 1) {};
+                \node [style=state, hflip] (3) at (-0.75, 0) {};
                 \node (4) at (-4.5, 1) {};
                 \node (5) at (-3.5, 1) {};
                 \node (6) at (-2.5, -1) {};
                 \node (7) at (-2, 0) {};
-                \node [style=state, xscale=2] (8) at (-2.5, 0) {};
-                \node [style=state, hflip, xscale=2] (9) at (-4, 1) {};
+                \node [style=state, hflip, xscale=2] (8) at (-2.5, 0) {};
+                \node [style=state, xscale=2] (9) at (-4, 1) {};
                 \node (10) at (-4, -1) {};
                 \node (11) at (-5, -0.75) {John};
                 \node (12) at (-4, 1.75) {saw};

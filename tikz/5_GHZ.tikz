@@ -9,5 +9,5 @@
 \draw [bend right=45, looseness=1.00] (0) to (1.center);
 
 \draw [thick, decoration={brace, amplitude=6pt},decorate] (-1.2,0.3) to (1.2,0.3);
-\node at (0, 1) {n-systems};
+\node at (0, 1) {N-systems};
 \end{tikzpicture}

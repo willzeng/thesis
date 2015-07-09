@@ -10,7 +10,7 @@ Having grasped the abstract structure at play in the protocols and algorithms of
 First we construct our chosen model of quantum information.  This is the oGCT in \cat{FRel}, rather than \cat{FHilb}, and it is introduced by rephrasing the axioms of quantum mechanics. Next we present the novel contributions in this thesis: relational models of unitary oracles, the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the group homomorphism identification algorithm.
 
 \subsection{The model of quantum computation in relations}
-
+\label{sec:modelqcrel}
 We begin with definitions of the key components of quantum computation in this new setting, e.g. systems, states, bases, observables, etc.  The following definitions are motivated by Chapter~\ref{chap:cqm}, whose general theorems prove useful. To avoid distracting repetition of notation, we use generic terminology to refer to the relational setting within this section.  For example \emph{system} is intended to mean \emph{relational system}, i.e. a set.  When we wish to refer to the quantum setting we explicitly denote this e.g. \emph{quantum system} refers to a finite dimensional Hilbert space.
 
 \begin{axiom}
@@ -109,7 +109,7 @@ This theorem follows from the requirement that the classical points of one basis
 \includegraphics[height=10em,natwidth=1091,natheight=468,scale=1]{images/complexample.png}
 \end{center}
 \vspace{-14pt}
-\caption{An example of two complementary bases on the system of six elements. Here $Z=\mathbb{Z}_3\oplus\mathbb{Z}_3$ and $X = \mathbb{Z}_2\oplus\mathbb{Z}_2\oplus \mathbb{Z}_2$.  The two classical points of $Z$ are each three element subsets and are colored in pink and blue. The unbiased points of $X$ to which they correspond are colored to match.
+\caption[An example of two complementary bases on the system of six elements.]{An example of two complementary bases on the system of six elements. Here $Z=\mathbb{Z}_3\oplus\mathbb{Z}_3$ and $X = \mathbb{Z}_2\oplus\mathbb{Z}_2\oplus \mathbb{Z}_2$.  The two classical points of $Z$ are each three element subsets and are colored in pink and blue. The unbiased points of $X$ to which they correspond are colored to match.
 }
 \label{complEx}
 \end{figure}

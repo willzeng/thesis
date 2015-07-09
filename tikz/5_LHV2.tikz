@@ -84,7 +84,7 @@
 \node (la) [left of = rdot, xshift = +2mm, yshift = 0mm] {$a$};
 \node (ra) [right of = rdot, xshift = -2mm, yshift = 0mm] {$a$};
 
-\node (n00) [left of = antipode, xshift = +3mm, yshift = 0mm] {$n_0 \cdot 0$};
+\node (n00) [left of = antipode, xshift = +2mm, yshift = 0mm] {$n_0 \cdot 0$};
 \node (vaa) [right of = topdot, xshift = 0mm, yshift = -2mm] {$V \cdot a$};
 
 \node (topa) [left of = topdot, xshift = +7mm, yshift = 3.5mm] {$a$};
