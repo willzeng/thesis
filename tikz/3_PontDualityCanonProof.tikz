@@ -2,9 +2,9 @@
 
 \node (equals) {LHS $=$};
 
-\node (mult) [altblackdot, right of = equals, xshift = 2mm] {};
+\node (mult) [altwhitedot, right of = equals, xshift = 2mm] {};
 
-\node (unit) [altblackdot, above of = mult, yshift = -5mm] {};
+\node (unit) [altwhitedot, above of = mult, yshift = -5mm] {};
 
 \node (lphi) [morphism, below of = mult, xshift = -5mm] {$\varphi$};
 \node (rphi) [morphism, below of = mult, xshift = +5mm] {$\varphi$};
@@ -22,11 +22,11 @@
 
 \node (equals) [right of = mult, xshift = +5mm] {$=$};
 
-\node (mult) [blackdot, right of = equals, xshift = 5mm] {};
+\node (mult) [whitedot, right of = equals, xshift = 5mm] {};
 
 \node (phi) [morphism, above of = mult, yshift = -2mm] {$\varphi$};
 
-\node (unit) [altblackdot, above of = phi, yshift = -2mm] {};
+\node (unit) [altwhitedot, above of = phi, yshift = -2mm] {};
 
 \node (lphi) [below of = mult, xshift = -5mm] {};
 \node (rphi) [below of = mult, xshift = +5mm] {};
@@ -45,8 +45,8 @@
 
 \node (equals) [right of = mult, xshift = +5mm] {$=$};
 
-\node (mult) [blackdot, right of = equals, xshift = 5mm] {};
-\node (unit) [blackdot, above of = mult, yshift = -5mm] {};
+\node (mult) [whitedot, right of = equals, xshift = 5mm] {};
+\node (unit) [whitedot, above of = mult, yshift = -5mm] {};
 
 \node (lphi) [below of = mult, xshift = -5mm] {};
 \node (rphi) [below of = mult, xshift = +5mm] {};

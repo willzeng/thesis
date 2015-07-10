@@ -1035,8 +1035,55 @@
 \newcommand{\SpaceA}{\mathcal{A}}
 \newcommand{\SpaceB}{\mathcal{B}}
 \newcommand{\SpaceG}{\mathcal{G}}
+\newcommand{\suchthat}[2]{\left\{#1 \: \text{ s.t. } \: #2\right\}} % Set of elements #1 such that condition #2 holds 
+% =======================
+% = PARALLELAGRAM BOXES =
+% =======================
 
+\makeatletter
+\newcommand{\boxshape}[3]{%
+\pgfdeclareshape{#1}{
+\inheritsavedanchors[from=rectangle] % this is nearly a rectangle
+\inheritanchorborder[from=rectangle]
+\inheritanchor[from=rectangle]{center}
+\inheritanchor[from=rectangle]{north}
+\inheritanchor[from=rectangle]{south}
+\inheritanchor[from=rectangle]{west}
+\inheritanchor[from=rectangle]{east}
+% ... and possibly more
+\backgroundpath{% this is new
+% store lower right in xa/ya and upper right in xb/yb
+\southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+\northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
 
+\@tempdima=#2
+\@tempdimb=#3
+
+\pgfpathmoveto{\pgfpoint{\pgf@xa - 5pt + \@tempdima}{\pgf@ya}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 5pt - \@tempdima}{\pgf@yb}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 5pt + \@tempdimb}{\pgf@yb}}
+\pgfpathlineto{\pgfpoint{\pgf@xb + 5pt - \@tempdimb}{\pgf@ya}}
+\pgfpathlineto{\pgfpoint{\pgf@xa - 5pt + \@tempdima}{\pgf@ya}}
+\pgfpathclose
+}
+}}
+
+\boxshape{NEbox}{0pt}{5pt}
+\boxshape{SEbox}{0pt}{-5pt}
+\boxshape{NWbox}{5pt}{0pt}
+\boxshape{SWbox}{-5pt}{0pt}
+\boxshape{EBox}{-3pt}{3pt}
+\boxshape{WBox}{3pt}{-3pt}
+\makeatother
+
+\tikzstyle{cloud}=[shape=cloud,draw,minimum width=1.5cm,minimum height=1.5cm]
+
+\tikzstyle{map}=[draw,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{dashedmap}=[draw,dashed,shape=NEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{mapdag}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{mapadj}=[draw,shape=SEbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{maptrans}=[draw,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white]
+\tikzstyle{mapconj}=[draw,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white]
 
 \def\swangle{-145}
 \def\seangle{-35}

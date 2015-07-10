@@ -5,8 +5,8 @@
 \node [state, hflip,inner sep = 1mm](idCenterL) {$\tilde{f}$};
 \node (idOut) [below of = idCenterL, yshift = 1mm] {};
 
-\node [whitedot] (Zcomult) [left of = idOut, xshift = +6mm, yshift = -4mm] {};
-\node [whitedot] (Zunit) [below of = Zcomult, yshift = +5mm] {};
+\node [blackdot] (Zcomult) [left of = idOut, xshift = +6mm, yshift = -4mm] {};
+\node [blackdot] (Zunit) [below of = Zcomult, yshift = +5mm] {};
 \node (ZOut) [left of = idOut, xshift = +2mm] {};
 \node (ZOutHigh) [above of = ZOut, yshift = +5mm] {};
 
@@ -29,10 +29,10 @@
 
 \node [state, hflip](projR) [right of = projCenter,xshift=-7mm,inner sep = 1mm] {$\tilde{f}$};
 
-\node [point, fill=black, scale=1.4] (projOut) [below of = projL, yshift = -8mm] {};
-\node [below of = projL, yshift = -13mm, xshift=2mm] {$g$};
-\node [point, fill=black, scale=1.4](projIn) [below of = projR, yshift = -3mm] {};
-\node [below of = projR, yshift = -8mm, xshift=2mm] {$g$};
+\node [state, scale=0.8] (projOut) [below of = projL, yshift = -9.5mm] {$g$};
+%\node [below of = projL, yshift = -13mm, xshift=2mm] {$g$};
+\node [state, scale=0.8](projIn) [below of = projR, yshift = -3mm] {$g$};
+%\node [below of = projR, yshift = -8mm, xshift=2mm] {$g$};
 
 \begin{pgfonlayer}{background}
 \draw[-] [out=90,in=270](projOut) to (projL);

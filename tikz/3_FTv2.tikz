@@ -4,8 +4,8 @@
 \node (idCenterL)  {};
 \node (idOut) [below of = idCenterL, yshift = 1mm] {};
 
-\node [blackdot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
-\node [blackdot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+\node [whitedot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [whitedot](Xcounit) [above of = Xmult, yshift = -5mm] {};
 
 
 \node [draw, diamond](idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};
@@ -26,12 +26,14 @@
 \node (projCenter) [right of = equals, xshift = 14mm, yshift = +5mm]  {};
 \node (sum) [left of = projCenter, xshift = -4mm, yshift = -5mm]  {$\dfrac{1}{N}\mathlarger{\sum}\limits_\chi$};
 
-\node [state, hflip] (projL) [left of = projCenter, xshift=5mm] {$\chi$};
+\node [copoint, fill=black, scale=1.4] (projL) [left of = projCenter, xshift=5mm, yshift=1.5mm] {};
+\node [left of = projCenter, xshift=2.5mm, yshift=4mm] {$\chi$};
 \node [draw, diamond] (projR2) [right of = projCenter,xshift=-5mm,yshift = -6mm] {};
-\node [state, hflip] (projR) [right of = projCenter,xshift=-5mm] {$\chi$};
+\node [copoint, fill=black, scale=1.4] (projR) [above of = projR2,yshift=-3mm] {};
+\node [above of = projR2,yshift=0mm, xshift=-2.5mm] {$\chi$};
 
 \node (projOut) [below of = projL, yshift = -5mm] {};
-\node [state](projIn) [below of = projR, yshift = -3mm,inner sep = 1mm] {f};
+\node [state](projIn) [below of = projR2, yshift = 3mm,inner sep = 1mm] {f};
 
 \begin{pgfonlayer}{background}
 \draw[-] [out=90,in=270](projOut) to (projL);

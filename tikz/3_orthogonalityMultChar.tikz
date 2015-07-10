@@ -4,21 +4,21 @@
 
 \node (center) {};
 
-\node (algebraTop) [whitedot]   
+\node (algebraTop) [blackdot]   
   [above of = center, yshift = -4mm]{};
 \node (normalisation) [left of = algebraTop] {$\frac{1}{N}$};
 \node (Hout) [copoint,fill=black, above of = algebraTop, xshift = -6mm,yshift = 6mm] {};
 \node [above of = algebraTop, xshift = -7mm,yshift = 4mm] {$\chi$};
-\node (antipode) [draw, diamond, scale=0.7,above of = algebraTop, xshift = -7mm,yshift = -3mm] {};
+\node (antipode) [draw, diamond, scale=0.7,above of = algebraTop, xshift = -7mm,yshift = -2mm] {};
 \node (Tout) [copoint, fill = black,above of = algebraTop, xshift = +6mm,yshift = 6mm] {};
 \node [above of = algebraTop, xshift = 8mm,yshift = 4mm] {$\chi'$};
 
-\node (algebraBot) [whitedot]  
+\node (algebraBot) [blackdot]  
   [below of = center, yshift = +8mm]{};
 
 \begin{pgfonlayer}{background}
 \draw[-,out=90,in=270] (algebraBot) to (algebraTop);
-\draw[-,out=135,in=270] (algebraTop) to (antipode);
+\draw[-,out=135,in=300] (algebraTop) to (antipode);
 \draw (antipode) to (Hout);
 \draw[-,out=45,in=270] (algebraTop) to (Tout);
 \end{pgfonlayer}

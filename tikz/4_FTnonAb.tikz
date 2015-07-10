@@ -1,0 +1,76 @@
+\begin{pic}[node distance = 10mm]
+
+
+\node (idCenterL)  {};
+\node (idOut) [below of = idCenterL, yshift = 1mm] {};
+
+\node [whitedot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [whitedot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+
+
+\node [draw, diamond, scale=0.8](idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};
+
+\node [point](idIn) [below of = idCenterR,yshift = 3mm,inner sep = 0mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idOut) to (idCenterL.90);
+\draw[-] [out=90,in=270](idIn) to (idCenterR.south);
+\draw[-] [out=90,in=225](idCenterL) to (Xmult);
+\draw[-] [out=90,in=315](idCenterR) to (Xmult);
+\draw[-] [out=90,in=270](Xmult) to (Xcounit);
+\end{pgfonlayer}
+
+
+
+
+\node (equals) [right of = idCenterL, xshift = +3mm, yshift = 0mm] {$=$};
+
+\node (projCenter) [right of = equals, xshift = 25mm, yshift = +5mm]  {};
+\node (sum) [left of = projCenter, xshift = -11mm, yshift = -5mm]  {$\mathlarger{\sum}\limits_{\rho \in \mathcal{R}}\;\dfrac{1}{N_\rho}$};
+
+\node [mapdag] (projL) [left of = projCenter, xshift=4mm] {$\rho$};
+\node [draw, diamond, scale=0.8] (projd) [right of = projCenter,xshift=-3.9mm,yshift = -8.8mm] {};
+\node [mapdag] (projR) [right of = projCenter,xshift=-5mm] {$\rho$};
+
+\node (projOut) [below of = projL, yshift = -5mm] {};
+\node [point](projIn) [below of = projR, yshift = -7mm,inner sep = 0mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](projOut) to (projL);
+\draw[-] [out=90,in=270](projIn) to (projd.south);
+\draw (projd.north) to (projR);
+\draw[arrow=.5] [out=90,in=90] (projL.112) to (projR.68);
+\draw[reverse arrow=.5] [out=90,in=90] (projL.68) to (projR.112);
+\end{pgfonlayer}
+
+
+
+
+
+
+
+
+
+
+\node (eqdef) [left of = idCenterL, xshift = +3mm, yshift = +2mm] {$\stackrel{\mbox{def}}{=}$};
+
+\node (fhatCenter) [left of = eqdef, xshift = 0mm] {};
+
+\node [copoint] (fhatOut) [above  of = fhatCenter, yshift = -5mm,inner sep = 0mm] {$\tilde{f}$};
+\node (fhatIn) [below  of = fhatCenter, yshift = 0mm] {};
+
+\node (mapsto) [left of = fhatCenter,xshift = 2mm]{$\mapsto$};
+
+\node (fCenter) [left of = mapsto, xshift = +3mm] {};
+
+\node (fOut) [above of = fCenter, yshift = -2mm] {};
+\node [point] (fIn) [below of = fCenter, yshift = 3mm,inner sep = 0mm] {f};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](fhatIn) to (fhatOut);
+\draw[-] [out=90,in=270](fIn) to (fOut);
+\end{pgfonlayer}
+
+
+
+\end{pic}

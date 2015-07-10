@@ -1,0 +1,123 @@
+\begin{pic}[node distance = 10mm]
+
+%% First eqn LHS
+\node (spacer) {};
+
+\node [mapdag] (algebra) {$\rho$};
+\node [whitedot] (mult) 
+  [below of = algebra, xshift = 0mm, yshift = 3mm]  {};
+\node (mult_in_l) [below of = mult, xshift = -5mm, yshift = 4mm]{};
+\node (mult_in_r) [below of = mult, xshift = 5mm, yshift = 4mm] {};
+\node (H_in) [above of = algebra, xshift = +0.8mm, yshift = 2mm]{};
+\node (H_out) [above of = algebra, xshift = -0.8mm, yshift = 2mm]{};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=225](mult_in_l) to (mult);
+\draw[-] [out=90,in=315](mult_in_r) to (mult);
+\draw[-] [out=90,in=270] (mult) to (algebra);
+\draw[arrow=.5] [out=90,in=270] (algebra.75) to (H_in);
+\draw[reverse arrow=.5] [out=90,in=270] (algebra.105) to (H_out);
+\end{pgfonlayer}
+
+\node (equalSign) [right of = algebra, xshift=0mm] {=};
+
+%% First eqn RHS
+\node (algebra2) 
+  [right of = equalSign, xshift = 6mm] {};
+\node [mapdag] (algebra2l) 
+  [left of = algebra2, xshift = 3mm] {$\rho$};
+\node [mapdag] (algebra2r) 
+  [right of = algebra2, xshift = -3mm] {$\rho$};
+\node (mult2) 
+  [below right of = algebra2, xshift = 5mm, yshift = -3mm]  {};
+\node (mult_in_l2) [below of = algebra2l, xshift = 0mm, yshift = -3mm]{};
+\node (mult_in_r2) [below of = algebra2r, xshift = 0mm, yshift = -3mm] {};
+\node (H_in2l) [above of = algebra2l, xshift = 6.2mm, yshift = 2mm]{};
+\node (H_out2r) [above of = algebra2r, xshift = -6.2mm, yshift = 2mm]{};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270] (mult_in_l2) to (algebra2l);
+\draw[-] [out=90,in=270] (mult_in_r2) to (algebra2r);
+\draw[reverse arrow=.5] [out=90,in=270] (algebra2l.105) to (H_in2l);
+\draw[arrow=.5] [out=90,in=90] (algebra2l.75) to (algebra2r.105);
+\draw[arrow=.5] [out=90,in=270] (algebra2r.75) to (H_out2r);
+\end{pgfonlayer}
+
+
+
+
+
+
+
+%% Second eqn LHS
+
+\node [mapdag] (algebra3) [right of = algebra2, xshift = 15mm] {$\rho$};
+\node (H_in3) [above of = algebra3, xshift = 0.8mm, yshift = 2mm]{};
+\node (H_out3) [above of = algebra3, xshift = -0.8mm, yshift = 2mm]{};
+\node [whitedot] (unit) 
+  [below of = algebra3, xshift = 0mm, yshift = 2mm]  {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270] (unit) to (algebra3);
+\draw[arrow=.5] [out=90,in=270] (algebra3.75) to (H_in3);
+\draw[reverse arrow=.5] [out=90,in=270] (algebra3.105) to (H_out3);
+\end{pgfonlayer}
+
+
+\node (equalSign2) [right of = algebra3, xshift=0mm] {=};
+
+
+%% Second eqn RHS
+
+\node (algebra4) [right of = equalSign2, xshift=-5mm] {};
+\node (H_in4) [below of = algebra4, yshift = 8mm]{};
+\node (H_out4) [above of = algebra4, yshift = 2mm]{};
+\node (H_in5) [right of = H_in4, xshift = -8.2mm, yshift = 0mm]{};
+\node (H_out5) [right of = H_out4, xshift = -8.2mm, yshift = 0mm]{};
+
+\begin{pgfonlayer}{background}
+\draw[reverse arrow=.5] [out=90,in=270] (H_in4) to (H_out4);
+\draw[arrow=.5] [out=90,in=270] (H_in5) to (H_out5);
+\draw[-] [out=270,in=270] (H_in4.90) to (H_in5.90);
+\end{pgfonlayer}
+
+
+
+
+
+
+
+\node [mapdag] (rep) [right of = algebra4, xshift = 5mm] {$\rho$};
+\node (H_in) [above of = rep, xshift = 0.8mm, yshift = 0mm]{};
+\node (H_out) [above of = rep, xshift = -0.8mm, yshift = 0mm]{};
+\node [draw, diamond, scale=0.8] (antipode) 
+  [below of = rep, xshift = 0mm, yshift = 2mm]  {};
+\node (G_in) 
+  [below of = antipode, xshift = 0mm, yshift = 4mm]  {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270] (G_in) to (antipode);
+\draw[-] [out=90,in=270] (antipode) to (rep);
+\draw[arrow=.5] [out=90,in=270] (rep.75) to (H_in);
+\draw[reverse arrow=.5] [out=90,in=270] (rep.105) to (H_out);
+\end{pgfonlayer}
+
+
+\node (equalSign2) [right of = rep, xshift=-1mm] {=};
+
+\node [maptrans] (rep2) [right of = equalSign2, xshift = -2mm] {$\rho$};
+\node (H_in2) [above of = rep2, xshift = 0.8mm, yshift = 0mm]{};
+\node (H_out2) [above of = rep2, xshift = -0.8mm, yshift = 0mm]{};
+\node (idCenter) 
+  [below of = rep2, xshift = 0mm, yshift = 2mm]  {};
+\node (G_in2) 
+  [below of = idCenter, xshift = 0mm, yshift = 4mm]  {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270] (G_in2) to (idCenter.90);
+\draw[-] [out=90,in=270] (idCenter) to (rep2);
+\draw[arrow=.5] [out=90,in=270] (rep2.75) to (H_in2);
+\draw[reverse arrow=.5] [out=90,in=270] (rep2.105) to (H_out2);
+\end{pgfonlayer}
+
+\end{pic}

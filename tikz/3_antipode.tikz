@@ -5,13 +5,13 @@
 \node (idCenterL) [right of = eqdef, xshift = +5mm, yshift=-2mm] {};
 \node (idOut) [below of = idCenterL, yshift = 7mm] {};
 
-\node [blackdot] (Zcomult) [left of = idOut, xshift = +6mm, yshift = -4mm] {};
-\node [blackdot] (Zunit) [below of = Zcomult, yshift = +5mm] {};
+\node [whitedot] (Zcomult) [left of = idOut, xshift = +6mm, yshift = -4mm] {};
+\node [whitedot] (Zunit) [below of = Zcomult, yshift = +5mm] {};
 \node (ZOut) [left of = idOut, xshift = +2mm] {};
 \node (ZOutHigh) [above of = ZOut, yshift = +5mm] {};
 
-\node [whitedot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
-\node [whitedot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+\node [blackdot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [blackdot](Xcounit) [above of = Xmult, yshift = -5mm] {};
 
 \node (idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};
 

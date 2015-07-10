@@ -1,0 +1,47 @@
+\begin{pic}[node distance = 10mm]
+
+\node (anchor) {};
+
+\node (multll) [right of = anchor] {$\SpaceH$};
+\node (multlr) [right of = multll, xshift = -5mm] {$\SpaceH^\star$};
+\node (multrl) [right of = multlr] {$\SpaceH$};
+\node (multrr) [right of = multrl, xshift = -5mm] {$\SpaceH^\star$};
+\node (multtopl) [above of = multrr, xshift = -12.5mm, yshift = 10mm] {$\SpaceH$};
+\node (multtopr) [right of = multtopl, xshift = -5mm] {$\SpaceH^\star$};
+
+\begin{pgfonlayer}{background}
+\draw[arrow=.5,out=90,in=90] (multrl) to (multlr);
+\draw[arrow=.5,out=90,in=270] (multll) to (multtopl);
+\draw[reverse arrow=.5,out=90,in=270] (multrr) to (multtopr);
+\end{pgfonlayer}
+
+\node (unitl) [right of = multrr, xshift = 5mm] {$\SpaceH$};
+\node (unitr) [right of = unitl, xshift = -5mm] {$\SpaceH^\star$};
+
+\begin{pgfonlayer}{background}
+\draw[reverse arrow=.5,out=270,in=270] (unitl) to (unitr);
+\end{pgfonlayer}
+
+
+\node (comultbotl) [right of = unitr, xshift = 5mm] {$\SpaceH$};
+\node (comultbotr) [right of = comultbotl, xshift = -5mm] {$\SpaceH^\star$};
+\node (comultll) [above of = comultbotl, yshift = 10mm, xshift = -7.5mm] {$\SpaceH$};
+\node (comultlr) [right of = comultll, xshift = -5mm] {$\SpaceH^\star$};
+\node (comultrl) [right of = comultlr] {$\SpaceH$};
+\node (comultrr) [right of = comultrl, xshift = -5mm] {$\SpaceH^\star$};
+
+\begin{pgfonlayer}{background}
+\draw[arrow=.5,out=270,in=270] (comultlr) to (comultrl);
+\draw[arrow=.5,out=90,in=270] (comultbotl) to (comultll);
+\draw[reverse arrow=.5,out=90,in=270] (comultbotr) to (comultrr);
+\end{pgfonlayer}
+
+\node (counitl) [right of = comultrr, xshift = 5mm, yshift = -20mm] {$\SpaceH$};
+\node (counitr) [right of = counitl, xshift = -5mm] {$\SpaceH^\star$};
+
+\begin{pgfonlayer}{background}
+\draw[arrow=.5,out=90,in=90] (counitl) to (counitr);
+\end{pgfonlayer}
+
+
+\end{pic}

@@ -4,8 +4,8 @@
 \node (idCenterL)  {};
 \node (idOut) [below of = idCenterL, yshift = 1mm] {};
 
-\node [blackdot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
-\node [blackdot](Xcounit) [above of = Xmult, yshift = -5mm] {};
+\node [whitedot](Xmult) [right of = idCenterL, xshift = -6mm, yshift = +8mm] {};
+\node [whitedot](Xcounit) [above of = Xmult, yshift = -5mm] {};
 
 
 \node [diamond, draw, scale=1](idCenterR) [right of = idCenterL, xshift = -2mm, yshift = 0mm] {};

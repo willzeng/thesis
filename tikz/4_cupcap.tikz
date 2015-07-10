@@ -1,0 +1,30 @@
+\begin{pic}[node distance = 10mm]
+
+\node (cupl) {$\SpaceH^\star$};
+\node (cupr) [right of = cupl] {$\SpaceH$};
+\node (capl) [right of = cupr, xshift = 10mm]{$\SpaceH$};
+\node (capr) [right of = capl]{$\SpaceH^\star$};
+
+\begin{pgfonlayer}{background}
+
+\draw[->-=0.5,out=270,in=270] (cupl) to (cupr);
+\draw[->-=0.5,out=90,in=90] (capl) to (capr);
+
+\end{pgfonlayer}
+
+\node (cupl) [right of = capr, xshift = 10mm]{$\SpaceG^\star \!\tensor \SpaceH^\star$};
+\node (cupr) [right of = cupl,xshift = 5mm] {$\SpaceH \tensor \SpaceG$};
+\node (capl) [right of = cupr, xshift = 10mm]{$\SpaceH \tensor \SpaceG$};
+\node (capr) [right of = capl,xshift = 5mm]{$\SpaceG^\star \! \tensor \SpaceH^\star$};
+
+\begin{pgfonlayer}{background}
+
+\draw[->-=0.5,out=270,in=270] (cupl.210) to (cupr.320);
+\draw[->-=0.5,out=270,in=270] (cupl.315) to (cupr.225);
+\draw[->-=0.5,out=90,in=90] (capl.135) to (capr.45);
+\draw[->-=0.5,out=90,in=90] (capl.45) to (capr.150);
+
+\end{pgfonlayer}
+
+
+\end{pic}

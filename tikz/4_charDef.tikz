@@ -1,0 +1,28 @@
+\begin{pic}[node distance = 10mm]
+
+\node (spacer) {};
+
+\node [mapdag] (rep) {$\chi_\rho$};
+\node (G_in) 
+  [below of = rep, xshift = 0mm, yshift = 0mm]  {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270] (G_in) to (rep);
+\end{pgfonlayer}
+
+
+\node (equalSign2) [right of = rep, xshift=0mm] {:=};
+
+\node [mapdag] (rep2) [right of = equalSign2, xshift = -2mm] {$\rho$};
+\node (H_in2) [above of = rep2, xshift = 0.8mm, yshift = -3mm]{};
+\node (H_out2) [above of = rep2, xshift = -0.8mm, yshift = -3mm]{};
+\node (G_in2) 
+  [below of = rep2, xshift = 0mm, yshift = 0mm]  {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270] (G_in2) to (rep2);
+\draw[-] [out=90,in=270] (rep2.75) to (H_in2);
+\draw[-] [out=90,in=270] (rep2.105) to (H_out2);
+\draw[reverse arrow=.5] [out=90,in=90] (H_in2.270) to (H_out2.270);
+\end{pgfonlayer}
+\end{pic}

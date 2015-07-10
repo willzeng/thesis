@@ -1,12 +1,12 @@
 \begin{pic}[node distance = 10mm]
 
-\node (mult) [blackdot] {};
+\node (mult) [whitedot] {};
 
 \node (f) [state, below of = mult, xshift = -5mm]{$f$};
 \node (fprime) [state, below of = mult, xshift = +5mm]{$f'$};
 
-\node (FTlow) [blackdot, above of = mult, xshift = -6mm] {};
-\node (FThigh) [blackdot, above of = FTlow, yshift = -5mm] {};
+\node (FTlow) [whitedot, above of = mult, xshift = -6mm] {};
+\node (FThigh) [whitedot, above of = FTlow, yshift = -5mm] {};
 
 \node (out) [below of = FTlow, xshift = -7mm, yshift = -15mm] {};
 
@@ -24,13 +24,13 @@
 \node (f) [state, below of = mult, xshift = 0mm]{$f$};
 \node (fprime) [state, below of = mult, xshift = +10mm]{$f'$};
 
-\node (lFTlow) [blackdot, above of = mult, xshift = -6mm] {};
-\node (lFThigh) [blackdot, above of = lFTlow, yshift = -5mm] {};
+\node (lFTlow) [whitedot, above of = mult, xshift = -6mm] {};
+\node (lFThigh) [whitedot, above of = lFTlow, yshift = -5mm] {};
 
-\node (rFTlow) [blackdot, above of = mult, xshift = +6mm, yshift = 12mm] {};
-\node (rFThigh) [blackdot, above of = rFTlow, yshift = -5mm] {};
+\node (rFTlow) [whitedot, above of = mult, xshift = +6mm, yshift = 12mm] {};
+\node (rFThigh) [whitedot, above of = rFTlow, yshift = -5mm] {};
 
-\node (comult) [blackdot, below of = lFTlow, xshift = -6mm] {};
+\node (comult) [whitedot, below of = lFTlow, xshift = -6mm] {};
 \node (interm) [above of = comult, xshift = -5mm, yshift = 1mm] {}; 
 
 \node (out) [below of = lFTlow, xshift = -6mm, yshift = -15mm] {};

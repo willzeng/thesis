@@ -1,0 +1,33 @@
+\begin{pic}[node distance = 10mm]
+
+
+\node (spacer) {};
+
+\node (sum) {$\mathlarger{\bigcup}\limits_\chi$};
+\node (projCenter) [right of = sum, xshift = -1mm, yshift=1mm] {};
+\node [point, scale=1.4, fill=black] (projTop) [above of = projCenter, yshift=-4mm, xshift=3mm] {};
+\node [above of = projCenter, yshift=-6mm] {$\chi$};
+\node [copoint, scale=1.4, fill=black] (projBot) [below of = projCenter,yshift=+4mm, xshift=3mm] {};
+\node [below of = projCenter,yshift=+6mm] {$\chi$};
+
+\node (projIn) [below of = projBot, yshift = 4mm] {};
+\node (projOut) [above of = projTop, yshift = -4mm] {};
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](projIn) to (projBot);
+\draw[-] [out=90,in=270](projTop) to (projOut);
+\end{pgfonlayer}
+
+\node (equals) [right of = projCenter, xshift = -2mm] {$=$};
+
+\node (idCenter) [right of = equals, xshift = -3mm] {};
+
+\node (idIn) [below of = idCenter] {};
+\node (idOut) [above of = idCenter] {};;
+
+\begin{pgfonlayer}{background}
+\draw[-] [out=90,in=270](idIn) to (idOut);
+\end{pgfonlayer}
+
+
+\end{pic}
