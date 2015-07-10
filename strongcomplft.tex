@@ -11,7 +11,7 @@ In Section \ref{section_AbelianGroups_FourierTransform} the concepts from Sectio
 
 In Section \ref{section_RelFT}, we study $\RelCategory$ as an example setting for our categorical Fourier Transform. This example is of particular interest as it often acts as a toy model for quantum theory~\cite{evans2009classifying, cqm-notes, pavlovic2009quantum, zeng2015models}.  We find that while the Hadamard transform is not suitably defined, a Fourier Transform can be.
 
-\todo{In Section \ref{section_FourierTransform} these results are extended to the non-abelian case. The Gelfand-Naimark construction is presented as the natural generalisation of the Fourier transform using its Pontryagin duality formulation.}
+In Section \ref{section_FourierTransform} we review extentions of these results to the non-abelian case, with accompanying Fourier transform. Then, in Section~\ref{sec:measrep}, we summarize how these results relate to measurements in the ``representation basis."
 
 These results both move Fourier theory into a new mathematical setting and capture the structural connection between quantum theory and the Fourier Transform.  Though this connection has been much exploited in quantum algorithms, this work is the first abstract presentation that shows its place in the structure of quantum theory, i.e. alongside strongly complementary observables.
 \subsection{The Fourier Transform}
@@ -159,7 +159,7 @@ There are a number of existing generalizations in the literature of the Fourier 
 \begin{enumerate}
 \item[1.] Pontryagin theory can be extended from finite abelian groups to arbitrary locally compact abelian groups equipped with the Haar measure: the groups $G$ and $G^\wedge$ are not necessarily isomorphic (e.g. $\reals^\wedge = \reals$ but $\integers^\wedge = S^1$), but the Fourier Transform is still a canonical isomorphism between $\Ltwo{G}$ and $\Ltwo{G^\wedge}$, and it's still true that $(G^\wedge)^\wedge = G$. 
 
-\item[2.] The representation theory can be extended from abelian to arbitrary locally compact groups by observing that $\Ltwo{G}$ is always a $C^\star$ algebra, and considering the Gelfand-Naimark representation. In the abelian case, this representation coincides with the Fourier transform. We elaborate more on the finite-dimensional case of this in \todo{Section \ref{section_FourierTransform}}. 
+\item[2.] The representation theory can be extended from abelian to arbitrary locally compact groups by observing that $\Ltwo{G}$ is always a $C^\star$ algebra, and considering the Gelfand-Naimark representation. In the abelian case, this representation coincides with the Fourier transform. This connection is elaborated on in~\cite{gogioso2015fourier}. 
 
 \item[3.] Tannaka-Krein duality provides a different generalisation from compact abelian groups to arbitrary compact groups: the finite-dimensional linear representations of a compact group $G$ form a symmetric monoidal category $\Pi(G)$, generalising $G^\wedge$, with representations $R:G \rightarrow \Endoms{}{V_R}$ as objects, intertwiners (linear maps $f: V_R \rightarrow V_S$ s.t. $f \cdot R(g) = S(g) \cdot f$ for all $g\in G$) as morphisms and tensor product of representations as monoidal tensor. The category $\Pi(G)$ comes with a complex conjugation operation on morphisms, and a theorem of Tannaka shows that the set $\Gamma(\Pi(G))$ of all self-conjugate monoidal natural transformations $\idm{\Pi(G)} \rightarrow \idm{\Pi(G)}$ forms (once equipped with composition of natural transformations and an appropriate topology) a compact group isomorphic to $G$. A generalisation of Tannaka-Krein duality to braided monoidal categories appears in the representation theory of Drinfeld-Jimbo quantum groups. In this work, we do not deal with either Tannaka-Krein theory or Drinfeld-Jimbo quantum groups.
 For more on quantum groups and their connection to Hopf algebras see, 
@@ -536,7 +536,7 @@ The first equality follows from the fact that $\varphi$ is a morphism of interna
 \tinycounit[altwhitedot] \cdot \varphi = \left(\varphi^\dagger \cdot\tinyunit[altwhitedot] \right)^\dagger = \left(  \ZunitSym\right)^\dagger = \ZcounitSym
 \end{equation}
 \end{proof}
-In $\fdHilbCategory$ (with abelian internal groups), Equation \ref{eqn_PontDualityCanonProof} takes the form of Equation \ref{eqn_FTcanonicity}. To conclude, we provide a categorical definition of Hadamard transforms, which helps to frame the difference between the Hadamard Transforms and the Fourier Transforms.
+In $\fdHilbCategory$ (with abelian internal groups),~\eqref{eqn_PontDualityCanonProof} takes the form of~\eqref{eqn_FTcanonicity}. To conclude, we provide a categorical definition of Hadamard transforms, which helps to frame the difference between the Hadamard Transforms and the Fourier Transforms.
 
 \begin{defn}
 \label{def_CategoricalHadamard}
@@ -638,7 +638,7 @@ By Remark \ref{rmrk_CategoricalHadamard}, a Hadamard transform gives a group iso
 \begin{equation}
 M_\Psi := \bigcup_{g \in G} \ket{G_{\Psi(g)}}\bra{H_g}  
 \end{equation}
-This satisfies the monoid and comonoid homomorphism requirements from Definition \ref{def_CategoricalHadamard}, but is not an isomorphism in $\fRelCategory$. To get an isomorphism, and prove the existence of a relevant Hadamard transform in $\fRelCategory$, we consider a new map $t: A \rightarrow A$, which we give in the form of a relation $t \subseteq A \times A$:
+This satisfies the monoid and comonoid homomorphism requirements from Definition~\ref{def_CategoricalHadamard}, but is not an isomorphism in $\fRelCategory$. To get an isomorphism, and prove the existence of a relevant Hadamard transform in $\fRelCategory$, we consider a new map $t: A \rightarrow A$, which we give in the form of a relation $t \subseteq A \times A$:
 \begin{equation}
 t := \suchthat{\left((h,g),(\Psi g,\Psi^{-1}h)\right)}{h \in H \text{ and } g \in G}
 \end{equation}
@@ -653,7 +653,7 @@ In $\fRelCategory$, however, the assumptions of Lemma \ref{lemma_FTTraditionalSM
 Let $\ZdotSym$ be a classical structure on a finite set $A$ in $\fRelCategory$, and let $Z$ be the associated abelian groupoid. The classical points of $\XdotSym$ form an orthogonal resolution of the identity if and only if the abelian groupoid is discrete, i.e.  $Z=\bigoplus^{A}\mathbb{Z}_1$. Furthermore, if $(\XdotSym,\ZdotSym)$ is a strongly complementary pair on $A$, with $\XdotSym$ associated to an abelian groupoid $Z=\bigoplus^{A}\mathbb{Z}_1$, then the abelian groupoid associated with $\ZdotSym$ is in fact a group, in the form $X = G$ for some finite abelian group $G = (A,+,0)$ on the element set $A$. As a consequence, the only abelian internal group in $\fRelCategory$ satisfying the assumptions of Lemma \ref{lemma_FTTraditionalSMC} is the (unique) abelian internal group on the tensor unit $\{\star\}$.
 \end{lemma}
 \begin{proof} 
-In $\RelCategory$ the scalars are $0$ or $1$ and summation is given by set union.  Thus a resolution of the identity must satisfy the following equation, where each $\chi$ is a classical point:
+In $\RelCategory$ the scalars are $0$ or $1$ and summation is given by set union.  Thus a resolution of the identity must satisfy the following equation, where each $\chi$ is a classical state:
   \begin{equation}\label{eqn_MultCharResolutionIdRel}
     \input{tikz/3_multcharresIDRel.tikz}
   \end{equation}
@@ -779,5 +779,75 @@ Given in~\cite{gogioso2015fourier}. It proceeds along the same lines as that of 
 This perspective is then extended to a provide a categorical version of the Gelfand-Naimark theorem~\cite{gogioso2015fourier}.
 
 
-\subsection{\todo{Measurements and Representation Theory}}
-We have seen that the representations of an abelian internal group form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. It is in this sense that representations correspond to measurements.  
+\subsection{Measurements and Representation Theory}
+We have seen that the representations of an abelian internal group form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. Indeed, even in the non-abelian case, representations of larger than one dimension will also be orthogonal and form a resolution of the identity~\cite{gogioso2015fourier}. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. By the oGCT Born rule (Definition~\ref{def:bornrule}) we now have a full and abstract grasp on what it means to measure in the ``representation basis", i.e. composing with a representations effect is a post-selected measurement of that outcome in the ``representation basis." We clarify the results in this section that will appear in our characterization of quantum algorithms with Figure~\ref{fig:ft}. The generalized Hadamard transform will play a particularly important role as a non-canonical isomorphism is usually assumed in the output of what is usually described as a quantum ``Fourier transform." Thus the quantum Fourier Transform algorithm, when implemented in an oGCT, acts like what we call the generalized Hadamard transform (Figure~\ref{fig:ft}).
+
+\newpage
+
+\begin{figure}[H]
+\caption[Summary of internal groups, representations, and the Fourier transform in oGCTs.]{Summary of the results of Section~\ref{sec:strcomplFT} as they pertain to the analysis of quantum algorithms in the following sections. These constructions are with reference to an internal group $\mathbb{G}= (\SpaceG,\ZdotSym,\XdotSym)$ in an oGCT (Definition~\ref{def_AbClassicalGroup}).
+}
+\label{fig:ft}
+{\renewcommand{\arraystretch}{2}\small
+\begin{tabulary}{\linewidth}{|p{7cm}|c|}\hline
+\textbf{Group structure}; acts as a group on its elements and as pointwise multiplication on representations. The unit is the identity element.
+& \quad $\ZmultSym::\ket{g_1}\otimes\ket{g_2}\mapsto\ket{g_1+g_2} \qquad \ZunitSym\;::\ket{\mathbbm{1}}$ \quad \\\hline
+\textbf{Group elements}; these are classical states of $\XdotSym$.
+& \rule{0pt}{8ex}  \left\{\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [point, fill=black, scale=1.4] (0) at (0, -2) {};
+\node at (0.6, -2.6) {$g$};
+\node [none] (1) at (0, -0) {};
+\draw (0) to (1);
+\end{pic}\right\}\quad\mbox{OR}\quad
+\left\{\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [whitedot] (0) at (0, -2) {$g$};
+\node [none] (1) at (0, -0) {};
+\draw (0) to (1);
+\end{pic}\right\}  \\\hline
+\textbf{Representation structure}; acts as pointwise multiplication on group elements and as the representation group on representations. The unit is the trivial representation.& \rule{0pt}{8ex}\quad $\XmultSym::\ket{g_1}\otimes\ket{g_2}\mapsto\ket{g_1+g_2} \qquad \XunitSym\;::\ket{\mathbbm{1}}$ \quad \\\hline
+\textbf{Representations} and \textbf{representation states} (abelian $\mathbb{G}$); these are daggers of each other and are classical co-states and states of $\ZdotSym$ respectively. & \rule{0pt}{8ex}  \left\{\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [point, scale=1.4] (0) at (0, -2) {};
+\node at (0.6, -2.6) {$\chi$};
+\node [none] (1) at (0, -0) {};
+\draw (0) to (1);
+\end{pic}\right\}\quad\mbox{OR}\quad
+\left\{\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [blackdot, scale=2] (0) at (0, -2) {};
+\node at (0.6, -2.6) {$\chi$};
+\node [none] (1) at (0, -0) {};
+\draw (0) to (1);
+\end{pic}\right\} \\\hline
+\textbf{Representations} and \textbf{representation states} (non-abelian $\mathbb{G}$); these are daggers of each other and act as generalized classical co-states and states of $\ZdotSym$ respectively.
+& \rule{0pt}{10ex} \left\{\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [mapdag] (0) at (0, -2) {$\chi$};
+\node [none] (1) at (0, -0) {};
+\node [none] (2) at (-0.5, -3.5) {};
+\node [none] (3) at (0.5, -3.5) {};
+\draw (0) to (1);
+\draw (-0.5,-2.7) to (2);
+\draw (0.5,-2.7) to (3);
+\end{pic}\right\} \\\hline
+\textbf{Fourier Transform}; For arbitrary state $f$; Definition~\ref{def_FourierTransform} and Lemma~\ref{lemma_FTTraditionalSMC2} (any $\mathbb{G}$).& \rule{0pt}{10ex} \input{tikz/4_FTnonAb2.tikz}\\\hline
+\textbf{Hadamard Transform}; Definition~\ref{def_CategoricalHadamard}. This can be thought of as a color-change operation. 
+& \begin{pic}
+\node [morphism] (h) at (0,0) {$H$};
+\node [whitedot] (w) at (0,-0.75) {$\alpha$};
+\draw (w)  to (h.south);
+\draw (0,0.75) to (h.north);
+\end{pic}
+\;=\;
+\begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
+\node [blackdot, scale=2] (0) at (0, -2) {};
+\node at (0.6, -2.6) {$\alpha$};
+\node [none] (1) at (0, -0) {};
+\draw (0) to (1);
+\end{pic}
+\qquad\quad
+\rule{0pt}{13ex}
+\input{tikz/4_HadamardSpider.tikz}
+\\\hline
+\end{tabulary}
+}
+
+\end{figure}
+

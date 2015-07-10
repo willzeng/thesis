@@ -12,5 +12,5 @@
 \draw[->,line width=2pt] (qinf) to (abs);
 \draw[->,line width=2pt] (abs) to (cd);
 
-\draw[densely dotted, red, ->, line width=2pt] (qc) to (cd);
+\draw[densely dotted, blue, ->, line width=2pt] (qc) to (cd);
 \end{pic}
