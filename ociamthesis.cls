@@ -56,7 +56,7 @@
 % Newer Oxford Belt crest
 %Using latex metafont (Mathematical Institute system)
 \font\beltcrestfont=oxbeltcrest
-\def\logo{{\beltcrestfont \char0}}
+\def\logo{{\includegraphics[width=32mm]{oxlogo2}}}
 %For comlab system replace 1st line above with
 %\font\beltcrestfont=newcrest
 }{}
@@ -65,7 +65,7 @@
 {
 % Latest Logo, Square version (the default!)
 % you need an oxlogo.eps or oxlogo.pdf file as appropriate
-\def\logo{{\includegraphics[width=32mm]{oxlogo}}}
+\def\logo{{\includegraphics[width=55mm]{oxlogo.eps}}}
 }{}
 
 %

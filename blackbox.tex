@@ -311,8 +311,8 @@ Thus, by the oGCT Born rule (Definition~\ref{def:bornrule}), there is no probabi
 
 In a single proof, this method and its extension to arbitrary finite groups~\cite{vicary-tqa} captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oGCT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
 
-\subsection{\todo{The Grover's and hidden subgroup algorithms}}
-Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. \todo{comment on connection to amplitude amplification}
+\subsection{The Grover's and hidden subgroup algorithms}
+Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The single-shot Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. When the target group is, for example, $\mathbb{Z}_3$, such that the elements are marked by indicator function in a $4:1:1$ ratio, a single query can be used to return one of the rarer elements with certainty. An interesting path for the future development of this work would be to extend this to a generalization of amplitude amplification. The author conjectures that in certain cases, where the input amplitudes follow a known ratio, a speedup over the usual amplitude amplification algorithm can be found.
 
 \begin{figure}[t]
 \input{tikz/3_algtriplet.tikz}
@@ -321,7 +321,7 @@ Through similar methods, the single-shot Grover's and hidden subgroup algorithms
 \end{figure}
 
 
-Similarly, the function of the quantum part of hidden subgroup algorithm can be demonstrated. That is, one can abstractly verify that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup~\cite{vicary-tqa}. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for $\dotonly{whitedot}$. This unit, via strong complementarity, is equivalent to uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
+The function of the quantum part of hidden subgroup algorithm can also be demonstrated. That is, one can abstractly verify that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup~\cite{vicary-tqa}. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for $\dotonly{whitedot}$. This unit, via strong complementarity, is equivalent to uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
 \begin{conjecture}
 The performance of the hidden subgroup algorithm can be improved by a particular chosen distribution of input representation in the second system.
 \end{conjecture}
