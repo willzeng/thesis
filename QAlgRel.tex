@@ -272,10 +272,10 @@ Throughout this proof we refer to a groupoid as a category where the elements of
 F(g\circ_G f) &= F(g)\circ_H F(f) \\
 F(\mbox{id}_X) &= \mbox{id}_{F(X)}.
 \end{align*}
-We now show that the groupoid homomorphism relation $R$ associated to $F$ is a monoid homomorphism relation. First, we must show that it preserves the unit, i.e. that for $X\in\mbox{Ob}(G)$  and $Y\in\mbox{Ob}(H)$ we have $R(\bigcup_X \mbox{id}_X) = \bigcup_Y \mbox{id}_Y$. Recall that for a set $A$ with elements $a$, $R(A)=\bigcup R(a)$. It is that case that
+We now show that the groupoid homomorphism relation $R$ associated to $F$ is a monoid homomorphism relation. First, we must show that it preserves the unit. We have $R(\bigcup_{X\in\mbox{Ob}(G)} \mbox{id}_X) = \bigcup_{Y\in\mbox{Ob}(H)} \mbox{id}_Y$. Recall that for a set $A$,  $R(A)=\bigcup_{a\in A} R(a)$. It is that case that
 \begin{align}
-R(\bigcup_X \mbox{id}_X) &= \bigcup_XR(\mbox{id}_X) = \bigcup_X\mbox{id}_{R(X)} \qquad \mbox{def. of functor} \\
-&= \bigcup_{R(X)}\mbox{id}_{R(X)} = \bigcup_{Y}\mbox{id}_{Y} \qquad \mbox{surjective on objects}
+R(\bigcup\nolimits_{X\in\mbox{Ob}(G)} \mbox{id}_X) &= \bigcup\nolimits_{X\in\mbox{Ob}(G)}R(\mbox{id}_X) = \bigcup\nolimits_{X\in\mbox{Ob}(G)}\mbox{id}_{R(X)} \qquad \mbox{def. of functor} \\
+&= \bigcup\nolimits_{R(X)\in\mbox{Ob}(G)}\mbox{id}_{R(X)} = \bigcup\nolimits_{{Y\in\mbox{Ob}(H)}}\mbox{id}_{Y} \qquad \mbox{surjective on objects}
 \end{align}
 where we have used the fact that $F$ is surjective on objects, which implies that every object of $H$ is in the image of $R$ and that $|\mbox{Ob}(G)|\ge|\mbox{Ob}(H)|$.
 
@@ -286,8 +286,8 @@ R(K+_GJ)=R(K)+_HR(J).
 
 \noindent Here we recall that for two sets $A$ and $B$, $A+B=\{a + b | a \in A\mbox{ and } b \in B\}$. Thus,
 \begin{align}
-R(K+_GJ) = R(\bigcup_{k,j}k+_Gj) &= \bigcup_{k,j}R(k+_Gj) \\
-&= \bigcup_{k,j}R(k)+_HR(j) \qquad \mbox{def. of functor}\\
+R(K+_GJ) &= R(\bigcup\nolimits_{k\in K,j\in J}k+_Gj) = \bigcup\nolimits_{k\in K,j\in J}R(k+_Gj) \\
+&= \bigcup\nolimits_{k\in K,j\in J}R(k)+_HR(j) \qquad \mbox{def. of functor}\\
 &= R(K)+_HR(J).
 \end{align}
 This completes the proof.
@@ -828,7 +828,6 @@ The algorithm defined by~\eqref{eq:groupdIDAlg} has output state $\ket{\rho}$ on
 \end{theorem}
 \begin{proof}
 The verification in \cite{zeng2014abstract} simplifies the algorithm in Equation \ref{eq:groupdIDAlg} to:
-%\vspace{-7pt}
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[string, scale=0.9]
@@ -850,7 +849,7 @@ where we see that post-selection on the left hand system implies the theorem's c
 If $f$ is a groupoid isomorphism then the algorithm in Equation \ref{eq:groupdIDAlg} returns all states.
 \end{theorem}
 \begin{proof}
-Groupoid isomorphisms relate every element of the domain to every element in the codomain.
+Groupoid isomorphisms relate every element of the domain to some element in the codomain and relate every element of the codomain to some element of the domain
 \end{proof}
 
 \noindent Still, we can imagine running the algorithm from \eqref{eq:groupdIDAlg} where any classical relation $f$ is allowed as input to obtain non-trivial outcomes.
