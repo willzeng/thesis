@@ -247,16 +247,23 @@ Thus the abstract proof of\ Theorem \ref{thm:complementarityunitary} from \cite{
 An oracle is then introduced as a controlled-not where we have embedded a particular kind of relation that abstractly must be a self-conjugate comonoid homomorphism \cite{zeng2014abstract}. We construct such relations in the following lemmas.
 
 \begin{defn}
-Given groupoids $G$ and $H$ and groupoid homomorphism $F:G\to H$, we can define an associated \emph{groupoid homomorphism relation} $R:G\to H$ where, for morphism $x$ in $G$ and morphism $y$ in $H$,
-$$
-xRy \mbox{ iff }F(x) = y.
-$$
+Let $G$ and $H$ be groupoids with with groupoid multiplications $\bullet_G$ and $\bullet_H$ respectively. Let $\mbox{id}_{G}=\bigcup_{X\in\mbox{Ob}(G)}\mbox{id}_X$ and similarly define $\mbox{id}_{H}$. A \emph{groupoid homomorphism relation} $R:G\to H$ obeys the following condition for $g_1,g_2\in G$:
+%two conditions for $g_1,g_2\in G$ and $h_1,h_2\in H$:
+\begin{align}
+R(g_1\bullet_Gg_2) &= R(g_1)\bullet_HR(g_2) %\\
+%R(\mbox{id}_G) &= \mbox{id}_H
+\end{align}
 \end{defn}
+\noindent Note that while this in many ways resembles a groupoid homomorphism, it is actually a weakening of this notion, in that groupoid homomorphism relations are not required to be total functions and have no explicit requirement on their identity morphisms.
 
 \begin{defn}
 A \emph{monoid homomorphism relation} is a monoid homomorphism in \cat{Rel}. Specifically, let $A$ and $B$ be sets equipped with monoids $(A,\tinymult[whitedot],\tinyunit[whitedot])$ and $(B,\tinymult[blackdot],\tinyunit[blackdot])$ respectively. A relation $r:A\to B$ is a monoid homomorphism when is obeys the following two conditions:
 \begin{align}
-r\circ\tinymult[whitedot] &= \tinymult[blackdot]\circ(r\times r) \\
+\label{eq:monone}
+r\circ\tinymult[whitedot] &= \tinymult[blackdot]\circ(r\times r) 
+\end{align}
+\begin{align}
+\label{eq:monunit}
 r\circ\tinyunit[whitedot] &= \tinyunit[blackdot]
 \end{align}
 A \emph{comonoid homomorphism relation} is defined similarly, using duals of the above conditions.
@@ -264,22 +271,18 @@ A \emph{comonoid homomorphism relation} is defined similarly, using duals of the
 
 \begin{lemma}
 \label{lem:mongrphom}
-Given a groupoid homomorphism that is surjective on objects, its associated groupoid homomorphism relation $R:G\to H$, is a monoid homomorphism relation.
+A groupoid homomorphism relation that is surjective on objects is a monoid homomorphism relation.
 \end{lemma}
 \begin{proof}
-Throughout this proof we refer to a groupoid as a category where the elements of the groupoid are the morphisms.  From this perspective a group is a groupoid with a single object. A groupoid homomorphism $F:G\to H$ is a functor that, for objects $X,A,B$ of $G$ and morphisms $f$ of $G$, takes $X &\mapsto F(X)$ and $(f:A\to B) &\mapsto \left(F(f):F(A)\to F(B)\right)$ such that
-\begin{align*}
-F(g\circ_G f) &= F(g)\circ_H F(f) \\
-F(\mbox{id}_X) &= \mbox{id}_{F(X)}.
-\end{align*}
-We now show that the groupoid homomorphism relation $R$ associated to $F$ is a monoid homomorphism relation. First, we must show that it preserves the unit. We have $R(\bigcup_{X\in\mbox{Ob}(G)} \mbox{id}_X) = \bigcup_{Y\in\mbox{Ob}(H)} \mbox{id}_Y$. Recall that for a set $A$,  $R(A)=\bigcup_{a\in A} R(a)$. It is that case that
+Throughout this proof we refer to a groupoid as a category where the elements of the groupoid are the morphisms.  From this perspective a group is a groupoid with a single object. Consider a groupoid homomorphism relation $R:G\to H$ on objects $X,A,B$ of $G$ and morphisms $f$ of $G$.
+In order to show that $R$ is a monoid homomorphism relation we first show that it preserves the unit~\eqref{eq:monunit}. We have $R(\bigcup_{X\in\mbox{Ob}(G)} \mbox{id}_X) = \bigcup_{Y\in\mbox{Ob}(H)} \mbox{id}_Y$. Recall that for a set $A$,  $R(A)=\bigcup_{a\in A} R(a)$. It is that case that
 \begin{align}
-R(\bigcup\nolimits_{X\in\mbox{Ob}(G)} \mbox{id}_X) &= \bigcup\nolimits_{X\in\mbox{Ob}(G)}R(\mbox{id}_X) = \bigcup\nolimits_{X\in\mbox{Ob}(G)}\mbox{id}_{R(X)} \qquad \mbox{def. of functor} \\
+R(\bigcup\nolimits_{X\in\mbox{Ob}(G)} \mbox{id}_X) &= \bigcup\nolimits_{X\in\mbox{Ob}(G)}R(\mbox{id}_X) = \bigcup\nolimits_{X\in\mbox{Ob}(G)}\mbox{id}_{R(X)} \quad \mbox{def. of group hom. rel.} \\
 &= \bigcup\nolimits_{R(X)\in\mbox{Ob}(G)}\mbox{id}_{R(X)} = \bigcup\nolimits_{{Y\in\mbox{Ob}(H)}}\mbox{id}_{Y} \qquad \mbox{surjective on objects}
 \end{align}
-where we have used the fact that $F$ is surjective on objects, which implies that every object of $H$ is in the image of $R$ and that $|\mbox{Ob}(G)|\ge|\mbox{Ob}(H)|$.
+where we have used the fact that $R$ is surjective on objects, which implies that every object of $H$ is in the image of $R$ and that $|\mbox{Ob}(G)|\ge|\mbox{Ob}(H)|$.
 
-The second monoid homomorphism condition is to preserve multiplication, i.e. that for subsets $K$ and $J$ of $G$ we have
+The second monoid homomorphism condition~\eqref{eq:monone} is to preserve multiplication, i.e. that for subsets $K$ and $J$ of $G$ we have
 \begin{align}
 R(K+_GJ)=R(K)+_HR(J).
 \end{align}
@@ -287,18 +290,16 @@ R(K+_GJ)=R(K)+_HR(J).
 \noindent Here we recall that for two sets $A$ and $B$, $A+B=\{a + b | a \in A\mbox{ and } b \in B\}$. Thus,
 \begin{align}
 R(K+_GJ) &= R(\bigcup\nolimits_{k\in K,j\in J}k+_Gj) = \bigcup\nolimits_{k\in K,j\in J}R(k+_Gj) \\
-&= \bigcup\nolimits_{k\in K,j\in J}R(k)+_HR(j) \qquad \mbox{def. of functor}\\
+&= \bigcup\nolimits_{k\in K,j\in J}R(k)+_HR(j) \qquad \mbox{def. of group hom. rel.}\\
 &= R(K)+_HR(J).
 \end{align}
 This completes the proof.
 \end{proof}
 
-\noindent By a similar argument it is easy to show that every groupoid homomorphism relation corresponds a groupoid homomorphism that is surjective on objects.
-
 We then dualize the proof of Lemma \ref{lem:mongrphom} to conclude that:
 \begin{lemma}
 \label{lem:classicalRelation}
-For a functor $F:H\to G$ such that $F^{\mbox{\tiny op}}$ is a groupoid homomorphism that is surjective on objects, $F$ defines a comonoid homomorphism relation.
+Let $F:H\to G$ be a functor such that $F^{\mbox{\tiny op}}$ is a groupoid homomorphism relation that is surjective on objects. $F$ is a comonoid homomorphism relation.
 \end{lemma}
 \noindent We call these comonoid homomorphism relations \emph{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we also need these relations to be self-conjugate:
 
@@ -362,14 +363,14 @@ In QCRel, our dagger-Frobenius structures are groupoids and, if they are complem
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
-Thus, a relation $f$ is self-conjugate if and only if for all elements $(g,n)$ it is the case that $[f^{-1}(g^{-1},n)]^{-1}=f^{-1}(g,n)$. From Lemma \ref{lem:classicalRelation} the converse of the classical relation $f$ is a groupoid homomorphism, so this condition will hold.
+Thus, a relation $f$ is self-conjugate if and only if for all elements $(g,n)$ it is the case that $[f^{-1}(g^{-1},n)]^{-1}=f^{-1}(g,n)$. From Lemma \ref{lem:classicalRelation} the converse of the classical relation $f$ is a monoid homomorphism relation whose multiplication is the groupoid operation, so this condition will hold.
 \end{proof}
 
 Classical relations, as self-conjugate comonoid homomorphisms, lead to unitary oracles.
 
 \begin{defn}[Oracle \cite{zeng2014abstract}]
 \label{oracle}
-Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B:\graycomonoid{B}$ and $X^B:\whitecomonoid{B}$, and a classical relation $R : \blackcomonoid{A} \to \graycomonoid{B}$, an \emph{oracle} is defined to be the following endomorphism of $A \times B$:
+Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B:\graycomonoid{B}$ and $X^B:\whitecomonoid{B}$, and a classical relation $R : \blackcomonoid{A} \to \graycomonoid{B}$, an \emph{oracle} is defined to be the following endomorphism of~$A \times B$:
 \begin{equation}
 \label{eq:oraclerel}
 \begin{aligned}
@@ -773,14 +774,7 @@ This is the same as the above example, but take $f$ to be the classical relation
 
 \subsection{The Groupoid Homomorphism Promise Algorithm}
 
-This section models the group homomorphism algorithm from \cite{zeng2014abstract} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that paper the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups.\footnote{Making use of the structure theorem for abelian groups to complete the general case.} It is this cyclic group subroutine that we consider here. In the relational setting we will move from groups to groupoids. Let groupoid $H$ be complementary to groupoid $G$ and groupoid $B$ be complementary to groupoid $A$. The QCRel GroupHomID algorithm then takes as input a groupoid isomorphism $f:G\to A$.  The requirement of oracle unitarity restricts our input from groupoid homomorphisms to groupoid isomorphisms. Let $\ket{\rho}$ be a classical states of $H$, and $\sigma$ be a classical state of $B$. We denote them as sets by their corresponding groups $H_\rho$ and $B_\sigma$.
-
-\begin{corollary}
-Groupoid homomorphisms $f:G\to A$ are classical relations if and only if they are groupoid isomorphisms.
-\end{corollary}
-\begin{proof}
-From Lemma \ref{lem:classicalRelation}, the converse of a classical relation must be a groupoid homomorphism $f^{-1}:A\to G$.
-\end{proof}
+This section models the group homomorphism algorithm from \cite{zeng2014abstract} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that paper the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups.\footnote{Making use of the structure theorem for abelian groups to complete the general case.} It is this cyclic group subroutine that we consider here. In the relational setting we will move from groups to groupoids. Let groupoid $H$ be complementary to groupoid $G$ and groupoid $B$ be complementary to groupoid $A$. The QCRel GroupHomID algorithm then takes as input a groupoid isomorphism $f:G\to A$.   Let $\ket{\rho}$ be a classical states of $H$, and $\ket{\sigma}$ be a classical state of $B$. 
 
 The algorithm has the following abstract specification~\cite{zeng2014abstract}:
 \begin{align}
@@ -849,7 +843,7 @@ where we see that post-selection on the left hand system implies the theorem's c
 If $f$ is a groupoid isomorphism then the algorithm in Equation \ref{eq:groupdIDAlg} returns all states.
 \end{theorem}
 \begin{proof}
-Groupoid isomorphisms relate every element of the domain to some element in the codomain and relate every element of the codomain to some element of the domain
+Groupoid isomorphisms relate every element of the domain to some element in the codomain and relate every element of the codomain to some element of the domain.
 \end{proof}
 
 \noindent Still, we can imagine running the algorithm from \eqref{eq:groupdIDAlg} where any classical relation $f$ is allowed as input to obtain non-trivial outcomes.
