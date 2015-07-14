@@ -1,9 +1,24 @@
 \chapter{Outlook: Complexity \&\ Categories}
 \label{chap:outlook}
 
-Here we will propose open problems for connecting the categorical reasoning used for verification of quantum algorithms to analyses of their complexity.  Ideally the complexity classes that are efficiently accessible from different abstract process theories should be directly related to their categorical structure. {\bf Status:} UNDRAFTED.
+The goal of this thesis is to apply the abstract process theoretic framework for dagger symmetric monoidal categories to quantum algorithms and protocols.  In the preceding chapters, we have presented results that leverage the structure of process theories to make the following original contributions:
+\begin{enumerate}
+\item In Section~\ref{sec:strcomplFT}, we used strong complementarity to construct the abelian Fourier Transform over finite groups in arbitrary $\dagger$-SMCs. This indicates that it is the presence of strongly complementary observables in quantum theory that makes the Fourier Transform algorithm structurally native to quantum computation.
+
+\item In Section~\ref{sec:blackbox}, we connect unitary oracles to complementary observables in arbitrary process theories. We then use these unitary oracles to construct a quantum algorithm for a new blackbox problem: GROUPHOMID. \todo{AND\ SPEEDUP\ STUFF}.
+
+\item In Section~\ref{sec:qalgrel}, an operational process theory in \cat{Rel} is used to build models of the Deutsch-Jozsa, single-shot Grover's, and GROUPHOMID quantum blackbox algorithms in the sets and relations of non-deterministic classical computation.
+
+\item In Chapter~\ref{chap:mermin}, we characterize necessary and sufficient conditions for the Mermin locality (and Mermin non-locality) of an arbitrary operational process theory. These results answer open questions regarding the connection between phase groups and non-locality. Further, we extend this framework to present experimental tests of Mermin non-locality for any number of parties with access to an arbitrary number of measurements on systems of any size. We indicate some applications of these setups in quantum secret sharing.
+
+\item Lastly, in Chapter~\ref{chap:qDisCo}, we use the shared process theoretic structure of natural language processing and quantum information to adapt a general quantum machine learning algorithm into a domain specific sentence classification algorithm while maintaining a quantum speedup.
+\end{enumerate}
+
+We conclude with a brief discussion of this work's future outlook.
+
+\todo{Here we will propose open problems for connecting the categorical reasoning used for verification of quantum algorithms to analyses of their complexity.  Ideally the complexity classes that are efficiently accessible from different abstract process theories should be directly related to their categorical structure. {\bf Status:} UNDRAFTED.
 
 Reversible flow circuits.???
 
-Programming lanaguge semantics?
+Programming lanaguge semantics?}
 

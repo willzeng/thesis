@@ -1,4 +1,4 @@
-\chapter{\color{blue} Mermin Non-locality}
+\chapter{Mermin Non-locality}
 \label{chap:mermin}
 
 \chapabstract{  The study of non-locality is fundamental to the understanding of quantum mechanics. The past 50 years have seen a number of non-locality proofs, but its fundamental building blocks, and the exact role it plays in quantum protocols, has remained elusive. In this paper, we focus on a particular flavour of non-locality, generalising Mermin's argument on the GHZ state. Using strongly complementary observables, we provide necessary and sufficient conditions for Mermin non-locality in operational process theories. We show that the existence of more phases than classical points (aka eigenstates) is not sufficient, and that the key to Mermin non-locality lies in the presence of certain algebraically non-trivial phases. This allows us to show that $\fRelCategory$, a favourite toy model for categorical quantum mechanics, is Mermin local. By considering the role it plays in the security of the HBB CQ (N,N) family of Quantum Secret Sharing protocols, we argue that Mermin non-locality should be seen as a resource in quantum protocols. Finally, we challenge the unspoken assumption that the measurements involved in Mermin-type scenarios should be complementary, opening the doors to a much wider class of potential experimental setups than currently employed.}
@@ -35,7 +35,7 @@ In Section \ref{section:non-compl}, we use our general framework to investigate 
 
 Unlike Bell tests, which produce outcomes with probabilities that are forbidden to local hidden variable theories, the Mermin argument produces outcomes which are impossible to observe in a local hidden variable theory \cite{mermin1990quantum}. This section introduces the definitions necessary to generalise the Mermin argument to abstract process theories. We make use of the standard definitions for strongly complementary observables, phase states and phases. We often refer to quasi-special $\dagger$-Frobenius algebras as \textbf{non-degenerate observables} and use the shorthand $\dagger$-qSFA. The acronym $\dagger$-qSCFA refers to a commutative $\dagger$-qSFA. Definitions of these concepts were given in Chapter~\ref{chap:cqm} and Section~\ref{sec:strcomplFT}.
 
-We make particular use of the notion of classical structures with enough classical points that form a basis (Definitions~\ref{def:enoughclassicalpoints} and~\ref{def_basis}).  Recall that in $\fdHilbCategory$, the objects are vector spaces and any vector space basis clearly all obey the abstract conditions of Definition~\ref{def_basis}.  In general oPTs this will not be the case.
+We make particular use of the notion of classical structures with enough classical points that form a basis (Definitions~\ref{def:enoughclassicalpoints} and~\ref{def:basis}).  Recall that in $\fdHilbCategory$, the objects are vector spaces and any vector space basis clearly all obey the abstract conditions of Definition~\ref{def:basis}.  In general oPTs this will not be the case.
 
 We also recall the following fact about phases (Section~\ref{sec:phases}) for strongly complementarity from Section~\ref{sec:strcomplFT} and~\cite{coecke2012strong}, where it is clarified.
         \begin{theorem}\label{thm_PhaseGroup} 
@@ -52,7 +52,7 @@ Given a $\dagger$-qSFA $\ZdotSym$ in a $\dagger$-SMC, an \textbf{$N$-partite GHZ
 \end{defn}
 
 We follow \cite{coecke2012strong} to build Mermin type scenarios out of them.
-        \begin{defn}\label{def_MerminMeasurements} 
+        \begin{defn}\label{def:MerminMeasurements} 
                 Let $\ZdotSym$ and $\XdotSym$ be a pair of strongly complementary $\dagger$-qSFAs. An $N$-partite \textbf{Mermin measurement} is obtained by applying $N$ $\ZdotSym$-phases $\alpha_1,...,\alpha_N$ to the $N$ components of an $N$-partite GHZ state, and then measuring each component in the $\XdotSym$ structure:
                 \begin{equation}\label{eqn_MerminMeasurementGHZstate}
 \input{tikz/5_MerminMeasurement.tikz}
@@ -84,7 +84,7 @@ We follow \cite{coecke2012strong} to build Mermin type scenarios out of them.
         
         The last definitions we need for our main results, Theorems \ref{thm_MerminNonLocality} and \ref{thm_MerminLocality}, are those of local hidden variable models (following the construction of \cite{coecke2012strong}) and non-trivial algebraic extensions.
 
-        \begin{defn}\label{def_LHVMerminMeasurement}
+        \begin{defn}\label{def:LHVMerminMeasurement}
                 Let $\ZdotSym$ and $\XdotSym$ be strongly complementary $\dagger$-qSCFAs on some system $\SpaceH$. Consider an $N$-partite Mermin measurement scenario $(\underline{\alpha}^s)_{s=1,...,S}$, and let $a_1,...,a_M$ be the distinct $\ZdotSym$-phases appearing in it. The \textbf{local map} for the scenario is the map $\SpaceH^{\tensor (M \cdot N)} \rightarrow \SpaceH^{\tensor (N \cdot S)}$ defined as follows:
                 \begin{enumerate}
                         \item[a.] we group the input wires in $N$ groups of $M$ wires: we say that the $r$-th wire of $i$-th group is the $a_r$ \textbf{input wire for system } $i$
@@ -112,7 +112,7 @@ We follow \cite{coecke2012strong} to build Mermin type scenarios out of them.
         
 Mermin non-locality will shortly be shown to be equivalent to the following algebraic property of the group of $\ZdotSym$-phases. The following examples will be used later on to investigate some abstract process theories of interest.
 
-        \begin{defn} \label{def_algExt}
+        \begin{defn} \label{def:algExt}
                 Let $(G,+,0)$ be an abelian group and $(H,+,0)$ be a subgroup. We say that $G$ is a \textbf{non-trivial algebraic extension} of $H$ if there exists a finite system of equations $(\sum_{j=1}^{l} n^p_j \cdot x_j = h^p)_p$, with $h^f \in H$ and $n^p_j \in \integers$, which has solutions in $G$ but not in $H$. Otherwise, we say $G$ is a \textbf{trivial algebraic extension} of $H$. 
         \end{defn}
 If $G = P_{\; \ZdotSym}$ is a non-trivial algebraic extension of $H = K_{\; \XdotSym}$, then the $\ZdotSym$-phases involved in any solution $x_j := \alpha_j$ to a system unsolvable in $K_{\;\XdotSym}$ will be called \textbf{algebraically non-trivial phases}.
@@ -285,7 +285,7 @@ Conversely, assume that the $\ZdotSym$-phases are an algebraically non-trivial e
 \section{Mermin in $\fdHilbCategory$: beyond the complementary $XY$ pair}
 \label{section:non-compl}
 
-We now focus on $\fdHilbCategory$ and quantum mechanics. While in general we can have many different choices of measurement on each subsystem (see Definition \ref{def_MerminMeasurements}), we shall restrict to the case of only two distinct measurements, i.e. $(N,M=2,D)$ scenarios.  In the case of qubits and $(N,2,2)$ scenarios, a pair of complementary measurements happen to be the only choices that will lead to a non-locality argument. One might then conjecture that the complementarity of the measurement pair will be the case for any dimension.  In this section we show that this assumption is not the case. For $(N,2,D)$ scenarios it is not necessary to have the two measurements be complementary, and there are many possible \textbf{Mermin effective} pairs in general.
+We now focus on $\fdHilbCategory$ and quantum mechanics. While in general we can have many different choices of measurement on each subsystem (see Definition \ref{def:MerminMeasurements}), we shall restrict to the case of only two distinct measurements, i.e. $(N,M=2,D)$ scenarios.  In the case of qubits and $(N,2,2)$ scenarios, a pair of complementary measurements happen to be the only choices that will lead to a non-locality argument. One might then conjecture that the complementarity of the measurement pair will be the case for any dimension.  In this section we show that this assumption is not the case. For $(N,2,D)$ scenarios it is not necessary to have the two measurements be complementary, and there are many possible \textbf{Mermin effective} pairs in general.
 
 \begin{defn}
 A \textbf{two-measurement Mermin scenario} for $N$ systems (each with $D$ dimensions) and strongly complementary GHZ observable with $\ZdotSym$-phase group $G$ is denoted $G(N,2,D)$. Each system has two possible measurement settings:
