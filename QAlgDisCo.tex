@@ -22,9 +22,9 @@ In Section \ref{sec:disco}, we cover the basic framework of distributional compo
 
 \section{Distributional Compositional Semantics and the CSS model}
 \label{sec:disco}
-In modern natural language processing, the \emph{vector space model} is widely used to compute the meaning of individual words \cite{schutze1998automatic}. In this approach we first specify a set of context words, for example the 2000 most common words in a given corpus.  These context words then form the basis of the vector space of word meanings in the following manner: for some given word, say  ``quantum", we look through a corpus and count the frequency with which each basis word    appears `near' to ``quantum". It is likely that we would have a high frequency for words like ``physics" and ``information" for example.  These frequencies then form the \emph{word vector} for ``quantum". Words are similar if the inner product of their word vectors is close to one. These `bag of words' methods are typically referred to as \emph{distributional}.
+In modern natural language processing, the \textbf{vector space model} is widely used to compute the meaning of individual words \cite{schutze1998automatic}. In this approach we first specify a set of context words, for example the 2000 most common words in a given corpus.  These context words then form the basis of the vector space of word meanings in the following manner: for some given word, say  ``quantum", we look through a corpus and count the frequency with which each basis word    appears `near' to ``quantum". It is likely that we would have a high frequency for words like ``physics" and ``information" for example.  These frequencies then form the \textbf{word vector} for ``quantum". Words are similar if the inner product of their word vectors is close to one. These `bag of words' methods are typically referred to as \textbf{distributional}.
 
-As the same sentence rarely occurs repeatedly, this distributional technique cannot be directly extended to calculate the meaning of longer phrases, sentences, paragraphs, etc. Instead, \emph{compositional} semantics designs algorithms for deriving the meaning of a sentence or phrase from known meanings of component words,  taking into account types and grammatical structure \cite{lambek2008word}. The \emph{distributional compositional} semantic model (DisCo) combines both approaches to introduce grammatical form to the composition of word vectors \cite{clark2008compositional}. See Fig. 1. 
+As the same sentence rarely occurs repeatedly, this distributional technique cannot be directly extended to calculate the meaning of longer phrases, sentences, paragraphs, etc. Instead, \textbf{compositional} semantics designs algorithms for deriving the meaning of a sentence or phrase from known meanings of component words,  taking into account types and grammatical structure \cite{lambek2008word}. The \textbf{distributional compositional} semantic model (DisCo) combines both approaches to introduce grammatical form to the composition of word vectors \cite{clark2008compositional}. See Fig. 1. 
 
 \begin{figure}[ht]
 \label{fig:discofig}
@@ -251,7 +251,7 @@ Further, these word meanings can be imported into a ``bucket bridgade" quantum R
 
 Many tasks in computational linguistics such as clustering, text classification, phrase/word similarity, and sentiment analysis rely on computations that determine the closest vector to $\vec{s}$ out of some set of $N$-dimensional vectors $\{\vec{v}_0,\vec{v}_1,...\vec{v}_{M-1}\}$. In clustering algorithms, for example, the set of vectors could be either the centroids of different clusters or the full set of training vectors, as in nearest neighbor clustering algorithms. Either the inner-product distance or Euclidean distance can be used. We will assume that all vectors are $N$-dimensional.
 \begin{definition}
-Given vector $\vec{s}$ and a set of $M$ vectors $U = \{\vec{v}_0,\vec{v}_1,...\vec{v}_{M-1}\}$ the \emph{closest vector problem} asks one to determine which $v_j$ has the smallest inner product distance with $\vec{s}$.
+Given vector $\vec{s}$ and a set of $M$ vectors $U = \{\vec{v}_0,\vec{v}_1,...\vec{v}_{M-1}\}$ the \textbf{closest vector problem} asks one to determine which $v_j$ has the smallest inner product distance with $\vec{s}$.
 \end{definition}
 Direct calculation of the smallest vector would have complexity $\mathcal{O}(MN)$.  In \cite{wiebe2014quantum} the authors introduce a quantum algorithm for this problem that, under certain conditions, demonstrate quadratic speedups over direct calculation and polynomial speedups over Monte-Carlo methods. Some proof of principle experiments have then demonstrated clustering of eight-dimensional vectors, based on these techniques, on a small photonic quantum computer \cite{cai2015entanglement}. This algorithm requires the following assumptions, where we write $v_{ji}$ for the $i$^{\tiny\mbox{th}}$ entry of the $j$^{\tiny\mbox{th}}$ vector:
 \begin{enumerate}
@@ -372,11 +372,11 @@ Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/
 From now on, we will take sentences to exist in the same meaning space as words, i.e. $S\simeq N$.
 
 \begin{definition}
-For meaning vector $\vec{s}$ and $M$ sets of meaning vectors, a \emph{classification task} assigns $\vec{s}$ to the set containing the nearest-neighbor of $\vec{s}$.
+For meaning vector $\vec{s}$ and $M$ sets of meaning vectors, a \textbf{classification task} assigns $\vec{s}$ to the set containing the nearest-neighbor of $\vec{s}$.
 \end{definition}
 
 An example task would be to determine if a sentence is about sports or politics or if a sentence expresses agreement or disagreement. 
-%The \emph{classification} approach considers the closest set to be given %by the set whose average vector has the smallest inner product with $s$. %We define these average vectors as 
+%The \textbf{classification} approach considers the closest set to be given %by the set whose average vector has the smallest inner product with $s$. %We define these average vectors as 
 %\begin{align*}
 %v &= \frac{1}{m}\sum_m v_i \qquad \qquad
 %w = \frac{1}{m}\sum_m w_i.
@@ -613,7 +613,7 @@ In order to recover a speedup we refine the application of the quantum algorithm
 \end{aligned}
 \end{equation}
 Rather than directly calculating $\ket{\phi}$, which is not relevant to the classification task, we can formulate a closest vector problem where $\vec{s} = \ket{play}$, $M=2$ and $U = \{\ket{kids}\otimes\ket{v} \otimes\ket{football},\ket{kids}\otimes\ket{w} \otimes\ket{football}\}$.
-The runtime of this \emph{deferred quantum algorithm}, including import, will then be $\mathcal{O}(\sqrt{MN})$, showing our desired quadratic speedup in both variable.
+The runtime of this \textbf{deferred quantum algorithm}, including import, will then be $\mathcal{O}(\sqrt{MN})$, showing our desired quadratic speedup in both variable.
 
 We extend this to result to include general sentences in the CCS model with the following theorem.\footnote{The authors would like to thank an anonymous reviewer for correcting an error in the original statement of the algorithm.}
 
@@ -624,7 +624,7 @@ For an $N$-dimensional noun meaning space, there exists a quantum algorithm to c
 The trick we play in Equation \ref{eqn:trick} amounts to splitting the sentence derivation into a bipartite graph.  As the CCS connections are based on a pregroup derivation, the connections will always form a tree, taking words as nodes and connections as edges. Trees can always be partitioned into bipartite graphs, thus, up to the ordering of inputs on each tensor which can be kept track of, we can always give a deferred quantum algorithm with associated speedup for any such CCS sentence.
  The following procedure explicitly details how to construct this bipartite partitioning.
 
-For every CCS sentence there is one word that acts as the \emph{head} of the derivation.  This is the word whose output $S$ wire contains the sentence meaning following its derivation's linear map. In Equation \ref{eqn:phi} this is the word ``play". Connect the dangling wire of the head word $\vec{w_h}$ with the vector $\vec{v_i}$ against which similarity is being measured.  Starting with this head word we then separate the sentence into a top layer and a bottom layer with the following steps.  Assign the head word to the top layer. Place every word it is connected to on the bottom layer. Next for every word just assigned to the bottom, take all their connected words, which are not yet assigned, and assign them to the top.  Continue this procedure while alternating top and bottom until all words are assigned. This gives a simple two-coloring of the derivation graph. 
+For every CCS sentence there is one word that acts as the \textbf{head} of the derivation.  This is the word whose output $S$ wire contains the sentence meaning following its derivation's linear map. In Equation \ref{eqn:phi} this is the word ``play". Connect the dangling wire of the head word $\vec{w_h}$ with the vector $\vec{v_i}$ against which similarity is being measured.  Starting with this head word we then separate the sentence into a top layer and a bottom layer with the following steps.  Assign the head word to the top layer. Place every word it is connected to on the bottom layer. Next for every word just assigned to the bottom, take all their connected words, which are not yet assigned, and assign them to the top.  Continue this procedure while alternating top and bottom until all words are assigned. This gives a simple two-coloring of the derivation graph. 
 \end{proof}
 
 \begin{example}

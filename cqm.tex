@@ -4,11 +4,11 @@
 \chapabstract{In this chapter we introduce the remaining background on categorical structures for GCTs. From this background we define an operational generalized compositional theory (oGCT) that comes equipped with an operational interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  oGCTs that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
 
 \section{The Dagger}
-In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced by adding a so-called \emph{dagger functor}.  In the case of \cat{FHilb} this corresponds to the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to take an operational perspective on symmetric monoidal categories (not just \cat{FHilb}). 
+In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced by adding a so-called dagger functor.  In the case of \cat{FHilb} this corresponds to the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to take an operational perspective on symmetric monoidal categories (not just \cat{FHilb}). 
 
 \begin{defn}
 \label{defn:dagger}
-A \emph{dagger functor} on a category \cat{C} is an involutive contravariant functor $\dagger:\cat{C}\to\cat{C}$ that is the identity on objects. A \emph{dagger category} is a category equipped with a dagger functor.
+A \textbf{dagger functor} on a category \cat{C} is an involutive contravariant functor $\dagger:\cat{C}\to\cat{C}$ that is the identity on objects. A \textbf{dagger category} is a category equipped with a dagger functor.
 \end{defn}
 Spelling out this definition, the dagger functor has the following properties for $f,g:\arrs{C}$ with suitable types and $A\in\objs{C}$:
 \begin{equation}
@@ -20,17 +20,17 @@ Spelling out this definition, the dagger functor has the following properties fo
 \begin{equation}
 \idm{A}^{\dagger} = \idm{A}
 \end{equation}
-Thus for any $f:A\to B$ in a dagger category, its dagger or \emph{adjoint} $f^{\dagger}:B\to A$ also exists in that category. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
+Thus for any $f:A\to B$ in a dagger category, its dagger or \textbf{adjoint} $f^{\dagger}:B\to A$ also exists in that category. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
 
 The quantum setting of \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
 \begin{defn}
 A morphism $f:A\to B$ in a dagger category is:
 \begin{itemize}
-\item \emph{self-adjoint} when $f^{\dagger} = f$;
-\item a \emph{projector} when self-adjoint and $f\circ f = f$
-\item an \emph{isometry} when $f \circ \dag{f} = \idm{A}$;
-\item \emph{unitary} when both $f \circ \dag{f} = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
-\item \emph{positive} when $f = \dag{g}\circ g$ for some morphism $g:H\to K$.
+\item \textbf{self-adjoint} when $f^{\dagger} = f$;
+\item a \textbf{projector} when self-adjoint and $f\circ f = f$
+\item an \textbf{isometry} when $f \circ \dag{f} = \idm{A}$;
+\item \textbf{unitary} when both $f \circ \dag{f} = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
+\item \textbf{positive} when $f = \dag{g}\circ g$ for some morphism $g:H\to K$.
 \end{itemize}
 \end{defn}
 
@@ -48,11 +48,11 @@ Thus the unitarity condition becomes:
 \input{tikz/1_unitarityPics.tikz}
 \end{equation}
 
-The next two definitions, that of \emph{scalars} and \emph{effects}, further our understanding of $\dagger$-SMC's with a generalized version of the Born rule that provides a basic notion of measurement.
+The next two definitions, that of scalars and effects, further our understanding of $\dagger$-SMC's with a generalized version of the Born rule that provides a basic notion of measurement.
 
 \begin{defn}
 \label{defn:scalar}
-A \emph{scalar} in a SMC is a morphism $a:I\to I$. As these are maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
+A \textbf{scalar} in a SMC is a morphism $a:I\to I$. As these are maps from the empty diagram to the empty diagram they are unsurprisingly represented as:
 \begin{equation}
 \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
 \node [whitedot] (0) at (-1, -0) {$a$};
@@ -80,9 +80,9 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 
 \begin{defn}
 \label{def:effect}
-In a $\dagger$-SMC, \emph{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
+In a $\dagger$-SMC, \textbf{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
 \end{defn}
-\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them an operational interpretation: just as some preparation $p:I\to A$ prepares system $A$ in that state, the effect $\dag{p}:A\to I$ eliminates the system $A$ by the process $\dag{p}$.  This duality presents generalized \emph{inner products} as compositions of states and effects that are reminiscent of the usual Dirac notation~\cite{abramsky2004categorical}:
+\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them an operational interpretation: just as some preparation $p:I\to A$ prepares system $A$ in that state, the effect $\dag{p}:A\to I$ eliminates the system $A$ by the process $\dag{p}$.  This duality presents generalized \textbf{inner products} as compositions of states and effects that are reminiscent of the usual Dirac notation~\cite{abramsky2004categorical}:
 \begin{equation}
 \left(
 \begin{aligned}
@@ -154,7 +154,7 @@ Duals in a generalized compositional theory help us define both entanglement and
 
 \begin{defn}
 \label{def:dual}
-In a $\dagger$-SMC, a system $A$ has a\footnote{In general, there can be separate left and right duals for an object in any category, where the definition given here corresponds to a left dual. In a \dsmc(in fact in any braided monoidal category with left duals), these are necessarily equal, so we need only speak of one dual~\cite[Prop.~7.2]{joyal1993braided}. } \emph{dual} system $A^*$ if there exist processes 
+In a $\dagger$-SMC, a system $A$ has a\footnote{In general, there can be separate left and right duals for an object in any category, where the definition given here corresponds to a left dual. In a \dsmc(in fact in any braided monoidal category with left duals), these are necessarily equal, so we need only speak of one dual~\cite[Prop.~7.2]{joyal1993braided}. } \textbf{dual} system $A^*$ if there exist processes 
 \begin{align}
 e_A:I\to A^*\otimes A \quad \mbox{and}\quad d_A:A\otimes A^*\to I
 \end{align}
@@ -196,13 +196,13 @@ e_A &:: 1\mapsto \sum_i\bra{i}\otimes\ket{i}\cong\sum_i\ket{i}\otimes\ket{i}
 \\
 d_A &:: \sum_i\ket{i}\otimes\bra{i}\cong\sum_i\bra{i}\otimes\bra{i} \mapsto 1
 \end{align}
-We then immediately recognize $e_A$ as entangled state preparation. In particular, when $A$ is a two-dimensional Hilbert space, $e_A$ is a Bell state preparation of $\ket{\psi_{00}}=\ket{00}+\ket{11}$ and  and $d_A$ is a post-selected Bell measurement for $\ket{\psi_{00}}$. For any process in \cat{FHilb} its dual gives the transpose, which is in general the \emph{upper-star} of $f$.
+We then immediately recognize $e_A$ as entangled state preparation. In particular, when $A$ is a two-dimensional Hilbert space, $e_A$ is a Bell state preparation of $\ket{\psi_{00}}=\ket{00}+\ket{11}$ and  and $d_A$ is a post-selected Bell measurement for $\ket{\psi_{00}}$. For any process in \cat{FHilb} its dual gives the transpose, which is in general the \textbf{upper-star} of $f$.
 \end{example}
 
 This provides a motivating example for the following, which acts as a generalized conjugation operation:
 
 \begin{defn}
-Given a GCT with duals \cat{C}, the \emph{lower-star} is an involutive map 
+Given a GCT with duals \cat{C}, the \textbf{lower-star} is an involutive map 
 \begin{align*}
 (-)_*:\arrs{C}&\to\arrs{C} \\
 \left(f:A\to B\right) &\mapsto f_*:=(\dag{f})^*=\dag{(f^*)}.
@@ -239,7 +239,7 @@ The addition of states and a generalized Born rule (with further details in this
 
 \begin{defn}(Operational Generalized Compositional Theories)
 \label{thm:ogct}
-A $\dagger$-SMC where all objects have duals is called a \emph{$\dagger$-compact category}. An \emph{operational generalized compositional theory} (oGCT) is a \dcc where objects are interpreted as systems and morphisms are interpreted as processes.
+A $\dagger$-SMC where all objects have duals is called a \textbf{$\dagger$-compact category}. An \textbf{operational generalized compositional theory} (oGCT) is a \dcc where objects are interpreted as systems and morphisms are interpreted as processes.
 \end{defn}
 
 Duals and their ``wire-straightening" equations give diagrams in an oGCT a lot of power to encode topological equivalences.  This is well expressed in the following graphical coherence theorem, whose mathematical details are shown in~\cite{selinger2011survey}.
@@ -335,13 +335,13 @@ In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an 
 
 \noindent We use differently colored dots to represent different monoids on the same object.
 \begin{defn}
-In a monoidal category with object $A$, a \emph{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
+In a monoidal category with object $A$, a \textbf{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
 \begin{equation}
 \label{eq:mon_hom}
 \input{tikz/1_mon_hom.tikz}
 \end{equation}
 \end{defn}
-\noindent A \emph{comonoid homomorphism} is defined similarly, but with the dagger of the condition in~\eqref{eq:mon_hom}.
+\noindent A \textbf{comonoid homomorphism} is defined similarly, but with the dagger of the condition in~\eqref{eq:mon_hom}.
 
 We can then ask for the comonoid and monoid to interact in various ways.
 
@@ -351,7 +351,7 @@ When monoids and comonoids combine under certain rules, we obtain the structure 
 
 \begin{defn}
 \label{def:frobenius}
-In a \dsmc the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} form a \emph{dagger-Frobenius algebra} when the following equation holds:
+In a \dsmc the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} form a \textbf{dagger-Frobenius algebra} when the following equation holds:
 \begin{equation}
 \label{eq:frobenius}
 \input{tikz/1_Frobenius.tikz}
@@ -360,7 +360,7 @@ In a \dsmc the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} f
 
 \begin{defn}
 \label{def:classicalstruct}
-A \emph{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} satisfying the \emph{specialness} \eqref{eq:special} and \emph{symmetry} \eqref{eq:sym} conditions:
+A \textbf{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} satisfying the \textbf{specialness} \eqref{eq:special} and \textbf{symmetry} \eqref{eq:sym} conditions:
 \begin{equation}
 \label{eq:special}
 \begin{aligned}
@@ -398,7 +398,7 @@ A \emph{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} sat
 
 \begin{defn}
 \label{def:copyables}
-The set of \emph{classical states} $K_{\circ}$ for a classical structure \whitecomonoid{A} are all states $j:I\to A$ such that:
+The set of \textbf{classical states} $K_{\circ}$ for a classical structure \whitecomonoid{A} are all states $j:I\to A$ such that:
 \begin{equation}
 \label{eq:copy}
 \begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
@@ -469,11 +469,11 @@ Symmetric dagger Frobenius algebras in FHilb are orthogonal bases.
 Classical structures in FHilb are orthonormal bases.
 \end{theorem}
 
-\noindent \noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \emph{observables} in an oGCT. The classical states of classical structures  (Definition~\ref{def:copyables}) form the elements of these bases, more specifically the eigenvectors of the observables, though we should be careful that in categories other than $\cat{FHilb}$ they do not necessarily have all the familiar properties of bases for Hilbert spaces.  For example, we usually expect to be able to distinguish maps by testing them on basis elements. In general this only holds for certain classical structures:
+\noindent \noindent Classical structures are bases in \cat{FHilb} and so are recognized as generalized \textbf{observables} in an oGCT. The classical states of classical structures  (Definition~\ref{def:copyables}) form the elements of these bases, more specifically the eigenvectors of the observables, though we should be careful that in categories other than $\cat{FHilb}$ they do not necessarily have all the familiar properties of bases for Hilbert spaces.  For example, we usually expect to be able to distinguish maps by testing them on basis elements. In general this only holds for certain classical structures:
 
 \begin{defn}
 \label{def:enoughclassicalpoints}
-A classical structure has \emph{enough classical states} when for all processes $f,g:A\to B$: 
+A classical structure has \textbf{enough classical states} when for all processes $f,g:A\to B$: 
 \begin{align}
 f=g \qquad \Leftrightarrow \qquad \left(\forall \ket{j}\in K_{\circ}:f\circ\ket{j}=g\circ\ket{j}\right)\; 
 \end{align}
@@ -485,7 +485,7 @@ The correspondence in Theorem \ref{thm:cstructBases} was modified for the infini
 
 \begin{defn}
 \label{def:dimension}
-In an oGCT, the \emph{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitecomonoid{A} is given by the following composite:
+In an oGCT, the \textbf{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitecomonoid{A} is given by the following composite:
 \begin{equation}
 \label{eq:dim}
 \input{tikz/1_dimension.tikz}
@@ -551,12 +551,12 @@ Phases for oGCTs were introduced by \cite{coecke2011interacting}.
 
 \begin{defn}
 \label{def:phases}
-A \emph{phase state} for a Frobenius algebra $\whitecomonoid{A}$ is a state $\ket{\alpha}$ such that:
+A \textbf{phase state} for a Frobenius algebra $\whitecomonoid{A}$ is a state $\ket{\alpha}$ such that:
 \begin{equation}
 \label{eqn:zphasestate}
 \input{tikz/2_phasestate.tikz}
 \end{equation}
-Each phase state corresponds to a \emph{phase} that is a unitary map in the following form:
+Each phase state corresponds to a \textbf{phase} that is a unitary map in the following form:
 \begin{equation}
 \label{eqn:zphase}
 \input{tikz/2_phase.tikz}
@@ -591,19 +591,19 @@ The notion of complementary bases can also lifted to the abstract level of class
 as the mutual unbiasedness condition, where we have assumed that $D$ is invertible and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain to the right hand form.
 \begin{defn}[Complementarity]
 \label{def:complementarity}
-In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \emph{complementary} when the following equation holds up to a scalar:
+In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \textbf{complementary} when the following equation holds up to a scalar:
 \begin{equation}
 \label{eq:complementarity}
 \input{tikz/2_antipodehopf.tikz}
 \qquad \mbox{where} \qquad
 \input{tikz/2_antipode.tikz}
 \end{equation}
-The map $S:A\to A$ is called the \emph{antipode}.
+The map $S:A\to A$ is called the \textbf{antipode}.
 \end{defn}
 The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. We show this with a quick calculation:
 \tikzeq{tikz/2_complemub.tikz}
 where $(*)$ is an application of Theorem \ref{thm:fund}, and the last step uses the fact that there are enough classical points.  In some literature the dimensional scalar is explicitly included in the abstract definition of strong complementarity, but, for the purposes of this thesis, it is suffices to define complementarity up to a scalar. 
-%We refer to the gray states $\{\ket{j}\}$ as \emph{unbiased states} for %the $\dotonly{whitedot}$-classical structure. Similarly the white states %$\{\keti}\}$ are unbiased states for the $\dotonly{graydot}$-classical structure.
+%We refer to the gray states $\{\ket{j}\}$ as \textbf{unbiased states} for %the $\dotonly{whitedot}$-classical structure. Similarly the white states %$\{\keti}\}$ are unbiased states for the $\dotonly{graydot}$-classical structure.
 
 Complementarity relates the classical states of classical structures to their phase groups.
 \begin{lemma}
@@ -626,7 +626,7 @@ Though the converse of this lemma holds in \cat{FHilb}, i.e. each phase is also 
 %The daggers of these equations give rise to two further equivalent conditions.
 
 \begin{defn}\label{def:coherence}
-In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \emph{coherent} when the following equations hold:
+In an oGCT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \textbf{coherent} when the following equations hold:
 \begin{equation}
 \label{eq:coherence}
  \input{tikz/2_coher.tikz}
@@ -823,7 +823,7 @@ This shows that on computational basis elements, the control is left unchanged w
 
 This example construction motivates the following definition on any kind of system in any oGCT:
 \begin{defn}
-Given two two classical structures \whitecomonoid{A} and \graycomonoid{A} that are complementary and coherent, the generalized \emph{controlled-not} is the map:
+Given two two classical structures \whitecomonoid{A} and \graycomonoid{A} that are complementary and coherent, the generalized \textbf{controlled-not} is the map:
 \begin{equation}
 \label{eq:generalizedcnot}
 \sqrt{\ud(A)}\,\,
@@ -865,7 +865,7 @@ Linear maps between Hilbert spaces themselves form a vector space, so \cat{FHilb
 
 \begin{defn}
 \label{def:resid}
-In a \cat{Mon}-enriched oGCT, a set of states $\{\ket{x}\}$ on a system $A$ forms a \emph{resolution of the identity} when:
+In a \cat{Mon}-enriched oGCT, a set of states $\{\ket{x}\}$ on a system $A$ forms a \textbf{resolution of the identity} when:
 \begin{equation}
 \label{eq:ResolutionId}
 \input{tikz/3_multcharresolutionID.tikz}

@@ -11,10 +11,10 @@ First we construct our chosen model of quantum information.  This is the oGCT in
 
 \subsection{The model of quantum computation in relations}
 \label{sec:modelqcrel}
-We begin with definitions of the key components of quantum computation in this new setting, e.g. systems, states, bases, observables, etc.  The following definitions are motivated by Chapter~\ref{chap:cqm}, whose general theorems prove useful. To avoid distracting repetition of notation, we use generic terminology to refer to the relational setting within this section.  For example \emph{system} is intended to mean \emph{relational system}, i.e. a set.  When we wish to refer to the quantum setting we explicitly denote this e.g. \emph{quantum system} refers to a finite dimensional Hilbert space.
+We begin with definitions of the key components of quantum computation in this new setting, e.g. systems, states, bases, observables, etc.  The following definitions are motivated by Chapter~\ref{chap:cqm}, whose general theorems prove useful. To avoid distracting repetition of notation, we use generic terminology to refer to the relational setting within this section.  For example \textbf{system} is intended to mean \textbf{relational system}, i.e. a set.  When we wish to refer to the quantum setting we explicitly denote this e.g. \textbf{quantum system} refers to a finite dimensional Hilbert space.
 
 \begin{axiom}
-A \emph{system} is a set $H$ with \emph{states} $|\psi\rangle$ given by subsets $\psi\subseteq H$.
+A \textbf{system} is a set $H$ with \textbf{states} $|\psi\rangle$ given by subsets $\psi\subseteq H$.
 \end{axiom}
 
 
@@ -44,17 +44,17 @@ Consider a three element system $\{0,1,2\}$, the relation $R=\{(0,0),(0,2),(1,1)
 The state $|\psi\vee\phi\rangle$ has elements in the union of sets $\psi$ and $\phi$. We often use $\ket{\psi}$ to mean the relation $\{\star\}\to H$ that relates the singleton set to all the elements in $\psi$.
 
 \begin{axiom}
-A \emph{composite system} $H$ of $n$ subsystems is given by the Cartesian product so that $H = H_1\times...\times H_n$. \emph{Composite states} are any subset of $H$.
+A \textbf{composite system} $H$ of $n$ subsystems is given by the Cartesian product so that $H = H_1\times...\times H_n$. \textbf{Composite states} are any subset of $H$.
 \end{axiom}
 
 \begin{defn}
-For a relation $R:A\to B$ from set $A$ to $B$, the \emph{converse relation} is denoted $R^{-1}:B\to A$ where for $x\in A$ and $y\in B$, $xRy$ if and only if $yR^{-1}x$.
+For a relation $R:A\to B$ from set $A$ to $B$, the \textbf{converse relation} is denoted $R^{-1}:B\to A$ where for $x\in A$ and $y\in B$, $xRy$ if and only if $yR^{-1}x$.
 \end{defn}
 
 \noindent The converse replaces the $\dagger$-adjoint in quantum mechanics. This leads to:
 
 \begin{defn}
-A relation $R:H_1\to H_2$ is \emph{unitary} if and only if $R\circ R^{-1} = \mbox{id}_{H_1}$ and $R^{-1}\circ R = \mbox{id}_{H_2}$, where $Q\circ R$ means $Q$ after $R$.
+A relation $R:H_1\to H_2$ is \textbf{unitary} if and only if $R\circ R^{-1} = \mbox{id}_{H_1}$ and $R^{-1}\circ R = \mbox{id}_{H_2}$, where $Q\circ R$ means $Q$ after $R$.
 \end{defn}
 
 \noindent This is the relational analog to the usual unitarity of linear maps in quantum mechanics and has an obvious interpretation:
@@ -65,13 +65,13 @@ Relations are unitary if and only if they are bijections.
 \end{corollary}
 
 \begin{axiom}
-\emph{Evolution} of systems is given by unitary relations.
+\textbf{Evolution} of systems is given by unitary relations.
 \end{axiom}
 
 \noindent This means that states of system $A$ can evolve to states of system $B$ if and only if there is a bijection between them. Note that this implies that there do not exist physical evolutions between systems of different cardinality. %This is analogous to the quantum setting where there do not exist unitary %maps between Hilbert spaces of differing dimensions.
 
 \begin{defn}
-For a state $\ket{\psi}:\{\star\}\to H$, denote its relational converse as $\bra{\psi}:H\to\{\star\}$ called its \emph{effect}.
+For a state $\ket{\psi}:\{\star\}\to H$, denote its relational converse as $\bra{\psi}:H\to\{\star\}$ called its \textbf{effect}.
 \end{defn}
 
 \noindent A state preparation followed by an effect amounts to an experiment with a post-selected outcome. Effects are maps to $\{\star\}$ that return whether the outcome state $\ket{\psi}$ is possible.
@@ -98,7 +98,7 @@ In the relational model, bases are characterized as particular generalizations o
 
 \begin{defn}
 \label{def:basis}
-For a system $H$, a \emph{basis} $Z$ is a direct sum (disjoint union) of abelian groups $Z = G_0\oplus G_1\oplus...$ where $|Z| = |H|$.
+For a system $H$, a \textbf{basis} $Z$ is a direct sum (disjoint union) of abelian groups $Z = G_0\oplus G_1\oplus...$ where $|Z| = |H|$.
 Multiplication with respect to this list of groups will be written as $\bullet_Z$ and is defined in the following way. For elements $x,y\in Z$ such that $x\in G_i$ and $y\in G_j$ we have the partial function:
 \begin{align}
 \label{eq:groupoid_mult}
@@ -107,7 +107,7 @@ x +_{G_i} y & i=j \\
 \mbox{undefined} & \mbox{otherwise}\\
 \end{cases}
 \end{align}
-\noindent This makes $Z$ an \emph{abelian groupoid} with groupoid multiplication $\bullet_Z$.
+\noindent This makes $Z$ an \textbf{abelian groupoid} with groupoid multiplication $\bullet_Z$.
 \end{defn}
 We will sometimes take a categorical perspective on groupoids. A groupoid $Z=\bigoplus^NG_i$ made up $N$ groups is a category whose set of objects is isomorphic to the set of groups $\{G_i\}$ and whose morphisms are elements of $Z$, e.g. $x\in Z$ such that $x\in G_1$ is a morphism $x:G_1\to G_1$.
 
@@ -140,11 +140,11 @@ This theorem follows from the requirement that the classical states of one basis
 \end{figure}
 
 \begin{corollary}[\cite{evans2009classifying}]
-The \emph{classical states} of a basis $Z = \bigoplus^{N}G$ are the subsets corresponding to the groups $G_0, G_1,...$ where we forget the group structure. They will often be denoted $\ket{G_i}$.
+The \textbf{classical states} of a basis $Z = \bigoplus^{N}G$ are the subsets corresponding to the groups $G_0, G_1,...$ where we forget the group structure. They will often be denoted $\ket{G_i}$.
 \end{corollary}
 
 \begin{corollary}[\cite{evans2009classifying}]
-The \emph{unbiased states} for a basis $Z = \bigoplus^{N}G$ are subsets $U$ such that for a fixed $g\in G$, $\ket{U} = \bigoplus^{N}\{g\}$.
+The \textbf{unbiased states} for a basis $Z = \bigoplus^{N}G$ are subsets $U$ such that for a fixed $g\in G$, $\ket{U} = \bigoplus^{N}\{g\}$.
 Thus there is exactly one element in each unbiased $U$ from each component $G_i$ of $Z$.
 \end{corollary}
 
@@ -168,7 +168,7 @@ e^{i\phi_n}
 These quantum phases form an abelian group and can be applied as phase gates.
 Their relational counterparts are described by the following lemma from \cite{cqm-notes}:
 \begin{lemma}
-For a basis $Z=\bigoplus_i^NG_i$, the \emph{phase group} $B(Z)$ is given by $\prod_i^NG_i$.
+For a basis $Z=\bigoplus_i^NG_i$, the \textbf{phase group} $B(Z)$ is given by $\prod_i^NG_i$.
 \end{lemma}
 
 \begin{example}
@@ -179,18 +179,18 @@ Consider the basis $\mathbb{Z}_2\oplus\mathbb{Z}_2$ for the four element system 
 We are also able to interpret GHZ states and density matrices in sets and relations.
 
 \begin{defn}
-For a basis $Z$, a \emph{GHZ} state is given by
+For a basis $Z$, a \textbf{GHZ} state is given by
 \[ GHZ_Z \; := \{\;(a,b,c)\;|\;\ \forall \;a,b,c \in Z,\;a\bullet_Zb\bullet_Zc = \mbox{id}_{G_i}\mbox{ for some } i\;\}.  \]
 \end{defn}
 
 \begin{defn}
-For a state $|\psi\rangle$, the \emph{density matrix} $|\psi\rangle\langle\psi|$ is given by the relation $xRy$ s.t. $x,y\in \psi$.
+For a state $|\psi\rangle$, the \textbf{density matrix} $|\psi\rangle\langle\psi|$ is given by the relation $xRy$ s.t. $x,y\in \psi$.
 \end{defn}
 
 \subsubsection*{The Model QCRel}
 
 \begin{defn}
-Axioms 1-4, and subsequent definitions, specify the operational generalized compositional theory for \emph{quantum computation in relations: QCRel}.
+Axioms 1-4, and subsequent definitions, specify the operational generalized compositional theory for \textbf{quantum computation in relations: QCRel}.
 \end{defn}
 
 By the oGCT construction, this clearly makes QCRel a model of quantum computation in sets and unitary relations. It is worth noting that QCRel can be simply viewed as a local hidden variable theory. Consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  From this perspective, QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics \cite{abramsky2012operational}. This means that protocols exist for entanglement, teleportation, and, as we show in this section, some familiar blackbox algorithms.
@@ -247,7 +247,7 @@ Thus the abstract proof of\ Theorem \ref{thm:complementarityunitary} from \cite{
 An oracle is then introduced as a controlled-not where we have embedded a particular kind of relation that abstractly must be a self-conjugate comonoid homomorphism \cite{zeng2014abstract}. We construct such relations in the following lemmas.
 
 \begin{defn}
-Let $G$ and $H$ be groupoids with with groupoid multiplications $\bullet_G$ and $\bullet_H$ respectively. Let $\mbox{id}_{G}=\bigcup_{X\in\mbox{Ob}(G)}\mbox{id}_X$ and similarly define $\mbox{id}_{H}$. A \emph{groupoid homomorphism relation} $R:G\to H$ obeys the following condition for $g_1,g_2\in G$:
+Let $G$ and $H$ be groupoids with with groupoid multiplications $\bullet_G$ and $\bullet_H$ respectively. Let $\mbox{id}_{G}=\bigcup_{X\in\mbox{Ob}(G)}\mbox{id}_X$ and similarly define $\mbox{id}_{H}$. A \textbf{groupoid homomorphism relation} $R:G\to H$ obeys the following condition for $g_1,g_2\in G$:
 %two conditions for $g_1,g_2\in G$ and $h_1,h_2\in H$:
 \begin{align}
 R(g_1\bullet_Gg_2) &= R(g_1)\bullet_HR(g_2) %\\
@@ -257,7 +257,7 @@ R(g_1\bullet_Gg_2) &= R(g_1)\bullet_HR(g_2) %\\
 \noindent Note that while this in many ways resembles a groupoid homomorphism, it is actually a weakening of this notion, in that groupoid homomorphism relations are not required to be total functions and have no explicit requirement on their identity morphisms.
 
 \begin{defn}
-A \emph{monoid homomorphism relation} is a monoid homomorphism in \cat{Rel}. Specifically, let $A$ and $B$ be sets equipped with monoids $(A,\tinymult[whitedot],\tinyunit[whitedot])$ and $(B,\tinymult[blackdot],\tinyunit[blackdot])$ respectively. A relation $r:A\to B$ is a monoid homomorphism when is obeys the following two conditions:
+A \textbf{monoid homomorphism relation} is a monoid homomorphism in \cat{Rel}. Specifically, let $A$ and $B$ be sets equipped with monoids $(A,\tinymult[whitedot],\tinyunit[whitedot])$ and $(B,\tinymult[blackdot],\tinyunit[blackdot])$ respectively. A relation $r:A\to B$ is a monoid homomorphism when is obeys the following two conditions:
 \begin{align}
 \label{eq:monone}
 r\circ\tinymult[whitedot] &= \tinymult[blackdot]\circ(r\times r) 
@@ -266,7 +266,7 @@ r\circ\tinymult[whitedot] &= \tinymult[blackdot]\circ(r\times r)
 \label{eq:monunit}
 r\circ\tinyunit[whitedot] &= \tinyunit[blackdot]
 \end{align}
-A \emph{comonoid homomorphism relation} is defined similarly, using duals of the above conditions.
+A \textbf{comonoid homomorphism relation} is defined similarly, using duals of the above conditions.
 \end{defn}
 
 \begin{lemma}
@@ -301,10 +301,10 @@ We then dualize the proof of Lemma \ref{lem:mongrphom} to conclude that:
 \label{lem:classicalRelation}
 Let $F:H\to G$ be a functor such that $F^{\mbox{\tiny op}}$ is a groupoid homomorphism relation that is surjective on objects. $F$ is a comonoid homomorphism relation.
 \end{lemma}
-\noindent We call these comonoid homomorphism relations \emph{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we also need these relations to be self-conjugate:
+\noindent We call these comonoid homomorphism relations \textbf{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we also need these relations to be self-conjugate:
 
 \begin{defn}[\cite{zeng2014abstract}]
-In a monoidal dagger-category, a comonoid homomorphism \mbox{$f:\blackcomonoid{A} \to \graycomonoid{B}$} between dagger-Frobenius comonoids is \emph{self-conjugate} when the following property holds:
+In a monoidal dagger-category, a comonoid homomorphism \mbox{$f:\blackcomonoid{A} \to \graycomonoid{B}$} between dagger-Frobenius comonoids is \textbf{self-conjugate} when the following property holds:
 \begin{equation}
 \label{eq:comonoidhomomorphismselfconjugate}
 \begin{aligned}
@@ -370,7 +370,7 @@ Classical relations, as self-conjugate comonoid homomorphisms, lead to unitary o
 
 \begin{defn}[Oracle \cite{zeng2014abstract}]
 \label{oracle}
-Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B:\graycomonoid{B}$ and $X^B:\whitecomonoid{B}$, and a classical relation $R : \blackcomonoid{A} \to \graycomonoid{B}$, an \emph{oracle} is defined to be the following endomorphism of~$A \times B$:
+Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B:\graycomonoid{B}$ and $X^B:\whitecomonoid{B}$, and a classical relation $R : \blackcomonoid{A} \to \graycomonoid{B}$, an \textbf{oracle} is defined to be the following endomorphism of~$A \times B$:
 \begin{equation}
 \label{eq:oraclerel}
 \begin{aligned}
@@ -423,7 +423,7 @@ In Section~\ref{section_RelFT}, we saw that there are several perspectives on th
 
 \begin{defn}
 \label{def:FTRel}
-The \emph{quantum Fourier transform in relations} corresponds to preparing classical states of $Z$ and measuring them against classical states of $X$.
+The \textbf{quantum Fourier transform in relations} corresponds to preparing classical states of $Z$ and measuring them against classical states of $X$.
 %is an isomorphism from the classical states of $Z$ to the unbiased states %of $X$, i.e.
 %\begin{align*}
 %\{G_h\}\mapsto \{h_g|\forall g\in G\}
@@ -503,7 +503,7 @@ where we have made the simplification of \eqref{eq:reldj} following \cite{vicary
 
 \begin{theorem}[\cite{vicary-tqa}]
 \label{def:bc}
-In any dagger compact category with complementary bases, the algorithm in Equation \ref{eq:reldj} will, with a single oracle query, distinguish \emph{constant} and \emph{balanced} classical relations $f:Z^A\to Z^B$ according to the following abstract definitions. Here $\ket{x}$ is a classical point of $Z^A$ and the zero scalar $0$ is, in \cat{Rel}, the empty relation:
+In any dagger compact category with complementary bases, the algorithm in Equation \ref{eq:reldj} will, with a single oracle query, distinguish \textbf{constant} and \textbf{balanced} classical relations $f:Z^A\to Z^B$ according to the following abstract definitions. Here $\ket{x}$ is a classical point of $Z^A$ and the zero scalar $0$ is, in \cat{Rel}, the empty relation:
 \begin{equation}
 \label{eq:bc}
 \mbox{\\ constant}:\quad
@@ -609,12 +609,12 @@ For a classical relation promised to be in one of these two classes, we can dist
 We generalize these definitions of constant and balanced classical relations to the following:
 \begin{defn}
 \label{def:const}
-Let $Z^A=\oplus^NG_i$. A \emph{constant relation} $f:Z^{A}\to Z^{B}$ relates all id$_{G_i}$ to a single classical state of $Z^B$.
+Let $Z^A=\oplus^NG_i$. A \textbf{constant relation} $f:Z^{A}\to Z^{B}$ relates all id$_{G_i}$ to a single classical state of $Z^B$.
 \end{defn}
 
 \begin{defn}
 \label{def:balanced}
-A relation $f:Z^{A}\to Z^{B}$ is \emph{balanced} when no element in the first classical state of $X^{A}$ is related to an element in the second classical state of $X^{B}$.
+A relation $f:Z^{A}\to Z^{B}$ is \textbf{balanced} when no element in the first classical state of $X^{A}$ is related to an element in the second classical state of $X^{B}$.
 \end{defn}
 
 \begin{theorem}

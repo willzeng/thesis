@@ -11,7 +11,7 @@ When we program an abstract problem into an oGCT, we have a choice of embeddings
 
 \begin{defn}
 \label{def:selfconj}
-In a monoidal dagger-category, a comonoid homomorphism \\$f:\blackcomonoid{A} \to \graycomonoid{B}$ is \emph{self-conjugate} when the following property holds:
+In a monoidal dagger-category, a comonoid homomorphism \\$f:\blackcomonoid{A} \to \graycomonoid{B}$ is \textbf{self-conjugate} when the following property holds:
 \begin{equation}
 \label{eq:comonoidhomomorphismselfconjugate}
 \begin{aligned}
@@ -151,7 +151,7 @@ This completes the proof.
 This pair of complementary observables automatically gives rise to a much larger family of unitaries, one for each self-conjugate comonoid homomorphism onto one of the classical structures in the pair. Lemma~\ref{lem:comonoidhomomorphismselfconjugate} demonstrated that in \cat{FHilb}, every comonoid homomorphism of classical structures is self-conjugate.
 \begin{defn}[Oracle]
 \label{oracle}
-In a symmetric monoidal dagger-category, given a dagger-Frobenius comonoid $\blackcomonoid{A}$, a pair of complementary symmetric dagger-Frobenius comonoids \graycomonoid{B} and \whitecomonoid{B}, and a self-conjugate comonoid homomorphism $f : \blackcomonoid{A} \to \graycomonoid{B}$, the \emph{oracle} is defined to be the following endomorphism of $A \otimes B$:
+In a symmetric monoidal dagger-category, given a dagger-Frobenius comonoid $\blackcomonoid{A}$, a pair of complementary symmetric dagger-Frobenius comonoids \graycomonoid{B} and \whitecomonoid{B}, and a self-conjugate comonoid homomorphism $f : \blackcomonoid{A} \to \graycomonoid{B}$, the \textbf{oracle} is defined to be the following endomorphism of $A \otimes B$:
 \begin{equation}
 \label{eq:oracle}
 \input{tikz/3_oracle.tikz}
@@ -179,7 +179,7 @@ First we define the promise at the level of processes in an oGCT.
 \begin{defn}
 Let $A$ and $B$ be systems in an oGCT such that $A$ has an internal group $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $B$ has an internal group $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$. A process $f:A\to B$ is
 \begin{itemize}
-\item[(i)] \emph{constant} when for \dotonly{whitedot}-classical state $c:I\to B $
+\item[(i)] \textbf{constant} when for \dotonly{whitedot}-classical state $c:I\to B $
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[yscale=1]
@@ -197,7 +197,7 @@ Let $A$ and $B$ be systems in an oGCT such that $A$ has an internal group $(\mat
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
-\item[(ii)] \emph{balanced} when for non-trivial representation $\sigma:B\to I$
+\item[(ii)] \textbf{balanced} when for non-trivial representation $\sigma:B\to I$
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[string, yscale=1]
@@ -489,7 +489,7 @@ Irreducible representations of a non-abelian group $A$ are not necessarily one d
 \end{equation}
 We notice two additional features in this case. First, it is clear that the left and right systems are no longer in a product state at the end of the protocol, as they were in the final diagram of \eqref{simplifyAlg}. Second, we now have an additional choice when preparing the input representation $\rho$; in order to construct a state from a representation $\rho$ we also must choose the state $\psi$.
 
-While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \emph{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
+While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \textbf{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
 
 \subsection{\color{blue} The hidden shift problem}
 {\bf Status:} UNDRAFTED.
