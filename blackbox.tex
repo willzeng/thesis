@@ -112,7 +112,10 @@ This is the same result as for the left-hand side, and so Equation~\eqref{eq:com
 
 The oracle that we will build here is similar to the CNOT from Section~\ref{ex:cnot}. Recall that a pair of symmetric dagger-Frobenius algebras can be used to build a linear map in the following way:
 \begin{equation}
-\sqrt{\ud(A)}\,\,
+\begin{pic}
+\node [whitedot] at (0,0) {\tiny $\sqrt{\ud(A)}$};
+\end{pic}
+\;\;
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node (b) [graydot] at (0,0) {};
 \node (w) [whitedot] at (1,1) {};
@@ -123,7 +126,7 @@ The oracle that we will build here is similar to the CNOT from Section~\ref{ex:c
 \draw (w.center) to [out=right, in=up] (1.75,-1);
 \end{pic}
 \end{equation}
-Here we have assumed that we operate in a category where square roots of scalars exist.  The two algebras are complementary exactly when this composite is unitary, as we show in the following theorem.
+Here we have assumed that we operate in a category where square roots of scalars exist.  In the rest of this section we will suppress drawing circles around scalars. The two algebras are complementary exactly when this composite is unitary, as we show in the following theorem.
 
 \begin{theorem}[Complementarity via a unitary]
 \label{thm:complementarityunitary}
@@ -235,7 +238,7 @@ Directly mapping the (rotated) quantum circuit for the DJ algorithm into an oPT 
 \input{tikz/3_DJmorphism.tikz}
 \end{align}
 
-In Section~\ref{sec:strcomplFT}, we saw that the Quantum Fourier Transform takes classical states of one observable to representations that correspond to classical states of its strongly complementary pair. Simplifying the above using the Fourier Transform rules we obtain the annotated diagram:
+In Section~\ref{sec:strcomplFT}, we saw that the Quantum Fourier Transform takes classical states of one observable to representations that correspond to classical states of its strongly complementary pair. Simplifying the above using the Fourier Transform rules we obtain the annotated diagram, where the drawing of circles around normalizing scalars is suppressed:
 \begin{align}
 \label{eq:postFT}
 \input{tikz/3_labeledDJ.tikz}
@@ -491,5 +494,5 @@ We notice two additional features in this case. First, it is clear that the left
 
 While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \textbf{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
 
-\subsection{\color{blue} The hidden shift problem}
+\subsection{\todo{The hidden shift problem}}
 {\bf Status:} UNDRAFTED.

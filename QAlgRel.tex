@@ -100,14 +100,14 @@ In the relational model, bases are characterized as particular generalizations o
 \label{def:basis}
 For a system $H$, a \textbf{basis} $Z$ is a direct sum (disjoint union) of abelian groups $Z = G_0\oplus G_1\oplus...$ where $|Z| = |H|$.
 Multiplication with respect to this list of groups will be written as $\bullet_Z$ and is defined in the following way. For elements $x,y\in Z$ such that $x\in G_i$ and $y\in G_j$ we have the partial function:
-\begin{align}
-\label{eq:groupoid_mult}
+\begin{equation}
+\label{eq:groupoidmult}
 x\bullet_Zy = \begin{cases}
 x +_{G_i} y & i=j \\
-\mbox{undefined} & \mbox{otherwise}\\
+\mbox{undefined} & \mbox{otherwise}
 \end{cases}
-\end{align}
-\noindent This makes $Z$ an \textbf{abelian groupoid} with groupoid multiplication $\bullet_Z$.
+\end{equation}
+This makes $Z$ an \textbf{abelian groupoid} with groupoid multiplication $\bullet_Z$.
 \end{defn}
 We will sometimes take a categorical perspective on groupoids. A groupoid $Z=\bigoplus^NG_i$ made up $N$ groups is a category whose set of objects is isomorphic to the set of groups $\{G_i\}$ and whose morphisms are elements of $Z$, e.g. $x\in Z$ such that $x\in G_1$ is a morphism $x:G_1\to G_1$.
 

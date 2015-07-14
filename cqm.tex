@@ -337,11 +337,11 @@ In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an 
 \begin{defn}
 In a monoidal category with object $A$, a \textbf{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
 \begin{equation}
-\label{eq:mon_hom}
+\label{eq:monhom}
 \input{tikz/1_mon_hom.tikz}
 \end{equation}
 \end{defn}
-\noindent A \textbf{comonoid homomorphism} is defined similarly, but with the dagger of the condition in~\eqref{eq:mon_hom}.
+\noindent A \textbf{comonoid homomorphism} is defined similarly, but with the dagger of the condition in~\eqref{eq:monhom}.
 
 We can then ask for the comonoid and monoid to interact in various ways.
 
@@ -600,7 +600,7 @@ In an oPT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \
 \end{equation}
 The map $S:A\to A$ is called the \textbf{antipode}.
 \end{defn}
-The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. We show this with a quick calculation:
+The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. We show this with a quick calculation \todo{FIX\ THIS\ TO\ LINE\ UP\ WITH\ ANTIPODE}:
 \tikzeq{tikz/2_complemub.tikz}
 where $(*)$ is an application of Theorem \ref{thm:fund}, and the last step uses the fact that there are enough classical points.  In some literature the dimensional scalar is explicitly included in the abstract definition of strong complementarity, but, for the purposes of this thesis, it is suffices to define complementarity up to a scalar. 
 %We refer to the gray states $\{\ket{j}\}$ as \textbf{unbiased states} for %the $\dotonly{whitedot}$-classical structure. Similarly the white states %$\{\keti}\}$ are unbiased states for the $\dotonly{graydot}$-classical structure.
