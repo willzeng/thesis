@@ -7,7 +7,7 @@ In this section we first consider the structure of unitary oracles and then revi
 \subsection{The abstract structure of unitary oracles}
 \label{sec:unitaryoracles}
 
-When we program an abstract problem into an oGCT, we have a choice of embeddings, but typically assign classical information to the classical states. This was, for example, the case in our treatment of the Fourier Transform. Of course, we will also want to consider how to program functions between those classical states. An equivalent definition for classical states is that they are self-conjugate comonoid homomorphisms from the trivial comonoid on the identity object to the classical structure monoid on a system. Classical functions will be self-conjugate comonoid homomorphisms in general.
+When we program an abstract problem into an oPT, we have a choice of embeddings, but typically assign classical information to the classical states. This was, for example, the case in our treatment of the Fourier Transform. Of course, we will also want to consider how to program functions between those classical states. An equivalent definition for classical states is that they are self-conjugate comonoid homomorphisms from the trivial comonoid on the identity object to the classical structure monoid on a system. Classical functions will be self-conjugate comonoid homomorphisms in general.
 
 \begin{defn}
 \label{def:selfconj}
@@ -172,12 +172,12 @@ There is a similar argument that the other composite also gives the identity. \e
 Note that this construction works for pairs of observables that a complementary, but not necessarily strongly complementary.  Still, in the examples we consider, we will use strongly complementary $(\dotonly{graydot},\dotonly{whitedot})$ as we wish to embed an internal group onto them.
 
 \subsection{The Deutsch-Jozsa algorithm}
-In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see this formulation can be easily verified and generalized by the oGCT approach.
+In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see this formulation can be easily verified and generalized by the oPT approach.
 
-First we define the promise at the level of processes in an oGCT.
+First we define the promise at the level of processes in an oPT.
 
 \begin{defn}
-Let $A$ and $B$ be systems in an oGCT such that $A$ has an internal group $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $B$ has an internal group $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$. A process $f:A\to B$ is
+Let $A$ and $B$ be systems in an oPT such that $A$ has an internal group $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $B$ has an internal group $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$. A process $f:A\to B$ is
 \begin{itemize}
 \item[(i)] \textbf{constant} when for \dotonly{whitedot}-classical state $c:I\to B $
 \begin{equation}
@@ -225,7 +225,7 @@ Let $\mathbb{G}=\mathbb{Z}_2^n$ and $\mathbb{H}=\mathbb{Z}_2\times\mathbb{Z}_2$.
 \end{align*}
 \end{example}
 
-Directly mapping the (rotated) quantum circuit for the DJ algorithm into an oGCT process gives the following, where the internal groups $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$ are inherited from the promise of constant and balanced:
+Directly mapping the (rotated) quantum circuit for the DJ algorithm into an oPT process gives the following, where the internal groups $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$ are inherited from the promise of constant and balanced:
 \begin{align}
 \begin{aligned}
 \includegraphics[width=14em]{images/DJQcircuit.eps}
@@ -241,7 +241,7 @@ In Section~\ref{sec:strcomplFT}, we saw that the Quantum Fourier Transform takes
 \input{tikz/3_labeledDJ.tikz}
 \end{align}
 
-Using the rules of oGCT's we obtain:
+Using the rules of oPT's we obtain:
 \begin{equation}
 \begin{pic}[scale=0.8, yscale=0.6]
 \begin{pgfonlayer}{foreground}
@@ -307,16 +307,16 @@ If we now ignore the right hand system, we obtain:
         \sigma(c) \text{ if $f$ is constant s.t. } f(x)=c
     \end{cases}
 \end{equation}
-Thus, by the oGCT Born rule (Definition~\ref{def:bornrule}), there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
+Thus, by the oPT Born rule (Definition~\ref{def:bornrule}), there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
 
-In a single proof, this method and its extension to arbitrary finite groups~\cite{vicary-tqa} captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oGCT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
+In a single proof, this method and its extension to arbitrary finite groups~\cite{vicary-tqa} captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
 
 \subsection{The Grover's and hidden subgroup algorithms}
 Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The single-shot Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. When the target group is, for example, $\mathbb{Z}_3$, such that the elements are marked by indicator function in a $4:1:1$ ratio, a single query can be used to return one of the rarer elements with certainty. An interesting path for the future development of this work would be to extend this to a generalization of amplitude amplification. The author conjectures that in certain cases, where the input amplitudes follow a known ratio, a speedup over the usual amplitude amplification algorithm can be found.
 
 \begin{figure}[t]
 \input{tikz/3_algtriplet.tikz}
-\caption{Three blackbox quantum algorithms presented as processes in an operational generalized compositional theory.}
+\caption{Three blackbox quantum algorithms presented as processes in an operational process theory.}
 \label{fig:algtriplet}
 \end{figure}
 
@@ -330,7 +330,7 @@ The performance of the hidden subgroup algorithm can be improved by a particular
 \subsection{The group homomorphism identification algorithm}
 \label{sec:grouphomid}
 
-In this section we use the framework of oGCT's to construct a new deterministic quantum algorithm to identify  group homomorphisms.  
+In this section we use the framework of oPT's to construct a new deterministic quantum algorithm to identify  group homomorphisms.  
 \begin{defn}[Group homomorphism identification problem]
 Given finite groups $G$ and $A$ where $A$ is abelian, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, identify the homomorphism $f$.
 \end{defn}

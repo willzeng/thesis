@@ -5,9 +5,9 @@
 
 \subsection{Introduction}
 
-Having grasped the abstract structure at play in the protocols and algorithms of quantum computation, we can conceive of modelling quantum computation in oGCTs other than Hilbert spaces and linear maps.  There are two main thrusts that make this investigation, interesting.  The first is to further analyze the structure of quantum computation, advancing our understanding of the relationship between computational speedups and the structure of physical theories. We use the QCRel model defined here to analyze some example quantum algorithms as non-deterministic classical algorithms while preserving their query-complexity (and, in fact, all their abstract structure). The second thrust regards the insights that become available by extending physical/computational intuition into new areas of mathematics. While other toy models of a relational flavor for quantum mechanics have been proposed \cite{ellermanModelQM,discreteQT,modalQT,spekk}, and some even discuss protocols \cite{QCFF_James}, these works have not developed the structures necessary to model quantum algorithms.
+Having grasped the abstract structure at play in the protocols and algorithms of quantum computation, we can conceive of modelling quantum computation in oPTs other than Hilbert spaces and linear maps.  There are two main thrusts that make this investigation, interesting.  The first is to further analyze the structure of quantum computation, advancing our understanding of the relationship between computational speedups and the structure of physical theories. We use the QCRel model defined here to analyze some example quantum algorithms as non-deterministic classical algorithms while preserving their query-complexity (and, in fact, all their abstract structure). The second thrust regards the insights that become available by extending physical/computational intuition into new areas of mathematics. While other toy models of a relational flavor for quantum mechanics have been proposed \cite{ellermanModelQM,discreteQT,modalQT,spekk}, and some even discuss protocols \cite{QCFF_James}, these works have not developed the structures necessary to model quantum algorithms.
 
-First we construct our chosen model of quantum information.  This is the oGCT in \cat{FRel}, rather than \cat{FHilb}, and it is introduced by rephrasing the axioms of quantum mechanics. Next we present the novel contributions in this thesis: relational models of unitary oracles, the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the group homomorphism identification algorithm.
+First we construct our chosen model of quantum information.  This is the oPT in \cat{FRel}, rather than \cat{FHilb}, and it is introduced by rephrasing the axioms of quantum mechanics. Next we present the novel contributions in this thesis: relational models of unitary oracles, the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the group homomorphism identification algorithm.
 
 \subsection{The model of quantum computation in relations}
 \label{sec:modelqcrel}
@@ -85,7 +85,7 @@ This is either the identity relation that we interpret to mean a measurement out
 In this sense our relational quantum computation is a deterministic model of quantum computation.
 \end{example}
 
-This interpretation allows us to define a generalized version of the Born rule\footnote{In quantum theory, the Born rule gives the probability of measuring the outcome state $\ket{\psi}$ following preparation in state $\ket{\phi}$ as $|\langle\psi|\phi\rangle|^2$ where $\langle\psi|\phi\rangle:\mathbb{C}\to\mathbb{C}$ is the inner product of the two state vectors \cite{nielsen2010quantum}. The oGCT generalization is given in\ Definition~\ref{def:bornrule}.} to describe measurement in our model.
+This interpretation allows us to define a generalized version of the Born rule\footnote{In quantum theory, the Born rule gives the probability of measuring the outcome state $\ket{\psi}$ following preparation in state $\ket{\phi}$ as $|\langle\psi|\phi\rangle|^2$ where $\langle\psi|\phi\rangle:\mathbb{C}\to\mathbb{C}$ is the inner product of the two state vectors \cite{nielsen2010quantum}. The oPT generalization is given in\ Definition~\ref{def:bornrule}.} to describe measurement in our model.
 \begin{axiom}[Relational Born Rule]
 \label{ax:relborn}
 The possibility of measuring the state $\ket{\psi}$, having prepared state $\ket{\phi}$, is given by the image of:
@@ -190,10 +190,10 @@ For a state $|\psi\rangle$, the \textbf{density matrix} $|\psi\rangle\langle\psi
 \subsubsection*{The Model QCRel}
 
 \begin{defn}
-Axioms 1-4, and subsequent definitions, specify the operational generalized compositional theory for \textbf{quantum computation in relations: QCRel}.
+Axioms 1-4, and subsequent definitions, specify the operational process theory for \textbf{quantum computation in relations: QCRel}.
 \end{defn}
 
-By the oGCT construction, this clearly makes QCRel a model of quantum computation in sets and unitary relations. It is worth noting that QCRel can be simply viewed as a local hidden variable theory. Consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  From this perspective, QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics \cite{abramsky2012operational}. This means that protocols exist for entanglement, teleportation, and, as we show in this section, some familiar blackbox algorithms.
+By the oPT construction, this clearly makes QCRel a model of quantum computation in sets and unitary relations. It is worth noting that QCRel can be simply viewed as a local hidden variable theory. Consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  From this perspective, QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics \cite{abramsky2012operational}. This means that protocols exist for entanglement, teleportation, and, as we show in this section, some familiar blackbox algorithms.
 
 \subsection{Unitary Oracles}
 
@@ -849,13 +849,13 @@ Groupoid isomorphisms relate every element of the domain to some element in the 
 \noindent Still, we can imagine running the algorithm from \eqref{eq:groupdIDAlg} where any classical relation $f$ is allowed as input to obtain non-trivial outcomes.
 
 \section{Conclusion}
-In this chapter we have investigated the structure of quantum algorithms using the oGCT perspective. We have contributed the following new results:
+In this chapter we have investigated the structure of quantum algorithms using the oPT perspective. We have contributed the following new results:
 \begin{enumerate}
-\item A definition of the Fourier Transform in general oGCTs along with abstract proofs of the Fourier Inversion Theorem, Pontryagin Duality, and the Convolution Theorem.
-\item A definition of the Hadamard Transforms and an operational Quantum Fourier Transform in general oGCTs.
-\item We use complementary observables to construct a unitary oracle in a general oGCT and provide an abstract proof of its unitarity.  We show an equivalence between the complementarity of those observables and the unitarity of this oracle.
+\item A definition of the Fourier Transform in general oPTs along with abstract proofs of the Fourier Inversion Theorem, Pontryagin Duality, and the Convolution Theorem.
+\item A definition of the Hadamard Transforms and an operational Quantum Fourier Transform in general oPTs.
+\item We use complementary observables to construct a unitary oracle in a general oPT and provide an abstract proof of its unitarity.  We show an equivalence between the complementarity of those observables and the unitarity of this oracle.
 \item We pose a new problem, the GROUPHOMID problem, and give a quantum algorithm for its solution with favorable query complexity over classical algorithms.
-\item We provide models for the operation of quantum algorithms in non-deterministic classical computation by explicitly constructing the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the GROUPHOMID algorithm in the oGCT QCRel. Along the way we introduce an operational notion of a oGCT Fourier Transform in \cat{FRel} and characterize some self-conjugate comonoid homomorphisms in this category.
+\item We provide models for the operation of quantum algorithms in non-deterministic classical computation by explicitly constructing the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the GROUPHOMID algorithm in the oPT QCRel. Along the way we introduce an operational notion of a oPT Fourier Transform in \cat{FRel} and characterize some self-conjugate comonoid homomorphisms in this category.
 \end{enumerate}
 
 The successes of this approach opens up new work to study more blackbox quantum algorithms at this level of abstraction. We discuss more details of the outlook for future work in Chapter~\ref{chap:outlook}. 

@@ -1,7 +1,7 @@
-\section{The Fourier Transform in oGCT's}
+\section{The Fourier Transform in oPT's}
 \label{sec:strcomplFT}
 
-Ongoing work in quantum algorithms emphasizes the need for a structural understanding of quantum speedups~\cite{aaronson2014need}. In this section we investigate the structure in quantum theory that enables the quantum Fourier Transform. We elucidate a general connection in any oGCT between the Fourier Transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We proceed along the following outline:
+Ongoing work in quantum algorithms emphasizes the need for a structural understanding of quantum speedups~\cite{aaronson2014need}. In this section we investigate the structure in quantum theory that enables the quantum Fourier Transform. We elucidate a general connection in any oPT between the Fourier Transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We proceed along the following outline:
 
 In Section \ref{sec:FT} give background for the traditional notion of the Fourier Transform that is relevant for our construction.  
 
@@ -25,7 +25,7 @@ We begin with a quick review of Pontryagin duality and the Fourier Transform as 
   \item[4.] In quantum computing, we have the Quantum Fourier Transform algorithm.
 \end{enumerate}
 
-This section is ultimately concerned with the first notion, where the Fourier Transform is defined on locally compact groups. Still, the other notions are relevant, as our work situates this abstract definition in the context of oGCTs, a structure inherited from quantum information. 
+This section is ultimately concerned with the first notion, where the Fourier Transform is defined on locally compact groups. Still, the other notions are relevant, as our work situates this abstract definition in the context of oPTs, a structure inherited from quantum information. 
 
 We begin by explaining the relationship of Notion 1 with the others listed above. In what follows, $(G,+,0)$ is a finite abelian group of order $N$, and $\complexs^{\times}=\complexs\setminus\{0\}$ is the multiplicative group of non-zero complex numbers.
 
@@ -68,7 +68,7 @@ The Fourier Transform is natural.  This means it is invariant under automorphism
   M_{\Psi^\wedge} \cdot \mathcal{F}_H \cdot M_\Psi =  \mathcal{F}_G,
 \end{equation}
 
-There are a number of properties of interest for the Fourier Transform, some rather straightforward and others more complicated to prove. One of specific interest to this work, because of its wide application and relationship with structures in oGCTs, is the Convolution Theorem. The space $\Ltwo{G}$ comes with a distinguished orthonormal basis, given by the \textbf{delta functions} $(\delta_g)_{g\in G}$ defined as follows.
+There are a number of properties of interest for the Fourier Transform, some rather straightforward and others more complicated to prove. One of specific interest to this work, because of its wide application and relationship with structures in oPTs, is the Convolution Theorem. The space $\Ltwo{G}$ comes with a distinguished orthonormal basis, given by the \textbf{delta functions} $(\delta_g)_{g\in G}$ defined as follows.
 \begin{equation}
 \label{eqn_computationalBasis}
   \delta_g(h):=\begin{cases}
@@ -192,7 +192,7 @@ $(\timemultSym,\timeunitSym,\timecomultSym,\timecounitSym)$ is one that satisfie
 We will use the shorthand $\dagger$-qSFA, and refer to $N$ as the \textbf{normalisation factor} for the $\dagger$-qSFA.
 \end{defn}
 
-These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized.  While classical states can be defined in any $\dagger$-SMC, the following definition for matching states require an appropriate \textit{zero scalar}. To this extent, we consider categories enriched over finite commutative monoids,\footnote{Refer to Section~\ref{sec:enrichedogcts} for more detail on enriched oGCTs.} i.e. where homsets come with a commutative monoid structure $(\cat{C}(A,B),+,0)$, and we require the appropriate distributivity laws between the tensor product and the monoidal structure:
+These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized.  While classical states can be defined in any $\dagger$-SMC, the following definition for matching states require an appropriate \textit{zero scalar}. To this extent, we consider categories enriched over finite commutative monoids,\footnote{Refer to Section~\ref{sec:enrichedoPTs} for more detail on enriched oPTs.} i.e. where homsets come with a commutative monoid structure $(\cat{C}(A,B),+,0)$, and we require the appropriate distributivity laws between the tensor product and the monoidal structure:
 \begin{align}
 (f+g) \tensor h &= (f\tensor h) + (g \tensor h)\\
 f \tensor (g+h) &= (f \tensor g) + (f \tensor h)\\
@@ -287,7 +287,7 @@ where $(G =\{g, h, \ldots\}, +, 0)$ is a finite Abelian
 group. Conversely, each such pair is always strongly complementary.  
 \end{corollary}
 
-Inspired by this classification, we use strongly complementary structures to embed groups into an arbitrary oGCT.
+Inspired by this classification, we use strongly complementary structures to embed groups into an arbitrary oPT.
 
 \begin{defn}\label{def_AbClassicalGroup} An \textbf{internal group}, denoted by $(\,\SpaceG , \timemultSym, \timeunitSym, \tinycomult[blackdot], \tinycounit[blackdot]$ ) or  $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$ when no confusion should arise), consists of a strongly complementary pair on the same object $\SpaceG$ of a $\dagger$-SMC and
 \begin{enumerate}
@@ -297,7 +297,7 @@ Inspired by this classification, we use strongly complementary structures to emb
 The multiplication and unit for the group structure are called \textbf{group multiplication} and \textbf{group unit}, and the antipode $\antipodeSym$ for the pair is called the \textbf{group inverse}. An \textbf{abelian internal group} is one where the group structure is commutative.
 \end{defn}
 
-The internal groups in an oGCT form a category $\cat{Grp}[\cat{C}]$, with objects given by the strongly complementary pairs $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$, and morphisms $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot}) \rightarrow (\,\SpaceG' , \dotonly{altwhitedot}, \dotonly{altblackdot})$ given by $f: \SpaceG \rightarrow \SpaceG'$ in $\CategoryC$ that co-monoid homomorphisms $f: (\tinycomult[blackdot],\tinycounit[blackdot]) \rightarrow (\tinycomult[altblackdot],\tinycounit[altblackdot])$ and monoid homomorphisms $f: (\tinymult[whitedot],\tinyunit[whitedot]) \rightarrow ( \tinymult[altwhitedot],\tinyunit[altwhitedot])$; the abelian internal groups form a full subcategory $\cat{AbGrp}[\cat{C}]$. We will refer to these morphisms as \textbf{internal group homomorphisms}, both when seen as morphisms in $\cat{Grp}[\cat{C}]$ and in $\cat{C}$.
+The internal groups in an oPT form a category $\cat{Grp}[\cat{C}]$, with objects given by the strongly complementary pairs $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$, and morphisms $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot}) \rightarrow (\,\SpaceG' , \dotonly{altwhitedot}, \dotonly{altblackdot})$ given by $f: \SpaceG \rightarrow \SpaceG'$ in $\CategoryC$ that co-monoid homomorphisms $f: (\tinycomult[blackdot],\tinycounit[blackdot]) \rightarrow (\tinycomult[altblackdot],\tinycounit[altblackdot])$ and monoid homomorphisms $f: (\tinymult[whitedot],\tinyunit[whitedot]) \rightarrow ( \tinymult[altwhitedot],\tinyunit[altwhitedot])$; the abelian internal groups form a full subcategory $\cat{AbGrp}[\cat{C}]$. We will refer to these morphisms as \textbf{internal group homomorphisms}, both when seen as morphisms in $\cat{Grp}[\cat{C}]$ and in $\cat{C}$.
 
 \begin{theorem}\label{thm_InteralGroupsTraditionalGroups} 
         If $(\,\SpaceG , \dotonly{whitedot}, \dotonly{blackdot})$  is an (abelian) internal group in any $\dagger$-SMC, then $(\;\timemultSym, \timeunitSym)$ acts as an (abelian) group $G$ on the classical points of $(\;\timediagSym, \trivialcharSym)$, henceforth the \textbf{group elements}. Furthermore, this correspondence yields an equivalence between the the category of (abelian) internal groups in $\cat{FHilb}$ and the category of finite (abelian) groups.
@@ -571,7 +571,7 @@ In $\fdHilbCategory$ (with abelian internal groups), Definition \ref{def_Categor
 \label{section_RelFT}
 
 
-The abstract correspondence between strongly complementary observables and Fourier Transforms in Section \ref{section_AbelianGroups_FourierTransform} means that a characterization of strongly complementary observables in any $\dagger$-SMC allows for definition of a Fourier Transform in that category.  In this section, we apply this idea to $\fRelCategory$, the category of finite sets and relations (Example~\ref{ex:smcs}). More details on \cat{FRel} as an oGCT in Section~\ref{sec:qalgrel}. In this setting, the relevant classical structures are classified by abelian groupoids, in a sense made clear by Theorem \ref{thm_classicalStructuresRel} below. Also recall that the monoidal identity is given by the singleton, i.e. $I = \{\star\}$. Please note that in $\fRelCategory$ the scalars are the booleans $\{\bot,\top\}$, and $\top = \id{\tensorUnit}: I \rightarrow I$ is the only invertible scalar. As a consequence, all $\dagger$-qSFAs are automatically $\dagger$-SFAs (and thus all $\dagger$-qSCFAs are in fact classical structures). 
+The abstract correspondence between strongly complementary observables and Fourier Transforms in Section \ref{section_AbelianGroups_FourierTransform} means that a characterization of strongly complementary observables in any $\dagger$-SMC allows for definition of a Fourier Transform in that category.  In this section, we apply this idea to $\fRelCategory$, the category of finite sets and relations (Example~\ref{ex:smcs}). More details on \cat{FRel} as an oPT in Section~\ref{sec:qalgrel}. In this setting, the relevant classical structures are classified by abelian groupoids, in a sense made clear by Theorem \ref{thm_classicalStructuresRel} below. Also recall that the monoidal identity is given by the singleton, i.e. $I = \{\star\}$. Please note that in $\fRelCategory$ the scalars are the booleans $\{\bot,\top\}$, and $\top = \id{\tensorUnit}: I \rightarrow I$ is the only invertible scalar. As a consequence, all $\dagger$-qSFAs are automatically $\dagger$-SFAs (and thus all $\dagger$-qSCFAs are in fact classical structures). 
 
 \begin{defn}
 A \textbf{(finite) abelian groupoid} on some finite set $A$ is any finite family $(G_\lambda,+_\lambda,0_\lambda)_{\lambda \in \Lambda}$ of finite abelian groups such that $(G_\lambda)_{\lambda \in \Lambda}$ is a finite partition of $A$ into disjoint subsets. We denote one such groupoid by $\oplus_{\lambda \in \Lambda} G_\lambda$, leaving the groups' structures understood.
@@ -716,7 +716,7 @@ It is part of the CQM programme that the operational features of quantum theory 
 \subsection{Non-abelian Fourier Transform}
 \label{section_NonAbelianFourierTransform}
 
-In $\fdHilbCategory$, abelian internal groups satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}, and the corresponding Fourier Transform can be seen, via enrichment, as a canonical isomorphism of $\LtwoSym$-spaces $\Ltwo{G} \isom \Ltwo{G^\wedge}$. Non-abelian internal groups in $\fdHilbCategory$, however, fail those assumptions, as the classical states of the group structure never form a basis. However, it is a consequence of the Peter-Weyl theorem that the irreducible representations can be used to obtain a resolution of the identity. We will introduce matrix algebras in an oGCT in order to handle these multi-dimensional representations. This then allows us, the rest of the section, to review the generalisation of our treatment in the previous sections as is presented in~\cite{gogioso2015fourier}. The work presented there allows full-blown representation theory and concludes with a formulation of non-abelian Fourier Transform connected with the Gelfand--Naimark--Segal construction.
+In $\fdHilbCategory$, abelian internal groups satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}, and the corresponding Fourier Transform can be seen, via enrichment, as a canonical isomorphism of $\LtwoSym$-spaces $\Ltwo{G} \isom \Ltwo{G^\wedge}$. Non-abelian internal groups in $\fdHilbCategory$, however, fail those assumptions, as the classical states of the group structure never form a basis. However, it is a consequence of the Peter-Weyl theorem that the irreducible representations can be used to obtain a resolution of the identity. We will introduce matrix algebras in an oPT in order to handle these multi-dimensional representations. This then allows us, the rest of the section, to review the generalisation of our treatment in the previous sections as is presented in~\cite{gogioso2015fourier}. The work presented there allows full-blown representation theory and concludes with a formulation of non-abelian Fourier Transform connected with the Gelfand--Naimark--Segal construction.
 
 First, lets see why non-abelian internal groups in $\fdHilbCategory$ cannot satisfy the assumptions of Lemma \ref{lemma_FTTraditionalSMC}. The classical states of the point structure form an orthogonal basis, and are the elements of some non-abelian group $G$. The classical states of the group structures are the multiplicative characters of $G$: they are always orthogonal and normalisable, but as long as we show that there are less of them than the number of elements of $G$, we can conclude that they won't form a co-basis as would be required by Lemma \ref{lemma_FTTraditionalSMC}. But the multiplicative characters of a group $G$ are the same as the multiplicative character of its abelianization $G'$, which is always strictly smaller than $G$ (at least by a factor of 2). Therefore there are always strictly less multiplicative characters than group elements for a non-abelian internal group in $\fdHilbCategory$, and hence the assumptions of Lemma \ref{lemma_FTTraditionalSMC} always fail. It turns out that this is not restricted to $\fdHilbCategory$:
 \begin{theorem}
@@ -726,7 +726,7 @@ Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a $\dag
 All we have to show is that $\ZmultSym = \ZmultSym \cdot s_{\SpaceG\SpaceG}$, where $s_{\SpaceG\SpaceG}$ is the braiding operator. Equivalently, it is enough to show that $\ZcomultSym = s_{\SpaceG\SpaceG} \cdot \ZcomultSym$. But indeed for any classical state $\ket{\chi}$ of $\ZdotSym$ we have $\ZcomultSym \cdot \ket{\chi} = \ket{\chi} \tensor \ket{\chi} = s_{\SpaceG\SpaceG} \cdot \ket{\chi} \tensor \ket{\chi} =   s_{\SpaceG\SpaceG} \cdot \ZcomultSym \cdot \ket{\chi}$. As we have assumed that the classical states form a basis, this completes the proof.
 \end{proof}
 
-To deal with the non-abelian case, we will introduce matrix algebras into oGCTs. Recall that Hilbert spaces $\SpaceH_n$ of dimension $n$ are isomorphic to $\mathbb{C}^n$. This means that in $\cat{FHilb}$  the name~\eqref{eq:cj} of a morphism is an $n\times n$ matrix: 
+To deal with the non-abelian case, we will introduce matrix algebras into oPTs. Recall that Hilbert spaces $\SpaceH_n$ of dimension $n$ are isomorphic to $\mathbb{C}^n$. This means that in $\cat{FHilb}$  the name~\eqref{eq:cj} of a morphism is an $n\times n$ matrix: 
 \begin{equation}
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node at (0,0) {$\name{f}$};
@@ -743,7 +743,7 @@ To deal with the non-abelian case, we will introduce matrix algebras into oGCTs.
 \draw (L.north) to (1.4,-1.5) node [above] {$\mathbb{C} ^n$};
 \end{pic}
 \end{equation}
-This motivates us, following~\cite{vicary-tqa}, to build up a $\dagger$-Frobenius algebra (a matrix algebra) in an arbitrary oGCT using caps and cups. The monoid, unit, comonoid, and counit of this algebra are given as follows:
+This motivates us, following~\cite{vicary-tqa}, to build up a $\dagger$-Frobenius algebra (a matrix algebra) in an arbitrary oPT using caps and cups. The monoid, unit, comonoid, and counit of this algebra are given as follows:
 \begin{equation}
 \label{eq:matrixFrob}
 \input{tikz/4_matrixmulFrob.tikz}
@@ -780,12 +780,12 @@ This perspective is then extended to a provide a categorical version of the Gelf
 
 
 \subsection{Measurements and Representation Theory}
-We have seen that the representations of an abelian internal group form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. Indeed, even in the non-abelian case, representations of larger than one dimension will also be orthogonal and form a resolution of the identity~\cite{gogioso2015fourier}. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. By the oGCT Born rule (Definition~\ref{def:bornrule}) we now have a full and abstract grasp on what it means to measure in the ``representation basis", i.e. composing with a representations effect is a post-selected measurement of that outcome in the ``representation basis." We clarify the results in this section that will appear in our characterization of quantum algorithms with Figure~\ref{fig:ft}. The generalized Hadamard transform will play a particularly important role as a non-canonical isomorphism is usually assumed in the output of what is usually described as a quantum ``Fourier transform." Thus the quantum Fourier Transform algorithm, when implemented in an oGCT, acts like what we call the generalized Hadamard transform (Figure~\ref{fig:ft}).
+We have seen that the representations of an abelian internal group form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. Indeed, even in the non-abelian case, representations of larger than one dimension will also be orthogonal and form a resolution of the identity~\cite{gogioso2015fourier}. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. By the oPT Born rule (Definition~\ref{def:bornrule}) we now have a full and abstract grasp on what it means to measure in the ``representation basis", i.e. composing with a representations effect is a post-selected measurement of that outcome in the ``representation basis." We clarify the results in this section that will appear in our characterization of quantum algorithms with Figure~\ref{fig:ft}. The generalized Hadamard transform will play a particularly important role as a non-canonical isomorphism is usually assumed in the output of what is usually described as a quantum ``Fourier transform." Thus the quantum Fourier Transform algorithm, when implemented in an oPT, acts like what we call the generalized Hadamard transform (Figure~\ref{fig:ft}).
 
 \newpage
 
 \begin{figure}[H]
-\caption[Summary of internal groups, representations, and the Fourier transform in oGCTs.]{Summary of the results of Section~\ref{sec:strcomplFT} as they pertain to the analysis of quantum algorithms in the following sections. These constructions are with reference to an internal group $\mathbb{G}= (\SpaceG,\ZdotSym,\XdotSym)$ in an oGCT (Definition~\ref{def_AbClassicalGroup}).
+\caption[Summary of internal groups, representations, and the Fourier transform in oPTs.]{Summary of the results of Section~\ref{sec:strcomplFT} as they pertain to the analysis of quantum algorithms in the following sections. These constructions are with reference to an internal group $\mathbb{G}= (\SpaceG,\ZdotSym,\XdotSym)$ in an oPT (Definition~\ref{def_AbClassicalGroup}).
 }
 \label{fig:ft}
 {\renewcommand{\arraystretch}{2}\small

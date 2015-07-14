@@ -1,6 +1,6 @@
 \chapter{Categories and Diagrams}
 \label{chap:cats}
-\chapabstract{This chapter introduces the basic background material for generalized compositional theories.  We introduce the relevant categorical definitions and show how symmetric monoidal categories can be interpreted as GCTs, using quantum circuits as a motivating example.  We then review several other GCTs from the literature.}
+\chapabstract{This chapter introduces the basic background material for generalized compositional theories.  We introduce the relevant categorical definitions and show how symmetric monoidal categories can be interpreted as process theories, using quantum circuits as a motivating example.  We then review several other examples of process theories from the literature.}
 
 \section{Monoidal categories}
 Monoidal categories (sometimes called tensor categories) provide an abstract structure for processes that are equipped with both sequential and parallel composition. One might be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in cases like, for example, quantum theory.  We call a process $f:A\to B$ is a \textbf{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \textbf{objects} and we sometimes say that $f$ is a morphism \textbf{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \textbf{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \textbf{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We sometimes leave the objects of morphisms implicit when they can be inferred from context.
@@ -94,7 +94,7 @@ The following are some explicit examples of SMC's:
 \end{itemize}
 \end{examples}
 
-Some of these examples have natural process theoretic interpretations, such as $\cat{Rel}$ as a setting for nondeterministic classical processes. We'll elaborate on these interpretations in Section~\ref{sec:GCTs}.
+Some of these examples have natural process theoretic interpretations, such as $\cat{Rel}$ as a setting for nondeterministic classical processes. We'll elaborate on these interpretations in Section~\ref{sec:PTs}.
 
 It is important to note that the graphical notation we have introduced to describe morphisms in SMCs is not merely a notational convenience. We can reduce all the structural rules for SMCs down to simple diagrammatic equivalence, as the following theorem shows.
 
@@ -140,17 +140,17 @@ Given two categories \cat{C} and \cat{D} a \textbf{functor} $F:\cat{C}\to\cat{D}
 \noindent Monoidal and symmetric monoidal functors also preserve their respective additional structures.
 
 \section{Generalized Compositional Theories}
-\label{sec:GCTs}
+\label{sec:PTs}
 
 We have seen that strict symmetric monoidal categories capture the structure of  diagrammatic languages like quantum circuit diagrams. For this reason we introduce the following definition~\cite{coecke2015generalised}:
 
 \begin{defn}
-A \textbf{generalized compositional theory} is a strict symmetric monoidal category where objects are systems and morphisms are processes.
+A \textbf{process theory} is a strict symmetric monoidal category where objects are systems and morphisms are processes.
 \end{defn}
 
-\noindent GCTs and associated structures on them form the mathematical setting of this thesis.
+\noindent Process theories and associated structures on them form the mathematical setting of this thesis.
 
-Monoidal and symmetric monoidal categories were introduced as ``categories with multiplication" by MacLane in \cite{maclane1963natural} and later formalized as string diagrams by~\cite{joyal1991geometry}. There are other examples, besides quantum information, where diagrammatic concepts in computer science and physics have been formalized using SMCs, and these can all be considered as examples of the generalized compositional theory considered here.  In general, this approach is most useful when there are processes have both a natural diagrammatic (\textbf{geometric}) presentation, but that also have an \textbf{algebraic} interpretation.
+Monoidal and symmetric monoidal categories were introduced as ``categories with multiplication" by MacLane in \cite{maclane1963natural} and later formalized as string diagrams by~\cite{joyal1991geometry}. There are other examples, besides quantum information, where diagrammatic concepts in computer science and physics have been formalized using SMCs, and these can all be considered as examples of the process theory considered here.  In general, this approach is most useful when there are processes have both a natural diagrammatic (\textbf{geometric}) presentation, but that also have an \textbf{algebraic} interpretation.
 
 In physics, Penrose's tensor notation \cite{penrose1971applications} is, in modern language, precisely the diagrammatic representation of the symmetric monoidal category $\cat{FVect}$ of finite dimensional vector spaces and linear maps. Feynman diagrams are representations of morphisms in the symmetric monoidal category of positive energy representations of the Poincar\'{e} group \cite{baez2009prehistory}. The symmetric (and braided) monoidal category framework is an important foundation for $n$-dimensional topological quantum field theories. One can think of a TQFT as a symmetric monoidal functor between the category of n-cobordisms and finite dimensional vector spaces: $T:\cat{nCob}\to \cat{FVect}$ \cite{atiyah1988topological}. In fact, two-dimensional TQFT's are equivalent to commutative Frobenius algebras, which we introduce later in Definition~\ref{def:frobenius} \cite{abrams1996two,kock2004frobenius}. This perspective also plays an important role in the study of generalized knot invariants \cite{reshetikhin1990ribbon} and quantum groups \cite{baez2009prehistory}. 
 
