@@ -64,4 +64,4 @@
                 \draw [in=180, out=-90, looseness=1.00] (35.center) to (36.center);
                 \draw [style=diredge] (32) to (30);
                 \draw [style=diredge, in=-90, out=0, looseness=1.00] (30) to (37.center);
-\end{tikzpicture}
+\end{pic}
