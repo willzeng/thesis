@@ -10,9 +10,9 @@
 \end{pic}
 \qquad\Leftrightarrow\qquad
 \begin{pic}[dotpic]
-\node [whitedot] (a) at (-3,0.5) {};
-\node [whitedot] (b) at (-3,-0.5) {};
-\draw (a) to (b);
+\node [whitedot, inner sep =1pt] (a) at (-3.25,0) {$D$};
+%\node [whitedot] (b) at (-3,-0.5) {};
+%\draw (a) to (b);
                 \node [style=point] (0) at (-1.75, -0.5) {$i$};
                 \node [style={gray point}] (1) at (-0.5, -0.5) {$j$};
                 \node [style={gray copoint}] (3) at (-1.75, 0.5) {$j$};

@@ -600,7 +600,29 @@ In an oPT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \
 \end{equation}
 The map $S:A\to A$ is called the \textbf{antipode}.
 \end{defn}
-The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. We show this with a quick calculation \todo{FIX\ THIS\ TO\ LINE\ UP\ WITH\ ANTIPODE}:
+The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. Note that with the spider law we can show:
+\begin{pic}[scale=0.6,yscale=-1]
+                \node (0) at (-1.75, 0.75) {};
+                \node (1) at (2, 0.75) {};
+                \node [style=graydot] (2) at (0.5, 0.5) {};
+                \node [style=antipode] (3) at (-1.75, 0) {$S$};
+                \node (4) at (-0.75, 0) {$=$};
+                \node (5) at (0, 0) {};
+                \node (6) at (1, 0) {};
+                \node (7) at (2, 0) {};
+                \node [style=whitedot] (8) at (1.5, -0.5) {};
+                \node (9) at (-1.75, -0.75) {};
+                \node (10) at (0, -0.75) {};
+                \draw (7.center) to (1.center);
+                \draw (10.center) to (5.center);
+                \draw (3) to (0.center);
+                \draw [in=-90, out=165] (8) to (6.center);
+                \draw [in=-90, out=15] (8) to (7.center);
+                \draw [in=-165, out=90, looseness=1.25] (5.center) to (2);
+                \draw (9.center) to (3);
+                \draw [in=-15, out=90] (6.center) to (2);
+\end{pic}.
+Then by a quick calculation:
 \tikzeq{tikz/2_complemub.tikz}
 where $(*)$ is an application of Theorem \ref{thm:fund}, and the last step uses the fact that there are enough classical points.  In some literature the dimensional scalar is explicitly included in the abstract definition of strong complementarity, but, for the purposes of this thesis, it is suffices to define complementarity up to a scalar. 
 %We refer to the gray states $\{\ket{j}\}$ as \textbf{unbiased states} for %the $\dotonly{whitedot}$-classical structure. Similarly the white states %$\{\keti}\}$ are unbiased states for the $\dotonly{graydot}$-classical structure.

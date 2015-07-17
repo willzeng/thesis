@@ -32,14 +32,14 @@
     \node [style=whitedot] (21) at (9.5, -1) {};
     \node [style=graydot] (22) at (9.5, 1) {};
     \node [style=antipode] (23) at (10.25, 0) {$S$};
-    \node [style=whitedot] (24) at (-6.5, 0.5) {};
-    \node [style=whitedot] (25) at (-6.5, -0.5) {};
-    \node [style=whitedot] (26) at (-2, 0.5) {};
-    \node [style=whitedot] (27) at (-2, -0.5) {};
-    \node [style=whitedot] (28) at (3, 0.5) {};
-    \node [style=whitedot] (29) at (3, -0.5) {};
-    \node [style=whitedot] (30) at (8, 0.5) {};
-    \node [style=whitedot] (31) at (8, -0.5) {};
+    \node [style=whitedot, inner sep=1pt]  (24) at (-6.5, 0) {$D$};
+%    \node [style=whitedot] (25) at (-6.5, 0) {};
+    \node [style=whitedot, inner sep=1pt]  (26) at (-2, 0) {$D$};
+%    \node [style=whitedot] (27) at (-2,0) {};
+    \node [style=whitedot, inner sep=1pt]  (28) at (3, 0) {$D$};
+%    \node [style=whitedot] (29) at (3, -0.5) {};
+%    \node [style=whitedot] (30) at (8, 0.5) {};
+    \node [style=whitedot, inner sep=1pt] (31) at (8, 0) {$D$};
     \draw [in=-165, out=15, looseness=1.00] (8) to (15);
     \draw [in=-15, out=90, looseness=1.00] (4) to (12);
     \draw [in=-30, out=165, looseness=1.00] (8) to (18);
@@ -57,8 +57,8 @@
     \draw [in=-15, out=90, looseness=1.00] (23) to (22);
     \draw (1) to (21);
     \draw (22) to (19);
-    \draw (24) to (25);
-    \draw (26) to (27);
-    \draw (28) to (29);
-    \draw (30) to (31);
+%    \draw (24) to (25);
+%    \draw (26) to (27);
+%    \draw (28) to (29);
+%    \draw (30) to (31);
 \end{pic}
