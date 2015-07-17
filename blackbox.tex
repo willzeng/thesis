@@ -126,7 +126,7 @@ The oracle that we will build here is similar to the CNOT from Section~\ref{ex:c
 \draw (w.center) to [out=right, in=up] (1.75,-1);
 \end{pic}
 \end{equation}
-Here we have assumed that we operate in a category where square roots of scalars exist.  In the rest of this section we will suppress drawing circles around scalars. The two algebras are complementary exactly when this composite is unitary, as we show in the following theorem.
+Here we have assumed that we operate in a category where square roots of scalars exist.  In the rest of this section we will suppress drawing circles around scalars. The difference between scalars and labels of the diagram is clear from context. The two algebras are complementary exactly when this composite is unitary, as we show in the following theorem.
 
 \begin{theorem}[Complementarity via a unitary]
 \label{thm:complementarityunitary}
@@ -312,14 +312,14 @@ If we now ignore the right hand system, we obtain:
 \end{equation}
 Thus, by the oPT Born rule (Definition~\ref{def:bornrule}), there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
 
-In a single proof, this method and its extension to arbitrary finite groups~\cite{vicary-tqa} captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
+In a single proof, this method and its extension to arbitrary finite groups (c.f.~\cite{vicary-tqa}) captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
 
 \subsection{The Grover's and hidden subgroup algorithms}
 Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The single-shot Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. When the target group is, for example, $\mathbb{Z}_3$, such that the elements are marked by indicator function in a $4:1:1$ ratio, a single query can be used to return one of the rarer elements with certainty. An interesting path for the future development of this work would be to extend this to a generalization of amplitude amplification. The author conjectures that in certain cases, where the input amplitudes follow a known ratio, a speedup over the usual amplitude amplification algorithm can be found.
 
 \begin{figure}[t]
 \input{tikz/3_algtriplet.tikz}
-\caption{Three blackbox quantum algorithms presented as processes in an operational process theory.}
+\caption{Three blackbox quantum algorithms presented as processes in an operational process theory~\cite{vicary-tqa}.}
 \label{fig:algtriplet}
 \end{figure}
 
@@ -356,7 +356,7 @@ In  the simpler case where $G$ is an abelian group this quantum algorithm was pr
 
 %Our results give a new approach to the solution of the group homomorphism identification problem that both extends the existing results to the case where $G$ is non-abelian, and clearly connects the structure of our algorithm to that of other black-box quantum algorithms, such as the Deutsch-Jozsa and hidden subgroup algorithms.
 
-We will proceed using the abstract structure defined earlier, but will now work in the dagger-symmetric monoidal category {\bf FHilb}. Recall that any choice of orthonormal basis for  an object $A$ in {\bf FHilb} endows it with a dagger-Frobenius algebra $(A,\tinymult[blackdot],\tinyunit[blackdot])$, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as~$(A, \tinymult[whitedot], \tinyunit[whitedot])$. These two Frobenius algebras are complementary.
+We will proceed using the abstract structure defined earlier, but will now work in the dagger-symmetric monoidal category \cat{FHilb}. Recall that any choice of orthonormal basis for  an object $A$ in \cat{FHilb} endows it with a dagger-Frobenius algebra $(A,\tinymult[blackdot],\tinyunit[blackdot])$, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as~$(A, \tinymult[whitedot], \tinyunit[whitedot])$. These two Frobenius algebras are complementary.
 
 \def\Mat{\mathrm{Mat}}
 In the case that $G$ is finite, its representations can be characterized as the homomorphisms \mbox{$G \sxto \rho \mbox{Mat}(n)$}. The homomorphism conditions take the following form~\cite[Section~A.7]{vicary-tqa}:
@@ -452,35 +452,63 @@ The first subroutine will require $n_1$ queries and the second will require $n_2
 \end{proof}
 
 \ignore{In practice we run the algorithm once on each $k$-th factor of $A$ to determine homomorphisms 
-\[ p_k\circ f = f_k:G\to H_k \]
+\[ p_k\circ f = f_k:G\to H_k \]f
 We then know $f$ as 
 \begin{align*}
 f(n_0,n_1,...n_{n-1}) = \left(f_0(n_0), f_1(n_1),..., f_{n-1}(n_{n-1})\right)
 \end{align*}
 we know that each isomorphic class contains only one representation}
 
-The GROUPHOMID algorithm given here is approximately quantum optimal for large $G$ and shows a vast speedup over the classical lower bound.
+\subsubsection*{Optimality}
+In this subsection we investigate the information theoretic bounds solutions to the GROUPHOMID algorithm.  While we are able to construct bounds on both the number of quantum and the number of classical queries required, these bounds turn out to be overtly weak lower bounds, that, in particular, do not show an asymptotic separation between quantum and classical.  Still, it is hoped that future work can build on these techniques to construct better bounds. 
 
-\begin{theorem}
-For large groups $G$, the number of quantum queries needed for the GROUPHOMID problem is $\theta(k)$, where $k$ is the number of simple factors of $A$. The number of classical queries needed is $\theta(\log|G|)$.
-\end{theorem}
+We begin with a few useful group theoretic lemmas. Recall that the homset $\cat{Grp}(G,A)$ denotes the set of all homomorphisms between groups $G$ and $A$.
 
-\begin{proof}
-In general the number of generators of a group $G$ is upper bounded by $\log |G|$. Thus $\log|G|$ gives an upper bound on the number of queries needed to identify the group homomorphism. That is we can simply query the homomorphism on each generators. Let there be $\mathfrak{h}$ homomorphisms between $G$ and $A$, i.e. $\mathfrak{h}=|\cat{Grp}(G,A)|$. The total information available to us in quantum case of the problem comes from the generators of $G$ and $A$. The number of generators in a group at worst goes like the $\log$ of its size. Since $A$ is abelian, we can expect it to have a number of generators equal to the number of its simple factors. Thus the total information in all the generators of the two groups is $k+\log|G|$. A lower bound on the number of quantum queries is thus given by 
-\begin{align}
-\#\mbox{ queries} \ge\frac{\log \mathfrak{h}}{k+\log|G|}.
-\end{align}
-An \todo{improve THIS} upper bound on the number of homomorphisms is $|H|^{\log|G|}$ as each homomorphism needs to specify where each generator of $G$ goes. Thus the quantum bound is 
-\begin{align}
-\#\mbox{ queries} \ge \frac{\log\left(|H|^{\log|G|}\right)}{k+\log|G|} = \frac{\log|G|\log|H|}{k+\log|G|} = \frac{k\log|G|}{k+\log|G|} \approx k,
-\end{align}
-in the limit of large $G$. Since the algorithm given here requires $k$ queries we know this bound to be tight.
+\begin{lemma}
+\label{lem:ppowtoppow}
+For $Z_{p^a}$, $Z_{p^b}$ cyclic groups of prime power order, the number of group homomorphisms between $Z_{p^a}$ and $Z_{p^b}$ is given by $p^{\min(a,b)}$.
+\end{lemma}
+\begin{proof} Consider representatives $x\in Z_{p^a}$ and $y\in Z_{p^b}$. For cyclic groups a homomorphism is exactly defined by its image on the generator of that group. We will now consider two cases.  
 
-A classical lower bound on the number of queries is then
-\begin{align}
-\#\mbox{ queries}\ge \frac{k\log|G|}{\log|A|} = \frac{k\log|G|}{k} = \log|G|
-\end{align}
+For the first, where $a\ge b$, we are able to map the single generator of $Z_{p^a}$ to any element of $Z_{p^b}$ as it clear by Lagrange's theorem that the order of each $y$ divides $p^b$ which in this case also divides $p^a$.  Thus there is one homomorphism for each $y$, i.e. $p^b$ homomorphisms.
+
+For the second we have $a < b$. The only available images for the generator of $Z_{p^a}$ are those with orders that divide $p^a$, i.e. where $p^a/|y|$ is an integer. Since $|y| = |1^y| = \frac{p^b}{\gcd{y,p^b}}$ this condition requires
+\[ \frac{p^a}{|y|} = \gcd(y,p^b)p^{a-b} \]
+to be an integer. We argue that necessary and sufficient condition for this is that $p^{b-a}$ divides $y$.  Sufficient is obvious and necessary is shown by checking that $y/\gcd(y,p^b)\cdot\gcd(y,p^b)/p^{a-b}$ is an integer as it is a product of two integers. The number of such $y$ is $p^a$, with one homomorphism for each.
+
+Taking these two cases together we find that the number of group homomorphisms is given by $p^{\min(a,b)}$.
 \end{proof}
+
+\begin{lemma}
+Let abelian groups $G$ and $A$ have structure theorem factorizations as $G\iso\mathbb{Z}_{p_1^{a_1}} \times ...\times\mathbb{Z}_{p_n^{a_n}}$ and $A\iso\mathbb{Z}_{p_1^{b_1}} \times ...\times\mathbb{Z}_{p_n^{b_n}}$ for prime $p_i$ and $a_i,b_i\in \mathbb{N}\cup\{0\}$. Write the set of factor sizes for $G$ as $G^f = \{p_i^{a_i}\}_{1\le i\le n}$ and similarly define $A^f$. Let $\Lambda = G^f\cap A^f$. The largest possible number of homomorphisms between $G$ and $A$ is given by:
+\begin{equation}
+|\cat{Grp}(G,A)| = \prod_{i=1}^{|\Lambda|}\Lambda_i
+\end{equation}
+\end{lemma}
+\begin{proof}
+Recall that $|\cat{Grp}\left(\mathbb{Z}_{p_i^{a_i}},\mathbb{Z}_{p_j^{b_i}}\right)|=1$ when $p_i\neqp_j$. In that case we can only count the trivial homomorphism. Now, using their factorizations, we split the hom functor over the factors of the groups. This gives:
+\begin{align}
+|\cat{Grp}(G,A)| &= \prod_{i=1}^n\prod_{j=1}^n|\cat{Grp}(\mathbb{Z}_{p_i^{a_i}},\mathbb{Z}_{p_j^{b_j}})|
+\\ &= \prod_{i=1}^n|\cat{Grp}(\mathbb{Z}_{p_i^{a_i}},\mathbb{Z}_{p_i^{b_i}})|
+\\ &= \prod_{i=1}^np_i^{\min(a_i,b_i)} \qquad \qquad \mbox{by Lemma \ref{lem:ppowtoppow}}
+\end{align}
+Clearly this number will be maximized when $a_i=b_i$, which are exactly the factors in the intersection set $\Lambda$.
+\end{proof}
+
+This lemma allows us to consider several specific cases:
+\begin{enumerate}
+\item Case $G=A=\Lambda$.  Then $|\cat{Grp}(G,A)| = |G|=|A|$.
+\item Case $G=A\times A'$. Then $A^f\subseteq G^f \Rightarrow |\cat{Grp}(G,A)| = |A| \le |G|$.
+\item Case $A=G\times G'$. Then $G^f\subseteq A^f \Rightarrow |\cat{Grp}(G,A)| = |G| \le |A|$.
+\end{enumerate}
+\noindent We can attempt to use these cases to analyze the information theoretic lower bounds on classical and quantum queries for this algorithm.  In such a lower bound is given by a ratio of the total information ($\log|\cat{Grp}(G,A)|$) and the maximum information that can be obtained per query.  In the classical case we have access to $|G|$ bits, which gives a maximum bound on the information per query of $\log|G|$. In the quantum case, we have qubits for both the source and target groups, so the maximum information per query is $\log|G|+\log|A|$. We can now consider the lower bounds that emerge for each of the cases given above, where we write $\#CQ$ for the number of classical queries and $\#QQ$ for the number of quantum queries. These will turn out not to be particularly enlightening lower bounds.
+\begin{enumerate}
+\item Case $G=A=\Lambda$. Thus $\#CQ\ge\log|G|/\log|G|=1$ and $\#QQ\ge\log|G|/(2\log|G|)=1/2$.
+\item Case $G=A\times A'$. Thus $\#CQ\ge\log|A|/\log|G|\le1$, as $A$ is smaller than $G$. Further $\#QQ\ge\log|A|/(\log|G|+\log|A|)\le1.$
+\item Case $A=G\times G'$. Thus $\#CQ\ge\log|G|/\log|G|=1$ and $\#QQ\ge\log|G|/(\log|G|+\log|A|)\le1.$
+\end{enumerate}
+
+To conclude, it seems that despite the encouraging fact that the queries complexities of the classical and quantum algorithms depending on seemingly independent variables, the structure of the promise space of group homomorphisms limits our ability to say something meaningful about the optimal quantum and classical query separation.
 
 \subsubsection*{Extension to the non-abelian case}
 We now consider the more general case where the target group $A$ is non-abelian. We do not know how to extend the algorithm described above to this case.  Nevertheless, it is instructive to analyze this scenario in our graphical approach. 
@@ -494,5 +522,5 @@ We notice two additional features in this case. First, it is clear that the left
 
 While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \textbf{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
 
-\subsection{\todo{The hidden shift problem}}
-{\bf Status:} UNDRAFTED.
+%\subsection{\todo{The hidden shift problem}}
+%{\bf Status:} UNDRAFTED.
