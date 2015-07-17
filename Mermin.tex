@@ -1,7 +1,7 @@
 \chapter{Mermin Non-locality}
 \label{chap:mermin}
 
-\chapabstract{  The study of non-locality is fundamental to the understanding of quantum mechanics. The past 50 years have seen a number of non-locality proofs, but its fundamental building blocks, and the exact role it plays in quantum protocols, has remained elusive. In this paper, we focus on a particular flavour of non-locality, generalising Mermin's argument on the GHZ state. Using strongly complementary observables, we provide necessary and sufficient conditions for Mermin non-locality in operational process theories. We show that the existence of more phases than classical points (aka eigenstates) is not sufficient, and that the key to Mermin non-locality lies in the presence of certain algebraically non-trivial phases. This allows us to show that $\fRelCategory$, a favourite toy model for categorical quantum mechanics, is Mermin local. By considering the role it plays in the security of the HBB CQ (N,N) family of Quantum Secret Sharing protocols, we argue that Mermin non-locality should be seen as a resource in quantum protocols. Finally, we challenge the unspoken assumption that the measurements involved in Mermin-type scenarios should be complementary, opening the doors to a much wider class of potential experimental setups than currently employed.}
+\chapabstract{  The study of non-locality is fundamental to the understanding of quantum mechanics. The past 50 years have seen a number of non-locality proofs, but its fundamental building blocks, and the exact role it plays in quantum protocols, has remained elusive. In this paper, we focus on a particular flavour of non-locality, generalising Mermin's argument on the GHZ state. Using strongly complementary observables, we provide necessary and sufficient conditions for Mermin non-locality in operational process theories. We show that the existence of more phases than classical points (aka eigenstates) is not sufficient, and that the key to Mermin non-locality lies in the presence of certain algebraically non-trivial phases. This allows us to show that $\fRelCategory$, a favourite toy model for categorical quantum mechanics, is Mermin local. By considering the role it plays in the security of the HBB CQ (N,N) family of Quantum Secret Sharing protocols, we argue that Mermin non-locality should be seen as a resource in quantum protocols. Finally, we challenge the unspoken assumption that the measurements involved in Mermin-type scenarios should be complementary, opening the doors to a much wider class of potential experimental setups than currently employed. In short, we give conditions for Mermin non-locality tests on any number of systems, where each party has an arbitrary number of measurement choices, where each measurement has an arbitrary number of outcomes and further, that is in any operational process theory.}
 
 \section{Introduction}
         \label{section_Introduction}
@@ -225,7 +225,7 @@ We are now able to introduce our first main result:
 
 The abstract framework can now be applied to some particular examples of interest.
 
-        \begin{corollary} The ZX calculus from \cite{backens2014ZX,coecke2011interacting} (referred to as Stab in \cite{coecke2012strong}) is Mermin non-local.
+        \begin{corollary} The restricted ZX calculus from \cite{backens2014ZX,coecke2011interacting} (referred to as Stab in \cite{coecke2012strong}) is Mermin non-local.
         \end{corollary}
         \begin{proof} 
                 Take $\ZdotSym$ and $\XdotSym$ to be the $Z$ and $X$ single-qubit observables in the ZX calculus. Then the group of $\XdotSym$-phases is $\integersMod{4}$ and the subgroup of $\XdotSym$-classical points is $\integersMod{2}$. Conclude using Theorem \ref{thm_MerminNonLocality} and Example \ref{example_PhaseGroupZX}.
@@ -236,6 +236,13 @@ The abstract framework can now be applied to some particular examples of interes
         \begin{proof} 
                 Same setup as in the previous corollary, but the phase group is now $\integersMod{2} \times \integersMod{2}$. Conclude using Theorem \ref{thm_MerminLocality} and Example \ref{example_PhaseGroupRel} with $d=2$.
         \end{proof}
+        
+\begin{corollary}
+Qutrit stabilizer quantum mechanics from~\cite{ranchin2014depicting} is Mermin local.
+\end{corollary}
+\begin{proof}
+The phase group here is $\mathbb{Z}_3\times\mathbb{Z}_3$. Conclude using Theorem~\ref{thm_MerminLocality} and Example~\ref{example_PhaseGroupRel} with $d=3$.
+\end{proof}
 
         \begin{corollary} The category $\fRelCategory$ of finite sets and relations is Mermin local. 
         \end{corollary}
@@ -392,7 +399,7 @@ Further we can exhibit numerical results that calculate the number of Mermin eff
         \includegraphics[height=1.6in]{images/counts_2D}
         \caption{ }
     \end{subfigure}
-    \caption{(a) A plot of the number of Mermin effective measurement pairs $P$ vs. the number of parties in the Mermin scenario $N$ for $\mathbb{Z}_2(N,2,2)$ scenarios. (b) A plot of the number of effective pairs for $\mathbb{Z}_3(N,2,3)$ scenarios.}
+    \caption[Numerical counts of Mermin effective pairs.]{(a) A plot of the number of Mermin effective measurement pairs $P$ vs. the number of parties in the Mermin scenario $N$ for $\mathbb{Z}_2(N,2,2)$ scenarios. (b) A plot of the number of effective pairs for $\mathbb{Z}_3(N,2,3)$ scenarios.}
 \end{figure}
 
 

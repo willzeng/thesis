@@ -40,7 +40,7 @@ As the same sentence rarely occurs repeatedly, this distributional technique can
  \end{aligned}$
 \end{tabular}
 \end{center}
-\caption{The DisCo approach combines word vectors with pregroup or combinatory categorical grammar. The diagram on the right shows which terms cancel in the derivation tree.  It is drawn suggestively as explained in Section \ref{sec:disco}. }
+\caption[The DisCo approach.]{The DisCo approach combines word vectors with pregroup or combinatory categorical grammar. The diagram on the right shows which terms cancel in the derivation tree.  It is drawn suggestively as explained in Section \ref{sec:disco}. }
 \end{figure}
 
 In this model, each grammatical type is assigned a tensor product space based on Lambek's pregroup grammar \cite{lambek2008word} or combinatorial categorical grammar \cite{hermann2013role}. The meaning of nouns is, for example, calculated as in the distributional case, and we label their vector space $\mathcal{N}$.  A transitive verb's meaning is then, following the grammar, a vector in the space $\mathcal{N}\otimes \mathcal{S} \otimes \mathcal{N}$, where $\mathcal{S}$ is the meaning space for sentences \cite{clark2008compositional}. An intuition for this is that the transitive verb takes a subject noun as a left argument and an object noun as a right argument. An adjective lives in the space $\mathcal{N}\otimes\mathcal{N}$.

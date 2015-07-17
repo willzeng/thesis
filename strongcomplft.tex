@@ -11,7 +11,7 @@ In Section \ref{section_AbelianGroups_FourierTransform} the concepts from Sectio
 
 In Section \ref{section_RelFT}, we study $\RelCategory$ as an example setting for our categorical Fourier Transform. This example is of particular interest as it often acts as a toy model for quantum theory~\cite{evans2009classifying, cqm-notes, pavlovic2009quantum, zeng2015models}.  We find that while a generalized Hadamard transform is not suitably defined, a Fourier Transform can be.
 
-In Section \ref{section_NonAbelianFourierTransform} we review extentions of these results to the non-abelian case, with accompanying Fourier transform. Then, in Section~\ref{sec:measrep}, we summarize how these results relate to measurements in the ``representation basis."
+In Section \ref{section_NonAbelianFourierTransform} we review extensions of these results to the non-abelian case, with accompanying Fourier transform. Then, in Section~\ref{sec:measrep}, we summarize how these results relate to measurements in the ``representation basis."
 
 These results both move Fourier theory into a new mathematical setting and capture the structural connection between quantum theory and the Fourier Transform.  Though this connection has been much exploited in quantum algorithms, this work is the first abstract presentation that shows its place in the structure of quantum theory, i.e. alongside strongly complementary observables.
 \subsection{The Fourier Transform}
@@ -236,7 +236,7 @@ A pair of $\dagger$-qSFAs \whitecomonoid{A} and \blackcomonoid{A}, henceforth wr
 \end{defn}
 \noindent Though this definition is usually given for classical structures, we generalise to $\dagger$-qSFAs to include non-commutative algebras and, hence, our later construction of a generalized non-abelian Fourier Transform.
 
-It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}. \todo{ADAPT\ THIS\ FROM\ KISSINGER\ THESis}
+It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}.
 \begin{equation}
 \input{tikz/3_SCIsC.tikz}
 \end{equation}
@@ -261,6 +261,9 @@ Furthermore, if at least one of the two $\dagger$-FAs has matchable states formi
     The fact that $\antipodeSym^{-1}$ as defined is indeed the inverse of $\antipodeSym$ is an immediate consequence of the Frobenius law (one application per colour). Now suppose without loss of generality that the matchable points $\ket{g}_{g \in G}$ of $\XdotSym$ form a basis, and remember that $\ZdotSym$ acts as some (possibly non-abelian) group $(G,\cdot,1)$ on them (Lemma~\ref{lem:phaseunbiased}). Then $\bra{h}\, \antipodeSym \ket{g} = \braket{h \cdot g}{1}$ and $\bra{h} \; \antipodeSym^{-1} \ket{g} = \braket{1}{h \cdot g}$ and $\bra{h}\; \antipodeSym^\dagger \ket{g} = \braket{1}{g \cdot h}$ and $\bra{h}\; (\antipodeSym^{-1})^\dagger \ket{g} = \braket{g \cdot h}{1}$ coincide for all $g,h \in G$, proving that $\antipodeSym = \antipodeSym^{-1} = \antipodeSym^{\dagger} = \ket{g} \mapsto \ket{g^{-1}}$ for all $g\in G$.
 \end{proof}
 
+\begin{remark}
+\todo{Note that the antipode is self-inverse when the structures... }
+\end{remark}
 Strongly complementary classical structures have a specific relationship between their phase groups and classical states.
 
 \begin{theorem}[\cite{coecke2011interacting}]
@@ -536,7 +539,7 @@ The first equality follows from the fact that $\varphi$ is a morphism of interna
 \tinycounit[altwhitedot] \cdot \varphi = \left(\varphi^\dagger \cdot\tinyunit[altwhitedot] \right)^\dagger = \left(  \ZunitSym\right)^\dagger = \ZcounitSym
 \end{equation}
 \end{proof}
-In $\fdHilbCategory$ (with abelian internal groups),~\eqref{eqn_PontDualityCanonProof} takes the form of~\eqref{eqn_FTcanonicity}. To conclude, we provide a categorical definition of Hadamard transforms, which helps to frame the difference between the Hadamard Transforms and the Fourier Transforms.
+In $\fdHilbCategory$ (with abelian internal groups),~\eqref{eqn:PontDualityCanonProof} takes the form of~\eqref{eqn:FTcanonicity}. To conclude, we provide a categorical definition of Hadamard transforms, which helps to frame the difference between the Hadamard Transforms and the Fourier Transforms.
 
 \begin{defn}
 \label{def:CategoricalHadamard}
