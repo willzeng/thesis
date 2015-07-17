@@ -11,7 +11,7 @@ In Section \ref{section_AbelianGroups_FourierTransform} the concepts from Sectio
 
 In Section \ref{section_RelFT}, we study $\RelCategory$ as an example setting for our categorical Fourier Transform. This example is of particular interest as it often acts as a toy model for quantum theory~\cite{evans2009classifying, cqm-notes, pavlovic2009quantum, zeng2015models}.  We find that while the Hadamard transform is not suitably defined, a Fourier Transform can be.
 
-In Section \ref{section_FourierTransform} we review extentions of these results to the non-abelian case, with accompanying Fourier transform. Then, in Section~\ref{sec:measrep}, we summarize how these results relate to measurements in the ``representation basis."
+In Section \ref{section_NonAbelianFourierTransform} we review extentions of these results to the non-abelian case, with accompanying Fourier transform. Then, in Section~\ref{sec:measrep}, we summarize how these results relate to measurements in the ``representation basis."
 
 These results both move Fourier theory into a new mathematical setting and capture the structural connection between quantum theory and the Fourier Transform.  Though this connection has been much exploited in quantum algorithms, this work is the first abstract presentation that shows its place in the structure of quantum theory, i.e. alongside strongly complementary observables.
 \subsection{The Fourier Transform}
@@ -780,6 +780,7 @@ This perspective is then extended to a provide a categorical version of the Gelf
 
 
 \subsection{Measurements and Representation Theory}
+\label{sec:measrep}
 We have seen that the representations of an abelian internal group form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. Indeed, even in the non-abelian case, representations of larger than one dimension will also be orthogonal and form a resolution of the identity~\cite{gogioso2015fourier}. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. By the oPT Born rule (Definition~\ref{def:bornrule}) we now have a full and abstract grasp on what it means to measure in the ``representation basis", i.e. composing with a representations effect is a post-selected measurement of that outcome in the ``representation basis." We clarify the results in this section that will appear in our characterization of quantum algorithms with Figure~\ref{fig:ft}. The generalized Hadamard transform will play a particularly important role as a non-canonical isomorphism is usually assumed in the output of what is usually described as a quantum ``Fourier transform." Thus the quantum Fourier Transform algorithm, when implemented in an oPT, acts like what we call the generalized Hadamard transform (Figure~\ref{fig:ft}).
 
 \newpage

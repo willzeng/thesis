@@ -891,7 +891,7 @@ More details on enriched categories, especially in regards to the results of Sec
 \section{Measurements}
 \label{sec:measurements}
 
-We have already introduced a notion of post-selected measurement in Definition~\ref{def:bornrule}. This section uses Selinger's CPM (completely positive map) construction~\cite{selinger2007dagger}, to present measurement as a process that outputs classical information~\cite{coecke2012strong}. We will need to be more precise about systems and their duals here so will be more consistent about using wires decorated with the proper arrows. 
+We have already introduced a notion of post-selected measurement in Definition~\ref{def:bornrule}. This section uses Selinger's CPM (completely positive map) construction~\cite{selinger2007dagger}, to present measurement as a process that outputs classical information~\cite{coecke2012strong}. In particular, measurements are maps that decohere pure states into mixed states in a certain basis. We will need to be more precise about systems and their duals here so will be more consistent about using wires decorated with the proper arrows. 
 
 Using caps and cups, we can construct the unique ``name" of a process $\rho$ as:
 \begin{equation}
@@ -933,8 +933,23 @@ So, $M$ defines a linear map from density matrices to probability distributions.
 \end{defn}
 
 \begin{example}
-\todo{EXAMPLE on qubits}
+We will illustrate this measurement using an example on a qubit. Take the $Z$ and $X$ classical structures to be defined as they were in Example~\ref{ex:cnot}. Here $Z$ is the computational basis and the two classical points of $X$ are $\begin{pic}[scale=0.5]
+\node (o) at (0,1) {};
+\node (t) [point, fill=gray, scale=0.9] at (0,0) {$0$};
+\draw (o) to (t);
+\end{pic}=\ket{+}$ and
+$\begin{pic}[scale=0.5]
+\node (o) at (0,1) {};
+\node (t) [point, fill=gray, scale=0.9] at (0,0) {$1$};
+\draw (o) to (t);
+\end{pic}=\ket{-}$. Thus a measurement of the state $\ket{0}$ in the $X$ (gray) basis is $m_{\dotonly{graydot}}\circ\ket{0}\bra{0}$, which is diagrammatically:
+\begin{equation}
+\input{tikz/3_measExample.tikz}
+\end{equation}
+This gives the expected result that a measurement of $\ket{0}$ in the $X$ basis is a mixed state of $\ket{+}$ and $\ket{-}$. 
 \end{example}
+
+We especially make use of this measurement presentation in Chapter~\ref{chap:mermin}.
 
 \section{Summary of oPTs}
 
