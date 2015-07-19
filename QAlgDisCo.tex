@@ -2,7 +2,7 @@
 \label{chap:qDisCo}
 
 \begin{chapabstract}
-        We propose a new application of quantum computing to the field of natural language processing (NLP).  Ongoing work in NLP attempts to incorporate grammatical structure into algorithms that compute meaning.  In \cite{clark2008compositional}, Clark et al. introduce such a model (the CCS model) that is based on tensor product composition. While this algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires. In this work we show how computational shortcomings of the  CCS approach could be resolved using quantum computation. We address the value of a qRAM \cite{giovannetti2008quantum} for this model and extend an algorithm from Wiebe et al. \cite{wiebe2014quantum} into a quantum algorithm to categorize similar sentences in CCS. Our new algorithm demonstrates a \todo{quadratic speedup} over classical methods under certain conditions.
+        We propose a new application of quantum computing to the field of natural language processing (NLP).  Ongoing work in NLP attempts to incorporate grammatical structure into algorithms that compute meaning.  In \cite{clark2008compositional}, Clark et al. introduce such a model (the CCS model) that is based on tensor product composition. While this algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires. In this work we show how computational shortcomings of the  CCS approach could be resolved using quantum computation. We address the value of a qRAM \cite{giovannetti2008quantum} for this model and extend an algorithm from Wiebe et al. \cite{wiebe2014quantum} into a quantum algorithm to categorize similar sentences in CCS. Our new algorithm demonstrates a speedup over classical methods under certain conditions.
 \end{chapabstract}
 
 \section{Introduction}
@@ -14,7 +14,7 @@ In \cite{clark2008compositional}, Clark et al. introduce a DisCo model (the CCS 
 We use the fact that quantum computation is naturally suited to managing high dimensional tensor product spaces. Recent literature has shown that quantum algorithms can thus provide advantages for machine learning \cite{wiebe2014quantum,rebentrost2014quantum}, inference \cite{low2014quantum}, and regression \cite{wiebe2012quantum,wang2014quantum} tasks.  We leverage these results in two particular ways:
 \begin{enumerate}
 \item We employ the scaling of quantum systems to address computational difficulties  inherent in tensor-product based compositional semantics.
-\item Shared GCT structure makes algorithms in the CCS model especially amenable to quantum speedups.  We specify a CCS sentence similarity algorithm that, under certain conditions, gives \todo{quadratic speedups} for natural language tasks.
+\item Shared GCT structure makes algorithms in the CCS model especially amenable to quantum speedups.  We specify a CCS sentence similarity algorithm that, under certain conditions, gives quadratic speedups for natural language tasks.
 \end{enumerate}
 At an abstract level, we are taking a classical theory of NLP in the oPT \cat{FVect} and computing outcomes in the oPT of quantum theory $\cat{FHilb}$. The shared abstract structure makes the interface obvious.
 
