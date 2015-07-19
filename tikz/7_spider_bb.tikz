@@ -1,0 +1,23 @@
+\begin{pic}[scale=0.8]
+                \node [style=wire] (0) at (0, 1.25) {};
+                \node [style=whitedot] (1) at (0, 0) {};
+                \node [style=wire] (2) at (0, -1.25) {};
+                \node (3) at (-0.5, -1.75) {};
+                \node (4) at (-0.5, 0.75) {};
+                \node [style=box,fill=blue, label=B] (5) at (-0.5, -0.75) {};
+                \node (6) at (0.5, -0.75) {};
+                \node [style=box, fill=blue, label=A] (7) at (-0.5, 1.75) {};
+                \node (8) at (0.5, -1.75) {};
+                \node (9) at (0.5, 0.75) {};
+                \node (10) at (0.5, 1.75) {};
+                \draw [blue] (7) to (4.center);
+                \draw [blue] (4.center) to (9.center);
+                \draw [blue] (9.center) to (10.center);
+                \draw [blue] (10.center) to (7);
+                \draw [blue] (5) to (3.center);
+                \draw [blue] (3.center) to (8.center);
+                \draw [blue] (8.center) to (6.center);
+                \draw [blue] (6.center) to (5);
+                \draw [arrow=1] (2) to (1);
+                \draw [arrow=1] (1) to (0);
+\end{pic}

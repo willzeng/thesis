@@ -305,7 +305,7 @@ This is argued for in Appendix D of \cite{wiebe2014quantum} for a ``typical" cas
 The quantum algorithm from Section \ref{sec:qalg} can be used to advantage in natural language processing tasks however, the computational overhead of the CCS approach would dwarf this algorithm's advantages if it were naively applied.  
 Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/\sqrt{d}$ and that the accuracy necessary for our calculation means $\epsilon$ scales as $\Theta(1/\sqrt{N})$. Consider the example of probabilistically classifying the meaning of a  simple sentence. We illustrate this example with a noun-verb-noun sentence. The meaning of the nouns are vectors in an $N$-dimensional vector space and the meaning of the verb is a vector in the space $N\otimes S \otimes N$. We represent a derivation of the meaning of the full sentence with the following map:
 
-\begin{equation*}
+\begin{equation}
 \label{eqn:phi}
 \begin{aligned}
 \begin{tikzpicture}[scale=0.6, yscale=-1]
