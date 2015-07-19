@@ -41,5 +41,4 @@
         \draw (25.center) to (20);
         \draw [bend left=15] (12) to (6.center);
         \draw [style=small braceedge] (0.center) to node[wire label, inner sep=3 pt]{$n$} (1.center);
-
 \end{pic}
