@@ -1,11 +1,11 @@
 \begin{pic}[font=\footnotesize, scale=1.4]
-                \node  [morphism] (6) at (1, 0.75) {$H$};
+                \node  [morphism] (6) at (1, 0.75) {$F$};
                 \node  (7) at (1.5, 0.75) {\raisebox{-2mm}{...}};
-                \node  [morphism] (8) at (2, 0.75) {$H$};
+                \node  [morphism] (8) at (2, 0.75) {$F$};
                 \node [style=whitedot] (14) at (1.5, 0) {$\beta$};
-                \node  [morphism] (24) at (1, -0.75) {$H$};
+                \node  [morphism] (24) at (1, -0.75) {$F$};
                 \node  (25) at (1.5, -0.75) {\raisebox{2mm}{...}};
-                \node  [morphism] (26) at (2, -0.75) {$H$};
+                \node  [morphism] (26) at (2, -0.75) {$F$};
                 \draw [bend left=15] (24.north) to (14);
                 \draw (24.south) to (1,-1.25);
                 \draw [bend right=15] (14) to (8.south);
