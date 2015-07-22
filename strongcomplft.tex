@@ -1,17 +1,23 @@
 \section{The Fourier Transform in oPT's}
 \label{sec:strcomplFT}
 
-Ongoing work in quantum algorithms emphasizes the need for a structural understanding of quantum speedups~\cite{aaronson2014need}. In this section we focus on the quantum Fourier transform and the structure in quantum theory that enables it. We elucidate a general connection in any oPT between the Fourier Transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We proceed along the following outline:
+Ongoing work in quantum algorithms emphasizes the need for a structural understanding of quantum speedups~\cite{aaronson2014need}. In this section we focus on the quantum Fourier transform and the structure in quantum theory that enables it. We elucidate a general connection in any oPT between the Fourier Transform and strongly complementary observables, i.e. Hopf algebras in dagger symmetric monoidal categories. We emphasize that, while they coincidentally coincide for qubits and systems composed of qubits, the Fourier Transform of a general system is mathematically distinct from a Fourier matrix.  In particular, a Fourier matrix is a Fourier Transform equipped with the choice of an isomorphism that is, in general, non-canonical. These Fourier matrices then correspond to strongly complementary observables (with a choice of isomorphism) in the same way that complex Hadamard matrices correspond to complementary ones. The relationship between these concepts is illustrated in Figure~\ref{fig:FTtoHrelationship}. The section proceeds along the following outline:
 
-In Section \ref{sec:FT} give background for the traditional notion of the Fourier Transform that is relevant for our construction.  
+\begin{figure}
+\includegraphics[width=\linewidth]{images/ftschematic.eps}
+\caption[Schematic of the relationship between Fourier Transforms, Fourier matrices, Hadamard matrices, strongly complementary, and complementary observables.]{Schematic of the relationship between Fourier Transforms, Fourier matrices, Hadamard matrices, strongly complementary, and complementary observables.}
+\label{fig:FTtoHrelationship}
+\end{figure}
+
+In Section \ref{sec:FT} give background for the traditional notion of the Fourier Transform that is relevant for our construction.  We also emphasize the relationship between several different, but related concepts: the Fourier Transform, Fourier matrices, and (complex) Hadamard matrices.
 
 In Section \ref{sec:strcompl} we cover the definition of strong complementarity~\cite{coecke2011interacting}, which has been used in the foundations of quantum mechanics to study non-locality~\cite{coecke2012strong, gogioso2015mermin} (Chapter~\ref{chap:mermin}), quantum secret sharing~\cite{gogioso2015mermin, zamdzhiev2012abstract} (Section~\ref{section_QSS}), and blackbox quantum algorithms~\cite{vicary-tqa, zeng2014abstract, zeng2015models} (Section~\ref{sec:blackbox}). This allows a generalization beyond $\cat{FHilb}$ to strongly complementarity pairs of a quasi-Special $\dagger$-Frobenius Algebra ($\dagger$-qSFA or $\dagger$-qSCFA if commutative) and a $\dagger$-SCFA. We use this generalization to embed finite groups in arbitrary dagger symmetric monoidal categories.
 
 In Section \ref{section_AbelianGroups_FourierTransform} the usual Fourier Transform concepts from Section \ref{sec:FT} are lifted to general symmetric monoidal categories. We construct the accompanying general definitions for multiplicative characters and the abelian Fourier Transform in this setting.  These results allow us to provide categorical versions, with abstract proofs, of the Fourier inversion theorem, the convolution theorem, and Pontryagin duality that are all based on a strongly complementary pair of observables.
 
-In Section \ref{section_RelFT}, we study $\RelCategory$ as an example setting for our categorical Fourier Transform. This example is of particular interest as it often acts as a toy model for quantum theory~\cite{evans2009classifying, cqm-notes, pavlovic2009quantum, zeng2015models}.  We find that while a generalized Hadamard transform is not suitably defined, a Fourier Transform can be.
+In Section \ref{section_RelFT}, we study $\RelCategory$ as an example setting for our categorical Fourier Transform. This example is of particular interest as it often acts as a toy model for quantum theory~\cite{evans2009classifying, cqm-notes, pavlovic2009quantum, zeng2015models}.  We find that while a generalized Fourier matrix is not suitably defined, a Fourier Transform can be.
 
-In Section \ref{section_NonAbelianFourierTransform} we review extensions of these results to the non-abelian case, with accompanying Fourier transform. Then, in Section~\ref{sec:measrep}, we summarize how these results relate to measurements in the ``representation basis."
+In Section \ref{section_NonAbelianFourierTransform} we review extensions of these results to the non-abelian case, with accompanying Fourier Transform. Then, in Section~\ref{sec:measrep}, we summarize how these results relate to measurements in the ``representation basis."
 
 These results both move Fourier theory into a new mathematical setting and capture the structural connection between quantum theory and the Fourier Transform.  Though this connection has been much exploited in quantum algorithms, this work is the first abstract presentation that shows its place in the structure of quantum theory, i.e. alongside strongly complementary observables.
 \subsection{The Fourier Transform}
@@ -21,7 +27,7 @@ We begin with a quick review of Pontryagin duality and the Fourier Transform as 
 \begin{enumerate}
   \item[1.] In mathematics, the Fourier Transform is understood through Pontryagin duality.
   \item[2.] In physics and signal processing, the Fourier Transform is understood as a transformation of fields/signals from time/space domain to energy\footnote{Or frequency.}/momentum domain.
-  \item[3.] In quantum computing, we have Fourier matrices, Hadamard matrices, and Hadamard transforms.
+  \item[3.] In quantum computing, we have Fourier matrices and (complex) Hadamard matrices that correspond to unitary quantum processes.
 \end{enumerate}
 
 This section is ultimately concerned with the first notion, where the Fourier Transform is defined on locally compact groups. Still, the other notions are relevant, as our work situates this abstract definition in the context of oPTs, a structure inherited from quantum information. 
@@ -131,7 +137,7 @@ and it is called a \textbf{Fourier matrix} in the context of quantum computing.
 
 Fourier matrices correspond to a Fourier Transform along with a choice of the isomorphism. Thus the Fourier matrices, exactly like the definition of the Discrete Fourier Transform above, are non-canonical, and depend on an implicit choice of isomorphism $\Psi$. This contrasts with the Fourier Transform, which is itself canonical.
 
-Fourier matrices are a subclass of more general \textbf{complex Hadamard matrices}: orthogonal matrices whose entries are unimodular. (Non-complex) \textbf{Hadamard matrices} are orthogonal matrices with entries $\pm1$. Having defined these four different terms (the Fourier Transform, Fourier matrices, Hadamard matrices, and complex Hadamard matrices) we will clarify a few ways that they appear in quantum computation.
+Fourier matrices are a subclass of more general \textbf{complex Hadamard matrices}: orthogonal matrices whose complex entries are unimodular. (Non-complex) \textbf{Hadamard matrices} are orthogonal matrices with entries $\pm1$. Having defined these four different terms (the Fourier Transform, Fourier matrices, Hadamard matrices, and complex Hadamard matrices, see Figure~\ref{fig:FTtoHrelationship}) we will clarify a few ways that they appear in quantum computation.
 
 There is a particularly interesting reason the lack of canonicity of Fourier matrices is not usually an issue in quantum computing. Most of the algorithms are traditionally formulated for qubits, and the state-space for a $D$-qubit system is isomorphic to $\Ltwo{G}$ for $G = \prod_{j=1}^D \integersMod{2}$. The group $\integersMod{2}$ has a unique automorphism (the identity), and thus a unique isomorphism $\integersMod{2} \rightarrow \integersMod{2}^\wedge$, which results in the familiar matrix
 \begin{equation}
@@ -140,7 +146,7 @@ There is a particularly interesting reason the lack of canonicity of Fourier mat
 1 & -1 \\
 \end{pmatrix},
 \end{equation}
-which is both the only Fourier matrix on a two dimensional system and, coincidentally, a Hadamard matrix. This coincidence extends to products of qubits through the unique isomorphism $\Psi : G \rightarrow G^\wedge$, namely the one arising from \eqref{eqn:FTDefCharacters}. Thus, the Fourier transform over products of $\mathbb{Z}_2$ happens to have a unique Fourier matrix, which also happens to be a Hadamard matrix given by products of~\ref{hmat}.  We stress that for general groups, i.e. for combinations of quantum systems where some have dimensions larger than two, the Fourier Transform in terms of Pontryagin duality does not fix a unique Fourier matrix and, further, not all complex Hadamard matrices correspond to a Fourier matrix. We'll return to these ideas in Section~\ref{sec:measrep}, but until then we use Fourier Transform to refer explicitly to the canonical one defined in terms of Pontryagin duality.
+which is both the only Fourier matrix on a two dimensional system and, coincidentally, a Hadamard matrix. This coincidence extends to products of qubits through the unique isomorphism $\Psi : G \rightarrow G^\wedge$, namely the one arising from \eqref{eqn:FTDefCharacters}. Thus, the Fourier transform over products of $\mathbb{Z}_2$ happens to have a unique Fourier matrix, which also happens to be a Hadamard matrix given by products of~\eqref{hmat}.  We stress that for general groups, i.e. for combinations of quantum systems where some have dimensions larger than two, the Fourier Transform in terms of Pontryagin duality does not fix a unique Fourier matrix and, further, not all complex Hadamard matrices correspond to a Fourier matrix. We'll return to these ideas in Section~\ref{sec:measrep}, but until then we use Fourier Transform to refer explicitly to the canonical one defined in terms of Pontryagin duality.
 
 There are a number of existing generalizations in the literature of the Fourier Transform presented here that we make contact with to varying degrees. 
 \begin{enumerate}
@@ -156,7 +162,7 @@ e.g.~\cite{cartier2007primer,street2007quantum}.
 \subsection{Strong Complementarity}
 \label{sec:strcompl}
 
-In Definition \ref{def:classicalstruct}, we introduced classical structures as special and symmetric (a.k.a. commutative) Frobenius algebras.  In this section on the Fourier Transform we operate with the slightly weaker notion of a quasi-special commutative Frobenius algebras. This is for convenience and allows us to lump scalars together rather than having to keep track of them at every step.
+We will eventually show that the Fourier Transform is related to a special type of complementarity called strong complementarity between classical structures. In this section we introduce this strongly complementary notion. Definition \ref{def:classicalstruct} introduced classical structures as special and symmetric (a.k.a. commutative) Frobenius algebras.  Here we operate with the slightly weaker notion of a quasi-special commutative Frobenius algebras. This is for convenience and allows us to lump scalars together rather than having to keep track of them at every step.
 
 \begin{defn}\label{def:QuasiSpecial}
 A \textbf{quasi-special} $\dagger$-Frobenius algebra 
@@ -200,7 +206,7 @@ Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in 
 \end{equation}
 \end{defn}
 
-We re-epmhasize that while $\dagger$-qSCFA correspond to bases in $\cat{FHilb}$ by Theorem~\ref{thm:cstructBases}, the general notion of a (orthogonal) basis is somewhat different.
+We re-emphasize that while $\dagger$-qSCFA correspond to bases in $\cat{FHilb}$ by Theorem~\ref{thm:cstructBases}, the general notion of a (orthogonal) basis is somewhat different.
 
 \begin{defn}\label{def:basis}
 A finite family of states $\ket{x}_{x\in X}: I \rightarrow \SpaceH$ is a \textbf{(orthogonal) basis} (for~$\SpaceH$) if it satisfies the following conditions:
@@ -223,7 +229,7 @@ A pair of $\dagger$-qSFAs \whitecomonoid{A} and \blackcomonoid{A}, henceforth wr
 \end{defn}
 \noindent Though this definition is usually given for classical structures, we generalise to $\dagger$-qSFAs to include non-commutative algebras and, hence, our later construction of a generalized non-abelian Fourier Transform.
 
-It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}.
+It is easy to see that the name is an apt one, i.e. that strongly complementarity classical structures are also complementary in the sense of Definition \ref{def:complementarity}:
 \begin{equation}
 \input{tikz/3_SCIsC.tikz}
 \end{equation}
@@ -530,7 +536,7 @@ In $\fdHilbCategory$ (with abelian internal groups),~\eqref{eqn:PontDualityCanon
 
 \begin{defn}
 \label{def:CategoricalFmat}
-Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. A \textbf{Fourier~matrix} is defined to be a co-monoid isomorphism $h:(\,\tinycomult[blackdot],\tinycounit[blackdot]) \rightarrow (\,\ZcomultSym,\ZcounitSym)$ which is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\tinymult[blackdot],\tinyunit[blackdot])$. We write it as:
+Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a $\dagger$-SMC $\CategoryC$. A \textbf{Fourier~matrix} is defined to be a co-monoid isomorphism $F:(\,\tinycomult[blackdot],\tinycounit[blackdot]) \rightarrow (\,\ZcomultSym,\ZcounitSym)$ which is furthermore a monoid isomorphism $F:(\,\timemultSym,\timeunitSym) \rightarrow (\,\tinymult[blackdot],\tinyunit[blackdot])$. We write it as:
 \begin{equation}
 \begin{pic}
 \node [morphism] (h) at (0,0) {$F$};
@@ -542,20 +548,20 @@ Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a $\dag
 \end{defn}
 Definition \ref{def:CategoricalFmat} may look cryptic at first, but it is in fact quite natural as we clarify in the following remark.
 \begin{remark}\label{rmrk_CategoricalFmat}
-A co-monoid isomorphism $h:(\XcomultSym,\XcounitSym) \rightarrow (\,\ZcomultSym,\ZcounitSym)$ is an isomorphism $h: \SpaceG \rightarrow \SpaceG$ which satisfies:
+A co-monoid isomorphism $F:(\XcomultSym,\XcounitSym) \rightarrow (\,\ZcomultSym,\ZcounitSym)$ is an isomorphism $F: \SpaceG \rightarrow \SpaceG$ which satisfies:
 \begin{align}
-    \ZcomultSym \cdot h &= \left( h \tensor h \right) \cdot \tinycomult[blackdot] \\
-    \ZcounitSym \cdot h &= \tinycounit[blackdot]
+    \ZcomultSym \cdot F &= \left( F \tensor F \right) \cdot \tinycomult[blackdot] \\
+    \ZcounitSym \cdot F &= \tinycounit[blackdot]
 \end{align}
-and in particular it maps $\XdotSym$-classical states to $\ZdotSym$-classical states (since it is an isomorphism, it is a bijection between the classical states of the two comonoids). The requirement that $h$ is furthermore a monoid isomorphism $h:(\,\timemultSym,\timeunitSym) \rightarrow (\,\XmultSym,\XunitSym)$ amounts to the requirement that:
+and in particular it maps $\XdotSym$-classical states to $\ZdotSym$-classical states (since it is an isomorphism, it is a bijection between the classical states of the two comonoids). The requirement that $F$ is furthermore a monoid isomorphism $F:(\,\timemultSym,\timeunitSym) \rightarrow (\,\XmultSym,\XunitSym)$ amounts to the requirement that:
 \begin{align}
-    h \cdot \ZmultSym &= \XmultSym \cdot \left( h \tensor h \right)\\
-    h \cdot \ZunitSym &= \XunitSym
+    F \cdot \ZmultSym &= \XmultSym \cdot \left( F \tensor F \right)\\
+    F \cdot \ZunitSym &= \XunitSym
 \end{align}
-and in particular, as a bijection of classical states, $h$ is a group isomorphism from the group given by $(\ZmultSym,\ZunitSym)$ acting on $\ZdotSym$-classical states to the group given by $(\XmultSym,\XunitSym)$ acting on $\ZdotSym$-classical states.
+and in particular, as a bijection of classical states, $F$ is a group isomorphism from the group given by $(\ZmultSym,\ZunitSym)$ acting on $\ZdotSym$-classical states to the group given by $(\XmultSym,\XunitSym)$ acting on $\ZdotSym$-classical states.
 \end{remark}
 
-In $\fdHilbCategory$ (with abelian internal groups), Definition \ref{def:CategoricalFmat} yields the usual Fourier matrices. Indeed $h$ corresponds to an isomorphism $\Psi: G \rightarrow G^\wedge$ (by considering its action on classical states): the linear isomorphism $h$ is itself the Discrete Fourier Transform of Equation \ref{eqn:FTDefDFT} (where $\SpaceG$ is identified with $\Ltwo{G}$ and $\Ltwo{G^\wedge}$ using $\XdotSym$ and $\ZdotSym$ respectively), and the matrix of $h$ in the basis defined by $\XdotSym$ is the Fourier matrix of Equation \ref{eqn:HadamardMatrixDef}.
+In $\fdHilbCategory$ (with abelian internal groups), Definition \ref{def:CategoricalFmat} yields the usual Fourier matrices. Indeed $F$ corresponds to an isomorphism $\Psi: G \rightarrow G^\wedge$ (by considering its action on classical states): the linear isomorphism $F$ is itself the Discrete Fourier Transform of Equation \ref{eqn:FTDefDFT} (where $\SpaceG$ is identified with $\Ltwo{G}$ and $\Ltwo{G^\wedge}$ using $\XdotSym$ and $\ZdotSym$ respectively), and the matrix of $F$ in the basis defined by $\XdotSym$ is the Fourier matrix of Equation \ref{eqn:HadamardMatrixDef}.
 
 \subsection{The Fourier transform in the Category $\fRelCategory$}
 \label{section_RelFT}
@@ -624,11 +630,11 @@ The classical states of $\XdotSym$ are the 3 subsets $(\integersMod{2},g)$ for $
 Let $\mathbb{G} = (\,A,\ZdotSym,\XdotSym)$ be an abelian internal group in $\cat{FRel}$. Fourier matrices for $\mathbb{G}$ exist if and only if the two groups $G$ and $H$ are isomorphic.
 \end{corollary}
 \begin{proof}
-By Remark \ref{rmrk_CategoricalHadamard}, a Fourier matrix gives a group isomorphism between the groups given by the action of the two monoid fragments on each other's classical points: in this case, the existence of a Fourier matrix forces $G$ and $H$ to be isomorphic. On the other hand, if $\Psi: G \rightarrow H$ is a group isomorphism, one could define a map $M_\Psi: A \rightarrow A$ as follows:
+By Remark \ref{rmrk_CategoricalFmat}, a Fourier matrix gives a group isomorphism between the groups given by the action of the two monoid fragments on each other's classical points: in this case, the existence of a Fourier matrix forces $G$ and $H$ to be isomorphic. On the other hand, if $\Psi: G \rightarrow H$ is a group isomorphism, one could define a map $M_\Psi: A \rightarrow A$ as follows:
 \begin{equation}
 M_\Psi := \bigcup_{g \in G} \ket{G_{\Psi(g)}}\bra{H_g}  
 \end{equation}
-This satisfies the monoid and comonoid homomorphism requirements from Definition~\ref{def:CategoricalFmat}, but is not an isomorphism in $\fRelCategory$. To get an isomorphism, and prove the existence of a relevant Hadamard transform in $\fRelCategory$, we consider a new map $t: A \rightarrow A$, which we give in the form of a relation $t \subseteq A \times A$:
+This satisfies the monoid and comonoid homomorphism requirements from Definition~\ref{def:CategoricalFmat}, but is not an isomorphism in $\fRelCategory$. To get an isomorphism, and prove the existence of a relevant Fourier matrix in $\fRelCategory$, we consider a new map $t: A \rightarrow A$, which we give in the form of a relation $t \subseteq A \times A$:
 \begin{equation}
 t := \suchthat{\left((h,g),(\Psi g,\Psi^{-1}h)\right)}{h \in H \text{ and } g \in G}
 \end{equation}
@@ -681,7 +687,7 @@ To summarise, in $\fdHilbCategory$ we have the following views of the Fourier Tr
 \begin{enumerate}
 \item[1.] As Quantum Fourier Transform, implemented by application of a Fourier matrix (subject to a non-canonical choice of isomorphism $G \isom G^\wedge$) followed by operations in the computational basis.
 \item[2.] In the sense of Pontryagin duality, as a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$.
-\item[3.] Again as quantum Fourier Transform, but implemented for copies of qubits as Hadamard transforms.
+\item[3.] Again as quantum Fourier Transform, but implemented by measuring in a basis that is strongly complementary to the computational basis.
 \end{enumerate}
 
 In $\cat{FRel}$, on the other hand, things are very different:
@@ -771,7 +777,7 @@ This perspective is then extended to a provide a categorical version of the Gelf
 
 \subsection{Measurements and Representation Theory}
 \label{sec:measrep}
-We have seen that the representations of an abelian internal group form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. Indeed, even in the non-abelian case, representations of larger than one dimension will also be orthogonal and form a resolution of the identity~\cite{gogioso2015fourier}. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. By the oPT Born rule (Definition~\ref{def:bornrule}) we now have a full and abstract grasp on what it means to measure in the ``representation basis", i.e. composing with a representations effect is a post-selected measurement of that outcome in the ``representation basis." We clarify the results in this section that will appear in our characterization of quantum algorithms with Figure~\ref{fig:ft}. The generalized Fourier matrix will play a particularly important role as a non-canonical isomorphism is usually assumed in the output of what is usually described as a quantum ``Fourier transform." Thus the quantum Fourier Transform algorithm, when implemented in an oPT, acts like a Fourier matrix transform (Figure~\ref{fig:ft}).
+We have seen that the representations of an abelian internal group can form a basis, and, in particular, that they are the dagger of classical states of one half of a strongly complementary pair of classical structures \scpair. Indeed, even in the non-abelian case, representations of larger than one dimension will also be orthogonal and form a resolution of the identity~\cite{gogioso2015fourier}. If we consider the group elements as embedded in classical states of $\dotonly{whitedot}$ then the group's representations are effects for the $\dotonly{blackdot}$ classical structure. By the oPT Born rule (Definition~\ref{def:bornrule}) we now have a full and abstract grasp on what it means to measure in the ``representation basis" or ``Fourier basis", i.e. composing with a representation's effect acts as a post-selected measurement of that outcome in the ``representation basis." We clarify the results in this section that will appear in our characterization of quantum algorithms with Figure~\ref{fig:ft}. The generalized Fourier matrix will play a particularly important role in characterizing quantum-like algorithms in process theories.  Indeed the quantum Fourier Transform algorithm, when implemented in an oPT, acts like a Fourier matrix transform (Figure~\ref{fig:ft}).
 
 \newpage
 
