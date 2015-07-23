@@ -4,9 +4,9 @@
     \node (dot) [blackdot] at (0,1) {};
     \node (f) [morphism, wedge, width=8pt, anchor=south, thick, node on layer=foreground] at (0.7,2) {$f$};
     \node (m) [whitedot] at ([xshift=0.7cm, yshift=1cm] f.north) {};
-    \node (ftl) [morphism] at ([yshift=1.5cm] m.center -| -0.7,1) {$\mathcal{F}$};
-    \node (ftb) [morphism] at (0,-0.25) {$\mathcal{F}$};
-    \node (ftr) [morphism] at (2.1,-0.25) {$\mathcal{F}$};    
+    \node (ftl) [morphism] at ([yshift=1.5cm] m.center -| -0.7,1) {$F$};
+    \node (ftb) [morphism] at (0,-0.25) {$F$};
+    \node (ftr) [morphism] at (2.1,-0.25) {$F$};    
     \node (dd) [altwhitedot] at ([yshift=2.5cm] m.center -| -0.7,1) {};
     \draw [use as bounding box, draw=none] (-2,-2) rectangle +(6,10);
 \draw (0,-1.5)
@@ -24,7 +24,8 @@
     to (ftr.north);
 \draw (ftr.south)    
     to (2.1,-1.5)
-        node [whitedot] (sigmadag) {$\pi$};
+        node [morphism, wedge, hflip, anchor=north] (sigmadag) {$\sigma$};
+\node at (1.2,-2) {$\frac{1}{\sqrt{2}}$};
 \draw (m.center) to (1.4,6.75)
         node [above] {$\{0,1\}$};
 \node at ([xshift=-14, yshift=38pt] f.center) {\small Oracle};        

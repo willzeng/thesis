@@ -2,12 +2,12 @@
 \label{sec:blackbox}
 The Fourier Transform is a powerful tool in most quantum algorithms for algebraic problems. Now that we have a structural handle on this tool, we use it to verify, generalize, and construct quantum algorithms.
 
-In this section we first consider the structure of unitary oracles and then review the Deutsch-Jozsa, Grover's single shot, and hidden subgroup algorithms as examples of the approach.  These three initial algorithms were analyzed by Vicary in~\cite{vicary-tqa}, though the structure of the underlying oracles was assumed there.  We then expand on this base to develop a new quantum algorithm for the GROUPHOMID problem. The analysis of this algorithm is presented in Section~\ref{sec:grouphomid}.
+In this section we first consider the structure of unitary oracles in general and then review the Deutsch-Jozsa, Grover's single shot, and hidden subgroup algorithms as examples of the approach.  These three initial algorithms were analyzed by Vicary in~\cite{vicary-tqa}, though the structure of the underlying oracles was assumed there.  We then expand on this base to develop a new quantum algorithm for the GROUPHOMID problem. The analysis of this new algorithm is presented in Section~\ref{sec:grouphomid}.
 
 \subsection{The abstract structure of unitary oracles}
 \label{sec:unitaryoracles}
 
-When we program an abstract problem into an oPT, we have a choice of embeddings, but typically assign classical information to the classical states. This was, for example, the case in our treatment of the Fourier Transform. Of course, we will also want to consider how to program functions between those classical states. An equivalent definition for classical states is that they are self-conjugate comonoid homomorphisms from the trivial comonoid on the identity object to the classical structure monoid on a system. Classical functions will be self-conjugate comonoid homomorphisms in general.
+When we program an abstract problem into an oPT, we have a choice of embeddings, but typically assign classical information to the classical states of some classical structure. This was, for example, the case in our treatment of the Fourier Transform. Of course, we will also want to consider how to program functions between those classical states. An equivalent definition for classical states is that they are self-conjugate comonoid homomorphisms from the trivial comonoid on the identity object to the classical structure monoid on a system. Classical functions will then be self-conjugate comonoid homomorphisms in general.
 
 \begin{defn}
 \label{def:selfconj}
@@ -112,6 +112,7 @@ This is the same result as for the left-hand side, and so Equation~\eqref{eq:com
 
 The oracle that we will build here is similar to the CNOT from Section~\ref{ex:cnot}. Recall that a pair of symmetric dagger-Frobenius algebras can be used to build a linear map in the following way:
 \begin{equation}
+\label{eq:composite}
 \begin{pic}
 \node [whitedot] at (0,0) {\tiny $\sqrt{\ud(A)}$};
 \end{pic}
@@ -126,7 +127,7 @@ The oracle that we will build here is similar to the CNOT from Section~\ref{ex:c
 \draw (w.center) to [out=right, in=up] (1.75,-1);
 \end{pic}
 \end{equation}
-Here we have assumed that we operate in a category where square roots of scalars exist.  In the rest of this section we will suppress drawing circles around scalars. The difference between scalars and labels of the diagram is clear from context. The two algebras are complementary exactly when this composite is unitary, as we show in the following theorem.
+Here we have assumed that we operate in a suitably enriched category where square roots of scalars exist.  In the rest of this section we will suppress drawing circles around scalars. The difference between scalars and labels of the diagram will be clear from context. The two classical structures are complementary exactly when the composite~\eqref{eq:composite} is unitary, as we show in the following theorem.
 
 \begin{theorem}[Complementarity via a unitary]
 \label{thm:complementarityunitary}
@@ -175,7 +176,7 @@ There is a similar argument that the other composite also gives the identity. \e
 Note that this construction works for pairs of observables that a complementary, but not necessarily strongly complementary.  Still, in the examples we consider, we will use strongly complementary $(\dotonly{graydot},\dotonly{whitedot})$ as we wish to embed an internal group onto them.
 
 \subsection{The Deutsch-Jozsa algorithm}
-In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see this formulation can be easily verified and generalized by the oPT approach.
+In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see, this formulation can be easily verified and generalized by the oPT approach.
 
 First we define the promise at the level of processes in an oPT.
 
@@ -293,7 +294,7 @@ Using the rules of oPT's we obtain:
 \node [anchor=east] at ([xshift=4pt] sigmadag.west) {$\scriptstyle \frac{1}{\sqrt{2}}$};
 \end{pic}
 \end{equation}
-If we now ignore the right hand system, we obtain:
+If we now ignore the right hand system, this becomes:
 \begin{equation}
 \begin{pic}
 \begin{pgfonlayer}{foreground}
@@ -312,10 +313,10 @@ If we now ignore the right hand system, we obtain:
 \end{equation}
 Thus, by the oPT Born rule (Definition~\ref{def:bornrule}), there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
 
-In a single proof, this method and its extension to arbitrary finite groups (c.f.~\cite{vicary-tqa}) captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
+In a single proof, this method and its extension to arbitrary finite internal groups (c.f.~\cite{vicary-tqa}) captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
 
 \subsection{The Grover's and hidden subgroup algorithms}
-Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The single-shot Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. When the target group is, for example, $\mathbb{Z}_3$, such that the elements are marked by indicator function in a $4:1:1$ ratio, a single query can be used to return one of the rarer elements with certainty. An interesting path for the future development of this work would be to extend this to a generalization of amplitude amplification. The author conjectures that in certain cases, where the input amplitudes follow a known ratio, a speedup over the usual amplitude amplification algorithm can be found.
+Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The single-shot Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. When the target group is, for example, $\mathbb{Z}_3$ the indicator function has three marking ``colors." Should the elements are marked by indicator function in a $4:1:1$ ratio, a single query can be used to return one of the rarer elements with certainty. An interesting path for the future development of this work would be to extend this to a generalization of amplitude amplification. We conjecture that in certain cases, where the input amplitudes follow a known ratio, a speedup over the usual amplitude amplification algorithm can be found.
 
 \begin{figure}[t]
 \input{tikz/3_algtriplet.tikz}
@@ -324,7 +325,7 @@ Through similar methods, the single-shot Grover's and hidden subgroup algorithms
 \end{figure}
 
 
-The function of the quantum part of hidden subgroup algorithm can also be demonstrated. That is, one can abstractly verify that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup~\cite{vicary-tqa}. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for $\dotonly{whitedot}$. This unit, via strong complementarity, is equivalent to uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
+The function of the quantum part of hidden subgroup algorithm can also be demonstrated using oPT techniques. That is, one can abstractly verify that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup~\cite{vicary-tqa}. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for the $\dotonly{whitedot}$-classical structure. This unit, via strong complementarity, is equivalent to a uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
 \begin{conjecture}
 The performance of the hidden subgroup algorithm can be improved by a particular chosen distribution of input representation in the second system.
 \end{conjecture}
@@ -341,20 +342,21 @@ Given finite groups $G$ and $A$ where $A$ is abelian, and a blackbox function $f
 \noindent
 We demonstrate a quantum algorithm that solves the group homomorphism identification problem with a number of queries equal to the number of simple factors of the abelian group $A$.
 
-For comparison, we can consider the obvious classical algorithm for this problem.
+For comparison, we follow~\cite{hoyer1999conjugated} where a bound on classical algorithms for this problem is constructed.
 \begin{lemma}
-Given finite groups $G$ and $A$, where $A$ is abelian and $G$ has a generating set of order $m$, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, a classical algorithm can determine $f$ with $m$ oracle queries.
+\label{lem:classicalbound}
+Given finite groups $G$ and $A$, where $A$ is abelian and $G$ has a generating set of order $m$, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, a classical algorithm can determine $f$ if and only if we have made $m$ oracle queries.
 \end{lemma}
 \begin{proof}
-Once we have evaluated $f$ classically on the generating set of $G$, we have fully characterized~$f$. 
+Once we have evaluated $f$ classically on the generating set of $G$, we have fully characterized~$f$. The other direction is~\cite[Lem. 9]{hoyer1999conjugated} where $G$ is abelian. This extends as the pre-image of some homomorphism $f:G\to A$ for abelian $A$ and non-abelian $G$ must be an abelian subgroup $X\subseteq G$ (or $f$ is trivial). We can then consider the GROUPHOMID problem for abelian groups and $f:X\to A$.
 \end{proof}
 
 \noindent
-We are unable to prove optimality in either the quantum or classical case. However, we note that the query complexities of these quantum and classical algorithms depend of different and unrelated parameters of the problem. Instances where the order of the generating set of $G$ is larger than the number of factors in the target group $A$ will demonstrate a quantum advantage. 
+Note that the query complexities of these quantum and classical algorithms depend of different and unrelated parameters of the problem. Instances where the order of the generating set of $G$ is larger than the number of factors in the target group $A$ give a quantum advantage. 
 
 In  the simpler case where $G$ is an abelian group this quantum algorithm was previously described by H\o yer \cite{hoyer1999conjugated}, though his algebraic presentation differs significantly from ours. H\o yer also notes that the algorithm by Bernstein and Vazirani in~\cite{bernstein1993quantum} is an instance of the abelian group identification problem where $G=\mathbb{Z}_n^n$ and $A=\mathbb{Z}_2$. Independently, Cleve et. al.~\cite{cleve1998quantum} also presented an algorithm for the abelian case where $G=\mathbb{Z}_2^n$ and $A=\mathbb{Z}_2^m$.
 
-%Our results give a new approach to the solution of the group homomorphism identification problem that both extends the existing results to the case where $G$ is non-abelian, and clearly connects the structure of our algorithm to that of other black-box quantum algorithms, such as the Deutsch-Jozsa and hidden subgroup algorithms.
+Our results give a new approach to the solution of the group homomorphism identification problem that both extends the existing results to the case where $G$ is non-abelian, and clearly connects the structure of our algorithm to that of other black-box quantum algorithms, such as the Deutsch-Jozsa and hidden subgroup algorithms.\footnote{ This connection at the oPT level motivated our construction and we discovered H\o yer's work afterwards.}
 
 We will proceed using the abstract structure defined earlier, but will now work in the dagger-symmetric monoidal category \cat{FHilb}. Recall that any choice of orthonormal basis for  an object $A$ in \cat{FHilb} endows it with a dagger-Frobenius algebra $(A,\tinymult[blackdot],\tinyunit[blackdot])$, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as~$(A, \tinymult[whitedot], \tinyunit[whitedot])$. These two Frobenius algebras are complementary.
 
@@ -460,7 +462,7 @@ f(n_0,n_1,...n_{n-1}) = \left(f_0(n_0), f_1(n_1),..., f_{n-1}(n_{n-1})\right)
 we know that each isomorphic class contains only one representation}
 
 \subsubsection*{Optimality}
-In this subsection we investigate the information theoretic bounds solutions to the GROUPHOMID algorithm.  While we are able to construct bounds on both the number of quantum and the number of classical queries required, these bounds turn out to be overtly weak lower bounds, that, in particular, do not show an asymptotic separation between quantum and classical.  Still, it is hoped that future work can build on these techniques to construct better bounds. 
+In this subsection we investigate the information theoretic bounds solutions to the GROUPHOMID algorithm.\footnote{The author would like to thank Ronald de Wolf for suggesting this analysis.}  While we are able to construct bounds on both the number of quantum and the number of classical queries required, these bounds turn out to be overtly weak lower bounds, that, in particular, do not show an asymptotic separation between quantum and classical.  Recall, though, that the result of Lemma~\ref{lem:classicalbound} does give a separation for our algorithm. Still, it is hoped that future work can build on these techniques to construct better bounds to analyze the optimality of our quantum algorithm.
 
 We begin with a few useful group theoretic lemmas. Recall that the homset $\cat{Grp}(G,A)$ denotes the set of all homomorphisms between groups $G$ and $A$.
 
@@ -501,14 +503,16 @@ This lemma allows us to consider several specific cases:
 \item Case $G=A\times A'$. Then $A^f\subseteq G^f \Rightarrow |\cat{Grp}(G,A)| = |A| \le |G|$.
 \item Case $A=G\times G'$. Then $G^f\subseteq A^f \Rightarrow |\cat{Grp}(G,A)| = |G| \le |A|$.
 \end{enumerate}
-\noindent We can attempt to use these cases to analyze the information theoretic lower bounds on classical and quantum queries for this algorithm.  In such a lower bound is given by a ratio of the total information ($\log|\cat{Grp}(G,A)|$) and the maximum information that can be obtained per query.  In the classical case we have access to $|G|$ bits, which gives a maximum bound on the information per query of $\log|G|$. In the quantum case, we have qubits for both the source and target groups, so the maximum information per query is $\log|G|+\log|A|$. We can now consider the lower bounds that emerge for each of the cases given above, where we write $\#CQ$ for the number of classical queries and $\#QQ$ for the number of quantum queries. These will turn out not to be particularly enlightening lower bounds.
+\noindent We can attempt to use these cases to analyze the information theoretic lower bounds on classical and quantum queries for this algorithm.  Such a lower bound is given by a ratio of the total information ($\log|\cat{Grp}(G,A)|$) and the maximum information that can be obtained per query.  In the classical case we have access to $\log|G|$ bits, which gives a maximum bound on the information per query of $\log|G|$. In the quantum case, we have qubits for both the source and target groups, so the maximum information per query is $\log|G|+\log|A|$. We can now consider the lower bounds that emerge for each of the cases given above, where we write $\#CQ$ for the number of classical queries and $\#QQ$ for the number of quantum queries. These will, unfortunately, turn out not to be particularly enlightening lower bounds.
 \begin{enumerate}
 \item Case $G=A=\Lambda$. Thus $\#CQ\ge\log|G|/\log|G|=1$ and $\#QQ\ge\log|G|/(2\log|G|)=1/2$.
 \item Case $G=A\times A'$. Thus $\#CQ\ge\log|A|/\log|G|\le1$, as $A$ is smaller than $G$. Further $\#QQ\ge\log|A|/(\log|G|+\log|A|)\le1.$
 \item Case $A=G\times G'$. Thus $\#CQ\ge\log|G|/\log|G|=1$ and $\#QQ\ge\log|G|/(\log|G|+\log|A|)\le1.$
 \end{enumerate}
 
-To conclude, it seems that despite the encouraging fact that the queries complexities of the classical and quantum algorithms depending on seemingly independent variables, the structure of the promise space of group homomorphisms limits our ability to say something meaningful about the optimal quantum and classical query separation.
+To conclude, it seems that despite the encouraging fact that the queries complexities of the classical and quantum algorithms depending on seemingly independent variables, the structure of the promise space of group homomorphisms limits our ability to say something meaningful about the optimal quantum queries required. 
+
+Let $G$ have $m$ generators and $A$ have $n$ simple factors. Our best separation is then to use Lemma~\ref{lem:classicalbound} and our algorithm to conclude that the classical query complexity is $\Theta(m)$ and the quantum query complexity is $\mathcal{O}(n)$.
 
 \subsubsection*{Extension to the non-abelian case}
 We now consider the more general case where the target group $A$ is non-abelian. We do not know how to extend the algorithm described above to this case.  Nevertheless, it is instructive to analyze this scenario in our graphical approach. 
