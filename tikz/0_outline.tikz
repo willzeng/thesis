@@ -5,7 +5,7 @@
 \draw[->, line width=2pt] (qinf) to (qc);
 
 
-\node (abs) [draw, align=left, inner sep = -30pt] at (0,3.5) {\\[3em]Generalized Compositional Theories \\ \small \hspace{20pt}$\dagger$-SMC \\ \small \hspace{30pt}$\dagger$-compact categories \\[2.4em]};
+\node (abs) [draw, align=left, inner sep = -30pt] at (0,3.5) {\\[3em]Process Theories~~~~~~~~ \\ \small \hspace{20pt}$\dagger$-SMC \\ \small \hspace{30pt}$\dagger$-compact categories \\[2.4em]};
 \node at (3.2,3.3) {\small represented by};
 \node at (0.8,1.5) {\small generalize to};
 \node (cd) [draw, align=left, inner sep = 10pt] at (6.2,3.5) {Categorical Diagrams};
