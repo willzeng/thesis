@@ -1,9 +1,9 @@
 \chapter{Categories and Diagrams}
 \label{chap:cats}
-\chapabstract{This chapter introduces the basic background material for generalized compositional theories.  We introduce the relevant categorical definitions and show how symmetric monoidal categories can be interpreted as process theories, using quantum circuits as a motivating example.  We then review several other examples of process theories from the literature.}
+\chapabstract{This chapter introduces basic background material.  We introduce the relevant categorical definitions and show how symmetric monoidal categories can be interpreted as process theories, using quantum circuits as a motivating example.  We then review several other examples of process theories from the literature.}
 
 \section{Monoidal categories}
-Monoidal categories (sometimes called tensor categories) provide an abstract structure for processes that are equipped with both sequential and parallel composition. One might be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in cases like, for example, quantum theory.  We call a process $f:A\to B$ is a \textbf{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \textbf{objects} and we sometimes say that $f$ is a morphism \textbf{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \textbf{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \textbf{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We sometimes leave the objects of morphisms implicit when they can be inferred from context.
+Monoidal categories (sometimes called tensor categories) provide an abstract structure for processes that are equipped with both sequential and parallel composition. One might be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in cases like, for example, quantum theory.  We call a process $f:A\to B$ a \textbf{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \textbf{objects} and we sometimes say that $f$ is a morphism \textbf{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \textbf{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \textbf{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We sometimes leave the objects of morphisms implicit when they can be inferred from context.
 
 \begin{defn}
 A \textbf{category} \cat{C} is a set of objects $\objs{C}$ and a set of morphisms $\arrs{C}$ between them, such that for all $A,C,B,D\in \objs{C}$ and all $f:A\to B$, $g:B\to C$, and $h:C\to D$ in $\arrs{C}$:
@@ -20,14 +20,14 @@ h\circ(g\circ f) = (h\circ g)\circ f
 \end{itemize}
 \end{defn}
 
-A category can thus be thought of as encoding processes where sequences can be associatively composed  and where we always have access to a ``do-nothing`` process, which is the identity morphism. Note that the objects of a category are somewhat superfluous, as they are in one-to-one correspondence with the identity morphisms. Due to this we refer interchangeably to an object and its identity morphism. It is because categories are focused on morphisms that we seem them as encoding a process theory.
+A category can thus be thought of as encoding processes where sequences can be associatively composed  and where we always have access to a ``do-nothing`` process, which is the identity morphism. Note that the objects of a category are somewhat superfluous, as they are in one-to-one correspondence with the identity morphisms. Due to this correspondence, we refer interchangeably to an object and its identity morphism. It is because categories are focused on morphisms that we see them as encoding a process theory.
 
 Morphisms and their compositions can be represented in string diagrams:
 \begin{equation}
 \label{eq:composition}
 \input{tikz/1_compositionGraphical.tikz}
 \end{equation}
-\noindent Here, vertical connectivity--read from bottom to top--represents the flow of morphism composition.
+\noindent Here, vertical connectivity (read from bottom to top) represents the flow of morphism composition.
 
 \begin{defn}
 A (strict)\footnote{Throughout this thesis we take monoidal categories to be strict, i.e. whose associators and unitors are identities.  In fact, every monoidal category is monoidally equivalent to a strict monoidal one \cite{joyal1993braided}.} \textbf{monoidal category} is a category $\cat{C}$ equipped with a \textbf{categorical tensor} $(-\otimes-):\cat{C}\times\cat{C}\to\cat{C}$ and a \textbf{unit object} $I\in\objs{C}$ that obey:
@@ -45,7 +45,7 @@ Tensor composition is represented by horizontal adjoins and the identity object 
 \input{tikz/1_tensorGraphical.tikz}
 \end{equation}
 
-To interpret this, we consider the objects $A,B$ as \textbf{systems}, so that morphisms $f:A\to B$ are processes from one system to another. Thus $A\otimes C$ is thought of as a composite system with composite morphisms that act independently on its parts. We can also define states of systems.
+To interpret this, we consider the objects $A,B$ as \textbf{systems}, so that morphisms $f:A\to B$ are processes from one system to another. Thus $A\otimes C$ is thought of as a composite system with composite morphism $f \tensor g$ that acts independently on its parts. We can also define states of systems.
 
 \begin{defn}
 \label{defn:state}
@@ -56,7 +56,7 @@ A \textbf{state} of $A\in\objs{C}$ is a morphism $\ket{\psi}:I\to A$ drawn as
 \end{equation}
 \end{defn}
 
-\noindent The state morphism can be thought of as a preparation process to create that state. The tensor product of two states, $\ket{\psi}\otimes\ket{\phi}$, corresponds to the usual notion of product state from quantum theory (Example \ref{ex:bellduals}).
+\noindent The state morphism can be thought of as a preparation process to create that state: it is a process that starts with nothing and has output of type system. The tensor product of two states, $\ket{\psi}\otimes\ket{\phi}$, corresponds to the usual notion of product state from quantum theory (Example \ref{ex:bellduals}).
 
 \section{Symmetric monoidal categories}
 
@@ -90,11 +90,11 @@ The following are some explicit examples of SMC's:
 
 \item \cat{Set} and \cat{FSet}, the category where objects are (finite) sets; morphisms are functions; the categorical tensor is the cartesian product; the identity object is the singleton set, i.e. $I=\{\bullet\}$.
 
-\item Given a finite group $G$, its representations form an SMC \cat{Rep(G)}, where objects are finite dimensional representations of $G$; morphisms are intertwiners for the group action; the categorical tensor is the tensor product of representations; the identity object is the trivial action of $G$ on the 1-dimensional vector space.
+\item Given a finite group $G$, its representations form an SMC \cat{Rep(G)}, where objects are finite dimensional representations of $G$; morphisms are intertwiners\footnote{Linear maps that commute with the action of $G$.} for the group action; the categorical tensor is the tensor product of representations; the identity object is the trivial action of $G$ on the 1-dimensional vector space.
 \end{itemize}
 \end{examples}
 
-Some of these examples have natural process theoretic interpretations, such as $\cat{Rel}$ as a setting for nondeterministic classical processes. We'll elaborate on these interpretations in Section~\ref{sec:PTs}.
+Some of these examples have natural process theoretic interpretations, such as $\cat{Rel}$ as a setting for nondeterministic classical processes and \cat{FHilb} for quantum computation. We'll elaborate on these interpretations in Section~\ref{sec:PTs}.
 
 It is important to note that the graphical notation we have introduced to describe morphisms in SMCs is not merely a notational convenience. We can reduce all the structural rules for SMCs down to simple diagrammatic equivalence, as the following theorem shows.
 
@@ -102,7 +102,7 @@ It is important to note that the graphical notation we have introduced to descri
 A well-formed equation between morphisms in a symmetric monoidal category follows from the axioms if and only if it holds in the graphical language up to isomorphism of diagrams.
 \end{theorem}
 
-\noindent This emphasizes the power of the diagrammatic presentation.  Rather than needing to check the many different rewrite rules, we need only check that the diagrams are isomorphic.  This will become especially important as we introduce more structure in Chapter~\ref{chap:cqm}.
+\noindent This emphasizes the power of the diagrammatic presentation.  Rather than needing to check the many different rewrite rules that form the diagrammatic axioms, we need only check that the diagrams are isomorphic.  This will become especially important as we introduce more structure in Chapter~\ref{chap:cqm}.
 
 \subsection{Symmetric monoidal categories \&\ quantum circuits}
 \label{sec:smcqc}
@@ -112,19 +112,19 @@ A well-formed equation between morphisms in a symmetric monoidal category follow
 \label{fig:QCDSMC}
 \end{figure}
 
-This thesis applies the graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure~\ref{fig:QCDSMC} for a concrete example. Note that state preparation is included as a part of the categorical diagram while it is extra labeling in the quantum circuit. In $\cat{FHilb}$ we have $I=\mathbb{C}$, and so the states, by Definition \ref{defn:state}, of some Hilbert space $\Hsp$ are exactly maps $\ket{\psi}:\mathbb{C}\to\Hsp$. These are recognized as the usual quantum state vectors $\ket{\psi}\in\Hsp$. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering the SMC scaffolding of quantum circuits, we are able to improve it, introducing techniques to reason graphically about more advanced structures and that better capture the salient features of these processes. We cover these new features in Chapter \ref{chap:cqm}.
+This thesis applies the structure and graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this purpose, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure~\ref{fig:QCDSMC} for a concrete example. Note that state preparation is included as a part of the categorical diagram while it is external labeling in the quantum circuit. In $\cat{FHilb}$ we have $I=\mathbb{C}$, and so the states, by Definition \ref{defn:state}, of some Hilbert space $\Hsp$ are exactly maps $\ket{\psi}:\mathbb{C}\to\Hsp$. These are recognized as the usual quantum state vectors $\ket{\psi}\in\Hsp$. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering the SMC scaffolding of quantum circuits, we can to improve it, introducing techniques to reason graphically about more advanced structures and better capture salient features of these processes. We cover these new features in Chapter \ref{chap:cqm}.
 
 \subsection{Other Categorical Definitions}
 
 We make use of several other standard categorical concepts, whose definitions are reproduced here.
 
 \begin{defn}
-Given a category $\cat{C}$ and $A,B\in\objs{C}$, the \textbf{homset} Hom$(A,B)$ is the set of morphisms in the category $f:A\to B$.
+Given a category $\cat{C}$ and $A,B\in\objs{C}$, the \textbf{homset} Hom$(A,B)$ is the set of morphisms in the category of type $f:A\to B$.
 \end{defn}
 
 We can think of Hom$(A,B)$ as all the processes that input system $A$ and output $B$. Sometimes, to specify the category, we write $\cat{C}(A,B)$ for the homset Hom$(A,B)$ in $\cat{C}$.
 
-As we often consider the relationship between categories, we introduce the notion of a structure preserving map between categories.
+As we often consider the relationship between categories, we recall the notion of a structure preserving map between categories.
 
 \begin{defn}
 Given two categories \cat{C} and \cat{D} a \textbf{functor} $F:\cat{C}\to\cat{D}$ consists of
@@ -138,7 +138,7 @@ Given two categories \cat{C} and \cat{D} a \textbf{functor} $F:\cat{C}\to\cat{D}
 \end{enumerate}
 \end{defn}
 
-\noindent Monoidal and symmetric monoidal functors also preserve their respective additional structures.
+\noindent Monoidal and symmetric monoidal functors also preserve their respective additional structures. For further details, see ``Categories for the practising physicist"~\cite{coecke2011categories}.
 
 \section{Process Theories}
 \label{sec:PTs}
@@ -146,19 +146,19 @@ Given two categories \cat{C} and \cat{D} a \textbf{functor} $F:\cat{C}\to\cat{D}
 We have seen that strict symmetric monoidal categories capture the structure of  diagrammatic languages like quantum circuit diagrams. For this reason we introduce the following definition~\cite{coecke2015generalised}:
 
 \begin{defn}
-A \textbf{process theory} is a strict symmetric monoidal category where objects are systems and morphisms are processes.
+A \textbf{process theory} is a strict symmetric monoidal category where objects are interpreted as systems and morphisms are interpreted as processes.
 \end{defn}
 
 \noindent Process theories and associated structures on them form the mathematical setting of this thesis.
 
-Monoidal and symmetric monoidal categories were introduced as ``categories with multiplication" by MacLane in \cite{maclane1963natural} and later formalized as string diagrams by~\cite{joyal1991geometry}. There are other examples, besides quantum information, where diagrammatic concepts in computer science and physics have been formalized using SMCs, and these can all be considered as examples of the process theory considered here.  In general, this approach is most useful when there are processes have both a natural diagrammatic (\textbf{geometric}) presentation, but that also have an \textbf{algebraic} interpretation.
+Monoidal and symmetric monoidal categories were introduced as ``categories with multiplication" by MacLane in \cite{maclane1963natural} and later formalized as string diagrams by~\cite{joyal1991geometry}. There are other examples, besides quantum information, where diagrammatic concepts in computer science and physics have been formalized using SMCs, and these can all be considered as examples of the process theory considered here.  In general, this approach is most useful when processes have both a natural diagrammatic (\textbf{geometric}) presentation, but also have an \textbf{algebraic} interpretation.
 
 In physics, Penrose's tensor notation \cite{penrose1971applications} is, in modern language, precisely the diagrammatic representation of the symmetric monoidal category $\cat{FVect}$ of finite dimensional vector spaces and linear maps. Feynman diagrams are representations of morphisms in the symmetric monoidal category of positive energy representations of the Poincar\'{e} group \cite{baez2009prehistory}. The symmetric (and braided) monoidal category framework is an important foundation for $n$-dimensional topological quantum field theories. One can think of a TQFT as a symmetric monoidal functor between the category of n-cobordisms and finite dimensional vector spaces: $T:\cat{nCob}\to \cat{FVect}$ \cite{atiyah1988topological}. In fact, two-dimensional TQFT's are equivalent to commutative Frobenius algebras, which we introduce later in Definition~\ref{def:frobenius} \cite{abrams1996two,kock2004frobenius}. This perspective also plays an important role in the study of generalized knot invariants \cite{reshetikhin1990ribbon} and quantum groups \cite{baez2009prehistory}. 
 
-We also find example in computer science and control theory. Petri nets, which present naturally in diagrams, have been connected to linear logic through their connection with monoidal categories \cite{abramsky2008petri,marti1989petri,sassone1998axiomatization}. Each Petri net, by closure under sequential and parallel composition, makes a suitable kind of symmetric monoidal category \cite{marti1989petri,meseguer1990petri}. Signal-flow diagrams from control theory can be seen as morphisms in the category $\cat{FinRel_k}$ whose objects are finite dimensional vector spaces of the field $k$, whose arrows are linear relations, and whose monoidal product is the direct sum \cite{baez2014categories}.  In fact the internal monoids, comonoids, and bialgebras that are described in Chapter \ref{chap:cqm} also have a natural interpretation in this setting \cite{baez2014categories,bonchi2015full}. These structures have also been used to axiomatize generalized linear algebra using diagrams~\cite{bonchi2014interacting}.
+We also find examples in computer science and control theory. Petri nets, which present naturally in diagrams, have been connected to linear logic through their connection with monoidal categories \cite{abramsky2008petri,marti1989petri,sassone1998axiomatization}. Each Petri net, by closure under sequential and parallel composition, makes a suitable kind of symmetric monoidal category \cite{marti1989petri,meseguer1990petri}. Signal-flow diagrams from control theory can be seen as morphisms in the category $\cat{FinRel_k}$ whose objects are finite dimensional vector spaces of the field $k$, whose arrows are linear relations, and whose monoidal product is the direct sum~\cite{baez2014categories}.  In fact the internal monoids, comonoids, and bialgebras that are described in Chapter \ref{chap:cqm} also have a natural interpretation in this setting \cite{baez2014categories,bonchi2015full}. These structures have also been used to axiomatize generalized linear algebra using diagrams~\cite{bonchi2014interacting}.
  
-In recent work, passive linear networks (electrical circuits consisting of inductors, capacitors, and resistors) have also been formalized using symmetric monoidal categories \cite{baez2015compositional}. Here the relationship between a category of circuits and the Lagrangian representing them is presented as a dagger functor between dagger compact categories. These dagger compact categories are symmetric monoidal categories with additional structure that we cover in Chapter \ref{chap:cqm}.  We make some further comments on the relationship between the work presented here and this work on electrical circuits in our Chapter \ref{chap:outlook}. SMC based string diagrammatic theories also appear in interactive theorem proving~\cite{grov2014tinker}, parallel programming~\cite{michaelson2012reasoning}, programming language semantics \cite{mellies2014local}, and natural language processing \cite{coecke2010mathematical}. This final connection is elaborated on and leveraged in Chapter \ref{chap:qDisCo}.
+In recent work, passive linear networks (electrical circuits consisting of inductors, capacitors, and resistors) have also been formalized using symmetric monoidal categories \cite{baez2015compositional}. Here the relationship between a category of circuits and the Lagrangian representing them is presented as a dagger functor between dagger compact categories. These dagger compact categories are symmetric monoidal categories with additional structure covered Chapter \ref{chap:cqm}. SMC based string diagrammatic theories also appear in interactive theorem proving~\cite{grov2014tinker}, parallel programming~\cite{michaelson2012reasoning}, programming language semantics \cite{mellies2014local}, and natural language processing \cite{coecke2010mathematical}. This final connection is elaborated on and leveraged in Chapter~\ref{chap:qDisCo}.
 
-The planar diagrams presented in this chapter can be understood as part of a larger $n$-categorical hierarchy. Monoidal categories are themselves coherent under planar isotopy~\cite{joyal1991geometry}, and the coherence of higher classes of these graphical languages can be regarded are geometric isotopies in higher dimensions, e.g. coherence for SMCs is up to a 4-dimensional isotopy \cite{selinger2011survey}. 
-A general reference for the connections between computation, topology, and physics that emerge from symmetric monoidal categories is \cite{baez2011physics}.
+The planar diagrams presented in this chapter can be understood as part of a larger $n$-categorical hierarchy. Monoidal categories are themselves coherent under planar isotopy~\cite{joyal1991geometry}, and the coherence of higher classes of these graphical languages can be regarded as geometric isotopies in higher dimensions, e.g. coherence for SMCs is up to a 4-dimensional isotopy \cite{selinger2011survey}. 
+A general reference for the connections between computation, topology, and physics that emerge from symmetric monoidal categories is~\cite{baez2011physics}.
 
