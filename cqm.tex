@@ -4,7 +4,7 @@
 \chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background we define an operational process theory (oPT) that comes equipped with an operational interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  oPTs that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
 
 \section{The Dagger}
-In this section concepts are introduced that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced by adding a so-called dagger functor.  In the case of \cat{FHilb} this corresponds to the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to take an operational perspective on symmetric monoidal categories (not just \cat{FHilb}). 
+This section introduces concepts that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced by adding a so-called dagger functor.  In the case of \cat{FHilb} this corresponds to the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to take an operational perspective on general symmetric monoidal categories (not just \cat{FHilb}). 
 
 \begin{defn}
 \label{defn:dagger}
@@ -113,7 +113,7 @@ In a $\dagger$-SMC, \textbf{effects} on an object $A$ are morphisms $\bra{\psi}:
 
 \section{The generalized Born rule}
 \label{sec:bornrule}
-Measurement in these dagger generalized compositional theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
+Measurement in these process theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
 \begin{equation}
 a = X\circ Y:I\to I.
 \end{equation}
@@ -148,7 +148,7 @@ a = X\circ Y:I\to I.
 \begin{theorem}{\cite[Thm 4.2]{vicary2011completeness}}
 In a monoidal dagger-category with simple tensor unit, which has all finite dagger-limits and for which the self-adjoint scalars are Dedekind-complete, the scalars have an involution-preserving embedding into the complex numbers.
 \end{theorem}
-\noindent For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract the real-valued probabilities. Still, even if the scalars do not embed in the complex numbers one can generally handle the needed structure of complex conjugation to obtain a generalized Born rule. There is a way to define conjugation in any $\dagger$-SMC which has duals, as we describe in this section.\footnote{These are sometimes called autonomous categories in the literature \cite{joyal1993braided,selinger2011survey}.}
+\noindent For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract real-valued probabilities. Still, even if the scalars do not embed in the complex numbers one can generally handle the needed structure of complex conjugation to obtain a generalized Born rule. This is done using monoidal categories with duals.\footnote{These are sometimes called autonomous categories in the literature \cite{joyal1993braided,selinger2011survey}.}
 
 Duals in a process theory help us define both entanglement and conjugation.
 
@@ -160,6 +160,7 @@ e_A:I\to A^*\otimes A \quad \mbox{and}\quad d_A:A\otimes A^*\to I
 \end{align}
 such that the following equations hold:
 \begin{align}
+\label{eq:snakeeq}
 (d_A\otimes \idm{A})\circ(\idm{A}\otimes e_A) = \idm{A} \qquad (\idm{A^*}\otimes d_A)\circ(e_A\otimes \idm{A^*})=\idm{A^*}
 \end{align}
 \end{defn}
@@ -169,7 +170,7 @@ When duals are introduced, we can denote them by placing arrows on the objects:
 \input{tikz/2_arrowdual.tikz}
 \end{equation}
 
-Thus the duality maps, commonly called ``cups" and ``caps", and their ``snake equations" have the following diagrammatic form:
+Thus the duality maps, commonly called ``cups" and ``caps", and their ``snake equations"~\eqref{eq:snakeeq} have the following diagrammatic form:
 \begin{align}
 \input{tikz/2_capcup.tikz}
 \end{align}
@@ -202,7 +203,7 @@ We then immediately recognize $e_A$ as entangled state preparation. In particula
 This provides a motivating example for the following, which acts as a generalized conjugation operation:
 
 \begin{defn}
-Given a GCT with duals \cat{C}, the \textbf{lower-star} is an involutive map 
+Given a process theory with duals \cat{C}, the \textbf{lower-star} is an involutive map 
 \begin{align*}
 (-)_*:\arrs{C}&\to\arrs{C} \\
 \left(f:A\to B\right) &\mapsto f_*:=(\dag{f})^*=\dag{(f^*)}.
@@ -237,7 +238,7 @@ whose correspondence with the usual trace is easy to check~\cite{coecke2015gener
 
 The addition of states and a generalized Born rule (with further details in this section), give our generalized compositional theories a notion of measurement and an operational character.
 
-\begin{defn}(Operational Generalized Compositional Theories)
+\begin{defn}(Operational Process Theories)
 \label{thm:oPT}
 A $\dagger$-SMC where all objects have duals is called a \textbf{$\dagger$-compact category}. An \textbf{operational process theory} (oPT) is a \dcc where objects are interpreted as systems and morphisms are interpreted as processes.
 \end{defn}
@@ -249,7 +250,7 @@ Duals and their ``wire-straightening" equations give diagrams in an oPT a lot of
 Two diagrams in an oPT are considered equal if one can be smoothly transformed to another by bending, stretching, or crossing wires, and by moving boxes around. Given any two oPTs $\cat{C}$ and $\cat{D}$ and a map $F:\cat{C}\to\cat{D}$, for any two diagrams $d$ and $d'$ in $\cat{C}$, if $d=d'$ as diagrams then $F(d)=F(d')$ in $\cat{D}$.
 \end{theorem}
 
-To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through the matrix mechanics that accompany it. The use of this difference - the  additional structure of operational generalized compositional theories versus generalized compositional theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by~\cite{abramsky2004categorical}.
+To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through the matrix mechanics that accompany it. The use of this difference - the operational in operational process theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by~\cite{abramsky2004categorical}.
 
 \begin{example} 
 We saw in Example \ref{ex:bellduals} that caps and cups represent preparation and post-selected measurement of one of the Bell states $\ket{\psi_{00}}$. The other Bell states can be prepared and/or measured by the application of a unitary to one of the entangled systems:
@@ -301,9 +302,9 @@ This presentation of the teleportation protocol is useful in several ways:
 \end{enumerate}
 \end{example}
 
-Operational generalized compositional theories already give us some power above and beyond the usual quantum circuit formalism, and we add more structures to the toolbox in the next sections.  We have glossed over some of the details of how measurement should be represented in such theories, but the introduction of structures for observables in the next sections allows us to be more exact in Section~\ref{sec:measurements}. 
+Operational process theories already give us some power above and beyond the usual quantum circuit formalism, and we add more structures to the toolbox in the next sections.  We have glossed over some of the details of how measurement should be represented in such theories, but the introduction of classical structures in the next section allows us to be more exact in Section~\ref{sec:measurements}. 
 
-\section{Observables}
+\section{Classical structures}
 \label{sec:observables}
 
 Within a process theory we can construct objects that have the phenomenology of classical information: copying, deleting, etc. These structures become the observables of oPTs that allow us to extract classical information via measurements.
@@ -417,7 +418,7 @@ The set of \textbf{classical states} $K_{\circ}$ for a classical structure \whit
 \end{pic}
 \end{equation}
 \end{defn}
-\noindent These classical points will be drawn as states that are the same color as the classical structure to which they correspond. It is also easy to determine the behavior of classical points under composition with the (co)unit:
+\noindent These classical points will typically be drawn as states that are the same color as the classical structure to which they correspond. It is also easy to determine the behavior of classical points under composition with the (co)unit:
 \begin{equation}
 \label{eq:unitscalar}
 \begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
@@ -514,14 +515,14 @@ The rules for classical structures can be summarized in a convenient normal form
 \tinycomult[whitedot]_{n+1}:=\left(\tinycomult[whitedot]_{n}\otimes\idm{A}\right)\circ\tinycomult[whitedot]
 \end{align}
 Let $\tinymult[whitedot]_n$ be similarly defined.
-\begin{theorem}[Spider Theorem]
+\begin{theorem}[Spider Theorem {\cite[Thm 6.11]{coecke2011interacting}}]
 \label{thm:spider}
 Given a classical structure, let \newline$f:A^{\otimes n}\to A^{\otimes m}$  be constructed from $\{\tinymult[whitedot],\tinycomult[whitedot],\tinyunit[whitedot],\tinycounit[whitedot]\}$ such that the diagram is connected. Then $f=\tinycomult[whitedot]_m\circ\tinymult[whitedot]_n$.
 \end{theorem}
 
 \noindent This normal form has a neat diagrammatic representation.
 
-\begin{proposition}
+\begin{proposition}[{\cite[Thm 6.12]{coecke2011interacting}}]
 \label{prop:spider} 
 Given a classical structure on $A$, let
 $(\whitedot)_n^m$ denote the `$(n,m)$-legged spider':
@@ -672,7 +673,7 @@ Complementary observables allow us to construct a generalized from of the contro
         \ket{1} & \mapsto & \ket{11}
       \end{array}
 &
-    \tinymult[graydot] : &
+    \tinycomult[graydot] : &
       \begin{array}{rcl}
         \ket{+} & \mapsto & \ket{++} \\
         \ket{-} & \mapsto & \ket{--}
@@ -882,7 +883,7 @@ Given a monoidal category $K$, a $K$-enriched category \cat{C} has objects $\obj
 \end{itemize}
 \end{defn}
 
-Linear maps between Hilbert spaces themselves form a vector space, so \cat{FHilb} is in fact a $\cat{FVect}$-enriched category. Another way of saying this is that \cat{FHilb} is enriched in \cat{FVect}. As diagrams of a GCT are morphisms in a category, diagrams in an enriched category have additional operations. The \cat{FVect} enrichment of \cat{FHilb}, for example, allows us to sum diagrams, as in the following property. Here \cat{Mon} is the category of monoids and monoid homomorphisms.
+Linear maps between Hilbert spaces themselves form a vector space, so \cat{FHilb} is in fact a $\cat{FVect}$-enriched category. Another way of saying this is that \cat{FHilb} is enriched in \cat{FVect}. As diagrams of a process theory are morphisms in a category, diagrams in an enriched category have additional operations. The \cat{FVect} enrichment of \cat{FHilb}, for example, allows us to sum diagrams, as in the following property. In the following definition \cat{Mon} is the category of monoids and monoid homomorphisms.
 
 
 \begin{defn}
