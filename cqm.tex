@@ -914,7 +914,7 @@ More details on enriched categories, especially in regards to the results of Sec
 \section{Measurements}
 \label{sec:measurements}
 
-We have already introduced a notion of post-selected measurement in Definition~\ref{def:bornrule}. This section uses Selinger's CPM (completely positive map) construction~\cite{selinger2007dagger}, to present measurement as a process that outputs classical information~\cite{coecke2012strong}. In particular, measurements are maps that decohere pure states into mixed states in a certain basis. We will need to be more precise about systems and their duals here so will be more consistent about using wires decorated with the proper arrows. 
+We have already introduced a notion of post-selected measurement in Definition~\ref{def:bornrule}. This section uses Selinger's CPM (completely positive map) construction~\cite{selinger2007dagger}, to present measurement as a process that outputs classical information~\cite{coecke2012strong}. In particular, measurements are maps that decohere pure states into mixed states in a certain basis. We need to be more precise about systems and their duals here so will be more consistent about using wires decorated with the proper arrows. 
 
 Using caps and cups, we can construct the unique ``name" of a process $\rho$ as:
 \begin{equation}
@@ -955,6 +955,8 @@ So, $M$ defines a linear map from density matrices to probability distributions.
   \end{equation}
 \end{defn}
 
+While the exact Born rule derivation does not apply in all oPTs (as traces and the linear structures are different in general), we can still consider Definition~\ref{def:meas2} as the abstract version of an oPT measurement.
+
 \begin{example}
 We will illustrate this measurement using an example on a qubit. Take the $Z$ and $X$ classical structures to be defined as they were in Example~\ref{ex:cnot}. Here $Z$ is the computational basis and the two classical points of $X$ are $\begin{pic}[scale=0.5]
 \node (o) at (0,1) {};
@@ -978,7 +980,7 @@ We especially make use of this measurement presentation in Chapter~\ref{chap:mer
 
 This chapter has introduced the main framework that is used in this thesis. This framework performs two functions:
 \begin{enumerate}
-\item oPTs lift the structure of quantum computation into the general setting of operational generalised compositional theories. This allows the study of protocols like teleportation, state transfer~\cite{cqm-notes}, quantum secret sharing (Section~\ref{section_QSS}), quantum bit commitment~\cite{katriel-commitment}, Mermin non-locality tests (Chapter~\ref{chap:mermin}), and other protocols (Chapters~\ref{chap:qalg} and~\ref{chap:qDisCo}) to be handled at an abstract level and studied in different oPTs.
+\item oPTs lift the structure of quantum computation into the general setting of operational process theories. This allows the study of protocols like teleportation, state transfer~\cite{cqm-notes}, quantum secret sharing (Section~\ref{section_QSS}), quantum bit commitment~\cite{katriel-commitment}, Mermin non-locality tests (Chapter~\ref{chap:mermin}), and other protocols (Chapters~\ref{chap:qalg} and~\ref{chap:qDisCo}) to be handled at an abstract level and studied in different oPTs.
 \item The categorical diagrams that accompany oPT's present a more powerful quantum circuit language. This is one that includes bases, classical information, complementarity, and phases explicitly and gives rules for manipulating these structures within the diagrams themselves. We present a summarizing table of these structures at the end of this chapter.
 \end{enumerate}
 Both the abstraction and diagrammatic formalism provide powerful tools throughout the results in this thesis.
