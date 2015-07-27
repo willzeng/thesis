@@ -2,16 +2,16 @@
 \label{chap:qDisCo}
 
 \begin{chapabstract}
-        We propose a new application of quantum computing to the field of natural language processing (NLP).  Ongoing work in NLP attempts to incorporate grammatical structure into algorithms that compute meaning.  In \cite{clark2008compositional}, Clark et al. introduce such a model (the CCS model) that is based on tensor product composition. While this algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires. In this work we show how computational shortcomings of the  CCS approach could be resolved using quantum computation. We address the value of a qRAM \cite{giovannetti2008quantum} for this model and extend an algorithm from Wiebe et al. \cite{wiebe2014quantum} into a quantum algorithm to categorize similar sentences in CCS. Our new algorithm demonstrates a speedup over classical methods under certain conditions.
+        We propose a new application of quantum computing to the field of natural language processing (NLP).  Ongoing work in NLP attempts to incorporate grammatical structure into algorithms that compute meaning.  In \cite{clark2008compositional}, Clark et al. introduce such a model (the CCS model) that is based on tensor product composition. While this algorithm has many advantages, its implementation is hampered by the large classical computational resources that are required. In this work we show how computational shortcomings of the  CCS approach could be resolved using quantum computation. We address the value of a qRAM \cite{giovannetti2008quantum} for this model and extend an algorithm from Wiebe et al. \cite{wiebe2014quantum} into a quantum algorithm to categorize similar sentences in CCS. Our new algorithm demonstrates a speedup over classical methods under certain conditions.
 \end{chapabstract}
 
 \section{Introduction}
 
 As human computer interfaces become more advanced, natural language processing has grown to be a ubiquitous part of our world.  Its techniques allow computers to understand natural language to perform tasks like automatic summarization, machine translation, information retrieval, and sentiment analysis. Most approaches to this problem, such as Google's search, understand strings of separate words in a `bag of words' approach, ignoring any grammatical structure. This is certainly unsatisfactory, as we know that the meaning of a sentence is more than the meaning of its component words. Research in \textit{distributional compositional semantics} (DisCo) seeks to address this by incorporating grammatical structure into bag-of-words models. 
 
-In \cite{clark2008compositional}, Clark et al. introduce a DisCo model (the CCS model) based on tensor product composition that gives a grammatically informed algorithm to compute the meaning of sentences and phrases. This model, in fact, lives in the oPT \cat{FVect}. While the algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires.  This paper presents ways that quantum computers can solve some of these problems, making the CCS an attractive application for quantum computation.
+In \cite{clark2008compositional}, Clark et al. introduce a DisCo model (the CCS model) based on tensor product composition that gives a grammatically informed algorithm to compute the meaning of sentences and phrases. In the framework of this thesis, their model lives in the oPT \cat{FVect}. While the algorithm has many advantages, its implementation is hampered by the large classical computational resources that it requires.  This paper presents ways that quantum computers can solve some of these problems, making the CCS model of linguistics an attractive application for quantum computation.
 
-We use the fact that quantum computation is naturally suited to managing high dimensional tensor product spaces. Recent literature has shown that quantum algorithms can thus provide advantages for machine learning \cite{wiebe2014quantum,rebentrost2014quantum}, inference \cite{low2014quantum}, and regression \cite{wiebe2012quantum,wang2014quantum} tasks.  We leverage these results in two particular ways:
+We use the fact that quantum computation is naturally suited to managing high dimensional tensor product spaces. Recent literature has shown that quantum algorithms can thus provide advantages for machine learning \cite{wiebe2014quantum,rebentrost2014quantum}, inference \cite{low2014quantum}, and regression \cite{wiebe2012quantum,wang2014quantum} tasks.  These results are leveraged in two particular ways:
 \begin{enumerate}
 \item We employ the scaling of quantum systems to address computational difficulties  inherent in tensor-product based compositional semantics.
 \item Shared GCT structure makes algorithms in the CCS model especially amenable to quantum speedups.  We specify a CCS sentence similarity algorithm that, under certain conditions, gives quadratic speedups for natural language tasks.
@@ -24,10 +24,9 @@ In Section \ref{sec:disco}, we cover the basic framework of distributional compo
 \label{sec:disco}
 In modern natural language processing, the \textbf{vector space model} is widely used to compute the meaning of individual words \cite{schutze1998automatic}. In this approach we first specify a set of context words, for example the 2000 most common words in a given corpus.  These context words then form the basis of the vector space of word meanings in the following manner: for some given word, say  ``quantum", we look through a corpus and count the frequency with which each basis word    appears `near' to ``quantum". It is likely that we would have a high frequency for words like ``physics" and ``information" for example.  These frequencies then form the \textbf{word vector} for ``quantum". Words are similar if the inner product of their word vectors is close to one. These `bag of words' methods are typically referred to as \textbf{distributional}.
 
-As the same sentence rarely occurs repeatedly, this distributional technique cannot be directly extended to calculate the meaning of longer phrases, sentences, paragraphs, etc. Instead, \textbf{compositional} semantics designs algorithms for deriving the meaning of a sentence or phrase from known meanings of component words,  taking into account types and grammatical structure \cite{lambek2008word}. The \textbf{distributional compositional} semantic model (DisCo) combines both approaches to introduce grammatical form to the composition of word vectors \cite{clark2008compositional}. See Fig. 1. 
+As the same sentence rarely occurs repeatedly, this distributional technique cannot be directly extended to calculate the meaning of longer phrases, sentences, paragraphs, etc. Instead, \textbf{compositional} semantics designs algorithms for deriving the meaning of a sentence or phrase from known meanings of component words,  taking into account types and grammatical structure \cite{lambek2008word}. The \textbf{distributional compositional} semantic model (DisCo) combines both approaches to introduce grammatical form to the composition of word vectors \cite{clark2008compositional}. See Figure~\ref{fig:discofig}. 
 
-\begin{figure}[ht]
-\label{fig:discofig}
+\begin{figure}[t]
 \begin{center}
 \begin{tabular}{m{0.3\linewidth}@{}m{0.1\linewidth}@{}m{0.3\linewidth}}
  Distributional & & Compositional \\
@@ -41,11 +40,12 @@ As the same sentence rarely occurs repeatedly, this distributional technique can
 \end{tabular}
 \end{center}
 \caption[The DisCo approach.]{The DisCo approach combines word vectors with pregroup or combinatory categorical grammar. The diagram on the right shows which terms cancel in the derivation tree.  It is drawn suggestively as explained in Section \ref{sec:disco}. }
+\label{fig:discofig}
 \end{figure}
 
 In this model, each grammatical type is assigned a tensor product space based on Lambek's pregroup grammar \cite{lambek2008word} or combinatorial categorical grammar \cite{hermann2013role}. The meaning of nouns is, for example, calculated as in the distributional case, and we label their vector space $\mathcal{N}$.  A transitive verb's meaning is then, following the grammar, a vector in the space $\mathcal{N}\otimes \mathcal{S} \otimes \mathcal{N}$, where $\mathcal{S}$ is the meaning space for sentences \cite{clark2008compositional}. An intuition for this is that the transitive verb takes a subject noun as a left argument and an object noun as a right argument. An adjective lives in the space $\mathcal{N}\otimes\mathcal{N}$.
 
-The GCT diagrammatic notation for vectors, tensors, and linear maps is commonly for CCS. Here vertical composition (read bottom to top) represents composition of linear maps and horizontal composition represents the tensor product:
+The oPT diagrammatic notation for vectors, tensors, and linear maps is commonly used in CCS. Here vertical composition (read bottom to top) represents composition of linear maps and horizontal composition represents the tensor product:
 \begin{align*}
 \begin{tabular}{cc}
 \overrightarrow{\mbox{Mary}}\in \mathcal{N} :=
@@ -136,7 +136,7 @@ $f:\mathcal{M}\to\mathcal{N} :=$
 \end{aligned}
 \end{tabular}
 \end{align*}
-where $f:\mathcal{N}\to\mathcal{M}$ and $g:\mathcal{M}\to\mathcal{P}$ are linear maps and the linear map $\sum_i\langle ii|$ sums over all the basis vectors of $\mathcal{N}$ and is the usual GCT cap.
+where $f:\mathcal{N}\to\mathcal{M}$ and $g:\mathcal{M}\to\mathcal{P}$ are linear maps and the linear map $\sum_i\langle ii|$ sums over all the basis vectors of $\mathcal{N}$ and is the usual oPT cap.
 
 Given a well-typed sentence with meaning vectors $\vec{w_j}$ for each of $k$ words, the classical CCS algorithm for calculating a sentence's meaning is \cite{clark2013quantum}:
 \begin{enumerate}
@@ -232,7 +232,7 @@ The most immediate advantage for quantum implementations of the CCS model is gai
 and composition of qubits is given by the tensor product.  This leaves each $n$-qubit system with $2^n$ degrees of freedom, indicating that $N$-dimensional classical vectors can be stored in $\log_2 N$ qubits.
 Consider a corpus whose word-meaning space is given by a basis of the 2,000 most common words. Even if we make the simplifying assumption that the sentence-meaning space is no larger than the word-meaning space we obtain the dramatic improvements details in Table 1.
 
-\begin{table}[ht]
+\begin{table}[t]
 \label{tab:space}
 \begin{center}
 \begin{tabular}{|c|c|c|}\hline
@@ -244,7 +244,7 @@ Consider a corpus whose word-meaning space is given by a basis of the 2,000 most
 \caption{Rough comparisons of the storage necessary for verbs in quantum and classical frameworks.}
 \end{table}
 
-Further, these word meanings can be imported into a ``bucket bridgade" quantum RAM that allows them to retrieved with a complexity linear in the number of qubits \cite{giovannetti2008quantum}. The general point is that because quantum systems compose via the tensor product they are a natural choice to store complex types and sentences that have the same compositional structure. We can then employ quantum algorithms on for natural language classification as presented in Section \ref{sec:discoQalg}.
+Further, these word meanings can be imported into a ``bucket bridgade" quantum RAM that allows them to retrieved with a complexity linear in the number of qubits~\cite{giovannetti2008quantum}. The general point is that because quantum systems compose via the tensor product they are a natural choice to store complex types and sentences that have the same compositional structure. We can then employ quantum algorithms on for natural language classification as presented in Section \ref{sec:discoQalg}.
 
 \section{A quantum algorithm for the closest vector problem}
 \label{sec:qalg}
@@ -706,4 +706,4 @@ It is also very likely that other algorithms can be found, which decompose the s
 
 To reap the benefits of quantum algorithm in the domain of natural language processing, we  apply a new technique to defer the calculation of a sentence's compositional meaning, eliminating the overhead costs. By this method we are able to introduce a quantum algorithm for calculating sentence similarity that offers quadratic speedup over classical direct calculation and Monte-Carlo methods. These kinds of algorithms are particularly attractive for practical applications of quantum computing as noisy results can be tolerated: in our case when the desired errors is lower bounded by $1/\sqrt{N}$.  Vector space models are already inherently noisy and typical tasks allow for errors in results, so this restriction does not affect their efficacy. 
 
-An additional point is that the density matrix formalism of \cite{piedeleu2015open} can also be naturally modeled by mixed states of quantum systems.  In fact, this analogy was the genesis for the theory of disambiguation presented there, as another example of the shared structure that led to the results presented here. At a basic level, our work exploits the abstract connection between natural language processing and quantum information.  More formally,  we can see both quantum computation in the category of finite dimensional Hilbert spaces and linear maps \cite{abramsky2004categorical,cqm-notes} and CCS in the product category of pregroup grammar and finite dimensional vectors spaces \cite{coecke2010mathematical}. The connection between these two (as dagger compact categories) makes the application of one to the other apparent.
+An additional point is that the density matrix formalism of \cite{piedeleu2015open} can also be naturally modeled by mixed states of quantum systems.  In fact, this analogy was the genesis for the theory of disambiguation presented there, as another example of the shared structure that led to the results presented here. At a basic level, our work exploits the abstract connection between natural language processing and quantum information.  More formally,  we can see both quantum computation in the category of finite dimensional Hilbert spaces and linear maps \cite{abramsky2004categorical,cqm-notes} and CCS in the product category of pregroup grammar and finite dimensional vectors spaces \cite{coecke2010mathematical}. The connection between these two (as process theories) makes the application of one to the other apparent.
