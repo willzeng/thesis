@@ -15,8 +15,8 @@
 \draw[-] [out=90,in=225](mult_in_l) to (mult);
 \draw[-] [out=90,in=315](mult_in_r) to (mult);
 \draw[-] [out=90,in=270] (mult) to (algebra);
-\draw[arrow=.5] [out=90,in=270] (algebra.75) to (H_in);
-\draw[reverse arrow=.5] [out=90,in=270] (algebra.105) to (H_out);
+\draw[reverse arrow=.5] [out=90,in=270] (algebra.75) to (H_in);
+\draw[arrow=.5] [out=90,in=270] (algebra.105) to (H_out);
 \end{pgfonlayer}
 
 \node (equalSign) [right of = algebra, xshift=0mm] {=};
@@ -38,9 +38,9 @@
 \begin{pgfonlayer}{background}
 \draw[-] [out=90,in=270] (mult_in_l2) to (algebra2l);
 \draw[-] [out=90,in=270] (mult_in_r2) to (algebra2r);
-\draw[reverse arrow=.5] [out=90,in=270] (algebra2l.105) to (H_in2l);
-\draw[arrow=.5] [out=90,in=90] (algebra2l.75) to (algebra2r.105);
-\draw[arrow=.5] [out=90,in=270] (algebra2r.75) to (H_out2r);
+\draw[arrow=.5] [out=90,in=270] (algebra2l.105) to (H_in2l);
+\draw[reverse arrow=.5] [out=90,in=90] (algebra2l.75) to (algebra2r.105);
+\draw[reverse arrow=.5] [out=90,in=270] (algebra2r.75) to (H_out2r);
 \end{pgfonlayer}
 
 
@@ -59,8 +59,8 @@
 
 \begin{pgfonlayer}{background}
 \draw[-] [out=90,in=270] (unit) to (algebra3);
-\draw[arrow=.5] [out=90,in=270] (algebra3.75) to (H_in3);
-\draw[reverse arrow=.5] [out=90,in=270] (algebra3.105) to (H_out3);
+\draw[reverse arrow=.5] [out=90,in=270] (algebra3.75) to (H_in3);
+\draw[arrow=.5] [out=90,in=270] (algebra3.105) to (H_out3);
 \end{pgfonlayer}
 
 
@@ -76,8 +76,8 @@
 \node (H_out5) [right of = H_out4, xshift = -8.2mm, yshift = 0mm]{};
 
 \begin{pgfonlayer}{background}
-\draw[reverse arrow=.5] [out=90,in=270] (H_in4) to (H_out4);
-\draw[arrow=.5] [out=90,in=270] (H_in5) to (H_out5);
+\draw[arrow=.5] [out=90,in=270] (H_in4) to (H_out4);
+\draw[reverse arrow=.5] [out=90,in=270] (H_in5) to (H_out5);
 \draw[-] [out=270,in=270] (H_in4.90) to (H_in5.90);
 \end{pgfonlayer}
 
@@ -98,8 +98,8 @@
 \begin{pgfonlayer}{background}
 \draw[-] [out=90,in=270] (G_in) to (antipode);
 \draw[-] [out=90,in=270] (antipode) to (rep);
-\draw[arrow=.5] [out=90,in=270] (rep.75) to (H_in);
-\draw[reverse arrow=.5] [out=90,in=270] (rep.105) to (H_out);
+\draw[reverse arrow=.5] [out=90,in=270] (rep.75) to (H_in);
+\draw[arrow=.5] [out=90,in=270] (rep.105) to (H_out);
 \end{pgfonlayer}
 
 
@@ -116,8 +116,8 @@
 \begin{pgfonlayer}{background}
 \draw[-] [out=90,in=270] (G_in2) to (idCenter.90);
 \draw[-] [out=90,in=270] (idCenter) to (rep2);
-\draw[arrow=.5] [out=90,in=270] (rep2.75) to (H_in2);
-\draw[reverse arrow=.5] [out=90,in=270] (rep2.105) to (H_out2);
+\draw[reverse arrow=.5] [out=90,in=270] (rep2.75) to (H_in2);
+\draw[arrow=.5] [out=90,in=270] (rep2.105) to (H_out2);
 \end{pgfonlayer}
 
 \end{pic}
