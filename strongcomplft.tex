@@ -185,7 +185,7 @@ $(\timemultSym,\timeunitSym,\timecomultSym,\timecounitSym)$ is one that satisfie
 We will use the shorthand $\dagger$-qSFA, and refer to $N$ as the \textbf{normalisation factor} for the $\dagger$-qSFA.
 \end{defn}
 
-These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized.  While classical states can be defined in any $\dagger$-SMC, the following definition for matching states require an appropriate \textit{zero scalar}. To this extent, we consider categories enriched over finite commutative monoids,\footnote{Refer to Section~\ref{sec:enrichedoPTs} for more detail on enriched oPTs.} i.e. where homsets come with a commutative monoid structure $(\cat{C}(A,B),+,0)$, and we require the appropriate distributivity laws between the tensor product and the monoidal structure:
+These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized.  While classical states can be defined in any $\dagger$-SMC, the following definition for matching families requires an appropriate \textit{zero scalar}. To this extent, we consider categories enriched over finite commutative monoids,\footnote{Refer to Section~\ref{sec:enrichedoPTs} for more detail on enriched oPTs.} i.e. where homsets come with a commutative monoid structure $(\cat{C}(A,B),+,0)$, and we require the appropriate distributivity laws between the tensor product and the monoidal structure:
 \begin{align}
 (f+g) \tensor h &= (f\tensor h) + (g \tensor h)\\
 f \tensor (g+h) &= (f \tensor g) + (f \tensor h)\\
@@ -196,7 +196,7 @@ f \tensor 0 &= 0
 We will refer to these as \textbf{distributively $\cat{fCommMon}$-enriched} $\dagger$-SMCs.
 
 \begin{defn}
-Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in a $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched. The \textbf{matchable states} $\ket{x}_{x \in X}$ for a monoid $(\SpaceG,\XmultSym, \XunitSym)$ are those for which the following holds for all $x,y \in X$:
+Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in a $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched. A \textbf{matchable family} $\ket{x}_{x \in X}$ for a monoid $(\SpaceG,\XmultSym, \XunitSym)$ are those for which the following holds for all $x,y \in X$:
 \begin{equation}\label{eqn:matchables}
     \XmultSym \cdot \left( \ket{x} \tensor \ket{y} \right) = 
     \begin{cases} 
@@ -248,7 +248,7 @@ Given a strongly complementary pair of $\dagger$-FAs \scpair~on some object $\Sp
 \begin{equation}
     \input{tikz/3_antipodeInverse.tikz}
 \end{equation}
-Furthermore, if at least one of the two $\dagger$-FAs has matchable states forming a basis, then the antipode is self-adjoint and unitary, i.e. antipode and antipode inverse coincide.
+Furthermore, if at least one of the two $\dagger$-FAs has a finite matchable family that forms a basis, then the antipode is self-adjoint and unitary, i.e. antipode and antipode inverse coincide.
 \end{lemma}
 \begin{proof}
     The fact that $\antipodeSym^{-1}$ as defined is indeed the inverse of $\antipodeSym$ is an immediate consequence of the Frobenius law (one application per colour). Now suppose without loss of generality that the matchable points $\ket{g}_{g \in G}$ of $\XdotSym$ form a basis, and remember that $\ZdotSym$ acts as some (possibly non-abelian) group $(G,\cdot,1)$ on them (Lemma~\ref{lem:phaseunbiased}). Then $\bra{h}\, \antipodeSym \ket{g} = \braket{h \cdot g}{1}$ and $\bra{h} \; \antipodeSym^{-1} \ket{g} = \braket{1}{h \cdot g}$ and $\bra{h}\; \antipodeSym^\dagger \ket{g} = \braket{1}{g \cdot h}$ and $\bra{h}\; (\antipodeSym^{-1})^\dagger \ket{g} = \braket{g \cdot h}{1}$ coincide for all $g,h \in G$, proving that $\antipodeSym = \antipodeSym^{-1} = \antipodeSym^{\dagger} = \ket{g} \mapsto \ket{g^{-1}}$ for all $g\in G$.
@@ -405,7 +405,7 @@ Now assume that \cat{C} is distributively $\cat{fCommMon}$-enriched. If the fami
 \begin{proof}
 By Theorem \ref{thm_PontryaginDualsSMC}, the comultiplication $\XcomultSym$ acts as a group on the multiplicative characters, and $\antipodeSym$ as the group inverse. The LHS of Equation \ref{eqn:orthogonalityMultChars} can be re-written as $\braket{\chi^{-1} \cdot \tau}{1}$, and $\cdot$ is the pointwise multiplication: since we assumed that the multiplicative characters are orthogonal, the result follows. In order to obtain Equation \ref{eqn:orthogonalityMultCharsFamiliar} from Equation \ref{eqn:orthogonalityMultChars}, all we have to do is observe that the group elements $\ket{g}_{g\in G}$ form an orthogonal partition of the unit $\XunitSym$ (by taking adjoints), and that they are classical points of $\XdotSym$.
 \end{proof}
-Note that, by Definition \ref{def:Antipode} and Frobenius law for $\XdotSym$, Equation \ref{eqn:orthogonalityMultChars} can equivalently be written as the following, stating that the multiplicative characters are a matchable states for $(\tinycomult[whitedot],\tinycounit[whitedot])$: 
+Note that, by Definition \ref{def:Antipode} and Frobenius law for $\XdotSym$, Equation \ref{eqn:orthogonalityMultChars} can equivalently be written as the following, stating that the multiplicative characters are a matchable family for $(\tinycomult[whitedot],\tinycounit[whitedot])$: 
 \begin{equation}
 \label{eqn:orthogonalityMultCharsRed}
 \input{tikz/3_orthRED.tikz}
