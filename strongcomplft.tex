@@ -32,7 +32,7 @@ We begin with a quick review of Pontryagin duality and the Fourier transform as 
 
 This section is ultimately concerned with the first notion, where the Fourier transform is defined on locally compact groups. Still, the other notions are relevant, as our work situates this abstract definition in the context of oPTs, a structure inherited from quantum information. 
 
-We begin by explaining the relationship of Notion 1 with the others listed above. In what follows, $(G,+,0)$ is a finite abelian group of order $N$, and $\complexs^{\times}=\complexs\setminus\{0\}$ is the multiplicative group of non-zero complex numbers.
+We begin by explaining the relationship of Notion 1 with the others listed above. In what follows, $(G,\cdot,0)$ is a finite abelian group of order $N$, and $\complexs^{\times}=\complexs\setminus\{0\}$ is the multiplicative group of non-zero complex numbers.
 
 A \textbf{(multiplicative) character} of $G$ is a group homomorphism $\chi:G\to \complexs^\times$.\footnote{For finite $G$, $\chi$ maps into the subgroup $S^1 \subseteq C^\times$ of unit complex numbers.} If $G = \prod_j \integersMod{n_j}$,\footnote{Which is always true when $G$ is finite, for some family $(n_j)_j$ of positive integers.} the multiplicative characters of $G$ take the following form, for any $h_j \in G$:
 \begin{equation}
@@ -97,7 +97,7 @@ Linearly extended to $\Ltwo{G}$, this structure yields the \textbf{convolution o
 
 The Fourier transforms of the delta functions yield the following orthogonal basis for $\Ltwo{G^\wedge}$, which we refer to as the \textbfemph{basis of evaluation functions}:
 \begin{align*}
-\xi_{g} := \sqrt{N}\tilde{\delta}_{-g} = \chi \mapsto \sum_{h \in G}\chi^{-1}(h)\delta_{-g}(h) = \chi \mapsto \chi(g).
+\xi_{g} := \sqrt{N}\tilde{\delta}_{-g} = \left(\chi \mapsto \sum_{h \in G}\chi^{-1}(h)\delta_{-g}(h) \right)= \left(\chi \mapsto \chi(g)\right).
 \end{align*}
 
 The basis of evaluation functions also comes with a monoid structure, with unit $\xi_0: \chi \mapsto 1$:
@@ -185,7 +185,7 @@ $(\timemultSym,\timeunitSym,\timecomultSym,\timecounitSym)$ is one that satisfie
 We will use the shorthand $\dagger$-qSFA, and refer to $N$ as the \textbf{normalisation factor} for the $\dagger$-qSFA.
 \end{defn}
 
-These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the scalar $N$ is invertible) even if they are not normalized.  While classical states can be defined in any $\dagger$-SMC, the following definition for matching families requires an appropriate \textit{zero scalar}. To this extent, we consider categories enriched over finite commutative monoids,\footnote{Refer to Section~\ref{sec:enrichedoPTs} for more detail on enriched oPTs.} i.e. where homsets come with a commutative monoid structure $(\cat{C}(A,B),+,0)$, and we require the appropriate distributivity laws between the tensor product and the monoidal structure:
+These $\dagger$-qSFA's can be thought of as generalized orthogonal bases that are normalize-able (as long as the square root of the scalar $\sqrt{N}$ is invertible) even if they are not normalized.  While classical states can be defined in any $\dagger$-SMC, the following definition for matching families requires an appropriate \textit{zero scalar}. To this extent, we consider categories enriched over commutative monoids,\footnote{Refer to Section~\ref{sec:enrichedoPTs} for more detail on enriched oPTs.} i.e. where homsets come with a commutative monoid structure $(\cat{C}(A,B),+,0)$, and we require the appropriate distributivity laws between the tensor product and the monoidal structure:
 \begin{align}
 (f+g) \tensor h &= (f\tensor h) + (g \tensor h)\\
 f \tensor (g+h) &= (f \tensor g) + (f \tensor h)\\
@@ -193,10 +193,10 @@ f \tensor (g+h) &= (f \tensor g) + (f \tensor h)\\
 f \tensor 0 &= 0
 \end{align}
 
-We will refer to these as \textbf{distributively $\cat{fCommMon}$-enriched} $\dagger$-SMCs.
+We will refer to these as \textbf{distributively $\cat{CMon}$-enriched} $\dagger$-SMCs.
 
 \begin{defn}
-Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in a $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched. A \textbf{matchable family} $\ket{x}_{x \in X}$ for a monoid $(\SpaceG,\XmultSym, \XunitSym)$ are those for which the following holds for all $x,y \in X$:
+Let $\ket{x}_{x \in X}$ be a finite family of states $I \rightarrow \SpaceG$ in a $\dagger$-SMC which is distributively $\cat{CMon}$-enriched. A \textbf{matchable family} $\ket{x}_{x \in X}$ for a monoid $(\SpaceG,\XmultSym, \XunitSym)$ are those for which the following holds for all $x,y \in X$:
 \begin{equation}\label{eqn:matchables}
     \XmultSym \cdot \left( \ket{x} \tensor \ket{y} \right) = 
     \begin{cases} 
@@ -343,7 +343,7 @@ It is worth clarifying that the pointwise multiplication of Equation \ref{eqn:Po
 The usual formulation of the Fourier transform, and of its properties, involves several summations, but a careful analysis shows that they boil down to appropriate resolutions of the identity, like $\frac{1}{N} \sum_{g\in G} \ket{g}\bra{g} = \idm{\Ltwo{G}}$, and to various formulations of orthogonality of characters. The following lemma shows that, from a categorical perspective, the two are equivalent.
 
 \begin{lemma}\label{lemma_BasisResolutionPartition}
-Let $\XdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched, and let $\ket{x}_{x\in X}$ be a finite set of classical states for the co-monoid $(\tinycomult[blackdot],\tinycounit[blackdot])$ such that
+Let $\XdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a $\dagger$-SMC which is distributively $\cat{CMon}$-enriched, and let $\ket{x}_{x\in X}$ be a finite set of classical states for the co-monoid $(\tinycomult[blackdot],\tinycounit[blackdot])$ such that
 \begin{enumerate}
 \item[(a.)] the family is \textbf{orthogonal}, i.e. $\langle x'|x}\rangle= 0$ (the zero scalar) for all $x \neq x'$
 \item[(b.)] the family is \textbf{normalisable}, i.e. $\langle x|x\rangle$ is an invertible scalar for all $x$.
@@ -397,7 +397,7 @@ Let $(\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a $\dagger$-SMC $\Ca
 \begin{equation}\label{eqn:orthogonalityMultChars}
         \input{tikz/3_orthogonalityMultChar.tikz}
 \end{equation}
-Now assume that \cat{C} is distributively $\cat{fCommMon}$-enriched. If the family $\bra{g}_{g\in G}$ of (adjoints of) group elements is normalisable and forms an orthogonal partition of the counit, then Equation \ref{eqn:orthogonalityMultChars} can be re-written in the following, more familiar form (where we have set $\ket{\chi^{-1}} := \ket{\chi} \cdot \antipodeSym$):
+Now assume that \cat{C} is distributively $\cat{CMon}$-enriched. If the family $\bra{g}_{g\in G}$ of (adjoints of) group elements is normalisable and forms an orthogonal partition of the counit, then Equation \ref{eqn:orthogonalityMultChars} can be re-written in the following, more familiar form (where we have set $\ket{\chi^{-1}} := \ket{\chi} \cdot \antipodeSym$):
 \begin{equation}\label{eqn:orthogonalityMultCharsFamiliar}
 \frac{1}{N}\sum_{g\in G} \braket{\chi^{-1}}{g}\braket{\chi'}{g} = \delta_{\chi\chi'}
 \end{equation} 
@@ -426,7 +426,7 @@ The \textbf{inverse Fourier transform} is defined to be the following mapping $\
 Under appropriate circumstances, the Fourier transform of Definition \ref{def:FourierTransform} takes the more familiar form of Equation \ref{eqn:DefTraditionalFT}, as shown by the following lemma and its subsequent application to $\fdHilbCategory$.
 
 \begin{lemma}\label{lemma_FTTraditionalSMC}
-Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a $\dagger$-SMC which is distributively $\fComMonCategory$-enriched. Further assume that the multiplicative characters and the group elements of $\mathbb{G}$ are both finite, normalisable families, which form an orthogonal partition of the counits $\ZcounitSym$ and $\XcounitSym$ respectively. Then the Fourier transform of Definition \ref{eqn:FT} can be written in the following way:
+Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a $\dagger$-SMC which is distributively $\cat{CMon}$-enriched. Further assume that the multiplicative characters and the group elements of $\mathbb{G}$ are both finite, normalisable families, which form an orthogonal partition of the counits $\ZcounitSym$ and $\XcounitSym$ respectively. Then the Fourier transform of Definition \ref{eqn:FT} can be written in the following way:
 \begin{equation}\label{eqn:FTSummation}
 \input{tikz/3_FTv2.tikz}
 \end{equation} 
@@ -642,7 +642,7 @@ t := \suchthat{\left((h,g),(\Psi g,\Psi^{-1}h)\right)}{h \in H \text{ and } g \i
 
 The Fourier transform as given by Definition \ref{def:FourierTransform} is valid in any $\dagger$-SMC with a pair of strongly complementary classical structures, and in particular it holds in $\fRelCategory$. The more traditional formulation given by Lemma \ref{lemma_FTTraditionalSMC}, which allows one to see the Fourier transform as a canonical isomorphism $\Ltwo{G} \isom \Ltwo{G^\wedge}$, is based on the assumption that the group elements of an abelian internal group $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ in $\fdHilbCategory$ form a basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G}$ in a natural way, and that the multiplicative characters form a co-basis, giving $\Hom_{\fdHilbCategory}(\complexs,\SpaceG)$ the Hilbert space structure of $\Ltwo{G^\wedge}$ in a natural way.
 
-In $\fRelCategory$, however, the assumptions of Lemma \ref{lemma_FTTraditionalSMC} only hold in one, somewhat trivial case. The classical points of a classical structure in $\fRelCategory$ are always a finite, orthogonal and normalisable family, and $\fRelCategory$ is distributively $\cat{fCommMon}$-enriched as required. However, as Lemma \ref{thm_partitionIdentityRel} below notes, there is a unique classical structure on any finite set $A$ with classical points forming the resolution of the identity, and the only abelian internal group in $\fRelCategory$ satisfying the assumptions of Lemma \ref{lemma_FTTraditionalSMC} is the one on the tensor unit $\{\star\}$ of $\fRelCategory$.
+In $\fRelCategory$, however, the assumptions of Lemma \ref{lemma_FTTraditionalSMC} only hold in one, somewhat trivial case. The classical points of a classical structure in $\fRelCategory$ are always a finite, orthogonal and normalisable family, and $\fRelCategory$ is distributively $\cat{CMon}$-enriched as required. However, as Lemma \ref{thm_partitionIdentityRel} below notes, there is a unique classical structure on any finite set $A$ with classical points forming the resolution of the identity, and the only abelian internal group in $\fRelCategory$ satisfying the assumptions of Lemma \ref{lemma_FTTraditionalSMC} is the one on the tensor unit $\{\star\}$ of $\fRelCategory$.
 
 \begin{lemma}
 \label{thm_partitionIdentityRel}
@@ -763,7 +763,7 @@ One-dimensional representation of a monoid $(\SpaceG, \ZmultSym, \ZunitSym)$ are
 
 These notions clearly generalize those given in Section~\ref{section_AbelianGroups_FourierTransform}. The orthogonality of representations and characters by these abstract definitions is categorically proven in~\cite{gogioso2015fourier}. This allows a generalization of the Abelian Fourier transform from the previous section
 \begin{lemma}\label{lemma_FTTraditionalSMC2}
-Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a compact-closed $\dagger$-SMC which is distributively $\cat{fCommMon}$-enriched. Further assume that $(\rho)_{\rho \in \mathcal{R}}$ is a finite, normalisable family of representations of $\mathbb{G}$ (with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$), which forms an orthogonal resolution of the identity. Then the Fourier transform of Definition~\ref{eqn:FT} can be written in the following way:
+Let $\mathbb{G} = (\,\SpaceG,\ZdotSym,\XdotSym)$ be an internal group in a compact-closed $\dagger$-SMC which is distributively $\cat{CMon}$-enriched. Further assume that $(\rho)_{\rho \in \mathcal{R}}$ is a finite, normalisable family of representations of $\mathbb{G}$ (with normalisation factors $(N_\rho)_{\rho \in \mathcal{R}}$), which forms an orthogonal resolution of the identity. Then the Fourier transform of Definition~\ref{eqn:FT} can be written in the following way:
 \begin{equation}\label{eqn:FTv2nonabelian}
 \input{tikz/4_FTnonAb.tikz}
 \end{equation} 
