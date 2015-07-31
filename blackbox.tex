@@ -1,13 +1,13 @@
 \section{Quantum Blackbox Algorithms}
 \label{sec:blackbox}
-The Fourier Transform is a powerful tool in most quantum algorithms for algebraic problems. Now that we have a structural handle on this tool, we use it to verify, generalize, and construct quantum algorithms.
+The Fourier transform is a powerful tool in most quantum algorithms for algebraic problems. Now that we have a structural handle on this tool, we use it to verify, generalize, and construct quantum algorithms.
 
 In this section we first consider the structure of unitary oracles in general and then review the Deutsch-Jozsa, Grover's single shot, and hidden subgroup algorithms as examples of the approach.  These three initial algorithms were analyzed by Vicary in~\cite{vicary-tqa}, though the structure of the underlying oracles was assumed there.  We then expand on this base to develop a new quantum algorithm for the GROUPHOMID problem. The analysis of this new algorithm is presented in Section~\ref{sec:grouphomid}.
 
 \subsection{The abstract structure of unitary oracles}
 \label{sec:unitaryoracles}
 
-When we program an abstract problem into an oPT, we have a choice of embeddings, but typically assign classical information to the classical states of some classical structure. This was, for example, the case in our treatment of the Fourier Transform. Of course, we will also want to consider how to program functions between those classical states. An equivalent definition for classical states is that they are self-conjugate comonoid homomorphisms from the trivial comonoid on the identity object to the classical structure monoid on a system. Classical functions will then be self-conjugate comonoid homomorphisms in general.
+When we program an abstract problem into an oPT, we have a choice of embeddings, but typically assign classical information to the classical states of some classical structure. This was, for example, the case in our treatment of the Fourier transform. Of course, we will also want to consider how to program functions between those classical states. An equivalent definition for classical states is that they are self-conjugate comonoid homomorphisms from the trivial comonoid on the identity object to the classical structure monoid on a system. Classical functions will then be self-conjugate comonoid homomorphisms in general.
 
 \begin{defn}
 \label{def:selfconj}
@@ -239,7 +239,7 @@ Directly mapping the (rotated) quantum circuit for the DJ algorithm into an oPT 
 \input{tikz/3_DJmorphism.tikz}
 \end{align}
 
-In Section~\ref{sec:strcomplFT}, we saw that the Quantum Fourier Transform takes classical states of one observable to representations that correspond to classical states of its strongly complementary pair. Simplifying the above using the Fourier Transform rules we obtain the annotated diagram, where the drawing of circles around normalizing scalars is suppressed:
+In Section~\ref{sec:strcomplFT}, we saw that the quantum Fourier transform takes classical states of one observable to representations that correspond to classical states of its strongly complementary pair. Simplifying the above using the Fourier transform rules we obtain the annotated diagram, where the drawing of circles around normalizing scalars is suppressed:
 \begin{align}
 \label{eq:postFT}
 \input{tikz/3_labeledDJ.tikz}
