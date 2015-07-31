@@ -476,7 +476,7 @@ where we have made the simplification of \eqref{eq:reldj} following \cite{vicary
 
 \begin{theorem}[\cite{vicary-tqa}]
 \label{def:bc}
-In any dagger compact category with complementary bases, the algorithm in Equation \ref{eq:reldj} will, with a single oracle query, distinguish \textbf{constant} and \textbf{balanced} classical relations $f:Z^A\to Z^B$ according to the following abstract definitions. Here $\ket{x}$ is a classical point of $Z^A$ and the zero scalar $0$ is, in \cat{Rel}, the empty relation:
+In any dagger compact category with complementary bases, the algorithm in Equation \ref{eq:reldj} will, with a single oracle query, distinguish \textbf{constant} and \textbf{balanced} classical relations $f:Z^A\to Z^B$ according to the following abstract definitions. Here $\ket{x}$ is a classical state of $Z^A$ and the zero scalar $0$ is, in \cat{Rel}, the empty relation:
 \begin{equation}
 \label{eq:bc}
 \mbox{\\ constant}:\quad
@@ -514,7 +514,7 @@ where
 \node at (0.05,0.75) [anchor=west] {$2$};
 \end{tikzpicture} is the dagger adjoint of the second classical state of $X^B$.
 \end{theorem}
-That these definitions coincide with the usual ones for constant and balanced functions is shown in \cite{vicary-tqa}. In QCRel, the effect 
+That these definitions coincide with the usual ones for constant and balanced functions is shown in \cite{vicary-tqa}. In fact, it is easy to check that any constant relation will be a classical relation. In QCRel, the effect 
 \begin{tikzpicture}[string,scale=0.75]
 \draw (f.north) to (0,0.75) node [blackdot, hflip] {};
 %\node at (0.05,0.75) [anchor=west] {$2$};
@@ -522,6 +522,7 @@ That these definitions coincide with the usual ones for constant and balanced fu
 We illustrate the details of the QCRel model of this algorithm by example and then with general definitions.
 
 \begin{example}
+\label{ex:djrel}
 Take $A=\{0,1,2,3\}$ and $B=\{a,b,c,d\}$ to be four element systems. We define complementary bases on these systems as the following:
 \begin{align*}
 \begin{tabular}{|c|c|}\hline
@@ -596,6 +597,33 @@ The Deutsch-Jozsa algorithm defined above distinguishes constant relations from 
 \end{theorem}
 \begin{proof}
 This follows immediately from the abstract proof of the Deutsch-Jozsa algorithm in \cite{vicary-tqa}.
+\end{proof}
+
+\begin{remark}
+It is important to note that the constant or balanced classes of classical relations in Example~\ref{ex:djrel} can, as non-deterministic classical relations, be distinguished by a single query with input $\ket{1},\ket{3},$ or $\ket{1\vee 3}$.  This observation might lead us to conclude that constant and balanced classical relations $f:Z^A\to Z^B$ can be distinguished by a single query of $f$ on any classical state of $X^A$ except the first one. In fact this is the case, as we now show.
+\end{remark}
+
+\begin{lemma}
+\label{lem:balpreimage}
+There does not exist a balanced classical $f:Z^A\to Z^B$ relation whose pre-image is given only by elements of the first classical state of $X^A$.
+\end{lemma}
+\begin{proof}
+If the pre-image of $f$ is given only by elements of the first classical state of $X^A$, then the image of $f^{-1}$ must be the this same set $X_0^A$. However, balanced classical relations by definition have $\bra{X^A_0}\circ f^{-1}\circ  \ket{X_1^B} = 0.$ Thus no element of $X_1^B$ can be in the pre-image of $f^{-1}$ (in the image of $f$). Let $\delta_{Z^A}:A\to A\tensor A$ be the relational converse of the groupoid multiplication for $Z^A$ (and likewise for $\delta_{Z^B}$). Write $-X_1^B=\{x^{-1}~|~x\in X_1^B\}$. Then if no element of $X_1^B$ is in the image of $f$, we have:
+\begin{align}
+0 &= \bra{X_1^B}\tensor\bra{-X_1^B}\circ (f\tensor f)\circ \delta_{Z^A}\\
+0 &= \bra{X_1^B}\tensor\bra{-X_1^B}\circ \delta_{Z^B}\circ f \qquad\qquad \mbox{by the dual of~\eqref{eq:monone}} \\
+0 &= \bra{X_0^B}\circ f,
+\end{align}
+As classical relations are comonoid homomorphisms they must obey the duals of~\eqref{eq:monone} and~\eqref{eq:monunit}, but this last equation contradicts the dual of~\eqref{eq:monone}. Thus $f$ cannot both be a balanced classical relation and have a pre-image of only $X_0^A$.
+\end{proof}
+
+This allows us to show that we will always be able to construct a simple query of constant and balanced classical relations in order to distinguish them.
+
+\begin{theorem}
+Constant and balanced classical relations can be distinguished in a single query whose input state has non-zero intersection with any classical state other than that first classical state of $Z^A$.
+\end{theorem}
+\begin{proof}
+ Let $\ket{x}$ be a classical state of $Z^B$ and $\tinycounit[blackdot]$ be the classical co-state of $Z^A$. Any constant classical relation has the form $f:\ket{x}\circ\tinycounit[blackdot]$, and so the pre-image of $f$ is only the elements in the first classical state of $A$. Thus, a query of a constant classical relation with input from any other classical state will return the empty set.  Further, Lemma~\ref{lem:balpreimage} shows that it is not possible to construct balanced relations which will have the same behavior. Thus a query with any element not in $\tinycounit[blackdot]$ will suffice to identify the class of the classical relation. 
 \end{proof}
 
 This result shows that we are able to model the Deutsch-Jozsa algorithm in the nondeterministic classical setting of QCRel.
