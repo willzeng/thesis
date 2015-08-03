@@ -47,7 +47,7 @@ In this model, each grammatical type is assigned a tensor product space based on
 
 The oPT diagrammatic notation for vectors, tensors, and linear maps is commonly used in CCS. Here vertical composition (read bottom to top) represents composition of linear maps and horizontal composition represents the tensor product:
 \begin{align*}
-\begin{tabular}{cc}
+\begin{tabu}{cc}
 \overrightarrow{\mbox{Mary}}\in \mathcal{N} :=
 \begin{aligned}
 \begin{tikzpicture}[scale=0.7, yscale=-1]
@@ -57,7 +57,7 @@ The oPT diagrammatic notation for vectors, tensors, and linear maps is commonly 
                 \draw  (0,0.5) to (1.center);
 \end{tikzpicture}
 \end{aligned} & \qquad
-$f:\mathcal{M}\to\mathcal{N} :=$
+f:\mathcal{M}\to\mathcal{N} :=
 \begin{aligned}
 \begin{tikzpicture}[scale=0.7]
                 \node  (20) at (0, -1.5) {$\mathcal{M}$};
@@ -108,23 +108,22 @@ $f:\mathcal{M}\to\mathcal{N} :=$
     \end{tikzpicture}
     \end{aligned} \\
 \overrightarrow{\mbox{Mary}}\otimes \overrightarrow{\mbox{likes}} :=
-\begin{aligned}
-\begin{tikzpicture}[scale=0.7,yscale=-1]
+\begin{pic}[scale=0.7,yscale=-1]
                 \node  (20) at (0, 0) {$\mathcal{N}$};
                 \node  (31) at (0, 2.5) {Mary};
                 \node (1) [state] at (0,1) {};
                 \draw  (0,0.5) to (1.center);
                 \node (2) [state, xscale=1.5, yscale=1] at (3,1) {};
                 \node  (32) at (3, 2.5) {likes};
-                \node  (20) at (2.25, 0) {$\mathcal{N}$};                                \node  (20) at (3, 0) {$\mathcal{S}$};
+                \node  (20) at (2.25, 0) {$\mathcal{N}$};
+                \node  (20) at (3, 0) {$\mathcal{S}$};
                 \node  (20) at (3.75, 0) {$\mathcal{N}$};
                 \draw  (3,0.5) to (2.center);
-                \draw  (3.75,0.5) to (3.75,1);                            \draw  (2.25,0.5) to (2.25,1);    
-\end{tikzpicture}
-\end{aligned} & \qquad\qquad
+                \draw  (3.75,0.5) to (3.75,1);
+                \draw  (2.25,0.5) to (2.25,1);    
+\end{pic} & \qquad\qquad
 \sum\limits_i \langle ii| :=
-\begin{aligned}
-\begin{tikzpicture}[scale=0.7, yscale=-1]
+\begin{pic}[scale=0.7, yscale=-1]
                 \node  (0) at (-1, 1.5) {$\mathcal{N}$};
                 \node  (1) at (1, 1.5) {$\mathcal{N}$};
                 \node  (0) at (-1, 1) {};
@@ -132,9 +131,8 @@ $f:\mathcal{M}\to\mathcal{N} :=$
                 \node  (2) at (0, 0) {};
                 \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
                 \draw [bend right=45, looseness=1.00] (2.center) to (1.center);               
-\end{tikzpicture}
-\end{aligned}
-\end{tabular}
+\end{pic}
+\end{tabu}
 \end{align*}
 where $f:\mathcal{N}\to\mathcal{M}$ and $g:\mathcal{M}\to\mathcal{P}$ are linear maps and the linear map $\sum_i\langle ii|$ sums over all the basis vectors of $\mathcal{N}$ and is the usual oPT cap.
 
@@ -147,8 +145,7 @@ Given a well-typed sentence with meaning vectors $\vec{w_j}$ for each of $k$ wor
 \begin{equation}
 \label{eq:svo}
 \begin{aligned}
-\begin{tikzpicture}[scale=0.5, yscale=-1]
-        \begin{pgfonlayer}{nodelayer}     
+\begin{tikzpicture}[scale=0.5, yscale=-1]     
                 \node (0) at (-3.5, 1) {};
                 \node (1) at (-2, 1) {};
                 \node (2) at (-2.75, 2) {};
@@ -182,8 +179,6 @@ Given a well-typed sentence with meaning vectors $\vec{w_j}$ for each of $k$ wor
                 \node (30) at (-2.75, 2.75) {Mary};
                 \node (31) at (0.5, 2.75) {likes};
                 \node (32) at (3.75, 2.75) {words.};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
                 \draw (0.center) to (1.center);
                 \draw (1.center) to (2.center);
                 \draw (2.center) to (0.center);
@@ -201,7 +196,6 @@ Given a well-typed sentence with meaning vectors $\vec{w_j}$ for each of $k$ wor
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
                 \draw (26.center) to (29.center);
-        \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
@@ -219,13 +213,13 @@ The most immediate advantage for quantum implementations of the CCS model is gai
 \begin{center}
   \begin{tabular}{cc}
    Qubit & Qubits  \\
-   \begin{array}{lcl}
+   $\begin{array}{lcl}
         \ket{\psi} &=& \alpha\ket{0}+\beta\ket{1} \\[0.2cm]
         &=&\alpha\left(\begin{array}{c} 1 \\ 0 \end{array}\right)
             +\beta\left(\begin{array}{c} 0 \\ 1 \end{array}\right)
-   \end{array} 
+   \end{array} $
    &\qquad\qquad
-   \ket{\psi_1}\otimes\ket{\psi_2} = \left(\begin{array}{c} \alpha_1\alpha_2 \\ \alpha_1\beta_2\\\beta_1\alpha_2\\\beta_2\beta_2 \end{array}\right)
+   $\ket{\psi_1}\otimes\ket{\psi_2} = \left(\begin{array}{c} \alpha_1\alpha_2 \\ \alpha_1\beta_2\\\beta_1\alpha_2\\\beta_2\beta_2 \end{array}\right)$
    \\
   \end{tabular}
 \end{center}
@@ -250,10 +244,10 @@ Further, these word meanings can be imported into a ``bucket bridgade" quantum R
 \label{sec:qalg}
 
 Many tasks in computational linguistics such as clustering, text classification, phrase/word similarity, and sentiment analysis rely on computations that determine the closest vector to $\vec{s}$ out of some set of $N$-dimensional vectors $\{\vec{v}_0,\vec{v}_1,...\vec{v}_{M-1}\}$. In clustering algorithms, for example, the set of vectors could be either the centroids of different clusters or the full set of training vectors, as in nearest neighbor clustering algorithms. Either the inner-product distance or Euclidean distance can be used. We will assume that all vectors are $N$-dimensional.
-\begin{definition}
+\begin{defn}
 Given vector $\vec{s}$ and a set of $M$ vectors $U = \{\vec{v}_0,\vec{v}_1,...\vec{v}_{M-1}\}$ the \textbf{closest vector problem} asks one to determine which $v_j$ has the smallest inner product distance with $\vec{s}$.
-\end{definition}
-Direct calculation of the smallest vector would have complexity $\mathcal{O}(MN)$.  In \cite{wiebe2014quantum} the authors introduce a quantum algorithm for this problem that, under certain conditions, demonstrate quadratic speedups over direct calculation and polynomial speedups over Monte-Carlo methods. Some proof of principle experiments have then demonstrated clustering of eight-dimensional vectors, based on these techniques, on a small photonic quantum computer \cite{cai2015entanglement}. This algorithm requires the following assumptions, where we write $v_{ji}$ for the $i$^{\tiny\mbox{th}}$ entry of the $j$^{\tiny\mbox{th}}$ vector:
+\end{defn}
+Direct calculation of the smallest vector would have complexity $\mathcal{O}(MN)$.  In \cite{wiebe2014quantum} the authors introduce a quantum algorithm for this problem that, under certain conditions, demonstrate quadratic speedups over direct calculation and polynomial speedups over Monte-Carlo methods. Some proof of principle experiments have then demonstrated clustering of eight-dimensional vectors, based on these techniques, on a small photonic quantum computer \cite{cai2015entanglement}. This algorithm requires the following assumptions, where we write $v_{ji}$ for the $i^{\tiny\mbox{th}}$ entry of the $j^{\tiny\mbox{th}}$ vector:
 \begin{enumerate}
 \item Vectors $\vec{v_j}$ and $\vec{s}$ are $d$-sparse, with no more than $d$ non-zero entries.
 \item The relevant vectors are stored in some kind of quantum memory so that the quantum computer can access their entries with the two oracles of the form:
@@ -263,7 +257,7 @@ Direct calculation of the smallest vector would have complexity $\mathcal{O}(MN)
 \mathcal{F}\ket{j}\ket{l}:= \ket{j}\ket{f(j,l)},
 \end{array}
 \end{equation}
-where $f(j,l)$ is the location of the $l$^{\tiny\mbox{th}}$ non-zero entry of $v_j$.  It is against these memory access oracles that the performance of our algorithm will be measured.
+where $f(j,l)$ is the location of the $l^{\tiny\mbox{th}}$ non-zero entry of $v_j$.  It is against these memory access oracles that the performance of our algorithm will be measured.
 
 \item $\max(|v_{ji}|^2)\le r_{\small\mbox{max}}$ for some known constant $r_{\small\mbox{max}}$.
 
@@ -309,7 +303,6 @@ Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/
 \label{eqn:phi}
 \begin{aligned}
 \begin{tikzpicture}[scale=0.6, yscale=-1]
-        \begin{pgfonlayer}{nodelayer}
                 \node (0) at (-5.5, 0) {\ket{\phi}};
                 \node (0) at (-4.5, 0) {=};       
                 \node (0) at (-3.5, 1) {};
@@ -345,8 +338,6 @@ Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/
                 \node (30) at (-2.75, 2.75) {kids};
                 \node (31) at (0.5, 2.75) {play};
                 \node (32) at (3.75, 2.75) {football};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
                 \draw (0.center) to (1.center);
                 \draw (1.center) to (2.center);
                 \draw (2.center) to (0.center);
@@ -364,30 +355,22 @@ Throughout this section we will assume both that $r_{\small\mbox{max}}\propto 1/
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
                 \draw (26.center) to (29.center);
-        \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
 
 From now on, we will take sentences to exist in the same meaning space as words, i.e. $S\simeq N$.
 
-\begin{definition}
+\begin{defn}
 For meaning vector $\vec{s}$ and $M$ sets of meaning vectors, a \textbf{classification task} assigns $\vec{s}$ to the set containing the nearest-neighbor of $\vec{s}$.
-\end{definition}
+\end{defn}
 
 An example task would be to determine if a sentence is about sports or politics or if a sentence expresses agreement or disagreement. 
-%The \textbf{classification} approach considers the closest set to be given %by the set whose average vector has the smallest inner product with $s$. %We define these average vectors as 
-%\begin{align*}
-%v &= \frac{1}{m}\sum_m v_i \qquad \qquad
-%w = \frac{1}{m}\sum_m w_i.
-%\end{align}
-%In the simplest case, there is only a single meaning vector in each training %cluster, i.e. $m=1$. 
 If, to present a simplified example, we take each cluster to only contain a single vector ($\vec{v}$ and $\vec{w}$ respectively) then the sentence would be classified by computing 
 \begin{equation}
 \label{eq:exampleCalcs}
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
-        \begin{pgfonlayer}{nodelayer}
                 \node (0) at (-3.5, 1) {};
                 \node (1) at (-2, 1) {};
                 \node (2) at (-2.75, 2) {};
@@ -423,8 +406,6 @@ If, to present a simplified example, we take each cluster to only contain a sing
                 \node (32) at (3.75, 2.75) {football};
                 \node [style=state, hflip] (33) at (0.5, -1.75) {$\vec{v}$};
                 \node (34) at (0.6, -3.5) {sports};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
                 \draw (0.center) to (1.center);
                 \draw (1.center) to (2.center);
                 \draw (2.center) to (0.center);
@@ -442,13 +423,11 @@ If, to present a simplified example, we take each cluster to only contain a sing
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
                 \draw (26.center) to (29.center);
-        \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
-&& \qquad \mbox{and}} \qquad
+\qquad \mbox{and} \qquad
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
-        \begin{pgfonlayer}{nodelayer}
                 \node (0) at (-3.5, 1) {};
                 \node (1) at (-2, 1) {};
                 \node (2) at (-2.75, 2) {};
@@ -484,8 +463,6 @@ If, to present a simplified example, we take each cluster to only contain a sing
                 \node (32) at (3.75, 2.75) {football};
                 \node [style=state, hflip] (33) at (0.5, -1.75) {$\vec{w}$};
                 \node (34) at (0.6, -3.5) {politics};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
                 \draw (0.center) to (1.center);
                 \draw (1.center) to (2.center);
                 \draw (2.center) to (0.center);
@@ -503,7 +480,6 @@ If, to present a simplified example, we take each cluster to only contain a sing
                 \draw [thick, bend right=90, looseness=1.25] (24.center) to (25.center);
                 \draw [thick, bend right=90, looseness=1.25] (27.center) to (28.center);
                 \draw (26.center) to (29.center);
-        \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
@@ -522,7 +498,6 @@ In order to recover a speedup we refine the application of the quantum algorithm
 \label{eqn:trick}
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
-        \begin{pgfonlayer}{nodelayer}
                 \node (3) at (-3, 1) {};
                 \node (4) at (4, 1) {};
                 \node (5) at (0.5, 2.25) {};
@@ -551,8 +526,6 @@ In order to recover a speedup we refine the application of the quantum algorithm
                 \node [style=state, hflip] (35) at (0.5, -1.75) {};
                 \node [style=state, hflip] (36) at (3, -1.75) {};
                 \node (34) at (0.6, -3.5) {sports};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
                 \draw  (3.center) to (4.center);
                 \draw (4.center) to (5.center);
                 \draw (3.center) to (5.center);
@@ -562,13 +535,11 @@ In order to recover a speedup we refine the application of the quantum algorithm
                 \draw (26.center) to (29.center);
                 \draw (-2,-0.5) to (33.center);
                 \draw (3,-0.5) to (36.center);
-        \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
-&& \qquad \mbox{and}} \qquad
+\qquad \mbox{and} \qquad
 \begin{aligned}
 \begin{tikzpicture}[scale=0.5, yscale=-1]
-        \begin{pgfonlayer}{nodelayer}
                 \node (3) at (-3, 1) {};
                 \node (4) at (4, 1) {};
                 \node (5) at (0.5, 2.25) {};
@@ -597,8 +568,6 @@ In order to recover a speedup we refine the application of the quantum algorithm
                 \node [style=state, hflip] (35) at (0.5, -1.75) {};
                 \node [style=state, hflip] (36) at (3, -1.75) {};
                 \node (34) at (0.6, -3.54) {politics};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
                 \draw (3.center) to (4.center);
                 \draw (4.center) to (5.center);
                 \draw (3.center) to (5.center);
@@ -608,7 +577,6 @@ In order to recover a speedup we refine the application of the quantum algorithm
                 \draw (26.center) to (29.center);
                 \draw (-2,-0.5) to (33.center);
                 \draw (3,-0.5) to (36.center);
-        \end{pgfonlayer}
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
@@ -667,7 +635,7 @@ Consider the following example sentence from \cite{dimitriThesis}:
                 \draw [bend right=45, looseness=1.00] (2.1,1) to (7.center);
                 \draw [bend right=45, looseness=1.00] (15.center) to (12);
 \end{tikzpicture}
-\end{equation}
+\end{equation*}
 where we have labeled the vectors based on their depth in the derivation tree.  The two-layer form assigns even vectors to the top layer and odd vectors to the bottom:
 \begin{equation*}
 \begin{tikzpicture}[scale=1, yscale=-1]
