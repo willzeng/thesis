@@ -23,21 +23,21 @@
 \node (greendotr) [whitedot, below of = LHSanchor, yshift = -5mm, xshift = +7mm] {};
 
 \begin{pgfonlayer}{background}
-\draw[->-=.5,out=90,in=315] (alphaj1) to (reddotl);
-\draw[-<-=.5,out=90,in=225] (alphaj1star) to (reddotl);
+\draw[arrow=.5,out=90,in=315] (alphaj1) to (reddotl);
+\draw[reverse arrow=.5,out=90,in=225] (alphaj1star) to (reddotl);
 
-\draw[->-=.5,out=90,in=315] (alphajN) to (reddotr);
-\draw[-<-=.5,out=90,in=225] (alphajNstar) to (reddotr);
+\draw[arrow=.5,out=90,in=315] (alphajN) to (reddotr);
+\draw[reverse arrow=.5,out=90,in=225] (alphajNstar) to (reddotr);
 
 
-\draw[-<-=.5,out=135,in=270] (greendotl) to (alphaj1star);
-\draw[-<-=.5,out=45,in=270] (greendotl) to (alphajNstar);
+\draw[reverse arrow=.5,out=135,in=270] (greendotl) to (alphaj1star);
+\draw[reverse arrow=.5,out=45,in=270] (greendotl) to (alphajNstar);
 
-\draw[->-=.5,out=135,in=270] (greendotr) to (alphaj1);
-\draw[->-=.5,out=45,in=270] (greendotr) to (alphajN);
+\draw[arrow=.5,out=135,in=270] (greendotr) to (alphaj1);
+\draw[arrow=.5,out=45,in=270] (greendotr) to (alphajN);
 
-\draw[->-=.5,out=90,in=270] (reddotl) to (outl);
-\draw[->-=.5,out=90,in=270] (reddotr) to (outr);
+\draw[arrow=.5,out=90,in=270] (reddotl) to (outl);
+\draw[arrow=.5,out=90,in=270] (reddotr) to (outr);
 
 \end{pgfonlayer}
 
@@ -92,18 +92,18 @@
 
 \begin{pgfonlayer}{background}
 
-\draw[->-=.5,out=90,in=270] (lambda.150) to (a1sys1.90);
-\draw[->-=.5,out=90,in=270] (lambda.135) to (aMsys1.90);
+\draw[arrow=.5,out=90,in=270] (lambda.150) to (a1sys1.90);
+\draw[arrow=.5,out=90,in=270] (lambda.135) to (aMsys1.90);
 
-\draw[->-=.5,out=90,in=270] (lambda.45) to (a1sysN.90);
-\draw[->-=.5,out=90,in=270] (lambda.60) to (aMsysN.90);
+\draw[arrow=.5,out=90,in=270] (lambda.45) to (a1sysN.90);
+\draw[arrow=.5,out=90,in=270] (lambda.60) to (aMsysN.90);
 
-\draw[->-=.5,out=90,in=270] (alfa11anchor.270) to (alfa11);
-\draw[->-=.5,out=90,in=270] (alfa1nanchor.270) to (alfa1n);
-\draw[->-=.5,out=90,in=270] (alfaj1anchor.270) to (alfaj1);
-\draw[->-=.5,out=90,in=270] (alfajnanchor.270) to (alfajn);
-\draw[->-=.5,out=90,in=270] (alfaS1anchor.270) to (alfaS1);
-\draw[->-=.5,out=90,in=270] (alfaSnanchor.270) to (alfaSn);
+\draw[arrow=.5,out=90,in=270] (alfa11anchor.270) to (alfa11);
+\draw[arrow=.5,out=90,in=270] (alfa1nanchor.270) to (alfa1n);
+\draw[arrow=.5,out=90,in=270] (alfaj1anchor.270) to (alfaj1);
+\draw[arrow=.5,out=90,in=270] (alfajnanchor.270) to (alfajn);
+\draw[arrow=.5,out=90,in=270] (alfaS1anchor.270) to (alfaS1);
+\draw[arrow=.5,out=90,in=270] (alfaSnanchor.270) to (alfaSn);
 
 \end{pgfonlayer}
 

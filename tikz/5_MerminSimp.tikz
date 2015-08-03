@@ -11,12 +11,12 @@
 
 
 \begin{pgfonlayer}{background}
-        \draw [->-=.5, bend left, looseness=1.00] (3) to (4.center);
-        \draw [->-=.5, bend left=15, looseness=0.75] (3) to (5.center);
-        \draw [->-=.5, bend right=45, looseness=1.00] (3) to (6.center);
-        \draw [->-=.5, bend right=45, looseness=0.75] (1.north) to (2);
-        \draw [->-=.5, bend right=45, looseness=0.75] (2) to (0.north);
-        \draw [->-=.5] (2) to (3);
+        \draw [arrow=.5, bend left, looseness=1.00] (3) to (4.center);
+        \draw [arrow=.5, bend left=15, looseness=0.75] (3) to (5.center);
+        \draw [arrow=.5, bend right=45, looseness=1.00] (3) to (6.center);
+        \draw [arrow=.5, bend right=45, looseness=0.75] (1.north) to (2);
+        \draw [arrow=.5, bend right=45, looseness=0.75] (2) to (0.north);
+        \draw [arrow=.5] (2) to (3);
 \end{pgfonlayer}
 
 \end{pic}

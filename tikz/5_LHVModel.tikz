@@ -31,24 +31,24 @@
 \node (28) at (1.75, 2.25) {$\cdot\;\cdot\;\cdot$};
 
 \begin{pgfonlayer}{background}
-        \draw [->-=.5] (3) to (0);
-        \draw [->-=.5] (1) to (3);
-        \draw [->-=.5] (2) to (0);
-        \draw [->-=.5] (1) to (2);
-        \draw [->-=.5] (3) to (4);
-        \draw [->-=.5] (4) to (6);
-        \draw [->-=.5] (4) to (7);
-        \draw [->-=.5] (2) to (5);
-        \draw [->-=.5] (5) to (8);
-        \draw [->-=.5] (5) to (9);
-        \draw [->-=.5] (9) to (14.center);
-        \draw [->-=.5] (8) to (13.center);
-        \draw [->-=.5] (7) to (12.center);
-        \draw [->-=.5] (6) to (11.center);
-        \draw [->-=.5] (18.center) to (22.center);
-        \draw [->-=.5] (15.center) to (21.center);
-        \draw [->-=.5] (16.center) to (20.center);
-        \draw [->-=.5] (17.center) to (19.center);
+        \draw [arrow=.5] (3) to (0);
+        \draw [arrow=.5] (1) to (3);
+        \draw [arrow=.5] (2) to (0);
+        \draw [arrow=.5] (1) to (2);
+        \draw [arrow=.5] (3) to (4);
+        \draw [arrow=.5] (4) to (6);
+        \draw [arrow=.5] (4) to (7);
+        \draw [arrow=.5] (2) to (5);
+        \draw [arrow=.5] (5) to (8);
+        \draw [arrow=.5] (5) to (9);
+        \draw [arrow=.5] (9) to (14.center);
+        \draw [arrow=.5] (8) to (13.center);
+        \draw [arrow=.5] (7) to (12.center);
+        \draw [arrow=.5] (6) to (11.center);
+        \draw [arrow=.5] (18.center) to (22.center);
+        \draw [arrow=.5] (15.center) to (21.center);
+        \draw [arrow=.5] (16.center) to (20.center);
+        \draw [arrow=.5] (17.center) to (19.center);
 \end{pgfonlayer}
         
 \node at (-3.3, -1.6) {system 1};

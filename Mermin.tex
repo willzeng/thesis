@@ -18,13 +18,13 @@ In Sections \ref{section_MerminMeasurements} and \ref{section_MerminLocality}, w
 
 In Section \ref{section_MerminLocality}, we show that strong complementarity is not sufficient to characterise Mermin non-locality. The phase group structure is shown to provide necessary algebraic conditions in abstract process theories, as summarised by our first main result:
 \begin{theorem}\hspace{-3pt}\text{\textbf{\ref{thm_MerminLocality}.}}
-                Let $\CategoryC$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. If the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points, i.e. if there exist no algebraically non-trivial $\ZdotSym$-phases, then $\CategoryC$ is Mermin local.
+                Let $\cat{C}$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. If the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points, i.e. if there exist no algebraically non-trivial $\ZdotSym$-phases, then $\cat{C}$ is Mermin local.
         \end{theorem}
 Thus $\ZdotSym$-phase groups which are trivial algebraic extensions of the respective subgroups of $\XdotSym$-classical points always lead to local hidden variable models, regardless of whether there are enough $\XdotSym$-classical points to form a basis and/or strictly more $\ZdotSym$-phases than $\XdotSym$-classical points. Indeed, we show that the category $\fRelCategory$ of finite sets and relations is Mermin local (despite it having arbitrarily many more $\ZdotSym$-phases than $\XdotSym$-classical points), and also confirm that Spekken's toy theory is Mermin local (despite it having enough $\XdotSym$-classical points to form a basis). 
 
 Also in Section \ref{section_MerminLocality}, we show that the existence of algebraically non-trivial $\ZdotSym$-phases is sufficient, under mild additional assumptions, to formulate a non-locality argument. This leads to our second main result:
         \begin{theorem}\hspace{-3pt}\text{\textbf{\ref{thm_MerminNonLocality}.}}
-                Let $\CategoryC$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. Suppose further that the $\XdotSym$-classical points form a basis. If the group of $\ZdotSym$-phases is a non-trivial algebraic extension of the subgroup of $\XdotSym$-classical points, then $\CategoryC$ is Mermin non-local.
+                Let $\cat{C}$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. Suppose further that the $\XdotSym$-classical points form a basis. If the group of $\ZdotSym$-phases is a non-trivial algebraic extension of the subgroup of $\XdotSym$-classical points, then $\cat{C}$ is Mermin non-local.
         \end{theorem}
 \noindent As a consequence, we confirm that Stabilizer Quantum Mechanics is Mermin non-local.
 
@@ -108,7 +108,7 @@ We follow \cite{coecke2012strong} to build Mermin type scenarios out of them.
     The definition of local hidden variables finally allows us to formulate our generalised notion of Mermin non-locality. 
 
         \begin{defn}
-                We say a $\dagger$-SMC $\CategoryC$ is \textbf{Mermin non-local} if there exists a Mermin scenario for some strongly complementary pair $(\ZdotSym,\XdotSym)$ of $\dagger$-qSCFAs which has no local hidden variable model. If for all strongly complementary pairs no such measurement exists, then we say that $\CategoryC$ is \textbf{Mermin local}.
+                We say a $\dagger$-SMC $\cat{C}$ is \textbf{Mermin non-local} if there exists a Mermin scenario for some strongly complementary pair $(\ZdotSym,\XdotSym)$ of $\dagger$-qSCFAs which has no local hidden variable model. If for all strongly complementary pairs no such measurement exists, then we say that $\cat{C}$ is \textbf{Mermin local}.
         \end{defn}
 
         
@@ -142,7 +142,7 @@ If $x_j := g_j = (\pi_K g_j, \pi_{K'} g_j)$ is a solution in $G$, then $x_j := (
 We are now able to introduce our first main result:
         \begin{theorem}[Mermin Non-Locality]
         \label{thm_MerminNonLocality}
-                Let $\CategoryC$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. Suppose further that the $\XdotSym$-classical points form a basis. If the group of $\ZdotSym$-phases is a non-trivial algebraic extension of the subgroup of $\XdotSym$-classical points, then $\CategoryC$ is Mermin non-local.
+                Let $\cat{C}$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. Suppose further that the $\XdotSym$-classical points form a basis. If the group of $\ZdotSym$-phases is a non-trivial algebraic extension of the subgroup of $\XdotSym$-classical points, then $\cat{C}$ is Mermin non-local.
         \end{theorem}
         \begin{proof} 
                 For clarity, we present a proof where the system of equations that defines the phase group as a non-trivial algebraic extension is composed of a single equation. The construction for general systems of $l$ equations consists of $l$ copies of the construction we explicitly give. 
@@ -207,10 +207,10 @@ We are now able to introduce our first main result:
 
 \begin{theorem}[Mermin Locality]
         \label{thm_MerminLocality}
-                Let $\CategoryC$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. If the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points, then $\CategoryC$ is Mermin local.
+                Let $\cat{C}$ be a $\dagger$-SMC. If for any strongly complementary pair $(\ZdotSym,\XdotSym)$ of $\dagger$-qSCFAs the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points (i.e. if there exist no algebraically non-trivial $\ZdotSym$-phases), then $\cat{C}$ is Mermin local.
         \end{theorem}
         \begin{proof} 
-                Consider an $N$-partite Mermin measurement scenario $\underline{\alpha}^s = (\alpha_1^s,...,\alpha_N^s)_{s=1,...,S}$, and let $a_1,...,a_M$ be the distinct $\ZdotSym$-phases appearing in it. Consider the system of equations $(\sum_{r=1}^M n_r^s \cdot x_r = c^s)_{s=1,...,S}$, where $n_r^s$ is the numer of times phase $a_r$ appears in measurement $\underline{\alpha}^s$, and $c^s$ are the unique values making $x_r := a_r$ into a solution for the system. As the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points, there is a solution $x_r := b_r$ with $(b_r)_{r=1,...,M}$ $\XdotSym$-classical points. By using this, together with Lemma \ref{thm_MerminMeasurementGHZstate}, we see that each measurement in the scenario is equal to the Mermin measurement obtained by replacing $a_r$ with $b_r$ for all $r=1,...,M$ (say $\beta_i^s := b_r$ if $\alpha_i^s = a_r$): 
+                Consider an $N$-partite Mermin measurement scenario $\underline{\alpha}^s = (\alpha_1^s,...,\alpha_N^s)_{s=1,...,S}$, and let $a_1,...,a_M$ be the distinct $\ZdotSym$-phases appearing in it. Consider the system of equations $(\sum_{r=1}^M n_r^s \cdot x_r = c^s)_{s=1,...,S}$, where $n_r^s$ is the number of times phase $a_r$ appears in measurement $\underline{\alpha}^s$, and $c^s$ are the unique values making $x_r := a_r$ into a solution for the system. As the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points, there is a solution $x_r := b_r$ with $(b_r)_{r=1,...,M}$ $\XdotSym$-classical points. By using this, together with Lemma \ref{thm_MerminMeasurementGHZstate}, we see that each measurement in the scenario is equal to the Mermin measurement obtained by replacing $a_r$ with $b_r$ for all $r=1,...,M$ (say $\beta_i^s := b_r$ if $\alpha_i^s = a_r$): 
                 \begin{equation}\label{MerminScenarioSwap}
                         \input{tikz/5_EquivMMeas.tikz}
                 \end{equation}

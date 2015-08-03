@@ -56,47 +56,47 @@
 
 
 \begin{pgfonlayer}{background}
-\draw[->-=.5,out=90,in=270] (topdot) to (a);
-\draw[->-=.5,out=45,in=225] (antipode) to (topdot);
-\draw[->-=.5,out=45,in=225] (ldot) to (antipode);
-\draw[->-=.5,out=135,in=315] (rdot) to (antipodefiller);
-\draw[->-=.5,out=135,in=315] (antipodefiller) to (topdot);
+\draw[arrow=.5,out=90,in=270] (topdot) to (a);
+\draw[arrow=.5,out=45,in=225] (antipode) to (topdot);
+\draw[arrow=.5,out=45,in=225] (ldot) to (antipode);
+\draw[arrow=.5,out=135,in=315] (rdot) to (antipodefiller);
+\draw[arrow=.5,out=135,in=315] (antipodefiller) to (topdot);
 
-\draw[->-=.5,out=45,in=225] (lcontroldot) to (ldot);
-\draw[->-=.5,out=45,in=225] (rcontroldot) to (antipodefiller);
-\draw[->-=.5,out=45,in=225] (lvariationdot) to (rdot);
-\draw[->-=.5,out=135,in=315] (rvariationdot) to (rdot);
-
-
-\draw[->-=.5,out=135,in=225] (l0phasedot) to (lcontroldot);
-\draw[->-=.5,out=45,in=315] (l0phasedot) to (lcontroldot);
-\draw[->-=.5,out=135,in=225] (r0phasedot) to (rcontroldot);
-\draw[->-=.5,out=45,in=315] (r0phasedot) to (rcontroldot);
-
-\draw[->-=.5,out=45,in=180] (l0phasedot) to (rcontroldot);
-\draw[->-=.5,out=0,in=225] (l0phasedot) to (rcontroldot);
-\draw[->-=.5,out=135,in=0] (r0phasedot) to (lcontroldot);
-\draw[->-=.5,out=180,in=315] (r0phasedot) to (lcontroldot);
+\draw[arrow=.5,out=45,in=225] (lcontroldot) to (ldot);
+\draw[arrow=.5,out=45,in=225] (rcontroldot) to (antipodefiller);
+\draw[arrow=.5,out=45,in=225] (lvariationdot) to (rdot);
+\draw[arrow=.5,out=135,in=315] (rvariationdot) to (rdot);
 
 
-\draw[->-=.5,out=90,in=270] (l0phase) to (l0phasedot);
-\draw[->-=.5,out=90,in=270] (r0phase) to (r0phasedot);
-\draw[->-=.5,out=90,in=270] (la1phase) to (la1variationdot);
-\draw[->-=.5,out=90,in=270] (laMphase) to (laMvariationdot);
-\draw[->-=.5,out=90,in=270] (ra1phase) to (ra1variationdot);
-\draw[->-=.5,out=90,in=270] (raMphase) to (raMvariationdot);
+\draw[arrow=.5,out=135,in=225] (l0phasedot) to (lcontroldot);
+\draw[arrow=.5,out=45,in=315] (l0phasedot) to (lcontroldot);
+\draw[arrow=.5,out=135,in=225] (r0phasedot) to (rcontroldot);
+\draw[arrow=.5,out=45,in=315] (r0phasedot) to (rcontroldot);
+
+\draw[arrow=.5,out=45,in=180] (l0phasedot) to (rcontroldot);
+\draw[arrow=.5,out=0,in=225] (l0phasedot) to (rcontroldot);
+\draw[arrow=.5,out=135,in=0] (r0phasedot) to (lcontroldot);
+\draw[arrow=.5,out=180,in=315] (r0phasedot) to (lcontroldot);
 
 
-\draw[->-=.5,out=135,in=180] (la1variationdot) to (lvariationdot);
-\draw[->-=.5,out=45,in=225] (la1variationdot) to (lvariationdot);
-\draw[->-=.5,out=135,in=315] (laMvariationdot) to (lvariationdot);
-\draw[->-=.5,out=45,in=0] (laMvariationdot) to (lvariationdot);
+\draw[arrow=.5,out=90,in=270] (l0phase) to (l0phasedot);
+\draw[arrow=.5,out=90,in=270] (r0phase) to (r0phasedot);
+\draw[arrow=.5,out=90,in=270] (la1phase) to (la1variationdot);
+\draw[arrow=.5,out=90,in=270] (laMphase) to (laMvariationdot);
+\draw[arrow=.5,out=90,in=270] (ra1phase) to (ra1variationdot);
+\draw[arrow=.5,out=90,in=270] (raMphase) to (raMvariationdot);
 
 
-\draw[->-=.5,out=135,in=180] (ra1variationdot) to (rvariationdot);
-\draw[->-=.5,out=45,in=225] (ra1variationdot) to (rvariationdot);
-\draw[->-=.5,out=135,in=315] (raMvariationdot) to (rvariationdot);
-\draw[->-=.5,out=45,in=0] (raMvariationdot) to (rvariationdot);
+\draw[arrow=.5,out=135,in=180] (la1variationdot) to (lvariationdot);
+\draw[arrow=.5,out=45,in=225] (la1variationdot) to (lvariationdot);
+\draw[arrow=.5,out=135,in=315] (laMvariationdot) to (lvariationdot);
+\draw[arrow=.5,out=45,in=0] (laMvariationdot) to (lvariationdot);
+
+
+\draw[arrow=.5,out=135,in=180] (ra1variationdot) to (rvariationdot);
+\draw[arrow=.5,out=45,in=225] (ra1variationdot) to (rvariationdot);
+\draw[arrow=.5,out=135,in=315] (raMvariationdot) to (rvariationdot);
+\draw[arrow=.5,out=45,in=0] (raMvariationdot) to (rvariationdot);
 
 \end{pgfonlayer}
 

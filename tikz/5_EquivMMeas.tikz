@@ -25,26 +25,26 @@
 \node (22) at (0, -0) {$=$};
 
 \begin{pgfonlayer}{background}
-\draw [->-=.5] (2) to (0);
-\draw [->-=.5] (1) to (3);
-\draw [->-=.5] (4) to (0);
-\draw [->-=.5] (1) to (5);
-\draw [->-=.5, bend right=45, looseness=1.00] (5) to (6.center);
-\draw [->-=.5, bend right=45, looseness=1.00] (6.center) to (4);
-\draw [->-=.5, bend right=45, looseness=1.00] (3) to (7.center);
-\draw [->-=.5, bend right=45, looseness=1.00] (7.center) to (2);
-\draw [->-=.5] (7.center) to (9.center);
-\draw [->-=.5] (6.center) to (8.center);
-\draw [->-=.5] (12) to (13);
-\draw [->-=.5] (19) to (16);
-\draw [->-=.5] (21) to (13);
-\draw [->-=.5] (19) to (17);
-\draw [->-=.5, bend right=45, looseness=1.00] (17) to (14.center);
-\draw [->-=.5, bend right=45, looseness=1.00] (14.center) to (21);
-\draw [->-=.5, bend right=45, looseness=1.00] (16) to (15.center);
-\draw [->-=.5, bend right=45, looseness=1.00] (15.center) to (12);
-\draw [->-=.5] (15.center) to (18.center);
-\draw [->-=.5] (14.center) to (20.center);
+\draw [arrow=.5] (2) to (0);
+\draw [arrow=.5] (1) to (3);
+\draw [arrow=.5] (4) to (0);
+\draw [arrow=.5] (1) to (5);
+\draw [arrow=.5, bend right=45, looseness=1.00] (5) to (6.center);
+\draw [arrow=.5, bend right=45, looseness=1.00] (6.center) to (4);
+\draw [arrow=.5, bend right=45, looseness=1.00] (3) to (7.center);
+\draw [arrow=.5, bend right=45, looseness=1.00] (7.center) to (2);
+\draw [arrow=.5] (7.center) to (9.center);
+\draw [arrow=.5] (6.center) to (8.center);
+\draw [arrow=.5] (12) to (13);
+\draw [arrow=.5] (19) to (16);
+\draw [arrow=.5] (21) to (13);
+\draw [arrow=.5] (19) to (17);
+\draw [arrow=.5, bend right=45, looseness=1.00] (17) to (14.center);
+\draw [arrow=.5, bend right=45, looseness=1.00] (14.center) to (21);
+\draw [arrow=.5, bend right=45, looseness=1.00] (16) to (15.center);
+\draw [arrow=.5, bend right=45, looseness=1.00] (15.center) to (12);
+\draw [arrow=.5] (15.center) to (18.center);
+\draw [arrow=.5] (14.center) to (20.center);
 \end{pgfonlayer}
 
 \end{pic}

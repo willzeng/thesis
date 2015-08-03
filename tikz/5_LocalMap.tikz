@@ -77,34 +77,34 @@
 
 
 \begin{pgfonlayer}{background}
-\draw[->-=.5,out=90,in=270] (a1sys1) to (a1sys1dot);
-\draw[->-=.5,out=90,in=270] (a1sys1dot) to (a1sys1dotl);
-\draw[->-=.5,out=90,in=270] (a1sys1dot) to (a1sys1dotr);
+\draw[arrow=.5,out=90,in=270] (a1sys1) to (a1sys1dot);
+\draw[arrow=.5,out=90,in=270] (a1sys1dot) to (a1sys1dotl);
+\draw[arrow=.5,out=90,in=270] (a1sys1dot) to (a1sys1dotr);
 
-\draw[->-=.5,out=90,in=270] (aMsys1) to (aMsys1dot);
-\draw[->-=.5,out=90,in=270] (aMsys1dot) to (aMsys1dotl);
-\draw[->-=.5,out=90,in=270] (aMsys1dot) to (aMsys1dotr);
+\draw[arrow=.5,out=90,in=270] (aMsys1) to (aMsys1dot);
+\draw[arrow=.5,out=90,in=270] (aMsys1dot) to (aMsys1dotl);
+\draw[arrow=.5,out=90,in=270] (aMsys1dot) to (aMsys1dotr);
 
-\draw[->-=.5,out=90,in=270] (a1sysi) to (a1sysidot);
-\draw[->-=.5,out=90,in=270] (a1sysidot) to (a1sysidotl);
-\draw[->-=.5,out=90,in=270] (a1sysidot) to (a1sysidotr);
+\draw[arrow=.5,out=90,in=270] (a1sysi) to (a1sysidot);
+\draw[arrow=.5,out=90,in=270] (a1sysidot) to (a1sysidotl);
+\draw[arrow=.5,out=90,in=270] (a1sysidot) to (a1sysidotr);
 
-\draw[->-=.5,out=90,in=270] (arsysi) to (arsysidot);
-\draw[->-=.5,out=90,in=270] (arsysidot) to (arsysidotl);
+\draw[arrow=.5,out=90,in=270] (arsysi) to (arsysidot);
+\draw[arrow=.5,out=90,in=270] (arsysidot) to (arsysidotl);
 \draw[-,out=90,in=270] (arsysidot) to (arsysidotc);
-\draw[->-=.5,out=90,in=270] (arsysidot) to (arsysidotr);
+\draw[arrow=.5,out=90,in=270] (arsysidot) to (arsysidotr);
 
-\draw[->-=.5,out=90,in=270] (aMsysi) to (aMsysidot);
-\draw[->-=.5,out=90,in=270] (aMsysidot) to (aMsysidotl);
-\draw[->-=.5,out=90,in=270] (aMsysidot) to (aMsysidotr);
+\draw[arrow=.5,out=90,in=270] (aMsysi) to (aMsysidot);
+\draw[arrow=.5,out=90,in=270] (aMsysidot) to (aMsysidotl);
+\draw[arrow=.5,out=90,in=270] (aMsysidot) to (aMsysidotr);
 
-\draw[->-=.5,out=90,in=270] (a1sysN) to (a1sysNdot);
-\draw[->-=.5,out=90,in=270] (a1sysNdot) to (a1sysNdotl);
-\draw[->-=.5,out=90,in=270] (a1sysNdot) to (a1sysNdotr);
+\draw[arrow=.5,out=90,in=270] (a1sysN) to (a1sysNdot);
+\draw[arrow=.5,out=90,in=270] (a1sysNdot) to (a1sysNdotl);
+\draw[arrow=.5,out=90,in=270] (a1sysNdot) to (a1sysNdotr);
 
-\draw[->-=.5,out=90,in=270] (aMsysN) to (aMsysNdot);
-\draw[->-=.5,out=90,in=270] (aMsysNdot) to (aMsysNdotl);
-\draw[->-=.5,out=90,in=270] (aMsysNdot) to (aMsysNdotr);
+\draw[arrow=.5,out=90,in=270] (aMsysN) to (aMsysNdot);
+\draw[arrow=.5,out=90,in=270] (aMsysNdot) to (aMsysNdotl);
+\draw[arrow=.5,out=90,in=270] (aMsysNdot) to (aMsysNdotr);
 
 \end{pgfonlayer}
 
@@ -151,15 +151,15 @@
 
 
 \begin{pgfonlayer}{background}
-\draw[->-=.5,out=90,in=270] (alfa1sys1anchor) to (alfa1sys1);
-\draw[->-=.5,out=90,in=270] (alfa1sysNanchor) to (alfa1sysN);
+\draw[arrow=.5,out=90,in=270] (alfa1sys1anchor) to (alfa1sys1);
+\draw[arrow=.5,out=90,in=270] (alfa1sysNanchor) to (alfa1sysN);
 
-\draw[->-=.5,out=90,in=270] (alfassys1anchor) to (alfassys1);
-\draw[->-=.5,out=90,in=270] (alfassysianchor) to (alfassysi);
-\draw[->-=.5,out=90,in=270] (alfassysNanchor) to (alfassysN);
+\draw[arrow=.5,out=90,in=270] (alfassys1anchor) to (alfassys1);
+\draw[arrow=.5,out=90,in=270] (alfassysianchor) to (alfassysi);
+\draw[arrow=.5,out=90,in=270] (alfassysNanchor) to (alfassysN);
 
-\draw[->-=.5,out=90,in=270] (alfaSsys1anchor) to (alfaSsys1);
-\draw[->-=.5,out=90,in=270] (alfaSsysNanchor) to (alfaSsysN);
+\draw[arrow=.5,out=90,in=270] (alfaSsys1anchor) to (alfaSsys1);
+\draw[arrow=.5,out=90,in=270] (alfaSsysNanchor) to (alfaSsysN);
 \end{pgfonlayer}
 
 
@@ -175,7 +175,7 @@
 
 
 \begin{pgfonlayer}{background}
-\draw[->-=.5,out=90,in=270] (arsysidotc.270) to (label);
+\draw[arrow=.5,out=90,in=270] (arsysidotc.270) to (label);
 \draw[-,out=90,in=270] (label) to (alfassysianchor.90);
 \end{pgfonlayer}
 

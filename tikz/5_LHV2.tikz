@@ -48,31 +48,31 @@
 \node (xxxxx) [below of = a, yshift = -33mm, xshift=5mm] {.\quad.\quad.\quad.};
 
 \begin{pgfonlayer}{background}
-\draw[->-=.5,out=90,in=270] (topdot) to (a);
-\draw[->-=.5,out=45,in=225] (antipode) to (topdot);
-\draw[->-=.5,out=45,in=225] (ldot) to (antipode);
-\draw[->-=.5,out=135,in=315] (rdot) to (topdot);
+\draw[arrow=.5,out=90,in=270] (topdot) to (a);
+\draw[arrow=.5,out=45,in=225] (antipode) to (topdot);
+\draw[arrow=.5,out=45,in=225] (ldot) to (antipode);
+\draw[arrow=.5,out=135,in=315] (rdot) to (topdot);
 
-\draw[->-=.5,out=45,in=225] (lcontroldot) to (ldot);
-\draw[->-=.5,out=135,in=315] (rcontroldot) to (ldot);
-\draw[->-=.5,out=45,in=225] (lvariationdot) to (rdot);
-\draw[->-=.5,out=135,in=315] (rvariationdot) to (rdot);
+\draw[arrow=.5,out=45,in=225] (lcontroldot) to (ldot);
+\draw[arrow=.5,out=135,in=315] (rcontroldot) to (ldot);
+\draw[arrow=.5,out=45,in=225] (lvariationdot) to (rdot);
+\draw[arrow=.5,out=135,in=315] (rvariationdot) to (rdot);
 
 
-\draw[->-=.5,out=90,in=225] (lcontrol.135) to (lcontroldot);
-\draw[->-=.5,out=90,in=315] (lcontrol.45) to (lcontroldot);
-\draw[->-=.5,out=90,in=225] (rcontrol.135) to (rcontroldot);
-\draw[->-=.5,out=90,in=315] (rcontrol.45) to (rcontroldot);
+\draw[arrow=.5,out=90,in=225] (lcontrol.135) to (lcontroldot);
+\draw[arrow=.5,out=90,in=315] (lcontrol.45) to (lcontroldot);
+\draw[arrow=.5,out=90,in=225] (rcontrol.135) to (rcontroldot);
+\draw[arrow=.5,out=90,in=315] (rcontrol.45) to (rcontroldot);
 
-\draw[->-=.5,out=90,in=225] (lvariation.135) to (lvariationdot);
-\draw[->-=.5,out=90,in=315] (lvariation.45) to (lvariationdot);
-\draw[->-=.5,out=90,in=225] (rvariation.135) to (rvariationdot);
-\draw[->-=.5,out=90,in=315] (rvariation.45) to (rvariationdot);
+\draw[arrow=.5,out=90,in=225] (lvariation.135) to (lvariationdot);
+\draw[arrow=.5,out=90,in=315] (lvariation.45) to (lvariationdot);
+\draw[arrow=.5,out=90,in=225] (rvariation.135) to (rvariationdot);
+\draw[arrow=.5,out=90,in=315] (rvariation.45) to (rvariationdot);
 
-\draw[->-=.5] (L0.north) -- ++(0,0.1);
-\draw[->-=.5] (L1.north) -- ++(0,0.1);
-\draw[->-=.5] (L2.north) -- ++(0,0.1);
-\draw[->-=.5] (L3.north) -- ++(0,0.1);
+\draw[arrow=.5] (L0.north) -- ++(0,0.1);
+\draw[arrow=.5] (L1.north) -- ++(0,0.1);
+\draw[arrow=.5] (L2.north) -- ++(0,0.1);
+\draw[arrow=.5] (L3.north) -- ++(0,0.1);
 \end{pgfonlayer}
 
 
