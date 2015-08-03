@@ -1047,6 +1047,8 @@
   \hbox{\input{tikz/characterSym.tikz}}
 }
 \newcommand{\tensor}{\otimes}
+\newcommand{\tensorUnit}{I} % Monoidal tensor unit
+\newcommand{\CategoryC}{\cat{C}}
 %% General purpose space names 
 \newcommand{\SpaceH}{\mathcal{H}}
 \newcommand{\SpaceA}{\mathcal{A}}
@@ -1102,6 +1104,15 @@
 \tikzstyle{maptrans}=[draw,shape=SWbox,inner sep=2pt,minimum height=6mm,fill=white]
 \tikzstyle{mapconj}=[draw,shape=NWbox,inner sep=2pt,minimum height=6mm,fill=white]
 \tikzstyle{box}=[draw,shape=rectangle,inner sep=2pt,minimum height=6mm,minimum width=6mm,fill=white]
+
+        %% Homsets 
+                \newcommand{\Nat}[3]{\operatorname{Nat}_{#1}[#2,#3]} % Set of natural transformations in functor category #1 from functor #2 to functor #3
+                \newcommand{\Endoms}[2]{\operatorname{End}_{\,#1}\left[#2\right]} % Set of endomorphisms in category #1 for object #2
+                \newcommand{\Automs}[2]{\operatorname{Aut}_{\,#1}\left[#2\right]} % Set of autoomorphisms in category #1 for object #2
+                \newcommand{\Subobjs}[2]{\operatorname{Sub}_{#1}[#2]} % Set of subobjects (usually mono) in category #1 for object #2
+                \newcommand{\Subsys}[2]{\operatorname{Subsys}_{#1}[#2]} % Set of subsystems (not necessarily mono) in category #1 for object #2
+                \newcommand{\States}[2]{\operatorname{States}_{#1}[#2]} % Set of states in (monoidal) category #1 for object #2 
+
 
 \def\swangle{-145}
 \def\seangle{-35}

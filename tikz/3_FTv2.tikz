@@ -24,7 +24,7 @@
 \node (equals) [right of = idCenterL, xshift = +7mm, yshift = 0mm] {$=$};
 
 \node (projCenter) [right of = equals, xshift = 14mm, yshift = +5mm]  {};
-\node (sum) [left of = projCenter, xshift = -4mm, yshift = -5mm]  {$\dfrac{1}{N}\mathlarger{\sum}\limits_\chi$};
+\node (sum) [left of = projCenter, xshift = -4mm, yshift = -5mm]  {$\dfrac{1}{N}\sum\limits_\chi$};
 
 \node [copoint, fill=black, scale=1.4] (projL) [left of = projCenter, xshift=5mm, yshift=1.5mm] {};
 \node [left of = projCenter, xshift=2.5mm, yshift=4mm] {$\chi$};

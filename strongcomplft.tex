@@ -95,7 +95,7 @@ Linearly extended to $\Ltwo{G}$, this structure yields the \textbf{convolution o
 &= \sum_{h\in G} \left(\sum_{g'\in G} f(h-g') f'(g')\right) \delta_h
 \end{align}
 
-The Fourier transforms of the delta functions yield the following orthogonal basis for $\Ltwo{G^\wedge}$, which we refer to as the \textbfemph{basis of evaluation functions}:
+The Fourier transforms of the delta functions yield the following orthogonal basis for $\Ltwo{G^\wedge}$, which we refer to as the \textbf{basis of evaluation functions}:
 \begin{align*}
 \xi_{g} := \sqrt{N}\tilde{\delta}_{-g} = \left(\chi \mapsto \sum_{h \in G}\chi^{-1}(h)\delta_{-g}(h) \right)= \left(\chi \mapsto \chi(g)\right).
 \end{align*}
@@ -317,7 +317,7 @@ The previous section provides us with the basic tools to do group theory in arbi
 The use of the $\Ltwo{G}$ notation in this section is consistent with the fact that $\LtwoSym$-spaces over finite groups are exactly finite-dimensional Hilbert spaces that come with a canonical choice of basis (the group elements) and a group operation over them. Throughout, we have identified $\Ltwo{\hat{G}}\isom \Ltwo{G}^\star$ as the multiplicative characters are a basis of $\Ltwo{G}^\star$.
 
 \begin{defn}\label{def:MultiplicativeCharacters}
-A \textbf{multiplicative character} for a pair \scpair~in a $\dagger$-SMC is a monoid homomorphism from $(\timemultSym, \timeunitSym)$ to the canonical monoid on the trivial object $\tensorUnit$ induced by the unitors, or equivalently it is a co-state $\multCharacterEffectSym{}: \SpaceG \rightarrow I$ satisfying the following equations:
+A \textbf{multiplicative character} for a pair \scpair~in a $\dagger$-SMC is a monoid homomorphism from $(\timemultSym, \timeunitSym)$ to the canonical monoid on the trivial object $I$ induced by the unitors, or equivalently it is a co-state $\multCharacterEffectSym{}: \SpaceG \rightarrow I$ satisfying the following equations:
         \begin{equation}\label{eqn:MultCharDef}
                 \input{tikz/3_multchardef.tikz}
         \end{equation}
@@ -345,7 +345,7 @@ The usual formulation of the Fourier transform, and of its properties, involves 
 \begin{lemma}\label{lemma_BasisResolutionPartition}
 Let $\XdotSym$ be a $\dagger$-qSFA on an object $\SpaceG$ in a $\dagger$-SMC which is distributively $\cat{CMon}$-enriched, and let $\ket{x}_{x\in X}$ be a finite set of classical states for the co-monoid $(\tinycomult[blackdot],\tinycounit[blackdot])$ such that
 \begin{enumerate}
-\item[(a.)] the family is \textbf{orthogonal}, i.e. $\langle x'|x}\rangle= 0$ (the zero scalar) for all $x \neq x'$
+\item[(a.)] the family is \textbf{orthogonal}, i.e. $\langle x'|x\rangle= 0$ (the zero scalar) for all $x \neq x'$
 \item[(b.)] the family is \textbf{normalisable}, i.e. $\langle x|x\rangle$ is an invertible scalar for all $x$.
 \end{enumerate} 
 Then the following are equivalent:
