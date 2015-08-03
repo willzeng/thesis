@@ -34,7 +34,7 @@
 \node [style={gray copoint}] (1b) at (0.6, 0.75) {$i$};
 \node [style={gray point}] (2) at (1.2, 0) {$i$};
 \node (2b) at (1.2, 0.75) {};
-\draw [style=reverse arrow] (0a) to (0b);
+\draw [reverse arrow] (0a) to (0b);
 \draw [style=diredge] (1a) to (1b);
 \draw [style=diredge] (2) to (2b);
 \end{pic}\;=\;
