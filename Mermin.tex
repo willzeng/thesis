@@ -159,12 +159,11 @@ We are now able to introduce our first main result:
                 \end{equation}
 
                 \noindent Define a $V$-partite Mermin measurement scenario with $S := n_0+V$ and:
-                \begin{align*}\label{eqn_MerminNonLocalityProofMeasurement2}
+                \begin{align}\label{eqn_MerminNonLocalityProofMeasurement2}
                         \underline{\alpha}^s &:= (0,0,...,0,0) \text{ for } s=1,...,n_0\\
                         %\underline{\alpha}^{n_0+1} &:= \underline{\alpha}\\
-                        \underline{\alpha}^{n_0+v}_i &:= \underline{\alpha}_{i+\modclass{v}{V}} \text{ for } v=1,...,V
-                        \numberthis
-                \end{align*}
+                        \underline{\alpha}^{n_0+v}_i &:= \underline{\alpha}_{i+\modclass{v}{V}} \mbox{ for } v=1,...,V
+                \end{align}
                 The scenario has $n_0$ measurements with only $0$ phases (the \textbf{controls}) and $V$ measurements with cyclic permutations of $\underline{\alpha}$ (the \textbf{variations}). The following diagram depicts the scenario:
                 \vspace{-2pt}
                 \begin{equation}\label{MerminScenarioProof}
@@ -256,7 +255,7 @@ The phase group here is $\mathbb{Z}_3\times\mathbb{Z}_3$. Conclude using Theorem
     This latter result is particularly interesting for the following reasons:
     \begin{enumerate}
         \item[1.] Almost no $\dagger$-qSCFAs in $\fRelCategory$ have enough classical points (exactly one per space, out of a number that grows exponentially with system size).      
-        \item[2.] The family of arguments from \cite{coecke2012strong} fails in $\fRelCategory$ (partially as a consequence of the previous point).
+        \item[2.] The family of arguments from~\cite{coecke2012strong} fails in $\fRelCategory$ (partially as a consequence of the previous point).
         \item[3.] There are plenty of strongly complementary pairs in $\fRelCategory$, and arbitrarily many more $\ZdotSym$-phases than $\XdotSym$ classical points, but the lack of \textit{algebraically non-trivial} phases results in $\fRelCategory$ being Mermin local.
         \item[4.] As a consequence of point 3, quantum protocols relying only on Mermin non-locality will show no quantum advantage in $\fRelCategory$.
     \end{enumerate}

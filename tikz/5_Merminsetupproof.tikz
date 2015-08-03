@@ -1,4 +1,4 @@
-\begin{pic}[node distance = 12mm]
+\begin{pic}[node distance = 11mm]
 
 \node (a) [whitedot, inner sep = 1mm] {$a$};
 \node (topdot) [whitedot, below of = a, yshift = 2mm] {};

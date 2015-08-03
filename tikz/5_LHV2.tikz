@@ -21,9 +21,9 @@
 \node (rvariationdot) [whitedot, below right of = rdot, yshift = 2mm,xshift = +8mm] {};
 \node (rvariation) [box, below of = rvariationdot, yshift = 2mm] {};
 
-\node (localmap) [box, draw, below of = a, yshift = -24.1mm, xshift=6mm, yscale=3.2, xscale=34] {};
+\node (localmap) [box, draw, below of = a, yshift = -23.1mm, xshift=6mm, yscale=1.65, xscale=14] {};
 
-\node (localmaplabel) [below of = a, yshift = -24.1mm, xshift=6mm] {\bf Local Map};
+\node (localmaplabel) [below of = a, yshift = -24mm, xshift=6mm] {\bf Local Map};
 
 %\node (controllabel) [below of = controlellipsis, yshift = 3mm] {$n_0$ controls};
 %\node (variationlabel) [below of = variationellipsis, yshift = 3mm] {$V$ %variations};
