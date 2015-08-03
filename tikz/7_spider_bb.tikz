@@ -1,7 +1,7 @@
 \begin{pic}[scale=0.8]
-                \node [style=wire] (0) at (0, 1.25) {};
+                \node (0) at (0, 1.25) {};
                 \node [style=whitedot] (1) at (0, 0) {};
-                \node [style=wire] (2) at (0, -1.25) {};
+                \node (2) at (0, -1.25) {};
                 \node (3) at (-0.5, -1.75) {};
                 \node (4) at (-0.5, 0.75) {};
                 \node [style=box,fill=blue, label=B] (5) at (-0.5, -0.75) {};

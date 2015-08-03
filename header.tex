@@ -23,8 +23,12 @@
 \usepackage{subcaption}
 \usepackage{bbm}
 \usepackage{listings}
+
+\usepackage{booktabs}
+\usepackage{float}
+%\usetikzlibrary{arrows,shapes,backgrounds,positioning}
 \lstset{language=Mathematica}
-\lstset{basicstyle={\sffamily\footnotesize},
+\lstset{basicstyle={\footnotesize},
   numbers=left,
   numberstyle=\tiny\color{gray},
   numbersep=5pt,
@@ -34,11 +38,10 @@
   rulecolor=\color{black},
   framerule=0.5pt,
   columns=flexible,
-  tabsize=2
+  tabsize=2,
+  mathescape,
+  commentstyle=\color{gray}
 }
-%\usepackage{booktabs}
-\usepackage{float}
-%\usetikzlibrary{arrows,shapes,backgrounds,positioning}
 
 % Graphics Path
 \graphicspath{ {./images/} }
