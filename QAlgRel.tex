@@ -414,7 +414,7 @@ Take $G=\mathbb{Z}_2=\{0,1\}$, $H=\mathbb{Z}_2=\{a,b\}$, $Z = G \oplus G = \{ (0
 See Section~\ref{sec:strcomplFT} and~\cite{gogioso2015fourier} to fully motivate this definition of the Fourier transform in QCRel and for its relationship to the usual Hadamard and Fourier transforms for Hilbert spaces and linear maps.
 
 \subsection{The Deutsch-Jozsa Algorithm in QCRel}
-
+\label{sec:qcreldj}
 The well known Deutsch-Jozsa algorithm is an early quantum algorithm that demonstrates a speedup over exact classical computation \cite{DJAlg1992}. It takes as input a function promised to be either constant or balanced and returns which, deterministically using only a single oracle query. In this section, we model the algorithm's steps in QCRel just as it is implemented with Hilbert spaces and linear maps. This approach is somewhat dual to the usual one where different algorithms are compared on the same problem. Here we run the same abstract protocol (implemented in a different model) with the same query complexity and compare the different problems that it solves.
 
 To run this algorithm in QCRel we use two systems.  System $A$ has cardinality $n$ and system $B$ has cardinality $\ge 2$. Take $Z^A=\bigoplus^{|H^{A}|}G^A$ and $X^A=\bigoplus^{|G^{A}|}H^A$ to be complementary bases of $A$. Take $Z^B=\bigoplus^{|H^{B}|}G^B$ and $X^B=\bigoplus^{|G^{B}|}H^B$ to be complementary bases of $B$, such that $X^B$ has at least two classical states. In analogy with the usual specification, the algorithm proceeds with the following steps.
@@ -620,16 +620,17 @@ As classical relations are comonoid homomorphisms they must obey the duals of~\e
 This allows us to show that we will always be able to construct a simple query of constant and balanced classical relations in order to distinguish them.
 
 \begin{theorem}
+\label{thm:trivRelDJ}
 Constant and balanced classical relations can be distinguished in a single query whose input state has non-zero intersection with any classical state other than that first classical state of $Z^A$.
 \end{theorem}
 \begin{proof}
  Let $\ket{x}$ be a classical state of $Z^B$ and $\tinycounit[blackdot]$ be the classical co-state of $Z^A$. Any constant classical relation has the form $f:\ket{x}\circ\tinycounit[blackdot]$, and so the pre-image of $f$ is only the elements in the first classical state of $A$. Thus, a query of a constant classical relation with input from any other classical state will return the empty set.  Further, Lemma~\ref{lem:balpreimage} shows that it is not possible to construct balanced relations which will have the same behavior. Thus a query with any element not in $\tinycounit[blackdot]$ will suffice to identify the class of the classical relation. 
 \end{proof}
 
-This result shows that we are able to model the Deutsch-Jozsa algorithm in the nondeterministic classical setting of QCRel.
+Theorem~\ref{thm:trivRelDJ} shows that the model of the Deutsch-Jozsa algorithm does not result in a classical algorithm for a non-trivial problem.  While this would have been a nice side effect of our analysis, it is not the main goal. The more important takeaway is that the operation of the quantum algorithm can be accurately modeled in QCRel and that it does optimally solve a problem in that context. We will discuss this more after two more examples.
 
 \subsection{Single-shot Grover's Algorithm}
-
+\label{sec:qcrelgrovers}
 The usual Grover's algorithm~\cite{grover1996fast} takes as input a set $S$ and an indicator function $f:S\to\{0,1\}$ and outputs an element $s\in S$ such that $f(s)=1$. Though the algorithm is usually probabilistic and runs a repeated series of ``Grover steps", here we consider the deterministic version that runs with a single step. In this section we will consider the generalization of the single-shot Grover algorithm where the codomain of the indicator function is allowed to be an arbitrary group~\cite{vicary-tqa}. Our setup requires the set $S$, as one system, as well as another system $B$. We define the basis $Z^{S}=\bigoplus^{|H^S|}G^S$ and $X^S=\bigoplus^{|G^S|}H^S$ on the $S$ system.  System $B$ has complementary bases $Z^B=\bigoplus^{|H^B|}G^B$ and $X^B=\bigoplus^{|G^B|}H^B$. Let $\ket{\sigma}$ be the first classical state of $X^B$, e.g. is $X^B=\mathbb{Z}_2\oplus\mathbb{Z}_2$ then $\ket{\sigma}=\{(\star,1),(\star,3)\}$, where $1$ and $3$ are the non-identity elements of that factors of $X^B$. Let $\bra{\rho}$ be the converse of a classical state of $X^S$. Recall that $\ket{G^S_0}=\{(\star,g)\,|\,g\in G^S\mbox{ is the first factor group of } Z^S\}$ is a classical point of $Z^S$, and that, by the complementary relationship of classical and unbiased points (Section~\ref{sec:RelFT}), $\ket{H^S_0}\isom\{(\star,\idm{G^S_i})\,|\,G^S_i\mbox{ is a factor group of } Z^S\}$.
 
 In QCRel, the algorithm proceeds by the following steps:
@@ -770,8 +771,11 @@ In this case, $D$ happens to be a bijection, it is a unitary relation and thus a
 \end{example}
 
 \begin{example}
+\label{ex:relgrov2}
 This is the same as the above example, but take $f$ to be the classical relation $\{(0,0),(2,0),(0,1),(2,1)\}$. As an element of $H^S_0$ is related to $\ket{\sigma}$, the algorithm will return classical states of $X^S$ which are \emph{not} mapped to $\ket{\sigma}$, i.e. the state $\ket{1\vee3}$.
 \end{example}
+
+If we loosen the QCRel model slightly, and do not require $f$ to be a classical relation, then it is easy to see that this algorithm solves a non-trivial classical search problem. Consider an $f$ that maps all classical states of $X^S$ to $\ket{\sigma}$  except exactly one other \emph{marked} classical state $H^S_x$, where $x\neq 0$. As in Example~\ref{ex:relgrov2}, we know that the QCRel Grover's algorithm will output only $H_x^S$ with a single query of $f$. We can easily imagine that there are a large number of classical states of $X^S$ that might be marked and, further, that the image of the marked classical state under $f$  is indistinguishable from that of any other classical state (other than not being related to $\ket{\sigma}$). A deterministic classical approach to this problem would certainly require many queries of $f$, and it is not immediate that there is an obvious non-deterministic solution with a single query; though the QCRel Grover's algorithm we describe here does achieve exactly that.
 
 \subsection{The Groupoid Homomorphism Promise Algorithm}
 
@@ -847,7 +851,7 @@ If $f$ is a groupoid isomorphism then the algorithm in Equation \ref{eq:groupdID
 Groupoid isomorphisms relate every element of the domain to some element in the codomain and relate every element of the codomain to some element of the domain.
 \end{proof}
 
-\noindent Still, we can imagine running the algorithm from \eqref{eq:groupdIDAlg} where any classical relation $f$ is allowed as input to obtain non-trivial outcomes.
+\noindent Still, we can imagine running the algorithm from \eqref{eq:groupdIDAlg} where any classical relation $f$ is allowed as input to obtain non-trivial outcomes. The investigation of the usefulness of this algorithm is part of future work.
 
 \section{Conclusion}
 In this chapter we have investigated the structure of quantum algorithms using the oPT perspective. We have contributed the following new results:
@@ -859,5 +863,12 @@ In this chapter we have investigated the structure of quantum algorithms using t
 \item We provide models for the operation of quantum algorithms in non-deterministic classical computation by explicitly constructing the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the GROUPHOMID algorithm in the oPT QCRel. Along the way we introduce an operational notion of a oPT Fourier transform in \cat{FRel} and characterize some self-conjugate comonoid homomorphisms in this category.
 \end{enumerate}
 
-The successes of this approach opens up new work to study more blackbox quantum algorithms at this level of abstraction. We discuss more details of the outlook for future work in Chapter~\ref{chap:outlook}. 
+Models of quantum algorithms in other oPTs (such as QCRel), perform two functions. Firstly, they help us further understand the relationship between different kinds of computation.  Our main question is: 
+\begin{align*}
+\mbox{\emph{How are different models of computation related to each other?}}
+\end{align}  Typically, computer scientists address this question by keeping computational problems fixed and writing different algorithms for different problems that take advantage of the computational model. This view is the basis of the field of computational complexity and has given many insights into the differences between computational models. The approach in this thesis aims to extend this view. In a sense, the oPT framework allows us to think about running the same algorithms on different oPTs as we would think about running them on different kinds of hardware. We ``compile" algorithms into different oPTs and analyzes the results to address our main questions. It is an algorithm-centric vs. problems-centric approach to computation. 
+
+As compared to the foundational interest of the first function, the second function of this investigation is more practical.  Mapping algorithms between computational models allows us to generate new problems and algorithms. Some of these will be trivial (as in the QCRel Deutsch-Jozsa algorithm of Section~\ref{sec:qcreldj}) and some will not be (as in QCRel Grover's of Section~\ref{sec:qcrelgrovers}). A strong thread of future work is understand the conditions that allow for one case and not that other.
+
+In terms of quantum algorithms specifically, the successes of this approach open up new avenues to study other blackbox quantum algorithms at this level of abstraction. We discuss more details of the outlook for future work in Chapter~\ref{chap:outlook}. 
 
