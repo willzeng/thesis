@@ -302,11 +302,11 @@ A \textbf{two-measurement Mermin scenario} for $N$ systems (each with $D$ dimens
 \item the first measurement observable is the D-dimensional $X$ observable,
 \item and the second measurement observable $B$ is defined by a Z-phase gate applied to $X$.
 \end{enumerate}
-In  general, the form of $B$ can be specified by the $D$-dimensional Z-phase applied to $X$. This Z-phase is of the form $(1, e^{1b_1}, ..., e^{ib_{D-1}})^{T}$ with $D-1$ degrees of freedom. A two-measurement Mermin scenario thus consists of $V$ variations each with $n_1$ measurements of the $B$ observable.
+In  general, the form of $B$ can be specified by the $D$-dimensional Z-phase applied to $X$. This Z-phase is of the form $(1, e^{1b_1}, ..., e^{ib_{D-1}})^{T}$ with $D-1$ degrees of freedom. A two-measurement Mermin scenario thus consists of $V$ variations each with $\beta$ measurements of the $B$ observable.
 \end{defn}
 
 \begin{example}
-For qubits there is only a single possible phase group: $\mathbb{Z}_2$. A Mermin argument for three qubits (denoted $\mathbb{Z}_2(3,2,2))$ has measurements of the usual $X$ observable and of the $B$ observable that is a phase applied to $X$, i.e. diag$(1,e^{ib_1})X$. In the traditional Mermin scenario $\mathbb{Z}_2(3,2,2)$ from \cite{mermin1990quantum}, we have $V = 3$ and $n_1 = 2$.
+For qubits there is only a single possible phase group: $\mathbb{Z}_2$. A Mermin argument for three qubits (denoted $\mathbb{Z}_2(3,2,2))$ has measurements of the usual $X$ observable and of the $B$ observable that is a phase applied to $X$, i.e. diag$(1,e^{ib_1})X$. In the traditional Mermin scenario $\mathbb{Z}_2(3,2,2)$ from \cite{mermin1990quantum}, we have $V = 3$ and $\beta = 2$.
 \end{example}
 
 The state presented in Diagram \ref{MerminSetupProofLHVeval} will be zero when the \textbf{control point} on the left is distinct from the \textbf{variations point} on the right. We can characterize this as a condition on $B$ in our two measurement scenario with the following theorem.
@@ -316,16 +316,16 @@ The state presented in Diagram \ref{MerminSetupProofLHVeval} will be zero when t
 Measurements $X$ and $B$ allow a $(N,2,D)$ Mermin non-locality argument iff 
 \begin{align}
 \label{NewCond}
-\sum_{j=1}^{D-1}e^{ic_j} = -1, \qquad \mbox{where } c_j = n_1 b_j\left(\bigoplus_{l=1}^{V}1\right) ,
+\sum_{j=1}^{D-1}e^{ic_j} = -1, \qquad \mbox{where } c_j = b_j\left(\bigoplus_{l=1}^{V}\beta\right) ,
 \end{align}
 where the sum in $c_j$ is the group sum for the $\ZdotSym$-phase group $G$.
 \end{lemma}
 \begin{proof}
 Diagram \ref{MerminSetupProofLHVeval} implies that the Mermin argument will succeed when the control point and variations point are distinct classical points.  In $\fdHilbCategory$ this precisely means that they are orthogonal vectors.  The vector that represents the control point is given by the $D$-dimensional unit for the $X$ observable, i.e. $1/\sqrt{D}(1,1,...,1)^{T}$.
 %\[\frac{1}{\sqrt{D}}\left(\begin{array}{c}1 \\ 1 \\ \vdots \\ 1 \end{array}\right)\]
-The variations point is then given by the group sum of other classical points specified by their phase.  The phase for each classical point is given by the sum of phase accumulated by each $B$ measurement.  As there are $n_1$ such measurements in each variation, their sum is given by
+The variations point is then given by the group sum of other classical points specified by their phase.  The phase for each classical point is given by the sum of phase accumulated by each $B$ measurement.  As there are $\beta$ such measurements in each variation, their sum is given by
 \[
-\frac{1}{\sqrt{D}}\left(\begin{array}{c}1 \\ e^{i n_1 b_1} \\\vdots \\ e^{i n_1 b_{D-1}} \end{array}\right)_1\oplus\left(\begin{array}{c}1 \\ e^{i n_1 b_1} \\\vdots \\ e^{i n_1 b_{D-1}} \end{array}\right)_2\oplus...\oplus\left(\begin{array}{c}1 \\ e^{i n_1 b_1} \\\vdots \\ e^{i n_1 b_{D-1}} \end{array}\right)_V = \frac{1}{\sqrt{D}}\left(\begin{array}{c}1 \\ e^{ic_1} \\\vdots \\ e^{ic_{D-1}} \end{array}\right),
+\frac{1}{\sqrt{D}}\left(\begin{array}{c}1 \\ e^{i \beta b_1} \\\vdots \\ e^{i \beta b_{D-1}} \end{array}\right)_1\oplus\left(\begin{array}{c}1 \\ e^{i \beta b_1} \\\vdots \\ e^{i \beta b_{D-1}} \end{array}\right)_2\oplus...\oplus\left(\begin{array}{c}1 \\ e^{i \beta b_1} \\\vdots \\ e^{i \beta b_{D-1}} \end{array}\right)_V = \frac{1}{\sqrt{D}}\left(\begin{array}{c}1 \\ e^{ic_1} \\\vdots \\ e^{ic_{D-1}} \end{array}\right),
 \]
 where the constants $c_j$ are defined as in Equation \ref{NewCond}.
 Orthogonality between the control and variations points then requires
@@ -343,9 +343,9 @@ Note that in Mermin's original scenario  measurement observables were necessaril
 In $(3,2,2)$ three qubit Mermin scenarios, the two measurements must be complementary.
 \end{theorem}
 \begin{proof}
-We have $V=3$, $n_1 = 2$, $G=\mathbb{Z}_2$ and $D = 2$. Thus
+We have $V=3$, $\beta = 2$, $G=\mathbb{Z}_2$ and $D = 2$. Thus
 \begin{align*}
-c_j &= n_1 b_j \left(\bigoplus^3_{l=1}1\right)= 2b_j (3 \mod 2) = 2b_j
+c_j &= \beta b_j \left(\bigoplus^3_{l=1}1\right)= 2b_j (3 \mod 2) = 2b_j
 \end{align*}
 so that our condition on $B$ becomes
 \begin{align*}
@@ -366,8 +366,8 @@ The control measurement is given by five systems all measured by the $X$ observa
 BBBXX \qquad BBXBX \qquad BXBBX \qquad XBBBX \qquad XBXBB \\
 BBXXB \qquad BXBXB \qquad XBBXB \qquad BXXBB \qquad XXBBB
 \end{align*}
-so that $V = 10$ and $n_1 = 3$. We calculate the coefficients
-\begin{align*} c_j &= n_1 b_j \left(\bigoplus^{10}_{l=1}1\right)= 3b_j (10\mod 3) = 3b_j
+so that $V = 10$ and $\beta = 3$. We calculate the coefficients
+\begin{align*} c_j &= \beta b_j \left(\bigoplus^{10}_{l=1}1\right)= 3b_j (10\mod 3) = 3b_j
 \end{align*}
 Observable $B$ must then satisfy $e^{i3b_1}+e^{i3b_2} = -1$. Any $B$ observable satisfies this condition if  $b_2 = -\frac{i}{3}\log\left[-1-e^{3ib_1}\right]$.
 Consider $b_1 = \frac{2\pi}{9} \Rightarrow b_2 =- \frac{2\pi}{9}$ and calculate (for $\omega = e^{2\pi i/3}$):
@@ -379,7 +379,7 @@ B :: \left(\begin{array}{ccc}1 & 0 & 0 \\ 0 & e^{i2\pi/9} & 0 \\ 0 & 0 & e^{-i2\
 Observable $B$ is clearly not complementary to $X$ by simply checking the dot products of their basis vectors.
 \end{proof}
 
-Further we can exhibit numerical results that calculate the number of Mermin effective measurement pairs available for a particular scenario. For a given number of parties $N$ we have calculated the number of effective pairs maximized over all viable variation choices.  Typically these maximum values are found for variations where $n_1$ is maximized. Figure 1a shows pair counts for $\mathbb{Z}_2(N,2,2)$ scenarios. Here is appears that the number of effective measurement pairings grows approximately linearly with the number of parties. Figure 1b shows pair counts for the more complex $\mathbb{Z}_3(N,2,3)$ scenarios. It is clear that there are many (in some cases thousands) more available measurement configurations than just those given by complementary observables. This vastly expands the number of experimental setups that will generate, with certainty, a non-locality violation.  Indeed, combining this result with those of Section \ref{section_QSS} opens up a large class of quantum secret sharing protocols based on non-complementary measurements.
+Further we can exhibit numerical results that calculate the number of Mermin effective measurement pairs available for a particular scenario. For a given number of parties $N$ we have calculated the number of effective pairs maximized over all viable variation choices.  Typically these maximum values are found for variations where $\beta$ is maximized. Figure 1a shows pair counts for $\mathbb{Z}_2(N,2,2)$ scenarios. Here is appears that the number of effective measurement pairings grows approximately linearly with the number of parties. Figure 1b shows pair counts for the more complex $\mathbb{Z}_3(N,2,3)$ scenarios. It is clear that there are many (in some cases thousands) more available measurement configurations than just those given by complementary observables. This vastly expands the number of experimental setups that will generate, with certainty, a non-locality violation.  Indeed, combining this result with those of Section \ref{section_QSS} opens up a large class of quantum secret sharing protocols based on non-complementary measurements.
 
 \begin{figure}[th]
     \label{counts}
