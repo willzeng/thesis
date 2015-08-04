@@ -27,21 +27,21 @@
 \usepackage{booktabs}
 \usepackage{float}
 %\usetikzlibrary{arrows,shapes,backgrounds,positioning}
-\lstset{language=Mathematica}
-\lstset{basicstyle={\footnotesize},
-  numbers=left,
-  numberstyle=\tiny\color{gray},
-  numbersep=5pt,
-  breaklines=true,
-  captionpos={t},
-  frame={lines},
-  rulecolor=\color{black},
-  framerule=0.5pt,
-  columns=flexible,
-  tabsize=2,
-  mathescape,
-  commentstyle=\color{gray}
-}
+%\lstset{language=Mathematica}
+%\lstset{basicstyle={\footnotesize},
+%  numbers=left,
+%  numberstyle=\tiny\color{gray},
+%  numbersep=5pt,
+%  breaklines=true,
+%  captionpos={t},
+%  frame={lines},
+%  rulecolor=\color{black},
+%  framerule=0.5pt,
+%  columns=flexible,
+%  tabsize=2,
+%  mathescape,
+%  commentstyle=\color{gray}
+%}
 
 % Graphics Path
 \graphicspath{ {./images/} }
@@ -912,7 +912,9 @@
 \newcommand\whitecomonoid[1]{\ensuremath{(#1,\tinycomult[whitedot],\tinycounit[whitedot])}}
 \newcommand\blackcomonoid[1]{\ensuremath{(#1,\tinycomult[blackdot],\tinycounit[blackdot])}}
 \newcommand\graycomonoid[1]{\ensuremath{(#1,\tinycomult[graydot],\tinycounit[graydot])}}
-
+\newcommand\whitefrob[1]{\ensuremath{(#1,\tinymult[whitedot],\tinyunit[whitedot],\tinycomult[whitedot],\tinycounit[whitedot])}}
+\newcommand\blackfrob[1]{\ensuremath{(#1,\tinymult[blackdot],\tinyunit[blackdot],\tinycomult[blackdot],\tinycounit[blackdot])}}
+\newcommand\grayfrob[1]{\ensuremath{(#1,\tinymult[graydot],\tinyunit[graydot],\tinycomult[graydot],\tinycounit[graydot])}}
 % Shortcuts
 % From Will
 \newcommand{\ketbra}[2]{\left|#1\right\rangle\!\left\langle #2\right|}

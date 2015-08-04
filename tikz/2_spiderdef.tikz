@@ -29,7 +29,7 @@
         \draw [bend left=15] (18.center) to (12);
         \draw (14) to (11);
         \draw (11) to (2.center);
-        \draw [style=small braceedge] (22.center) to node[wire label, inner sep=3 pt]{$m$} (21.center);
+        \draw [style=small braceedge] (22.center) to node[wire label, inner sep=3 pt]{$n$} (21.center);
         \draw (8) to (4.center);
         \draw (23.center) to (14);
         \draw (24.center) to (20);
@@ -40,5 +40,5 @@
         \draw [bend right=15] (12) to (7.center);
         \draw (25.center) to (20);
         \draw [bend left=15] (12) to (6.center);
-        \draw [style=small braceedge] (0.center) to node[wire label, inner sep=3 pt]{$n$} (1.center);
+        \draw [style=small braceedge] (0.center) to node[wire label, inner sep=3 pt]{$m$} (1.center);
 \end{pic}

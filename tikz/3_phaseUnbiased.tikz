@@ -42,7 +42,7 @@
 \qquad\qquad\qquad\quad\;\;\;
 \end{equation}
 \begin{equation}
-\;\stackrel{\eqref{eq:dagfrob}}{=}\;
+\stackrel{\eqref{eq:dagfrob}}{=}
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
                 \node [style=state] (0) at (-3.25, -1.5) {$a$};
                 \node [style=graydot] (1) at (-1.5, 0.75) {};
@@ -60,7 +60,7 @@
                 \draw [bend left, looseness=1.25] (4) to (7.center);
                 \draw [bend right, looseness=1.00] (7.center) to (6);
 \end{pic}
-\;\stackrel{\eqref{eq:copy}}{=}\;
+\stackrel{\eqref{eq:copy}}{=}
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
                 \node [style=graydot] (0) at (-1.5, 0.75) {};
                 \node (1) at (-1.5, 1.75) {};
@@ -83,7 +83,7 @@
                 \draw [bend right, looseness=1.00] (6) to (9.center);
                 \draw [bend right, looseness=1.00] (4) to (9.center);
 \end{pic}
-\;\stackrel{\eqref{eq:complementarity}}{=}\;
+\stackrel{\eqref{eq:complementarity}}{=}
 \begin{pic}
 \node [state] (1) at (0,-1) {$a$};
 \node [whitedot] (2) at (0,-0.5) {};
@@ -91,4 +91,9 @@
 \node (4) at (0,1) {};
 \draw (1) to (2);
 \draw (3) to (4);
+\end{pic}
+\stackrel{\eqref{eq:unitscalar}}{=}\;
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
+\draw (0,0) to (0,2);
+\node [graydot] at (0,0) {};
 \end{pic}

@@ -1,7 +1,7 @@
 \chapter{Structures in Process Theories}
 \label{chap:cqm}
 
-\chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background we define an operational process theory (oPT) that comes equipped with an operational interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  oPTs that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
+\chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background, we define an operational process theory (oPT) that comes equipped with an operational interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  oPTs that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
 
 \section{The Dagger}
 This section introduces concepts that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced by adding a so-called dagger functor.  In the case of \cat{FHilb} this corresponds to the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to take an operational perspective on general symmetric monoidal categories (not just \cat{FHilb}). 
@@ -115,7 +115,7 @@ In a $\dagger$-SMC, \textbf{effects} on an object $A$ are morphisms $\bra{\psi}:
 \label{sec:bornrule}
 Measurement in these process theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
 \begin{equation}
-a = X\circ Y:I\to I.
+a = Y\circ X:I\to I.
 \end{equation}
 
 %Diagrammatically this is:
@@ -144,7 +144,7 @@ a = X\circ Y:I\to I.
 %\end{aligned}
 %\end{equation}
 
-\noindent We could then define the operational probability Prob$(X|Y)=|a|^2$. While this clearly makes sense in \cat{FHilb}, where amplitudes are complex numbers, one might ask under what general conditions the scalars $I\to I$ will square to our usual notion of probability. An answer is found in the following theorem:
+\noindent We could then define the operational probability Prob$(X|Y)=|a|^2$. While this clearly makes sense in \cat{FHilb}, where amplitudes are complex numbers, one might ask under what general conditions the scalars $I\to I$ will square to our usual notion of probability. Vicary provides an answer in the following theorem:
 \begin{theorem}{\cite[Thm 4.2]{vicary2011completeness}}
 In a monoidal dagger-category with simple tensor unit, which has all finite dagger-limits and for which the self-adjoint scalars are Dedekind-complete, the scalars have an involution-preserving embedding into the complex numbers.
 \end{theorem}
@@ -188,16 +188,17 @@ We can compose these caps and cups to define the dual of any process $f:A\to B$ 
 \label{eq:dualmorph}
 \input{tikz/2_dualmorph.tikz}
 \end{equation}
+This is called the \textbf{upper-star} of $f$.
 
 \begin{example}
 \label{ex:bellduals}
-To get a better handle on what this structure means, we consider the example of \cat{FHilb}. Given some finite dimensional Hilbert space $A\in\objs{FHilb}$, its dual $A^*$ is the usual dual space, i.e. the space of linear functionals $A\to \mathbb{C}$. Note that in this case $A$ is isomorphic to $A^*$, and thus we can canonically map $\bra{i}\mapsto\ket{i}$. Because of this isomorphism, we will often omit the arrows on wires when working in \cat{FHilb}. Using this and given a basis $\{ \ket{i} \}$ for $A$, the cups and the caps are maps:
+To get a better handle on what duals are, we consider the example of \cat{FHilb}. Given some finite dimensional Hilbert space $A\in\objs{FHilb}$, its dual $A^*$ is the usual dual space, i.e. the space of linear functionals $A\to \mathbb{C}$. Note that in this case $A$ is isomorphic to $A^*$, and thus we can canonically map $\bra{i}\mapsto\ket{i}$. Because of this isomorphism, we will often omit the arrows on wires when working in \cat{FHilb}. Using this and given a basis $\{ \ket{i} \}$ for $A$, the cups and the caps are maps:
 \begin{align}
 e_A &:: 1\mapsto \sum_i\bra{i}\otimes\ket{i}\cong\sum_i\ket{i}\otimes\ket{i}
 \\
 d_A &:: \sum_i\ket{i}\otimes\bra{i}\cong\sum_i\bra{i}\otimes\bra{i} \mapsto 1
 \end{align}
-We then immediately recognize $e_A$ as entangled state preparation. In particular, when $A$ is a two-dimensional Hilbert space, $e_A$ is a Bell state preparation of $\ket{\psi_{00}}=\ket{00}+\ket{11}$ and  and $d_A$ is a post-selected Bell measurement for $\ket{\psi_{00}}$. For any process in \cat{FHilb} its dual gives the transpose, which is in general the \textbf{upper-star} of $f$.
+We then immediately recognize $e_A$ as entangled state preparation. In particular, when $A$ is a two-dimensional Hilbert space, $e_A$ is a Bell state preparation of $\ket{\psi_{00}}=\ket{00}+\ket{11}$ and  and $d_A$ is a post-selected Bell measurement for $\ket{\psi_{00}}$. For any process in \cat{FHilb} its dual gives the transpose.
 \end{example}
 
 This provides a motivating example for the following, which acts as a generalized conjugation operation:
@@ -215,7 +216,7 @@ The lower-star operation introduces abstract probabilities for the generalized B
 \label{def:bornrule}
 For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probability of outcome $X$ given preparation $Y$ is:
 \begin{equation}
-\mbox{Prob}(X|Y) = (X\circ Y)^*\otimes X\circ Y:I\to I.
+\mbox{Prob}(X|Y) = (X\circ Y)_*\otimes X\circ Y:I\to I.
 \end{equation}
 \end{defn}
 \noindent It is easy to see that this reduces to the usual Born rule in \cat{FHilb}.
@@ -232,25 +233,25 @@ The cup and cap maps also provide an abstract definition for the trace of a proc
 \end{pic} \right) = 
 \input{tikz/3_trace.tikz},
 \end{equation}
-whose correspondence with the usual trace is easy to check~\cite{coecke2015generalised}.
+whose correspondence with the usual trace is directly shown by Coecke et al.~\cite{coecke2015generalised}.
 
-\subsection{Operational Process Theories}
+\subsection{Operational process theories}
 
-The addition of states and a generalized Born rule (with further details in this section), give our generalized compositional theories a notion of measurement and an operational character.
+The addition of states and a generalized Born rule (with further details in this section), give our process theories a notion of measurement and an operational character.
 
 \begin{defn}(Operational Process Theories)
 \label{thm:oPT}
 A $\dagger$-SMC where all objects have duals is called a \textbf{$\dagger$-compact category}. An \textbf{operational process theory} (oPT) is a \dcc where objects are interpreted as systems and morphisms are interpreted as processes.
 \end{defn}
 
-Duals and their ``wire-straightening" equations give diagrams in an oPT a lot of power to encode topological equivalences.  This is well expressed in the following graphical coherence theorem, whose mathematical details are shown in~\cite{selinger2011survey}.
+Duals and their ``wire-straightening" equations give diagrams in an oPT a lot of power to encode topological equivalences.  This is well expressed in the following graphical coherence theorem, whose mathematical details can be traced in Selinger's survey~\cite{selinger2011survey}.
 
 \begin{theorem}[Fundamental Theorem of Diagrams~\cite{coecke2015generalised}]
 \label{thm:fund}
-Two diagrams in an oPT are considered equal if one can be smoothly transformed to another by bending, stretching, or crossing wires, and by moving boxes around. Given any two oPTs $\cat{C}$ and $\cat{D}$ and a map $F:\cat{C}\to\cat{D}$, for any two diagrams $d$ and $d'$ in $\cat{C}$, if $d=d'$ as diagrams then $F(d)=F(d')$ in $\cat{D}$.
+Two diagrams in an oPT are considered equal if one can be smoothly transformed to another by bending, stretching, or crossing wires, and by moving boxes around. Given any two oPTs $\cat{C}$ and $\cat{D}$ and a functor $F:\cat{C}\to\cat{D}$, for any two diagrams $d$ and $d'$ in $\cat{C}$, if $d=d'$ as diagrams then $F(d)=F(d')$ in $\cat{D}$.
 \end{theorem}
 
-To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through the matrix mechanics that accompany it. The use of this difference - the operational in operational process theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by~\cite{abramsky2004categorical}.
+To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through the matrix mechanics that accompany it. The use of this difference - the operational in operational process theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by Abramsky and Coecke~\cite{abramsky2004categorical}.
 
 \begin{example} 
 We saw in Example \ref{ex:bellduals} that caps and cups represent preparation and post-selected measurement of one of the Bell states $\ket{\psi_{00}}$. The other Bell states can be prepared and/or measured by the application of a unitary to one of the entangled systems:
@@ -311,14 +312,14 @@ Within a process theory we can construct objects that have the phenomenology of 
 
 \subsection{Monoids and comonoids}
 
-Monoids and comonoids on systems embody our notions of copying and comparing states. As they are a particular kinds of processes we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,\mathbbm{1})$ has states of $A$ as elements and maps:
+Monoids and comonoids on systems embody our notions of copying and comparing states. As they are a particular kinds of processes we draw them with distinct pictures. For $A\in\objs{C}$ a monoid $(A,*,\mathbbm{1})$ has states of $A$ as elements and the following maps:
 \begin{equation}
 \input{tikz/1_monoidPics.tikz}
 \end{equation}
 
 \begin{defn}
 \label{defn:monoid}
-In a monoidal category, a \textit{monoid} is a triple \whitemonoid{A} of an object $A$, a morphism $\tinymult[whitedot] : A \otimes A \to A $ called the multiplication, and a state $\tinyunit[whitedot] : I \to A$ called the unit, satisfying associativity and unitality equations:
+In a monoidal category, a \textbf{monoid} is a triple \whitemonoid{A} of an object $A$, a morphism $\tinymult[whitedot] : A \otimes A \to A $ called the multiplication, and a state $\tinyunit[whitedot] : I \to A$ called the unit, satisfying associativity and unitality equations:
 \begin{equation}
 \label{eq:monoid}
 \input{tikz/1_monoid.tikz}
@@ -327,7 +328,7 @@ In a monoidal category, a \textit{monoid} is a triple \whitemonoid{A} of an obje
 
 \begin{defn}
 \label{defn:comonoid}
-In a monoidal category, a \textit{comonoid} is a triple \whitecomonoid{A} of an object $A$, a morphism $\tinycomult[whitedot] : A \to A \otimes A$ called the comultiplication, and an effect $\tinycounit[whitedot] : A \to I$ called the counit, satisfying coassociativity and counitality equations:
+In a monoidal category, a \textbf{comonoid} is a triple \whitecomonoid{A} of an object $A$, a morphism $\tinycomult[whitedot] : A \to A \otimes A$ called the comultiplication, and an effect $\tinycounit[whitedot] : A \to I$ called the counit, satisfying coassociativity and counitality equations:
 \begin{equation}
 \label{eq:comonoid}
 \input{tikz/1_comonoid.tikz}
@@ -344,24 +345,25 @@ In a monoidal category with object $A$, a \textbf{monoid homomorphism} $f:\white
 \end{defn}
 \noindent A \textbf{comonoid homomorphism} is defined similarly, but with the dagger of the condition in~\eqref{eq:monhom}.
 
-We can then ask for the comonoid and monoid to interact in various ways.
+In the next section we will ask for the comonoid and monoid to interact in various ways.
 
 \subsection{Abstract observables}
 
-When monoids and comonoids combine under certain rules, we obtain the structure of classical information on systems in an oPT.
+When monoids and comonoids combine under certain rules, we obtain the structure of classical information on systems in an oPT. We can think of this as a way of embedding classical information into the systems of an arbitrary oPT.
 
 \begin{defn}
 \label{def:frobenius}
-In a \dsmc the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} form a \textbf{dagger-Frobenius algebra} when the following equation holds:
+In a \dsmc the pair of a monoid \whitemonoid{A} and comonoid \whitecomonoid{A} form a \textbf{dagger-Frobenius algebra} ($\dagger$-FA) when the following equation holds:
 \begin{equation}
 \label{eq:frobenius}
 \input{tikz/1_Frobenius.tikz}
 \end{equation}
 \end{defn}
+When \tinymult[whitedot] is commutative the $\dagger$-FA is commutative (is a $\dagger$-CFA). The co-commutativity of \tinycomult[whitedot] for a $\dagger$-CFA follows~\cite[Thm 3.2.8]{kissinger2012pictures}.
 
 \begin{defn}
 \label{def:classicalstruct}
-A \textbf{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} satisfying the \textbf{specialness} \eqref{eq:special} and \textbf{symmetry} \eqref{eq:sym} conditions:
+A \textbf{classical structure} (\dotonly{whitedot}) is a dagger-Frobenius algebra \whitefrob{A} satisfying the \textbf{specialness} \eqref{eq:special} and \textbf{symmetry} \eqref{eq:sym} conditions:
 \begin{equation}
 \label{eq:special}
 \begin{aligned}
@@ -399,7 +401,7 @@ A \textbf{classical structure} is a dagger-Frobenius algebra \whitecomonoid{A} s
 
 \begin{defn}
 \label{def:copyables}
-The set of \textbf{classical states} $K_{\circ}$ for a classical structure \whitecomonoid{A} are all states $j:I\to A$ such that:
+The set of \textbf{classical states} $K_{\circ}$ for a classical structure (\dotonly{whitedot}) are all states $j:I\to A$ such that:
 \begin{equation}
 \label{eq:copy}
 \begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
@@ -418,7 +420,7 @@ The set of \textbf{classical states} $K_{\circ}$ for a classical structure \whit
 \end{pic}
 \end{equation}
 \end{defn}
-\noindent These classical points will typically be drawn as states that are the same color as the classical structure to which they correspond. It is also easy to determine the behavior of classical points under composition with the (co)unit:
+\noindent These classical states will typically be drawn as states that are the same color as the classical structure to which they correspond. It is also easy to determine the behavior of classical states under composition with the (co)unit:
 \begin{equation}
 \label{eq:unitscalar}
 \begin{pic}[xscale=\tikzxscale, yscale=-0.8*\tikzyscale]
@@ -454,7 +456,7 @@ The set of \textbf{classical states} $K_{\circ}$ for a classical structure \whit
 \end{equation}
 \noindent where $1$ is the unit scalar, i.e. $1\circ s = s = s\circ 1$ for all scalars $s$. In this sense the counit ``erases" classical points.
 
-The following theorems characterize the relationship between classical structures and observables. 
+The following theorems by Coecke et al. characterize the relationship between classical structures and observables. 
 
 \begin{theorem}[{\cite[Cor 4.3]{coecke2013new}}]
 Special dagger Frobenius algebras in \cat{FHilb} are precisely finite-dimensional C$^*$-algebras.
@@ -474,9 +476,9 @@ Classical structures in \cat{FHilb} are orthonormal bases.
 
 \begin{defn}
 \label{def:enoughclassicalpoints}
-A classical structure has \textbf{enough classical states} when for all processes $f,g:A\to B$: 
+A classical structure (\dotonly{graydot}) has \textbf{enough classical states} when for all processes $f,g:A\to B$: 
 \begin{align}
-f=g \qquad \Leftrightarrow \qquad \left(\forall \ket{j}\in K_{\circ}:f\circ\ket{j}=g\circ\ket{j}\right)\; 
+f=g \qquad \Leftrightarrow \qquad \left(\forall \ket{j}\in K_{\dotonly{graydot}}:f\circ\ket{j}=g\circ\ket{j}\right)\; 
 \end{align}
 \end{defn}
 
@@ -486,7 +488,7 @@ The correspondence in Theorem \ref{thm:cstructBases} was modified for the infini
 
 \begin{defn}
 \label{def:dimension}
-In an oPT, the \textbf{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitecomonoid{A} is given by the following composite:
+In an oPT, the \textbf{dimension} $d(A)$ of an object $A$ equipped with a dagger-Frobenius algebra \whitefrob{A} is given by the following composite:
 \begin{equation}
 \label{eq:dim}
 \input{tikz/1_dimension.tikz}
@@ -508,7 +510,7 @@ d(A) \;= \;
 It is important to note that the dimension of a system does not always equal the number of classical states of the associated classical structure. One setting where this does not hold is \cat{FRel}, where this fact plays an important role in its oPT characterization in Chapter~\ref{chap:mermin}.
 \end{remark}
 
-The rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams of an oPT. Let the maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ be defined recursively by:
+A result of Coecke and Duncan shows that the rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams of an oPT. Let the maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ be defined recursively by:
 \begin{align}
 \tinycomult[whitedot]_0:=\tinycounit[whitedot]
 \qquad\qquad
@@ -536,8 +538,9 @@ composition is:
 \end{equation}
 \end{proposition}
 
-The spider rule makes it clear that every classical structure on $A$ can be used to make $A$ dual to itself (Definition~\ref{def:dual}) using cups and caps built from the white dot:
+The spider rule makes it clear that every classical structure on $A$ can be used to make $A$ dual to itself (Definition~\ref{def:dual}) using caps ($\tinycounit[whitedot]\circ\tinymult[whitedot]$) and cups ($\tinycomult[whitedot]\circ\tinyunit[whitedot]$) built from the white dot:
 \tikzeq{tikz/2_frobcomp.tikz}
+Kissinger provides direct proof of this fact~\cite[Thm 3.2.7]{kissinger2012pictures}.
 
 The upper and lower star operations with respect to this white dot cup and cap corresponds in \cat{FHilb} to transposition and conjugation in the white dot  basis respectively. Further it can be shown that transposition with respect to a classical structure is equivalent to the dagger when applied to its classical states:
 \begin{equation}
@@ -548,7 +551,7 @@ The upper and lower star operations with respect to this white dot cup and cap c
 
 \section{Phases}
 \label{sec:phases}
-Phases for oPTs were introduced by \cite{coecke2011interacting}.
+Phases for oPTs were introduced by Coecke and Duncan~\cite{coecke2011interacting}. They decorate classical structures with an abelian group in a particular way.
 
 \begin{defn}
 \label{def:phases}
@@ -565,7 +568,7 @@ Each phase state corresponds to a \textbf{phase} that is a unitary map in the fo
 \end{defn}
 
 \begin{proposition}[Phase groups]
-Given a dagger Frobenius algebra $\whitemonoid{A}$ in an oPT, its phases form a group under the following addition:
+Given a $\dagger$-FA $\whitefrob{A}$ in an oPT, its phases form a group under the following addition:
 \begin{equation}
 \input{tikz/2_phasegroups.tikz}
 \end{equation}
@@ -587,46 +590,24 @@ with composition
 This normal form is a powerful simplifying tool and will often be used in the analysis of diagrams of processes in oPTs.
 
 \section{Complementarity}
-The notion of complementary bases can also lifted to the abstract level of classical structures in oPTs~\cite{coecke2011interacting}. This extension is perhaps best presented as emergent from a suitable generalization of mutual unbiasedness.\footnote{Our presentation in this regard is heavily influenced by the approach in \cite{coecke2015generalised}.}  This means that for two bases $\{\ket{i}\}$ and $\{\ket{j}\}$ on a $D$-dimensional Hilbert space, $\langle i|j\rangle = 1/D$ for all $i,j$. In diagrams we then have:
+The notion of complementary bases can also be lifted to the abstract level of classical structures in oPTs~\cite{coecke2011interacting}. This extension is perhaps best presented as emergent from a suitable generalization of mutual unbiasedness.\footnote{Our presentation in this regard is heavily influenced by the approach taken by Coecke et al. in~\cite{coecke2015generalised}.}  This means that for two bases $\{\ket{i}\}$ and $\{\ket{j}\}$ on a $D$-dimensional Hilbert space, $\langle i|j\rangle = 1/D$ for all $i,j$. In diagrams we then have:
 \tikzeq{tikz/2_mub.tikz}
-as the mutual unbiasedness condition, where we have assumed that $D$ is invertible and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain to the right hand form.
+as the mutual unbiasedness condition, where we have assumed that $D$ is invertible (as all dimensions in \cat{FHilb} are) and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain to the right hand form.
 \begin{defn}[Complementarity]
 \label{def:complementarity}
-In an oPT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \textbf{complementary} when the following equation holds up to a scalar:
+In an oPT, two classical structures (\dotonly{whitedot}) and (\dotonly{graydot}) on the same object are \textbf{complementary} when the following equation holds:
 \begin{equation}
 \label{eq:complementarity}
 \input{tikz/2_antipodehopf.tikz}
 \qquad \mbox{where} \qquad
 \input{tikz/2_antipode.tikz}
 \end{equation}
-The map $S:A\to A$ is called the \textbf{antipode}.
+where $D$ is the dimension of the object and the map $S:A\to A$ is called the \textbf{antipode}.
 \end{defn}
-The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}. Note that with the spider law we can show:
-$\begin{pic}[scale=0.6,yscale=-1]
-                \node (0) at (-1.75, 0.75) {};
-                \node (1) at (2, 0.75) {};
-                \node [style=graydot] (2) at (0.5, 0.5) {};
-                \node [style=antipode] (3) at (-1.75, 0) {$S$};
-                \node (4) at (-0.75, 0) {$=$};
-                \node (5) at (0, 0) {};
-                \node (6) at (1, 0) {};
-                \node (7) at (2, 0) {};
-                \node [style=whitedot] (8) at (1.5, -0.5) {};
-                \node (9) at (-1.75, -0.75) {};
-                \node (10) at (0, -0.75) {};
-                \draw (7.center) to (1.center);
-                \draw (10.center) to (5.center);
-                \draw (3) to (0.center);
-                \draw [in=-90, out=165] (8) to (6.center);
-                \draw [in=-90, out=15] (8) to (7.center);
-                \draw [in=-165, out=90, looseness=1.25] (5.center) to (2);
-                \draw (9.center) to (3);
-                \draw [in=-15, out=90] (6.center) to (2);
-\end{pic}$.
+The Equation \eqref{eq:complementarity} is equivalent to mutual unbiasedness on classical structures that have enough classical points by Definition \ref{def:enoughclassicalpoints}.
 Then by a quick calculation:
 \tikzeq{tikz/2_complemub.tikz}
-where $(*)$ is an application of Theorem \ref{thm:fund}, and the last step uses the fact that there are enough classical points.  In some literature the dimensional scalar is explicitly included in the abstract definition of strong complementarity, but, for the purposes of this thesis, it is suffices to define complementarity up to a scalar. 
-%We refer to the gray states $\{\ket{j}\}$ as \textbf{unbiased states} for %the $\dotonly{whitedot}$-classical structure. Similarly the white states %$\{\keti}\}$ are unbiased states for the $\dotonly{graydot}$-classical structure.
+where $(*)$ is an application of Theorem \ref{thm:fund}, and the last step uses the fact that there are enough classical points. 
 
 Complementarity relates the classical states of classical structures to their phase groups.
 \begin{lemma}
@@ -634,7 +615,7 @@ Complementarity relates the classical states of classical structures to their ph
 If two classical structures in an oPT are complementary, then, up to an idempotent scalar, a state that is a classical point of one is a phase state for the other.
 \end{lemma}
 \begin{proof}
-We prove this using diagrams, following~\cite{qcs-notes}:
+We prove this using diagrams, following Coecke and Kissinger~\cite{qcs-notes}:
 \begin{equation}
 \input{tikz/3_phaseUnbiased.tikz}
 \end{equation}
@@ -649,7 +630,7 @@ Though the converse of this lemma holds in \cat{FHilb}, i.e. each phase is also 
 %The daggers of these equations give rise to two further equivalent conditions.
 
 \begin{defn}\label{def:coherence}
-In an oPT, two classical structures \whitecomonoid{A} and \graycomonoid{A} are \textbf{coherent} when the following equations hold:
+In an oPT, two classical structures (\dotonly{whitedot}) and (\dotonly{graydot}) are \textbf{coherent} when the following equations hold:
 \begin{equation}
 \label{eq:coherence}
  \input{tikz/2_coher.tikz}
@@ -662,11 +643,11 @@ In \cat{FHilb} if we are given two are self-adjoint operators corresponding to c
 \end{proposition}
 \noindent This means that in the oPT for quantum computation, we can take complementary classical structures to be coherent without loss of generality.
 
-The terminology for the antipode comes from the fact that complementarity requires the classical structures to almost form a Hopf algebra using this antipode. Some complementary classical structures do indeed form Hopf algebras and these ones are called strongly complementary. They will be discussed in Section~\ref{sec:strcomplFT} in detail.
+The terminology for the antipode comes from the fact that complementarity is almost enough to make the classical structures a Hopf algebra using this antipode. Some complementary classical structures do indeed form Hopf algebras and these ones are called strongly complementary. They will be discussed in Section~\ref{sec:strcomplFT} in detail.
 
 \begin{example}
 \label{ex:cnot}
-Complementary observables allow us to construct a generalized from of the controlled-not gate in any oPT. In \cat{FHilb} we can choose classical structures on the two-dimensional Hilbert space that correspond with the usual Z and X observables:  \begin{align*}
+Complementary observables allow us to construct a generalized form of the controlled-not gate in any oPT. In \cat{FHilb} we can choose classical structures on the two-dimensional Hilbert space that correspond with the usual Z and X observables:  \begin{align*}
     \tinycomult[whitedot] : &
       \begin{array}{rcl}
         \ket{0} & \mapsto & \ket{00} \\
@@ -710,7 +691,7 @@ These classical structures are coherent and complementary and each have $\mathbb
 \node (1) at (1, 1) {};
 \draw (0) to (1);
 \end{pic}
-\qquad\qquad\qquad
+\qquad\qquad
 \begin{pic}
 \node [style=state] (0) at (1, -0) {$1$};
 \node (1) at (1, 1) {};
@@ -722,7 +703,7 @@ These classical structures are coherent and complementary and each have $\mathbb
 \node (1) at (1, 1) {};
 \draw (0) to (1);
 \end{pic}
-\qquad\qquad\qquad
+\qquad\qquad
 \begin{pic}[scale=0.8]
 \node [style=graydot] (0) at (1, -0) {$\pi$};
 \node (1) at (1, 1) {};
@@ -731,7 +712,11 @@ These classical structures are coherent and complementary and each have $\mathbb
 \draw (0) to (2);
 \end{pic}
 \;=\;
-X\mbox{-gate}
+X\mbox{-gate}::
+\left\{\begin{array}{c}
+\ket{0}\mapsto\ket{1} \\
+\ket{1}\mapsto\ket{0} \\
+\end{array}\right
 \end{equation}
 These structures can be used to define the controlled-not $\mbox{CNOT}:H_2\otimes H_2\to H_2\otimes H_2$ whose diagram is:
 \begin{align}
@@ -846,7 +831,7 @@ This shows that on computational basis elements, the control is left unchanged w
 
 This example construction motivates the following definition on any kind of system in any oPT:
 \begin{defn}
-Given two two classical structures \whitecomonoid{A} and \graycomonoid{A} that are complementary and coherent, the generalized \textbf{controlled-not} is the map:
+Given two two classical structures (\dotonly{whitedot}) and (\dotonly{graydot}) that are complementary and coherent, the generalized \textbf{controlled-not} is the map:
 \begin{equation}
 \label{eq:generalizedcnot}
 \sqrt{\ud(A)}\,\,
@@ -866,7 +851,7 @@ where we have assumed that a scalar equal to the square root of the dimension ex
 
 \section{Enriched oPTs}
 \label{sec:enrichedoPTs}
-Some oPTs, such as \cat{FHilb} come equipped with linear structure on their processes. Abstractly these are enriched categories, i.e. categories where hom-sets are replaced with other objects.\footnote{A standard reference for enriched category theory is~\cite{kelly1982basic}.}
+Some oPTs, such as \cat{FHilb}, come equipped with linear structure on their processes. Abstractly these are enriched categories, i.e. categories where hom-sets are replaced with other objects.\footnote{Kelly~\cite{kelly1982basic} can be used as a standard reference for enriched category theory.}
 
 \begin{defn}
 \label{def:enrichedcat}
@@ -895,7 +880,7 @@ In a \cat{Mon}-enriched oPT, a set of states $\{\ket{x}\}$ on a system $A$ forms
 \end{equation}
 \end{defn}
 
-\noindent Where the sum operation comes from a monoid structure of the hom-object \cat{C}(A,A). In \cat{FHilb} more specifically, this the addition is inherited  from the vector space enrichment. In fact, in Hilbert spaces all the classical states of any classical structure form a resolution of the identity. Further, we are able to link the classical structure maps to classical states in the following ways~\cite{coecke2015generalised}:
+\noindent Where the sum operation comes from a monoid structure of the hom-object \cat{C}(A,A). In \cat{FHilb} more specifically, this addition is inherited  from the vector space enrichment. In fact, in Hilbert spaces all the classical states of any classical structure form a resolution of the identity. Further, in \cat{FHilb}, we are able to link the classical structure maps to classical states in the following ways~\cite{coecke2015generalised}:
 \begin{align}
 \label{eq:spidersums}
 \input{tikz/3_spider_sums.tikz}
@@ -909,7 +894,7 @@ Arbitrary spiders can then be written as:
 We emphasize that this connection between classical states and classical structures does not hold in general oPTs, but merely serves to further motivate abstract constructions that generalize from \cat{FHilb}. We make use of this technique in the following section on measurements.
 \end{remark}
 
-More details on enriched categories, especially in regards to the results of Section~\ref{sec:strcomplFT}, can be found in Section 6 of~\cite{gogioso2015fourier}.
+Gogioso provides more details on enriched categories, especially in regards to the results of Section~\ref{sec:strcomplFT} of this thesis, in~\cite[Sec. 6]{gogioso2015fourier}.
 
 \section{Measurements}
 \label{sec:measurements}
@@ -921,7 +906,7 @@ Using caps and cups, we can construct the unique ``name" of a process $\rho$ as:
 \label{eq:cj}
 \input{tikz/2_mapstateduality.tikz}
 \end{equation}
-This is the usual Choi-Jamiolkowski  isomorphism for map-state duality in quantum information. The ``doubling" that occurs here, provides a natural way to represent measurements as completely positive maps. Suppose we wish to measure a system with respect to a classical structure $\graycomonoid{A}$,
+This is the usual Choi-Jamiolkowski  isomorphism for map-state duality in quantum information. The ``doubling" that occurs here, provides a natural way to represent measurements as completely positive maps. Suppose we wish to measure a system with respect to a classical structure (\dotonly{graydot}),
 whose classical states form an orthonormal basis $\{ \ket{x_i} \}$. The probability
 of getting the $i$-th measurement outcome is computed using the Born
 rule: 
@@ -974,7 +959,7 @@ $\begin{pic}[scale=0.5]
 This gives the expected result that a measurement of $\ket{0}$ in the $X$ basis is a mixed state of $\ket{+}$ and $\ket{-}$. 
 \end{example}
 
-We especially make use of this measurement presentation in Chapter~\ref{chap:mermin}.
+We especially make use of this measurement presentation in Chapter~\ref{chap:mermin}, to describe Mermin non-locality tests.
 
 \section{Summary of oPTs}
 

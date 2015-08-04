@@ -1,8 +1,8 @@
 \begin{pic}[xscale=2*\tikzxscale, yscale=1.5*\tikzyscale]
     \node  (0) at (-1, -1) {};
-    \node  (1) at (1, -1) {};
+    \node  (1) at (1, -0.6) {};
     \node  (2) at (0, -2) {};
-    \node  (3) at (1.25, -2) {};
+    \node  (3) at (1.25, -2.2) {};
     \node  (4) at (2.5, -1) {};
     \node [style=morphism, wedge, hflip] (5) at (0, -1) {$U_i$};
     \node  (6) at (0.5, 0) {};
@@ -21,16 +21,16 @@
 
     \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
     \draw [bend right=45, looseness=1.00] (2.center) to (1.center);
-    \draw [bend right=45, looseness=1.00] (5.south) to (3.center);
+    \draw [bend right=30, looseness=1.00] (5.south) to (3.center);
     \draw [bend right=45, looseness=1.00] (3.center) to (4.center);
     \draw [bend left=45, looseness=1.00] (5.north) to (6.center);
-    \draw [bend left=45, looseness=1.00] (6.center) to (1.center);
+    \draw [bend left=40, looseness=1.00] (6.center) to (1.center);
     \draw [bend right=45, looseness=1.00] (8.center) to (7.center);
     \draw [bend left=45, looseness=1.00] (12.north) to (10.center);
     \draw [bend left=45, looseness=1.00] (10.center) to (11.center);
     \draw (4.center) to (9.center);
     \draw [bend left=45, looseness=1.00] (15.north) to (13.center);
-    \draw [bend left=45, looseness=1.00] (13.center) to (14.center);
+    \draw [bend left=42, looseness=1.0] (13.center) to (14.center);
     \draw (15.south) to (16.center);
     \draw [bend right=45, looseness=1.00] (12.south) to (8.center);
     \draw (14.center) to (20.north);

@@ -21,6 +21,6 @@
                 \draw (4.center) to (1.south);
                 \draw (5.center) to (2.south);
                 \draw (0) to (3.center);
-                \draw [bend left=45, looseness=1.00] (0) to (1.north);
-                \draw [bend right=45, looseness=1.00] (0) to (2.north);
+                \draw [bend left=35, looseness=1.00] (0) to (1.north);
+                \draw [bend right=35, looseness=1.00] (0) to (2.north);
 \end{pic}

@@ -9,7 +9,7 @@
                 \node [style=whitedot] (7) at (-2, -1) {};
                 \node (8) at (-2, -1.75) {};
                 \node (9) at (1.25, -1.5) {};
-                %\node [style=whitedot] (10) at (-3.5, 0.5) {};
+                \node [style=whitedot] (10) at (-3.5, 0) {$D$};
                 %\node [style=whitedot] (11) at (-3.5, -0.5) {};
 
                 \draw (8.center) to (7);
