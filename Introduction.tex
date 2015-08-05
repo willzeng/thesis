@@ -119,6 +119,12 @@ This thesis applies the structure and graphical calculi for SMC's to the study o
 We make use of several other standard categorical concepts, whose definitions are reproduced here.
 
 \begin{defn}
+From any category \cat{C} we can construct a dual category $\cat{C^{op}}$ where \objs{C^{op}} = \objs{C} and for every morphism $f:A\to B$ in \arrs{C} there is a morphism $g:B\to A$ in \arrs{C^{op}} and vice versa.
+\end{defn}
+
+Loosely speaking, we can think of $\cat{C^{op}}$ as a version of \cat{C} where we have turned all the morphisms around so that inputs become outputs. In general this will be a different kind of category than \cat{C}.
+
+\begin{defn}
 Given a category $\cat{C}$ and $A,B\in\objs{C}$, the \textbf{homset} Hom$(A,B)$ is the set of morphisms in the category of type $f:A\to B$.
 \end{defn}
 

@@ -3,7 +3,7 @@
 \def\deltax{0.1} %% CAN BE CHANGED
 \def\deltay{0.5} %% DO NOT CHANGE
 
-\path[use as bounding box] (-\deltax,-0.8) rectangle (\deltax,\deltay);
+\path[use as bounding box] (-0.1,-0.4) rectangle (\deltax,0.2);
 
 \node [copoint, fill=black, scale=0.5] (mult) at (0,0) {\tempSymLabel};
 \node (mult_label_out) at (0,-\deltay) {};

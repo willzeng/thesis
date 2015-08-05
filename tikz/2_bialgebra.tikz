@@ -1,4 +1,4 @@
-\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
 
 %\node (t) [whitedot] [left of = center, yshift = -3mm] {};
 %\node (b) [whitedot] [left of = center, yshift = 3mm] {};
@@ -52,5 +52,4 @@
 \draw[-,out=135,in=315] (timediag) to (algebraTop);
 \draw[-,out=45,in=225] (algebraBot) to (timemult);
 \end{pgfonlayer}
-
-\end{tikzpicture}
+\end{pic}

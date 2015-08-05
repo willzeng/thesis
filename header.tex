@@ -279,10 +279,10 @@
 }
 {
   \pgfmathparse{\pgfgetarrowoptions{thickarrow}}%
-  \pgfsetlinewidth{1.25 pt}
+  \pgfsetlinewidth{0.75 pt}
   \pgfutil@tempdima=0.28pt%
   \advance\pgfutil@tempdima by.3\pgflinewidth%
-  \pgfsetlinewidth{0.8\pgflinewidth}
+  \pgfsetlinewidth{0.5\pgflinewidth}
   \pgfsetdash{}{+0pt}
   \pgfsetroundcap
   \pgfsetroundjoin
@@ -315,7 +315,7 @@
     \pgfmathparse{\pgfmathresult*\pgflinewidth}%
   \fi%
   \let\thickness=\pgfmathresult
-  \pgfsetlinewidth{1.25 pt}
+  \pgfsetlinewidth{0.75 pt}
   \pgfutil@tempdima=0.28pt%
   \advance\pgfutil@tempdima by.3\pgflinewidth%
   \pgfsetlinewidth{0.8\pgflinewidth}

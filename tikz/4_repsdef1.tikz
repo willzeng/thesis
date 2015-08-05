@@ -1,4 +1,4 @@
-\begin{pic}[node distance = 10mm]
+\begin{pic}[node distance = 11mm]
 
 %% First eqn LHS
 \node (spacer) {};
