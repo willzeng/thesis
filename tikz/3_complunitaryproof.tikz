@@ -1,6 +1,6 @@
 \begin{aligned}
   \begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
-  \node at (-1.9,-2.6) {$\ud (A)$};
+  \node at (-1.6,-2.6) {$\ud (A)$};
   \node (A) at (0,0) {};
   \node (B) at (1.75,0) {};
   \node (b1) [graydot] at (0,-1) {};
@@ -19,7 +19,7 @@
   \draw (b1.center) to [out=left, in=left] (b2.center);
   \end{tikzpicture}
   \end{aligned}
-  \,\,=\,\,
+  \stackrel{\mbox{\small Thm}~\ref{thm:spider}}{=}
   \begin{aligned}
   \begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
   \node at (-2.1,-2.6) {$\ud (A)$};
@@ -45,7 +45,7 @@
   \draw (w3.center) to [out=right, in=left] (w1.center);
   \end{tikzpicture}
   \end{aligned}
-  \,\,= \,\,
+  \stackrel{\eqref{eq:monoid}}{=}
   \begin{aligned}
   \begin{tikzpicture}[xscale=1.4*\tikzxscale, yscale=1.4*\tikzyscale]
   \node at (-2,-3.1) {$\ud (A)$};  

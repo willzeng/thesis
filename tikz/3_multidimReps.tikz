@@ -1,7 +1,7 @@
 \begin{aligned}
 \begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
-\draw (-0.7,-1) node [below] {$G$} to [out=up, in=\swangle] (0,0);
-\draw (0.7,-1) node [below] {$G$} to [out=up, in=\seangle] (0,0);
+\draw (-0.7,-1) node [below] {$$} to [out=up, in=\swangle] (0,0);
+\draw (0.7,-1) node [below] {$$} to [out=up, in=\seangle] (0,0);
 \draw (0,0) to (0,0.75);
 \node (m) at (0,0) [whitedot] {};
 \node (rho) at (0,0.75) [morphism, wedge, width=0, anchor=south] {$\rho$};
@@ -15,8 +15,8 @@
 \begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
 \node (r1) at (0,1.5) [morphism, wedge] {$\rho$};
 \node (r2) at (1.5,1.5) [morphism, wedge] {$\rho$};
-\draw (0,0) node [below] {$G$} to (r1.south);
-\draw (1.5,0) node [below] {$G$} to (r2.south);
+\draw (0,0) node [below] {$$} to (r1.south);
+\draw (1.5,0) node [below] {$$} to (r2.south);
 \draw ([xshift=5pt] r1.north) to [out=up, in=up] ([xshift=-5pt] r2.north);
 \draw ([xshift=-5pt] r1.north) to [out=up, in=down, in looseness=1] (0.55,3.25);
 \draw ([xshift=5pt] r2.north) to [out=up, in=down, in looseness=1] (0.95,3.25);
@@ -30,7 +30,7 @@
 \draw ([xshift=-5pt] r1.north) to +(0,1);
 \draw ([xshift=5pt] r1.north) to +(0,1);
 \node at (0.0,2.25) [above] {$\Mat(n)$};
-\node [below, white] at (0,-1) {$G$};
+\node [below, white] at (0,-1) {$$};
 \end{tikzpicture}
 \end{aligned}
 \quad=\quad
@@ -38,6 +38,6 @@
 \begin{tikzpicture}[xscale=2*\tikzxscale, yscale=2*\tikzyscale]
 \draw (0,0) to (0,-1) to [out=down, in=down, looseness=2] (0.5,-1) to (0.5,0);
 \node at (0.25,0) [above] {$\Mat(n)$};
-\node [below, white] at (0.25,-3.25) {$G$};
+\node [below, white] at (0.25,-3.25) {$$};
 \end{tikzpicture}
 \end{aligned}

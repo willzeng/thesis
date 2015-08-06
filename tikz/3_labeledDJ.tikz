@@ -32,7 +32,7 @@
 \draw [thin] (sigmadag) to (4,0+\yoff) node [right] {Non-trivial representation of $\mathbb{H}$};
 \draw [thin] (bdot) to (4,\ydiff+\yoff) node [right] {Linear maps from $\dotonly{blackdot}$-classical structure};
 \draw [thin] (dot) to (4,\ydiff+\yoff);
-\draw (f) to (4,2*\ydiff+\yoff) node [right] {Function $f:A \to B$};
+\draw (f) to (4,2*\ydiff+\yoff) node [right] {Promise function $f:A \to B$};
 \draw (m) to (4,3*\ydiff+\yoff) node [right] {Group multiplication operation on $\mathbb{H}$ };
 \draw (rho) to (4,4*\ydiff+\yoff) node [right] {Projection onto $\sum_{s\in\mathbb{G}} \ket s$ (measure X to be 0)};
 \end{scope}

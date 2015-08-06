@@ -127,11 +127,11 @@ The oracle that we will build here is similar to the CNOT from Section~\ref{ex:c
 \draw (w.center) to [out=right, in=up] (1.75,-1);
 \end{pic}
 \end{equation}
-Here we have assumed that we operate in a suitably enriched category where square roots of scalars exist.  In the rest of this section we will suppress drawing circles around scalars. The difference between scalars and labels of the diagram will be clear from context. The two classical structures are complementary exactly when the composite~\eqref{eq:composite} is unitary, as we show in the following theorem.
+Here we have assumed that we operate in a suitably enriched category where square roots of scalars exist.  In the rest of this section we will suppress drawing circles around scalars. The difference between scalars and labels of the diagram will be clear from context. Two classical structures are complementary exactly when the composite~\eqref{eq:composite} is unitary, as we show in the following theorem.
 
 \begin{theorem}[Complementarity via a unitary]
 \label{thm:complementarityunitary}
-  In a dagger symmetric monoidal category, two symmetric dagger-Frobenius algebras are complementary if and only if the composite~\eqref{eq:composite} is unitary.
+  In a dagger symmetric monoidal category, two classical structures are complementary if and only if the composite~\eqref{eq:composite} is unitary.
 \end{theorem}
 \begin{proof}
   Composing ~\eqref{eq:generalizedcnot} with its adjoint in one order, we obtain the following:
@@ -176,11 +176,13 @@ There is a similar argument that the other composite also gives the identity. \e
 Note that this construction works for pairs of observables that a complementary, but not necessarily strongly complementary.  Still, in the examples we consider, we will use strongly complementary $(\dotonly{graydot},\dotonly{whitedot})$ as we wish to embed an internal group onto them.
 
 \subsection{The Deutsch-Jozsa algorithm}
-In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see, this formulation can be easily verified and generalized by the oPT approach.
+\label{sec:abstractDJ}
+In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following Vicary~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see, this formulation can be easily verified and generalized by the oPT approach.
 
 First we define the promise at the level of processes in an oPT.
 
 \begin{defn}
+\label{def:cvb}
 Let $A$ and $B$ be systems in an oPT such that $A$ has an internal group $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $B$ has an internal group $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$. A process $f:A\to B$ is
 \begin{itemize}
 \item[(i)] \textbf{constant} when for \dotonly{whitedot}-classical state $c:I\to B $
@@ -216,9 +218,9 @@ Let $A$ and $B$ be systems in an oPT such that $A$ has an internal group $(\math
 \end{equation} 
 \end{defn}
 
-It is easy to see that this definition coincides with the original formulation in $\cat{FHilb}$ for internal groups $\mathbb{G}=\mathbb{Z}_2^n$ and $\mathbb{H}=\mathbb{Z}_2$. In this case the \dotonly{whitedot}-classical states of $B$ are the group elements $\{0,1\}$, so a constant function simply ignores all input (as \tinycounit[blackdot] send all input to 1)  and outputs one element. In the balanced case, there is only one non-trivial representation of $\mathbb{Z}_2$, namely $\sigma(0)=1$ and $\sigma(1)=-1$. Thus
+It is easy to see that this definition coincides with the original formulation in $\cat{FHilb}$ for internal groups $\mathbb{G}=\mathbb{Z}_2^n$ and $\mathbb{H}=\mathbb{Z}_2$. In this case the \dotonly{whitedot}-classical states of $B$ are the group elements $\{\ket{0},\ket{1}\}$, so a constant function simply ignores all input (as \tinycounit[blackdot] sends all input to 1)  and outputs one group element. In the balanced case, there is only one non-trivial representation of $\mathbb{Z}_2$, namely $\sigma(0)=1$ and $\sigma(1)=-1$. Thus
 \begin{align}
-\sigma\circ f\circ\tinyunit[blackdot] = \sigma \left(\sum_{x\in\mathbb{H}}\ket{f(x)}\right) = \sum_{x\in\mathbb{H}}\sigma\left(\ket{f(x)}\right),
+\sigma\circ f\circ\tinyunit[blackdot] = \sigma \left(\sum_{x\in\mathbb{G}}\ket{f(x)}\right) = \sum_{x\in\mathbb{G}}\sigma\left(\ket{f(x)}\right),
 \end{align}
 which is clearly 0 if and only if half the number of inputs for which $f(x)=0$ is the same as the number of inputs for which $f(x)=1$. Picking different internal groups and representations gives different behaviors for balanced functions.
 
@@ -239,7 +241,7 @@ Directly mapping the (rotated) quantum circuit for the DJ algorithm into an oPT 
 \input{tikz/3_DJmorphism.tikz}
 \end{align}
 
-In Section~\ref{sec:strcomplFT}, we saw that the quantum Fourier transform takes classical states of one observable to representations that correspond to classical states of its strongly complementary pair. Simplifying the above using the Fourier transform rules we obtain the annotated diagram, where the drawing of circles around normalizing scalars is suppressed:
+In Section~\ref{sec:strcomplFT}, we saw that the quantum Fourier transform takes classical states of one observable to representations that correspond to classical states of its strongly complementary partner. Simplifying the above using the Fourier transform rules we obtain the annotated diagram, where the drawing of circles around normalizing scalars is suppressed:
 \begin{align}
 \label{eq:postFT}
 \input{tikz/3_labeledDJ.tikz}
@@ -313,7 +315,7 @@ If we now ignore the right hand system, this becomes:
 \end{equation}
 Thus, by the oPT Born rule (Definition~\ref{def:bornrule}), there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
 
-In a single proof, this method and its extension to arbitrary finite internal groups (c.f.~\cite{vicary-tqa}) captures the original formulation of the problem as well as the generalizations of~\cite{hoyer1999conjugated} and~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
+In a single proof, this method and its extension to arbitrary finite internal groups (c.f.~\cite{vicary-tqa}) captures the original formulation of the problem as well as the generalizations of H\o yer~\cite{hoyer1999conjugated} and Batty et al.~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
 
 \subsection{The Grover's and hidden subgroup algorithms}
 Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The single-shot Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. When the target group is, for example, $\mathbb{Z}_3$ the indicator function has three marking ``colors." Should the elements are marked by indicator function in a $4:1:1$ ratio, a single query can be used to return one of the rarer elements with certainty. An interesting path for the future development of this work would be to extend this to a generalization of amplitude amplification. We conjecture that in certain cases, where the input amplitudes follow a known ratio, a speedup over the usual amplitude amplification algorithm can be found.
@@ -325,7 +327,7 @@ Through similar methods, the single-shot Grover's and hidden subgroup algorithms
 \end{figure}
 
 
-The function of the quantum part of hidden subgroup algorithm can also be demonstrated using oPT techniques. That is, one can abstractly verify that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup~\cite{vicary-tqa}. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for the $\dotonly{whitedot}$-classical structure. This unit, via strong complementarity, is equivalent to a uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
+The function of the quantum part of the hidden subgroup algorithm can also be demonstrated using oPT techniques. Vicary~\cite{vicary-tqa} abstractly verifies that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for the $\dotonly{whitedot}$-classical structure. This unit, via strong complementarity, is equivalent to a uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
 \begin{conjecture}
 The performance of the hidden subgroup algorithm can be improved by a particular chosen distribution of input representation in the second system.
 \end{conjecture}
@@ -342,31 +344,31 @@ Given finite groups $G$ and $A$ where $A$ is abelian, and a blackbox function $f
 \noindent
 We demonstrate a quantum algorithm that solves the group homomorphism identification problem with a number of queries equal to the number of simple factors of the abelian group $A$.
 
-For comparison, we follow~\cite{hoyer1999conjugated} where a bound on classical algorithms for this problem is constructed.
+H\o yer~\cite{hoyer1999conjugated} gives a bound on classical algorithms for a similar problem that we can easily extend.
 \begin{lemma}
 \label{lem:classicalbound}
 Given finite groups $G$ and $A$, where $A$ is abelian and $G$ has a generating set of order $m$, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, a classical algorithm can determine $f$ if and only if we have made $m$ oracle queries.
 \end{lemma}
 \begin{proof}
-Once we have evaluated $f$ classically on the generating set of $G$, we have fully characterized~$f$. The other direction is~\cite[Lem. 9]{hoyer1999conjugated} where $G$ is abelian. This extends as the pre-image of some homomorphism $f:G\to A$ for abelian $A$ and non-abelian $G$ must be an abelian subgroup $X\subseteq G$ (or $f$ is trivial). We can then consider the GROUPHOMID problem for abelian groups and $f:X\to A$.
+Once we have evaluated $f$ classically on the generating set of $G$, we have fully characterized~$f$. The other direction is~\cite[Lem. 9]{hoyer1999conjugated} where $G$ is abelian. This extends to non-abelian $G$ as the pre-image of some homomorphism $f:G\to A$ for abelian $A$ and non-abelian $G$ must be an abelian subgroup $X\subseteq G$ (or $f$ is trivial). We can then consider the GROUPHOMID problem for abelian groups and $f:X\to A$.
 \end{proof}
 
 \noindent
-Note that the query complexities of these quantum and classical algorithms depend of different and unrelated parameters of the problem. Instances where the order of the generating set of $G$ is larger than the number of factors in the target group $A$ give a quantum advantage. 
+We will demonstrate that the query complexities of quantum and classical algorithms for this problem depend on different and unrelated parameters. Instances where the order of the generating set of $G$ is larger than the number of factors in the target group $A$ give a quantum advantage. 
 
 In  the simpler case where $G$ is an abelian group this quantum algorithm was previously described by H\o yer \cite{hoyer1999conjugated}, though his algebraic presentation differs significantly from ours. H\o yer also notes that the algorithm by Bernstein and Vazirani in~\cite{bernstein1993quantum} is an instance of the abelian group identification problem where $G=\mathbb{Z}_n^n$ and $A=\mathbb{Z}_2$. Independently, Cleve et. al.~\cite{cleve1998quantum} also presented an algorithm for the abelian case where $G=\mathbb{Z}_2^n$ and $A=\mathbb{Z}_2^m$.
 
 Our results give a new approach to the solution of the group homomorphism identification problem that both extends the existing results to the case where $G$ is non-abelian, and clearly connects the structure of our algorithm to that of other black-box quantum algorithms, such as the Deutsch-Jozsa and hidden subgroup algorithms.\footnote{ This connection at the oPT level motivated our construction and we discovered H\o yer's work afterwards.}
 
-We will proceed using the abstract structure defined earlier, but will now work in the dagger-symmetric monoidal category \cat{FHilb}. Recall that any choice of orthonormal basis for  an object $A$ in \cat{FHilb} endows it with a dagger-Frobenius algebra $(A,\tinymult[blackdot],\tinyunit[blackdot])$, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as~$(A, \tinymult[whitedot], \tinyunit[whitedot])$. These two Frobenius algebras are complementary.
+We will proceed using the abstract structure defined earlier, but will now work in the oPT \cat{FHilb}. Recall that any choice of orthonormal basis for  an object $A$ in \cat{FHilb} endows it with a dagger-Frobenius algebra \blackfrob{A}, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as \whitefrob{A}. These two Frobenius algebras are strongly complementary.
 
 \def\Mat{\mathrm{Mat}}
-In the case that $G$ is finite, its representations can be characterized as the homomorphisms \mbox{$G \sxto \rho \mbox{Mat}(n)$}. The homomorphism conditions take the following form~\cite[Section~A.7]{vicary-tqa}:
+Recall from Definition~\ref{def:Reps} that, for finite $G$, its representations can be characterized as the homomorphisms \mbox{$G \sxto \rho \mbox{Mat}(n)$}. The homomorphism conditions take the following form~\cite[Section~A.7]{vicary-tqa}:
 \begin{calign}
 \label{eq:rhocopied}
 \input{tikz/3_multidimReps.tikz}
 \end{calign}
-These will be essential for our proofs below.
+As we are currently focused on \cat{FHilb}, the arrows delineating the difference between an object and its dual can be suppressed, as Hilbert spaces are isomorphic to their dual. These equations will be essential for our proofs below.
 
 \subsubsection*{The algorithm}
 
@@ -510,12 +512,12 @@ This lemma allows us to consider several specific cases:
 \item Case $A=G\times G'$. Thus $\#CQ\ge\log|G|/\log|G|=1$ and $\#QQ\ge\log|G|/(\log|G|+\log|A|)\le1.$
 \end{enumerate}
 
-To conclude, it seems that despite the encouraging fact that the queries complexities of the classical and quantum algorithms depending on seemingly independent variables, the structure of the promise space of group homomorphisms limits our ability to say something meaningful about the optimal quantum queries required. 
+To conclude, it seems that despite the encouraging fact that the query complexities of the classical and quantum algorithms depend on seemingly independent variables, the structure of the promise space of group homomorphisms limits our ability to say something meaningful about the optimal quantum queries required. 
 
 Let $G$ have $m$ generators and $A$ have $n$ simple factors. Our best separation is then to use Lemma~\ref{lem:classicalbound} and our algorithm to conclude that the classical query complexity is $\Theta(m)$ and the quantum query complexity is $\mathcal{O}(n)$.
 
 \subsubsection*{Extension to the non-abelian case}
-We now consider the more general case where the target group $A$ is non-abelian. We do not know how to extend the algorithm described above to this case.  Nevertheless, it is instructive to analyze this scenario in our graphical approach. 
+We now consider the more general case where the target group $A$ is non-abelian. We do not know how to extend the algorithm described above to this case.  Nevertheless, it is instructive to analyze this scenario in our process theoretic approach. 
 
 Irreducible representations of a non-abelian group $A$ are not necessarily one dimensional, though we are still able to compute them via the Fourier transform efficiently \cite{childs2010quantum}. In this case the algorithm has the following structure, where $\psi$ represents the initial state of the right-hand system in the representation space:
 \begin{equation}
@@ -524,7 +526,7 @@ Irreducible representations of a non-abelian group $A$ are not necessarily one d
 \end{equation}
 Recall the notation for multi-dimensional characters from Section~\ref{sec:strcomplFT}. We notice two additional features in this case. First, it is clear that the left and right systems are no longer in a product state at the end of the protocol, as they were in the final diagram of \eqref{simplifyAlg}. Second, we now have an additional choice when preparing the input representation $\rho$; in order to construct a state from a representation $\rho$ we also must choose the state $\psi$.
 
-While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \textbf{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
+While this provides a clear description of the algorithm in this more general setting, it is not clear that it would identify homomorphisms into non-abelian groups. Complications include the lack of a structure theorem that satisfies the conditions for Theorem~\ref{thm:intoAbThm}, and that Lemma~\ref{lem:irrep} no longer applies.  In this setting it may be useful to make the problem easier by restricting to the identification of homomorphisms up to \emph{natural isomorphism}, i.e. where two homomorphisms $f_1,f_2:G\to H$ are considered equivalent when there exists some $\eta\in H$ such that, for all $g\in G$, we have $\eta f_1(g) \eta^{-1} = f_2(g)$.
 
 %\subsection{\todo{The hidden shift problem}}
 %{\bf Status:} UNDRAFTED.

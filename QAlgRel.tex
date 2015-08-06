@@ -5,7 +5,7 @@
 
 \subsection{Introduction}
 
-Having grasped the abstract structure at play in the protocols and algorithms of quantum computation, we can conceive of modelling quantum computation in oPTs other than Hilbert spaces and linear maps.  There are two main thrusts that make this investigation, interesting.  The first is to further analyze the structure of quantum computation, advancing our understanding of the relationship between computational speedups and the structure of physical theories. We use the QCRel model defined here to analyze some example quantum algorithms as non-deterministic classical algorithms while preserving their query-complexity (and, in fact, all their abstract structure). The second thrust regards the insights that become available by extending physical/computational intuition into new areas of mathematics. While other toy models of a relational flavor for quantum mechanics have been proposed \cite{ellermanModelQM,discreteQT,modalQT,spekk}, and some even discuss protocols \cite{QCFF_James}, these works have not developed the structures necessary to model quantum algorithms.
+Having grasped the abstract structure at play in the protocols and algorithms of quantum computation, we can conceive of modelling quantum computation in oPTs other than Hilbert spaces and linear maps.  There are two main thrusts that make this investigation interesting.  The first is to further analyze the structure of quantum computation, focusing on the relationship between computational speedups and the structure of physical theories. We use the QCRel model defined here to analyze some example quantum algorithms as non-deterministic classical algorithms while preserving their query-complexity (and, in fact, all their abstract structure). The second thrust regards the insights that become available by extending physical/computational intuition into new areas of mathematics. While other toy models of a relational flavor for quantum mechanics have been proposed by several authors~\cite{ellermanModelQM,discreteQT,modalQT,spekk}, and some even discuss protocols~\cite{QCFF_James}, these works have not developed the structures necessary to model quantum algorithms.
 
 First we construct our chosen model of quantum information.  This is the oPT in \cat{FRel}, rather than \cat{FHilb}, and it is introduced by rephrasing the axioms of quantum mechanics. Next we present our novel contributions: relational models of unitary oracles, the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the group homomorphism identification algorithm.
 
@@ -111,9 +111,9 @@ This makes $Z$ an \textbf{abelian groupoid} with groupoid multiplication $\bulle
 \end{defn}
 We will sometimes take a categorical perspective on groupoids. A groupoid $Z=\bigoplus^NG_i$ made up $N$ groups is a category whose set of objects is isomorphic to the set of groups $\{G_i\}$ and whose morphisms are elements of $Z$, e.g. $x\in Z$ such that $x\in G_1$ is a morphism $x:G_1\to G_1$.
 
-At first guess, one might be motivated by the intuition that a basis for a system breaks it up into parts, and so a basis would be a partition of $H$.  This is not a bad start, however, bases have additional structure: namely that we can copy, delete and combine them at will.  This idea is used to motivate Definition \ref{def:basis} by abstracting bases to special dagger-commutative Frobenius algebras called classical structures (Definition \ref{def:classicalstruct}).
+At first guess, one might be motivated by the intuition that a basis for a system breaks it up into parts, and so a basis would be a partition of $H$.  This is not a bad start, however, bases have additional structure: namely that we can copy, delete and combine them at will.  This idea is used to motivate Definition \ref{def:basis} by abstracting bases to called classical structures (Definition \ref{def:classicalstruct}).
 
-Classical structures' properties, allowing the copying, deleting, and combining that accompany classical (as opposed to quantum) information, give them this name. We interpret it in the relational model of quantum computation through the following theorem:
+Recall that classical structures' properties, allowing the copying, deleting, and combining that accompany classical (as opposed to quantum) information, give them this name. We interpret them in the relational model of quantum computation through the following theorem:
 
 \begin{lemma}[\cite{evans2009classifying,pavlovic2009quantum}]
 \label{lem:sdfa-rel}
@@ -121,13 +121,13 @@ The classical structures in the category of sets and relations are exactly the a
 \end{lemma}
 
 \subsubsection*{Complementarity}
-Complementary bases are important features of quantum theory. In the general setting, complementary bases are understood as mutually unbiased bases in a certain sense (Definition~\ref{def:complementarity}).  In relations there is a more direct characterization:\footnote{Theorem \ref{thm:compl} holds as long as we consider bases to be the same if their lists of groups are isomorphic.}
+Complementary bases are important features of quantum theory. In the general setting, complementary bases are understood as mutually unbiased bases in a certain sense (Definition~\ref{def:complementarity}).  In relations Evans et al. gives a more direct characterization:\footnote{Theorem \ref{thm:compl} holds as long as we consider bases to be the same if their lists of groups are isomorphic.}
 \begin{theorem}[\cite{evans2009classifying}]
 \label{thm:compl}
 Two bases $Z$ and $X$ are complementary if and only if they are of the following form. Basis $Z = \bigoplus^{|H|}G$ and basis $X = \bigoplus^{|G|}H$ given by copies of abelian groups $G$ and $H$ respectively.
 \end{theorem}
 
-This theorem follows from the requirement that the classical states of one basis must be isomorphic to the unbiased states of its complement. We will return to this idea in the Section \ref{sec:FT} when we address the quantum Fourier transform. Classical and unbiased states of bases in the relational model are specified in the following corollaries that again correspond to abstract definitions from Chapter~\ref{chap:cqm}. An example on the six element system is illustrated with Figure \ref{complEx}.
+This theorem follows from the requirement that the classical states of one basis must be isomorphic to the unbiased states of its complement. We will return to this idea in the Section \ref{sec:FT} when we address the quantum Fourier transform in relations. Classical and unbiased states of bases in the relational model are specified by Evans et al.~\cite{evans2009classifying} in the following corollaries that again correspond to abstract definitions from Chapter~\ref{chap:cqm}. An example on the six element system is illustrated with Figure \ref{complEx}.
 
 \begin{figure}[tb]
 \begin{center}
@@ -140,7 +140,7 @@ This theorem follows from the requirement that the classical states of one basis
 \end{figure}
 
 \begin{corollary}[\cite{evans2009classifying}]
-The \textbf{classical states} of a basis $Z = \bigoplus^{N}G$ are the subsets corresponding to the groups $G_0, G_1,...$ where we forget the group structure. They will often be denoted $\ket{G_i}$.
+The \textbf{classical states} of a basis $Z = \bigoplus^{N}G$ are the subsets corresponding to the groups $G_0, G_1,...$ where we forget the group structure. They will often be denoted $\ket{Z_i}$.
 \end{corollary}
 
 \begin{corollary}[\cite{evans2009classifying}]
@@ -152,7 +152,7 @@ Thus there is exactly one element in each unbiased $U$ from each component $G_i$
 Take $Z = \mathbb{Z}_2\oplus\mathbb{Z}_2=\{0_a,1_a,0_b,1_b\}$. The classical states of $Z$ are $\ket{G_a}=\ket{0_a\vee1_a}$ and $\ket{G_b}=\ket{0_b\vee1_b}$.  The unbiased states of $Z$ are $\ket{U_0}=\ket{0_a\vee0_b}$ and $\ket{U_1}=\ket{1_a\vee1_b}$.
 \end{example}
 
-It is easy to check that bases as specified by Theorem \ref{thm:compl} have the property that each classical state $\ket{G_i}$ of the basis $Z$ corresponds to one unbiased state of $X$ and vice versa.
+It is easy to check that bases as specified by Theorem \ref{thm:compl} have the property that each classical state $\ket{Z_i}$ of the basis $Z$ corresponds to one unbiased state of $X$ and vice versa.
 This allows us to call these bases mutually unbiased, i.e. complementary~\cite{evans2009classifying}.
 \subsubsection*{Phases}
 
@@ -179,7 +179,7 @@ Consider the basis $\mathbb{Z}_2\oplus\mathbb{Z}_2$ for the four element system 
 We are also able to interpret GHZ states and density matrices in sets and relations.
 
 \begin{defn}
-For a basis $Z$, a \textbf{GHZ} state is given by
+For a basis $Z=\bigoplus_i^NG_i$, a \textbf{GHZ} state is given by
 \[ GHZ_Z \; := \{\;(a,b,c)\;|\;\ \forall \;a,b,c \in Z,\;a\bullet_Zb\bullet_Zc = \mbox{id}_{G_i}\mbox{ for some } i\;\}.  \]
 \end{defn}
 
@@ -193,15 +193,15 @@ For a state $|\psi\rangle$, the \textbf{density matrix} $|\psi\rangle\langle\psi
 Axioms 1-4, and subsequent definitions, specify the operational process theory for \textbf{quantum computation in relations: QCRel}.
 \end{defn}
 
-By the oPT construction, this clearly makes QCRel a model of quantum computation in sets and unitary relations. It is worth noting that QCRel can be simply viewed as a local hidden variable theory. Consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  From this perspective, QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics \cite{abramsky2012operational}. This means that protocols exist for entanglement, teleportation, and, as we show in this section, some familiar blackbox algorithms.
+By the oPT construction, this clearly makes QCRel a model of quantum computation in sets and unitary relations. It is worth noting that QCRel can be simply viewed as a local hidden variable theory. Consider the set $H$ to be the set of ontic states such that for $\phi\subseteq H$ the state $\ket{\phi}$ is non-deterministically in any of the ontic states in the subset $\phi$.  This perspective on \cat{Rel}, discussed further by Abramsky and Heunen~ \cite{abramsky2012operational}, shows that QCRel provides a non-deterministic local hidden variable model for computational aspects of quantum mechanics. This means that protocols exist for entanglement, teleportation, and, as we show in this section, some familiar blackbox algorithms.
 
 \subsection{Unitary Oracles}
 
 In order to model blackbox quantum algorithms in this setting, we must define the oracles themselves.
-We do this by building up from an abstract definition of the controlled-not gate in the literature. Let the gray classical structure on a system $A$ be given by a basis $Z=\bigoplus^{|H|}G$ and the white classical structure be a basis $X=\bigoplus^{|G|}H$. The comonoid for the gray dot is then the relation $\tinycomult[graydot]:A\to A\times A$ that for $x,a,b\in H$ is given by
+We do this by building up from an abstract definition of the controlled-not gate. Let the gray classical structure on a system $A$ be given by a basis $Z=\bigoplus^{|H|}G$ and the white classical structure be a basis $X=\bigoplus^{|G|}H$. The comonoid for the gray dot is then the relation $\tinycomult[graydot]:A\to A\times A$ that for $x,a,b\in H$ is given by
 \[ \{(x,(a,b))~|~a\bullet_Zb=x\}. \]
 
-\begin{defn}[\cite{zeng2014abstract}]
+\begin{defn}
 \label{eq:generalizedcnotrel}
 The abstract controlled-not is given by a composition of the comonoid for Z and the monoid for X:
 \begin{equation}
@@ -225,26 +225,19 @@ $\{((x,y),(a,b\circ_Xy))~|~a\bullet_Zb=x\}.$ \\
 \end{tabular} 
 \end{equation}
 \end{defn}
-It can be shown that in the traditional quantum setting of Hilbert spaces and linear maps, this exactly corresponds to the usual controlled-not. This also leads to the following useful theorem, which can be abstractly proved.
-
-\begin{theorem}[Complementarity via a unitary \cite{zeng2014abstract}]
-\label{thm:complementarityunitary}
-  Two symmetric dagger-Frobenius algebras are complementary if and only if the abstract controlled-not from Definition \ref{eq:generalizedcnotrel} is unitary.
-\end{theorem}
-
-\noindent This allows us to prove the following about  complementary bases in QCRel.
-\begin{theorem}
+Example~\ref{ex:cnot} showed that in the traditional quantum setting of Hilbert spaces and linear maps, this exactly corresponds to the usual controlled-not. Recall that Theorem~\ref{thm:complementarityunitary} showed that two classical structures are complementary if and only if their corresponding controlled-not is unitary. This leads to the following corollary for complementary bases in QCRel:
+\begin{corollary}
 Two bases (Z and X) in QCRel are complementary, in the sense of Theorem~\ref{thm:compl}, if and only if the relation in \eqref{eq:cnot_rel} is a bijection.
-\end{theorem}
+\end{corollary}
 \begin{proof}
 The relevant relation can clearly be seen to be the composite in Definition~\ref{eq:generalizedcnotrel} as:
 \begin{align}
 \{((a,b,y),(a,b\circ_Xy))\} \circ \{((x,y),(a,b,y))~|~a\bullet_Zb=x\}.
 \end{align}
-Thus the abstract proof of\ Theorem \ref{thm:complementarityunitary} from \cite{zeng2014abstract} goes through unchanged.
+Thus the abstract proof of\ Theorem \ref{thm:complementarityunitary} goes through unchanged.
 \end{proof}
 
-An oracle is then introduced as a controlled-not where we have embedded a particular kind of relation that abstractly must be a self-conjugate comonoid homomorphism \cite{zeng2014abstract}. We construct such relations in the following lemmas.
+An oracle is then introduced as a controlled-not where we have embedded a particular kind of relation that abstractly must be a self-conjugate comonoid homomorphism. We construct such relations in the following lemmas.
 
 \begin{defn}
 Let $G$ and $H$ be groupoids with with groupoid multiplications $\bullet_G$ and $\bullet_H$ respectively. Let $\mbox{id}_{G}=\bigcup_{X\in\mbox{Ob}(G)}\mbox{id}_X$ and similarly define $\mbox{id}_{H}$. A \textbf{groupoid homomorphism relation} $R:G\to H$ obeys the following condition for $g_1,g_2\in G$:
@@ -280,7 +273,7 @@ In order to show that $R$ is a monoid homomorphism relation we first show that i
 R(\bigcup\nolimits_{X\in\mbox{Ob}(G)} \mbox{id}_X) &= \bigcup\nolimits_{X\in\mbox{Ob}(G)}R(\mbox{id}_X) = \bigcup\nolimits_{X\in\mbox{Ob}(G)}\mbox{id}_{R(X)} \quad \mbox{def. of group hom. rel.} \\
 &= \bigcup\nolimits_{R(X)\in\mbox{Ob}(G)}\mbox{id}_{R(X)} = \bigcup\nolimits_{{Y\in\mbox{Ob}(H)}}\mbox{id}_{Y} \qquad \mbox{surjective on objects}
 \end{align}
-where we have used the fact that $R$ is surjective on objects, which implies that every object of $H$ is in the image of $R$ and that $|\mbox{Ob}(G)|\ge|\mbox{Ob}(H)|$.
+where we have used the fact that $R$ is surjective on the groupoid objects, which implies that every object of $H$ is in the image of $R$ and that $|\mbox{Ob}(G)|\ge|\mbox{Ob}(H)|$.
 
 The second monoid homomorphism condition~\eqref{eq:monone} is to preserve multiplication, i.e. that for subsets $K$ and $J$ of $G$ we have
 \begin{align}
@@ -301,7 +294,7 @@ We then dualize the proof of Lemma \ref{lem:mongrphom} to conclude that:
 \label{lem:classicalRelation}
 Let $F:H\to G$ be a functor such that $F^{\mbox{\tiny op}}$ is a groupoid homomorphism relation that is surjective on objects. $F$ is a comonoid homomorphism relation.
 \end{lemma}
-\noindent We call these comonoid homomorphism relations \textbf{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we also need these relations to be self-conjugate (Definition~\ref{def:selfconj}). The meaning of this equation in relations is explicated in the following lemma:
+\noindent We call these comonoid homomorphism relations \textbf{classical relations}. These are relations that properly preserve the structure of the bases where classical data is embedded.  In the quantum case they take basis elements to basis elements. Some examples in QCRel are listed in Appendix \ref{app:clRel}. In order to define unitary oracles, we also need these relations to be self-conjugate (Definition~\ref{def:selfconj}). Luckily, this is always the case in relations:
 \begin{lemma}
 All classical relations $f:Z^A\to Z^B$ between groupoids $Z^A=\bigoplus^NG$ and $Z^B=\bigoplus^{N'}H$ are self-conjugate.
 \end{lemma}
@@ -341,9 +334,9 @@ Thus, a relation $f$ is self-conjugate if and only if for all elements $(g,n)$ i
 
 Classical relations, as self-conjugate comonoid homomorphisms, lead to unitary oracles.
 
-\begin{defn}[Oracle \cite{zeng2014abstract}]
+\begin{defn}[Relational Oracle]
 \label{oracle}
-Given a groupoid $Z^A:\blackcomonoid{A}$, a pair of complementary groupoids $Z^B:\graycomonoid{B}$ and $X^B:\whitecomonoid{B}$, and a classical relation $R : \blackcomonoid{A} \to \graycomonoid{B}$, an \textbf{oracle} is defined to be the following endomorphism of~$A \times B$:
+Given a groupoid $Z^A:\blackmonoid{A}$, a pair of complementary groupoids $Z^B:\graymonoid{B}$ and $X^B:\whitemonoid{B}$, and a classical relation $R : \blackmonoid{A} \to \graymonoid{B}$, an \textbf{oracle} is defined to be the following endomorphism of~$A \times B$:
 \begin{equation}
 \label{eq:oraclerel}
 \begin{aligned}
@@ -389,10 +382,10 @@ OracleRel is a bijection.
 This follows directly from Theorem \ref{thm:familyofunitaries} and Theoremm~\ref{cor:bijections}.
 \end{proof}
 
-\subsection{The Fourier transform in Relations}
+\subsection{The Fourier transform in relations}
 \label{sec:RelFT}
 
-In Section~\ref{section_RelFT}, we saw that there are several perspectives on the Fourier transform in \cat{FRel}, only some of which are nontrivial. In this section we take the operational perspective on the generalized quantum Fourier transform (implemented by a Fourier matrix) whose definition is motivated through the relationship between classical and unbiased states of two bases.  For abelian groups $G$ and $H$, consider two groupoids $Z=\bigoplus^{|H|}G$ and $X=\bigoplus^{|G|}H$ to be complementary bases of the same system.
+In Section~\ref{section_RelFT}, we saw that there are several perspectives on the Fourier transform in \cat{FRel}, only some of which are nontrivial. In this section we take the operational perspective on the generalized quantum Fourier transform whose definition is motivated through the relationship between classical and unbiased states of two bases.  For abelian groups $G$ and $H$, consider two groupoids $Z=\bigoplus^{|H|}G$ and $X=\bigoplus^{|G|}H$ to be complementary bases of the same system.
 
 \begin{defn}
 \label{def:FTRel}
@@ -413,22 +406,22 @@ Take $G=\mathbb{Z}_2=\{0,1\}$, $H=\mathbb{Z}_2=\{a,b\}$, $Z = G \oplus G = \{ (0
 
 See Section~\ref{sec:strcomplFT} and~\cite{gogioso2015fourier} to fully motivate this definition of the Fourier transform in QCRel and for its relationship to the usual Hadamard and Fourier transforms for Hilbert spaces and linear maps.
 
-\subsection{The Deutsch-Jozsa Algorithm in QCRel}
+\subsection{The Deutsch-Jozsa algorithm in QCRel}
 \label{sec:qcreldj}
-The well known Deutsch-Jozsa algorithm is an early quantum algorithm that demonstrates a speedup over exact classical computation \cite{DJAlg1992}. It takes as input a function promised to be either constant or balanced and returns which, deterministically using only a single oracle query. In this section, we model the algorithm's steps in QCRel just as it is implemented with Hilbert spaces and linear maps. This approach is somewhat dual to the usual one where different algorithms are compared on the same problem. Here we run the same abstract protocol (implemented in a different model) with the same query complexity and compare the different problems that it solves.
+The well known Deutsch-Jozsa algorithm is an early quantum algorithm that demonstrates a speedup over exact classical computation~\cite{deutsch1992rapid}. It takes as input a function promised to be either constant or balanced and returns which, deterministically using only a single oracle query. In this section, we model the algorithm's steps in QCRel just as it is implemented with Hilbert spaces and linear maps. This approach is somewhat dual to the usual one where different algorithms are compared on the same problem. Here we run the abstract protocol from Section~\ref{sec:abstractDJ} (implemented in a different model) with the same query complexity and compare the different problems that it solves.
 
 To run this algorithm in QCRel we use two systems.  System $A$ has cardinality $n$ and system $B$ has cardinality $\ge 2$. Take $Z^A=\bigoplus^{|H^{A}|}G^A$ and $X^A=\bigoplus^{|G^{A}|}H^A$ to be complementary bases of $A$. Take $Z^B=\bigoplus^{|H^{B}|}G^B$ and $X^B=\bigoplus^{|G^{B}|}H^B$ to be complementary bases of $B$, such that $X^B$ has at least two classical states. In analogy with the usual specification, the algorithm proceeds with the following steps.
 \begin{enumerate}
-\item Prepare $A$ in the zero state $|G^{A}_0\rangle$. Prepare $B$ in the state given by the second classical state of $Z^B$, i.e. $|G^B_1\rangle$.
+\item Prepare $A$ in the zero state $|Z^{A}_0\rangle$. Prepare $B$ in the state given by the second classical state of $Z^B$, i.e. $|Z^B_1\rangle$.
 
-\item Apply the Fourier transform, as given by Definition \ref{def:FTRel}, to each system, resulting in states $\ket{H_0^A}$ and $\ket{H_1^B}$ respectively.
+\item Apply the Fourier transform, as given by Definition \ref{def:FTRel}, to each system, resulting in states $\ket{X_0^A}$ and $\ket{X_1^B}$ respectively.
 
 \item Apply an oracle \eqref{eq:oraclerel}, built from a classical relation $f:Z^A\to Z^B$.
 
 \item Again apply the Fourier transform to system $A$ and then measure it in the $Z$ basis.
 \end{enumerate}
 
-\noindent This sequence of steps is an instance in sets and relations of the abstract Deutsch-Jozsa algorithm from \cite{vicary-tqa}, which translates to the following relation, where we have already applied the Hadamard map  to the input and output. See~\eqref{eq:postFT}.
+\noindent This sequence of steps is an instance in sets and relations of the abstract Deutsch-Jozsa algorithm from \cite{vicary-tqa}, which translates to the following relation, where we have already applied the Fourier map  to the input and output. See~\eqref{eq:postFT}.
 
 \begin{equation}
 \label{eq:reldj}
@@ -457,9 +450,9 @@ To run this algorithm in QCRel we use two systems.  System $A$ has cardinality $
         node [above] {};
 \draw [thin, dashed] (-1.25,0.7) to (7.5,0.7);
 \draw [thin, dashed] (-1.25,3.3) to (7.5,3.3);
-\node at (3.5,0) [anchor=west] {\small Prepare initial states and apply Hadamard};
+\node at (3.5,0) [anchor=west] {\small Prepare initial states and apply Fourier};
 \node at (3.5,2) [anchor=west] {\small Apply a unitary map};
-\node at (3.5,4) [anchor=west] {\small Apply Hadamard and measure the first system};
+\node at (3.5,4) [anchor=west] {\small Apply Fourier and measure the first system};
 \end{tikzpicture}
 \end{aligned}
 \end{equation}
@@ -472,9 +465,9 @@ that is explicitly written as:
 \{((\star,\star),(\star,z))\;|\; 
   z\in H_1^B \mbox{ and } \exists y\in H_0^A, \mbox{ s.t. }yfz\},
 \end{align*}
-where we have made the simplification of \eqref{eq:reldj} following \cite{vicary-tqa}.
+Note the correspondence between~\eqref{eq:reldj} and~\eqref{eq:postFT}. Thus by the derivation in Section~\ref{sec:abstractDJ} we have:
 
-\begin{theorem}[\cite{vicary-tqa}]
+\begin{theorem}
 \label{def:bc}
 In any dagger compact category with complementary bases, the algorithm in Equation \ref{eq:reldj} will, with a single oracle query, distinguish \textbf{constant} and \textbf{balanced} classical relations $f:Z^A\to Z^B$ according to the following abstract definitions. Here $\ket{x}$ is a classical state of $Z^A$ and the zero scalar $0$ is, in \cat{Rel}, the empty relation:
 \begin{equation}
@@ -514,7 +507,7 @@ where
 \node at (0.05,0.75) [anchor=west] {$2$};
 \end{tikzpicture} is the dagger adjoint of the second classical state of $X^B$.
 \end{theorem}
-That these definitions coincide with the usual ones for constant and balanced functions is shown in \cite{vicary-tqa}. In fact, it is easy to check that any constant relation will be a classical relation. In QCRel, the effect 
+That these definitions coincide with the usual ones for constant and balanced functions is shown in Section~\ref{sec:abstractDJ}. In fact, it is easy to check that any constant relation will be a classical relation. In QCRel, the effect 
 \begin{tikzpicture}[string,scale=0.75]
 \draw (f.north) to (0,0.75) node [blackdot, hflip] {};
 %\node at (0.05,0.75) [anchor=west] {$2$};
@@ -528,9 +521,9 @@ Take $A=\{0,1,2,3\}$ and $B=\{a,b,c,d\}$ to be four element systems. We define c
 \begin{tabular}{|c|c|}\hline
 System $A$ & System $B$ \\\hline
 $Z^A = \mathbb{Z}_2\oplus\mathbb{Z}_2 \mbox{~~s.t.}$ & $Z^B = \mathbb{Z}_2\oplus\mathbb{Z}_2\mbox{~~s.t.}$ \\
-$G_0^A=\{0,1\},G_1^A=\{2,3\}$ & $G_0^B=\{a,b\},G_1^B=\{c,d\}$ \\ \hline
+$Z_0^A=\{0,1\},Z_1^A=\{2,3\}$ & $Z_0^B=\{a,b\},Z_1^B=\{c,d\}$ \\ \hline
 $X^A = \mathbb{Z}_2\oplus\mathbb{Z}_2 \mbox{~~s.t.}$ & $X^B = \mathbb{Z}_2\oplus\mathbb{Z}_2\mbox{~~s.t.}$ \\
-$H_0^A=\{0,2\},H_1^A=\{1,3\}$ & $H_0^B=\{a,c\},H_1^B=\{b,d\}$ \\ \hline
+$X_0^A=\{0,2\},X_1^A=\{1,3\}$ & $X_0^B=\{a,c\},X_1^B=\{b,d\}$ \\ \hline
 \end{tabular}
 \end{align*}
 
@@ -543,7 +536,7 @@ From Equation \ref{eq:bc}, we then define constant and balanced classical relati
 \node at (0.05,0.75) [anchor=west] {};
 \end{tikzpicture}
 \end{aligned}
-&\quad= \{(0,\star),(2, \star)\},  \quad \mbox{the adjoint of the first classical state of } X^A \\
+&\quad= \{(0,\star),(2, \star)\},  \quad \mbox{the classical state adjoint } \bra{X_0^A} \\
 \begin{aligned}
 \begin{tikzpicture}[string]
 \node (x) [state, xscale=0.75] at (0,0) {$x$};
@@ -557,14 +550,14 @@ From Equation \ref{eq:bc}, we then define constant and balanced classical relati
 \node at (0.05,0.75) [anchor=west] {$2$};
 \end{tikzpicture}
 \end{aligned}
-&\quad=\{(b,\star),(d, \star)\},  \quad \mbox{ adjoint of the second classical state of } X^B \\
+&\quad=\{(b,\star),(d, \star)\},  \quad \mbox{ the classical state adjoint } \ket{X^B_1} \\
 \begin{aligned}
 \begin{tikzpicture}[string]
 \node (x) [blackdot] at (0,0) {};
 \draw (0,0) to (0,0.5) {};
 \end{tikzpicture}
 \end{aligned}
-&\quad= \{(\star,0),(\star,2)\},  \quad \mbox{the first classical state of } X^A
+&\quad= \{(\star,0),(\star,2)\},  \quad \mbox{the classical state } \ket{X^A_0}
 \end{align}
 
 Thus there are two constant classical relations\footnote{A list of more example classical relations is given in Appendix \ref{app:clRel}.} $f:Z^A\to Z^B$, one for each classical state of $Z^B$. They are:
@@ -588,7 +581,7 @@ Let $Z^A=\oplus^NG_i$. A \textbf{constant relation} $f:Z^{A}\to Z^{B}$ relates a
 
 \begin{defn}
 \label{def:balanced}
-A relation $f:Z^{A}\to Z^{B}$ is \textbf{balanced} when no element in the first classical state of $X^{A}$ is related to an element in the second classical state of $X^{B}$.
+A relation $f:Z^{A}\to Z^{B}$ is \textbf{balanced} when no element in $X^{A}_0$ is related to an element in $X^{B}_1$.
 \end{defn}
 
 \begin{theorem}
@@ -596,7 +589,7 @@ A relation $f:Z^{A}\to Z^{B}$ is \textbf{balanced} when no element in the first 
 The Deutsch-Jozsa algorithm defined above distinguishes constant relations from balanced relations in a single oracle query.
 \end{theorem}
 \begin{proof}
-This follows immediately from the abstract proof of the Deutsch-Jozsa algorithm in \cite{vicary-tqa}.
+This follows immediately from Vicary's abstract proof of the Deutsch-Jozsa algorithm from Section~\ref{sec:abstractDJ}.
 \end{proof}
 
 \begin{remark}
@@ -605,10 +598,10 @@ It is important to note that the constant or balanced classes of classical relat
 
 \begin{lemma}
 \label{lem:balpreimage}
-There does not exist a balanced classical $f:Z^A\to Z^B$ relation whose pre-image is given only by elements of the first classical state of $X^A$.
+There does not exist a balanced classical $f:Z^A\to Z^B$ relation whose pre-image is given only by elements of $X^A_{0}$.
 \end{lemma}
 \begin{proof}
-If the pre-image of $f$ is given only by elements of the first classical state of $X^A$, then the image of $f^{-1}$ must be the this same set $X_0^A$. However, balanced classical relations by definition have $\bra{X^A_0}\circ f^{-1}\circ  \ket{X_1^B} = 0.$ Thus no element of $X_1^B$ can be in the pre-image of $f^{-1}$ (in the image of $f$). Let $\delta_{Z^A}:A\to A\tensor A$ be the relational converse of the groupoid multiplication for $Z^A$ (and likewise for $\delta_{Z^B}$). Write $-X_1^B=\{x^{-1}~|~x\in X_1^B\}$. Then if no element of $X_1^B$ is in the image of $f$, we have:
+If the pre-image of $f$ is given only by elements of $X_{0}^A$, then the image of $f^{-1}$ must be the this same set $X_0^A$. However, balanced classical relations by definition have $\bra{X^A_0}\circ f^{-1}\circ  \ket{X_1^B} = 0.$ Thus no element of $X_1^B$ can be in the pre-image of $f^{-1}$ (in the image of $f$). Let $\delta_{Z^A}:A\to A\tensor A$ be the relational converse of the groupoid multiplication for $Z^A$ (and likewise for $\delta_{Z^B}$). Write $-X_1^B=\{x^{-1}~|~x\in X_1^B\}$. Then if no element of $X_1^B$ is in the image of $f$, we have:
 \begin{align}
 0 &= \bra{X_1^B}\tensor\bra{-X_1^B}\circ (f\tensor f)\circ \delta_{Z^A}\\
 0 &= \bra{X_1^B}\tensor\bra{-X_1^B}\circ \delta_{Z^B}\circ f \qquad\qquad \mbox{by the dual of~\eqref{eq:monone}} \\
@@ -621,23 +614,23 @@ This allows us to show that we will always be able to construct a simple query o
 
 \begin{theorem}
 \label{thm:trivRelDJ}
-Constant and balanced classical relations can be distinguished in a single query whose input state has non-zero intersection with any classical state other than that first classical state of $Z^A$.
+Constant and balanced classical relations can be distinguished in a single query whose input state has non-zero intersection with any classical state other than $\ket{Z^A_0}$.
 \end{theorem}
 \begin{proof}
- Let $\ket{x}$ be a classical state of $Z^B$ and $\tinycounit[blackdot]$ be the classical co-state of $Z^A$. Any constant classical relation has the form $f:\ket{x}\circ\tinycounit[blackdot]$, and so the pre-image of $f$ is only the elements in the first classical state of $A$. Thus, a query of a constant classical relation with input from any other classical state will return the empty set.  Further, Lemma~\ref{lem:balpreimage} shows that it is not possible to construct balanced relations which will have the same behavior. Thus a query with any element not in $\tinycounit[blackdot]$ will suffice to identify the class of the classical relation. 
+ Let $\ket{Z_i^B}$ be a classical state of $Z^B$ and $\tinycounit[blackdot]$ be the classical co-state $\bra{Z^A_0}$. Any constant classical relation has the form $f:\ket{Z_i^B}\circ\tinycounit[blackdot]$, and so the pre-image of $f$ is only the elements in the first classical state of $A$. Thus, a query of a constant classical relation with input from any other classical state will return the empty set.  Further, Lemma~\ref{lem:balpreimage} shows that it is not possible to construct balanced relations which will have the same behavior. Thus a query with any element not in $\tinycounit[blackdot]$ will suffice to identify the class of the classical relation. 
 \end{proof}
 
-Theorem~\ref{thm:trivRelDJ} shows that the model of the Deutsch-Jozsa algorithm does not result in a classical algorithm for a non-trivial problem.  While this would have been a nice side effect of our analysis, it is not the main goal. The more important takeaway is that the operation of the quantum algorithm can be accurately modeled in QCRel and that it does optimally solve a problem in that context. We will discuss this more after two more examples.
+Theorem~\ref{thm:trivRelDJ} shows that the model of the Deutsch-Jozsa algorithm does not result in a classical algorithm for a non-trivial problem.  While this would have been a nice side effect of our analysis, it is not the main goal. The more important takeaway is that the operation of the quantum algorithm can be accurately modeled in QCRel and that it does optimally solve a problem in that context. We will discuss this further after two more examples.
 
 \subsection{Single-shot Grover's Algorithm}
 \label{sec:qcrelgrovers}
-The usual Grover's algorithm~\cite{grover1996fast} takes as input a set $S$ and an indicator function $f:S\to\{0,1\}$ and outputs an element $s\in S$ such that $f(s)=1$. Though the algorithm is usually probabilistic and runs a repeated series of ``Grover steps", here we consider the deterministic version that runs with a single step. In this section we will consider the generalization of the single-shot Grover algorithm where the codomain of the indicator function is allowed to be an arbitrary group~\cite{vicary-tqa}. Our setup requires the set $S$, as one system, as well as another system $B$. We define the basis $Z^{S}=\bigoplus^{|H^S|}G^S$ and $X^S=\bigoplus^{|G^S|}H^S$ on the $S$ system.  System $B$ has complementary bases $Z^B=\bigoplus^{|H^B|}G^B$ and $X^B=\bigoplus^{|G^B|}H^B$. Let $\ket{\sigma}$ be the first classical state of $X^B$, e.g. is $X^B=\mathbb{Z}_2\oplus\mathbb{Z}_2$ then $\ket{\sigma}=\{(\star,1),(\star,3)\}$, where $1$ and $3$ are the non-identity elements of that factors of $X^B$. Let $\bra{\rho}$ be the converse of a classical state of $X^S$. Recall that $\ket{G^S_0}=\{(\star,g)\,|\,g\in G^S\mbox{ is the first factor group of } Z^S\}$ is a classical point of $Z^S$, and that, by the complementary relationship of classical and unbiased points (Section~\ref{sec:RelFT}), $\ket{H^S_0}\isom\{(\star,\idm{G^S_i})\,|\,G^S_i\mbox{ is a factor group of } Z^S\}$.
+The usual Grover's algorithm~\cite{grover1996fast} takes as input a set $S$ and an indicator function $f:S\to\{0,1\}$ and outputs an element $s\in S$ such that $f(s)=1$. Though the algorithm is usually probabilistic and runs a repeated series of ``Grover steps", here we consider the deterministic version that runs with a single step. In this section we will consider Vicary's generalization of the single-shot Grover algorithm where the codomain of the indicator function is allowed to be an arbitrary group~\cite{vicary-tqa}. Our setup requires the set $S$, as one system, as well as another system $B$. We define the basis $Z^{S}=\bigoplus^{|H^S|}G^S$ and $X^S=\bigoplus^{|G^S|}H^S$ on the $S$ system.  System $B$ has complementary bases $Z^B=\bigoplus^{|H^B|}G^B$ and $X^B=\bigoplus^{|G^B|}H^B$. Let $\ket{X_0^B}$ be the first classical state of $X^B$, e.g. is $X^B=\mathbb{Z}_2\oplus\mathbb{Z}_2$ then $\ket{X_0^B}=\{(\star,1),(\star,3)\}$, where $1$ and $3$ are the non-identity elements of that factors of $X^B$. Let $\bra{X_{\rho}^B}$ be the converse of a classical state of $X^S$. Recall that $\ket{Z^S_0}=\{(\star,g)\,|\,g\in G^S\mbox{ is the first factor group of } Z^S\}$ is a classical point of $Z^S$, and that, by the complementary relationship of classical and unbiased points (Section~\ref{sec:RelFT}), $\ket{X^S_0}\isom\{(\star,\idm{G^S_i})\,|\,G^S_i\mbox{ is a factor group of } Z^S\}$.
 
 In QCRel, the algorithm proceeds by the following steps:
 \begin{enumerate}
-\item Prepare system $S$ in the state $\ket{G_0}$ and system $B$ in the state $\ket{\sigma}$.
+\item Prepare system $S$ in the state $\ket{Z^S_0}$ and system $B$ in the state $\ket{X_0^B}$.
 
-\item Apply the Fourier transform to system $S$, resulting in state $\ket{H^{S}_0}$.
+\item Apply the Fourier transform to system $S$, resulting in state $\ket{X^{S}_0}$.
 
 \item Apply the oracle for a classical indicator relation $f:Z^S\to Z^B$.
 
@@ -647,7 +640,7 @@ In QCRel, the algorithm proceeds by the following steps:
 
 \end{enumerate}
 
-The diagrammatic presentation for this procedure from \cite{vicary-tqa} is:
+Vicary's~\cite{vicary-tqa} presentation for this procedure is:
 \begin{equation}
 \label{eq:grovertopological}
 \begin{aligned}
@@ -684,7 +677,7 @@ The diagrammatic presentation for this procedure from \cite{vicary-tqa} is:
 \end{aligned}
 \end{equation}
 
-\noindent where numerical scalars have been dropped relative to that reference as there is only one non-zero scalar in QCRel.\footnote{Recall that scalars in a monoidal category with identity object $I$ are maps $s:I\to I$. Thus in \cat{Rel} $I=\{\star\}$, so the only scalars are the empty relation and the identity relation on the singleton set.} Recall that $\tinyunit[blackdot]:\{\star\}\to S$ relates the singleton to the elements of $H_0$ and that $\tinycounit[blackdot]$ is its relational converse. We will use the map $\tinyunit[blackdot]\circ\tinycounit[blackdot]:S\to S$ in the following definition. Here there is a special relation $D:S\to S$ called the diffusion operator and defined abstractly in \cite{vicary-tqa}:
+\noindent where numerical scalars have been dropped relative to that reference as there is only one non-zero scalar in QCRel.\footnote{Recall that scalars in a monoidal category with identity object $I$ are maps $s:I\to I$. Thus in \cat{Rel} $I=\{\star\}$, so the only scalars are the empty relation and the identity relation on the singleton set.} Compare~\eqref{eq:grovertopological} to Figure~\ref{fig:algtriplet}. Recall that $\tinyunit[blackdot]:\{\star\}\to S$ relates the singleton to the elements of $H_0$ and that $\tinycounit[blackdot]$ is its relational converse. We will use the map $\tinyunit[blackdot]\circ\tinycounit[blackdot]:S\to S$ in the following definition. Here there is a special relation $D:S\to S$ called the diffusion operator:
 \begin{equation}
 \label{eq:difftopological}
 \begin{aligned}
@@ -712,74 +705,58 @@ where the subtraction of two relations is given by the symmetric difference of t
 \begin{align*}
 \mbox{Grover}(f)&:\{\bullet\}\times \{\bullet\} \to \{\bullet\}\times B \\
 &=
-\bra{\rho}\times{\mbox{id}_B}\circ D\times{\mbox{id}_B}\circ\mbox{OracleRel}(f)\circ\ket{H^S_0}\times\ket{\sigma}
+\bra{X_{\rho}^S}\times{\mbox{id}_B}\circ D\times{\mbox{id}_B}\circ\mbox{OracleRel}(f)\circ\ket{X^S_0}\times\ket{\sigma}
 \\ &= \{((\bullet,\bullet),(\bullet,c\circ_{X}x))\;|\; \\
 &\hspace{40pt}
- x\in\sigma,y\in\rho, \mbox{id}_{G_n},b,z\in S \mbox{ s.t. } z\bullet_{Z^S} b=\mbox{id}_{G_{n}} \mbox{ and } bfc,zDy\}
+ x\in X_{0}^B,y\in X_\rho^S, \mbox{id}_{G_n},b,z\in S \mbox{ s.t. } z\bullet_{Z^S} b=\mbox{id}_{G_{n}} \mbox{ and } bfc,zDy\}
 \end{align*}
 
 \begin{theorem}
 \label{thm:topgrovers}
-Equation \ref{eq:grovertopological} is zero only for classical states of $X^S$ denoted $\ket{\rho}$ that satisfy the following equation:
+Equation \ref{eq:grovertopological} is zero only for classical states of $X^S$ denoted $\ket{X_{\rho}^S}$ that satisfy the following equation:
 \begin{equation}
 \label{eq:zerocondition}
-\sigma \circ f \circ \rho = \sigma \circ f \circ \ket{G_0}
+\bra{X_0^B} \circ f \circ \ket{X_{\rho}^S} = \bra{X_0^B} \circ f \circ \ket{X_0^S}
 \end{equation}
-%\begin{equation}
-%\label{eq:zerocondition}
-%\begin{aligned}
-%\begin{tikzpicture}[thick, scale=0.5]
-%\draw (0,0) node [smallbox] {$\rho$} to (0,1.25) node [smallbox] {$R$} to %(0,2.5) node [smallbox] {$\sigma$};
-%\end{tikzpicture}
-%\end{aligned}
-%\quad=\quad
-%\begin{aligned}
-%\begin{tikzpicture}[thick, scale=0.5]
-%\draw (0,0) node [blackdot] {} to (0,1.25) node [smallbox] {$R$} to (0,2.5) %node [smallbox] {$\sigma$};
-%\node [smallbox, draw=white, fill=none] at (0,0) {};
-%\draw (0,0) to (0,0.5);
-%\end{tikzpicture}
-%\end{aligned}
-%\end{equation}
 \end{theorem}
 \begin{proof}
-Proven in \cite{vicary-tqa}. See Section 3.2 equation (34).
+Proven in \cite{vicary-tqa}. See Section 3.2, Equation (34).
 \end{proof}
 
-Here $\ket{\sigma}$ is, in general, any fixed classical state of $X^B$. This allows a generalization of the single-shot Grover's algorithm where the cardinality of system $B$ is increased as investigated in \cite{vicary-tqa}.
-Consequently, the LHS of Equation \ref{eq:zerocondition} tests if any element in the classical state $\ket{\rho}$ is related to any of the elements in $\ket{\sigma}$. The RHS tests if any of the elements of $G_0$ are related to $\ket{\sigma}$.
+Here $\ket{X_0^B}$ can be generalized to any fixed classical state $\ket{X_{\sigma}^B}$. This allows a generalization of the single-shot Grover's algorithm where the cardinality of system $B$ is increased \cite{vicary-tqa}.
+Consequently, the LHS of Equation \ref{eq:zerocondition} tests if any element in the classical state $\ket{X_{\rho}^S}$ is related to any of the elements in $\ket{X_{\sigma}^B}$. The RHS tests if any of the elements of $X_0^S$ are related to $\ket{X_{\sigma}^B}$.
 
 \begin{proposition}
-The QCRel single-shot Grover algorithm only returns states $\ket{\rho}$ such that for all $h \in H^S_0$, $s\in\rho$ and $x\in \sigma$
+The QCRel single-shot Grover algorithm only returns states $\ket{X_{\rho}^S}$ such that for all $h \in X^S_0$, $s\in X_{\rho}^S$ and $x\in X_{\sigma}^B$
 \begin{align*}
 h f x \quad = \quad \neg(s f x) .
 \end{align*}
-In other words, the only elements that can be possibilistically measured under the QCRel Born rule (Axiom~\ref{ax:relborn}) are elements of $S$ that have the opposite mapping to $\sigma$, under the relation $f$, than elements of $H^{S}_0$.
+In other words, the only elements that can be possibilistically measured under the QCRel Born rule (Axiom~\ref{ax:relborn}) are elements of $S$ that have the opposite mapping to $X_{\sigma}^B$, under the relation $f$, than elements of $X^{S}_0$.
 \end{proposition}
 \begin{proof}
 By Theorem \ref{thm:topgrovers} and definitions.
 \end{proof}
 
 \begin{example}
-Let $S=\{0,1,2,3\}$ and choose $Z^S=\mathbb{Z}_2\oplus\mathbb{Z}_2$ and $X^S=\mathbb{Z}_2\oplus\mathbb{Z}_2$ as $G$ (black) and $H$ (white) bases respectively, so that $G^{S}_0=\ket{0\vee 1}$ and $H^S_0 = \ket{0\vee 2}$. Let $B$ be the same four element system with the bases $Z^B=\mathbb{Z}_2\oplus\mathbb{Z}_2$ and $X^B=\mathbb{Z}_2\oplus\mathbb{Z}_2$ and choose $\ket{\sigma}=\ket{1\vee 3}$. The diffusion operator is then given by
+Let $S=\{0,1,2,3\}$ and choose $Z^S=\mathbb{Z}_2\oplus\mathbb{Z}_2$ and $X^S=\mathbb{Z}_2\oplus\mathbb{Z}_2$ as $G$ (black) and $H$ (white) bases respectively, so that $Z^{S}_0=\ket{0\vee 1}$ and $X^S_0 = \ket{0\vee 2}$. Let $B$ be the same four element system with the bases $Z^B=\mathbb{Z}_2\oplus\mathbb{Z}_2$ and $X^B=\mathbb{Z}_2\oplus\mathbb{Z}_2$ and choose $\ket{X_{\sigma}^B}=\ket{1\vee 3}$. The diffusion operator is then given by
 \begin{align*}
 D &:= \{(0,0),(1,1),(2,2),(3,3)\}-\{(0,0),(0,2),(2,0),(2,2)\}
 \\&=\{(1,1),(3,3),(0,2),(2,0)\}.
 \end{align*}
 
-In this case, $D$ happens to be a bijection, it is a unitary relation and thus a possible evolution in QCRel.\footnote{This will not be the case whenever $S$ has more than two factor groups. Unitarity is a stringent condition on processes in QCRel.} Let $f$ be the classical relation\footnote{See Appendix \ref{app:clRel} for a list of classical relations $\mathbb{Z}_2\oplus\mathbb{Z}_2\to\mathbb{Z}_2\oplus\mathbb{Z}_2$.} $\{(0,2),(2,2),(1,3),(3,3)\}$, where elements of $H^S_0$ are not related to elements of $\ket{\sigma}$. Thus the above algorithm will only return classical states of $X^{S}$ that \textit{are} related, under $f$,\ to $\ket{\sigma}$.  The only possible outcome state is $\ket{1\vee 3}$.
+In this case, $D$ happens to be a bijection, it is a unitary relation and thus a possible evolution in QCRel.\footnote{This will not be the case whenever $S$ has more than two factor groups. Unitarity is a stringent condition on processes in QCRel.} Let $f$ be the classical relation\footnote{See Appendix \ref{app:clRel} for a list of classical relations $\mathbb{Z}_2\oplus\mathbb{Z}_2\to\mathbb{Z}_2\oplus\mathbb{Z}_2$.} $\{(0,2),(2,2),(1,3),(3,3)\}$, where elements of $X^S_0$ are not related to elements of $X_{\sigma}^B$. Thus the above algorithm will only return classical states of $X^{S}$ that \textit{are} related, under $f$, to $\ket{X_{\sigma}^B}$.  The only possible outcome state is $\ket{1\vee 3}$.
 \end{example}
 
 \begin{example}
 \label{ex:relgrov2}
-This is the same as the above example, but take $f$ to be the classical relation $\{(0,0),(2,0),(0,1),(2,1)\}$. As an element of $H^S_0$ is related to $\ket{\sigma}$, the algorithm will return classical states of $X^S$ which are \emph{not} mapped to $\ket{\sigma}$, i.e. the state $\ket{1\vee3}$.
+This is the same as the above example, but take $f$ to be the classical relation $\{(0,0),(2,0),(0,1),(2,1)\}$. As an element of $X^S_0$ is related to $\ket{X_{\sigma}^B}$, the algorithm will return classical states of $X^S$ which are \emph{not} mapped to $\ket{X_{\sigma}^B}$, i.e. the state $\ket{1\vee3}$.
 \end{example}
 
-If we loosen the QCRel model slightly, and do not require $f$ to be a classical relation, then it is easy to see that this algorithm solves a non-trivial classical search problem. Consider an $f$ that maps all classical states of $X^S$ to $\ket{\sigma}$  except exactly one other \emph{marked} classical state $H^S_x$, where $x\neq 0$. As in Example~\ref{ex:relgrov2}, we know that the QCRel Grover's algorithm will output only $H_x^S$ with a single query of $f$. We can easily imagine that there are a large number of classical states of $X^S$ that might be marked and, further, that the image of the marked classical state under $f$  is indistinguishable from that of any other classical state (other than not being related to $\ket{\sigma}$). A deterministic classical approach to this problem would certainly require many queries of $f$, and it is not immediate that there is an obvious non-deterministic solution with a single query; though the QCRel Grover's algorithm we describe here does achieve exactly that.
+If we loosen the QCRel model slightly, and do not require $f$ to be a classical relation, then it is easy to see that this algorithm solves a non-trivial classical search problem. Consider an $f$ that maps all classical states of $X^S$ to $\ket{X_{\sigma}^B}$  except exactly one other \emph{marked} classical state $X^S_i$, where $i\neq 0$. As in Example~\ref{ex:relgrov2}, we know that the QCRel Grover's algorithm will output only $X_i^S$ with a single query of $f$. We can easily imagine that there are a large number of classical states of $X^S$ that might be marked and, further, that the image of the marked classical state under $f$  is indistinguishable from that of any other classical state (other than not being related to $\ket{X_{\sigma}^B}$). A deterministic classical approach to this problem would certainly require many queries of $f$, and it is not immediate that there is an obvious non-deterministic solution with a single query; though the QCRel Grover's algorithm we describe here does achieve exactly that.
 
-\subsection{The Groupoid Homomorphism Promise Algorithm}
+\subsection{The Groupoid homomorphism promise algorithm}
 
-This section models the group homomorphism algorithm from \cite{zeng2014abstract} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that paper the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups.\footnote{Making use of the structure theorem for abelian groups to complete the general case.} It is this cyclic group subroutine that we consider here. In the relational setting we will move from groups to groupoids. Let groupoid $H$ be complementary to groupoid $G$ and groupoid $B$ be complementary to groupoid $A$. The QCRel GroupHomID algorithm then takes as input a groupoid isomorphism $f:G\to A$.   Let $\ket{\rho}$ be a classical states of $H$, and $\ket{\sigma}$ be a classical state of $B$. 
+This section models the group homomorphism algorithm from Section~\ref{sec:grouphomid} in QCRel.  The quantum version of the algorithm takes as input a blackbox function $f:G\to A$ promised to be one of the homomorphisms between group $G$ and abelian group $A$.  It then outputs the identity of the homomorphism. In that section the full identification algorithm is built up by multiple calls to an instance of the problem for cyclic groups.\footnote{Making use of the structure theorem for abelian groups to complete the general case.} It is this cyclic group subroutine that we consider here. In the relational setting we will move from groups to groupoids. Let groupoid $H$ be complementary to groupoid $G$ and groupoid $B$ be complementary to groupoid $A$. The QCRel GroupHomID algorithm then takes as input a groupoid isomorphism $f:G\to A$.   Let $\ket{\rho}$ be a classical state of $H$, and $\ket{\sigma}$ be a classical state of $B$. 
 
 The algorithm has the following abstract specification~\cite{zeng2014abstract}:
 \begin{align}
@@ -826,7 +803,7 @@ x\in\sigma,y\in\rho, \mbox{id}_{G_n},b\in A \mbox{ s.t. } y\bullet_G b=\mbox{id}
 The algorithm defined by~\eqref{eq:groupdIDAlg} has output state $\ket{\rho}$ only when for some $x\in \rho$ and some $y\in \sigma$ we have $(y,x)\in f$.
 \end{theorem}
 \begin{proof}
-The verification in \cite{zeng2014abstract} simplifies the algorithm in Equation \ref{eq:groupdIDAlg} to:
+The verification in Section~\ref{sec:grouphomid} simplifies the algorithm in Equation \ref{eq:groupdIDAlg} to:
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[string, scale=0.9]
@@ -857,18 +834,18 @@ Groupoid isomorphisms relate every element of the domain to some element in the 
 In this chapter we have investigated the structure of quantum algorithms using the oPT perspective. We have contributed the following new results:
 \begin{enumerate}
 \item A definition of the Fourier transform in general oPTs along with abstract proofs of the Fourier Inversion Theorem, Pontryagin Duality, and the Convolution Theorem.
-\item A definition of the Hadamard Transforms and an operational Quantum Fourier transform in general oPTs.
+\item A definition of the Fourier Transforms and an operational quantum Fourier transform in general oPTs.
 \item We use complementary observables to construct a unitary oracle in a general oPT and provide an abstract proof of its unitarity.  We show an equivalence between the complementarity of those observables and the unitarity of this oracle.
 \item We pose a new problem, the GROUPHOMID problem, and give a quantum algorithm for its solution with favorable query complexity over classical algorithms.
-\item We provide models for the operation of quantum algorithms in non-deterministic classical computation by explicitly constructing the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the GROUPHOMID algorithm in the oPT QCRel. Along the way we introduce an operational notion of a oPT Fourier transform in \cat{FRel} and characterize some self-conjugate comonoid homomorphisms in this category.
+\item We provide models for the operation of quantum algorithms in non-deterministic classical computation by explicitly constructing the Deutsch-Jozsa algorithm, the single-shot Grover's algorithm, and the GROUPHOMID algorithm in the oPT QCRel. Along the way we introduce an operational notion of a oPT Fourier transform in \cat{FRel} and characterize self-conjugate comonoid homomorphisms and unitary oracles in this category.
 \end{enumerate}
 
 Models of quantum algorithms in other oPTs (such as QCRel), perform two functions. Firstly, they help us further understand the relationship between different kinds of computation.  Our main question is: 
 \begin{align*}
 \mbox{\emph{How are different models of computation related to each other?}}
-\end{align}  Typically, computer scientists address this question by keeping computational problems fixed and writing different algorithms for different problems that take advantage of the computational model. This view is the basis of the field of computational complexity and has given many insights into the differences between computational models. The approach in this thesis aims to extend this view. In a sense, the oPT framework allows us to think about running the same algorithms on different oPTs as we would think about running them on different kinds of hardware. We ``compile" algorithms into different oPTs and analyzes the results to address our main questions. It is an algorithm-centric vs. problems-centric approach to computation. 
+\end{align}  Typically, computer scientists address this question by keeping computational problems fixed and writing different algorithms for the same problem that take advantage of the computational model. This view is the basis of the field of computational complexity and has given many insights into the differences between computational models. The approach in this thesis aims to extend this view. In a sense, the oPT framework allows us to think about running the same algorithms on different oPTs as we would think about running them on different kinds of hardware. We ``compile" algorithms into different oPTs and analyzes the results to address our main questions. It is an algorithm-centric vs. problems-centric approach to computation. 
 
-As compared to the foundational interest of the first function, the second function of this investigation is more practical.  Mapping algorithms between computational models allows us to generate new problems and algorithms. Some of these will be trivial (as in the QCRel Deutsch-Jozsa algorithm of Section~\ref{sec:qcreldj}) and some will not be (as in QCRel Grover's of Section~\ref{sec:qcrelgrovers}). A strong thread of future work is understand the conditions that allow for one case and not that other.
+As compared to the foundational interest of the first function, the second function of this investigation is more practical.  Mapping algorithms between computational models allows us to generate new problems and algorithms. Some of these will be trivial (as in the QCRel Deutsch-Jozsa algorithm of Section~\ref{sec:qcreldj}) and some will not be (as in QCRel Grover's of Section~\ref{sec:qcrelgrovers}). An important thread of future work is to understand the conditions that allow for one case and not that other.
 
 In terms of quantum algorithms specifically, the successes of this approach open up new avenues to study other blackbox quantum algorithms at this level of abstraction. We discuss more details of the outlook for future work in Chapter~\ref{chap:outlook}. 
 
