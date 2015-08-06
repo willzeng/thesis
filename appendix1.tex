@@ -36,7 +36,25 @@ Classical relations $\mathbb{Z}_3\to\mathbb{Z}_3$:  & \hspace{60pt} & Classical 
 \end{align*}
 \newpage
 \section{Mathematica Code}
-\begin{lstlisting}%[language=Mathematica]
+
+\lstset{
+  language=[3.0]Mathematica,
+  basicstyle={\footnotesize},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=20pt,
+  breaklines=true,
+  captionpos={t},
+  frame={lines},
+  rulecolor=\color{black},
+  framerule=0.5pt,
+  columns=flexible,
+  tabsize=2,
+  mathescape,
+  commentstyle=\color{gray}
+}
+
+\begin{lstlisting}%
 
 (* This code generates groupoid homomorphisms in the category
  of relations *)
@@ -159,11 +177,7 @@ Be careful. A full search requires checking 65536 relations.
 
 Search for Monoid Homomorphisms
 
-Print["Note that this outputs a Monoid Homomorphism relation.
-        If you are interested in a classical relations 
-        (comonoid homomorphism 
-        relations), you will need to take the relational 
-        converse of this output.  See arXiv:1503.05857"];
+Print["Note that this outputs a Monoid Homomorphism relation. If you are interested in a classical relations (comonoid homomorphism relations), you will need to take the relational converse of this output.  See arXiv:1503.05857"];
 
 (* All possible pairs of elements one in domain and one in
 coDomain *)

@@ -12,7 +12,7 @@
 
 \end{tikzpicture}
 \end{aligned}
-\qquad \mapsto \qquad 
+\qquad \mapsto$ \qquad 
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 
