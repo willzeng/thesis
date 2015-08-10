@@ -177,13 +177,13 @@ Note that this construction works for pairs of observables that a complementary,
 
 \subsection{The Deutsch-Jozsa algorithm}
 \label{sec:abstractDJ}
-In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following Vicary~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see, this formulation can be easily verified and generalized by the oPT approach.
+In this section, the abstract structure of the Deutsch-Jozsa (DJ) quantum algorithm is presented and its function is verified abstractly, following Vicary~\cite{vicary-tqa}. We recall that the Deutsch-Jozsa algorithm presents a quantum algorithm with an exponential speedup over exact classical computation~\cite{deutsch1992rapid}.  In its original formulation, given a function $f:\{0,1\}^n\to\{0,1\}$ that is promised to be either constant or balanced (i.e. outputs the same number of 0's as 1's), the algorithm determines which of the two classes $f$ is in. As we will see, this formulation can be easily verified and generalized by the QPT approach.
 
 First we define the promise at the level of processes in an oPT.
 
 \begin{defn}
 \label{def:cvb}
-Let $A$ and $B$ be systems in an oPT such that $A$ has an internal group $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $B$ has an internal group $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$. A process $f:A\to B$ is
+Let $A$ and $B$ be systems in a QPT such that $A$ has an internal group $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $B$ has an internal group $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$. A process $f:A\to B$ is
 \begin{itemize}
 \item[(i)] \textbf{constant} when for \dotonly{whitedot}-classical state $c:I\to B $
 \begin{equation}
@@ -231,7 +231,7 @@ Let $\mathbb{G}=\mathbb{Z}_2^n$ and $\mathbb{H}=\mathbb{Z}_2\times\mathbb{Z}_2$.
 \end{align*}
 \end{example}
 
-Directly mapping the (rotated) quantum circuit for the DJ algorithm into an oPT process gives the following, where the internal groups $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$ are inherited from the promise of constant and balanced:
+Directly mapping the (rotated) quantum circuit for the DJ algorithm into a QPT process gives the following, where the internal groups $(\mathbb{G},\dotonly{altwhitedot},\dotonly{blackdot})$ and $(\mathbb{H},\dotonly{graydot},\dotonly{whitedot})$ are inherited from the promise of constant and balanced:
 \begin{align}
 \begin{aligned}
 \includegraphics[width=14em]{images/DJQcircuit.eps}
@@ -247,7 +247,7 @@ In Section~\ref{sec:strcomplFT}, we saw that the quantum Fourier transform takes
 \input{tikz/3_labeledDJ.tikz}
 \end{align}
 
-Using the rules of oPT's we obtain:
+Using the rules of QPTs we obtain:
 \begin{equation}
 \begin{pic}[scale=0.8, yscale=0.6]
 \begin{pgfonlayer}{foreground}
@@ -313,21 +313,21 @@ If we now ignore the right hand system, this becomes:
         \sigma(c) \text{ if $f$ is constant s.t. } f(x)=c
     \end{cases}
 \end{equation}
-Thus, by the oPT Born rule (Definition~\ref{def:bornrule}), there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
+Thus, by the QPT Born rule (Definition~\ref{def:bornrule}), there is no probability that an outcome $\sigma$ would be measured for a balanced function.  Conversely, should the coefficients of $\sigma$ be square roots of the identity, then $\sigma$ will always be measured for constant $f$.  This allows us to deterministically distinguish large generalized classes of constant and balanced $f$ with a single oracle query.  
 
-In a single proof, this method and its extension to arbitrary finite internal groups (c.f.~\cite{vicary-tqa}) captures the original formulation of the problem as well as the generalizations of H\o yer~\cite{hoyer1999conjugated} and Batty et al.~\cite{batty2006extending}. Further, we can now model the algorithm in oPT's besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
+In a single proof, this method and its extension to arbitrary finite internal groups (c.f.~\cite{vicary-tqa}) captures the original formulation of the problem as well as the generalizations of H\o yer~\cite{hoyer1999conjugated} and Batty et al.~\cite{batty2006extending}. Further, we can now model the algorithm in QPTs besides quantum theory that have strongly complementary observables. We expand on this idea in Section~\ref{sec:qalgrel} with a toy model in $\cat{FRel}$. 
 
 \subsection{The Grover's and hidden subgroup algorithms}
 Through similar methods, the single-shot Grover's and hidden subgroup algorithms can be analyzed using categorical techniques~\cite{vicary-tqa}. These algorithms have the diagrammatic forms given in Figure~\ref{fig:algtriplet}. The single-shot Grover's generalization produces a variant where the indicator function maps into a group, rather than a set. When the target group is, for example, $\mathbb{Z}_3$ the indicator function has three marking ``colors." Should the elements are marked by indicator function in a $4:1:1$ ratio, a single query can be used to return one of the rarer elements with certainty. An interesting path for the future development of this work would be to extend this to a generalization of amplitude amplification. We conjecture that in certain cases, where the input amplitudes follow a known ratio, a speedup over the usual amplitude amplification algorithm can be found.
 
 \begin{figure}[t]
 \input{tikz/3_algtriplet.tikz}
-\caption{Three blackbox quantum algorithms presented as processes in an operational process theory~\cite{vicary-tqa}.}
+\caption{Three blackbox quantum algorithms presented as processes in a quantum-like process theory~\cite{vicary-tqa}.}
 \label{fig:algtriplet}
 \end{figure}
 
 
-The function of the quantum part of the hidden subgroup algorithm can also be demonstrated using oPT techniques. Vicary~\cite{vicary-tqa} abstractly verifies that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for the $\dotonly{whitedot}$-classical structure. This unit, via strong complementarity, is equivalent to a uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
+The function of the quantum part of the hidden subgroup algorithm can also be demonstrated using QPT techniques. Vicary~\cite{vicary-tqa} abstractly verifies that the algorithm returns a uniform sampling of representations that factor through the hidden subgroup. In considering the structure of the hidden subgroup algorithm, we notice that the input system in the lower right is set to the unit for the $\dotonly{whitedot}$-classical structure. This unit, via strong complementarity, is equivalent to a uniform superposition over all possible input representations. This leads Vicary and the author to make the following conjecture:
 \begin{conjecture}
 The performance of the hidden subgroup algorithm can be improved by a particular chosen distribution of input representation in the second system.
 \end{conjecture}
@@ -336,7 +336,7 @@ The performance of the hidden subgroup algorithm can be improved by a particular
 \subsection{The group homomorphism identification algorithm}
 \label{sec:grouphomid}
 
-In this section we use the framework of oPT's to construct a new deterministic quantum algorithm to identify  group homomorphisms.  
+In this section we use the framework of QPTs to construct a new deterministic quantum algorithm to identify  group homomorphisms.  
 \begin{defn}[Group homomorphism identification problem]
 Given finite groups $G$ and $A$ where $A$ is abelian, and a blackbox function $f:G\to A$ that is promised to be a group homomorphism, identify the homomorphism $f$.
 \end{defn}
@@ -358,9 +358,9 @@ We will demonstrate that the query complexities of quantum and classical algorit
 
 In  the simpler case where $G$ is an abelian group this quantum algorithm was previously described by H\o yer \cite{hoyer1999conjugated}, though his algebraic presentation differs significantly from ours. H\o yer also notes that the algorithm by Bernstein and Vazirani in~\cite{bernstein1993quantum} is an instance of the abelian group identification problem where $G=\mathbb{Z}_n^n$ and $A=\mathbb{Z}_2$. Independently, Cleve et. al.~\cite{cleve1998quantum} also presented an algorithm for the abelian case where $G=\mathbb{Z}_2^n$ and $A=\mathbb{Z}_2^m$.
 
-Our results give a new approach to the solution of the group homomorphism identification problem that both extends the existing results to the case where $G$ is non-abelian, and clearly connects the structure of our algorithm to that of other black-box quantum algorithms, such as the Deutsch-Jozsa and hidden subgroup algorithms.\footnote{ This connection at the oPT level motivated our construction and we discovered H\o yer's work afterwards.}
+Our results give a new approach to the solution of the group homomorphism identification problem that both extends the existing results to the case where $G$ is non-abelian, and clearly connects the structure of our algorithm to that of other black-box quantum algorithms, such as the Deutsch-Jozsa and hidden subgroup algorithms.\footnote{ This connection at the QPT level motivated our construction and we discovered H\o yer's work afterwards.}
 
-We will proceed using the abstract structure defined earlier, but will now work in the oPT \cat{FHilb}. Recall that any choice of orthonormal basis for  an object $A$ in \cat{FHilb} endows it with a dagger-Frobenius algebra \blackfrob{A}, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as \whitefrob{A}. These two Frobenius algebras are strongly complementary.
+We will proceed using the abstract structure defined earlier, but will now work in the QPT \cat{FHilb}. Recall that any choice of orthonormal basis for  an object $A$ in \cat{FHilb} endows it with a dagger-Frobenius algebra \blackfrob{A}, whose copying map $d: A \to A\otimes A$ is defined as the linear extension of $d(|i\rangle)=|i\rangle\otimes|i\rangle$. Any finite group $G$ induces a different dagger-Frobenius algebra on an object $A=\mathbb{C}[G]$, the Hilbert space with orthonormal basis given by the elements $G$, with multiplication given by linear extension of the group multiplication; we represent this structure as \whitefrob{A}. These two Frobenius algebras are strongly complementary.
 
 \def\Mat{\mathrm{Mat}}
 Recall from Definition~\ref{def:Reps} that, for finite $G$, its representations can be characterized as the homomorphisms \mbox{$G \sxto \rho \mbox{Mat}(n)$}. The homomorphism conditions take the following form~\cite[Section~A.7]{vicary-tqa}:
