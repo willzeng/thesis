@@ -4,6 +4,7 @@
 \chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background, we define a quantum-like process theory that comes equipped with a quantum-like interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  process theories that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
 
 \section{The Dagger}
+\label{sec:dag}
 This section introduces concepts that expand categorical diagrams beyond quantum circuits. We see that abstract linear algebra can be introduced by adding a so-called dagger functor.  In the case of \cat{FHilb} this corresponds to the familiar notion of adjoint (complex-transpose).  The addition of the dagger also allows us to take a perspective on quantum-like symmetric monoidal categories (not just \cat{FHilb}). 
 
 \begin{defn}
@@ -78,11 +79,8 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 \end{equation}
 \noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps~$\mathbb{C}\to\mathbb{C}$.
 
-\begin{defn}
-\label{def:effect}
-In a $\dagger$-SMC, \textbf{effects} on an object $A$ are morphisms $\bra{\psi}:A\to I$.
-\end{defn}
-\noindent There can certainly be morphisms of this type in any monoidal category, but the dagger gives them an operational interpretation: just as some preparation $p:I\to A$ prepares system $A$ in that state, the effect $\dag{p}:A\to I$ eliminates the system $A$ by the process $\dag{p}$.  This duality presents generalized \textbf{inner products} as compositions of states and effects that are reminiscent of the usual Dirac notation~\cite{abramsky2004categorical}:
+Recall from Definition~\ref{def:effect}, that, in a $\dagger$-SMC, effects on an object $A$ are morphisms $\bra{\psi}:A\to I$.
+The dagger gives a method for assigning an effect to every state: just as some preparation $p:I\to A$ prepares system $A$ in that state, the effect $\dag{p}:A\to I$ eliminates the system $A$ by the process $\dag{p}$.  This duality presents generalized \textbf{inner products} as compositions of states and effects that are reminiscent of the usual Dirac notation~\cite{abramsky2004categorical}:
 \begin{equation}
 \left(
 \begin{aligned}
@@ -348,6 +346,7 @@ In a monoidal category with object $A$, a \textbf{monoid homomorphism} $f:\white
 In the next section we will ask for the comonoid and monoid to interact in various ways.
 
 \subsection{Abstract observables}
+\label{sec:abstractobservables}
 
 When monoids and comonoids combine under certain rules, we obtain the structure of classical information on systems in a QPT. We can think of this as a way of embedding classical information into the systems of an arbitrary QPT.
 

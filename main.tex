@@ -38,13 +38,14 @@
 \pagenumbering{gobble}
 \maketitle                  % create a title page from the preamble info
 \pagenumbering{arabic}
-%\include{dedication}        % include a dedication.tex file
-%\include{acknowlegements}   % include an acknowledgements.tex file
+\include{dedication}        % include a dedication.tex file
+\include{acknowlegements}   % include an acknowledgements.tex file
 \include{abstract}          % include the abstract
 
 \begin{romanpages}          % start roman page numbering
 \tableofcontents            % generate and include a table of contents
 \listoffigures              % generate and include a list of figures
+\include{nomenclature}      % include list of abbrev.
 \end{romanpages}            % end roman page numbering
 
 %now include the files of latex for each of the chapters etc

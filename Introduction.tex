@@ -56,11 +56,30 @@ A \textbf{state} of $A\in\objs{C}$ is a morphism $\ket{\psi}:I\to A$ drawn as
 \end{equation}
 \end{defn}
 
-\noindent The state morphism can be thought of as a preparation process to create that state: it is a process that starts with nothing and has output of type system. The tensor product of two states, $\ket{\psi}\otimes\ket{\phi}$, corresponds to the usual notion of product state from quantum theory (Example \ref{ex:bellduals}).
+\noindent The state morphism can be thought of as a \emph{preparation} process to create that state: it is a process that starts with nothing and has output of type system. The tensor product of two states, $\ket{\psi}\otimes\ket{\phi}$, corresponds to the usual notion of product state from quantum theory (Example \ref{ex:bellduals}).
+
+\begin{defn}
+\label{def:effect}
+In a $\dagger$-SMC, \textbf{effects} on an object $A$ are morphisms $E:A\to I$.
+\end{defn}
+
+Similarly to the way states act as preparations, an effect can be thought of as a \emph{test} process. It takes as input some system and outputs the outcome of that test on the system. Thus, the preparation of a system in a certain state $\ket{\psi}$, which is then tested against effect $E$ has representation:
+\begin{equation}
+E\circ\langle\psi| = 
+\begin{aligned}
+\begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
+\node (1) [state] at (0, -0.75) {$\psi$};
+\node (2) [state, hflip] at (0, 0.75) {$E$};
+\draw (1.center) to (2.center);
+\end{tikzpicture}
+\end{aligned},
+\end{equation}
+which is intended to look suggestively like an inner product. Said another way, effects turn systems into outcomes of tests on that system. Coecke and Paquette~\cite{coecke2011categories} provide an instructive example of this interpretation using a $\dagger$-SMC model of cooking. After introducing additional structure, we will return to the details of effects in quantum-like theories in Section~\ref{sec:dag}.
 
 \section{Symmetric monoidal categories}
 
 \begin{defn}
+\label{def:smc}
 A monoidal category is \textbf{symmetric} (is an SMC) when it has  isomorphisms
 $\sigma_{A,B}:A\otimes B\to B\otimes A$ that satisfies the following graphical equations:
 \begin{equation}
@@ -152,7 +171,7 @@ Given two categories \cat{C} and \cat{D} a \textbf{functor} $F:\cat{C}\to\cat{D}
 We have seen that strict symmetric monoidal categories capture the structure of  diagrammatic languages like quantum circuit diagrams. For this reason we introduce the following definition:
 
 \begin{defn}
-A \textbf{process theory} is a strict symmetric monoidal category where objects are interpreted as systems and morphisms are interpreted as processes.
+A \textbf{process theory} is a strict symmetric monoidal category where objects are interpreted as systems, morphisms are interpreted as processes, morphism composition is interpreted as sequential process composition, and the monoidal product is interpreted as parallel process composition.
 \end{defn}
 
 \noindent Process theories and associated structures on them form the mathematical setting of this thesis.
