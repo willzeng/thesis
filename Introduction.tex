@@ -3,7 +3,7 @@
 \chapabstract{This chapter introduces basic background material.  We introduce the relevant categorical definitions and show how symmetric monoidal categories can be interpreted as process theories, using quantum circuits as a motivating example.  We then review several other examples of process theories from the literature.}
 
 \section{Monoidal categories}
-Monoidal categories (sometimes called tensor categories) provide an abstract structure for processes that are equipped with both sequential and parallel composition. One might be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in cases like, for example, quantum theory.  We call a process $f:A\to B$ a \textbf{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \textbf{objects} and we sometimes say that $f$ is a morphism \textbf{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \textbf{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \textbf{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We sometimes leave the objects of morphisms implicit when they can be inferred from context.
+Monoidal categories (sometimes called tensor categories) provide an abstract structure for processes that are equipped with both sequential and parallel composition. One might be tempted to think of sequential composition as time-like and parallel composition as space-like, but this notion should be resisted as it can mislead in cases like, for example, quantum theory.  We call a process $f:A\to B$ a \textbf{morphism} from some input $A$ to output $B$. The $A$ and $B$ are called \textbf{objects} and we sometimes say that $f$ is a morphism \textbf{between} them. For morphisms $f:A\to B$ and $g:B\to C$, their \textbf{composite} is a morphism $g\circ f:A\to C$. This data can be structured into a category, which then embodies the notion of sequential composition.\footnote{As a foundational comment, categories in the broadest mathematical literature do not in general require their objects and morphism to be sets. Categories where they do, as defined and used in this thesis, are \emph{small} categories. These details relate to the role categories can play in mathematical foundations \cite{mac1969one}.} We will sometimes leave the objects of morphisms implicit when they can be inferred from context.
 
 \begin{defn}
 A \textbf{category} \cat{C} is a set of objects $\objs{C}$ and a set of morphisms $\arrs{C}$ between them, such that for all $A,C,B,D\in \objs{C}$ and all $f:A\to B$, $g:B\to C$, and $h:C\to D$ in $\arrs{C}$:
@@ -45,7 +45,7 @@ Tensor composition is represented by horizontal adjoins and the unit object is t
 \input{tikz/1_tensorGraphical.tikz}
 \end{equation}
 
-To interpret this, we consider the objects $A,B$ as \textbf{systems}, so that morphisms $f:A\to B$ are \textbf{processes} from one system to another. Thus $A\otimes C$ is thought of as a composite system with composite morphism $f \tensor g$ that acts independently on its parts. We can also define states of systems.
+To interpret this, we consider the objects $A,B$ as \textbf{systems}, so that morphisms $f:A\to B$ are \textbf{processes} from one system to another. Thus $A\otimes C$ is thought of as a composite system with composite morphism $f \tensor g$ that acts independently on its parts. The identity object is interpreted as the empty system, which matches its diagram. We can also define states of systems.
 
 \begin{defn}
 \label{defn:state}
@@ -74,7 +74,7 @@ E\circ\langle\psi| =
 \end{tikzpicture}
 \end{aligned},
 \end{equation}
-which is intended to look suggestively like an inner product. Said another way, effects turn systems into outcomes of tests on that system. Coecke and Paquette~\cite{coecke2011categories} provide an instructive example of this interpretation using a $\dagger$-SMC model of cooking. After introducing additional structure, we will return to the details of effects in quantum-like theories in Section~\ref{sec:dag}.
+which is intended to look suggestively like an inner product. Said another way, effects turn systems into outcomes of tests on that system. Coecke and Paquette~\cite{coecke2011categories} provide an instructive example of this interpretation using a monoidal category model of cooking. After introducing additional structure, we will return to the details of effects in quantum-like theories in Section~\ref{sec:dag}.
 
 \section{Symmetric monoidal categories}
 
@@ -113,7 +113,7 @@ The following are some explicit examples of SMC's:
 \end{itemize}
 \end{examples}
 
-Some of these examples have natural process theoretic interpretations, such as $\cat{Rel}$ as a setting for nondeterministic classical processes and \cat{FHilb} for quantum computation. We'll elaborate on these interpretations in Section~\ref{sec:PTs}.
+Some of these examples have customary process theoretic interpretations, such as $\cat{Rel}$ as a setting for nondeterministic classical processes and \cat{FHilb} for quantum computation. We'll elaborate on these interpretations in Section~\ref{sec:PTs}.
 
 It is important to note that the graphical notation we have introduced to describe morphisms in SMCs is not merely a notational convenience. We can reduce all the structural rules for SMCs down to simple diagrammatic equivalence, as the following theorem of Joyal and Street shows.
 
@@ -131,7 +131,7 @@ A well-formed equation between morphisms in a symmetric monoidal category follow
 \label{fig:QCDSMC}
 \end{figure}
 
-This thesis applies the structure and graphical calculi for SMC's to the study of protocols and algorithms for and inspired by quantum theory. For this purpose, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure~\ref{fig:QCDSMC} for a concrete example. Note that state preparation is included as a part of the categorical diagram while it is external labeling in the quantum circuit. In $\cat{FHilb}$ we have $I=\mathbb{C}$, and so the states, by Definition \ref{defn:state}, of some Hilbert space $\Hsp$ are exactly maps $\ket{\psi}:\mathbb{C}\to\Hsp$. These are recognized as the usual quantum state vectors $\ket{\psi}\in\Hsp$. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering the SMC scaffolding of quantum circuits, we can to improve it, introducing techniques to reason graphically about more advanced structures that better capture salient features of these processes. We cover these new features in Chapter \ref{chap:cqm}.
+This thesis applies the structure and graphical calculi for SMCs to the study of protocols and algorithms for and inspired by quantum theory. For this purpose, it can be useful to think of the SMC graphical calculus as mathematical scaffolding that underlies quantum circuit diagrams. See Figure~\ref{fig:QCDSMC} for a concrete example. Note that state preparation is included as a part of the categorical diagram while it is external labeling in the quantum circuit. In $\cat{FHilb}$ we have $I=\mathbb{C}$, and so the states, by Definition \ref{defn:state}, of some Hilbert space $\Hsp$ are exactly maps $\ket{\psi}:\mathbb{C}\to\Hsp$. These are recognized as the usual quantum state vectors $\ket{\psi}\in\Hsp$. This allows states to be manipulated graphically as well, to advantages discussed later. In uncovering the SMC scaffolding of quantum circuits, we can to improve it, introducing techniques to reason graphically about more advanced structures that better capture salient features of these processes. We cover these new features in Chapter \ref{chap:cqm}.
 
 \subsection{Other categorical definitions}
 
@@ -152,7 +152,7 @@ We can think of Hom$(A,B)$ as all the processes that input system $A$ and output
 As we often consider the relationship between categories, we recall the notion of a structure preserving map between categories. In our context they can be thought of as homomorphisms between process theories.
 
 \begin{defn}
-Given two categories \cat{C} and \cat{D} a \textbf{functor} $F:\cat{C}\to\cat{D}$ consists of
+Given two categories \cat{C} and \cat{D}, a \textbf{functor} $F:\cat{C}\to\cat{D}$ consists of
 \begin{enumerate}
 \item A mapping on objects $F:\objs{C}\to\objs{D}::A\mapsto F(A)$
 \item A mapping on arrows $F:\cat{C}(A,B)\to\cat{D}(F(A),F(B))::f\mapsto F(f)$ that preserves composition and identities, i.e. 
