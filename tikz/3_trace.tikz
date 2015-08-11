@@ -5,8 +5,8 @@
                 \node (3) at (-1, 0.75) {};
                 \node (4) at (-1, -0.75) {};
                 \draw (0.north) to (1.center);
-                \draw [bend right=90, looseness=1.50] (1.center) to (3.center);
+                \draw [arrow=0, bend right=90, looseness=1.50] (1.center) to (3.center);
                 \draw (3.center) to (4.center);
-                \draw [bend right=90, looseness=1.25] (4.center) to (2.center);
+                \draw [arrow=0, bend right=90, looseness=1.25] (4.center) to (2.center);
                 \draw (2.center) to (0.south);
 \end{pic}

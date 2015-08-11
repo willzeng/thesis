@@ -1,7 +1,7 @@
 \chapter{Structures in Process Theories}
 \label{chap:cqm}
 
-\chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background, we define a quantum-like process theory that comes equipped with a quantum-like interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  process theories that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
+\chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background, we define a quantum-like process theory that comes equipped with a quantum-like interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Process theories that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
 
 \section{The Dagger}
 \label{sec:dag}
@@ -23,7 +23,7 @@ Spelling out this definition, the dagger functor has the following properties fo
 \end{equation}
 Thus for any $f:A\to B$ in a dagger category, its dagger or \textbf{adjoint} $f^{\dagger}:B\to A$ also exists in that category. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
 
-The quantum setting of \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following \cite{abramsky2004categorical}:
+The quantum setting of \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following Abramsky and Coecke~\cite{abramsky2004categorical}:
 \begin{defn}
 A morphism $f:A\to B$ in a dagger category is:
 \begin{itemize}
@@ -49,7 +49,7 @@ Thus the unitarity condition becomes:
 \input{tikz/1_unitarityPics.tikz}
 \end{equation}
 
-The next two definitions, that of scalars and effects, further our understanding of $\dagger$-SMC's with a generalized version of the Born rule that provides a basic notion of measurement.
+The next two definitions, that of scalars and effects, further our understanding of $\dagger$-SMCs with a generalized version of the Born rule that provides a basic notion of measurement.
 
 \begin{defn}
 \label{defn:scalar}
@@ -61,7 +61,7 @@ A \textbf{scalar} in a SMC is a morphism $a:I\to I$. As these are maps from the 
 \end{equation}
 \end{defn}
 
-This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, these scalars form a commutative monoid under categorical composition \cite[Prop 6.1]{kelly1980coherence}, as is graphically expressed by:
+This categorical view of scalars was made explicit in \cite{abramsky2004categorical}. To gain perspective on why these properly represent scalars, we consider two facts.  Firstly, Kelly~\cite[Prop 6.1]{kelly1980coherence} showed that these scalars form a commutative monoid under categorical composition, as is graphically expressed by:
 \begin{equation}
 \begin{aligned}
 \begin{tikzpicture}[xscale={\tikzxscale}, yscale={\tikzyscale}]
@@ -80,7 +80,7 @@ This categorical view of scalars was made explicit in \cite{abramsky2004categori
 \noindent Secondly, in $\cat{FHilb}$ they correspond exactly to the complex numbers, as linear maps~$\mathbb{C}\to\mathbb{C}$.
 
 Recall from Definition~\ref{def:effect}, that, in a $\dagger$-SMC, effects on an object $A$ are morphisms $\bra{\psi}:A\to I$.
-The dagger gives a method for assigning an effect to every state: just as some preparation $p:I\to A$ prepares system $A$ in that state, the effect $\dag{p}:A\to I$ eliminates the system $A$ by the process $\dag{p}$.  This duality presents generalized \textbf{inner products} as compositions of states and effects that are reminiscent of the usual Dirac notation~\cite{abramsky2004categorical}:
+The dagger gives a method for assigning an effect to every state and vice versa: just as some preparation $p:I\to A$ prepares system $A$ in that state, the effect $\dag{p}:A\to I$ eliminates the system $A$ by the process $\dag{p}$.  This duality presents generalized \textbf{inner products} as compositions of states and effects that generalize the usual Dirac notation~\cite{abramsky2004categorical}:
 \begin{equation}
 \left(
 \begin{aligned}
@@ -111,7 +111,7 @@ The dagger gives a method for assigning an effect to every state: just as some p
 
 \section{The generalized Born rule}
 \label{sec:bornrule}
-Measurement in these process theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the amplitude of outcome $X$ given preparation $Y$ is:
+Measurement in these process theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the \textbf{amplitude} of outcome $X$ given preparation $Y$ is:
 \begin{equation}
 a = Y\circ X:I\to I.
 \end{equation}
@@ -148,13 +148,13 @@ In a monoidal dagger-category with simple tensor unit, which has all finite dagg
 \end{theorem}
 \noindent For any category satisfying these conditions, this embedding can be used, along with appropriate normalization, to extract real-valued probabilities. Still, even if the scalars do not embed in the complex numbers one can generally handle the needed structure of complex conjugation to obtain a generalized Born rule. This is done using monoidal categories with duals.\footnote{These are sometimes called autonomous categories in the literature \cite{joyal1993braided,selinger2011survey}.}
 
-Duals in a process theory help us define both entanglement and conjugation.
+Duals in a process theory help us define the quantum-like properties of entanglement and conjugation.
 
 \begin{defn}
 \label{def:dual}
 In a $\dagger$-SMC, a system $A$ has a\footnote{In general, there can be separate left and right duals for an object in any category, where the definition given here corresponds to a left dual. In a \dsmc(in fact in any braided monoidal category with left duals), these are necessarily equal, so we need only speak of one dual~\cite[Prop.~7.2]{joyal1993braided}. } \textbf{dual} system $A^*$ if there exist processes 
 \begin{align}
-e_A:I\to A^*\otimes A \quad \mbox{and}\quad d_A:A\otimes A^*\to I
+e_A:I\to A^*\otimes A \quad \mbox{and}\quad d_A:A\otimes A^*\to I,
 \end{align}
 such that the following equations hold:
 \begin{align}
@@ -219,19 +219,22 @@ For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probabil
 \end{defn}
 \noindent It is easy to see that this reduces to the usual Born rule in \cat{FHilb}.
 
-The cup and cap maps also provide an abstract definition for the trace of a process:
+The cup and cap maps also provide a general definition for the trace of a process:
 \begin{equation}
 \label{eq:trace}
 \Tr \left(\begin{pic}
 \node (0) at (0,0) {};
 \node [morphism, wedge] (1) at (0,1) {$f$};
 \node (2) at (0,2) {};
-\draw (0) to (1.south);
-\draw (1.north) to (2);
+\draw [arrow=0.5] (0) to (1.south);
+\draw [arrow=0.5] (1.north) to (2);
 \end{pic} \right) = 
 \input{tikz/3_trace.tikz},
 \end{equation}
-whose correspondence with the usual trace is directly shown by Coecke et al.~\cite{coecke2015generalised}.
+whose correspondence with the usual trace is easily shown~\cite{coecke2015generalised}:
+\begin{equation}
+\mbox{Tr}(f) = \left(\sum_i\bra{ii}\right)\circ\left(\idm{A}\tensor f\right)\circ\left(\sum_j\ket{jj}\right) = \sum_i\langle i | f |i\rangle = \sum_if_{ii}
+\end{equation}
 
 \subsection{Quantum-like process theories}
 
@@ -345,7 +348,7 @@ In a monoidal category with object $A$, a \textbf{monoid homomorphism} $f:\white
 
 In the next section we will ask for the comonoid and monoid to interact in various ways.
 
-\subsection{Abstract observables}
+\subsection{Generalized observables}
 \label{sec:abstractobservables}
 
 When monoids and comonoids combine under certain rules, we obtain the structure of classical information on systems in a QPT. We can think of this as a way of embedding classical information into the systems of an arbitrary QPT.
@@ -494,7 +497,7 @@ In a QPT, the \textbf{dimension} $d(A)$ of an object $A$ equipped with a dagger-
 \end{equation}
 \end{defn}
 \noindent
-When the algebra is in fact a classical structure, Equation~\eqref{eq:dim} can be simplified to the composition of the unit and counit:
+When the algebra is in fact a classical structure,~\eqref{eq:dim} can be simplified to the composition of the unit and counit:
 \begin{equation}
 \label{eq:defdim}
 d(A) \;= \;
@@ -509,7 +512,7 @@ d(A) \;= \;
 It is important to note that the dimension of a system does not always equal the number of classical states of the associated classical structure. One setting where this does not hold is \cat{FRel}, where this fact plays an important role in its QPT characterization in Chapter~\ref{chap:mermin}.
 \end{remark}
 
-A result of Coecke and Duncan shows that the rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams of a QPT. Let the maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ be defined recursively by:
+An important result of Coecke and Duncan shows that the rules for classical structures can be summarized in a convenient normal form that is in keeping with the sorts of topological equivalences we are used to for diagrams of a QPT. Let the maps $\tinycomult[whitedot]_n:A\to A^{\otimes n}$ be defined recursively by:
 \begin{align}
 \tinycomult[whitedot]_0:=\tinycounit[whitedot]
 \qquad\qquad
@@ -589,7 +592,7 @@ with composition
 This normal form is a powerful simplifying tool and will often be used in the analysis of diagrams of processes in QPTs.
 
 \section{Complementarity}
-The notion of complementary bases can also be lifted to the abstract level of classical structures in QPTs~\cite{coecke2011interacting}. This extension is perhaps best presented as emergent from a suitable generalization of mutual unbiasedness.\footnote{Our presentation in this regard is heavily influenced by the approach taken by Coecke et al. in~\cite{coecke2015generalised}.}  This means that for two bases $\{\ket{i}\}$ and $\{\ket{j}\}$ on a $D$-dimensional Hilbert space, $\langle i|j\rangle = 1/D$ for all $i,j$. In diagrams we then have:
+The notion of complementary bases can also be lifted to the general level of classical structures in QPTs~\cite{coecke2011interacting}. This extension is perhaps best presented as emergent from a suitable generalization of mutual unbiasedness.\footnote{Our presentation in this regard is heavily influenced by the approach taken by Coecke et al. in~\cite{coecke2015generalised}.}  This means that for two bases $\{\ket{i}\}$ and $\{\ket{j}\}$ on a $D$-dimensional Hilbert space, $\langle i|j\rangle = 1/D$ for all $i,j$. In diagrams we then have:
 \tikzeq{tikz/2_mub.tikz}
 as the mutual unbiasedness condition, where we have assumed that $D$ is invertible (as all dimensions in \cat{FHilb} are) and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain to the right hand form.
 \begin{defn}[Complementarity]
@@ -965,14 +968,14 @@ We especially make use of this measurement presentation in Chapter~\ref{chap:mer
 This chapter has introduced the main framework that is used in this thesis. This framework performs two functions:
 \begin{enumerate}
 \item our framework lifts the structure of quantum computation into the general setting of quantum-like process theories. This allows the study of protocols like teleportation, state transfer~\cite{cqm-notes}, quantum secret sharing (Section~\ref{section_QSS}), quantum bit commitment~\cite{katriel-commitment}, Mermin non-locality tests (Chapter~\ref{chap:mermin}), and other protocols (Chapters~\ref{chap:qalg} and~\ref{chap:qDisCo}) to be handled at an abstract level and studied in different QPTs.
-\item The categorical diagrams that accompany QPT's present a more powerful quantum circuit language. This is one that includes bases, classical information, complementarity, and phases explicitly and gives rules for manipulating these structures within the diagrams themselves. We present a summarizing table of these structures at the end of this chapter.
+\item The categorical diagrams that accompany QPTs present a more powerful quantum circuit language. This is one that includes bases, classical information, complementarity, and phases explicitly and gives rules for manipulating these structures within the diagrams themselves. We present a summarizing table of these structures at the end of this chapter.
 \end{enumerate}
-Both the abstraction and diagrammatic formalism provide powerful tools throughout the results in this thesis.
+Both the generalization and diagrammatic formalism provide powerful tools throughout the results in this thesis.
 
 %\newpage
 
 \begin{figure}[b]
-\caption{A summary of the diagrammatic elements for QPTs above and beyond quantum circuit diagrams.}
+\caption{A summary of the diagrammatic elements for QPTs above and beyond quantum circuit diagrams.}\vspace{-10pt}
 {\renewcommand{\arraystretch}{2}\small
 \begin{tabulary}{\linewidth}{|p{7cm}|c|}\hline
 The \textbf{dagger} $\dagger:\cat{C}\to\cat{C}$ generalizes the adjoint and vertically flips the whole diagram. See Definition \ref{defn:dagger}.
@@ -1003,8 +1006,8 @@ The \textbf{dagger} $\dagger:\cat{C}\to\cat{C}$ generalizes the adjoint and vert
 & \langle\phi|\psi\rangle =
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=0.5*\tikzyscale]
-\node (1) [state] at (0, -0.75) {$\psi$};
-\node (2) [state, hflip] at (0, 0.75) {$\phi$};
+\node (1) [state,scale=0.8] at (0, -0.75) {$\psi$};
+\node (2) [state, scale=0.8, hflip] at (0, 0.75) {$\phi$};
 \draw (1.center) to (2.center);
 \end{tikzpicture}
 \end{aligned} \\\hline
