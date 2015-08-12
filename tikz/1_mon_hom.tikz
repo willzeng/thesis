@@ -10,7 +10,7 @@
     \draw (1) to (0.south);
     \draw (0.north) to (4.center);
 \end{pic}
-\quad = \quad
+\; = \;
 \begin{pic}[xscale=1.2*\tikzxscale, yscale=1.5*\tikzyscale]
                 \node [style=blackdot] (0) at (0, 1) {};
                 \node [style=morphism] (1) at (1, -0) {$f$};
@@ -23,4 +23,18 @@
                 \draw (0) to (3.center);
                 \draw [bend left=35, looseness=1.00] (0) to (1.north);
                 \draw [bend right=35, looseness=1.00] (0) to (2.north);
+\end{pic}
+\qquad \qquad \qquad
+\begin{pic}[yscale=1.5*\tikzyscale]
+\node (f) [box] at (0,0) {$f$};
+\node (a) [blackdot] at (0,-1) {};
+\node (b) at (0,1) {};
+\draw (a) to (f.south);
+\draw (f.north) to (b);
+\end{pic}
+\; = \;
+\begin{pic}[yscale=1.5*\tikzyscale]
+\node (a) [whitedot] at (0,-1) {};
+\node (b) at (0,1) {};
+\draw (a) to (b);
 \end{pic}

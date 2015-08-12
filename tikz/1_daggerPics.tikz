@@ -1,3 +1,4 @@
+\left(
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 
@@ -11,8 +12,8 @@
 \draw (1.north) to (2.center);
 
 \end{tikzpicture}
-\end{aligned}
-\qquad \mapsto \qquad 
+\end{aligned}\right)^{\dagger}
+\qquad = \qquad 
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 

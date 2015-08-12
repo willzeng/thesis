@@ -1,7 +1,7 @@
 \chapter{Structures in Process Theories}
 \label{chap:cqm}
 
-\chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background, we define a quantum-like process theory that comes equipped with a quantum-like interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Process theories that posses these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
+\chapabstract{In this chapter we introduce the remaining background on categorical structures for process theories. From this background, we define a quantum-like process theory that comes equipped with a quantum-like interpretation through a generalized Born rule. Many of the properties developed here, while still general, are extensions of ideas from quantum theory, e.g. complementarity.  Process theories that possess these properties can be considered quantum-like, and have diagrammatic representations that can be used as more powerful extensions of quantum circuits.}
 
 \section{The Dagger}
 \label{sec:dag}
@@ -21,10 +21,11 @@ Spelling out this definition, the dagger functor has the following properties fo
 \begin{equation}
 \idm{A}^{\dagger} = \idm{A}
 \end{equation}
-Thus for any $f:A\to B$ in a dagger category, its dagger or \textbf{adjoint} $f^{\dagger}:B\to A$ also exists in that category. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category.
+Thus for any $f:A\to B$ in a dagger category, its dagger or \textbf{adjoint} $f^{\dagger}:B\to A$ also exists in that category. We use the shorthand $\dagger$-SMC for a dagger symmetric monoidal category. In $\dagger$-SMCs the dagger and the monoidal product are required to cooperate, i.e. $(f\tensor g)^{\dagger}=f^{\dagger}\tensor g^{\dagger}$.\footnote{In general monoidal dagger categories the structural morphisms of unitors and associators are required to be unitary as Definition~\ref{def:dagdefs}.}
 
 The quantum setting of \cat{FHilb} is a dagger category whose canonical dagger is the adjoint, and generalizing it in the manner of Definition \ref{defn:dagger} allows us to generalize many familiar terms, following Abramsky and Coecke~\cite{abramsky2004categorical}:
 \begin{defn}
+\label{def:dagdefs}
 A morphism $f:A\to B$ in a dagger category is:
 \begin{itemize}
 \item \textbf{self-adjoint} when $f^{\dagger} = f$;
@@ -255,6 +256,7 @@ Two diagrams in a QPT are considered equal if one can be smoothly transformed to
 To recap, we have so far introduced the structures of the dagger and duals, allowing us to compute measurement outcomes by manipulation of the diagrams alone.  This contrasts with the usual quantum circuit formalism, which provides a representation of a protocol, but whose implementation must ultimately be understood through the matrix mechanics that accompany it. The use of this difference - the operational in operational process theories - can be illustrated with quantum teleportation, which provides a motivating example and was introduced in this form by Abramsky and Coecke~\cite{abramsky2004categorical}.
 
 \begin{example} 
+\label{ex:teleport}
 We saw in Example \ref{ex:bellduals} that caps and cups represent preparation and post-selected measurement of one of the Bell states $\ket{\psi_{00}}$. The other Bell states can be prepared and/or measured by the application of a unitary to one of the entangled systems:
 \begin{equation}
 \begin{pic}[xscale={\tikzxscale}, yscale={\tikzyscale}]
@@ -293,6 +295,55 @@ Here the cup map represents the shared Bell state.  Alice performs a Bell measur
 \label{eq:teleportderive}
 \input{tikz/2_teleportderive.tikz}
 \end{equation}
+This protocol provides a good example where space-like and time-like intuition should be applied carefully. The application of the Bell effect and state connects Alice and Bob's systems by a single wire. Thus, the space-like separated pair of Alice and Bob's unitaries become equivalent to their time-like sequential composition, as show in the first step of~\eqref{eq:teleportderive}. In fact, if one is reading the passage of time vertically in the diagrams, then it may be surprising to note that because
+\begin{equation}
+\begin{pic}[xscale=0.9*\tikzxscale, yscale=\tikzyscale]
+    \node (0) at (-1, -2) {};
+    \node (1) at (1, -2) {};
+    \node (2) at (0, -3) {};
+    \node [style=morphism, wedge, hflip] (3) at (-3, -1) {$U_{i}$};
+    \node (4) at (-2, 1) {};
+    \node (5) at (-3, -0) {};
+    \node (6) at (-1, -0) {};
+    \node (7) at (-3, -4) {};
+    \node [style=morphism, wedge] (8) at (1, 2) {$U_i$};
+    \node (9) at (1, 3) {}; 
+    \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
+    \draw [in=-90, out=0, looseness=1.00] (2.center) to (1.center);
+    \draw [bend left=45, looseness=1.00] (5.center) to (4.center);
+    \draw [in=90, out=0, looseness=1.00] (4.center) to (6.center);
+    \draw (7.center) to (3.south);
+    \draw (3.north) to (5.center);
+    \draw (6.center) to (0.center);
+    \draw (8.south) to (1.center);
+    \draw (8.north) to (9.center);
+\end{pic}
+\quad=\quad
+\begin{pic}[xscale=0.9*\tikzxscale, yscale=\tikzyscale]
+    \node (0) at (-1, -2) {};
+    \node (1) at (1, -2) {};
+    \node (2) at (0, -3) {};
+    \node [style=morphism, wedge, hflip] (3) at (-3, -0.7) {$U_{i}$};
+    \node (4) at (-2, 1) {};
+    \node (5) at (-3, -0) {};
+    \node (6) at (-1, -0) {};
+    \node (7) at (-3, -4) {};
+    \node [style=morphism, wedge] (8) at (1, -1.2) {$U_i$};
+    \node (9) at (1, 3) {}; 
+    \draw [bend right=45, looseness=1.00] (0.center) to (2.center);
+    \draw [in=-90, out=0, looseness=1.00] (2.center) to (1.center);
+    \draw [bend left=45, looseness=1.00] (5.center) to (4.center);
+    \draw [in=90, out=0, looseness=1.00] (4.center) to (6.center);
+    \draw (7.center) to (3.south);
+    \draw (3.north) to (5.center);
+    \draw (6.center) to (0.center);
+    \draw (8.south) to (1.center);
+    \draw (8.north) to (9.center);
+\end{pic}
+\end{equation}  
+the time-ordering of Alice and Bob's unitaries does not affect the protocol.
+In some sense, the connectivity of the diagram means that Alice's unitary happens first in the compositional sequence regardless of the time ordering in the protocol's implementation.
+
 This presentation of the teleportation protocol is useful in several ways:
 \begin{enumerate}
 \item The high level structure of the protocol (the teleportation) is immediately manifest without accompanying calculation.
@@ -344,7 +395,7 @@ In a monoidal category with object $A$, a \textbf{monoid homomorphism} $f:\white
 \input{tikz/1_mon_hom.tikz}
 \end{equation}
 \end{defn}
-\noindent A \textbf{comonoid homomorphism} is defined similarly, but with the dagger of the condition in~\eqref{eq:monhom}.
+\noindent A \textbf{comonoid homomorphism} is defined similarly, but with the dagger of the conditions in~\eqref{eq:monhom}.
 
 In the next section we will ask for the comonoid and monoid to interact in various ways.
 
