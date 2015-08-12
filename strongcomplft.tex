@@ -81,7 +81,7 @@ There are a number of properties of interest for the Fourier transform, some rat
     0, & \text{otherwise}.
   \end{cases}
 \end{equation}
-We refer to this as the \textbf{computational basis}, the name usually given to it in the context of (group-theoretic) quantum algorithms.
+We sometimes refer to this as the \textbf{computational basis}, the name usually given to it in the context of (group-theoretic) quantum algorithms.
 
 The computational basis comes with a monoid structure, defined below and with unit $\delta_0$:
 \begin{equation}
@@ -137,16 +137,16 @@ and it is called a \textbf{Fourier matrix} in the context of quantum computing.
 
 Fourier matrices correspond to a Fourier transform along with a choice of the isomorphism. Thus the Fourier matrices, exactly like the definition of the Discrete Fourier transform above, are non-canonical, and depend on an implicit choice of isomorphism $\Psi$. This contrasts with the Fourier transform, which is itself canonical.
 
-Fourier matrices are a subclass of more general \textbf{complex Hadamard matrices}: orthogonal matrices\footnote{Here an orthogonal matrix $H$ is a square matrix such that $H^TH=HH^T=\mathbbm{1}$.} whose complex entries are unimodular. (Non-complex) \textbf{Hadamard matrices} are orthogonal matrices with entries $\pm1$. Having defined these four different terms (the Fourier transform, Fourier matrices, Hadamard matrices, and complex Hadamard matrices, see Figure~\ref{fig:FTtoHrelationship}) we will clarify a few ways that they appear in quantum computation.
+Fourier matrices are a subclass of more general \textbf{complex Hadamard matrices}: orthogonal matrices\footnote{Here an orthogonal matrix $H$ is a square matrix such that $H^TH=HH^T=\mathbbm{1}$.} whose complex entries are unimodular, in particular (real) \textbf{Hadamard matrices} are orthogonal matrices with entries $\pm1$. Having defined these four different terms (the Fourier transform, Fourier matrices, Hadamard matrices, and complex Hadamard matrices, see Figure~\ref{fig:FTtoHrelationship}) we will clarify a few ways that they appear in quantum computation.
 
-There is a particularly interesting reason the lack of canonicity of Fourier matrices is not usually an issue in quantum computing. Most of the algorithms are traditionally formulated for qubits, and the state-space for a $D$-qubit system is isomorphic to $\Ltwo{G}$ for $G = \prod_{j=1}^D \integersMod{2}$. The group $\integersMod{2}$ has a unique automorphism (the identity), and thus a unique isomorphism $\integersMod{2} \rightarrow \integersMod{2}^\wedge$, resulting in the familiar matrix
+There is a particularly interesting reason the lack of canonicity of Fourier matrices is not usually an issue in quantum computing. Most of the algorithms are traditionally formulated for qubits, and the state-space of a $D$-qubit system is isomorphic to $\Ltwo{G}$ for $G = \prod_{j=1}^D \integersMod{2}$. The group $\integersMod{2}$ has a unique automorphism (the identity), and thus a unique isomorphism $\integersMod{2} \rightarrow \integersMod{2}^\wedge$, resulting in the familiar matrix
 \begin{equation}
 \label{hmat}
 \begin{pmatrix}1 & 1 \\
 1 & -1 \\
 \end{pmatrix},
 \end{equation}
-which is both the only Fourier matrix on a two dimensional system and, in fact, a Hadamard matrix. This connection extends to products of qubits through a unique isomorphism $\Psi : G \rightarrow G^\wedge$, namely the one arising from \eqref{eqn:FTDefCharacters}. Thus, the Fourier transform over products of $\mathbb{Z}_2$ happens to have a unique Fourier matrix, which also happens to be a Hadamard matrix given by products of~\eqref{hmat}.  We stress that for general groups, i.e. for combinations of quantum systems where some have dimensions larger than two, the Fourier transform in terms of Pontryagin duality does not fix a unique Fourier matrix and, further, not all complex Hadamard matrices correspond to a Fourier matrix. We'll return to these ideas in Section~\ref{sec:measrep}, but until then we use Fourier transform to refer explicitly to the canonical one defined in terms of Pontryagin duality.
+which is both the only Fourier matrix on a two dimensional system and, in fact, a Hadamard matrix. There is then a unique isomorphism $\Psi : \integersMod{2}^N \rightarrow (\integersMod{2}^N)^\wedge$ which can be obtained by local qubit operations only, namely the $N$-fold tensor product of the isomorphism in \ref{hmat}; if multi-qubit operations are allowed, however, the isomorphism is not unique. We stress that for general groups, i.e. for combinations of quantum systems where some have dimensions larger than two, the Fourier transform in terms of Pontryagin duality does not fix a unique Fourier matrix (not even requiring that it is obtained by local operations only). Furthermore, not all complex Hadamard matrices correspond to a Fourier matrix. We'll return to these ideas in Section~\ref{sec:measrep}, but until then we use Fourier transform to refer explicitly to the canonical one defined in terms of Pontryagin duality.
 
 There are a number of existing generalizations in the literature of the Fourier transform presented here that we make contact with to varying degrees. 
 \begin{enumerate}
