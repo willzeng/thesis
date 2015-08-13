@@ -1,6 +1,6 @@
 &\ud(A)
 \begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=1.2*\tikzyscale]
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=1*\tikzyscale]
 \node (A) at (0,2) {};
 \node (B) at (1.75,0) {};
 \node (b1) [blackdot] at (0,1) {};
@@ -27,7 +27,7 @@
 \ud(A)
 \hspace{-3pt}
 \begin{aligned}
-\begin{tikzpicture}[xscale=2.3*\tikzxscale, yscale=1.4*\tikzyscale]
+\begin{tikzpicture}[xscale=2.3*\tikzxscale, yscale=1.2*\tikzyscale]
 \node (f1) [morphism, wedge] at (0.5,-4) {$f$};
 \node (f2) [morphism, wedge, hflip] at (-0.5,-2) {$f$};
 \node (A) at (-2,0) {};
@@ -58,7 +58,7 @@
 \ud(A)
 \hspace{-3pt}
 \begin{aligned}
-\begin{tikzpicture}[xscale=2.3*\tikzxscale, yscale=1.4*\tikzyscale]
+\begin{tikzpicture}[xscale=2.3*\tikzxscale, yscale=1.2*\tikzyscale]
 \node (f1) [morphism, wedge] at (0.5,-4) {$f$};
 \node (f2) [morphism, wedge] at (-1,-2) {$f$};
 \node (A) at (-2,0) {};
@@ -90,7 +90,7 @@
 \hspace{2cm}
 = \,\,\ud(A)
 \begin{aligned}
-\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.4*\tikzyscale]
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.2*\tikzyscale]
 \node (f1) [morphism, wedge] at (-0.25,-3) {$f$};
 \node (f2) [morphism, wedge] at (1.25,-3) {$f$};
 \node (A) at (-1,0) {};
@@ -119,7 +119,7 @@
 \end{aligned}
 = \,\,\ud(A)
 \begin{aligned}
-\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.4*\tikzyscale]
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.2*\tikzyscale]
 \node (f) [morphism, wedge] at (0.5,-4) {$f$};
 \node (A) at (-0.5,0) {};
 \node (B) at (1.5,0) {};
@@ -149,7 +149,7 @@
 \hspace{2cm}
 =\hspace{5pt}
 \begin{aligned}
-\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.2*\tikzyscale]
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1*\tikzyscale]
 \node (f) [morphism, wedge] at (0.5,-4) {$f$};
 \node (A) at (-0.5,0) {};
 \node (B) at (1.5,0) {};
@@ -170,7 +170,7 @@
 \end{aligned}
 \hspace{5pt}=\hspace{5pt}
 \begin{aligned}
-\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1.2*\tikzyscale]
+\begin{tikzpicture}[xscale=2.6*\tikzxscale, yscale=1*\tikzyscale]
 \node (A) at (-0.5,0) {};
 \node (B) at (1.5,0) {};
 \node (w1) [whitedot] at (1.5,-1.0) {};
@@ -189,7 +189,7 @@
 \end{aligned}
 \hspace{5pt}=\hspace{5pt}
 \begin{aligned}
-\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=1.2*\tikzyscale]
+\begin{tikzpicture}[xscale=2*\tikzxscale, yscale=1*\tikzyscale]
 \draw (0,0) to (0,6);
 \draw (1.5,0) to (1.5,6);
 \end{tikzpicture}

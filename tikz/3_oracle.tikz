@@ -1,5 +1,5 @@
 \sqrt{\ud(A)}
-\begin{pic}[xscale=1.8*\tikzxscale, yscale=1.5*\tikzyscale]
+\begin{pic}[xscale=1.8*\tikzxscale, yscale=1.3*\tikzyscale]
     \node (dot) [blackdot] at (0,1) {};
     \node (f) [morphism, wedge] at (0.7,2) {$f$};
     \node (m) [whitedot] at (1.4,3) {};
