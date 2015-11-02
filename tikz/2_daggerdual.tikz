@@ -17,8 +17,8 @@
                 \node  (5) at (0, -1) {};
                 \node  (6) at (-1, -2) {};
                 \draw [bend left=45, looseness=1.00] (0.center) to (2.center);
-                \draw [reverse arrow=-.01, bend left=45, looseness=1.00] (2.center) to (1.center);
-                \draw [arrow=0, bend right=15, looseness=1.00] (0.center) to (3.center);
+                \draw [arrow=-.01, bend left=45, looseness=1.00] (2.center) to (1.center);
+                \draw [reverse arrow=0, bend right=15, looseness=1.00] (0.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (1.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (6.center) to (5.center);
                 \draw [bend right=15, looseness=1.00] (4.center) to (5.center);
@@ -43,8 +43,8 @@
                 \node  (5) at (0, -1) {};
                 \node  (6) at (-1, -2) {};
                 \draw [bend left=45, looseness=1.00] (0.center) to (2.center);
-                \draw [reverse arrow=-0.01, bend left=45, looseness=1.00] (2.center) to (1.center);
-                \draw [arrow=0, bend right=15, looseness=1.00] (0.center) to (3.center);
+                \draw [arrow=-0.01, bend left=45, looseness=1.00] (2.center) to (1.center);
+                \draw [reverse arrow=0, bend right=15, looseness=1.00] (0.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (1.center) to (3.center);
                 \draw [bend left=15, looseness=1.00] (6.center) to (5.center);
                 \draw [bend right=15, looseness=1.00] (4.center) to (5.center);
