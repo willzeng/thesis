@@ -1,7 +1,7 @@
 \begin{pic}[xscale=\tikzxscale, yscale=\tikzyscale]
-\node [style=state] (0) at (0, -1) {$a$};
+\node [style=state] (0) at (0, -1) {$\alpha$};
 \node [style=whitedot] (1) at (0, -0) {};
-\node [style=state, hflip] (2) at (-1, 1) {$a$};
+\node [style=state, hflip] (2) at (-1, 1) {$\alpha$};
 \node (3) at (1, 1) {};
 \node (4) at (1, 2) {};                
 
@@ -17,9 +17,9 @@
 \end{pic}
 \;=\;
 \begin{pic}[xscale=-1*\tikzxscale, yscale=\tikzyscale]
-\node [style=state] (0) at (0, -1) {$a$};
+\node [style=state] (0) at (0, -1) {$\alpha$};
 \node [style=whitedot] (1) at (0, -0) {};
-\node [style=state, hflip] (2) at (-1, 1) {$a$};
+\node [style=state, hflip] (2) at (-1, 1) {$\alpha$};
 \node (3) at (1, 1) {};
 \node (4) at (1, 2) {};                
 

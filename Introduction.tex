@@ -60,12 +60,12 @@ A \textbf{state} of $A\in\objs{C}$ is a morphism $\ket{\psi}:I\to A$ drawn as
 
 \begin{defn}
 \label{def:effect}
-In a $\dagger$-SMC, \textbf{effects} on an object $A$ are morphisms $E:A\to I$.
+In a monoidal category, \textbf{effects} on an object $A$ are morphisms $E:A\to I$.
 \end{defn}
 
 Similarly to the way states act as preparations, an effect can be thought of as a \emph{test} process. It takes as input some system and outputs the outcome of that test on the system. Thus, the preparation of a system in a certain state $\ket{\psi}$, which is then tested against effect $E,$ has representation:
 \begin{equation}
-E\circ\langle\psi| = 
+E\circ|\psi\rangle = 
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node (1) [state] at (0, -0.75) {$\psi$};
@@ -168,7 +168,7 @@ Given two categories \cat{C} and \cat{D}, a \textbf{functor} $F:\cat{C}\to\cat{D
 \section{Process theories}
 \label{sec:PTs}
 
-We have seen that strict symmetric monoidal categories capture the structure of  diagrammatic languages like quantum circuit diagrams. For this reason we introduce the following definition:
+We have seen that strict symmetric monoidal categories capture the structure of  diagrammatic languages like quantum circuit diagrams.\footnote{While this thesis chooses to use strict SMC's as process theories, it may be reasonable in other settings to consider non-strict monoidal categories.  These kinds of process theories are certainly still well-formed, but do not have as clean a diagrammatic representation.  We would, for example, need to keep track of how many copies of ``white space" (the monoidal unit) are introduced around a diagram.} For this reason we introduce the following definition:
 
 \begin{defn}
 A \textbf{process theory} is a strict symmetric monoidal category where objects are interpreted as systems, morphisms are interpreted as processes, morphism composition is interpreted as sequential process composition, and the monoidal product is interpreted as parallel process composition.

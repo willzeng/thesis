@@ -30,8 +30,8 @@ A morphism $f:A\to B$ in a dagger category is:
 \begin{itemize}
 \item \textbf{self-adjoint} when $f^{\dagger} = f$;
 \item a \textbf{projector} when self-adjoint and $f\circ f = f$
-\item an \textbf{isometry} when $f \circ \dag{f} = \idm{A}$;
-\item \textbf{unitary} when both $f \circ \dag{f} = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
+\item an \textbf{isometry} when $\dag{f} \circ f = \idm{A}$;
+\item \textbf{unitary} when both $\dag{f} \circ f = \idm{A}$ and $f\circ\dag{f} = \idm{B}$;
 \item \textbf{positive} when $f = \dag{g}\circ g$ for some morphism $g:H\to K$.
 \end{itemize}
 \end{defn}
@@ -100,7 +100,7 @@ The dagger gives a method for assigning an effect to every state and vice versa:
 \end{tikzpicture}
 \end{aligned}
 \qquad\qquad
-|\phi\rangle\circ\langle\psi| = \langle\phi|\psi\rangle =
+\langle\phi|\circ|\psi\rangle = \langle\phi|\psi\rangle =
 \begin{aligned}
 \begin{tikzpicture}[xscale=\tikzxscale, yscale=\tikzyscale]
 \node (1) [state] at (0, -0.75) {$\psi$};
@@ -112,7 +112,7 @@ The dagger gives a method for assigning an effect to every state and vice versa:
 
 \section{The generalized Born rule}
 \label{sec:bornrule}
-Measurement in these process theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the \textbf{amplitude} of outcome $X$ given preparation $Y$ is:
+Measurement in these process theories comes from a statement connecting probabilities and inner products. For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the \textbf{amplitude} of outcome $Y$ given preparation $X$ is:
 \begin{equation}
 a = Y\circ X:I\to I.
 \end{equation}
@@ -213,9 +213,9 @@ Given a process theory with duals \cat{C}, the \textbf{lower-star} is an involut
 The lower-star operation introduces abstract probabilities for the generalized Born rule:
 \begin{defn}[Generalized Born Rule]
 \label{def:bornrule}
-For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probability of outcome $X$ given preparation $Y$ is:
+For a state $X:I\to A$ and an effect $Y:A\to I$ in a $\dagger$-SMC, the probability of outcome $Y$ given preparation $X$ is:
 \begin{equation}
-\mbox{Prob}(X|Y) = (X\circ Y)_*\otimes X\circ Y:I\to I.
+\mbox{Prob}(Y|X) = (Y\circ X)_*\otimes Y\circ X:I\to I.
 \end{equation}
 \end{defn}
 \noindent It is easy to see that this reduces to the usual Born rule in \cat{FHilb}.
@@ -364,7 +364,7 @@ Within a process theory we can construct objects that have the phenomenology of 
 
 \subsection{Monoids and comonoids}
 
-Monoids and comonoids on systems embody our notions of copying and comparing states. As they are a particular kinds of processes, we draw them with distinct pictures. For $A\in\objs{C}$, a monoid $(A,*,\mathbbm{1})$ has states of $A$ as elements and the following maps:
+Monoids and comonoids on systems embody our notions of copying and comparing states. As they are particular kinds of processes, we draw them with distinct pictures. For $A\in\objs{C}$, a monoid $(A,*,\mathbbm{1})$ has states of $A$ as elements and the following maps:
 \begin{equation}
 \input{tikz/1_monoidPics.tikz}
 \end{equation}
@@ -387,7 +387,7 @@ In a monoidal category, a \textbf{comonoid} is a triple \whitecomonoid{A} of an 
 \end{equation}
 \end{defn}
 
-\noindent We use differently colored dots to represent different monoids on the same object.
+\noindent We use differently colored dots to represent different monoids on the same object. In a dagger monoidal category every monoid has a corresponding comonoid formed by applying the dagger functor, i.e. $\left(\tinymult[whitedot]\right)^{\dagger}=\tinycomult[whitedot]$ and $\left(\tinyunit[whitedot]\right)^{\dagger}=\tinycounit[whitedot]$\,. When a monoid and comonoid are the same color, we take this to mean that each is the dagger of the other.
 \begin{defn}
 In a monoidal category with object $A$, a \textbf{monoid homomorphism} $f:\whitemonoid{A}\to\blackmonoid{A}$ is a map $f:A\to A$ such that
 \begin{equation}
@@ -645,7 +645,7 @@ This normal form is a powerful simplifying tool and will often be used in the an
 \section{Complementarity}
 The notion of complementary bases can also be lifted to the general level of classical structures in QPTs~\cite{coecke2011interacting}. This extension is perhaps best presented as emergent from a suitable generalization of mutual unbiasedness.\footnote{Our presentation in this regard is heavily influenced by the approach taken by Coecke et al. in~\cite{coecke2015generalised}.}  This means that for two bases $\{\ket{i}\}$ and $\{\ket{j}\}$ on a $D$-dimensional Hilbert space, $\langle i|j\rangle = 1/D$ for all $i,j$. In diagrams we then have:
 \tikzeq{tikz/2_mub.tikz}
-as the mutual unbiasedness condition, where we have assumed that $D$ is invertible (as all dimensions in \cat{FHilb} are) and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain to the right hand form.
+as the mutual unbiasedness condition, where we have assumed that $D$ is invertible (as all dimensions in \cat{FHilb} are) and used \eqref{eq:defdim} and \eqref{eq:unitscalar} to obtain the right hand form.
 \begin{defn}[Complementarity]
 \label{def:complementarity}
 In a QPT, two classical structures (\dotonly{whitedot}) and (\dotonly{graydot}) on the same object are \textbf{complementary} when the following equation holds:
@@ -692,7 +692,7 @@ In a QPT, two classical structures (\dotonly{whitedot}) and (\dotonly{graydot}) 
 
 \begin{proposition}[{\cite[Prop.~3]{coecke2015generalised}}]
 \label{prop:cohere}
-In \cat{FHilb} if we are given two are self-adjoint operators corresponding to complementary classical structures, then we can always construct a pair of coherent classical structures with the same classical points.
+In \cat{FHilb} if we are given two self-adjoint operators corresponding to complementary classical structures, then we can always construct a pair of coherent classical structures with the same classical points.
 \end{proposition}
 \noindent This means that in the QPT for quantum computation, we can take complementary classical structures to be coherent without loss of generality.
 
@@ -884,7 +884,7 @@ This shows that on computational basis elements, the control is left unchanged w
 
 This example construction motivates the following definition on any kind of system in any QPT:
 \begin{defn}
-Given two two classical structures (\dotonly{whitedot}) and (\dotonly{graydot}) that are complementary and coherent, the generalized \textbf{controlled-not} is the map:
+Given two classical structures (\dotonly{whitedot}) and (\dotonly{graydot}) that are complementary and coherent, the generalized \textbf{controlled-not} is the map:
 \begin{equation}
 \label{eq:generalizedcnot}
 \sqrt{\ud(A)}\,\,
@@ -933,7 +933,7 @@ In a \cat{Mon}-enriched QPT, a set of states $\{\ket{x}\}$ on a system $A$ forms
 \end{equation}
 \end{defn}
 
-\noindent Where the sum operation comes from a monoid structure of the hom-object \cat{C}(A,A). In \cat{FHilb} more specifically, this addition is inherited  from the vector space enrichment. In fact, in Hilbert spaces all the classical states of any classical structure form a resolution of the identity. Further, in \cat{FHilb}, we are able to link the classical structure maps to classical states in the following ways~\cite{coecke2015generalised}:
+\noindent where the sum operation comes from a monoid structure of the hom-object \cat{C}(A,A). In \cat{FHilb} more specifically, this addition is inherited  from the vector space enrichment. In fact, in Hilbert spaces all the classical states of any classical structure form a resolution of the identity. Further, in \cat{FHilb}, we are able to link the classical structure maps to classical states in the following ways~\cite{coecke2015generalised}:
 \begin{align}
 \label{eq:spidersums}
 \input{tikz/3_spider_sums.tikz}

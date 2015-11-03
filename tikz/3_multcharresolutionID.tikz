@@ -16,6 +16,7 @@
 \end{pgfonlayer}
 
 \node (equals) [right of = projCenter, xshift = 0mm] {$=$};
+\node [right of = projCenter, xshift = 14mm] {$,$};
 
 \node (idCenter) [right of = equals, xshift = -3mm] {};
 

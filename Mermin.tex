@@ -17,13 +17,14 @@ In \cite{coecke2012strong}, Coecke et al. used strong complementarity to formula
 In Sections \ref{section_MerminMeasurements} and \ref{section_MerminLocality}, we remove implicit assumptions about phase groups and classical points from~\cite{coecke2012strong} and use strongly complementary structures to generalise Mermin measurements to any QPT, defining Mermin non-locality as the existence of a Mermin measurement scenario not admitting a local hidden variable model.
 
 In Section \ref{section_MerminLocality}, we show that strong complementarity is not sufficient to characterise Mermin non-locality. The phase group structure is shown to provide necessary algebraic conditions in abstract process theories, as summarised by our first main result:
-\begin{theorem}\hspace{-3pt}\text{\textbf{\ref{thm_MerminLocality}.}}
+
+\begin{theorem*}\hspace{-3pt}\text{\textbf{\ref{thm_MerminLocality}.}}
                 Let $\cat{C}$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. If the group of $\ZdotSym$-phases is a trivial algebraic extension of the subgroup of $\XdotSym$-classical points, i.e. if there exist no algebraically non-trivial $\ZdotSym$-phases, then $\cat{C}$ is Mermin local.
         \end{theorem}
-Thus $\ZdotSym$-phase groups which are trivial algebraic extensions of the respective subgroups of $\XdotSym$-classical points always lead to local hidden variable models, regardless of whether there are enough $\XdotSym$-classical points to form a basis and/or strictly more $\ZdotSym$-phases than $\XdotSym$-classical points. Indeed, we show that the category $\fRelCategory$ of finite sets and relations is Mermin local (despite it having arbitrarily many more $\ZdotSym$-phases than $\XdotSym$-classical points), and confirm that Spekken's toy theory is Mermin local (despite it having enough $\XdotSym$-classical points to form a basis). 
+Thus $\ZdotSym$-phase groups which are trivial algebraic extensions of the respective subgroups of $\XdotSym$-classical points always lead to local hidden variable models, regardless of whether there are enough $\XdotSym$-classical points to form a basis and/or strictly more $\ZdotSym$-phases than $\XdotSym$-classical points. Indeed, we show that the category $\fRelCategory$ of finite sets and relations is Mermin local (despite it having arbitrarily many more $\ZdotSym$-phases than $\XdotSym$-classical points), and confirm that Spekkens' toy theory is Mermin local (despite it having enough $\XdotSym$-classical points to form a basis). 
 
 Also in Section \ref{section_MerminLocality}, we show that the existence of algebraically non-trivial $\ZdotSym$-phases is sufficient, under mild additional assumptions, to formulate a non-locality argument. This leads to our second main result:
-        \begin{theorem}\hspace{-3pt}\text{\textbf{\ref{thm_MerminNonLocality}.}}
+        \begin{theorem*}\hspace{-3pt}\text{\textbf{\ref{thm_MerminNonLocality}.}}
                 Let $\cat{C}$ be a $\dagger$-SMC, and $(\ZdotSym,\XdotSym)$ be a strongly complementary pair of $\dagger$-qSCFAs. Suppose further that the $\XdotSym$-classical points form a basis. If the group of $\ZdotSym$-phases is a non-trivial algebraic extension of the subgroup of $\XdotSym$-classical points, then $\cat{C}$ is Mermin non-local.
         \end{theorem}
 \noindent As a consequence, we confirm that Stabilizer Quantum Mechanics is Mermin non-local.
@@ -41,7 +42,7 @@ We make particular use of the notion of classical structures with enough classic
 
 We also recall the following fact about phases (Section~\ref{sec:phases}) for strong complementarity from Section~\ref{sec:strcomplFT} and~\cite{coecke2012strong}, where it is clarified.
         \begin{theorem}\label{thm_PhaseGroup} 
-                Let $\ZdotSym$ and $\XdotSym$ be strongly complementary $\dagger$-qSFAs. Phase states (resp. phases) of $\ZdotSym$ form group under the action of $(\ZmultSym,\ZunitSym)$. This group of phase states is denoted the \textbf{ phase group} P$_{\ZdotSym}$. The classical points (resp. the induced phases) of $\XdotSym$ are a subgroup, i.e. K$_{\XdotSym}\subseteq $P$_{\ZdotSym}$. 
+                Let $\ZdotSym$ and $\XdotSym$ be strongly complementary $\dagger$-qSFAs. Phase states (resp. phases) of $\ZdotSym$ form a group under the action of $(\ZmultSym,\ZunitSym)$. This group of phase states is denoted the \textbf{ phase group} P$_{\ZdotSym}$. The classical points (resp. the induced phases) of $\XdotSym$ are a subgroup, i.e. K$_{\XdotSym}\subseteq $P$_{\ZdotSym}$. 
         \end{theorem}
         \noindent As the phase group of a $\dagger$-qSCFA is commutative, we use additive notation: given two $\ZdotSym$-phase states $\ket{\alpha}$ and $\ket{\beta}$, we denote by $\ket{\alpha+\beta}$ their addition in the phase group. From now on, we interchangeably use phase states and phases, leaving disambiguation to context.
         
@@ -75,7 +76,7 @@ We follow \cite{coecke2012strong} to build Mermin type scenarios out of them.
         
         While this defines a single Mermin experiment, the full non-locality argument requires the joint outcomes of several Mermin measurements.
         \begin{defn} 
-                Let $\ZdotSym$ and $\XdotSym$ be strongly complementary $\dagger$-qSCFAs on a space $\SpaceH$ in a $\dagger$-SMC. An $N$-partite \textbf{Mermin measurement scenario} (for $\ZdotSym$ and $\XdotSym$) is any non-empty, finite collection of Mermin measurements $\underline{\alpha}^s = (\alpha_1^s,...,\alpha_N^s)_{s=1,...,S}$ of the $N$-partite GHZ state in the form of Equation \ref{thm_MerminMeasurementGHZstate}.
+                Let $\ZdotSym$ and $\XdotSym$ be strongly complementary $\dagger$-qSCFAs on a space $\SpaceH$ in a $\dagger$-SMC. An $N$-partite \textbf{Mermin measurement scenario} (for $\ZdotSym$ and $\XdotSym$) is any non-empty, finite collection of Mermin measurements $\underline{\alpha}^s = (\alpha_1^s,...,\alpha_N^s)_{s=1,...,S}$ of the $N$-partite GHZ state in the form of \eqref{eqn_GHZstate}.
         \end{defn}
         In the category $\fdHilbCategory$ of finite-dimensional Hilbert spaces, an $N$-partite Mermin measurement scenario where $a_1,...,a_M$ are the distinct $\ZdotSym$-phases appearing in the scenario and $\SpaceH$ is $D$-dimensional is exactly the usual $(N,M,D)$ Mermin scenario.  This correspondence is clarified in Section \ref{section_MerminLocality}, where we derive our generalized Mermin non-locality argument.
 
@@ -232,7 +233,7 @@ The abstract framework can now be applied to some particular examples of interes
                 Take $\ZdotSym$ and $\XdotSym$ to be the $Z$ and $X$ single-qubit observables in the ZX calculus. Then the group of $\XdotSym$-phases is $\integersMod{4}$ and the subgroup of $\XdotSym$-classical points is $\integersMod{2}$. Conclude using Theorem \ref{thm_MerminNonLocality} and Example \ref{example_PhaseGroupZX}.
         \end{proof}
 
-        \begin{corollary} The toy theory Spekk from \cite{coecke2012strong} is Mermin local.
+        \begin{corollary} The toy theory Spek from \cite{coecke2012strong} is Mermin local.
         \end{corollary}
         \begin{proof} 
                 Same setup as in the previous corollary, but the phase group is now $\integersMod{2} \times \integersMod{2}$. Conclude using Theorem \ref{thm_MerminLocality} and Example \ref{example_PhaseGroupRel} with $d=2$.
@@ -268,7 +269,7 @@ The phase group here is $\mathbb{Z}_3\times\mathbb{Z}_3$. Conclude using Theorem
 
 The HBB CQ (N,N) family of Quantum Secret Sharing protocols originates in \cite{HBB2, HBB}, and has been abstractly formulated in a process theoretic context by Zamdzhiev~\cite{zamdzhiev2012abstract}. We generalise this construction to arbitrary QPTs, leveraging its connection with Mermin non-locality. 
 
-This protocol requires a pair $(\ZdotSym,\XdotSym)$ of strongly complementary observables, and an $(N+1)$-partite GHZ state shared by the dealer and the $N$ players. The dealer (and nobody else) knows the (classical) secret, in the form of a $\XdotSym$-classical point. The aim of the protocol is for the dealer to broadcast some information to all players on a public classical channel, and for the secret to be deterministically decodeable if only if all $N$ players cooperate. The implementation, graphically summarised in~\eqref{HBBQSS}, goes as follows:
+This protocol requires a pair $(\ZdotSym,\XdotSym)$ of strongly complementary observables, and an $(N+1)$-partite GHZ state shared by the dealer and the $N$ players. The dealer (and nobody else) knows the (classical) secret, in the form of a $\XdotSym$-classical point. The aim of the protocol is for the dealer to broadcast some information to all players on a public classical channel, and for the secret to be deterministically decodeable only if all $N$ players cooperate. The implementation, graphically summarised in~\eqref{HBBQSS}, goes as follows:
 \begin{enumerate}
 \item[1.] the dealer and the players agree on a random set of $\ZdotSym$-phases $\alpha_0,\alpha_1,...,\alpha_N$ such that $\sum \alpha_j $ is some $\XdotSym$-classical point (call it $a$). This operation is done on a public channel.
 \item[2.] the dealer measures his part of the system of the system with phase $\alpha_0$, and uses the resulting $\XdotSym$-classical data to encode the plaintext secret (classically adding the secret and the measurement data in the group $K_{\;\XdotSym}$; this generalises the original XOR operation, corresponding to $K_{\;\XdotSym} = \integersMod{2}$ with addition mod 2) into a classical cyphertext. This operation is done locally and privately by the dealer.
@@ -383,7 +384,7 @@ B :: \left(\begin{array}{ccc}1 & 0 & 0 \\ 0 & e^{i2\pi/9} & 0 \\ 0 & 0 & e^{-i2\
 Observable $B$ is clearly not complementary to $X$ by simply checking the dot products of their basis vectors.
 \end{proof}
 
-Further we can exhibit numerical results that calculate the number of Mermin effective measurement pairs available for a particular scenario. For a given number of parties $N$ we have calculated the number of effective pairs maximized over all viable variation choices.  Typically these maximum values are found for variations where $\beta$ is maximized. Figure 1a shows pair counts for $\mathbb{Z}_2(N,2,2)$ scenarios. Here is appears that the number of effective measurement pairings grows approximately linearly with the number of parties. Figure 1b shows pair counts for the more complex $\mathbb{Z}_3(N,2,3)$ scenarios. It is clear that there are many (in some cases thousands) more available measurement configurations than just those given by complementary observables. This vastly expands the number of experimental setups that will generate, with certainty, a non-locality violation.  Indeed, combining this result with those of Section \ref{section_QSS} opens up a large class of quantum secret sharing protocols based on non-complementary measurements.
+Further we can exhibit numerical results that calculate the number of Mermin effective measurement pairs available for a particular scenario. For a given number of parties $N$ we have calculated the number of effective pairs maximized over all viable variation choices.  Typically these maximum values are found for variations where $\beta$ is maximized. Figure 1a shows pair counts for $\mathbb{Z}_2(N,2,2)$ scenarios. Here it appears that the number of effective measurement pairings grows approximately linearly with the number of parties. Figure 1b shows pair counts for the more complex $\mathbb{Z}_3(N,2,3)$ scenarios. It is clear that there are many (in some cases thousands) more available measurement configurations than just those given by complementary observables. This vastly expands the number of experimental setups that will generate, with certainty, a non-locality violation.  Indeed, combining this result with those of Section \ref{section_QSS} opens up a large class of quantum secret sharing protocols based on non-complementary measurements.
 
 \begin{figure}[th]
     \label{counts}
@@ -415,7 +416,7 @@ Further we can exhibit numerical results that calculate the number of Mermin eff
         We conclude with a few open questions for investigation:
         \begin{enumerate}
         \item What are the minimal conditions under which algebraically non-trivial phases lead to non-locality?
-        \item What is the exact connection between this framework as the framework of Abramsky et al.~\cite{NLC-AvN} for generalised All-versus-Nothing arguments where measurement outcomes are elements of some general field?
+        \item What is the exact connection between this framework and the one of Abramsky et al.~\cite{NLC-AvN} for generalised All-versus-Nothing arguments where measurement outcomes are elements of some general field?
         \item Is there a more informative group-theoretic formulation of the algebraic non-triviality used here?
         \item Our analysis focuses on non-locality paradoxes for a kind of GHZ state.  It was recently shown by Tang et al.~\cite{tang2013greenberger} that multipartite non-locality arguments can be constructed from any of a set of qudit graph states that they call GHZ graphs.  What are the connections between these qudit graph states and the phase group formalism we present here?
         \item Which other quantum algorithms depend on Mermin non-locality as a resource to transcend classicality? Which process theories show these characteristics?
