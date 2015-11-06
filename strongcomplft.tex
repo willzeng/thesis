@@ -34,10 +34,10 @@ This section is ultimately concerned with the first notion, where the Fourier tr
 
 We begin by explaining the relationship of Notion 1 with the others listed above. In what follows, $(G,\cdot,0)$ is a finite abelian group of order $N$, and $\complexs^{\times}=\complexs\setminus\{0\}$ is the multiplicative group of non-zero complex numbers.
 
-A \textbf{(multiplicative) character} of $G$ is a group homomorphism $\chi:G\to \complexs^\times$.\footnote{For finite $G$, $\chi$ maps into the subgroup $S^1 \subseteq C^\times$ of unit complex numbers.} If $G = \prod_j \integersMod{n_j}$,\footnote{Which is always true when $G$ is finite, for some family $(n_j)_j$ of positive integers.} the multiplicative characters of $G$ take the following form, for any $h_j \in G$:
+A \textbf{(multiplicative) character} of $G$ is a group homomorphism $\chi:G\to \complexs^\times$.\footnote{For finite $G$, $\chi$ maps into the subgroup $S^1 \subseteq C^\times$ of unit complex numbers.} If $G = \prod_j \integersMod{n_j}$,\footnote{Which is always true when $G$ is finite, for some family $(n_j)_j$ of positive integers.} a multiplicative character $\chi_h$ takes the following form, for any $g,h\in G $ s.t. $h=\prod_jh_j$ and $g = \prod_jg_j$:
 \begin{equation}
 \label{eqn:FTDefCharacters}
-  g_j \mapsto \exp\left[\, i \, \sum_j \frac{2 \pi}{n_j} \left(\modclass{g_jh_j}{n_j}\right) \, \right].
+  g\mapsto \exp\left[\, i \, \sum_j \frac{2 \pi}{n_j} \left(\modclass{g_jh_j}{n_j}\right) \, \right]
 \end{equation}
 
 The set of characters, with pointwise multiplication defined as $(\chi\cdot\psi)(x):=\chi(x)\psi(x)$, forms a group; this is called the \textbf{Pontryagin dual} (or \textbf{dual group}) of $G$, and is denoted $G^\wedge$. In fact, the Pontryagin construction can be made (contravariantly) functorial on the category \cat{Grp} of groups and group homomorphisms. Define $f^\wedge : G^\wedge \rightarrow H^\wedge$, for any $f: H \rightarrow G$ morphism of abelian groups, as follows:
@@ -97,7 +97,7 @@ Linearly extended to $\Ltwo{G}$, this structure yields the \textbf{convolution o
 
 The Fourier transforms of the delta functions yield the following orthogonal basis for $\Ltwo{G^\wedge}$, which we refer to as the \textbf{basis of evaluation functions}:
 \begin{align*}
-\xi_{g} := \sqrt{N}\tilde{\delta}_{-g} = \left(\chi \mapsto \sum_{h \in G}\chi^{-1}(h)\delta_{-g}(h) \right)= \left(\chi \mapsto \chi(g)\right).
+\xi_{g} := \sqrt{N}\mathcal{F}[\delta_{-g}] = \left(\chi \mapsto \sum_{h \in G}\chi^{-1}(h)\delta_{-g}(h) \right)= \left(\chi \mapsto \chi(g)\right).
 \end{align*}
 
 The basis of evaluation functions also comes with a monoid structure, with unit $\xi_0: \chi \mapsto 1$:
